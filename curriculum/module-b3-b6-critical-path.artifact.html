@@ -1,0 +1,733 @@
+<title>Module B3 &middot; B6 &mdash; Scheduling, the Gantt &amp; the Critical Path &middot; One Water OS</title>
+<style>
+  /* ===== One Water OS "Clearwater" &mdash; owos-brand.css tokens ===== */
+  :root{
+    --bg:#F7F9FB; --surface:#FFFFFF; --surface-2:#EFF3F7; --surface-3:#E5EBF1;
+    --ink:#0F1728; --ink-2:#44546A; --ink-3:#8595AB;
+    --line:#E4E9F0; --line-2:#CDD6E1;
+    --brand:#0A78BA; --brand-700:#08669F; --brand-800:#07547F; --brand-50:#EAF5FC; --brand-100:#D3EAF8;
+    --gold:#A97B0F; --green:#0E8A64; --green-50:#E7F6F0; --red:#D64545;
+    --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --fm:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+    --r:12px; --r-lg:18px;
+    --sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);
+    --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
+    /* Gantt semantic (from the system palette) */
+    --normal:#9AA7B4; --near:#5B95C4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;padding-top:64px}
+  h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
+  h1{font-size:clamp(32px,4.2vw,50px);font-weight:800;letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}
+  h1 span{color:var(--brand)}
+  h2{font-size:26px;margin:8px 0 12px}
+  p{font-size:17px;color:var(--ink-2);margin:0 0 15px}
+  strong,b{color:var(--ink)}
+  a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+  em{font-style:italic;color:var(--ink)}
+  code{font-family:var(--fm);font-size:.85em;background:var(--surface-3);color:var(--ink);padding:1px 6px;border-radius:6px}
+  button{font-family:var(--f)}
+  .kick{font-family:var(--fm);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:14px}
+
+  /* nav (owos-nav) */
+  .owos-nav{position:fixed;top:0;left:0;right:0;z-index:60;height:64px;background:rgba(255,255,255,.86);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+  .owos-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .owos-logo{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+  .owos-logo svg{width:22px;height:22px}
+  .owos-wm{font-weight:800;font-size:15.5px;letter-spacing:-.015em;color:var(--ink);white-space:nowrap}
+  .owos-wm b{color:var(--brand)}
+  .owos-crumb{font-family:var(--fm);font-size:12px;letter-spacing:.06em;color:var(--ink-3)}
+  .owos-crumb b{color:var(--brand)}
+  #rprog{position:fixed;top:64px;left:0;height:3px;background:var(--brand);width:0;z-index:61;transition:width .1s linear}
+  .owos-pw{font-size:11px;color:var(--ink-3);margin-left:4px;white-space:nowrap}.owos-pw em{font-style:normal;color:var(--gold);font-weight:600}
+  .owos-links{display:flex;align-items:center;gap:2px;margin-left:auto}
+  .owos-links a{font-size:13.5px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:8px 11px;border-radius:9px;white-space:nowrap}
+  .owos-links a:hover{color:var(--brand);background:var(--brand-50)}
+  .owos-badge{font-size:13px;font-weight:650;background:var(--brand);color:#fff;padding:9px 15px;border-radius:10px;text-decoration:none;display:flex;align-items:center;gap:8px;box-shadow:var(--sh);white-space:nowrap;margin-left:10px}
+  .owos-badge:hover{background:var(--brand-700);text-decoration:none}
+  .owos-badge .dot{width:7px;height:7px;border-radius:50%;background:#8FE3B0;animation:owospulse 2.6s ease-in-out infinite}
+  @keyframes owospulse{0%,100%{box-shadow:0 0 0 0 rgba(143,227,176,.55)}60%{box-shadow:0 0 0 7px rgba(143,227,176,0)}}
+  @media(max-width:1080px){.owos-links{display:none}}
+  @media(max-width:640px){.owos-badge{display:none}}
+  .hpill{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-700);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:6px 14px;margin-bottom:16px}
+  .hpill .d{width:7px;height:7px;border-radius:50%;background:var(--green);animation:owospulse 2.6s ease-in-out infinite}
+  /* footer (owos-foot) */
+  .owos-foot{background:var(--surface);border-top:1px solid var(--line);margin-top:64px}
+  .owos-foot-in{max-width:1100px;margin:0 auto;padding:44px 24px 28px;display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+  .owos-foot .fb{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .owos-foot .flogo{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+  .owos-foot .fwm{font-weight:800;font-size:18px;color:var(--ink)}.owos-foot .fwm b{color:var(--brand)}
+  .owos-foot-tag{color:var(--ink-3);margin-top:8px;max-width:360px;font-size:14px;line-height:1.6}
+  .owos-foot-cols{display:flex;gap:34px;flex-wrap:wrap}
+  .owos-foot-col{display:flex;flex-direction:column;gap:9px;min-width:118px}
+  .owos-foot-col b{font-size:12px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+  .owos-foot-col a{font-size:14px;color:var(--ink-2);text-decoration:none}.owos-foot-col a:hover{color:var(--brand)}
+  .owos-foot-bar{border-top:1px solid var(--line)}
+  .owos-foot-bar div{max-width:1100px;margin:0 auto;padding:16px 24px;font:12.5px var(--fm);color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .owos-foot-bar a{color:inherit;font-weight:700}
+
+  .wrap{max-width:820px;margin:0 auto;padding:30px 24px 70px}
+  .sub{color:var(--ink-2);font-size:18px;line-height:1.65;max-width:60ch}
+
+  /* lens toggle (owos pills) */
+  .lens{display:inline-flex;gap:5px;margin:22px 0 0;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:4px}
+  .lens button{background:none;border:none;color:var(--ink-2);font:600 13px var(--f);padding:7px 13px;border-radius:8px;cursor:pointer}
+  .lens button.on{background:var(--brand);color:#fff}
+  .lenshint{font-family:var(--fm);font-size:12px;color:var(--ink-3);margin:10px 0 0}
+  .lv{display:none}
+  body[data-lens="f"] .lv.f,body[data-lens="p"] .lv.p,body[data-lens="l"] .lv.l{display:block}
+
+  .sec{margin:50px 0 0}
+  .sec .tag{font-family:var(--fm);font-size:11px;letter-spacing:.14em;color:var(--ink-3);float:right;margin-top:8px}
+
+  /* terms */
+  .term{border-bottom:1.5px dotted var(--brand);cursor:help;color:var(--ink);font-weight:600}
+  #tt{position:fixed;z-index:200;max-width:290px;background:var(--ink);color:#fff;font-size:13px;line-height:1.5;padding:11px 14px;border-radius:12px;box-shadow:var(--sh-lg);opacity:0;pointer-events:none;transition:opacity .12s;font-family:var(--f)}
+  #tt b{color:#9BE3F8;display:block;margin-bottom:3px}
+
+  /* cards / callouts (owos-card) */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;margin:24px 0;box-shadow:var(--sh)}
+  .card.accent{border-left:4px solid var(--brand)}
+  .card .h{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin:0 0 8px}
+  .card p{margin:0;font-size:15.5px}
+  .card ul{margin:0;padding-left:18px}.card li{font-size:15px;margin-bottom:8px;color:var(--ink-2)}
+  blockquote{border-left:4px solid var(--brand);margin:30px 0;padding:4px 0 4px 20px;font-size:21px;line-height:1.45;color:var(--ink);font-weight:600}
+  blockquote footer{font:600 12px var(--fm);letter-spacing:.14em;color:var(--brand);margin-top:10px;text-transform:uppercase}
+
+  /* ===== STUDIO ===== */
+  .fig{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);margin:26px 0;box-shadow:var(--sh-lg);overflow:hidden}
+  .fighead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .fighead .figtitle{font:600 11px var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:9px}
+  .fighead .figtitle .d{width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .modes{display:inline-flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px}
+  .modes button{background:none;border:none;font:600 12.5px var(--f);color:var(--ink-2);padding:6px 12px;border-radius:7px;cursor:pointer}
+  .modes button.on{background:var(--brand);color:#fff}
+
+  .narr{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:var(--brand-50);border-bottom:1px solid var(--brand-100)}
+  .narr .av{flex:none;width:56px;height:56px}
+  .narr .body{flex:1;min-width:0}
+  .narr .say{color:var(--ink);font-size:15.5px;line-height:1.55;min-height:44px}
+  .narr .say b{color:var(--brand-700)}
+  .narr .nav2{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .prog{font:12px var(--fm);color:var(--ink-3)}.prog b{color:var(--brand)}
+
+  .btn{background:var(--brand);color:#fff;border:1px solid var(--brand);border-radius:10px;padding:8px 16px;font-weight:650;font-size:13.5px;cursor:pointer;box-shadow:var(--sh)}
+  .btn:hover{background:var(--brand-700)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .btn.ghost{background:var(--surface);color:var(--ink);border-color:var(--line-2)}
+  .btn.ghost:hover{background:var(--surface-2)}
+  .btn.sm{padding:6px 12px;font-size:12.5px}
+
+  .tools{display:flex;gap:8px;align-items:center;padding:11px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap;background:var(--surface-2)}
+  .sep{width:1px;height:20px;background:var(--line-2);margin:0 2px}
+  .chip{background:var(--surface);border:1px solid var(--line-2);border-radius:8px;padding:6px 11px;font:600 12px var(--f);color:var(--ink-2);cursor:pointer}
+  .chip:hover{border-color:var(--brand);color:var(--brand)}
+  .toggle{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-2);cursor:pointer;user-select:none}
+  .toggle input{appearance:none;width:34px;height:19px;background:var(--line-2);border-radius:20px;position:relative;cursor:pointer;transition:background .2s}
+  .toggle input:checked{background:var(--brand)}
+  .toggle input:before{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:#fff;transition:transform .2s}
+  .toggle input:checked:before{transform:translateX(15px)}
+
+  .gwrap{overflow-x:auto;padding:16px 18px 8px}
+  .gantt{min-width:640px}
+  .gruler{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .gruler .spx{width:196px;flex:none}
+  .gruler .track{flex:1;position:relative;height:15px}
+  .gruler .mk{position:absolute;top:0;font:11px var(--fm);color:var(--ink-3);transform:translateX(-50%)}
+  .gruler .mk:before{content:"";position:absolute;top:13px;left:50%;width:1px;height:900px;background:var(--line);z-index:0}
+  .grow{display:flex;align-items:center;gap:10px;padding:4px 0;position:relative;z-index:1}
+  .glabel{width:196px;flex:none;display:flex;align-items:center;gap:6px}
+  .gname{font-size:12.5px;color:var(--ink);flex:1;line-height:1.2;font-weight:600}
+  .gflag{font:700 9px var(--fm);color:var(--brand);white-space:nowrap}
+  .step{display:flex;align-items:center;gap:2px;flex:none}
+  .step button{width:20px;height:20px;border:1px solid var(--line-2);background:var(--surface);border-radius:6px;font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer;line-height:1;padding:0}
+  .step button:hover{border-color:var(--brand);color:var(--brand)}
+  .step .v{font:11px var(--fm);width:32px;text-align:center;color:var(--ink-2)}
+  .gtrack{flex:1;position:relative;height:28px;background:var(--surface-2);border-radius:7px;cursor:pointer}
+  .gbar{position:absolute;top:0;height:28px;border-radius:7px;background:var(--normal);display:flex;align-items:center;padding:0 8px;color:#fff;font:11px var(--fm);white-space:nowrap;overflow:hidden;transition:left .4s cubic-bezier(.4,0,.2,1),width .4s cubic-bezier(.4,0,.2,1),background .25s;box-shadow:var(--sh)}
+  .gbar.crit{background:var(--brand)}
+  .gbar.near{background:var(--near)}
+  .gbar.ms{background:var(--ink);width:16px!important;height:16px;top:6px;transform:rotate(45deg);border-radius:3px;padding:0}
+  .gbar.spot{outline:3px solid var(--ink);outline-offset:2px}
+  .gbar.guess{outline:3px solid var(--brand-800);outline-offset:2px}
+  .gfloat{position:absolute;top:8px;height:12px;border:2px dashed var(--line-2);border-left:none;border-radius:0 4px 4px 0;background:var(--surface-3);opacity:0;transition:opacity .3s,left .4s,width .4s}
+  .showfloat .gfloat{opacity:1}
+
+  .live{padding:11px 18px;border-top:1px solid var(--brand-100);display:none;gap:12px;align-items:center;background:var(--brand-50)}
+  .live.on{display:flex}
+  .live .av{flex:none;width:36px;height:36px}
+  .live .msg{font-size:14px;color:var(--ink);line-height:1.45}.live .msg b{color:var(--brand-700)}
+
+  .readout{display:flex;gap:12px;flex-wrap:wrap;padding:14px 18px;border-top:1px solid var(--line);background:var(--surface-2)}
+  .ro{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;flex:1;min-width:150px}
+  .ro .k{font:10px var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+  .ro .v{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-top:2px}
+  .ro .v small{font-size:13px;font-weight:600;color:var(--ink-3)}
+  .ro.path{flex:2 1 320px}
+  .ro.path .v{font-size:14px;font-weight:700;color:var(--brand);line-height:1.4}
+
+  .insp{display:none;padding:14px 18px;border-top:1px solid var(--line);background:var(--surface)}
+  .insp.on{display:block}
+  .insp h4{margin:0 0 10px;font-size:16px;color:var(--ink)}
+  .insp .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  @media(max-width:640px){.insp .grid{grid-template-columns:repeat(2,1fr)}}
+  .insp .cell{background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:8px 6px;text-align:center}
+  .insp .cell .k{font:9px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+  .insp .cell .n{font-size:18px;font-weight:800;color:var(--ink)}
+  .insp .cell.hl{border-color:var(--brand);background:var(--brand-50)}.insp .cell.hl .n{color:var(--brand)}
+  .insp .exp{margin:10px 0 0;font-size:13.5px;color:var(--ink-2)}
+  .verdict{margin-top:8px;font-weight:700;font-size:14px}
+  .verdict.c{color:var(--brand)}.verdict.n{color:var(--ink-2)}
+
+  .check{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;margin:14px 0;box-shadow:var(--sh)}
+  .check .q{font-size:17px;color:var(--ink);font-weight:700;margin-bottom:4px}
+  .check details summary{cursor:pointer;color:var(--brand);font:600 13.5px var(--f);margin-top:8px}
+  .check .a{margin-top:8px;font-size:14.5px;color:var(--ink-2)}
+
+  .prompt{margin:20px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh)}
+  .prompt .bar{background:var(--brand);color:#fff;font:600 11px var(--fm);letter-spacing:.1em;text-transform:uppercase;padding:9px 15px;display:flex;justify-content:space-between}
+  .prompt .bar .tag{color:#CFF0FF}
+  .prompt pre{margin:0;padding:15px 17px;background:var(--surface);font-family:var(--fm);font-size:13px;line-height:1.62;color:var(--ink);white-space:pre-wrap;overflow-x:auto}
+  .prompt pre .ph{color:var(--brand);font-weight:600}
+
+  /* studio tabs + panels */
+  .tabs{display:inline-flex;gap:3px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px;flex-wrap:wrap}
+  .tabs button{background:none;border:none;font:600 12.5px var(--f);color:var(--ink-2);padding:6px 12px;border-radius:7px;cursor:pointer;white-space:nowrap}
+  .tabs button.on{background:var(--brand);color:#fff}
+  .panel{display:none}.panel.on{display:block}
+  .pexpl{padding:14px 18px;background:var(--brand-50);border-bottom:1px solid var(--brand-100);font-size:14.5px;color:var(--ink);line-height:1.55}
+  .pexpl b{color:var(--brand-700)}
+  /* charts */
+  .chart{padding:18px 18px 10px}
+  .chwrap{overflow-x:auto;padding-bottom:6px}
+  .bars{display:flex;align-items:flex-end;gap:2px;height:150px;min-width:560px;position:relative;border-bottom:2px solid var(--line-2)}
+  .bars .b{flex:1;min-width:9px;background:var(--brand);border-radius:3px 3px 0 0;position:relative;transition:height .3s}
+  .bars .b.over{background:var(--red)}
+  .bars .b:hover:after{content:attr(data-t);position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font:10px var(--fm);padding:2px 6px;border-radius:5px;white-space:nowrap;margin-bottom:3px;z-index:5}
+  .capline{position:absolute;left:0;right:0;border-top:2px dashed var(--red);pointer-events:none}
+  .capline span{position:absolute;right:0;top:-16px;font:10px var(--fm);color:var(--red)}
+  .cumline{position:absolute;inset:0;pointer-events:none;overflow:visible}
+  .axis{display:flex;justify-content:space-between;font:10px var(--fm);color:var(--ink-3);margin-top:5px;min-width:560px}
+  .chstat{display:flex;gap:12px;flex-wrap:wrap;padding:4px 18px 16px}
+  .chstat .s{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px 14px}
+  .chstat .s .k{font:9px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+  .chstat .s .v{font-size:18px;font-weight:800;color:var(--ink)}
+  .chstat .s .v small{font-size:12px;color:var(--ink-3);font-weight:600}
+  .chlegend{display:flex;gap:16px;font:11px var(--fm);color:var(--ink-3);padding:0 18px 10px}
+  .chlegend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  /* dependency editor */
+  .deptable{width:100%;font-size:13.5px;border-collapse:collapse}
+  .deptable th{font:600 9.5px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .deptable td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top}
+  .deptable tr:last-child td{border-bottom:none}
+  .deptable .tn{color:var(--ink);font-weight:700}
+  .deprow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:2px 0}
+  .dtag{font:600 9px var(--fm);background:var(--surface-3);color:var(--ink-2);border-radius:5px;padding:1px 5px}
+  .lagctl{display:inline-flex;align-items:center;gap:3px}
+  .lagctl button{width:18px;height:18px;border:1px solid var(--line-2);background:#fff;border-radius:5px;cursor:pointer;font-weight:700;color:var(--ink-2);font-size:11px;line-height:1;padding:0}
+  .lagctl button:hover{border-color:var(--brand);color:var(--brand)}
+  .lagctl .lv{font:10px var(--fm);width:34px;text-align:center;color:var(--ink-2);display:inline-block}
+
+  .foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font:12.5px var(--fm);color:var(--ink-3);line-height:1.8}
+  .foot a{color:var(--brand)}
+  @media (prefers-reduced-motion:no-preference){.dro.bob{animation:bob 3.6s ease-in-out infinite}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @media(max-width:520px){.gruler .spx,.glabel{width:150px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="dbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FD3F6"/><stop offset=".55" stop-color="#3FA8E8"/><stop offset="1" stop-color="#1C79C0"/></linearGradient>
+  <linearGradient id="dlimb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA0DF"/><stop offset="1" stop-color="#1E76BC"/></linearGradient>
+  <symbol id="droobi" viewBox="460 130 500 700">
+    <path d="M662,632 C 656,700 654,760 656,802" stroke="url(#dlimb)" stroke-width="34" stroke-linecap="round" fill="none"/>
+    <path d="M738,632 C 744,700 746,760 744,802" stroke="url(#dlimb)" stroke-width="34" stroke-linecap="round" fill="none"/>
+    <ellipse cx="646" cy="806" rx="34" ry="16" fill="#1E76BC"/><ellipse cx="754" cy="806" rx="34" ry="16" fill="#1E76BC"/>
+    <path d="M548,486 C 512,560 496,690 500,768" stroke="url(#dlimb)" stroke-width="30" stroke-linecap="round" fill="none"/><ellipse cx="500" cy="772" rx="32" ry="17" fill="#2C86C4"/>
+    <path d="M852,486 C 900,540 920,556 936,544" stroke="url(#dlimb)" stroke-width="30" stroke-linecap="round" fill="none"/><circle cx="938" cy="540" r="23" fill="#2C86C4"/>
+    <path d="M700,150 C 660,320 525,412 525,472 A 175,175 0 1 0 875,472 C 875,412 740,320 700,150 Z" fill="url(#dbody)" stroke="#12608f" stroke-width="4"/>
+    <ellipse cx="632" cy="332" rx="30" ry="76" fill="#fff" opacity=".30"/><circle cx="782" cy="286" r="13" fill="#fff" opacity=".4"/>
+    <circle cx="700" cy="580" r="24" fill="#3FA8E8" stroke="#1C79C0" stroke-width="3"/><path d="M700,566 C700,566 690,578 690,585 A10,10 0 1 0 710,585 C710,578 700,566 700,566 Z" fill="#0d2136"/>
+    <path d="M596,398 Q642,380 686,400" stroke="#153049" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M714,400 Q758,380 804,398" stroke="#153049" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <ellipse cx="646" cy="442" rx="35" ry="42" fill="#fff"/><circle cx="652" cy="446" r="22" fill="#2E6FA8"/><circle cx="654" cy="448" r="11" fill="#0f2233"/><circle cx="645" cy="438" r="6" fill="#fff"/>
+    <ellipse cx="754" cy="442" rx="35" ry="42" fill="#fff"/><circle cx="748" cy="446" r="22" fill="#2E6FA8"/><circle cx="746" cy="448" r="11" fill="#0f2233"/><circle cx="739" cy="438" r="6" fill="#fff"/>
+    <ellipse cx="606" cy="496" rx="22" ry="13" fill="#f39b8f" opacity=".28"/><ellipse cx="794" cy="496" rx="22" ry="13" fill="#f39b8f" opacity=".28"/>
+    <path d="M654,512 Q700,562 746,512 Q700,532 654,512 Z" fill="#0e2733"/><ellipse cx="700" cy="532" rx="21" ry="10" fill="#e07e72"/>
+  </symbol>
+</defs></svg>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="/">
+    <span class="owos-logo"><svg width="19" height="19" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 C16 3 8.5 12 8.5 18 A7.5 7.5 0 0 0 23.5 18 C23.5 12 16 3 16 3 Z" fill="none" stroke="#FFFFFF" stroke-width="2.4"/><circle cx="16" cy="18" r="3" fill="#F2C94C"/></svg></span>
+    <span class="owos-wm">One Water <b>Operating System</b></span><span class="owos-pw">Powered by <em>APAS.ai</em></span>
+  </a>
+  <span class="owos-links">
+    <a href="/os">The Graph</a><a href="/build">Build with OWOS</a><a href="/course">Learn</a><a href="/directory">Community</a><a href="/about">About</a>
+  </span>
+  <a class="owos-badge" href="/os"><span class="dot"></span>Ask the Graph</a>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap" id="top">
+  <span class="hpill"><span class="d"></span>Masterclass &middot; Part B &middot; the schedule</span>
+  <div style="display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+      <h1>Scheduling, the Gantt, and <span>the critical path</span></h1>
+      <p class="sub">Build a schedule, wire up its dependencies, find the critical path that sets your finish date, then <strong>cost-load</strong> and <strong>resource-load</strong> it &mdash; the cash-flow S-curve and the crew histogram. You'll build all of it yourself, not just read about it.</p>
+    </div>
+    <svg class="dro bob" viewBox="460 130 500 700" style="width:96px;height:126px;flex:none" aria-label="Droobi"><use href="#droobi"/></svg>
+  </div>
+  <div class="lens" role="tablist" aria-label="Depth">
+    <button data-l="f" class="on">Foundation</button>
+    <button data-l="p">Practitioner</button>
+    <button data-l="l">Leader</button>
+  </div>
+  <p class="lenshint">Pick your level &mdash; the explanations rewrite to match. Hover any <span class="term" data-term="dotted term" data-def="Like this &mdash; hover a dotted term for a plain-language definition.">dotted term</span> for a definition.</p>
+
+  <div class="sec">
+    <h2>Start here &mdash; the problem</h2>
+    <div class="lv f"><p>Here's a real water job: the <strong>Millpond 12&Prime; main replacement</strong>, 10 tasks. Simple question &mdash; <strong>when does it finish?</strong> You can't just add up the tasks, because some happen at the same time and some wait for others. Let's build it together and find out.</p></div>
+    <div class="lv p"><p>The <strong>Millpond 12&Prime; main replacement</strong> &mdash; 10 activities with durations and dependencies. Find the finish date and, more importantly, <em>what controls it.</em> Build the schedule below and watch the critical path emerge.</p></div>
+    <div class="lv l"><p>Ten activities, one hard in-service date. The question that matters for a capital job isn't "how long is each task" &mdash; it's <em>which handful of tasks govern the finish, and where's my exposure.</em> Build it and see where the risk concentrates.</p></div>
+  </div>
+
+  <!-- STUDIO -->
+  <div class="fig">
+    <div class="fighead">
+      <span class="figtitle"><span class="d"></span> Millpond Schedule Studio</span>
+      <span class="tabs" id="tabs">
+        <button data-tab="schedule" class="on">Schedule</button>
+        <button data-tab="deps">Dependencies</button>
+        <button data-tab="cost">Cost&#8209;loaded</button>
+        <button data-tab="resc">Resource&#8209;loaded</button>
+      </span>
+    </div>
+
+    <!-- SCHEDULE PANEL -->
+    <div class="panel on" id="panel-schedule">
+    <div class="tools" style="justify-content:flex-start"><span class="modes"><button id="mGuided" class="on">Guided</button><button id="mFree">Free explore</button></span></div>
+    <div class="narr" id="narrBox">
+      <svg class="dro av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg>
+      <div class="body">
+        <div class="say" id="say"></div>
+        <div class="nav2">
+          <button class="btn ghost sm" id="prev">&lsaquo; Back</button>
+          <button class="btn sm" id="next">Next &rsaquo;</button>
+          <span class="prog" id="prog"></span>
+          <span id="challengeBox" style="display:none"><button class="btn sm" id="checkGuess">Check my answer</button></span>
+        </div>
+      </div>
+    </div>
+    <div class="tools">
+      <label class="toggle"><input type="checkbox" id="tFloat"> Show float (slack)</label>
+      <span class="sep"></span>
+      <span id="scenarios" style="display:flex;gap:7px;flex-wrap:wrap">
+        <span class="chip" data-sc="valve30">Valve &rarr; 30 wk</span>
+        <span class="chip" data-sc="valve8">Valve &rarr; 8 wk</span>
+        <span class="chip" data-sc="permit">Permit slips +3</span>
+        <span class="chip" data-sc="crash">Crash install &minus;3</span>
+        <span class="chip" data-sc="reset">&#x21BA; Reset</span>
+      </span>
+    </div>
+    <div class="gwrap"><div class="gantt" id="gantt"></div></div>
+    <div class="live" id="liveBox">
+      <svg class="dro av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg>
+      <div class="msg" id="liveMsg"></div>
+    </div>
+    <div class="readout">
+      <div class="ro"><div class="k">Project finishes</div><div class="v" id="roFinish">&mdash; <small>weeks</small></div></div>
+      <div class="ro path"><div class="k">Critical path (zero float)</div><div class="v" id="roPath">&mdash;</div></div>
+    </div>
+    <div class="insp" id="insp">
+      <h4 id="inspName">Task</h4>
+      <div class="grid">
+        <div class="cell"><div class="k">Early Start</div><div class="n" id="iES">&ndash;</div></div>
+        <div class="cell"><div class="k">Early Finish</div><div class="n" id="iEF">&ndash;</div></div>
+        <div class="cell"><div class="k">Late Start</div><div class="n" id="iLS">&ndash;</div></div>
+        <div class="cell"><div class="k">Late Finish</div><div class="n" id="iLF">&ndash;</div></div>
+        <div class="cell hl"><div class="k">Total Float</div><div class="n" id="iFloat">&ndash;</div></div>
+      </div>
+      <p class="exp" id="iExp"></p>
+      <div class="verdict" id="iVerdict"></div>
+    </div>
+    </div><!-- /panel-schedule -->
+
+    <div class="panel" id="panel-deps">
+      <div class="pexpl">Every task waits on its <b>predecessors</b>. This lays that logic bare: each row shows what a task depends on and what depends on it (its <b>successors</b>) &mdash; and you can add <b>lag</b> (built-in waiting time) to any link and watch the whole schedule move. Almost all utility links are Finish&#8209;to&#8209;Start: a task can't start until its predecessor finishes.</div>
+      <div class="chwrap" style="padding:2px 6px 10px"><table class="deptable" id="deptable"></table></div>
+    </div>
+
+    <div class="panel" id="panel-cost">
+      <div class="pexpl"><b>Cost loading</b> spreads each task's dollars across its weeks, turning the schedule into a <b>cash-flow forecast</b>. Blue bars are weekly spend; the dark line is cumulative &mdash; the classic <b>S&#8209;curve</b>. This is what tells finance (and your SRF/grant draw schedule) how much you spend, and when.</div>
+      <div class="chart">
+        <div class="chlegend"><span><i style="background:var(--brand)"></i>Weekly spend</span><span><i style="background:var(--ink)"></i>Cumulative S&#8209;curve</span></div>
+        <div class="chwrap"><div class="bars" id="costbars"></div><div class="axis" id="costaxis"></div></div>
+      </div>
+      <div class="chstat" id="coststat"></div>
+    </div>
+
+    <div class="panel" id="panel-resc">
+      <div class="pexpl"><b>Resource loading</b> stacks each task's crews, week by week. When bars cross the dashed <b>capacity</b> line you're <b>over&#8209;allocated</b> &mdash; you can't run those crews at once. The fix is <b>resource leveling</b>: shift tasks that have float until demand fits. Red = a week you can't actually staff.</div>
+      <div class="chart">
+        <div class="chlegend"><span><i style="background:var(--brand)"></i>Crews needed</span><span><i style="background:var(--red)"></i>Over capacity</span></div>
+        <div class="chwrap"><div class="bars" id="rescbars"></div><div class="axis" id="rescaxis"></div></div>
+      </div>
+      <div class="chstat" id="rescstat"></div>
+    </div>
+  </div>
+  <p class="lenshint">Click any bar to inspect its numbers. Use the &minus;/+ steppers to change a task's duration and watch everything recompute.</p>
+
+  <!-- B3 -->
+  <div class="sec">
+    <span class="tag">B3</span>
+    <h2>What a Gantt chart actually shows</h2>
+    <div class="lv f"><p>A <span class="term" data-term="Gantt chart" data-def="A bar chart of a schedule: each task is a horizontal bar; where it sits left-to-right is WHEN it happens; the length is how long it takes.">Gantt chart</span> is a picture of your schedule. Each bar is a task. How far left it starts tells you <em>when</em> it begins; the length tells you <em>how long</em> it takes. Bars that line up are happening at the same time.</p></div>
+    <div class="lv p"><p>A Gantt maps <span class="term" data-term="activity" data-def="A single piece of work with a duration &mdash; e.g., 'install main, 10 weeks.'">activities</span> against time. The power isn't the bars &mdash; it's the <span class="term" data-term="dependency" data-def="A rule that one task can't start (or finish) until another does. The most common is Finish-to-Start: B can't start until A finishes.">dependencies</span>: the logic that says <em>this waits on that.</em> A bar's position is driven by its predecessors, not chosen by hand.</p></div>
+    <div class="lv l"><p>A Gantt is a communication tool and a control baseline. Once you set a <span class="term" data-term="baseline" data-def="The approved, frozen version of the schedule you measure actual progress against.">baseline</span>, every status conversation becomes planned-vs-actual instead of opinion. Insist the logic is real &mdash; a Gantt with no dependencies is a decorated to-do list.</p></div>
+    <div class="card accent"><div class="h">The four dependency types</div><p>Most links are <strong>Finish-to-Start</strong> (FS): the second can't start until the first finishes. The others: <span class="term" data-term="Start-to-Start" data-def="SS: two tasks start together (dewatering starts when excavation starts).">Start-to-Start</span>, <span class="term" data-term="Finish-to-Finish" data-def="FF: two tasks finish together.">Finish-to-Finish</span>, and the rare <span class="term" data-term="Start-to-Finish" data-def="SF: the successor can't finish until the predecessor starts. Rare.">Start-to-Finish</span>. A <span class="term" data-term="lag" data-def="Waiting time inside a dependency &mdash; e.g., wait 7 days for concrete to cure.">lag</span> adds waiting; a <span class="term" data-term="lead" data-def="Overlap &mdash; letting a successor start before its predecessor fully finishes.">lead</span> lets tasks overlap.</p></div>
+  </div>
+
+  <!-- B6 -->
+  <div class="sec">
+    <span class="tag">B6</span>
+    <h2>The critical path &mdash; the chain that sets your finish date</h2>
+    <p>Some tasks have <span class="term" data-term="float" data-def="Also called slack. How long a task can slip WITHOUT delaying the finish. Total float = Late Start &minus; Early Start.">float</span> &mdash; slack, room to slip. Others have zero. String every zero-float task together, start to finish, and that chain is your <span class="term" data-term="critical path" data-def="The longest chain of dependent tasks through the project. Zero float, so any slip on it pushes the finish out day-for-day.">critical path</span>. It's the <em>longest</em> path through the job, so it sets the finish date.</p>
+    <div class="lv f"><p>Think of a relay race with several lanes running at once. The team finishes only when the <em>slowest lane</em> crosses the line. That slowest lane is the critical path. On Millpond it's the valve order &rarr; install &rarr; test &rarr; tie-in &rarr; acceptance. The permits finish early and then <em>wait</em>.</p></div>
+    <div class="lv p"><p>You find it with two passes. The <span class="term" data-term="forward pass" data-def="Left-to-right: each task's Early Start and Early Finish from its predecessors. The largest Early Finish is the project duration.">forward pass</span> sets each task's earliest start/finish. The <span class="term" data-term="backward pass" data-def="Right-to-left from the finish: each task's Late Start and Late Finish &mdash; the latest it can happen without delaying the project.">backward pass</span> sets the latest each can happen. Where the two are equal, float is zero &mdash; that task is critical. The Studio ran both passes live as you built it.</p></div>
+    <div class="lv l"><p>The critical path is your attention budget &mdash; where your money, best people, and risk mitigation belong. Watch for <span class="term" data-term="near-critical" data-def="A path with a small amount of float &mdash; one bad week can turn it critical.">near-critical</span> paths: they become critical the moment one thing slips, and they're where projects get blindsided.</p></div>
+
+    <div class="card accent"><div class="h">The water-job truth</div><p>On most utility jobs the critical path is <strong>not</strong> the construction &mdash; crews are fast. It's the <em>gates in front of it</em>: the permit that takes weeks to condition, the valve on a 26-week lead, the outage window. That's why the permits sat with float while procurement ran critical. Manage the gates, not the digging.</p></div>
+
+    <blockquote>&ldquo;On track&rdquo; is the most dangerous phrase in project management &mdash; because most of the time nobody has checked which chain the date actually hangs on.<footer>One Water OS &middot; B6</footer></blockquote>
+
+    <h2 style="font-size:21px;margin-top:34px">When you must go faster</h2>
+    <p>Two moves, and only on the critical path (compressing anything else is wasted money): <span class="term" data-term="crashing" data-def="Adding resources to a critical task to shorten it &mdash; a second crew, overtime, expedited shipping. Buys time, costs money.">crashing</span> &mdash; throw resources at a critical task; and <span class="term" data-term="fast-tracking" data-def="Overlapping tasks planned in sequence &mdash; starting the next before the prior finishes. Buys time, adds rework risk.">fast-tracking</span> &mdash; overlap tasks. Try the <em>Crash install &minus;3</em> chip and watch the finish move.</p>
+  </div>
+
+  <div class="sec">
+    <span class="tag">B4</span>
+    <h2>Predecessors, successors &amp; lag</h2>
+    <p>Every dependency has two ends. The task you wait on is the <span class="term" data-term="predecessor" data-def="The task that comes first in a dependency &mdash; the one you're waiting on. Install's predecessors are Mobilize and Procurement.">predecessor</span>; the task waiting is the <span class="term" data-term="successor" data-def="The task that comes after &mdash; the one that can't start until its predecessor is done. Testing is the successor of Install.">successor</span>. Sometimes there's built-in waiting between them &mdash; concrete curing, a mandatory hold, a lab turnaround. That's <span class="term" data-term="lag" data-def="Waiting time inside a dependency. FS + 5 days = the successor starts 5 days after the predecessor finishes.">lag</span>, and it sits <em>on the link</em>, not inside a task.</p>
+    <p>Open the <strong>Dependencies</strong> tab in the Studio: every task's predecessors and successors are laid out, and you can add lag to any link and watch the finish move. On Millpond, add a 2-week bac-t lab lag before tie-ins and you'll see the in-service date slide &mdash; because that link is on the critical path.</p>
+    <div class="card accent"><div class="h">why it matters</div><p>Lag is where hidden weeks hide. "Disinfect, then tie in" looks instant on a bar chart &mdash; but the two passing bac-t samples take a lab turnaround. Put that on the link as lag and the schedule tells the truth instead of a hopeful lie.</p></div>
+  </div>
+
+  <div class="sec">
+    <span class="tag">C-load</span>
+    <h2>Cost loading &mdash; the schedule becomes a cash-flow forecast</h2>
+    <p><span class="term" data-term="cost loading" data-def="Assigning each activity's cost and spreading it across the activity's duration, so the schedule produces a time-phased spend forecast.">Cost loading</span> assigns each activity its dollars and spreads them across its weeks. Add it all up week by week and you get a <span class="term" data-term="cash flow" data-def="How much money goes out each period. The cost-loaded schedule forecasts it before you spend a dollar.">cash-flow</span> forecast; the running total draws the <span class="term" data-term="S-curve" data-def="The cumulative cost curve over time &mdash; slow at the start, steep in the middle, flattening at the end. Its shape is why it's called an S-curve.">S-curve</span>. Open the <strong>Cost-loaded</strong> tab to see Millpond's.</p>
+    <div class="lv f"><p>It answers a simple question your finance team always asks: <em>how much will we spend, and when?</em> The tall bars are your heavy-spend weeks &mdash; on Millpond, when the valve order lands and installation runs.</p></div>
+    <div class="lv p"><p>The cost-loaded schedule is the backbone of your <strong>SRF/grant draw schedule</strong> and your monthly pay-estimate forecast. It's also the baseline for <span class="term" data-term="earned value" data-def="Comparing the value of work actually completed against what you planned to spend by now &mdash; the core of EVM.">earned value</span> later: planned value <em>is</em> the S-curve.</p></div>
+    <div class="lv l"><p>A believable S-curve is a financing tool. It tells the funder when you'll draw, tells the board when cash leaves, and turns "we'll spend about $1.3M" into a dated forecast you can be held to.</p></div>
+  </div>
+
+  <div class="sec">
+    <span class="tag">R-load</span>
+    <h2>Resource loading &amp; leveling</h2>
+    <p><span class="term" data-term="resource loading" data-def="Assigning the crews/equipment each activity needs, then summing them period by period to see total demand &mdash; the resource histogram.">Resource loading</span> stacks each task's crews week by week into a <span class="term" data-term="resource histogram" data-def="A bar chart of resource demand over time. Bars above the capacity line mean you've scheduled more than you have.">histogram</span>. When demand crosses your <strong>capacity</strong> line you're <span class="term" data-term="over-allocation" data-def="Scheduling more of a resource than exists &mdash; three crews in a week you only have two. The schedule is impossible until you fix it.">over-allocated</span> &mdash; the plan is impossible, not just tight. Open the <strong>Resource-loaded</strong> tab: install needs 3 crews against a capacity of 2, so those weeks show red.</p>
+    <p>The fix is <span class="term" data-term="resource leveling" data-def="Shifting tasks (using their float) so resource demand never exceeds capacity &mdash; even if it extends the finish.">resource leveling</span>: move tasks that have float until demand fits, or add a crew, or extend. Leveling on tasks <em>with float</em> costs you nothing; leveling on the critical path pushes the finish. That's why float (from the Schedule tab) and resource loading are read together.</p>
+    <div class="card accent"><div class="h">the trap this catches</div><p>A bar chart can show ten crews' worth of work all "on schedule" in the same week &mdash; and it's a fantasy if you have three crews. The histogram is the reality check: it turns "on schedule" into "actually staffable."</p></div>
+  </div>
+
+  <div class="sec">
+    <h2>On a real job &mdash; reading Millpond</h2>
+    <div class="card accent"><div class="h">What the Studio told you</div><p>The finish lands at <strong>week 41</strong>, driven by the valve procurement, not the pipe. The permits carry ~15 weeks of float &mdash; comforting, until you realize the real fight is releasing the long-lead valve at Notice-to-Proceed. That's the single date most worth protecting, and a Gantt is how you <em>see</em> it instead of arguing about it.</p></div>
+  </div>
+
+  <div class="sec">
+    <h2>Do it with Droobi &mdash; on your own job</h2>
+    <p>You've learned it here; now run it for real. Paste this into Droobi with your project folder open:</p>
+    <div class="prompt"><div class="bar"><span>Prompt &middot; build the critical path</span><span class="tag">ask Droobi &#x25B8;</span></div>
+      <pre>Build the schedule for <span class="ph">[PROJECT]</span> backward from <span class="ph">[hard date]</span> as a Gantt I
+can steer from. Put the controlling items on the critical path with real
+durations: every permit (lead + conditions), locate tickets as recurring
+expiring items, every long-lead item with its last-responsible order date,
+tie-in/outage windows, and any moratorium. Then tell me what's truly on the
+critical path, what has float, and the three dates that, if they slip, slip
+the whole job. Keep the data in Schedule.md. [house style line]</pre></div>
+  </div>
+
+  <div class="sec">
+    <h2>Check yourself</h2>
+    <div class="check"><div class="q">1. A task has 4 weeks of float. It slips 2 weeks. Does the project finish late?</div>
+      <details><summary>Show answer</summary><div class="a">No. It had 4 weeks of slack; using 2 leaves 2. The finish doesn't move &mdash; but it's now <em>near-critical</em>, so watch it.</div></details></div>
+    <div class="check"><div class="q">2. In the Studio, drop the valve order to 8 weeks. Why does the critical path jump to the permits chain?</div>
+      <details><summary>Show answer</summary><div class="a">Once the valve is fast, the longest chain to the finish is no longer through procurement &mdash; it's permits &rarr; mobilize &rarr; install &rarr; test &rarr; tie-in &rarr; accept. The critical path is always the <em>longest</em> path, so it moves.</div></details></div>
+    <div class="check"><div class="q">3. You need to save 3 weeks. Your critical path is procurement-driven. Does adding a second install crew help?</div>
+      <details><summary>Show answer</summary><div class="a">No &mdash; install isn't controlling the date, procurement is. Crashing a non-critical task spends money for zero schedule gain. Expedite the valve instead.</div></details></div>
+    <div class="check"><div class="q">4. The Resource-loaded tab shows install needs 3 crews but capacity is 2. Name two ways to fix it.</div>
+      <details><summary>Show answer</summary><div class="a">(1) <strong>Level</strong> &mdash; if any concurrent work has float, shift it out of those weeks so demand drops to 2. (2) <strong>Add capacity</strong> &mdash; bring a third crew (cost) or extend install so fewer crews work at once (schedule). If install is on the critical path, leveling it pushes the finish &mdash; so you'd weigh the extra crew against the delay.</div></details></div>
+    <div class="check"><div class="q">5. You add a 3-week lab lag before tie-ins on the Dependencies tab and the finish slips 3 weeks. What does that tell you?</div>
+      <details><summary>Show answer</summary><div class="a">That link is on the critical path &mdash; the lag has zero float to absorb it, so it pushes the in-service date one-for-one. Lag on a critical link is as dangerous as a long task.</div></details></div>
+  </div>
+
+  <div class="card">
+    <div class="h">The takeaway</div>
+    <ul>
+      <li>The critical path is the <strong>longest chain of dependent tasks</strong> &mdash; it sets your finish date.</li>
+      <li>Float is slack; zero float means critical. Protect the zero-float chain.</li>
+      <li><strong>Predecessor / successor / lag</strong> are the links; lag sits on the link and is where hidden weeks hide.</li>
+      <li><strong>Cost-load</strong> the schedule and it becomes a cash-flow S-curve &mdash; your draw schedule and EVM baseline.</li>
+      <li><strong>Resource-load</strong> it and the histogram shows over-allocation; <strong>leveling</strong> uses float to make it staffable.</li>
+      <li>On water jobs the critical path is usually <strong>permits and long-leads</strong>, not the digging &mdash; and it <strong>moves</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="foot">Numbers illustrative (Millpond example); the CPM logic is real. Verify jurisdiction rules against current local regulations. &middot; <a href="#top">back to top</a></div>
+</div>
+
+<footer class="owos-foot">
+  <div class="owos-foot-in">
+    <div>
+      <a class="fb" href="/"><span class="flogo"><svg width="19" height="19" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 C16 3 8.5 12 8.5 18 A7.5 7.5 0 0 0 23.5 18 C23.5 12 16 3 16 3 Z" fill="none" stroke="#FFFFFF" stroke-width="2.4"/><circle cx="16" cy="18" r="3" fill="#F2C94C"/></svg></span><span class="fwm">One Water <b>Operating System</b></span></a>
+      <div class="owos-foot-tag">Thirty years of water expertise, running as software. It grows because people ask.</div>
+    </div>
+    <div class="owos-foot-cols">
+      <div class="owos-foot-col"><b>Product</b><a href="/upgrade">OWOS All Access</a><a href="/risk-scan">Knowledge Risk Scan</a><a href="/os">The One Water Graph</a><a href="/work">Graph to Work Studio</a><a href="/capture#desk">My Water OS</a><a href="/tv">OneWater TV</a></div>
+      <div class="owos-foot-col"><b>Learn</b><a href="/course">Academy</a><a href="/learned">Encyclopedia</a><a href="/fieldguide">The Field Guide</a><a href="/lexicon">The Lexicon</a><a href="/directory">The Water Directory</a></div>
+      <div class="owos-foot-col"><b>Company</b><a href="/about">About One Water OS</a><a href="/trust">Trust Center</a><a href="/security">Security &amp; Responsible AI</a><a href="https://apas.ai">APAS.ai</a></div>
+      <div class="owos-foot-col"><b>Legal</b><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookie Notice</a><a href="/licensing">Licensing</a></div>
+    </div>
+  </div>
+  <div class="owos-foot-bar"><div><span>The One Water Operating System is completely powered by <a href="https://apas.ai">APAS.ai</a>. Patent pending.</span><span>Masterclass &middot; Module B3 &middot; B6</span></div></div>
+</footer>
+
+<div id="tt"></div>
+<script>
+(function(){
+  "use strict";
+  var CAP=2; // crews available at once
+  var DEFAULTS=[
+    {id:'ntp',   name:'Notice to Proceed',            dur:0,  preds:[],              ms:true, cost:0,   crews:0},
+    {id:'env',   name:'Environmental permit',         dur:8,  preds:['ntp'],         cost:15,  crews:0},
+    {id:'permit',name:'FDOT & county permits',        dur:6,  preds:['ntp'],         cost:12,  crews:0},
+    {id:'proc',  name:'Long-lead procurement (valves)',dur:26, preds:['ntp'],        cost:420, crews:0},
+    {id:'mob',   name:'Award & mobilize',             dur:3,  preds:['env','permit'],cost:30,  crews:1},
+    {id:'creek', name:'Creek crossing (bore)',        dur:3,  preds:['env','mob'],   cost:195, crews:2},
+    {id:'install',name:'Install main',                dur:10, preds:['mob','proc'],  cost:540, crews:3},
+    {id:'test',  name:'Pressure test \u00B7 disinfect \u00B7 bac-t',dur:2,preds:['install','creek'],cost:25,crews:1},
+    {id:'tie',   name:'Tie-ins (outage window)',      dur:1,  preds:['test'],        cost:40,  crews:2},
+    {id:'accept',name:'As-builts & acceptance',       dur:2,  preds:['tie'],         cost:20,  crews:1}
+  ];
+  function clone(a){return a.map(function(t){return{id:t.id,name:t.name,dur:t.dur,preds:t.preds.slice(),ms:!!t.ms,cost:t.cost,crews:t.crews,lags:{}};});}
+  var tasks=clone(DEFAULTS);
+  var state={finish:0,showFloat:false,mode:'guided',beat:0,selected:null,challenge:false,guesses:{},tab:'schedule'};
+
+  function compute(){
+    var by={};tasks.forEach(function(t){by[t.id]=t;t.es=0;t.ef=0;});
+    for(var k=0;k<tasks.length;k++){tasks.forEach(function(t){var es=0;t.preds.forEach(function(p){if(by[p])es=Math.max(es,by[p].ef+(t.lags[p]||0));});t.es=Math.max(0,es);t.ef=t.es+t.dur;});}
+    var finish=0;tasks.forEach(function(t){finish=Math.max(finish,t.ef);});
+    tasks.forEach(function(t){t.succ=[];});
+    tasks.forEach(function(t){t.preds.forEach(function(p){if(by[p])by[p].succ.push({id:t.id,lag:(t.lags[p]||0)});});});
+    tasks.forEach(function(t){t.lf=finish;t.ls=finish-t.dur;});
+    for(var m=0;m<tasks.length;m++){for(var i=tasks.length-1;i>=0;i--){var t=tasks[i];var lf=t.succ.length?Infinity:finish;t.succ.forEach(function(s){lf=Math.min(lf,by[s.id].ls-s.lag);});t.lf=lf;t.ls=lf-t.dur;}}
+    tasks.forEach(function(t){t.tf=t.ls-t.es;t.crit=t.tf<=0;t.near=t.tf>0&&t.tf<=2;});
+    state.finish=finish;return finish;
+  }
+
+  var gantt=document.getElementById('gantt');
+  function pct(w){return (state.finish? (w/state.finish*100):0);}
+  function render(emph){
+    emph=emph||{};compute();
+    var html='<div class="gruler"><div class="spx"></div><div class="track">';
+    for(var w=0;w<=state.finish;w+=4){html+='<span class="mk" style="left:'+pct(w)+'%">'+w+'</span>';}
+    html+='</div></div>';
+    tasks.forEach(function(t){
+      var cls=t.ms?'ms':(t.crit?'crit':(t.near?'near':''));
+      if(emph.spotlight&&emph.spotlight.indexOf(t.id)>-1)cls+=' spot';
+      if(state.challenge&&state.guesses[t.id])cls+=' guess';
+      var flag=(!t.ms&&t.tf>0)?'<span class="gflag">float '+t.tf+'w</span>':'';
+      var stepper=t.ms?'':'<span class="step"><button data-dec="'+t.id+'" aria-label="shorter">\u2212</button><span class="v">'+t.dur+'w</span><button data-inc="'+t.id+'" aria-label="longer">+</button></span>';
+      var barTxt=t.ms?'':(t.dur+'w');
+      var floatBar=(!t.ms&&t.tf>0)?'<div class="gfloat" style="left:'+pct(t.ef)+'%;width:'+pct(t.tf)+'%"></div>':'';
+      html+='<div class="grow"><div class="glabel"><span class="gname">'+t.name+flag+'</span>'+stepper+'</div>'+
+        '<div class="gtrack" data-track="'+t.id+'">'+floatBar+
+        '<div class="gbar '+cls+'" data-bar="'+t.id+'" style="left:'+pct(t.es)+'%;width:'+(t.ms?0:pct(t.dur))+'%">'+barTxt+'</div></div></div>';
+    });
+    gantt.innerHTML=html;
+    document.getElementById('roFinish').innerHTML=state.finish+' <small>weeks</small>';
+    var cp=tasks.filter(function(t){return t.crit;}).sort(function(a,b){return a.es-b.es;}).map(function(t){return t.name.replace(/ \(.*/,'');});
+    document.getElementById('roPath').innerHTML=cp.join('  \u2192  ');
+    gantt.querySelectorAll('[data-dec]').forEach(function(b){b.onclick=function(){changeDur(b.getAttribute('data-dec'),-1);};});
+    gantt.querySelectorAll('[data-inc]').forEach(function(b){b.onclick=function(){changeDur(b.getAttribute('data-inc'),1);};});
+    gantt.querySelectorAll('[data-bar]').forEach(function(b){b.onclick=function(){onBar(b.getAttribute('data-bar'));};});
+    if(state.selected)showInsp(state.selected);
+    refreshAux();
+  }
+
+  // ---- cost & resource loading ----
+  function loads(){
+    var W=state.finish||1,wc=[],rc=[],i;
+    for(i=0;i<W;i++){wc.push(0);rc.push(0);}
+    tasks.forEach(function(t){if(t.ms||t.dur<=0)return;var per=t.cost/t.dur;for(var w=t.es;w<t.ef;w++){if(w>=0&&w<W){wc[w]+=per;rc[w]+=t.crews;}}});
+    var cum=[],run=0;for(i=0;i<W;i++){run+=wc[i];cum.push(run);}
+    var peak=0;rc.forEach(function(v){if(v>peak)peak=v;});
+    return {wc:wc,rc:rc,cum:cum,total:run,peak:peak,W:W};
+  }
+  function fmtk(v){return '$'+(Math.round(v*10)/10)+'k';}
+  function renderCost(){
+    var L=loads(),max=0;L.wc.forEach(function(v){if(v>max)max=v;});max=max||1;
+    var bars=document.getElementById('costbars'),ax=document.getElementById('costaxis');
+    var h='';L.wc.forEach(function(v,i){h+='<div class="b" data-t="wk '+i+': '+fmtk(v)+'" style="height:'+(v/max*100)+'%"></div>';});
+    // cumulative polyline
+    var pts=L.cum.map(function(v,i){var x=(i+0.5)/L.W*100;var y=100-(v/(L.total||1))*100;return x+','+y;}).join(' ');
+    h+='<svg class="cumline" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="'+pts+'" fill="none" stroke="#0F1728" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>';
+    bars.innerHTML=h;
+    ax.innerHTML='<span>wk 0</span><span>wk '+Math.round(L.W/2)+'</span><span>wk '+L.W+'</span>';
+    document.getElementById('coststat').innerHTML=
+      '<div class="s"><div class="k">Total cost</div><div class="v">'+fmtk(L.total)+'</div></div>'+
+      '<div class="s"><div class="k">Peak weekly spend</div><div class="v">'+fmtk(max)+'</div></div>'+
+      '<div class="s"><div class="k">Duration</div><div class="v">'+L.W+' <small>wk</small></div></div>';
+  }
+  function renderResource(){
+    var L=loads(),max=Math.max(L.peak,CAP)+1;
+    var bars=document.getElementById('rescbars'),ax=document.getElementById('rescaxis');
+    var h='';L.rc.forEach(function(v,i){var over=v>CAP?' over':'';h+='<div class="b'+over+'" data-t="wk '+i+': '+v+' crew'+(v===1?'':'s')+'" style="height:'+(v/max*100)+'%"></div>';});
+    h+='<div class="capline" style="bottom:'+(CAP/max*100)+'%"><span>capacity '+CAP+'</span></div>';
+    bars.innerHTML=h;
+    ax.innerHTML='<span>wk 0</span><span>wk '+Math.round(L.W/2)+'</span><span>wk '+L.W+'</span>';
+    var overWeeks=0;L.rc.forEach(function(v){if(v>CAP)overWeeks++;});
+    document.getElementById('rescstat').innerHTML=
+      '<div class="s"><div class="k">Peak demand</div><div class="v">'+L.peak+' <small>crews</small></div></div>'+
+      '<div class="s"><div class="k">Capacity</div><div class="v">'+CAP+' <small>crews</small></div></div>'+
+      '<div class="s"><div class="k">Over-allocated</div><div class="v" style="color:'+(overWeeks?'var(--red)':'var(--green)')+'">'+overWeeks+' <small>wk</small></div></div>';
+  }
+  // ---- dependency editor ----
+  function nmeta(id){var t=tasks.find(function(x){return x.id===id;});return t?t.name.replace(/ \(.*/,''):id;}
+  function renderDeps(){
+    compute();
+    var h='<thead><tr><th>Task</th><th>Waits on (predecessor &middot; lag)</th><th>Feeds into (successor)</th></tr></thead><tbody>';
+    tasks.forEach(function(t){
+      var preds=t.preds.length?t.preds.map(function(p){var lag=t.lags[p]||0;
+        return '<span class="deprow"><span class="dtag">FS</span> '+nmeta(p)+
+          ' <span class="lagctl"><button data-lagdec="'+t.id+'|'+p+'">&minus;</button><span class="lv">lag '+lag+'w</span><button data-laginc="'+t.id+'|'+p+'">+</button></span></span>';
+      }).join(''):'<span style="color:var(--ink-3)">&mdash; start of project</span>';
+      var succ=(t.succ&&t.succ.length)?t.succ.map(function(s){return nmeta(s.id);}).join(', '):'<span style="color:var(--ink-3)">&mdash; end of chain</span>';
+      h+='<tr><td class="tn">'+nmeta(t.id)+'</td><td>'+preds+'</td><td>'+succ+'</td></tr>';
+    });
+    h+='</tbody>';
+    var tbl=document.getElementById('deptable');tbl.innerHTML=h;
+    tbl.querySelectorAll('[data-lagdec]').forEach(function(b){b.onclick=function(){changeLag(b.getAttribute('data-lagdec'),-1);};});
+    tbl.querySelectorAll('[data-laginc]').forEach(function(b){b.onclick=function(){changeLag(b.getAttribute('data-laginc'),1);};});
+  }
+  function changeLag(key,d){
+    var parts=key.split('|'),t=tasks.find(function(x){return x.id===parts[0];});if(!t)return;
+    t.lags[parts[1]]=Math.max(0,(t.lags[parts[1]]||0)+d);
+    var before=state.finish;render();renderDeps();
+    var after=state.finish;
+    live(after!==before?'Added lag between <b>'+nmeta(parts[1])+'</b> and <b>'+nmeta(t.id)+'</b> &mdash; the finish moved to <b>week '+after+'</b>. Lag on a critical link pushes the whole job.':'Lag changed on <b>'+nmeta(t.id)+'</b>, but the finish held at <b>week '+after+'</b> &mdash; that link has float to absorb it.');
+  }
+  function refreshAux(){
+    if(state.tab==='cost')renderCost();
+    else if(state.tab==='resc')renderResource();
+    else if(state.tab==='deps')renderDeps();
+  }
+  function showTab(name){
+    state.tab=name;
+    ['schedule','deps','cost','resc'].forEach(function(n){document.getElementById('panel-'+n).classList.toggle('on',n===name);});
+    document.querySelectorAll('#tabs button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-tab')===name);});
+    refreshAux();
+  }
+  document.getElementById('tabs').addEventListener('click',function(e){var n=e.target.getAttribute('data-tab');if(n)showTab(n);});
+
+  function short(t){return t.name.replace(/ \(.*/,'');}
+  function changeDur(id,d){
+    var t=tasks.find(function(x){return x.id===id;});if(!t||t.ms)return;
+    var before=state.finish;t.dur=Math.max(1,t.dur+d);render();var after=state.finish;
+    var m;
+    if(after>before)m='You lengthened <b>'+short(t)+'</b> and the finish moved to <b>week '+after+'</b>. That task is on the critical path &mdash; every week you add pushes the whole job.';
+    else if(after<before)m='Shortening <b>'+short(t)+'</b> pulled the finish in to <b>week '+after+'</b>. It was controlling the date.';
+    else m='<b>'+short(t)+'</b> changed, but the finish stayed at <b>week '+after+'</b> &mdash; it has float, so the slack absorbed it. Not on the critical path.';
+    live(m);
+  }
+
+  function onBar(id){ if(state.challenge){state.guesses[id]=!state.guesses[id];render();return;} state.selected=id;showInsp(id); }
+  function showInsp(id){
+    var t=tasks.find(function(x){return x.id===id;});if(!t)return;
+    document.getElementById('insp').classList.add('on');
+    document.getElementById('inspName').textContent=t.name;
+    document.getElementById('iES').textContent=t.es;document.getElementById('iEF').textContent=t.ef;
+    document.getElementById('iLS').textContent=t.ls;document.getElementById('iLF').textContent=t.lf;
+    document.getElementById('iFloat').textContent=t.tf+'w';
+    var v=document.getElementById('iVerdict');
+    if(t.crit){v.className='verdict c';v.innerHTML='\u25C6 On the critical path &mdash; zero float. Protect this one.';
+      document.getElementById('iExp').innerHTML='Its Late Start ('+t.ls+') equals its Early Start ('+t.es+'), so it has no slack. Any slip here slips the whole project.';}
+    else{v.className='verdict n';v.innerHTML='Has '+t.tf+' weeks of float &mdash; it can slip that much before the finish moves.';
+      document.getElementById('iExp').innerHTML='It could start as late as week '+t.ls+' (instead of '+t.es+') without delaying the finish. That gap is its float.';}
+  }
+  function live(msg){var b=document.getElementById('liveBox');b.classList.add('on');document.getElementById('liveMsg').innerHTML=msg;}
+
+  document.getElementById('scenarios').addEventListener('click',function(e){
+    var sc=e.target.getAttribute('data-sc');if(!sc)return;var before=state.finish;
+    if(sc==='reset'){tasks=clone(DEFAULTS);state.selected=null;document.getElementById('insp').classList.remove('on');render();live('Back to the baseline &mdash; finish at <b>week '+state.finish+'</b>.');return;}
+    if(sc==='valve30'){find('proc').dur=30;render();live('Valve order pushed to 30 weeks. Finish slid from week '+before+' to <b>week '+state.finish+'</b> &mdash; procurement is critical, so it moves the job one-for-one.');}
+    if(sc==='valve8'){find('proc').dur=8;render();live('Valve order down to 8 weeks. Watch the highlighted chain &mdash; the critical path <b>jumped</b> onto the permits &rarr; mobilize &rarr; install chain. Finish is now <b>week '+state.finish+'</b>.');}
+    if(sc==='permit'){find('env').dur+=3;render();live(state.finish>before?'The permit slip pushed the finish to <b>week '+state.finish+'</b> &mdash; it just went critical.':'The permit slipped 3 weeks but the finish held at <b>week '+state.finish+'</b> &mdash; it had float to absorb it.');}
+    if(sc==='crash'){var t=find('install');t.dur=Math.max(1,t.dur-3);render();live('Crashed install by 3 weeks (second crew / overtime &mdash; real money). Finish pulled in to <b>week '+state.finish+'</b>. Worth it only because install is critical.');}
+  });
+  function find(id){return tasks.find(function(x){return x.id===id;});}
+
+  document.getElementById('tFloat').addEventListener('change',function(e){
+    state.showFloat=e.target.checked;document.querySelector('.fig').classList.toggle('showfloat',state.showFloat);
+  });
+
+  var mg=document.getElementById('mGuided'),mf=document.getElementById('mFree'),narr=document.getElementById('narrBox');
+  mg.onclick=function(){state.mode='guided';mg.classList.add('on');mf.classList.remove('on');narr.style.display='flex';applyBeat();};
+  mf.onclick=function(){state.mode='free';mf.classList.add('on');mg.classList.remove('on');narr.style.display='none';state.challenge=false;document.getElementById('challengeBox').style.display='none';render();live('Free explore &mdash; change any duration, click a bar to inspect it, run a scenario. Break it, learn it.');};
+
+  var BEATS=[
+    {say:"Here's the Millpond job &mdash; 10 tasks, sitting at their earliest possible start. <b>When does it finish?</b> Not obvious yet, because several run at the same time. Hit Next and we'll walk it.",e:{}},
+    {say:"Every task waits on what it depends on. <b>Install</b> can't start until the crew is mobilized <em>and</em> the valves arrive. Click <b>Install main</b> to see its numbers &mdash; it can't start at week 0.",e:{spotlight:['install']}},
+    {say:"Follow the longest chain to the end and you get the finish: <b>week 41</b>. No single task is huge &mdash; it's the <em>chain</em> of dependent work that adds up.",e:{}},
+    {say:"Flip on <b>Show float</b> in the toolbar. Those dashed tails are slack &mdash; tasks that can slip and nobody notices. See how the permits have room?",e:{float:true}},
+    {say:"But some tasks have <b>zero float</b>. Strung together, they're the <b>critical path</b> &mdash; the highlighted chain. It sets your finish date.",e:{float:true}},
+    {say:"Here's the water-job surprise: the critical path is the <b>26-week valve order &rarr; install &rarr; test &rarr; tie-in &rarr; acceptance</b> &mdash; <em>not</em> the permits, <em>not</em> laying pipe. The permits finish early and wait.",e:{float:true}},
+    {say:"Your turn. <b>Click every task you think is on the critical path</b>, then hit <b>Check my answer</b>.",e:{},challenge:true},
+    {say:"Now the money question. Use <b>+</b> on the valve order, or hit <b>Valve &rarr; 30 wk</b>. Watch the finish move week-for-week &mdash; that's what 'critical' means.",e:{float:true}},
+    {say:"Last one, the big idea. Hit <b>Valve &rarr; 8 wk</b>. The critical path <b>jumps</b> to the permits chain &mdash; because it's always the <em>longest</em> path, and now that's elsewhere. It moves.",e:{float:true}},
+    {say:"That's the critical path: find the longest chain of dependent work, protect it, and know it can shift. Switch to <b>Free explore</b> to break it yourself, or read on to go deeper at your level.",e:{float:true}}
+  ];
+  function applyBeat(){
+    var b=BEATS[state.beat];document.getElementById('say').innerHTML=b.say;
+    document.getElementById('prog').innerHTML='Step <b>'+(state.beat+1)+'</b> / '+BEATS.length;
+    state.showFloat=!!b.e.float;document.getElementById('tFloat').checked=state.showFloat;
+    document.querySelector('.fig').classList.toggle('showfloat',state.showFloat);
+    state.challenge=!!b.challenge;state.guesses={};
+    document.getElementById('challengeBox').style.display=b.challenge?'inline':'none';
+    document.getElementById('prev').disabled=state.beat===0;
+    document.getElementById('next').disabled=state.beat===BEATS.length-1;
+    document.getElementById('liveBox').classList.remove('on');
+    render(b.e);
+    if(b.e.spotlight){state.selected=b.e.spotlight[0];showInsp(b.e.spotlight[0]);}
+  }
+  document.getElementById('next').onclick=function(){if(state.beat<BEATS.length-1){state.beat++;applyBeat();}};
+  document.getElementById('prev').onclick=function(){if(state.beat>0){state.beat--;applyBeat();}};
+  document.getElementById('checkGuess').onclick=function(){
+    var correct=0,wrong=0,missed=0;
+    tasks.forEach(function(t){var g=!!state.guesses[t.id];if(t.crit&&g)correct++;else if(!t.crit&&g)wrong++;else if(t.crit&&!g)missed++;});
+    var total=tasks.filter(function(t){return t.crit;}).length,m;
+    if(correct===total&&wrong===0)m='Nailed it &mdash; all '+total+' critical tasks, no false positives. That highlighted chain is exactly where your attention belongs. Hit Next.';
+    else m='Close: <b>'+correct+'/'+total+'</b> critical tasks found'+(wrong?', but '+wrong+' of your picks have float':'')+(missed?', and you missed '+missed:'')+'. The critical ones are the zero-float chain. Try again or hit Next.';
+    live(m);
+  };
+
+  var tt=document.getElementById('tt');
+  function showTT(el){tt.innerHTML='<b>'+(el.getAttribute('data-term')||'')+'</b>'+el.getAttribute('data-def');
+    var r=el.getBoundingClientRect();tt.style.opacity='1';
+    var top=r.bottom+8,left=Math.min(Math.max(8,r.left),window.innerWidth-tt.offsetWidth-8);
+    if(top+tt.offsetHeight>window.innerHeight-8)top=r.top-tt.offsetHeight-8;
+    tt.style.top=top+'px';tt.style.left=left+'px';}
+  function hideTT(){tt.style.opacity='0';}
+  document.querySelectorAll('.term').forEach(function(el){el.tabIndex=0;
+    el.addEventListener('mouseenter',function(){showTT(el);});el.addEventListener('mouseleave',hideTT);
+    el.addEventListener('focus',function(){showTT(el);});el.addEventListener('blur',hideTT);});
+
+  document.querySelectorAll('.lens button').forEach(function(b){
+    b.onclick=function(){document.querySelectorAll('.lens button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');document.body.setAttribute('data-lens',b.getAttribute('data-l'));};});
+  document.body.setAttribute('data-lens','f');
+
+  var rprog=document.getElementById('rprog');
+  window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;rprog.style.width=(h>0?(window.scrollY/h*100):0)+'%';},{passive:true});
+
+  applyBeat();
+})();
+</script>

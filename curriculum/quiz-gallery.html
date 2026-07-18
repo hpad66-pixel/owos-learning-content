@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz Gallery &middot; One Water OS Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="%230B7DC2"/><path d="M20 6C20 6 11 16 11 23C11 28 15 32 20 32C25 32 29 28 29 23C29 16 20 6 20 6Z" fill="none" stroke="%23FFFFFF" stroke-width="2"/><circle cx="20" cy="23" r="3.4" fill="%23F2C94C"/></svg>'>
+<style>
+  :root{--bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;--ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;--brand:#0A78BA;--brand-700:#08669F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;--gold:#A97B0F;--green:#0E8A64;--green-50:#E7F6F0;--red:#D64545;--red-50:#FCEDED;--f:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--fm:'JetBrains Mono',Menlo,monospace;--sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);--sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16)}
+  *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);padding-top:64px;-webkit-font-smoothing:antialiased}
+  h1{color:var(--ink);font-weight:800;letter-spacing:-.02em}
+  .nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(255,255,255,.86);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);display:flex;align-items:center;padding:0 24px;z-index:50}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}.tile{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center}.wm{font-weight:800;font-size:15.5px;color:var(--ink)}.wm b{color:var(--brand)}
+  .crumb{margin-left:auto;font:600 12px var(--fm);color:var(--ink-3)}.crumb b{color:var(--brand)}
+  .wrap{max-width:880px;margin:0 auto;padding:34px 24px 90px}
+  .lead{font-size:18px;color:var(--ink-2);max-width:70ch}
+  .g{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);overflow:hidden;margin:20px 0}
+  .gh{padding:12px 16px;border-bottom:1px solid var(--line)}.gh b{color:var(--ink);font-size:16px}.gh .kind{float:right;font:600 9px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--brand);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:2px 8px}.gh .use{display:block;font-size:12.5px;color:var(--ink-3);margin-top:3px}
+  .gb{padding:16px}
+  .q{font-weight:700;color:var(--ink);font-size:15.5px;margin:0 0 12px}
+  .btn{background:var(--brand);color:#fff;border:0;border-radius:9px;padding:9px 15px;font-weight:700;font-size:13.5px;cursor:pointer;box-shadow:var(--sh)}.btn:hover{background:var(--brand-700)}
+  .fb{margin-top:10px;font-size:14px;padding:10px 13px;border-radius:10px;display:none}.fb.on{display:block}
+  .fb.ok{background:var(--green-50);color:var(--green)}.fb.no{background:var(--red-50);color:var(--red)}
+  /* flip cards */
+  .flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .flip{perspective:900px;height:110px;cursor:pointer}
+  .fin{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+  .flip.on .fin{transform:rotateY(180deg)}
+  .ff,.fbk{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:14px}
+  .ff{background:var(--brand);color:#fff;font-weight:700}
+  .fbk{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);transform:rotateY(180deg);font-size:12.5px;line-height:1.4}
+  .flip .hint{position:absolute;bottom:5px;right:8px;font:8px var(--fm);opacity:.7}
+  /* matching */
+  .match{display:flex;gap:16px}.mcol{flex:1;display:flex;flex-direction:column;gap:8px}
+  .mitem{border:1.5px solid var(--line-2);background:var(--surface);border-radius:10px;padding:10px 12px;font-size:13.5px;color:var(--ink-2);cursor:pointer;text-align:left}
+  .mitem:hover{border-color:var(--brand)}.mitem.sel{border-color:var(--brand);background:var(--brand-50);color:var(--brand)}
+  .mitem.done{border-color:#BFE0CE;background:var(--green-50);color:var(--green);cursor:default;font-weight:600}
+  .mitem.bad{border-color:#EAC7C0;background:var(--red-50);color:var(--red)}
+  /* options */
+  .opt{display:block;width:100%;text-align:left;background:var(--surface-2);border:1.5px solid var(--line);border-radius:11px;padding:11px 14px;margin-bottom:9px;cursor:pointer;font-size:14.5px;color:var(--ink-2);font-family:inherit}
+  .opt:hover{border-color:var(--brand)}.opt.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green);font-weight:600}.opt.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.opt.sel{border-color:var(--brand);background:var(--brand-50)}
+  /* sort */
+  .sortitem{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}.sortitem:last-child{border-bottom:none}.sortitem .lab{flex:1;min-width:160px;font-weight:600;color:var(--ink);font-size:14.5px}
+  .sbtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);border-radius:8px;padding:6px 11px;font:600 12px var(--f);cursor:pointer}.sbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.sbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.sbtn:disabled{cursor:default}
+  /* estimate */
+  .erow{display:flex;align-items:center;gap:12px;margin:12px 0}.erow input{flex:1;accent-color:var(--brand)}.erow .v{font:700 15px var(--fm);color:var(--brand);min-width:70px;text-align:right}
+  /* true false */
+  .tf{display:flex;flex-direction:column;gap:10px}.tfrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tfrow .s{flex:1;min-width:180px;font-size:14.5px;color:var(--ink-2)}
+  .tfbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:6px 14px;font:600 12.5px var(--f);cursor:pointer;color:var(--ink-2)}.tfbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.tfbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.tfbtn:disabled{cursor:default}
+  /* fill */
+  .fill input{border:1.5px solid var(--line-2);border-radius:9px;padding:9px 12px;font-size:14.5px;font-family:inherit;width:180px;outline:none}.fill input:focus{border-color:var(--brand)}
+  /* order */
+  .order .oi{display:flex;align-items:center;gap:10px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-bottom:7px}
+  .order .oi .t{flex:1;font-size:14px;color:var(--ink-2)}
+  .order .ob{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);border-radius:7px;cursor:pointer;font-weight:700;color:var(--ink-2)}.order .oi.ok{border-color:#BFE0CE;background:var(--green-50)}
+  details summary{cursor:pointer;color:var(--brand);font:600 13.5px var(--f)}.ans{margin-top:8px;font-size:14.5px;color:var(--ink-2);line-height:1.6}
+</style></head><body>
+<nav class="nav"><a class="brand" href="/"><span class="tile"><svg width="19" height="19" viewBox="0 0 32 32"><path d="M16 3 C16 3 8.5 12 8.5 18 A7.5 7.5 0 0 0 23.5 18 C23.5 12 16 3 16 3 Z" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="16" cy="18" r="3" fill="#F2C94C"/></svg></span><span class="wm">One Water <b>Operating System</b></span></a><span class="crumb">Academy / <b>Quiz Gallery</b></span></nav>
+<div class="wrap">
+  <h1>Quiz Gallery</h1>
+  <p class="lead">All the ways to check understanding, live and working. Mix and match them across a module so learners never do the same thing twice in a row. Every one below actually works, try them.</p>
+
+  <div class="g"><div class="gh"><b>Flip cards</b><span class="kind">Quiz</span><span class="use">use for: learning terms and definitions, quick recall. Click a card to flip.</span></div>
+    <div class="gb"><div class="flips" id="flips"></div></div></div>
+
+  <div class="g"><div class="gh"><b>Matching</b><span class="kind">Quiz</span><span class="use">use for: pairing items across two columns. Click one on the left, then its match on the right.</span></div>
+    <div class="gb"><div class="match"><div class="mcol" id="mLeft"></div><div class="mcol" id="mRight"></div></div><div class="fb" id="matchFb"></div></div></div>
+
+  <div class="g"><div class="gh"><b>Multiple choice</b><span class="kind">Quiz</span><span class="use">use for: one correct answer with instant feedback.</span></div>
+    <div class="gb"><p class="q">Which of these is a project, not operations?</p><div id="mc">
+      <button class="opt" data-c="0">Reading meters every month</button>
+      <button class="opt" data-c="1">Replacing a mile of water main</button>
+      <button class="opt" data-c="0">Treating the water each day</button>
+    </div><div class="fb" id="mcFb"></div></div></div>
+
+  <div class="g"><div class="gh"><b>Multi-select (choose all that apply)</b><span class="kind">Quiz</span><span class="use">use for: more than one right answer.</span></div>
+    <div class="gb"><p class="q">Which of these belong in a project charter? Pick all that apply.</p><div id="ms">
+      <button class="opt" data-c="1">The goal</button>
+      <button class="opt" data-c="1">The sponsor</button>
+      <button class="opt" data-c="0">The daily meter route</button>
+      <button class="opt" data-c="1">What "done" means</button>
+    </div><button class="btn" id="msCheck" style="margin-top:6px">Check</button><div class="fb" id="msFb"></div></div></div>
+
+  <div class="g"><div class="gh"><b>Classify / sort</b><span class="kind">Quiz</span><span class="use">use for: putting items in the right bucket.</span></div>
+    <div class="gb"><div id="sorter"></div><div class="fb" id="sortFb"></div></div></div>
+
+  <div class="g"><div class="gh"><b>Estimate</b><span class="kind">Quiz</span><span class="use">use for: guess a number, then check it against the real one.</span></div>
+    <div class="gb"><p class="q">A project costs $1,000k and saves $200k a year. Drag to your best guess for the payback, in years.</p>
+      <div class="erow"><input type="range" id="eG" min="1" max="15" step="0.5" value="8"><span class="v" id="eV">8.0 yr</span></div>
+      <button class="btn" id="eCheck">Check my guess</button><div class="fb" id="eFb"></div></div></div>
+
+  <div class="g"><div class="gh"><b>True or false</b><span class="kind">Quiz</span><span class="use">use for: quick myth-busting.</span></div>
+    <div class="gb"><div class="tf" id="tf"></div></div></div>
+
+  <div class="g"><div class="gh"><b>Fill in the blank</b><span class="kind">Quiz</span><span class="use">use for: recall of a key word or number.</span></div>
+    <div class="gb"><p class="q">The document that officially starts a project and names its goal and sponsor is called the project ______.</p>
+      <div class="fill"><input id="fillIn" placeholder="type your answer" autocomplete="off"> <button class="btn" id="fillCheck">Check</button></div><div class="fb" id="fillFb"></div></div></div>
+
+  <div class="g"><div class="gh"><b>Put in order</b><span class="kind">Quiz</span><span class="use">use for: sequencing steps in a process.</span></div>
+    <div class="gb"><p class="q">Put the project life cycle in order (use the arrows).</p><div class="order" id="order"></div><button class="btn" id="orderCheck">Check the order</button><div class="fb" id="orderFb"></div></div></div>
+
+  <div class="g"><div class="gh"><b>Reflection</b><span class="kind">Quiz</span><span class="use">use for: an open question with a full answer revealed.</span></div>
+    <div class="gb"><p class="q">Your crew flushes every hydrant each spring. Project or operations, and why?</p>
+      <details><summary>Show the answer</summary><div class="ans">Operations. It repeats every year and never finishes, so you handle it with a routine and a budget line, not a charter and a schedule.</div></details></div></div>
+</div>
+<script>
+(function(){
+  "use strict";
+  // FLIP CARDS
+  var CARDS=[['Project','Work with a finish line: a start, an end, and a thing it delivers.'],['Operations','Ongoing everyday work that never finishes, like treating water.'],['Charter','The one-page document that officially starts a project.'],['Scope','How much work you are taking on.'],['Float','How long a task can slip without delaying the finish.'],['NPV','Future benefits in today’s dollars, minus the cost.']];
+  var fl=document.getElementById('flips');
+  CARDS.forEach(function(c){var d=document.createElement('div');d.className='flip';d.innerHTML='<div class="fin"><div class="ff">'+c[0]+'<span class="hint">flip</span></div><div class="fbk">'+c[1]+'</div></div>';d.onclick=function(){d.classList.toggle('on');};fl.appendChild(d);});
+
+  // MATCHING
+  var PAIRS=[['Charter','Starts the project'],['Gantt chart','Shows the schedule'],['Risk register','Tracks what could go wrong'],['Closeout','Hands the work over']];
+  var L=document.getElementById('mLeft'),R=document.getElementById('mRight'),sel=null,doneCount=0;
+  var rights=PAIRS.map(function(p,i){return {t:p[1],k:i};});
+  for(var i=rights.length-1;i>0;i--){var j=Math.floor((i*7+3)%(i+1));var tmp=rights[i];rights[i]=rights[j];rights[j]=tmp;}
+  PAIRS.forEach(function(p,i){var b=document.createElement('button');b.className='mitem';b.textContent=p[0];b.setAttribute('data-k',i);b.setAttribute('data-side','L');L.appendChild(b);});
+  rights.forEach(function(r){var b=document.createElement('button');b.className='mitem';b.textContent=r.t;b.setAttribute('data-k',r.k);b.setAttribute('data-side','R');R.appendChild(b);});
+  function mClick(e){var b=e.target.closest('.mitem');if(!b||b.classList.contains('done'))return;
+    if(b.getAttribute('data-side')==='L'){document.querySelectorAll('#mLeft .mitem').forEach(function(x){x.classList.remove('sel');});b.classList.add('sel');sel=b;return;}
+    if(!sel)return;
+    if(b.getAttribute('data-k')===sel.getAttribute('data-k')){b.classList.add('done');sel.classList.add('done');sel.classList.remove('sel');sel=null;doneCount++;
+      if(doneCount===PAIRS.length){var f=document.getElementById('matchFb');f.className='fb on ok';f.textContent='All matched. Nicely done.';}}
+    else{var a=sel,c=b;a.classList.add('bad');c.classList.add('bad');setTimeout(function(){a.classList.remove('bad','sel');c.classList.remove('bad');},550);sel=null;}
+  }
+  L.addEventListener('click',mClick);R.addEventListener('click',mClick);
+
+  // MULTIPLE CHOICE
+  document.getElementById('mc').addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o||document.querySelector('#mc .opt.right'))return;
+    var fb=document.getElementById('mcFb');fb.classList.add('on');
+    if(o.getAttribute('data-c')==='1'){o.classList.add('right');fb.className='fb on ok';fb.textContent='Correct. It has a clear finish, so it is a project.';}
+    else{o.classList.add('wrong');document.querySelector('#mc .opt[data-c="1"]').classList.add('right');fb.className='fb on no';fb.textContent='Not quite. The highlighted one is the project, because it has a finish line.';}
+  });
+
+  // MULTI-SELECT
+  document.getElementById('ms').addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o)return;o.classList.toggle('sel');});
+  document.getElementById('msCheck').onclick=function(){var right=0,wrong=0,missed=0;
+    document.querySelectorAll('#ms .opt').forEach(function(o){var want=o.getAttribute('data-c')==='1',got=o.classList.contains('sel');
+      if(want&&got){o.classList.add('right');right++;}else if(!want&&got){o.classList.add('wrong');wrong++;}else if(want&&!got){o.classList.add('right');missed++;}});
+    var fb=document.getElementById('msFb');fb.classList.add('on');
+    if(wrong===0&&missed===0){fb.className='fb on ok';fb.textContent='All three, and only those three. The daily meter route is operations, not part of a charter.';}
+    else{fb.className='fb on no';fb.innerHTML='The three highlighted green belong in a charter. The daily meter route does not, that is operations.';}
+  };
+
+  // CLASSIFY
+  var ITEMS=[{lab:'Build a new lift station',t:'project'},{lab:'Answer service calls',t:'operation'},{lab:'Swap every meter for smart meters',t:'project'},{lab:'Flush hydrants each spring',t:'operation'}];
+  var box=document.getElementById('sorter'),ans=0,cor=0;
+  ITEMS.forEach(function(it,i){var row=document.createElement('div');row.className='sortitem';row.innerHTML='<span class="lab">'+it.lab+'</span><button class="sbtn" data-i="'+i+'" data-a="project">Project</button><button class="sbtn" data-i="'+i+'" data-a="operation">Operation</button>';box.appendChild(row);});
+  box.addEventListener('click',function(e){var b=e.target.closest('.sbtn');if(!b||b.disabled)return;var i=+b.getAttribute('data-i'),a=b.getAttribute('data-a'),it=ITEMS[i],row=b.closest('.sortitem');if(row.querySelector('.sbtn:disabled'))return;row.querySelectorAll('.sbtn').forEach(function(x){x.disabled=true;});ans++;if(a===it.t){b.classList.add('right');cor++;}else{b.classList.add('wrong');row.querySelector('[data-a="'+it.t+'"]').classList.add('right');}
+    if(ans===ITEMS.length){var f=document.getElementById('sortFb');f.className='fb on '+(cor===ITEMS.length?'ok':'no');f.textContent=cor+' of '+ITEMS.length+' right. The tell is the finish line.';}});
+
+  // ESTIMATE
+  var eG=document.getElementById('eG');eG.oninput=function(){document.getElementById('eV').textContent=(+eG.value).toFixed(1)+' yr';};
+  document.getElementById('eCheck').onclick=function(){var g=+eG.value,fb=document.getElementById('eFb');fb.classList.add('on');
+    if(Math.abs(g-5)<=0.5){fb.className='fb on ok';fb.innerHTML='Spot on. Payback is cost divided by yearly saving: $1,000k / $200k = <b>5 years</b>.';}
+    else{fb.className='fb on no';fb.innerHTML='Close, but it is <b>5 years</b>: cost divided by yearly saving, $1,000k / $200k. Simple division.';}};
+
+  // TRUE / FALSE
+  var TF=[['A project can run forever with no end date.',false,'False. If it never ends, it is operations, not a project.'],['Adding scope with no more time or money usually hurts quality.',true,'True. That is the iron triangle at work.'],['A positive NPV means a project is worth doing.',true,'True. It is worth more than it costs, in today’s dollars.']];
+  var tf=document.getElementById('tf');
+  TF.forEach(function(r,i){var row=document.createElement('div');row.className='tfrow';row.innerHTML='<span class="s">'+r[0]+'</span><button class="tfbtn" data-i="'+i+'" data-v="true">True</button><button class="tfbtn" data-i="'+i+'" data-v="false">False</button><span class="tfx" id="tfx'+i+'" style="flex-basis:100%;font-size:12.5px;color:var(--ink-3);display:none"></span>';tf.appendChild(row);});
+  tf.addEventListener('click',function(e){var b=e.target.closest('.tfbtn');if(!b||b.disabled)return;var i=+b.getAttribute('data-i'),v=b.getAttribute('data-v')==='true',r=TF[i];
+    tf.querySelectorAll('[data-i="'+i+'"]').forEach(function(x){x.disabled=true;});
+    if(v===r[1])b.classList.add('right');else{b.classList.add('wrong');tf.querySelector('[data-i="'+i+'"][data-v="'+r[1]+'"]').classList.add('right');}
+    var x=document.getElementById('tfx'+i);x.style.display='block';x.textContent=r[2];});
+
+  // FILL IN
+  document.getElementById('fillCheck').onclick=function(){var v=document.getElementById('fillIn').value.trim().toLowerCase(),fb=document.getElementById('fillFb');fb.classList.add('on');
+    if(v==='charter'||v==='project charter'){fb.className='fb on ok';fb.textContent='Correct. The charter is your permission to begin.';}
+    else{fb.className='fb on no';fb.innerHTML='The word is <b>charter</b>. It names the goal, the sponsor, and what done means.';}};
+
+  // ORDER
+  var STEPS=[{id:2,t:'Build it'},{id:0,t:'Start it'},{id:3,t:'Close it'},{id:1,t:'Plan it'}];
+  var CORRECT=[0,1,2,3];var ol=document.getElementById('order');
+  function drawOrder(){ol.innerHTML='';STEPS.forEach(function(s,i){var d=document.createElement('div');d.className='oi';d.innerHTML='<span class="t">'+s.t+'</span><button class="ob" data-d="-1" data-i="'+i+'">&uarr;</button><button class="ob" data-d="1" data-i="'+i+'">&darr;</button>';ol.appendChild(d);});}
+  drawOrder();
+  ol.addEventListener('click',function(e){var b=e.target.closest('.ob');if(!b)return;var i=+b.getAttribute('data-i'),d=+b.getAttribute('data-d'),j=i+d;if(j<0||j>=STEPS.length)return;var t=STEPS[i];STEPS[i]=STEPS[j];STEPS[j]=t;drawOrder();});
+  document.getElementById('orderCheck').onclick=function(){var ok=STEPS.every(function(s,i){return s.id===CORRECT[i];}),fb=document.getElementById('orderFb');fb.classList.add('on');
+    if(ok){fb.className='fb on ok';fb.textContent='That is the right order: start, plan, build, close.';document.querySelectorAll('#order .oi').forEach(function(x){x.classList.add('ok');});}
+    else{fb.className='fb on no';fb.textContent='Not yet. It goes start it, plan it, build it, close it. Keep nudging.';}};
+})();
+</script>
+</body></html>

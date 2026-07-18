@@ -1,0 +1,212 @@
+/* ============================================================================
+   ONE WATER OS — DESIGN SYSTEM v6 "Clearwater"
+   One typeface (Inter), one palette (water blue on light), one set of parts.
+   Modern enterprise: calm surfaces, strong type, generous but dense layout.
+   Every page opts in via body.owosd (the shell adds it).
+   ============================================================================ */
+:root{
+  /* color */
+  --bg:#F7F9FB; --surface:#FFFFFF; --surface-2:#EFF3F7; --surface-3:#E5EBF1;
+  --ink:#0F1728; --ink-2:#44546A; --ink-3:#8595AB;
+  --line:#E4E9F0; --line-2:#CDD6E1;
+  --brand:#0A78BA; --brand-700:#08669F; --brand-800:#07547F; --brand-50:#EAF5FC; --brand-100:#D3EAF8;
+  --gold:#A97B0F; --gold-500:#C9961B; --gold-50:#FBF5E4;
+  --green:#0E8A64; --green-50:#E7F6F0; --red:#D64545; --red-50:#FCEDED;
+  /* type */
+  --f:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  --fm:'JetBrains Mono','SF Mono',Menlo,monospace;
+  /* geometry */
+  --r:12px; --r-lg:18px;
+  --sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);
+  --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
+  --wrap:1200px;
+}
+
+/* ---------------- base ---------------- */
+body.owosd{background:var(--bg)!important;color:var(--ink)!important;font-family:var(--f)!important;
+  font-size:17px!important;line-height:1.7!important;margin:0!important;padding-top:64px!important;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+/* ONE typeface, everywhere. Mono re-allowed below. */
+body.owosd *{font-family:var(--f)!important}
+body.owosd code,body.owosd pre,body.owosd kbd,body.owosd .mono,body.owosd .kick,body.owosd .kicker,
+body.owosd [class*="mono"],body.owosd .owos-pill{font-family:var(--fm)!important}
+body.owosd h1,body.owosd h2,body.owosd h3,body.owosd h4{color:var(--ink)!important;font-weight:800!important;
+  letter-spacing:-0.022em!important;line-height:1.12!important}
+body.owosd h1{font-size:clamp(34px,4.6vw,54px)!important;margin:.25em 0 .4em}
+body.owosd h2{font-size:clamp(26px,3.2vw,38px)!important}
+body.owosd h3{font-size:clamp(19px,2vw,24px)!important}
+body.owosd p,body.owosd li{font-size:17px!important;line-height:1.7!important;color:var(--ink-2)!important}
+body.owosd a{color:var(--link,var(--brand))}
+body.owosd b,body.owosd strong{color:var(--ink)!important}
+body.owosd img,body.owosd video,body.owosd canvas,body.owosd svg{max-width:100%}
+body.owosd ::selection{background:var(--brand-100)}
+
+/* Dark product panels opt into light local typography tokens. The base system intentionally
+   applies text colors with !important for legacy cleanup, so local token scoping is the reliable
+   way to keep headings, paragraphs, lists, and emphasis readable on blue or ink surfaces. */
+body.owosd .owos-dark{--ink:#FFFFFF;--ink-2:#DCEAF4;--ink-3:#AFC8D9;--link:#FFFFFF;color:#FFFFFF!important}
+body.owosd .owos-dark .kick,body.owosd .owos-dark .kicker,body.owosd .owos-dark .eyebrow{color:#9BE3F8!important}
+body.owosd .owos-dark label,body.owosd .owos-dark .small{color:#DCEAF4!important}
+
+/* label style (small caps mono) */
+body.owosd .kick,body.owosd .kicker{font-size:12px!important;font-weight:600!important;letter-spacing:.14em!important;
+  text-transform:uppercase!important;color:var(--brand)!important}
+
+/* containers: consistent width + padding */
+body.owosd .wrap,body.owosd .layout,body.owosd main,body.owosd .container,body.owosd .content,body.owosd .page,body.owosd article,body.owosd .rowsec,body.owosd .hero{
+  max-width:var(--wrap)!important;margin-left:auto!important;margin-right:auto!important;
+  padding-left:24px!important;padding-right:24px!important}
+@media(max-width:640px){body.owosd .wrap,body.owosd .layout,body.owosd main,body.owosd .container,body.owosd .content,body.owosd .rowsec,body.owosd .hero{padding-left:16px!important;padding-right:16px!important}}
+
+/* ---------------- NAV ---------------- */
+.owos-nav{position:fixed;top:0;left:0;right:0;z-index:9000;height:64px;background:rgba(255,255,255,.86);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-family:var(--f)}
+.owos-nav *{box-sizing:border-box}
+.owos-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.owos-logo{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+.owos-wm{font-weight:800;font-size:15.5px;letter-spacing:-.015em;color:var(--ink);white-space:nowrap}
+.owos-wm b{color:var(--brand);font-weight:800}
+.owos-pw{font-size:12px;color:var(--ink-3);font-weight:500;margin-left:2px}
+.owos-pw em{font-style:normal;color:var(--gold);font-weight:600}
+.owos-links{display:flex;align-items:center;gap:6px}
+.owos-links a{font-size:14px;font-weight:550;color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:9px;white-space:nowrap}
+.owos-links a:hover{color:var(--ink);background:var(--surface-2)}
+.owos-links a.on{color:var(--brand);background:var(--brand-50)}
+.owos-badge{font-size:13.5px;font-weight:650;background:var(--brand);color:#fff;padding:9px 16px;border-radius:10px;
+  text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:8px;box-shadow:var(--sh);transition:background .15s}
+.owos-badge:hover{background:var(--brand-700)}
+.owos-nav .owos-badge,.owos-menu .owos-badge{color:#FFFFFF!important}
+.owos-badge .dot{width:7px;height:7px;border-radius:50%;background:#8FE3B0;animation:owospulse 2.6s ease-in-out infinite}
+@keyframes owospulse{0%,100%{box-shadow:0 0 0 0 rgba(143,227,176,.55)}60%{box-shadow:0 0 0 7px rgba(143,227,176,0)}}
+.owos-burger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.owos-burger i{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.owos-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:8999;background:#fff;border-bottom:1px solid var(--line);
+  box-shadow:var(--sh-lg);padding:8px 14px 18px;flex-direction:column;font-family:var(--f);
+  max-height:calc(100vh - 60px);max-height:calc(100dvh - 60px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.owos-menu a{padding:12px 12px;font-size:16px;font-weight:550;color:var(--ink);text-decoration:none;border-radius:10px}
+.owos-menu a:hover{background:var(--surface-2)}
+.owos-menu .owos-badge{justify-content:center;margin-top:10px}
+/* collapsible accordion sections (iPhone-friendly: headers fit, tap to expand) */
+.owos-m-top{font-weight:650}
+.owos-m-head{display:flex;align-items:center;justify-content:space-between;width:100%;padding:13px 12px;font-size:16px;font-weight:650;color:var(--ink);background:none;border:0;border-radius:10px;cursor:pointer;font-family:var(--f);text-align:left}
+.owos-m-head:active,.owos-m-head:hover{background:var(--surface-2)}
+.owos-m-chev{transition:transform .2s;color:var(--ink-3);flex:none}
+.owos-m-grp.open>.owos-m-head .owos-m-chev{transform:rotate(180deg)}
+.owos-m-sub{display:none;flex-direction:column;padding:2px 0 8px 8px;margin:0 0 2px 12px;border-left:2px solid var(--line-2)}
+.owos-m-grp.open>.owos-m-sub{display:flex}
+.owos-m-sub a{font-size:15px;font-weight:500;color:var(--ink-2);padding:11px 12px}
+.owos-m-sub a.on,.owos-m-top.on{color:var(--brand);font-weight:650}
+body.owos-menu-open .owos-menu{display:flex}
+body.owos-menu-open .owos-burger i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.owos-menu-open .owos-burger i:nth-child(2){opacity:0}
+body.owos-menu-open .owos-burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1160px){.owos-links,.owos-pw{display:none}.owos-nav{padding:0 16px}.owos-burger{display:flex}.owos-nav .owos-badge{display:none}}
+
+/* ---------------- FOOTER ---------------- */
+.owos-foot{background:var(--surface);border-top:1px solid var(--line);margin-top:64px;font-family:var(--f)}
+.owos-foot-in{max-width:var(--wrap);margin:0 auto;padding:44px 24px 28px;display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.owos-foot .owos-wm{font-size:18px}
+.owos-foot-tag{color:var(--ink-3);margin-top:8px;max-width:360px;font-size:14.5px;line-height:1.6}
+.owos-foot-cols{display:flex;gap:36px;flex-wrap:wrap}
+.owos-foot-col{display:flex;flex-direction:column;gap:9px;min-width:120px}
+.owos-foot-col b{font-size:12px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.owos-foot-col a{font-size:14.5px;color:var(--ink-2);text-decoration:none}
+.owos-foot-col a:hover{color:var(--brand)}
+.owos-foot-bar{border-top:1px solid var(--line)}
+.owos-foot-bar div{max-width:var(--wrap);margin:0 auto;padding:16px 24px;font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){.owos-foot-in{padding:34px 16px 22px}}
+
+/* ---------------- components ---------------- */
+.owos-btn,body.owosd .btn,body.owosd .btn-primary,body.owosd button.primary,body.owosd button.cta,body.owosd a.cta,body.owosd .lessonlink,body.owosd .done-btn,body.owosd .cta2,body.owosd .subbtn{
+  display:inline-flex;align-items:center;gap:8px;background:var(--brand)!important;color:#fff!important;
+  border:1px solid var(--brand)!important;border-radius:10px!important;padding:11px 20px!important;
+  font-size:14.5px!important;font-weight:650!important;text-decoration:none!important;cursor:pointer;
+  box-shadow:var(--sh)!important;transition:background .15s,transform .12s}
+.owos-btn:hover,body.owosd .btn:hover{background:var(--brand-700)!important}
+.owos-btn-ghost,body.owosd .btn-secondary,body.owosd .btn.ghost{
+  display:inline-flex;align-items:center;gap:8px;background:#fff!important;color:#0F1728!important;
+  border:1px solid var(--line-2)!important;border-radius:10px!important;padding:11px 20px!important;
+  font-size:14.5px!important;font-weight:600!important;text-decoration:none!important;cursor:pointer;box-shadow:var(--sh)!important}
+.owos-btn-ghost:hover,body.owosd .btn-secondary:hover{border-color:var(--ink-3)!important;background:var(--surface-2)!important}
+.owos-card,body.owosd .card,body.owosd .rec,body.owosd .seat,body.owosd .mod,body.owosd .tile,body.owosd .entry,
+body.owosd .issue,body.owosd .qcard,body.owosd .holds,body.owosd .ruling,body.owosd .scene,body.owosd .panel,body.owosd .figure,body.owosd .dropbox,body.owosd .submit{
+  background:var(--surface)!important;border:1px solid var(--line)!important;border-radius:var(--r-lg)!important;box-shadow:var(--sh)!important;color:var(--ink)!important}
+body.owosd #spar,body.owosd #sLog,body.owosd .sb,body.owosd .su,body.owosd .steach{background:var(--surface)!important;color:var(--ink)!important;border-color:var(--line)!important}
+body.owosd #sLog{background:var(--bg)!important}
+body.owosd #sIn,body.owosd input,body.owosd select,body.owosd textarea{background:#fff!important;color:#0F1728!important;border:1px solid var(--line-2)!important;border-radius:10px!important;font-size:15px!important}
+body.owosd input:focus,body.owosd textarea:focus,body.owosd select:focus{outline:2px solid var(--brand-100)!important;border-color:var(--brand)!important}
+.owos-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;background:var(--brand-50);color:var(--brand-700);border:1px solid var(--brand-100)}
+.owos-pill.gold{background:var(--gold-50);color:var(--gold);border-color:#EFE2BC}
+.owos-pill.green{background:var(--green-50);color:var(--green);border-color:#C8E9DC}
+
+/* ---------------- legacy normalization ---------------- */
+/* hide any nav/footer that is not the system's */
+body.owosd #topnav,body.owosd #nav:not(.owos-nav),body.owosd .topnav,body.owosd .sitenav,body.owosd header.nav,body.owosd nav.nav{display:none!important}
+/* legacy accent hexes -> system tokens (text color set inline) */
+body.owosd [style*="#D8A93A"],body.owosd [style*="#A98322"],body.owosd [style*="#A9770C"],body.owosd [style*="#D4A017"],body.owosd [style*="#A07810"],body.owosd [style*="#B98A1E"],body.owosd [style*="#E3C558"]{color:var(--gold)!important}
+body.owosd [style*="#1E6FA8"],body.owosd [style*="#3FB0F0"],body.owosd [style*="#448AFF"],body.owosd [style*="#5CA8DE"],body.owosd [style*="#3E86C4"]{color:var(--brand)!important}
+body.owosd [style*="#1F7A5C"],body.owosd [style*="#6ECBB8"],body.owosd [style*="#00E676"]{color:var(--green)!important}
+body.owosd .gold,body.owosd .gd{color:var(--gold)!important}
+body.owosd .blue,body.owosd .bl{color:var(--brand)!important}
+body.owosd .green{color:var(--green)!important}
+/* kill leftover dark paper tints */
+body.owosd [style*="background:#FAF7F1"],body.owosd [style*="background:#FBF9F4"],body.owosd [style*="background:#F0E9D8"],body.owosd [style*="background:#FFFDF6"]{background:var(--surface-2)!important}
+/* tables */
+body.owosd table{border-collapse:collapse;width:100%}
+body.owosd th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+body.owosd td{padding:12px;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-2)}
+/* rhythm: stop giant voids on old sections */
+body.owosd .sec{padding:64px 0!important}
+body.owosd .final{padding:80px 0!important}
+/* scrollbars */
+body.owosd ::-webkit-scrollbar{height:8px;width:8px}
+body.owosd ::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:8px}
+
+/* text on brand-gradient panels stays light */
+body.owosd #subcard,body.owosd #subcard h3,body.owosd #subcard b{color:#FFFFFF!important}
+body.owosd #subcard p,body.owosd #subcard .fine,body.owosd #subcard label,body.owosd #subcard span{color:#DCEDF9!important}
+body.owosd #subcard i{color:#F2C94C!important}
+body.owosd #subcard .cta{background:#FFFFFF!important;color:#07547F!important;border-color:#FFFFFF!important}
+
+/* breadcrumbs */
+.owos-crumbs{background:var(--bg);border-bottom:1px solid var(--line)}
+.owos-crumbs-in{max-width:1200px;margin:0 auto;padding:9px 24px;font-size:12.5px;display:flex;align-items:center;gap:8px;font-family:var(--fm)}
+.owos-crumbs a{color:var(--brand);text-decoration:none;font-weight:600}
+.owos-crumbs a:hover{text-decoration:underline}
+.owos-crumbs i{color:var(--ink-3);font-style:normal}
+.owos-crumbs span{color:var(--ink-3);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* nav v7: grouped dropdowns */
+.owos-nav-item{position:relative;display:inline-flex}
+.owos-nav-a{display:inline-flex;align-items:center;background:none;border:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink-2);padding:8px 12px;border-radius:10px;text-decoration:none;transition:background .15s,color .15s;white-space:nowrap}
+.owos-nav-a:hover{color:var(--brand);background:var(--brand-50)}
+.owos-nav-a.on{color:var(--brand);background:var(--brand-50)}
+.owos-drop{position:absolute;top:calc(100% + 6px);left:0;min-width:216px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-lg);padding:8px;display:none;z-index:9500}
+.owos-drop a{display:block;padding:9px 12px;border-radius:9px;font-size:13.5px;font-weight:550;color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.owos-drop a:hover{background:var(--brand-50);color:var(--brand)}
+.owos-nav-item:hover .owos-drop,.owos-nav-item:focus-within .owos-drop{display:block}
+.owos-nav-item:before{content:"";position:absolute;top:100%;left:0;right:0;height:8px}
+.owos-m-top{display:block;padding:12px 4px;font-size:15px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.owos-m-grp{padding:10px 4px;border-bottom:1px solid var(--line)}
+.owos-m-grp b{display:block;font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.owos-m-grp a{display:block;padding:8px 8px;font-size:14.5px;font-weight:600;color:var(--ink-2);text-decoration:none;border-radius:8px}
+.owos-m-grp a:hover{background:var(--brand-50);color:var(--brand)}
+
+/* ---- SPONSORSHIP: shared ad card (owosAd) + partner band (owosPartners), site-wide ---- */
+.owos-ad-wrap{max-width:var(--wrap,1180px);margin:22px auto 0;padding:0 24px}
+.owos-ad{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--brand-50,#EAF4FB);border:1px solid var(--brand-200,#BFDDF0);border-radius:14px;padding:14px 20px}
+.owos-ad-tag{font-family:var(--fm);font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand,#0B7DC2);border:1px solid var(--brand-200,#BFDDF0);border-radius:20px;padding:3px 9px;background:#fff;white-space:nowrap}
+.owos-ad-body{flex:1;min-width:180px;display:flex;flex-direction:column;gap:2px}
+.owos-ad-body b{font-size:15px;font-weight:750;color:var(--ink,#0F1728);line-height:1.3}
+.owos-ad-body span{font-size:13px;color:var(--ink-2,#44546A);line-height:1.4}
+.owos-ad-cta{background:var(--brand,#0B7DC2);color:#fff !important;text-decoration:none;font-weight:650;font-size:13.5px;border-radius:9px;padding:9px 16px;white-space:nowrap}
+.owos-ad-cta:hover{filter:brightness(.94)}
+.owos-partners{max-width:var(--wrap,1180px);margin:0 auto;padding:26px 24px;text-align:center}
+.owos-partners-h{display:block;font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3,#8595AB);margin-bottom:14px}
+.owos-partners-row{display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap}
+.owos-partners-row img{height:38px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .2s,opacity .2s}
+.owos-partners-row a:hover img{filter:grayscale(0);opacity:1}
+.owos-partner-name{font-size:15px;font-weight:700;color:var(--ink-2,#44546A)}
+.owos-partners-row a{text-decoration:none}

@@ -1,0 +1,749 @@
+<title>One Water OS — Project Playbook</title>
+<style>
+  :root{
+    --bg:#F7F9FB; --surface:#FFFFFF; --surface-2:#EFF3F7; --surface-3:#E5EBF1;
+    --ink:#0F1728; --ink-2:#44546A; --ink-3:#8595AB;
+    --line:#E4E9F0; --line-2:#CDD6E1;
+    --brand:#0A78BA; --brand-700:#08669F; --brand-800:#07547F; --brand-50:#EAF5FC; --brand-100:#D3EAF8;
+    --gold:#A97B0F; --gold-500:#C9961B; --gold-50:#FBF5E4;
+    --green:#0E8A64; --green-50:#E7F6F0; --red:#D64545; --red-50:#FCEDED;
+    --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --fm:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+    --r:12px; --r-lg:18px;
+    --sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);
+    --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
+    --wrap:920px;
+    /* locate palette (APWA) */
+    --loc-elec:#E0402A;--loc-gas:#D9A400;--loc-comm:#EA7A17;--loc-water:#0A78BA;
+    --loc-sewer:#0E8A64;--loc-survey:#E05CA0;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0A1420; --surface:#0F1E2C; --surface-2:#14273899; --surface-3:#16293A;
+      --ink:#F2F7FB; --ink-2:#C3D3E0; --ink-3:#8299AE;
+      --line:#213445; --line-2:#2C4256;
+      --brand:#4FA9E4; --brand-700:#6FBBEC; --brand-800:#9BD3F5; --brand-50:#122b3d; --brand-100:#173245;
+      --gold:#D9A93A; --gold-500:#E6BC53; --gold-50:#26200f;
+      --green:#3FB98C; --green-50:#12281f; --red:#E8695F; --red-50:#2a1615;
+      --loc-water:#4FA9E4;--loc-sewer:#3FB98C;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;
+    --ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;
+    --brand:#0A78BA;--brand-700:#08669F;--brand-800:#07547F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;
+    --gold:#A97B0F;--gold-500:#C9961B;--gold-50:#FBF5E4;--green:#0E8A64;--green-50:#E7F6F0;--red:#D64545;--red-50:#FCEDED;
+    --loc-water:#0A78BA;--loc-sewer:#0E8A64;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0A1420;--surface:#0F1E2C;--surface-2:#14273899;--surface-3:#16293A;
+    --ink:#F2F7FB;--ink-2:#C3D3E0;--ink-3:#8299AE;--line:#213445;--line-2:#2C4256;
+    --brand:#4FA9E4;--brand-700:#6FBBEC;--brand-800:#9BD3F5;--brand-50:#122b3d;--brand-100:#173245;
+    --gold:#D9A93A;--gold-500:#E6BC53;--gold-50:#26200f;--green:#3FB98C;--green-50:#12281f;--red:#E8695F;--red-50:#2a1615;
+    --loc-water:#4FA9E4;--loc-sewer:#3FB98C;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;
+    line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px 120px}
+  p{max-width:70ch}
+  h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
+  a{color:var(--brand);text-underline-offset:3px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--brand-100);outline-offset:3px;border-radius:4px}
+  strong{color:var(--ink)}
+  em{color:var(--ink);font-style:italic}
+  code{font-family:var(--fm);font-size:.86em;background:var(--surface-3);color:var(--ink);padding:1px 6px;border-radius:6px}
+  .kick{font-family:var(--fm);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+
+  /* ---------- top bar ---------- */
+  .nav{position:sticky;top:0;z-index:50;height:60px;background:color-mix(in srgb,var(--surface) 86%,transparent);
+    border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand .tile{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+  .brand .tile svg{width:22px;height:22px}
+  .wm{font-weight:800;font-size:15.5px;letter-spacing:-.015em;color:var(--ink);white-space:nowrap}
+  .wm b{color:var(--brand)}
+  .wm .pw{font-family:var(--fm);font-size:11px;color:var(--ink-3);font-weight:500;display:block;letter-spacing:0}
+  .wm .pw em{color:var(--gold);font-style:normal;font-weight:600}
+  .navcta{display:none;align-items:center;gap:8px;font-size:13px;font-weight:650;background:var(--brand);color:#fff;
+    padding:8px 15px;border-radius:10px;text-decoration:none;box-shadow:var(--sh)}
+  .navcta .dot{width:7px;height:7px;border-radius:50%;background:#8FE3B0}
+  @media(min-width:720px){.navcta{display:inline-flex}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;margin:0 -24px;padding:0;
+    background:linear-gradient(150deg,#0b3f63 0%,#07293f 55%,#0a1a28 100%);color:#fff}
+  .hero-in{max-width:var(--wrap);margin:0 auto;padding:52px 24px 44px;position:relative;z-index:2}
+  .constellation{position:absolute;inset:0;z-index:1;opacity:.55}
+  .hero .kick{color:#9BE3F8;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .hero-row{display:flex;gap:26px;align-items:flex-start;margin-top:16px}
+  .droo-hero{flex:none;width:104px;height:104px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
+  @media(max-width:600px){.droo-hero{width:74px;height:74px}}
+  .hero h1{color:#fff;font-size:clamp(30px,5vw,50px);margin:.1em 0 .35em;max-width:15ch}
+  .hero .lede{color:#DCEAF4;font-size:18.5px;max-width:56ch;margin:0}
+  .tb{display:grid;grid-template-columns:repeat(4,1fr);margin-top:30px;border:1px solid rgba(255,255,255,.16);
+    border-radius:12px;overflow:hidden;font-family:var(--fm);font-size:11.5px;background:rgba(255,255,255,.03)}
+  .tb div{padding:11px 14px;border-right:1px solid rgba(255,255,255,.12)}
+  .tb div:last-child{border-right:none}
+  .tb .k{display:block;text-transform:uppercase;letter-spacing:.12em;color:#8FB6CE;margin-bottom:3px;font-size:10px}
+  .tb .v{color:#EAF3FA;font-size:12.5px}
+  @media(max-width:600px){.tb{grid-template-columns:repeat(2,1fr)}}
+
+  .lead-note{margin:34px 0 6px;font-size:18.5px;line-height:1.62;color:var(--ink-2)}
+  .lead-note strong{color:var(--ink)}
+  .quiet{color:var(--ink-3)}
+
+  /* ---------- index ---------- */
+  .index{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px;margin:30px 0;box-shadow:var(--sh)}
+  .index h2{font-size:20px;margin:0 0 4px}
+  .index .sub{margin:0 0 16px;font-size:14px;color:var(--ink-3)}
+  .index ol{list-style:none;margin:0;padding:0;columns:2;column-gap:32px}
+  @media(max-width:600px){.index ol{columns:1}}
+  .index li{break-inside:avoid;display:flex;gap:12px;padding:5px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+  .index li .n{font-family:var(--fm);color:var(--gold);font-weight:700;min-width:32px}
+  .index li.grp{border-bottom:none;margin-top:12px;font-family:var(--fm);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+  .index li.grp:first-child{margin-top:0}
+  .index a{color:var(--ink);text-decoration:none}
+  .index a:hover{color:var(--brand)}
+
+  /* ---------- part divider ---------- */
+  .part{margin:60px 0 6px;padding:16px 22px;border-radius:14px;color:#fff;
+    background:linear-gradient(120deg,var(--brand-800),var(--brand));display:flex;gap:16px;align-items:baseline;box-shadow:var(--sh)}
+  .part .pno{font-family:var(--fm);font-size:12px;letter-spacing:.2em;opacity:.85}
+  .part .pt{font-weight:800;font-size:19px;color:#fff}
+  .part p{margin:0;color:rgba(255,255,255,.9);font-size:14px;max-width:none}
+  .part-sub{margin:14px 0 0;color:var(--ink-3);font-size:15.5px}
+
+  /* ---------- sheet ---------- */
+  .sheet{margin:44px 0 0;scroll-margin-top:74px}
+  .sheet-head{display:flex;gap:14px;align-items:center;border-bottom:2px solid var(--line-2);padding-bottom:10px;margin-bottom:6px}
+  .sheet-no{font-family:var(--fm);font-weight:700;font-size:13px;background:var(--brand);color:#fff;padding:5px 10px;border-radius:8px;white-space:nowrap}
+  .sheet-no.gold{background:var(--gold);color:#fff}
+  .sheet-title{font-size:24px;margin:0}
+  .lbl{font-family:var(--fm);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:600;margin:22px 0 2px}
+  h4.k{font-size:16px;font-weight:800;color:var(--ink);margin:22px 0 2px}
+
+  /* ---------- prompt ---------- */
+  .prompt{margin:20px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--sh)}
+  .prompt-bar{background:var(--brand);color:#fff;font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:600;padding:9px 15px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .prompt-bar .tag{color:#CFF0FF}
+  .prompt pre{margin:0;padding:16px 18px;background:var(--surface);font-family:var(--fm);font-size:13.5px;line-height:1.62;color:var(--ink);white-space:pre-wrap;overflow-x:auto}
+  .prompt pre .ph{color:var(--gold);font-weight:600}
+  @media (prefers-color-scheme:dark){.prompt pre .ph{color:var(--gold-500)}}
+
+  /* ---------- Droobi tip ---------- */
+  .droo-tip{display:flex;gap:15px;align-items:flex-start;margin:22px 0;padding:16px 18px;
+    background:var(--brand-50);border:1px solid var(--brand-100);border-radius:14px}
+  .droo-tip .av{flex:none;width:46px;height:46px}
+  .droo-tip .lbl{margin:0 0 3px}
+  .droo-tip p{margin:0;max-width:none;font-size:15.5px}
+  .droo-tip.gold{background:var(--gold-50);border-color:color-mix(in srgb,var(--gold) 35%,transparent)}
+  .droo-tip.gold .lbl{color:var(--gold)}
+
+  .eg{margin:20px 0;padding:15px 18px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;box-shadow:var(--sh)}
+  .eg .lbl{margin:0 0 6px;color:var(--gold)}
+  .eg p{margin:0;max-width:none;font-size:15.5px}
+
+  ul.tick{list-style:none;padding:0;margin:14px 0;max-width:70ch}
+  ul.tick li{padding:6px 0 6px 26px;position:relative;border-bottom:1px solid var(--line)}
+  ul.tick li:before{content:"";position:absolute;left:4px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--brand)}
+  ul.tick li:last-child{border-bottom:none}
+
+  /* ---------- legend ---------- */
+  .legend{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}
+  .legend span{font-family:var(--fm);font-size:11px;font-weight:700;color:#fff;padding:5px 10px;border-radius:6px;text-shadow:0 1px 1px rgba(0,0,0,.3)}
+  .legend .prop{color:var(--ink);background:var(--surface)!important;border:1px solid var(--line-2);text-shadow:none}
+
+  /* ---------- tables ---------- */
+  .tbl{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums;background:var(--surface)}
+  th,td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--line);white-space:nowrap}
+  thead th{background:var(--surface-3);font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  tbody tr:last-child td{border-bottom:none}
+  td.num{text-align:right}
+  .pill{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;text-transform:uppercase;white-space:nowrap;border:1px solid transparent}
+  .pill.go{background:var(--green-50);color:var(--green);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
+  .pill.gold{background:var(--gold-50);color:var(--gold);border-color:color-mix(in srgb,var(--gold) 30%,transparent)}
+  .pill.crit{background:var(--red-50);color:var(--red);border-color:color-mix(in srgb,var(--red) 30%,transparent)}
+  .pill.blue{background:var(--brand-50);color:var(--brand-700);border-color:var(--brand-100)}
+
+  .foot{margin-top:66px;padding:26px 0 0;border-top:2px solid var(--line-2);font-family:var(--fm);font-size:12px;color:var(--ink-3);line-height:1.75}
+  .foot .wm{font-size:16px;margin-bottom:6px}
+  @media (prefers-reduced-motion:no-preference){.sheet{animation:fade .5s ease both}}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+</style>
+
+<!-- Droobi symbol (reused everywhere) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="db" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8fd3f6"/><stop offset=".58" stop-color="#3fa8e8"/><stop offset="1" stop-color="#176fae"/></linearGradient>
+  <symbol id="droobi" viewBox="0 0 640 640">
+    <path d="M320 64C289 177 166 272 166 382c0 92 69 164 154 164s154-72 154-164C474 272 351 177 320 64Z" fill="url(#db)" stroke="#0b5f91" stroke-width="8"/>
+    <path d="M225 330q49-35 92 0M323 330q43-35 92 0" fill="none" stroke="#153049" stroke-width="13" stroke-linecap="round"/>
+    <ellipse cx="272" cy="374" rx="47" ry="56" fill="#fff"/><ellipse cx="368" cy="374" rx="47" ry="56" fill="#fff"/>
+    <circle cx="280" cy="380" r="29" fill="#2e6fa8"/><circle cx="360" cy="380" r="29" fill="#2e6fa8"/>
+    <circle cx="284" cy="384" r="15" fill="#10253c"/><circle cx="356" cy="384" r="15" fill="#10253c"/>
+    <circle cx="273" cy="368" r="8" fill="#fff"/><circle cx="345" cy="368" r="8" fill="#fff"/>
+    <path d="M255 455q65 72 130 0-65 32-130 0Z" fill="#10253c"/><ellipse cx="320" cy="480" rx="31" ry="14" fill="#ed8478"/>
+    <circle cx="320" cy="528" r="28" fill="#f2c94c" stroke="#b7891f" stroke-width="5"/><path d="M320 508c-6 13-15 20-15 29a15 15 0 0 0 30 0c0-9-9-16-15-29Z" fill="#10253c"/>
+  </symbol>
+  <symbol id="drop" viewBox="0 0 640 640">
+    <path d="M320 64C289 177 166 272 166 382c0 92 69 164 154 164s154-72 154-164C474 272 351 177 320 64Z" fill="none" stroke="#fff" stroke-width="34"/>
+    <circle cx="320" cy="452" r="40" fill="#f2c94c"/>
+  </symbol>
+</defs></svg>
+
+<div class="nav">
+  <a class="brand" href="#top">
+    <span class="tile"><svg viewBox="0 0 640 640"><use href="#drop"/></svg></span>
+    <span class="wm">One <b>Water</b> OS<span class="pw">by <em>APAS.ai</em></span></span>
+  </a>
+  <a class="navcta" href="#quickref"><span class="dot"></span> Prompts by moment</a>
+</div>
+
+<div id="top" class="hero">
+  <svg class="constellation" viewBox="0 0 920 300" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#4FA9E4" stroke-width="1.5" opacity=".8">
+      <line x1="760" y1="70" x2="670" y2="150"/><line x1="760" y1="70" x2="855" y2="110"/>
+      <line x1="670" y1="150" x2="640" y2="215"/><line x1="760" y1="70" x2="820" y2="180"/>
+    </g>
+    <circle cx="760" cy="70" r="13" fill="#4FA9E4"/><circle cx="670" cy="150" r="6" fill="#8FB6CE"/>
+    <circle cx="855" cy="110" r="6" fill="#8FB6CE"/><circle cx="820" cy="180" r="6" fill="#8FB6CE"/>
+    <circle cx="640" cy="215" r="8" fill="#E6BC53"/>
+  </svg>
+  <div class="hero-in">
+    <div class="kick"><span>Field Playbook</span> · <span>Water · Wastewater · Stormwater</span></div>
+    <div class="hero-row">
+      <svg class="droo-hero" viewBox="0 0 640 640" aria-label="Droobi"><use href="#droobi"/></svg>
+      <div>
+        <h1>Run the project with Droobi</h1>
+        <p class="lede">One operating system for a single job or a whole program — permits, locates, procurement, safety, cost, and closeout. You hand Droobi the goal, the constraints, and the context, and steer from two screens: a private control center and a public site.</p>
+      </div>
+    </div>
+    <div class="tb">
+      <div><span class="k">Discipline</span><span class="v">One Water — W / WW / SW</span></div>
+      <div><span class="k">Delivery</span><span class="v">Construction · Consulting</span></div>
+      <div><span class="k">Scale</span><span class="v">Small → Program</span></div>
+      <div><span class="k">System</span><span class="v">Clearwater v6 · Rev 1.0</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <p class="lead-note">Old project software was a filing cabinet with a login — you did the thinking, it stored the result, slowly, across nineteen tabs. This is the opposite bet: <strong>one agent that reads your whole project folder at once</strong> — the permits, the locate tickets, the submittals, the field notes, last month's cost report — and tells you the thing your schedule is quietly ignoring. Three inputs, in order: <strong>the goal, the constraints, the context.</strong> Everything else feeds one of two screens.</p>
+
+  <p class="quiet">What sinks water work is rarely bad engineering. It's a locate ticket that expired, a valve on a 26-week lead nobody flagged, an environmental permit condition read too late, a parallel project trenching the same corridor next month. <em>Information that existed but never reached the right place at the right time.</em> An agent that holds all of it at once and cross-checks it is aimed straight at that.</p>
+
+  <nav class="index">
+    <h2>Sheet index</h2>
+    <p class="sub">In a moment? Jump to <a href="#quickref">the prompts, by moment</a>.</p>
+    <ol>
+      <li class="grp">Before you start</li>
+      <li><span class="n">SET</span><a href="#setup">Model, effort &amp; the project folder</a></li>
+      <li><span class="n">00</span><a href="#classify">Classify before you publish</a></li>
+      <li class="grp">Part 1 · Set it up</li>
+      <li><span class="n">01</span><a href="#goal">Give it the goal, not the plan</a></li>
+      <li><span class="n">02</span><a href="#constraints">Give it the constraints</a></li>
+      <li><span class="n">03</span><a href="#context">Own your context</a></li>
+      <li class="grp">Part 2 · The hard look</li>
+      <li><span class="n">04</span><a href="#paths">Consider different paths</a></li>
+      <li><span class="n">05</span><a href="#blindspot">The Blind Spot Pass</a></li>
+      <li><span class="n">06</span><a href="#risk">The risk register</a></li>
+      <li><span class="n">07</span><a href="#critpath">Critical path &amp; what controls it</a></li>
+      <li><span class="n">08</span><a href="#safety">Safety &amp; compliance</a></li>
+      <li><span class="n">09</span><a href="#stakeholders">Stakeholders &amp; who approves what</a></li>
+      <li class="grp">Part 3 · Run it</li>
+      <li><span class="n">10</span><a href="#checkpoints">Checkpoints &amp; honest status</a></li>
+      <li><span class="n">11</span><a href="#control">Control center &amp; public site</a></li>
+      <li><span class="n">12</span><a href="#cost">Cost management &amp; reports</a></li>
+      <li><span class="n">13</span><a href="#reports">Reports on demand</a></li>
+      <li><span class="n">14</span><a href="#ritual">The weekly ritual</a></li>
+      <li><span class="n">15</span><a href="#portfolio">Portfolio: consolidate &amp; overlaps</a></li>
+      <li><span class="n">16</span><a href="#models">Droobi &amp; the cheaper models</a></li>
+      <li><span class="n">17</span><a href="#retro">Retro &amp; seed the next job</a></li>
+      <li class="grp">Reference</li>
+      <li><span class="n">QR</span><a href="#quickref">The prompts, by moment</a></li>
+    </ol>
+  </nav>
+
+  <!-- SETUP -->
+  <section class="sheet" id="setup">
+    <div class="sheet-head"><span class="sheet-no">SET</span><h3 class="sheet-title">Before you start: model, effort &amp; the project folder</h3></div>
+    <p class="lbl">Two dials</p>
+    <p><strong>Model.</strong> Pick Claude Fable&nbsp;5 for the thinking that decides outcomes. <strong>Effort.</strong> High is home base for Parts 1 and 2. Extra&nbsp;high and Max mostly cost time and tokens without a better answer. Drop to Medium or Low for routine drafting — Fable runs roughly twice the price of a mid-tier model, so run grunt work cheaper and bring it in for the decisions (Sheet&nbsp;16).</p>
+    <p class="lbl">One house style, reused everywhere</p>
+    <p>Every visual — boards, dashboards, cost reports, Gantt charts — is an HTML file you open in any browser. Pin one style line so the whole set looks like One Water OS, not a pile of screenshots.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · house style</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Style for anything you build: One Water OS "Clearwater" — Inter type, water
+blue (#0A78BA) as the system color, one gold accent (#A97B0F), calm light
+surfaces, tabular numbers for anything financial. Internal dashboards may go
+dark; public pages stay light. No clip art.</pre></div>
+    <div class="droo-tip"><svg class="av" viewBox="0 0 640 640" aria-hidden="true"><use href="#droobi"/></svg>
+      <div><p class="lbl">Droobi's one rule</p><p>Every project is a <strong>folder of plain files</strong> — the brief, notes, <code>Board.md</code>, <code>Budget.csv</code>, <code>Risks.md</code>, <code>Permits.md</code>. The pretty HTML is always regenerated from those files; never the only copy of the truth. Stay model-agnostic on purpose: if any model is down, paste the same files into another and keep moving.</p></div></div>
+  </section>
+
+  <!-- 00 -->
+  <div class="part"><span class="pno">00</span><span class="pt">Classify before you publish</span><p>The one mistake you can't walk back. Everything else is recoverable.</p></div>
+  <section class="sheet" id="classify">
+    <div class="sheet-head"><span class="sheet-no gold">00</span><h3 class="sheet-title">Classify before you publish</h3></div>
+    <p class="lbl">The idea</p>
+    <p>Later sheets publish a public site in seconds by dragging a folder to the web. Before that's safe, every file gets a classification and a hard line decides what may leave the control center. In water this isn't bureaucracy — network schematics, SCADA detail, valve keys, critical-facility locations, and security plans can be <strong>protected critical infrastructure information</strong>, a public-safety matter, not a preference.</p>
+    <div class="droo-tip gold"><svg class="av" viewBox="0 0 640 640" aria-hidden="true"><use href="#droobi"/></svg>
+      <div><p class="lbl">Hard rule</p><p>Infrastructure detail never goes on a public URL. Not system maps, not asset IDs, not security information, not the risk register, not vendor pricing. When in doubt, it's Restricted. The public site gets schedule, plain-language status, and contact info — nothing an adversary or competitor could use.</p></div></div>
+    <div class="legend">
+      <span style="background:var(--green)">PUBLIC</span>
+      <span style="background:var(--brand)">INTERNAL</span>
+      <span style="background:var(--gold)">RESTRICTED</span>
+      <span style="background:var(--red)">CRITICAL / CEII</span>
+    </div>
+    <p><strong>Public</strong> — anyone (schedule, notices). <strong>Internal</strong> — team + client (budgets, submittals). <strong>Restricted</strong> — need-to-know (pricing, risk register, easements). <strong>Critical</strong> — controlled infrastructure data, never in a shared drop.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · classification pass</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Read every file in the <span class="ph">[PROJECT]</span> folder. Tag each Public, Internal,
+Restricted, or Critical/CEII, with a one-line why. Default anything that
+looks like infrastructure, security, or critical-facility detail to
+Restricted-or-higher. Then list exactly which files are cleared for the
+public site. Save as Classification.md — that list is the only thing allowed
+into /public.</pre></div>
+  </section>
+
+  <!-- PART 1 -->
+  <div class="part"><span class="pno">01</span><span class="pt">Set it up</span><p>Goal, then constraints, then context. Get these right and everything downstream sharpens.</p></div>
+
+  <section class="sheet" id="goal">
+    <div class="sheet-head"><span class="sheet-no">01</span><h3 class="sheet-title">Give it the goal, not the plan</h3></div>
+    <p class="lbl">The idea</p>
+    <p>The habit to break: spelling out every step — "first the locates, then the MOT plan, then order pipe." With Fable that detail makes the output <em>worse</em>. You're hiring a senior PM, not programming a form-filler. Give it the goal and let it build the plan; its plan is usually better, because it sees moves you can't — like the fact that a permit condition, not the pipe delivery, threatens your date.</p>
+    <p class="lbl">Why it matters</p>
+    <p>Your step list is the weakest part of your prompt. It locks in your assumptions and hides the insight you're paying for. Ask for the decision and the justification, not the internal monologue.</p>
+    <div class="eg"><p class="lbl">Millpond — the running job</p><p>Throughout: <em>the Millpond 12″ water-main replacement</em> — 1.2 miles along a county road, one creek crossing, live tie-ins to an in-service system, and a gas main being replaced in the same corridor next quarter. Small enough to hold in your head, complex enough to break in every interesting way.</p></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · goal over plan</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>I need to <span class="ph">[goal in one sentence]</span> for <span class="ph">[PROJECT]</span>. Delivery:
+<span class="ph">[in-house / design-bid-build / CMAR / consulting]</span>. My experience with this
+kind of work: <span class="ph">[honest]</span>. Build the plan you'd want if you were accountable
+for the result — permits, locates, procurement, tie-ins included — and tell
+me where my assumptions are wrong.</pre></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · plan on a page</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Now give me that plan as a single-page visual: the goal, the phases, the key
+milestones with dates, and the top three risks. One screen, glanceable, as an
+HTML page I can reopen. <span class="ph">[house style line]</span></pre></div>
+  </section>
+
+  <section class="sheet" id="constraints">
+    <div class="sheet-head"><span class="sheet-no">02</span><h3 class="sheet-title">Give it the constraints</h3></div>
+    <p class="lbl">The idea</p>
+    <p>Constraints aren't limitations you apologize for — they're the fuel that makes the plan good. Each real one removes a class of wrong answers. "Under budget X" kills the plans that lose money. "The county has veto over the MOT plan" kills the plans that ignore your approval chain. "Done means pressure-tested, disinfected, cleared by two passing bac-t samples, and accepted — not backfilled" kills the false comfort that sinks jobs at closeout.</p>
+    <p class="lbl">The water constraint set — say all of these</p>
+    <ul class="tick">
+      <li><strong>Money</strong> — budget, funding source (capital vs O&amp;M, SRF loan, grant, rate-funded), contingency, what a change order must clear.</li>
+      <li><strong>Hard dates</strong> — the fixed one, and what makes it fixed (grant expiry, DOT moratorium, wet-season cutoff, in-service need).</li>
+      <li><strong>Approvals</strong> — who vetoes: the utility, county/DOT, environmental agency, easement owners, the client.</li>
+      <li><strong>Regulatory</strong> — permits required, and the acceptance standard that means the work is truly done.</li>
+      <li><strong>Fixed vs negotiable</strong> — alignment, method, outage windows, working hours.</li>
+    </ul>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · constraints as fuel</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Here's the goal for <span class="ph">[PROJECT]</span>. Constraints: budget <span class="ph">[$ + funding source]</span>,
+hard date <span class="ph">[date + why fixed]</span>, approvals <span class="ph">[who vetoes what]</span>, permits
+<span class="ph">[known set]</span>, fixed vs negotiable <span class="ph">[list]</span>. "Done" means <span class="ph">[acceptance
+standard — tested, accepted, as-builts filed]</span>. Rebuild the plan against
+these and tell me which single constraint is most likely to break the job.</pre></div>
+    <p class="lbl">The schedule you can steer from</p>
+    <p>Constraints plus a hard date make this the moment for a Gantt — and the Gantt makes dependency thinking <em>visible</em> instead of asserted. On Millpond, this is where you see the environmental permit for the creek crossing and the 26-week valve lead both sit on the critical path, and vendor selection does not.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · steerable Gantt</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Turn the plan into a Gantt I can steer from, as an HTML page I can reopen and
+update. Work backward from <span class="ph">[hard date]</span>. Show what depends on what, put
+permit and procurement lead times on the bars as real durations, and
+highlight the critical path so I can see what threatens the date. <span class="ph">[house style]</span></pre></div>
+  </section>
+
+  <section class="sheet" id="context">
+    <div class="sheet-head"><span class="sheet-no">03</span><h3 class="sheet-title">Own your context</h3></div>
+    <p class="lbl">The idea</p>
+    <p>The one that matters most. Goal and constraints tell Droobi what you want; context tells it everything else — the history, the site conditions, the constraint so obvious you forgot to say it. The biggest unknowns live in someone's head, unstated, because nobody realized they were load-bearing. Don't write it all yourself — let Droobi interview you.</p>
+    <p class="lbl">Why it matters</p>
+    <p>Always-on reasoning makes for a good interviewer — each question builds on your last answer instead of marching through a checklist. Keep the output in one place: a <strong>project brief</strong> (<code>Millpond Brief.md</code>) in the folder Claude reads every session.</p>
+    <div class="eg"><p class="lbl">What a good interview drags out on Millpond</p><p>Around question ten it asks who controls the corridor during construction, and you realize the county thinks it does and FDOT thinks the state-road segment is theirs — which changes your MOT plan and permit path. You'd never have written that down. Now it's in the brief.</p></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · the interview</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Before you plan anything for <span class="ph">[PROJECT]</span>, interview me. One question at a
+time, each building on my last answer. Dig into: constraints I haven't
+stated, site and subsurface conditions, existing utilities and conflicts,
+what's been tried before and why it did or didn't work, every stakeholder
+and what they actually care about, and the risks that worry me. When you
+understand it better than my opening description, save it as <span class="ph">[PROJECT]</span> Brief.md.</pre></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · the board</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>With the brief saved, build a live kanban board as a local HTML file (data in
+Board.md, HTML regenerated from it): columns for the phases, first cards from
+what you learned, and any unresolved question flagged as an open decision. <span class="ph">[house style]</span></pre></div>
+  </section>
+
+  <!-- PART 2 -->
+  <div class="part"><span class="pno">02</span><span class="pt">The hard look</span><p>The plan exists. Before money moves, make it survive contact — with real alternatives, then with everything your own files already know.</p></div>
+
+  <section class="sheet" id="paths">
+    <div class="sheet-head"><span class="sheet-no">04</span><h3 class="sheet-title">Consider different paths</h3></div>
+    <p class="lbl">The idea</p>
+    <p>For most decisions, the plan plus a good Blind Spot Pass is enough. For the few that are big, expensive, and hard to reverse — method, delivery model, alignment — make Droobi think in options before it commits. On Millpond the real fork is the creek crossing: <em>open-cut with a temporary bypass</em> vs <em>horizontal directional bore.</em> One is cheaper and slower to permit; the other is dearer and clears the environmental path in half the time.</p>
+    <p class="lbl">Why it matters</p>
+    <p>Most projects commit to the first workable approach and never see the one twice as good for half the effort. But exploring five options on every small choice is its own trap. Match the depth to the cost of being wrong.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · light (default)</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>For <span class="ph">[decision]</span> on <span class="ph">[PROJECT]</span>, weigh a few genuinely different
+approaches, then recommend one. Show your pick, the runner-up, and why you
+passed on it.</pre></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · heavy (big, irreversible calls only)</span><span class="tag">ask Droobi ▸</span></div>
+      <pre><span class="ph">[Decision]</span> is the call everything else hangs on. Give me five genuinely
+different paths, not variations on one idea. For each: how it works, a real
+example on a job like this, an honest cost and schedule estimate, permit and
+safety implications, fit with my constraints, and the main watch-out. Do not
+rank them yet.</pre></div>
+    <p class="quiet">Asked to rank immediately, models collapse toward the safe middle. Asked to lay each out on its own terms first, they surface options you'd never have generated. Then put them side by side — cost, schedule, permit risk, safety, constraint fit — and the trade-offs show themselves.</p>
+  </section>
+
+  <section class="sheet" id="blindspot">
+    <div class="sheet-head"><span class="sheet-no gold">05</span><h3 class="sheet-title">The Blind Spot Pass</h3></div>
+    <p class="lbl">The most important sheet here</p>
+    <p>Once you have a draft plan, before you spend money or commit dates, run a deliberately adversarial read of the whole thing. Not a review for encouragement — a list of what the plan has to survive, structured around four quadrants, because naming them forces Droobi into the corners it would otherwise skip:</p>
+    <ul class="tick">
+      <li><strong>Known knowns</strong> — what you believe that actually checks out.</li>
+      <li><strong>Known unknowns</strong> — open questions you've spotted, unanswered too long.</li>
+      <li><strong>Unknown knowns</strong> — things your own files already show the plan isn't acting on. <em>Reliably the most valuable quadrant.</em></li>
+      <li><strong>Unknown unknowns</strong> — risks you show no sign of having considered.</li>
+    </ul>
+    <p>This works because Droobi holds your entire project folder at once and cross-references it — the brief, the budget, last year's post-job notes, the utility correspondence. That capability is why the pass catches expensive mistakes instead of producing a reflection exercise. The premortem is the single most reliable insight move in PM; this is the premortem with a model that can actually read everything.</p>
+    <div class="eg"><p class="lbl">What the pass catches on Millpond</p><p>Under <em>Unknown knowns</em> it flags that the geotech in your folder notes rock at the creek bank, and your open-cut estimate assumed soil — a number you already had, that the plan was ignoring. It lands on the board as a risk with an owner, and you re-price the crossing before the bid, not after.</p></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · the Blind Spot Pass</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Here's the full plan for <span class="ph">[PROJECT]</span> and all relevant material: <span class="ph">[attach
+brief, budget, geotech, permits, utility correspondence, prior job notes]</span>.
+Do a blind spot pass, organized as Known Knowns, Known Unknowns, Unknown
+Knowns (things my own materials show the plan isn't acting on), and Unknown
+Unknowns. Be adversarial — this is the list of things the plan has to
+survive, not a review for encouragement. Render it as a four-quadrant map on
+one screen, and add serious risks to the board with an owner and a next
+action. <span class="ph">[house style]</span></pre></div>
+    <p class="quiet">Run this on High. It's exactly the high-stakes read that setting is built for. The quadrant map matters more than it looks: findings <em>placed</em> in the four quadrants teach the framework a list never does — and the empty quadrant is its own message.</p>
+  </section>
+
+  <section class="sheet" id="risk">
+    <div class="sheet-head"><span class="sheet-no">06</span><h3 class="sheet-title">The risk register</h3></div>
+    <p class="lbl">The idea</p>
+    <p>The Blind Spot Pass <em>finds</em> risks. The register <em>tracks</em> them — over the months where a risk quietly moves from "watching" to "it happened." Each gets a probability, an impact, an owner, an observable trigger, and two distinct responses: <strong>mitigation</strong> (lower the odds now) and <strong>contingency</strong> (what you do if it fires anyway). A risk without an owner and a trigger is a worry, not a managed risk.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Risk</th><th>P</th><th>Impact</th><th>Score</th><th>Owner</th><th>Response</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Creek-crossing permit slips</td><td>Med</td><td>High</td><td class="num">12</td><td>PM</td><td>Bore alt holds critical path; file early</td><td><span class="pill crit">Critical</span></td></tr>
+        <tr><td>26-wk valve lead / supply delay</td><td>Med</td><td>High</td><td class="num">12</td><td>Procurement</td><td>Release long-leads at NTP; alt supplier</td><td><span class="pill crit">Critical</span></td></tr>
+        <tr><td>Wet-season / DOT moratorium clash</td><td>Med</td><td>High</td><td class="num">12</td><td>PM</td><td>Sequence road work before cutoff</td><td><span class="pill crit">Critical</span></td></tr>
+        <tr><td>Unmarked / mislocated utility struck</td><td>Low</td><td>High</td><td class="num">9</td><td>Super</td><td>Soft-dig verify; refresh 811 tickets</td><td><span class="pill gold">Watch</span></td></tr>
+        <tr><td>Rock at creek bank (geotech)</td><td>Med</td><td>Med</td><td class="num">8</td><td>Engineer</td><td>Re-price crossing pre-bid</td><td><span class="pill gold">Watch</span></td></tr>
+        <tr><td>Bac-t clearance fails / retest</td><td>Low</td><td>Med</td><td class="num">6</td><td>Inspector</td><td>Buffer 2 wk before in-service date</td><td><span class="pill blue">Open</span></td></tr>
+      </tbody></table></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · build the register</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Build a risk register for <span class="ph">[PROJECT]</span> from the brief, plan, and blind spot
+pass, saved as Risks.md with an HTML view regenerated from it. For each:
+probability, impact, a numeric score, an owner, an observable trigger, a
+mitigation, and a contingency. Seed the standard water-construction risks —
+permits, locates, procurement lead, subsurface surprises, tie-in/outage,
+testing failures, weather/moratorium, easements, traffic — then add the ones
+specific to this job. Sort by score. <span class="ph">[house style]</span></pre></div>
+    <div class="droo-tip"><svg class="av" viewBox="0 0 640 640" aria-hidden="true"><use href="#droobi"/></svg>
+      <div><p class="lbl">Keep it alive</p><p>The register is worthless as a document nobody reopens. Re-score it in the weekly ritual (Sheet 14): what changed, what fired, what's newly retired. A closed risk with a date is a lesson for the next job (Sheet 17).</p></div></div>
+  </section>
+
+  <section class="sheet" id="critpath">
+    <div class="sheet-head"><span class="sheet-no gold">07</span><h3 class="sheet-title">The critical path &amp; what actually controls it</h3></div>
+    <p class="lbl">The idea</p>
+    <p>On a water job the critical path is almost never the construction. It's the <em>gates in front of it</em>: the permit that takes eight weeks to condition, the locate ticket with a legal clock, the fitting on a half-year lead, the crew that needs the corridor first. Droobi builds the schedule <strong>backward from the hard date</strong> and puts these controlling items on the bars as real durations — so the plan competes with reality, not a wish.</p>
+    <h4 class="k">1 · Permits &amp; agency approvals</h4>
+    <p>County / municipal ROW, FDOT utility and road-crossing / MOT approvals, environmental (creek crossing, dewatering), and the utility's regulatory acceptance. Each has a lead time <em>and</em> conditions that can reshape the work. Tracked in <code>Permits.md</code>.</p>
+    <h4 class="k">2 · Locates — Sunshine 811 and the legal clock</h4>
+    <p>In Florida every dig starts with a Sunshine&nbsp;811 ticket: two full business days' notice, a positive-response check that every operator has actually marked, and a ticket life that <em>expires</em> and must be refreshed. "We called it in" is not a locate; a positive response with marks in the ground is. Miss the refresh and the crew stands down. This belongs on the schedule as a recurring, expiring item. The uniform marking code, so field and plan speak one language:</p>
+    <div class="legend">
+      <span style="background:var(--loc-elec)">RED · ELECTRIC</span>
+      <span style="background:var(--loc-gas)">YELLOW · GAS/OIL</span>
+      <span style="background:var(--loc-comm)">ORANGE · COMM</span>
+      <span style="background:var(--loc-water)">BLUE · WATER</span>
+      <span style="background:var(--loc-sewer)">GREEN · SEWER</span>
+      <span style="background:var(--loc-survey)">PINK · SURVEY</span>
+      <span class="prop">WHITE · PROPOSED DIG</span>
+    </div>
+    <h4 class="k">3 · Procurement &amp; long-lead items</h4>
+    <p>Large valves, ductile-iron pipe and fittings, restraint, castings, electrical gear — leads run from weeks to well over half a year. Release long-leads at notice-to-proceed, not when the crew reaches them. Droobi flags every item whose lead is longer than the time until it's needed, and gives the last responsible order date.</p>
+    <h4 class="k">4 · Coordination with other projects</h4>
+    <p>The corridor is shared. The parallel gas replacement, a paving overlay, a franchise-utility relocation — any can lock your alignment or hand you a joint-trench opportunity that halves restoration cost. Exactly what an agent reading across project folders is for (Sheet 15).</p>
+    <h4 class="k">5 · Weather, outage &amp; moratorium windows</h4>
+    <p>Wet-season limits, DOT paving moratoria, planned outage windows for tie-ins, permitted work hours — hard gates the schedule is sequenced around, not through.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · critical path from the constraints</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Build the schedule for <span class="ph">[PROJECT]</span> backward from <span class="ph">[hard date]</span> as a Gantt I
+can steer from. Put the controlling items on the critical path with real
+durations: every permit (lead + conditions), locate tickets as recurring
+expiring items with their legal notice period, every long-lead item with its
+last-responsible order date, tie-in/outage windows, and any weather or DOT
+moratorium. Then tell me what's truly critical, what has float, and the three
+dates that, if they slip, slip the whole job. Keep data in Schedule.md. <span class="ph">[house style]</span></pre></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · permit &amp; locate tracker</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Build a permit &amp; locate tracker for <span class="ph">[PROJECT]</span> as an HTML page from
+Permits.md: each permit's agency, status, submitted/expected/expiry dates,
+key conditions, and who's chasing it; and each locate ticket's number,
+call-in date, positive-response status, and expiry — with anything expiring
+inside 10 days flagged. This is the page I check before every dig. <span class="ph">[house style]</span></pre></div>
+  </section>
+
+  <section class="sheet" id="safety">
+    <div class="sheet-head"><span class="sheet-no">08</span><h3 class="sheet-title">Safety &amp; compliance</h3></div>
+    <p class="lbl">The idea</p>
+    <p>Safety isn't bolted on at the end — it's a schedule and cost driver, and on water work it can stop the job cold. Trench protection over five feet, a competent person on site, confined-space entry for vaults and wet wells, traffic control that matches the approved MOT, dewatering per permit. Droobi builds a compliance checklist tied to the phases, so the requirement shows up <em>before</em> the crew hits the condition, not in the incident report after.</p>
+    <ul class="tick">
+      <li><strong>Trench &amp; excavation</strong> — protective system over 5 ft, competent-person inspections, spoil setback; Florida Trench Safety Act line item where required.</li>
+      <li><strong>Confined space</strong> — entry permits, atmospheric testing, attendant, rescue plan for vaults, wet wells, manholes.</li>
+      <li><strong>Traffic / MOT</strong> — approved plan matching the permit, in place before lane work.</li>
+      <li><strong>Environmental</strong> — erosion &amp; sediment control, dewatering discharge, creek-crossing conditions, spill response.</li>
+      <li><strong>Acceptance / regulatory</strong> — pressure test, disinfection, two consecutive passing bac-t samples, as-builts, and the sign-off that means <em>done</em>.</li>
+    </ul>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · safety &amp; compliance checklist</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Build a safety &amp; compliance checklist for <span class="ph">[PROJECT]</span>, tied to the phases,
+saved as Compliance.md with an HTML view. Cover excavation/trench
+protection, confined space, traffic/MOT, environmental controls, and the
+acceptance standard (testing, disinfection, clearance, as-builts). For each:
+which phase triggers it, who's responsible, the evidence that proves it was
+done, and the regulatory reference. Flag anything that must be in place
+before a phase can start. <span class="ph">[house style]</span></pre></div>
+  </section>
+
+  <section class="sheet" id="stakeholders">
+    <div class="sheet-head"><span class="sheet-no">09</span><h3 class="sheet-title">Stakeholders &amp; who approves what</h3></div>
+    <p class="lbl">The idea</p>
+    <p>Water work has more veto-holders than most projects — the utility, the county, DOT, an environmental agency, easement and property owners, franchise utilities in the corridor, the client, and the public. A one-line "public vs internal" split doesn't capture decision rights. A simple RACI does: for each decision, who is <strong>R</strong>esponsible, <strong>A</strong>ccountable, <strong>C</strong>onsulted, <strong>I</strong>nformed. Get the "A" wrong on the MOT plan or the vendor list and you find out at the worst moment.</p>
+    <div class="droo-tip"><svg class="av" viewBox="0 0 640 640" aria-hidden="true"><use href="#droobi"/></svg>
+      <div><p class="lbl">Role lenses</p><p>Target every report to the reader. One Water OS reads five lenses — <strong>utility manager</strong> (decision risk, ownership), <strong>operator</strong> (practical, field), <strong>researcher</strong> (evidence gaps), <strong>consultant</strong> (patterns, scopes), <strong>data leader</strong> (governance, readiness). Name the lens and the report writes itself in their language.</p></div></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · stakeholder map &amp; RACI</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Build a stakeholder map and RACI for <span class="ph">[PROJECT]</span> from the brief. List every
+party — utility, county, DOT, environmental agency, easement owners,
+franchise utilities, client, public — what each cares about, and their veto
+power. Then a RACI table for the key decisions and deliverables (permits,
+MOT plan, alignment, vendor list, tie-in timing, acceptance). Flag any
+decision where accountability is unclear or contested. Save as Stakeholders.md. <span class="ph">[house style]</span></pre></div>
+  </section>
+
+  <!-- PART 3 -->
+  <div class="part"><span class="pno">03</span><span class="pt">Run it</span><p>Planning takes weeks; running takes months. This is the operating rhythm — honest checkpoints, two screens, the reports, and the weekly session that keeps them true.</p></div>
+
+  <section class="sheet" id="checkpoints">
+    <div class="sheet-head"><span class="sheet-no">10</span><h3 class="sheet-title">Phases, checkpoints &amp; honest status</h3></div>
+    <p class="lbl">The idea</p>
+    <p>Break the job into phases with a hard checkpoint at each boundary — not because Droobi can't handle the whole thing, but because <em>you</em> need forced moments where reality gets compared to plan before more money moves. At each checkpoint define three things: what must be true to proceed, what evidence proves it (a signed permit, a passing test, a real quantity — not a feeling), and the fallback.</p>
+    <div class="droo-tip gold"><svg class="av" viewBox="0 0 640 640" aria-hidden="true"><use href="#droobi"/></svg>
+      <div><p class="lbl">The grounding rule — steal this if nothing else</p><p>Every progress claim must point to a specific artifact: a positive response, a signed permit, a passing bac-t result, a number from the pay estimate. If a claim has no artifact behind it, it goes in a separate "believed but unverified" list. Never blend the two. This nearly eliminates fabricated status — and it works on your human crew's updates just as well.</p></div></div>
+    <p><em>"On track" is the most dangerous phrase in project management,</em> because most of the time nobody has checked. A checkpoint with required evidence turns a feeling into a fact.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · phase gates &amp; grounding</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Structure <span class="ph">[PROJECT]</span> as phases with a hard checkpoint at each boundary.
+For each: what must be true to proceed, what evidence proves it (a document,
+a test result, a positive response, a number — not a feeling), and the
+fallback. Separately, for all future status: every progress claim must cite
+a specific artifact, and anything without one goes in a "believed but
+unverified" list. Never blend the two. Reflect the phases as columns on the board.</pre></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · status dashboard</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Build the status dashboard for the control center as an HTML page: each
+workstream green, amber, or red, every green citing its artifact, and
+everything unverified in its own clearly separate section. This is the page
+I check every Monday. <span class="ph">[house style]</span></pre></div>
+  </section>
+
+  <section class="sheet" id="control">
+    <div class="sheet-head"><span class="sheet-no">11</span><h3 class="sheet-title">The control center &amp; the public site</h3></div>
+    <p class="lbl">Two screens, one clean line between them</p>
+    <p><strong>The control center is private.</strong> The board, status dashboard, schedule, cost tracker, risk register, permit tracker — local HTML files in the project folder, for your team only. Data lives in plain files; HTML is regenerated from them.</p>
+    <p><strong>The public site is for everyone else</strong> — a small <code>/public</code> folder with the schedule, milestone status in plain language, a contact page, community notices. What never goes there is set by Sheet 00: no budget, no negotiations, no risk register, no infrastructure detail.</p>
+    <p class="lbl">From board to real software</p>
+    <p>The board starts as a static HTML file. It becomes real software when you connect it to the folder: most browsers can read the markdown files in a folder as a simple database, so Droobi builds a working control center with no server and no stack. Routine updates then happen by moving a card, not by burning a prompt.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · the control center</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Turn this into a control center for <span class="ph">[PROJECT]</span>, real software. It opens in
+the browser, connects to the project folder once, and shows a clear
+connected / not-connected indicator plus a "last saved" confirmation on
+every write. Build in: a working kanban (drag cards, add cards, check items
+off, saved straight to Board.md), a quick-capture box that appends whatever
+I type to Inbox.md with a timestamp, and a sidebar listing every file so I
+can open the brief, budget, or trackers without leaving the page. One strict
+rule: the portal may only write to Board.md and Inbox.md. Every other file is
+read-only; changes to them happen through you in conversation, so the
+reasoning gets recorded.</pre></div>
+    <p class="quiet">That last rule is the point. The portal touches only <code>Board.md</code> and <code>Inbox.md</code>; everything else changes through conversation, so the <em>reasoning</em> behind each change gets recorded — which, in a regulated environment, is your decision audit trail.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · the public site</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Build a /public folder as a small static site for <span class="ph">[PROJECT]</span>, using ONLY
+the files cleared in Classification.md: schedule, milestone status in plain
+language, a contact/notice page, community FAQ. Nothing internal — no budget,
+no risk register, no infrastructure detail. Confirm every file you include is
+on the cleared list, and flag anything borderline. Bright, clear, public
+energy; this page keeps the community informed.</pre></div>
+    <p class="quiet">Publish it as a static site, re-publish after each weekly ritual, and point one permanent URL at the current address so stakeholders memorize one door and you swap what's behind it. Rehearse that update loop once before you depend on it.</p>
+  </section>
+
+  <section class="sheet" id="cost">
+    <div class="sheet-head"><span class="sheet-no gold">12</span><h3 class="sheet-title">Cost management &amp; cost reports</h3></div>
+    <p class="lbl">The idea</p>
+    <p>Water work is capital-heavy and often SRF- or grant-funded, so the cost report isn't just for you — it's for the client, the funder, sometimes the record. The tracker holds four numbers per line: <strong>estimated, committed</strong> (POs/contracts issued), <strong>actual</strong> (invoiced/paid), and <strong>forecast at completion</strong>. It carries a named contingency, splits capital from O&amp;M, and logs every change order with its reason and approval. A burn line shows the moment you drift.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Cost item</th><th>Estimated</th><th>Committed</th><th>Actual</th><th>Forecast</th><th>Var</th><th>Fund</th></tr></thead>
+      <tbody>
+        <tr><td>Pipe, valves &amp; fittings</td><td class="num">412,000</td><td class="num">418,600</td><td class="num">201,300</td><td class="num">418,600</td><td class="num">−6,600</td><td>CAP</td></tr>
+        <tr><td>Earthwork &amp; installation</td><td class="num">540,000</td><td class="num">540,000</td><td class="num">288,000</td><td class="num">552,000</td><td class="num">−12,000</td><td>CAP</td></tr>
+        <tr><td>Creek crossing (bore)</td><td class="num">180,000</td><td class="num">195,000</td><td class="num">0</td><td class="num">195,000</td><td class="num">−15,000</td><td>CAP</td></tr>
+        <tr><td>Permits &amp; testing</td><td class="num">36,000</td><td class="num">31,200</td><td class="num">22,400</td><td class="num">33,000</td><td class="num">+3,000</td><td>CAP</td></tr>
+        <tr><td>MOT &amp; restoration</td><td class="num">95,000</td><td class="num">88,000</td><td class="num">41,000</td><td class="num">92,000</td><td class="num">+3,000</td><td>CAP</td></tr>
+        <tr><td>Contingency (held)</td><td class="num">120,000</td><td class="num">—</td><td class="num">—</td><td class="num">89,600</td><td class="num">+30,400</td><td>CAP</td></tr>
+        <tr><td><strong>Total</strong></td><td class="num"><strong>1,383,000</strong></td><td class="num"><strong>1,272,800</strong></td><td class="num"><strong>552,700</strong></td><td class="num"><strong>1,380,200</strong></td><td class="num"><strong>+2,800</strong></td><td>—</td></tr>
+      </tbody></table></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · the cost tracker</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Build the cost tracker for the control center as an HTML page, regenerated
+from Budget.csv: estimated, committed, actual, and forecast-at-completion per
+line, against the <span class="ph">[$ budget]</span> target, with contingency held separately,
+capital vs O&amp;M split, and a burn line so I see the moment we drift. Every
+change order is its own row with a reason and approval reference. Control
+center only — never public. <span class="ph">[house style]</span></pre></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · cost report on demand</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Generate a cost report for <span class="ph">[PROJECT]</span> as of <span class="ph">[date]</span> from Budget.csv and the
+change-order log: budget vs committed vs actual vs forecast, contingency
+drawn and remaining, variance by line with a one-line reason for anything
+over 5%, change orders this period, and a plain-language paragraph on whether
+we finish on budget and what would change that. Format for <span class="ph">[client / funder /
+internal]</span>. Cite the artifact behind each actual.</pre></div>
+  </section>
+
+  <section class="sheet" id="reports">
+    <div class="sheet-head"><span class="sheet-no">13</span><h3 class="sheet-title">Reports on demand</h3></div>
+    <p class="lbl">The idea</p>
+    <p>Because the truth lives in plain files and every claim ties to an artifact, any report is a read away — no re-keying, no stitching spreadsheets the night before the meeting. You keep the files current; Droobi assembles the audience-specific view. The same source produces a two-line exec update and a twelve-page funder package without either drifting from the other.</p>
+    <ul class="tick">
+      <li><strong>Weekly status report</strong> — RAG by workstream, milestones hit/slipped, look-ahead, each claim with evidence.</li>
+      <li><strong>Executive one-pager</strong> — done / at-risk / need-from-you, in the reader's language.</li>
+      <li><strong>Cost report</strong> — Sheet 12, for client or funder.</li>
+      <li><strong>Safety report</strong> — inspections, findings, corrective actions, any incident.</li>
+      <li><strong>Permit &amp; locate status</strong> — approved, pending, expiring.</li>
+      <li><strong>Stakeholder / community update</strong> — public-cleared, plain language.</li>
+    </ul>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · any report, one pattern</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Generate a <span class="ph">[status / executive / safety / permit / stakeholder]</span> report for
+<span class="ph">[PROJECT]</span> as of <span class="ph">[date]</span>, reading the whole folder. Ground every claim in a
+specific artifact; put anything unverified in a separate section. Write it
+for <span class="ph">[audience / role lens]</span> in their language, not mine. Keep it to <span class="ph">[length]</span>,
+and end with the decisions or actions I need from the reader.</pre></div>
+    <div class="droo-tip"><svg class="av" viewBox="0 0 640 640" aria-hidden="true"><use href="#droobi"/></svg>
+      <div><p class="lbl">Don't just track the work — make Droobi do it</p><p>The trap with a control center this good is treating Droobi as the thing that keeps track while <em>you</em> do all the doing. It's agentic: given access, it can draft permit cover letters, assemble the submittal log, chase the RFI list, prep the pay estimate — not just note they exist. Every time the board grows, ask what of it Droobi can own, and what it needs from you to do the rest.</p></div></div>
+  </section>
+
+  <section class="sheet" id="ritual">
+    <div class="sheet-head"><span class="sheet-no">14</span><h3 class="sheet-title">The weekly ritual</h3></div>
+    <p class="lbl">The idea</p>
+    <p>A job that runs six months can't live in one conversation — sessions end and context gets summarized. The fix is a rhythm, not a memory trick. Between sessions you jot what happened into the notes file, in plain language, dated. Once a week (or every few days when things heat up) you run one working session that reads everything, reconciles it, and regenerates every screen. Two standing habits: keep the brief current, and <strong>convert relative dates to absolute ones</strong> — "next Friday" is poison in a file reread three weeks later.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · the weekly run</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Weekly update for <span class="ph">[PROJECT]</span>. Read the brief, the notes, and everything
+that changed in the folder this week. First, tell me the current state as you
+understand it and anything that looks stale or contradictory. Then: re-score
+the risk register, update the schedule and flag any critical-path slip,
+refresh permit and locate status, update the board and cost tracker, tell me
+what's newly at risk with the artifact behind each claim, recommend what to
+communicate this week and to whom, and regenerate the control-center pages and
+the /public site.</pre></div>
+    <div class="eg"><p class="lbl">What one weekly run catches</p><p>Your board has the crew doing tie-ins next week, but the facts — a locate ticket expiring in nine days and a valve that hasn't shipped — say it can't happen. And the "12 lots capped" decision from May quietly became 13 in a June field note. The readback surfaces both before they compound.</p></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · end-of-session notes</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Before we wrap: update <span class="ph">[PROJECT]</span> Notes.md with today's decisions and why,
+anything tried and rejected and the reason, open questions with an owner, and
+what future-us needs to know that the plan doesn't make obvious. Use absolute
+dates. Write it so a session with no memory of today could pick up cleanly.</pre></div>
+  </section>
+
+  <section class="sheet" id="portfolio">
+    <div class="sheet-head"><span class="sheet-no gold">15</span><h3 class="sheet-title">Portfolio: consolidate &amp; find overlaps</h3></div>
+    <p class="lbl">The idea</p>
+    <p>You don't run one job; you run a program of them — and the value one agent unlocks is reading <em>across</em> all their folders at once. Point Droobi at the whole set and it finds what no per-project view can: the same crew committed to two sites the same week, two permits chasing the same agency, two trenches down the same corridor a month apart, three jobs waiting on the same long-lead casting. Some are conflicts to resolve; some are opportunities — a joint trench, a shared mobilization, a combined order that clears a price break.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Overlap found</th><th>Projects</th><th>Window</th><th>Type</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Same corridor, Oak St</td><td>Millpond · Gas Ph2</td><td>Q3</td><td><span class="pill go">Opportunity</span></td><td>Joint trench — split restoration</td></tr>
+        <tr><td>Crew 4 double-booked</td><td>Millpond · Lift Sta 7</td><td>Wk 32</td><td><span class="pill crit">Conflict</span></td><td>Re-sequence; Millpond has float</td></tr>
+        <tr><td>Same 26-wk valve supplier</td><td>Millpond · Riverbend</td><td>NTP</td><td><span class="pill gold">Leverage</span></td><td>Combine PO — volume price</td></tr>
+        <tr><td>Both need FDOT permit</td><td>Millpond · Hwy 40 bore</td><td>Now</td><td><span class="pill gold">Efficiency</span></td><td>File together; one reviewer</td></tr>
+      </tbody></table></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · portfolio roll-up</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Read every project folder under <span class="ph">[portfolio path]</span>. Build a portfolio
+dashboard as an HTML page: each project's phase, RAG status, next milestone,
+budget vs forecast, and top risk, on one screen sorted by attention needed.
+Ground each status in that project's artifacts. Control center only. <span class="ph">[house style]</span></pre></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · find the overlaps</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Across all projects in <span class="ph">[portfolio path]</span>, find the overlaps I can't see
+from any single one: crews or equipment committed to two places at once,
+permits chasing the same agency, shared corridors within <span class="ph">[distance]</span> and
+<span class="ph">[time window]</span>, and common long-lead materials. Split them into conflicts to
+resolve and opportunities to capture (joint trench, shared mobilization,
+combined orders). For each, name the projects, the window, and the specific action.</pre></div>
+  </section>
+
+  <section class="sheet" id="models">
+    <div class="sheet-head"><span class="sheet-no">16</span><h3 class="sheet-title">Droobi &amp; the cheaper models</h3></div>
+    <p class="lbl">The idea</p>
+    <p>Fable is powerful and not cheap — roughly twice the price of a mid-tier model per unit of work. The skill is knowing when it earns the premium: <strong>Fable's advantage grows with task complexity.</strong> A quick test — if you could hand the task to a capable assistant with one sentence and not check their work, it's not a Fable task. If being wrong costs real money or weeks, it is.</p>
+    <p>Across a six-month job, most days run on a cheaper model — drafting the notice-to-residents, formatting the agenda, summarizing a progress meeting — and you bring Fable in for the moments that decide the outcome: the master schedule, the method decision, the Blind Spot Pass, a go/no-go call, the portfolio overlap read. Because your brief and notes are plain text on purpose, if any model is unavailable you paste the same files into another and keep moving.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · which model, honestly</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Here's a task for <span class="ph">[PROJECT]</span>: <span class="ph">[describe it]</span>. Before you do it, tell me
+honestly whether this needs a top-tier model like Fable or whether a cheaper,
+faster one would do it just as well. Base it on how much real ambiguity and
+judgment the task involves, not on making it fancy.</pre></div>
+  </section>
+
+  <section class="sheet" id="retro">
+    <div class="sheet-head"><span class="sheet-no">17</span><h3 class="sheet-title">Retrospective &amp; seed the next job</h3></div>
+    <p class="lbl">The idea</p>
+    <p>The job closes out, and right then you're holding the richest material you'll ever have on it — and it evaporates fast. Because the whole folder is still there (brief, notes, board history, budget, risk register, the Blind Spot Pass), Droobi can compare what you planned against what actually happened and tell you where the two diverged and why. Not from memory — from the artifacts. Which risks you flagged came true, which you missed, where the budget drifted, which "done" turned out not to be.</p>
+    <p>That output isn't a document nobody reopens. It's a head start on the next job of this kind — the patterns that bit you this time, written down before you begin the next.</p>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · the retrospective</span><span class="tag">ask Droobi ▸</span></div>
+      <pre><span class="ph">[PROJECT]</span> is closed out. Read the whole folder and run a retrospective
+grounded in the artifacts, not memory: where plan and reality diverged and
+why, which flagged risks came true and which were missed, where budget or
+schedule drifted, what permits or locates caused delay, and the top three
+changes for next time. Save as <span class="ph">[PROJECT]</span> Retro.md.</pre></div>
+    <div class="prompt"><div class="prompt-bar"><span>Prompt · seed the next project</span><span class="tag">ask Droobi ▸</span></div>
+      <pre>Using that retro, draft a starter brief for my next job of this kind: the
+checklist items I now know to include from day one, the risks worth
+pressure-testing on day one, the lead times I underestimated, and the
+constraints I got wrong last time. Save as Next Project Starter.md so I can
+hand it to you when I begin.</pre></div>
+  </section>
+
+  <!-- QUICK REF -->
+  <section class="sheet" id="quickref">
+    <div class="sheet-head"><span class="sheet-no">QR</span><h3 class="sheet-title">The prompts, by moment</h3></div>
+    <p>Pin this. When you're in a moment, reach for the sheet.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>When you're…</th><th>Reach for</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td>Starting a job</td><td>03 Interview → brief, then 01 goal</td><td><span class="pill blue">High</span></td></tr>
+        <tr><td>Setting the frame</td><td>02 Constraints · 00 Classify</td><td><span class="pill blue">High</span></td></tr>
+        <tr><td>Facing a one-way-door call</td><td>04 Consider paths (heavy)</td><td><span class="pill blue">High</span></td></tr>
+        <tr><td>About to spend money / commit dates</td><td>05 Blind Spot Pass</td><td><span class="pill blue">High</span></td></tr>
+        <tr><td>Worried what you're missing</td><td>06 Risk register · 07 Critical path</td><td><span class="pill blue">High</span></td></tr>
+        <tr><td>Before any dig</td><td>07 Permit &amp; locate tracker</td><td><span class="pill gold">Med</span></td></tr>
+        <tr><td>Every Monday</td><td>10 Status · 14 Weekly run</td><td><span class="pill gold">Med</span></td></tr>
+        <tr><td>Reporting to client / funder</td><td>12 Cost report · 13 Reports</td><td><span class="pill gold">Med</span></td></tr>
+        <tr><td>Routine drafting</td><td>16 Cheaper model</td><td><span class="pill go">Low</span></td></tr>
+        <tr><td>Running several jobs</td><td>15 Portfolio overlaps</td><td><span class="pill blue">High</span></td></tr>
+        <tr><td>Closing out</td><td>17 Retro → seed next</td><td><span class="pill blue">High</span></td></tr>
+      </tbody></table></div>
+  </section>
+
+  <div class="foot">
+    <span class="wm" style="color:var(--ink)">One <b style="color:var(--brand)">Water</b> OS · Project Playbook</span><br>
+    Clearwater design system v6 · Rev 1.0 · agent: Droobi<br>
+    One folder of plain files per job · HTML regenerated, never hand-edited · every claim tied to an artifact.<br>
+    Locate colors follow the APWA uniform code. Verify permit, locate, and safety requirements against your
+    jurisdiction's current rules — this is an operating method, not legal or regulatory advice.
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=document.querySelector(this.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});}
+    });
+  });
+</script>

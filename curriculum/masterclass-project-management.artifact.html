@@ -1,0 +1,231 @@
+<title>Master Class: Project Management for Utilities &middot; One Water OS Academy</title>
+<style>
+  :root{
+    --bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;
+    --ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;
+    --brand:#0A78BA;--brand-700:#08669F;--brand-800:#07547F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;
+    --gold:#A97B0F;--green:#0E8A64;--green-50:#E7F6F0;--red:#D64545;
+    --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --fm:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+    --sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);
+    --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;padding-top:64px}
+  h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.12}
+  a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+  strong{color:var(--ink)}
+  .owos-nav{position:fixed;top:0;left:0;right:0;z-index:60;height:64px;background:rgba(255,255,255,.86);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;padding:0 24px}
+  .owos-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .owos-logo{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+  .owos-wm{font-weight:800;font-size:15.5px;letter-spacing:-.015em;color:var(--ink)}.owos-wm b{color:var(--brand)}
+  .owos-pw{font-size:11px;color:var(--ink-3);margin-left:4px}.owos-pw em{font-style:normal;color:var(--gold);font-weight:600}
+  .owos-links{display:flex;align-items:center;gap:2px;margin-left:auto}
+  .owos-links a{font-size:13.5px;font-weight:600;color:var(--ink-2);padding:8px 11px;border-radius:9px}
+  .owos-links a:hover{color:var(--brand);background:var(--brand-50);text-decoration:none}
+  .owos-badge{font-size:13px;font-weight:650;background:var(--brand);color:#fff;padding:9px 15px;border-radius:10px;display:flex;align-items:center;gap:8px;box-shadow:var(--sh);margin-left:10px}
+  .owos-badge:hover{background:var(--brand-700);text-decoration:none}
+  .owos-badge .dot{width:7px;height:7px;border-radius:50%;background:#8FE3B0;animation:pulse 2.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(143,227,176,.55)}60%{box-shadow:0 0 0 7px rgba(143,227,176,0)}}
+  @media(max-width:1000px){.owos-links{display:none}}@media(max-width:640px){.owos-badge{display:none}}
+
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  .hero{background:linear-gradient(160deg,#0b3f63,#07293f 60%,#0a1a28);color:#fff}
+  .hin{max-width:1060px;margin:0 auto;padding:44px 24px 40px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+  @media(max-width:760px){.hin{grid-template-columns:1fr}}
+  .hpill{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9BE3F8;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 14px;margin-bottom:16px}
+  .hpill .d{width:7px;height:7px;border-radius:50%;background:#8FE3B0;animation:pulse 2.6s infinite}
+  .hero h1{color:#fff;font-size:clamp(30px,4.4vw,48px);letter-spacing:-.028em;line-height:1.08;margin:0 0 14px;max-width:16ch}
+  .hero h1 span{color:#7FC5F0}
+  .hero p{color:#DCEAF4;font-size:18px;max-width:56ch;margin:0 0 22px}
+  .hcta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{background:var(--brand);color:#fff;border:0;border-radius:11px;padding:12px 22px;font-weight:700;font-size:15px;cursor:pointer;box-shadow:var(--sh);display:inline-block}
+  .btn:hover{background:var(--brand-700);text-decoration:none}
+  .btn.light{background:#fff;color:#07293f}.btn.light:hover{background:#EAF3FA}
+  .btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)}
+  .droo{width:150px;height:190px;filter:drop-shadow(0 10px 22px rgba(0,0,0,.4))}
+  @media(max-width:760px){.droo{display:none}}
+  .stat{display:flex;gap:22px;flex-wrap:wrap;margin-top:22px;font-family:var(--fm)}
+  .stat b{color:#fff;font-size:22px;font-weight:800;display:block;font-family:var(--f);letter-spacing:-.02em}
+  .stat span{font-size:11px;color:#8FB6CE;letter-spacing:.06em;text-transform:uppercase}
+
+  .pstrip{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:64px;z-index:40}
+  .pstrip .in{max-width:1060px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .pbar{flex:1;min-width:180px;height:8px;background:var(--surface-3);border-radius:20px;overflow:hidden}
+  .pbar i{display:block;height:100%;width:10%;background:var(--brand);border-radius:20px}
+  .pstrip .lbl{font:600 12.5px var(--fm);color:var(--ink-2)}.pstrip .lbl b{color:var(--brand)}
+
+  .lead{padding:34px 0 8px}.lead h2{font-size:24px;margin:0 0 6px}
+  .lens{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+  @media(max-width:680px){.lens{grid-template-columns:1fr}}
+  .lc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--sh)}
+  .lc .t{font-weight:800;color:var(--ink);margin-bottom:3px}.lc.g{border-top:3px solid var(--green)}.lc.b{border-top:3px solid var(--brand)}.lc.y{border-top:3px solid var(--gold)}
+  .lc p{margin:0;font-size:14px}
+
+  .curr{padding:26px 0 70px}
+  .part{margin:28px 0 0}
+  .part .ph{display:flex;align-items:baseline;gap:14px;padding:11px 18px;border-radius:12px 12px 0 0;background:linear-gradient(120deg,var(--brand-800),var(--brand));color:#fff}
+  .part .ph .pc{font:700 12px var(--fm);letter-spacing:.16em;opacity:.85}
+  .part .ph .pt{font-weight:800;font-size:16px;color:#fff}
+  .part .ph .ps{margin-left:auto;font:600 11px var(--fm);color:rgba(255,255,255,.82)}
+  .mods{background:var(--surface);border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;box-shadow:var(--sh);overflow:hidden}
+  .mrow{display:flex;align-items:center;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line);text-decoration:none}
+  .mrow:last-child{border-bottom:none}
+  .mrow .no{flex:none;width:38px;height:38px;border-radius:10px;background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font:800 14px var(--fm)}
+  .mrow.live .no{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .mrow .body{flex:1;min-width:0}
+  .mrow .ttl{color:var(--ink);font-weight:700;font-size:15.5px;line-height:1.25;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .mrow .cnt{font:600 9.5px var(--fm);letter-spacing:.04em;text-transform:uppercase;color:var(--brand-700);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:2px 8px}
+  .mrow .secs{color:var(--ink-3);font-size:12.5px;margin-top:3px;line-height:1.45}
+  .mrow .secs b{color:var(--ink-2);font-weight:600}
+  .mrow .st{flex:none;font:700 10px var(--fm);letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .st.live{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+  .st.soon{background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line-2)}
+  .mrow.live{background:linear-gradient(90deg,var(--brand-50),transparent)}.mrow.live:hover{background:var(--brand-50)}
+  .mrow.locked{cursor:default}
+  .startbtn{flex:none;background:var(--brand);color:#fff;font:700 12.5px var(--f);padding:8px 15px;border-radius:9px}
+  .mrow.live:hover .startbtn{background:var(--brand-700)}
+
+  .foot{background:var(--surface);border-top:1px solid var(--line);margin-top:20px}
+  .foot .in{max-width:1060px;margin:0 auto;padding:26px 24px;font:12.5px var(--fm);color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .foot a{color:var(--brand)}
+  @media (prefers-reduced-motion:no-preference){.droo{animation:bob 3.6s ease-in-out infinite}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="dbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FD3F6"/><stop offset=".55" stop-color="#3FA8E8"/><stop offset="1" stop-color="#1C79C0"/></linearGradient>
+  <linearGradient id="dlimb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA0DF"/><stop offset="1" stop-color="#1E76BC"/></linearGradient>
+  <symbol id="droobi" viewBox="460 130 500 700">
+    <path d="M662,632 C 656,700 654,760 656,802" stroke="url(#dlimb)" stroke-width="34" stroke-linecap="round" fill="none"/>
+    <path d="M738,632 C 744,700 746,760 744,802" stroke="url(#dlimb)" stroke-width="34" stroke-linecap="round" fill="none"/>
+    <ellipse cx="646" cy="806" rx="34" ry="16" fill="#1E76BC"/><ellipse cx="754" cy="806" rx="34" ry="16" fill="#1E76BC"/>
+    <path d="M548,486 C 512,560 496,690 500,768" stroke="url(#dlimb)" stroke-width="30" stroke-linecap="round" fill="none"/><ellipse cx="500" cy="772" rx="32" ry="17" fill="#2C86C4"/>
+    <path d="M852,486 C 900,540 920,556 936,544" stroke="url(#dlimb)" stroke-width="30" stroke-linecap="round" fill="none"/><circle cx="938" cy="540" r="23" fill="#2C86C4"/>
+    <path d="M700,150 C 660,320 525,412 525,472 A 175,175 0 1 0 875,472 C 875,412 740,320 700,150 Z" fill="url(#dbody)" stroke="#12608f" stroke-width="4"/>
+    <ellipse cx="632" cy="332" rx="30" ry="76" fill="#fff" opacity=".30"/><circle cx="782" cy="286" r="13" fill="#fff" opacity=".4"/>
+    <circle cx="700" cy="580" r="24" fill="#3FA8E8" stroke="#1C79C0" stroke-width="3"/><path d="M700,566 C700,566 690,578 690,585 A10,10 0 1 0 710,585 C710,578 700,566 700,566 Z" fill="#0d2136"/>
+    <path d="M596,398 Q642,380 686,400" stroke="#153049" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M714,400 Q758,380 804,398" stroke="#153049" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <ellipse cx="646" cy="442" rx="35" ry="42" fill="#fff"/><circle cx="652" cy="446" r="22" fill="#2E6FA8"/><circle cx="654" cy="448" r="11" fill="#0f2233"/><circle cx="645" cy="438" r="6" fill="#fff"/>
+    <ellipse cx="754" cy="442" rx="35" ry="42" fill="#fff"/><circle cx="748" cy="446" r="22" fill="#2E6FA8"/><circle cx="746" cy="448" r="11" fill="#0f2233"/><circle cx="739" cy="438" r="6" fill="#fff"/>
+    <ellipse cx="606" cy="496" rx="22" ry="13" fill="#f39b8f" opacity=".28"/><ellipse cx="794" cy="496" rx="22" ry="13" fill="#f39b8f" opacity=".28"/>
+    <path d="M654,512 Q700,562 746,512 Q700,532 654,512 Z" fill="#0e2733"/><ellipse cx="700" cy="532" rx="21" ry="10" fill="#e07e72"/>
+  </symbol>
+</defs></svg>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="/">
+    <span class="owos-logo"><svg width="19" height="19" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 C16 3 8.5 12 8.5 18 A7.5 7.5 0 0 0 23.5 18 C23.5 12 16 3 16 3 Z" fill="none" stroke="#FFFFFF" stroke-width="2.4"/><circle cx="16" cy="18" r="3" fill="#F2C94C"/></svg></span>
+    <span class="owos-wm">One Water <b>Operating System</b></span><span class="owos-pw">Powered by <em>APAS.ai</em></span>
+  </a>
+  <span class="owos-links"><a href="/course">Academy</a><a href="/os">The Graph</a><a href="/directory">Community</a><a href="/about">About</a></span>
+  <a class="owos-badge" href="/os"><span class="dot"></span>Ask the Graph</a>
+</nav>
+
+<header class="hero"><div class="hin">
+  <div>
+    <span class="hpill"><span class="d"></span>OWOS Academy &middot; Master Class</span>
+    <h1>Project Management <span>for Utilities</span></h1>
+    <p>Fundamentals to expert &mdash; the full body of knowledge in <strong style="color:#fff">21 chapters</strong> and <strong style="color:#fff">60 sections</strong>, taught in plain language and built by hand in your browser. Every idea you learn, you then run with Droobi on a real water job.</p>
+    <div class="hcta">
+      <a class="btn light" href="https://claude.ai/code/artifact/eb9a9da2-7074-4586-9e86-5eea5eba7d6c" target="_top">Start learning &rarr;</a>
+      <a class="btn ghost" href="#curriculum">See the full curriculum</a>
+    </div>
+    <div class="stat">
+      <div><b>8</b><span>Parts</span></div>
+      <div><b>21</b><span>Chapters</span></div>
+      <div><b>60</b><span>Sections</span></div>
+      <div><b>PMP</b><span>Aligned + prep track</span></div>
+    </div>
+  </div>
+  <svg class="droo" viewBox="460 130 500 700" aria-label="Droobi"><use href="#droobi"/></svg>
+</div></header>
+
+<div class="pstrip"><div class="in">
+  <span class="lbl">Your progress: <b>0%</b></span>
+  <span class="pbar"><i></i></span>
+  <span class="lbl"><b>2</b> of 21 chapters available &middot; more shipping weekly</span>
+</div></div>
+
+<div class="wrap">
+  <section class="lead">
+    <h2>How this master class works</h2>
+    <p style="max-width:66ch">The master class is <strong>21 chapters</strong>. Each chapter is a rich, hands-on lesson that opens into its <strong>2&ndash;4 sections</strong> &mdash; the individual topics. Every section teaches on three levels (pick your depth) and drops you into an interactive Studio to <em>do</em> it, not just read it. Taught by Droobi, aligned to PMBOK, flavored for water throughout. <strong>60 sections</strong> in all, covering the complete body of knowledge.</p>
+    <div class="lens">
+      <div class="lc g"><div class="t">Foundation</div><p>New to PM? Plain words, every term defined, nothing assumed.</p></div>
+      <div class="lc b"><div class="t">Practitioner</div><p>Running jobs? The mechanics and the real how, hands-on.</p></div>
+      <div class="lc y"><div class="t">Leader</div><p>Managing a program? Judgment, money, and portfolio scale.</p></div>
+    </div>
+  </section>
+
+  <section class="curr" id="curriculum">
+    <h2 style="font-size:24px">The curriculum &mdash; 21 chapters, 60 sections</h2>
+    <p style="color:var(--ink-3);font-family:var(--fm);font-size:13px;margin:2px 0 0">Chapter 05 is live now; the rest are being built to the same bar. Each chapter shows the sections it covers.</p>
+
+    <div class="part"><div class="ph"><span class="pc">PART A</span><span class="pt">The Discipline &mdash; Foundations</span><span class="ps">3 chapters &middot; 8 sections</span></div>
+      <div class="mods">
+        <a class="mrow live" href="https://claude.ai/code/artifact/eb9a9da2-7074-4586-9e86-5eea5eba7d6c" target="_top"><span class="no">01</span><div class="body"><div class="ttl">What a project is <span class="cnt">3 sections</span></div><div class="secs"><b>Project vs operations &middot; The triple constraint &middot; The business case</b></div></div><span class="startbtn">Start &rarr;</span></a>
+        <div class="mrow locked"><span class="no">02</span><div class="body"><div class="ttl">Delivery &amp; life cycles <span class="cnt">2 sections</span></div><div class="secs">Life cycles &amp; development approaches &middot; Delivery methods (DBB / DB / CMAR / P3)</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">03</span><div class="body"><div class="ttl">Governance, integration &amp; tailoring <span class="cnt">3 sections</span></div><div class="secs">Governance &amp; the PMO &middot; Integration &amp; the PM plan &middot; Tailoring to project size</div></div><span class="st soon">Coming soon</span></div>
+      </div>
+    </div>
+
+    <div class="part"><div class="ph"><span class="pc">PART B</span><span class="pt">Scope, Requirements &amp; Schedule</span><span class="ps">3 chapters &middot; 9 sections</span></div>
+      <div class="mods">
+        <div class="mrow locked"><span class="no">04</span><div class="body"><div class="ttl">Scope &amp; requirements <span class="cnt">2 sections</span></div><div class="secs">Requirements management &middot; Scope &amp; the Work Breakdown Structure</div></div><span class="st soon">Coming soon</span></div>
+        <a class="mrow live" href="https://claude.ai/code/artifact/863daa81-ef3b-4c7d-a4f3-a6ab562af458" target="_top"><span class="no">05</span><div class="body"><div class="ttl">Scheduling &amp; the Critical Path <span class="cnt">4 sections</span></div><div class="secs"><b>Gantt fundamentals &middot; Dependencies &amp; lag &middot; The critical path (CPM) &middot; Cost &amp; resource loading</b></div></div><span class="startbtn">Start &rarr;</span></a>
+        <div class="mrow locked"><span class="no">06</span><div class="body"><div class="ttl">Advanced scheduling <span class="cnt">3 sections</span></div><div class="secs">Duration &amp; resource estimating &middot; Critical chain, leveling &amp; compression &middot; Schedule risk &amp; Monte Carlo</div></div><span class="st soon">Coming soon</span></div>
+      </div>
+    </div>
+
+    <div class="part"><div class="ph"><span class="pc">PART C</span><span class="pt">Cost, Procurement &amp; Contracts</span><span class="ps">3 chapters &middot; 7 sections</span></div>
+      <div class="mods">
+        <div class="mrow locked"><span class="no">07</span><div class="body"><div class="ttl">Estimating &amp; budgeting <span class="cnt">3 sections</span></div><div class="secs">Cost estimating (AACE) &middot; Budgeting &amp; the CIP &middot; Utility finance &amp; funding</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">08</span><div class="body"><div class="ttl">Earned Value &amp; forecasting <span class="cnt">1 section</span></div><div class="secs">EVM &mdash; PV/EV/AC, CPI/SPI, EAC (builds on your cost-loaded S-curve)</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">09</span><div class="body"><div class="ttl">Procurement, contracts &amp; claims <span class="cnt">3 sections</span></div><div class="secs">Procurement &amp; solicitation &middot; Contract types &amp; administration &middot; Change, claims &amp; disputes</div></div><span class="st soon">Coming soon</span></div>
+      </div>
+    </div>
+
+    <div class="part"><div class="ph"><span class="pc">PART D</span><span class="pt">Quality, Risk &amp; Uncertainty</span><span class="ps">2 chapters &middot; 6 sections</span></div>
+      <div class="mods">
+        <div class="mrow locked"><span class="no">10</span><div class="body"><div class="ttl">Quality management <span class="cnt">1 section</span></div><div class="secs">QA/QC, Inspection &amp; Test Plans, cost of quality, NCRs</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">11</span><div class="body"><div class="ttl">Risk &amp; uncertainty <span class="cnt">5 sections</span></div><div class="secs">Risk fundamentals &middot; Qualitative &middot; Quantitative (EMV, Monte Carlo) &middot; Responses &amp; reserves &middot; Uncertainty &amp; resilience</div></div><span class="st soon">Coming soon</span></div>
+      </div>
+    </div>
+
+    <div class="part"><div class="ph"><span class="pc">PART E</span><span class="pt">People, Communications &amp; Leadership</span><span class="ps">2 chapters &middot; 7 sections</span></div>
+      <div class="mods">
+        <div class="mrow locked"><span class="no">12</span><div class="body"><div class="ttl">Teams, stakeholders &amp; communication <span class="cnt">3 sections</span></div><div class="secs">Resource &amp; team management &middot; Stakeholder engagement &amp; public involvement &middot; Communications &amp; reporting</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">13</span><div class="body"><div class="ttl">Leadership, negotiation &amp; ethics <span class="cnt">4 sections</span></div><div class="secs">Leadership &amp; motivating field teams &middot; Negotiation &amp; conflict &middot; Ethics &amp; professional responsibility &middot; Business acumen</div></div><span class="st soon">Coming soon</span></div>
+      </div>
+    </div>
+
+    <div class="part"><div class="ph"><span class="pc">PART F</span><span class="pt">Executing, Controlling &amp; Measurement</span><span class="ps">2 chapters &middot; 5 sections</span></div>
+      <div class="mods">
+        <div class="mrow locked"><span class="no">14</span><div class="body"><div class="ttl">Executing &amp; controlling <span class="cnt">3 sections</span></div><div class="secs">The process groups &amp; operating rhythm &middot; Directing &amp; managing the work &middot; Integrated change control</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">15</span><div class="body"><div class="ttl">Measurement &amp; honest status <span class="cnt">2 sections</span></div><div class="secs">Metrics, KPIs &amp; dashboards &middot; Evidence-grounded status &amp; the weekly ritual</div></div><span class="st soon">Coming soon</span></div>
+      </div>
+    </div>
+
+    <div class="part"><div class="ph"><span class="pc">PART G</span><span class="pt">The Utilities Capital Delivery Spine</span><span class="ps">3 chapters &middot; 9 sections</span></div>
+      <div class="mods">
+        <div class="mrow locked"><span class="no">16</span><div class="body"><div class="ttl">Capital life cycle &amp; regulatory <span class="cnt">3 sections</span></div><div class="secs">Capital project life cycle &middot; Regulatory landscape (SDWA/CWA/PFAS/LCR) &middot; Environmental permitting</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">17</span><div class="body"><div class="ttl">Safety, locates &amp; commissioning <span class="cnt">3 sections</span></div><div class="secs">Health, Safety &amp; Environmental &middot; Locates, ROW &amp; agency coordination &middot; Commissioning &amp; acceptance</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">18</span><div class="body"><div class="ttl">Asset management, digital &amp; resilience <span class="cnt">3 sections</span></div><div class="secs">Asset management &amp; O&amp;M handover &middot; Digital delivery (GIS/BIM/SCADA) &middot; Resilience, sustainability &amp; One Water</div></div><span class="st soon">Coming soon</span></div>
+      </div>
+    </div>
+
+    <div class="part"><div class="ph"><span class="pc">PART H &middot; CAPSTONE &middot; EXAM</span><span class="pt">Program, Portfolio &amp; Certification</span><span class="ps">3 chapters &middot; 9 sections</span></div>
+      <div class="mods">
+        <div class="mrow locked"><span class="no">19</span><div class="body"><div class="ttl">Program &amp; portfolio management <span class="cnt">4 sections</span></div><div class="secs">Program management &middot; Portfolio &amp; prioritization &middot; Resource leveling across projects &middot; OPM &amp; organizational maturity</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">20</span><div class="body"><div class="ttl">Capstone &mdash; Agentic PM with Droobi <span class="cnt">1 section</span></div><div class="secs">Run all of it on a real job, start to closeout &mdash; you decide, Droobi does</div></div><span class="st soon">Coming soon</span></div>
+        <div class="mrow locked"><span class="no">21</span><div class="body"><div class="ttl">PMP / CAPM exam prep <span class="cnt">4 sections</span></div><div class="secs">The exam &amp; the ECO &middot; Predictive, agile &amp; hybrid &middot; Formulas &amp; quick reference &middot; Practice, simulation &amp; test strategy</div></div><span class="st soon">Coming soon</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="foot"><div class="in">
+  <span>One Water OS Academy &middot; Master Class: Project Management for Utilities &middot; 21 chapters &middot; 60 sections &middot; taught by Droobi</span>
+  <span>Completely powered by <a href="https://apas.ai">APAS.ai</a> &middot; Patent pending</span>
+</div></footer>

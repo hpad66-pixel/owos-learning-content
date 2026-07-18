@@ -1,0 +1,283 @@
+<title>One Water OS Masterclass — Syllabus v2</title>
+<style>
+  :root{
+    --bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;
+    --ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;
+    --brand:#0A78BA;--brand-700:#08669F;--brand-800:#07547F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;
+    --gold:#A97B0F;--gold-500:#C9961B;--gold-50:#FBF5E4;--green:#0E8A64;--green-50:#E7F6F0;--red:#D64545;
+    --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --fm:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+    --r:12px;--r-lg:18px;--sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);
+    --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);--wrap:980px;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --bg:#0A1420;--surface:#0F1E2C;--surface-2:#142738;--surface-3:#16293A;
+    --ink:#F2F7FB;--ink-2:#C3D3E0;--ink-3:#8299AE;--line:#213445;--line-2:#2C4256;
+    --brand:#4FA9E4;--brand-700:#6FBBEC;--brand-800:#9BD3F5;--brand-50:#122b3d;--brand-100:#173245;
+    --gold:#D9A93A;--gold-50:#26200f;--green:#3FB98C;--green-50:#12281f;}}
+  :root[data-theme="light"]{--bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;--ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;--brand:#0A78BA;--brand-700:#08669F;--brand-800:#07547F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;--gold:#A97B0F;--gold-50:#FBF5E4;--green:#0E8A64;--green-50:#E7F6F0;}
+  :root[data-theme="dark"]{--bg:#0A1420;--surface:#0F1E2C;--surface-2:#142738;--surface-3:#16293A;--ink:#F2F7FB;--ink-2:#C3D3E0;--ink-3:#8299AE;--line:#213445;--line-2:#2C4256;--brand:#4FA9E4;--brand-700:#6FBBEC;--brand-800:#9BD3F5;--brand-50:#122b3d;--brand-100:#173245;--gold:#D9A93A;--gold-50:#26200f;--green:#3FB98C;--green-50:#12281f;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px 110px}
+  p{max-width:72ch}h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
+  strong{color:var(--ink)}em{color:var(--ink)}
+  code{font-family:var(--fm);font-size:.85em;background:var(--surface-3);color:var(--ink);padding:1px 6px;border-radius:6px}
+  .kick{font-family:var(--fm);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+  .nav{position:sticky;top:0;z-index:50;height:60px;background:color-mix(in srgb,var(--surface) 86%,transparent);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand .tile{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center}
+  .brand .tile svg{width:22px;height:22px}
+  .wm{font-weight:800;font-size:15.5px;color:var(--ink)}.wm b{color:var(--brand)}
+  .wm .pw{font-family:var(--fm);font-size:11px;color:var(--ink-3);font-weight:500;display:block}.wm .pw em{color:var(--gold);font-style:normal}
+  .status{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:var(--gold-50);border:1px solid color-mix(in srgb,var(--gold) 35%,transparent);padding:6px 12px;border-radius:999px}
+  .hero{margin:0 -24px;background:linear-gradient(150deg,#0b3f63,#07293f 55%,#0a1a28);color:#fff;overflow:hidden;position:relative}
+  .hero-in{max-width:var(--wrap);margin:0 auto;padding:46px 24px 40px}
+  .hero .kick{color:#9BE3F8}
+  .hero-row{display:flex;gap:24px;align-items:flex-start;margin-top:14px}
+  .droo{flex:none;width:92px;height:92px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
+  @media(max-width:600px){.droo{width:64px;height:64px}}
+  .hero h1{color:#fff;font-size:clamp(28px,5vw,46px);margin:.1em 0 .3em;max-width:17ch}
+  .hero .lede{color:#DCEAF4;font-size:17.5px;max-width:58ch;margin:0}
+  .metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .metrics div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:9px 15px;font-family:var(--fm);font-size:11.5px;color:#EAF3FA}
+  .metrics b{color:#fff;font-size:18px;font-weight:800;display:block;font-family:var(--f)}
+  h2.sec{font-size:23px;margin:42px 0 6px}
+  .lead{font-size:17.5px;color:var(--ink-2)}
+
+  /* gap analysis */
+  .gap{background:var(--gold-50);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);border-radius:16px;padding:20px 22px;margin:18px 0}
+  .gap h3{margin:0 0 4px;font-size:18px}
+  .gap p{margin:0 0 12px;font-size:14.5px;color:var(--ink-2)}
+  .gap ul{list-style:none;margin:0;padding:0;columns:2;column-gap:26px}
+  @media(max-width:640px){.gap ul{columns:1}}
+  .gap li{break-inside:avoid;padding:4px 0 4px 20px;position:relative;font-size:14px}
+  .gap li:before{content:"+";position:absolute;left:2px;color:var(--gold);font-weight:800}
+  .gap li b{color:var(--ink)}
+
+  /* framework cards */
+  .fw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+  @media(max-width:760px){.fw{grid-template-columns:1fr}}
+  .fw .c{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--sh)}
+  .fw .c .t{font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:8px}
+  .fw .c p{margin:0;font-size:13px;line-height:1.55}
+
+  /* part + rows */
+  .part{margin:40px 0 0;padding:14px 18px;border-radius:12px;color:#fff;background:linear-gradient(120deg,var(--brand-800),var(--brand));box-shadow:var(--sh)}
+  .part .h{display:flex;align-items:baseline;gap:14px}
+  .part .code{font-family:var(--fm);font-size:12px;letter-spacing:.2em;opacity:.85}
+  .part .t{font-weight:800;font-size:18px;color:#fff}
+  .part .m{margin:4px 0 0;font-family:var(--fm);font-size:11px;color:rgba(255,255,255,.8);letter-spacing:.03em}
+  .rows{background:var(--surface);border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;padding:4px 18px 8px;box-shadow:var(--sh)}
+  .row{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px dotted var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .code{font-family:var(--fm);color:var(--gold);font-weight:700;min-width:46px;font-size:13.5px}
+  .row .main{flex:1;min-width:0}
+  .row .ttl{color:var(--ink);font-weight:650;font-size:15.5px}
+  .row .desc{color:var(--ink-3);font-size:13px;margin-top:1px}
+  .row .tags{display:flex;gap:5px;flex-wrap:wrap;align-items:center;justify-content:flex-end;max-width:230px}
+  @media(max-width:680px){.row{flex-wrap:wrap}.row .tags{max-width:none;justify-content:flex-start}}
+  .t-tag{font-family:var(--fm);font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+  .t-core{background:var(--brand-50);color:var(--brand-700);border-color:var(--brand-100)}
+  .t-deep{background:var(--surface-2);color:var(--ink-2);border-color:var(--line-2)}
+  .t-new{background:var(--gold-50);color:var(--gold);border-color:color-mix(in srgb,var(--gold) 35%,transparent)}
+  .t-slice{background:var(--gold);color:#fff}
+  .t-ps{background:var(--green-50);color:var(--green);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
+  .row.slice{background:color-mix(in srgb,var(--gold) 7%,transparent);margin:0 -18px;padding-left:18px;padding-right:18px;border-radius:8px}
+
+  .tmpl{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:16px 0;box-shadow:var(--sh);font-size:14.5px}
+  .tmpl b{color:var(--ink)}
+  .flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:14px 0}
+  .flow .p{background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;padding:7px 13px;font-weight:700;color:var(--ink);font-size:14px}
+  .flow .p.gold{border-color:var(--gold)}
+  .flow .a{color:var(--brand);font-weight:800;font-family:var(--fm)}
+  .foot{margin-top:52px;padding-top:22px;border-top:2px solid var(--line-2);font-family:var(--fm);font-size:12px;color:var(--ink-3);line-height:1.75}
+  @media (prefers-reduced-motion:no-preference){.part,.rows{animation:f .4s ease both}}
+  @keyframes f{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="db" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8fd3f6"/><stop offset=".58" stop-color="#3fa8e8"/><stop offset="1" stop-color="#176fae"/></linearGradient>
+  <symbol id="droobi" viewBox="0 0 640 640">
+    <path d="M320 64C289 177 166 272 166 382c0 92 69 164 154 164s154-72 154-164C474 272 351 177 320 64Z" fill="url(#db)" stroke="#0b5f91" stroke-width="8"/>
+    <path d="M225 330q49-35 92 0M323 330q43-35 92 0" fill="none" stroke="#153049" stroke-width="13" stroke-linecap="round"/>
+    <ellipse cx="272" cy="374" rx="47" ry="56" fill="#fff"/><ellipse cx="368" cy="374" rx="47" ry="56" fill="#fff"/>
+    <circle cx="280" cy="380" r="29" fill="#2e6fa8"/><circle cx="360" cy="380" r="29" fill="#2e6fa8"/>
+    <circle cx="284" cy="384" r="15" fill="#10253c"/><circle cx="356" cy="384" r="15" fill="#10253c"/>
+    <circle cx="273" cy="368" r="8" fill="#fff"/><circle cx="345" cy="368" r="8" fill="#fff"/>
+    <path d="M255 455q65 72 130 0-65 32-130 0Z" fill="#10253c"/><ellipse cx="320" cy="480" rx="31" ry="14" fill="#ed8478"/>
+    <circle cx="320" cy="528" r="28" fill="#f2c94c" stroke="#b7891f" stroke-width="5"/><path d="M320 508c-6 13-15 20-15 29a15 15 0 0 0 30 0c0-9-9-16-15-29Z" fill="#10253c"/>
+  </symbol>
+  <symbol id="drop" viewBox="0 0 640 640"><path d="M320 64C289 177 166 272 166 382c0 92 69 164 154 164s154-72 154-164C474 272 351 177 320 64Z" fill="none" stroke="#fff" stroke-width="34"/><circle cx="320" cy="452" r="40" fill="#f2c94c"/></symbol>
+</defs></svg>
+
+<div class="nav">
+  <a class="brand" href="#top"><span class="tile"><svg viewBox="0 0 640 640"><use href="#drop"/></svg></span>
+    <span class="wm">One <b>Water</b> OS<span class="pw">Masterclass · by <em>APAS.ai</em></span></span></a>
+  <span class="status">v2 · Draft · for locking</span>
+</div>
+
+<div id="top" class="hero">
+  <div class="hero-in">
+    <div class="kick">Masterclass · Project Management for Utilities · Full Body of Knowledge</div>
+    <div class="hero-row">
+      <svg class="droo" viewBox="0 0 640 640" aria-label="Droobi"><use href="#droobi"/></svg>
+      <div>
+        <h1>Fundamentals to Expert — the complete standard</h1>
+        <p class="lede">Rebuilt to the full body of knowledge: mapped against PMBOK 6 & 7, the PMI Talent Triangle, and the utilities capital-delivery bodies of knowledge. Every idea taught plain-first, then operated in the app with Droobi.</p>
+      </div>
+    </div>
+    <div class="metrics">
+      <div><b>8</b> parts</div><div><b>50+</b> modules</div><div><b>10</b> knowledge areas</div><div><b>3</b> learner lenses</div><div><b>+</b> PMP-prep track</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="gap">
+    <h3>What v2 adds (the depth the first draft was missing)</h3>
+    <p>An honest audit against PMBOK and the utilities capital-delivery standard surfaced whole areas we'd skipped. All now in:</p>
+    <ul>
+      <li><b>Integration</b> — charter, PM plan, change control</li>
+      <li><b>Business case & value</b> — NPV/IRR/BCR, rate impact</li>
+      <li><b>Delivery methods</b> — DBB / DB / CMAR / PDB / P3</li>
+      <li><b>Estimating</b> — AACE Class 5→1, PERT</li>
+      <li><b>Schedule depth</b> — network diagrams, critical chain, compression</li>
+      <li><b>Schedule & cost risk</b> — Monte Carlo, EMV, decision trees</li>
+      <li><b>Quality</b> — QA/QC, ITPs, cost of quality, NCRs</li>
+      <li><b>Resource & team</b> — org structures, crews, leadership</li>
+      <li><b>Power skills</b> — negotiation, conflict, ethics</li>
+      <li><b>Contracts & claims</b> — types, admin, disputes</li>
+      <li><b>Metrics & measurement</b> — KPIs, forecasting</li>
+      <li><b>Funding</b> — SRF, WIFIA, grants, bonds, CIP</li>
+      <li><b>Regulatory</b> — SDWA, CWA, PFAS, LCR, consent orders</li>
+      <li><b>Commissioning & asset handover</b> — O&M lifecycle</li>
+      <li><b>Digital delivery</b> — GIS, BIM, SCADA, data continuity</li>
+      <li><b>PMP/CAPM exam-prep track</b></li>
+    </ul>
+  </div>
+
+  <h2 class="sec">Mapped to the standards</h2>
+  <div class="fw">
+    <div class="c"><div class="t">PMBOK 6 · Knowledge Areas</div><p>Integration · Scope · Schedule · Cost · Quality · Resource · Communications · Risk · Procurement · Stakeholder — each a module or set of modules.</p></div>
+    <div class="c"><div class="t">PMBOK 7 · Principles & Domains</div><p>12 principles (Stewardship, Value, Tailoring, Risk…) and 8 performance domains (Planning, Delivery, Measurement, Uncertainty…) tagged across modules.</p></div>
+    <div class="c"><div class="t">PMI Talent Triangle</div><p>Ways of Working · Power Skills · Business Acumen — balanced deliberately, not just technical process.</p></div>
+  </div>
+
+  <div class="tmpl"><span class="kick">Legend</span> &nbsp; <span class="t-tag t-core">Core</span> the spine everyone runs · <span class="t-tag t-deep">Deep-dive</span> expert/elective · <span class="t-tag t-new">New in v2</span> · <span class="t-tag t-slice">◆ Built first</span> · <span class="t-tag t-ps">Power skill</span> · lenses 🟢 Foundation 🔵 Practitioner 🟡 Leader on every module.</div>
+
+  <!-- PART A -->
+  <div class="part"><div class="h"><span class="code">Part A</span><span class="t">The Discipline — Foundations</span></div><div class="m">KA: Integration · PMBOK7: Value, Life cycle, Tailoring</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">A0</span><div class="main"><div class="ttl">Orientation — how this works</div><div class="desc">Plain-file philosophy, two screens, learn-then-do.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">A1</span><div class="main"><div class="ttl">What is a project?</div><div class="desc">Project / program / portfolio, competing constraints, life cycle, charter.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">A2</span><div class="main"><div class="ttl">The business case, value & benefits</div><div class="desc">NPV, IRR, benefit-cost, payback, rate impact, benefits realization.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">A3</span><div class="main"><div class="ttl">Life cycles & development approaches</div><div class="desc">Predictive · iterative · agile · hybrid — when each fits.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">A4</span><div class="main"><div class="ttl">Delivery methods for utilities</div><div class="desc">DBB · Design-Build · CMAR · Progressive DB · P3 · job-order.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">A5</span><div class="main"><div class="ttl">Governance, the PMO & project selection</div><div class="desc">Gate governance, PMO types, scoring the capital portfolio.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+    <div class="row"><span class="code">A6</span><div class="main"><div class="ttl">Integration management & the PM plan</div><div class="desc">The charter, the plan, how the knowledge areas knit together.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">A7</span><div class="main"><div class="ttl">Tailoring — scaling process to size</div><div class="desc">Run small / medium / large fast without dropping what matters.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+  </div>
+
+  <!-- PART B -->
+  <div class="part"><div class="h"><span class="code">Part B</span><span class="t">Scope, Requirements & Schedule</span></div><div class="m">KA: Scope · Schedule · PMBOK7: Planning</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">B1</span><div class="main"><div class="ttl">Requirements management</div><div class="desc">Elicit & validate; design, hydraulic & regulatory requirements; traceability.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">B2</span><div class="main"><div class="ttl">Scope & the Work Breakdown Structure</div><div class="desc">Scope statement, WBS, work packages, acceptance criteria, scope creep.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row slice"><span class="code">B3</span><div class="main"><div class="ttl">Schedule fundamentals & the Gantt</div><div class="desc">Activities, durations, dependencies (FS/SS/FF/SF), milestones, baseline.</div></div><div class="tags"><span class="t-tag t-slice">◆ Built first</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">B4</span><div class="main"><div class="ttl">Sequencing & network diagrams</div><div class="desc">Activity-on-Node / precedence diagramming, leads & lags, logic.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">B5</span><div class="main"><div class="ttl">Duration & resource estimating</div><div class="desc">Analogous, parametric, three-point / PERT, resource-driven durations.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row slice"><span class="code">B6</span><div class="main"><div class="ttl">The Critical Path (CPM)</div><div class="desc">Float, forward & backward pass, near-critical; why permits & long-leads are critical.</div></div><div class="tags"><span class="t-tag t-slice">◆ Built first</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">B7</span><div class="main"><div class="ttl">Critical Chain, leveling & compression</div><div class="desc">CCM, resource leveling, crashing & fast-tracking, buffers.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+    <div class="row"><span class="code">B8</span><div class="main"><div class="ttl">Schedule risk & Monte Carlo</div><div class="desc">Probabilistic schedule, P50/P80 dates, confidence.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+  </div>
+
+  <!-- PART C -->
+  <div class="part"><div class="h"><span class="code">Part C</span><span class="t">Cost, Procurement & Contracts</span></div><div class="m">KA: Cost · Procurement · PMBOK7: Delivery</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">C1</span><div class="main"><div class="ttl">Cost estimating</div><div class="desc">AACE Class 5→1, analogous / parametric / bottom-up / three-point, escalation.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">C2</span><div class="main"><div class="ttl">Budgeting & the Capital Improvement Plan</div><div class="desc">Cost baseline, capital vs O&M, the CIP.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">C3</span><div class="main"><div class="ttl">Utility finance & funding</div><div class="desc">SRF, WIFIA, grants, bonds, rate cases, Davis-Bacon & grant compliance.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+    <div class="row"><span class="code">C4</span><div class="main"><div class="ttl">Earned Value Management & forecasting</div><div class="desc">PV/EV/AC, CPI/SPI, EAC/ETC/TCPI, variance analysis.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">C5</span><div class="main"><div class="ttl">Procurement planning & solicitation</div><div class="desc">Make-vs-buy, RFQ/RFP/IFB, long-lead strategy, NTP.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">C6</span><div class="main"><div class="ttl">Contract types & administration</div><div class="desc">FFP · T&M · unit-price · GMP; submittals, retainage, pay apps, lien waivers.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span><span class="t-tag t-ps">Power</span></div></div>
+    <div class="row"><span class="code">C7</span><div class="main"><div class="ttl">Change management, claims & disputes</div><div class="desc">Change orders, claims, delay analysis, liquidated damages, dispute resolution.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span><span class="t-tag t-ps">Power</span></div></div>
+  </div>
+
+  <!-- PART D -->
+  <div class="part"><div class="h"><span class="code">Part D</span><span class="t">Quality, Risk & Uncertainty</span></div><div class="m">KA: Quality · Risk · PMBOK7: Uncertainty</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">D1</span><div class="main"><div class="ttl">Quality management</div><div class="desc">QA vs QC, Inspection & Test Plans, hold/witness points, cost of quality, NCRs, audits.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">D2</span><div class="main"><div class="ttl">Risk fundamentals & identification</div><div class="desc">Threats vs opportunities, risk breakdown structure, the premortem / Blind Spot Pass.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">D3</span><div class="main"><div class="ttl">Qualitative risk analysis</div><div class="desc">Probability × impact, scoring, the register, owners & triggers.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">D4</span><div class="main"><div class="ttl">Quantitative risk analysis</div><div class="desc">Expected Monetary Value, decision trees, Monte Carlo, tornado/sensitivity.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+    <div class="row"><span class="code">D5</span><div class="main"><div class="ttl">Risk responses & reserves</div><div class="desc">Avoid/transfer/mitigate/accept (+ enhance/exploit/share); contingency vs management reserve.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">D6</span><div class="main"><div class="ttl">Uncertainty, complexity & resilience</div><div class="desc">PMBOK7 domain; systems thinking, ambiguity, robustness.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+  </div>
+
+  <!-- PART E -->
+  <div class="part"><div class="h"><span class="code">Part E</span><span class="t">People, Communications & Leadership</span></div><div class="m">KA: Resource · Communications · Stakeholder · Talent Triangle</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">E1</span><div class="main"><div class="ttl">Resource & team management</div><div class="desc">Org structures (functional/matrix/projectized), crews & labor, mutual aid.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span><span class="t-tag t-ps">Power</span></div></div>
+    <div class="row"><span class="code">E2</span><div class="main"><div class="ttl">Leadership & motivating field teams</div><div class="desc">Servant & situational leadership, motivation, safety culture.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span><span class="t-tag t-ps">Power</span></div></div>
+    <div class="row"><span class="code">E3</span><div class="main"><div class="ttl">Stakeholder engagement & public involvement</div><div class="desc">Mapping, engagement plans, public meetings, environmental justice.</div></div><div class="tags"><span class="t-tag t-core">Core</span><span class="t-tag t-ps">Power</span></div></div>
+    <div class="row"><span class="code">E4</span><div class="main"><div class="ttl">Communications management & reporting</div><div class="desc">Comms plan, cadence, meeting management, information & records.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">E5</span><div class="main"><div class="ttl">Negotiation, conflict & difficult conversations</div><div class="desc">Principled negotiation, conflict modes, escalation.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span><span class="t-tag t-ps">Power</span></div></div>
+    <div class="row"><span class="code">E6</span><div class="main"><div class="ttl">Ethics & professional responsibility</div><div class="desc">PMI Code of Ethics; fairness, honesty, stewardship — required for PMP.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span><span class="t-tag t-ps">Power</span></div></div>
+    <div class="row"><span class="code">E7</span><div class="main"><div class="ttl">Business acumen & strategic alignment</div><div class="desc">Linking projects to the utility's mission and strategy.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+  </div>
+
+  <!-- PART F -->
+  <div class="part"><div class="h"><span class="code">Part F</span><span class="t">Executing, Controlling & Measurement</span></div><div class="m">Process Groups · PMBOK7: Project work, Measurement, Delivery</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">F1</span><div class="main"><div class="ttl">The process groups & the operating rhythm</div><div class="desc">Initiating → Planning → Executing → M&C → Closing; how they overlap.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">F2</span><div class="main"><div class="ttl">Directing & managing the work</div><div class="desc">Issue logs, action tracking, making Droobi do the work.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">F3</span><div class="main"><div class="ttl">Integrated change control & configuration mgmt</div><div class="desc">The change control board, baselines, version control of the truth.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">F4</span><div class="main"><div class="ttl">Metrics, KPIs, dashboards & measurement</div><div class="desc">Leading vs lagging indicators, thresholds, the status dashboard.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">F5</span><div class="main"><div class="ttl">Evidence-grounded status & the weekly ritual</div><div class="desc">The grounding rule, "believed but unverified," drift detection.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+  </div>
+
+  <!-- PART G -->
+  <div class="part"><div class="h"><span class="code">Part G</span><span class="t">The Utilities Capital Delivery Spine</span></div><div class="m">Domain depth — where generic PM meets water</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">G1</span><div class="main"><div class="ttl">The utilities capital project life cycle</div><div class="desc">Study → PER → design → bid → construction → commissioning → O&M handover.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">G2</span><div class="main"><div class="ttl">Regulatory landscape</div><div class="desc">SDWA, CWA, PFAS, Lead & Copper Rule, consent orders, permitting agencies.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">G3</span><div class="main"><div class="ttl">Environmental permitting & review</div><div class="desc">NEPA/state review, wetlands & waterway crossings, dewatering, ERP.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+    <div class="row"><span class="code">G4</span><div class="main"><div class="ttl">Health, Safety & Environmental</div><div class="desc">OSHA, trench (Subpart P) & confined space, MOT, environmental controls.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">G5</span><div class="main"><div class="ttl">Locates, ROW, easements & agency coordination</div><div class="desc">Sunshine 811, positive response, ticket life, right-of-way, franchise utilities.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">G6</span><div class="main"><div class="ttl">Commissioning, startup & acceptance</div><div class="desc">Pressure test, disinfection, bac-t clearance, substantial vs final completion.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">G7</span><div class="main"><div class="ttl">Asset management & O&M handover</div><div class="desc">Asset registers, life-cycle costing, warranty — ties to One Water OS.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+    <div class="row"><span class="code">G8</span><div class="main"><div class="ttl">Digital delivery & data continuity</div><div class="desc">GIS, BIM, SCADA, digital twins, as-built data, knowledge continuity.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+    <div class="row"><span class="code">G9</span><div class="main"><div class="ttl">Resilience, sustainability & One Water</div><div class="desc">Climate resilience, sustainability, integrating W / WW / SW / reuse.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+  </div>
+
+  <!-- PART H -->
+  <div class="part"><div class="h"><span class="code">Part H</span><span class="t">Program & Portfolio — Scale</span></div><div class="m">OPM · PMBOK7: Systems thinking</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">H1</span><div class="main"><div class="ttl">Program management</div><div class="desc">Managing related projects for a shared benefit.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">H2</span><div class="main"><div class="ttl">Portfolio management & prioritization</div><div class="desc">Selecting & balancing the capital portfolio, scoring, funding constraints.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">H3</span><div class="main"><div class="ttl">Resource leveling & overlaps across projects</div><div class="desc">Shared crews/corridors/long-leads; conflicts vs joint-trench opportunities.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">H4</span><div class="main"><div class="ttl">OPM & organizational maturity</div><div class="desc">Maturity models, standardizing the method across the utility.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Deep-dive</span></div></div>
+  </div>
+
+  <!-- CAPSTONE + PMP -->
+  <div class="part"><div class="h"><span class="code">★</span><span class="t">Capstone & Exam Prep</span></div><div class="m">Put it all to work</div></div>
+  <div class="rows">
+    <div class="row"><span class="code">★</span><div class="main"><div class="ttl">Agentic PM with Droobi</div><div class="desc">Run all of it — hand Droobi the goal/constraints/context; model economics; full loop, start to closeout.</div></div><div class="tags"><span class="t-tag t-core">Core</span></div></div>
+    <div class="row"><span class="code">X1</span><div class="main"><div class="ttl">PMP / CAPM exam-prep track</div><div class="desc">The ECO (People 42% · Process 50% · Business Env 8%), formulas, practice & test strategy.</div></div><div class="tags"><span class="t-tag t-new">New</span><span class="t-tag t-deep">Track</span></div></div>
+  </div>
+
+  <h2 class="sec">Build order</h2>
+  <div class="flow">
+    <span class="p gold">1 · Lock this v2 (or trim to Core)</span><span class="a">→</span>
+    <span class="p">2 · Build B3 + B6 slice</span><span class="a">→</span>
+    <span class="p">3 · Roll out (Core first)</span><span class="a">→</span>
+    <span class="p">4 · Wire the agentic app</span>
+  </div>
+
+  <div class="foot">
+    One Water OS Masterclass v2 · Clearwater design system · agent: Droobi<br>
+    Mapped to PMBOK 6 & 7, the PMI Talent Triangle, and utilities capital-delivery BOK (AACE / DBIA / CMAA / AWWA / CII) — by structure only, no standard text reproduced.<br>
+    Source of truth: <code>curriculum/SYLLABUS.md</code>. Verify jurisdiction permit, locate, safety & funding rules against current local regulations.
+  </div>
+</div>

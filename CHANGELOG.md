@@ -1,0 +1,39 @@
+# Changelog
+
+All notable changes to the One Water OS PM System are recorded here, newest first.
+Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
+
+## [0.1.0] - 2026-07-18
+Initial commit. Everything to date is captured and put under version control.
+
+### Brand
+- One Water OS "Clearwater" brand guidelines and extracted assets (Droobi, logo, icons, OG image).
+
+### Playbook
+- Utilities & Construction PM field playbook (HTML + print PDF).
+
+### Masterclass framework
+- `WRITING-STANDARD.md` — voice rules (plain, conversational, no em dashes, no cliches), required
+  learning components, and quiz variety.
+- `VISUAL-ARSENAL.md` — catalog of ~35 visual types plus the Selection Prompt.
+- `component-gallery.html` — every visual rendered live.
+- `quiz-gallery.html` — ten quiz types, all interactive.
+- `COMPONENTS.md` and `QUIZ-TYPES.md` — Markdown catalogs of the two galleries.
+- `module-template.html` — the reusable empty module scaffold, wired to the files above.
+
+### Masterclass content
+- `SYLLABUS.md` — 21 chapters, 60 sections, mapped to PMBOK.
+- `masterclass-project-management.html` — the course shell ("chrome").
+- `module-01-what-is-a-project.html` — Chapter 01, built with framework, diagram, process, chart,
+  curve, method, and four quiz types.
+- `module-b3-b6-critical-path.html` — Scheduling & Critical Path, the interactive format mold.
+
+### Starter kit
+- Plain-file project scaffold (Brief, Board, Budget, Risks, Permits, Schedule, Compliance,
+  Stakeholders, Classification, Notes, Inbox, CLAUDE.md).
+
+<!-- Template for future entries:
+## [0.x.0] - YYYY-MM-DD
+### Added / Changed / Fixed / Removed
+- ...
+-->
