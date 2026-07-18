@@ -3,6 +3,18 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.3.0] - 2026-07-18
+### Added
+- Two ship-ready output formats for the PM course, in `apps/project-management/dist/`:
+  - `dist/site/` native owos.ai pages that link the shared shell (`/owos-brand.css`, `/owos-shell.js`),
+    so they match every other lesson on the site. Chapter 01 built and verified against the real shell.
+  - `dist/scorm/ch01/` a SCORM 1.2 package (`pm-ch01-scorm12.zip`) for uploading to any external LMS,
+    with `imsmanifest.xml`, `content.html`, and a `scorm-api.js` completion reporter.
+- `dist/README.md` explaining the outputs and how to wire the course into owos.ai (git submodule).
+
+### Notes
+- Single source of truth stays in `onewater-os`; `dist/` holds the built formats next to the source.
+
 ## [0.2.1] - 2026-07-18
 ### Changed
 - Finished Chapter 01 (What a project is) as the full exemplar. It now uses the whole palette:

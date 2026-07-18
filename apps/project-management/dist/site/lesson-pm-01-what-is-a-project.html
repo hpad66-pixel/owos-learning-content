@@ -1,0 +1,587 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 01: What a Project Is &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 1 of the Project Management master class. Told plainly, with a decision framework, a process flow, diagrams, a chart, a curve, a method, and several kinds of quizzes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/owos-brand.css"><script src="/owos-shell.js" defer></script>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="%230B7DC2"/><path d="M20 6C20 6 11 16 11 23C11 28 15 32 20 32C25 32 29 28 29 23C29 16 20 6 20 6Z" fill="none" stroke="%23FFFFFF" stroke-width="2"/><circle cx="20" cy="23" r="3.4" fill="%23F2C94C"/></svg>'>
+<style>
+  :root{
+    --bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;
+    --ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;
+    --brand:#0A78BA;--brand-700:#08669F;--brand-800:#07547F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;
+    --gold:#A97B0F;--green:#0E8A64;--green-50:#E7F6F0;--red:#D64545;--red-50:#FCEDED;
+    --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --fm:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+    --sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);
+    --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
+  h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
+  h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}
+  h1 span{color:var(--brand)}
+  h2{font-size:25px;margin:8px 0 12px}h3{font-size:19px;margin:30px 0 8px}
+  p{font-size:17px;color:var(--ink-2);margin:0 0 15px}
+  strong{color:var(--ink)}a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+  em{font-style:italic;color:var(--ink)}
+  code{font-family:var(--fm);font-size:.85em;background:var(--surface-3);color:var(--ink);padding:1px 6px;border-radius:6px}
+  button{font-family:var(--f)}
+  .owos-nav{position:fixed;top:0;left:0;right:0;z-index:60;height:64px;background:rgba(255,255,255,.86);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;padding:0 24px}
+  .owos-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .owos-logo{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+  .owos-wm{font-weight:800;font-size:15.5px;letter-spacing:-.015em;color:var(--ink)}.owos-wm b{color:var(--brand)}
+  .owos-pw{font-size:11px;color:var(--ink-3);margin-left:4px}.owos-pw em{font-style:normal;color:var(--gold);font-weight:600}
+  .crumb{margin-left:auto;font:600 12px var(--fm);letter-spacing:.06em;color:var(--ink-3)}.crumb a{color:var(--brand)}.crumb b{color:var(--brand)}
+  #rprog{position:fixed;top:64px;left:0;height:3px;background:var(--brand);width:0;z-index:61;transition:width .1s linear}
+  .wrap{max-width:820px;margin:0 auto;padding:30px 24px 40px}
+  .hpill{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-700);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:6px 14px;margin-bottom:16px}
+  .hpill .d{width:7px;height:7px;border-radius:50%;background:var(--green)}
+  .sub{color:var(--ink-2);font-size:18px;line-height:1.65;max-width:62ch}
+  .lens{display:inline-flex;gap:5px;margin:22px 0 0;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:4px}
+  .lens button{background:none;border:none;color:var(--ink-2);font:600 13px var(--f);padding:7px 13px;border-radius:8px;cursor:pointer}
+  .lens button.on{background:var(--brand);color:#fff}
+  .lenshint{font-family:var(--fm);font-size:12px;color:var(--ink-3);margin:10px 0 0}
+  .lv{display:none}body[data-lens="f"] .lv.f,body[data-lens="p"] .lv.p,body[data-lens="l"] .lv.l{display:block}
+  .sec{margin:48px 0 0}.sec .tag{font-family:var(--fm);font-size:11px;letter-spacing:.14em;color:var(--ink-3);float:right;margin-top:8px}
+  .term{border-bottom:1.5px dotted var(--brand);cursor:help;color:var(--ink);font-weight:600}
+  #tt{position:fixed;z-index:200;max-width:300px;background:var(--ink);color:#fff;font-size:13px;line-height:1.55;padding:11px 14px;border-radius:12px;box-shadow:var(--sh-lg);opacity:0;pointer-events:none;transition:opacity .12s;font-family:var(--f)}
+  #tt b{color:#9BE3F8;display:block;margin-bottom:3px}
+  /* generic labeled component block */
+  .comp{background:var(--surface);border:1px solid var(--line);border-radius:18px;margin:22px 0;box-shadow:var(--sh-lg);overflow:hidden}
+  .comp>.hd{display:flex;align-items:center;gap:9px;padding:12px 18px;border-bottom:1px solid var(--line);font:600 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+  .comp>.hd .kind{margin-left:auto;color:var(--brand);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:2px 9px;font-size:9.5px}
+  .comp>.bd{padding:18px}
+  .droocue{display:flex;gap:12px;align-items:flex-start;padding:14px 18px;background:var(--brand-50);border-top:1px solid var(--brand-100)}
+  .droocue .av{flex:none;width:38px;height:38px}
+  .droocue .m{font-size:14.5px;color:var(--ink);line-height:1.55}.droocue .m b{color:var(--brand-700)}
+  .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:14px;padding:16px 18px;margin:20px 0;box-shadow:var(--sh)}
+  .card .h{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin:0 0 8px}
+  .card p{margin:0;font-size:15.5px}
+  /* goals checklist */
+  .goals{list-style:none;padding:0;margin:16px 0}
+  .goals li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer;font-size:15.5px}
+  .goals .bx{flex:none;width:22px;height:22px;border:2px solid var(--line-2);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;transition:.15s}
+  .goals li.on .bx{background:var(--green);border-color:var(--green)}
+  /* framework flow */
+  .flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+  .fbox{background:var(--surface-2);border:1px solid var(--line-2);border-radius:12px;padding:12px 16px;text-align:center;font-weight:600;color:var(--ink);font-size:14.5px;min-width:120px}
+  .fbox.q{background:var(--brand-50);border-color:var(--brand-100);color:var(--brand-800)}
+  .farrow{color:var(--ink-3);font-weight:700}
+  .fbranch{display:flex;gap:10px;flex-direction:column}
+  .fpath{display:flex;align-items:center;gap:8px}
+  .fpath .lbl{font:700 11px var(--fm);color:var(--ink-3);min-width:34px}
+  .fbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:10px;padding:8px 14px;font:600 13px var(--f);cursor:pointer;color:var(--ink-2)}
+  .fbtn:hover{border-color:var(--brand);color:var(--brand)}
+  .fbtn.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .fresult{margin-top:14px;padding:11px 15px;border-radius:12px;font-size:14.5px;display:none}
+  .fresult.on{display:block}
+  /* quiz: classify (sorter) */
+  .sortitem{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .sortitem:last-child{border-bottom:none}
+  .sortitem .lab{flex:1;min-width:180px;font-weight:600;color:var(--ink);font-size:15px}
+  .sortitem .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2);margin-top:2px;display:none;line-height:1.5}
+  .sortitem.done .why{display:block}
+  .sbtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);border-radius:8px;padding:6px 12px;font:600 12.5px var(--f);cursor:pointer}
+  .sbtn:hover{border-color:var(--brand);color:var(--brand)}
+  .sbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}
+  .sbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}
+  .sbtn:disabled{cursor:default}
+  .score{font:600 12.5px var(--fm);color:var(--ink-3);margin-top:12px}
+  /* diagram: iron triangle + steppers */
+  .trirow{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .trisvg{flex:none;width:270px;max-width:100%}
+  .tricontrols{flex:1;min-width:200px}
+  .ctl{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .ctl:last-of-type{border-bottom:none}
+  .ctl .nm{font-weight:600;color:var(--ink);font-size:14.5px}.ctl .nm small{display:block;font:11px var(--fm);color:var(--ink-3);font-weight:400}
+  .step{display:flex;align-items:center;gap:6px}
+  .step button{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);border-radius:7px;font-size:15px;font-weight:700;color:var(--ink-2);cursor:pointer;line-height:1}
+  .step button:hover{border-color:var(--brand);color:var(--brand)}
+  .step .v{font:600 13px var(--fm);width:76px;text-align:center;color:var(--ink)}
+  .qbadge{margin-top:12px;font:600 13px var(--f);padding:9px 13px;border-radius:10px;text-align:center}
+  /* process: lifecycle */
+  .life{display:flex;gap:6px;flex-wrap:wrap}
+  .lphase{flex:1;min-width:120px;background:var(--surface-2);border:1px solid var(--line);border-top:3px solid var(--brand);border-radius:10px;padding:11px 12px;cursor:pointer;transition:.15s;position:relative}
+  .lphase:hover{border-color:var(--brand)}
+  .lphase.on{background:var(--brand-50);border-color:var(--brand)}
+  .lphase b{display:block;color:var(--ink);font-size:14px}.lphase span{font-size:11.5px;color:var(--ink-3)}
+  .lphase .gate{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:16px;height:16px;border-radius:50%;background:var(--gold);color:#fff;font:700 9px var(--fm);display:flex;align-items:center;justify-content:center;z-index:2}
+  .lphase:last-child .gate{display:none}
+  .ldetail{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink-2)}
+  .ldetail b{color:var(--ink)}
+  /* method box */
+  .method .stepn{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .method .stepn:last-child{border-bottom:none}
+  .method .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font:800 13px var(--fm);display:flex;align-items:center;justify-content:center}
+  .method .tx{font-size:14.5px}.method .tx b{color:var(--ink)}
+  /* calculator + chart + curve */
+  input[type=range]{width:100%;accent-color:var(--brand)}
+  .out{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+  .out .o{flex:1;min-width:120px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+  .out .o .k{font:9px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+  .out .o .val{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+  .verdict{margin-top:12px;padding:11px 15px;border-radius:12px;font-weight:600;font-size:14.5px;line-height:1.5}
+  .verdict.go{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+  .verdict.no{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+  .chartrow{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+  .chartbox{flex:1;min-width:240px}
+  .chartbox .cap{font:600 10px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+  .bars2{display:flex;gap:18px;align-items:flex-end;height:120px;border-bottom:2px solid var(--line-2);padding:0 10px}
+  .bars2 .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bars2 .bar{width:70%;border-radius:5px 5px 0 0;transition:height .3s}
+  .bars2 .bl{font:600 11px var(--fm);color:var(--ink-2);margin-top:5px}
+  .bars2 .bv{font:700 11px var(--fm);color:var(--ink);margin-bottom:4px}
+  /* MC quiz */
+  .mc .opt{display:block;width:100%;text-align:left;background:var(--surface-2);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:9px;cursor:pointer;font-size:14.5px;color:var(--ink-2);font-family:inherit}
+  .mc .opt:hover{border-color:var(--brand)}
+  .mc .opt.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green);font-weight:600}
+  .mc .opt.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}
+  .mc .fb{margin-top:8px;font-size:14px;color:var(--ink-2);display:none}.mc .fb.on{display:block}
+  /* slider quiz */
+  .sq .row{display:flex;align-items:center;gap:12px;margin:12px 0}
+  .sq .val{font:700 15px var(--fm);color:var(--brand);min-width:80px;text-align:right}
+  .sq .fb{margin-top:8px;font-size:14px;padding:10px 13px;border-radius:10px;display:none}.sq .fb.on{display:block}
+  /* reflection quiz */
+  /* flip cards */
+  .flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+  .flip{perspective:900px;height:100px;cursor:pointer}
+  .fin{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+  .flip.on .fin{transform:rotateY(180deg)}
+  .ff,.fbk{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px}
+  .ff{background:var(--brand);color:#fff;font-weight:700;font-size:14px}
+  .fbk{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);transform:rotateY(180deg);font-size:12px;line-height:1.4}
+  .flip .hint{position:absolute;bottom:4px;right:7px;font:8px var(--fm);opacity:.7;color:#fff}
+  /* matching */
+  .match{display:flex;gap:14px}.mcol{flex:1;display:flex;flex-direction:column;gap:8px}
+  .mitem{border:1.5px solid var(--line-2);background:var(--surface);border-radius:10px;padding:9px 11px;font-size:13px;color:var(--ink-2);cursor:pointer;text-align:left}
+  .mitem:hover{border-color:var(--brand)}.mitem.sel{border-color:var(--brand);background:var(--brand-50);color:var(--brand)}
+  .mitem.done{border-color:#BFE0CE;background:var(--green-50);color:var(--green);cursor:default;font-weight:600}
+  .mitem.bad{border-color:#EAC7C0;background:var(--red-50);color:var(--red)}
+  /* true / false */
+  .tf{display:flex;flex-direction:column;gap:10px}.tfrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tfrow .s{flex:1;min-width:180px;font-size:14.5px;color:var(--ink-2)}
+  .tfbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:6px 13px;font:600 12.5px var(--f);cursor:pointer;color:var(--ink-2)}.tfbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.tfbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.tfbtn:disabled{cursor:default}
+  .fb2{margin-top:10px;font-size:14px;padding:9px 12px;border-radius:10px;display:none}.fb2.on{display:block}.fb2.ok{background:var(--green-50);color:var(--green)}.fb2.no{background:var(--red-50);color:var(--red)}
+  .check{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:var(--sh)}
+  .check .q{font-size:17px;color:var(--ink);font-weight:700}
+  .check details summary{cursor:pointer;color:var(--brand);font:600 13.5px var(--f);margin-top:8px}
+  .check .a{margin-top:8px;font-size:14.5px;color:var(--ink-2);line-height:1.6}
+  .navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .navrow a{font:600 14px var(--f)}
+  .btn{background:var(--brand);color:#fff;border-radius:10px;padding:10px 18px;font-weight:700;font-size:14px;box-shadow:var(--sh)}
+  .btn:hover{background:var(--brand-700);text-decoration:none}
+  .foot{background:var(--surface);border-top:1px solid var(--line);margin-top:30px}
+  .foot .in{max-width:820px;margin:0 auto;padding:22px 24px;font:12.5px var(--fm);color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .foot a{color:var(--brand)}
+  body.owosd .hpill,body.owosd .lenshint,body.owosd .sec .tag,body.owosd .comp>.hd,body.owosd .comp>.hd .kind,body.owosd .cnt,body.owosd .secs,body.owosd .prog,body.owosd .score,body.owosd .hint,body.owosd .out .o .k,body.owosd .ctl .nm small,body.owosd .step .v,body.owosd .chartbox .cap,body.owosd .method .n,body.owosd svg text,body.owosd code,body.owosd pre{font-family:var(--fm)!important}
+</style></head><body class="owosd">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="dbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FD3F6"/><stop offset=".55" stop-color="#3FA8E8"/><stop offset="1" stop-color="#1C79C0"/></linearGradient>
+  <linearGradient id="dlimb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA0DF"/><stop offset="1" stop-color="#1E76BC"/></linearGradient>
+  <symbol id="droobi" viewBox="460 130 500 700">
+    <path d="M662,632 C 656,700 654,760 656,802" stroke="url(#dlimb)" stroke-width="34" stroke-linecap="round" fill="none"/>
+    <path d="M738,632 C 744,700 746,760 744,802" stroke="url(#dlimb)" stroke-width="34" stroke-linecap="round" fill="none"/>
+    <ellipse cx="646" cy="806" rx="34" ry="16" fill="#1E76BC"/><ellipse cx="754" cy="806" rx="34" ry="16" fill="#1E76BC"/>
+    <path d="M548,486 C 512,560 496,690 500,768" stroke="url(#dlimb)" stroke-width="30" stroke-linecap="round" fill="none"/><ellipse cx="500" cy="772" rx="32" ry="17" fill="#2C86C4"/>
+    <path d="M852,486 C 900,540 920,556 936,544" stroke="url(#dlimb)" stroke-width="30" stroke-linecap="round" fill="none"/><circle cx="938" cy="540" r="23" fill="#2C86C4"/>
+    <path d="M700,150 C 660,320 525,412 525,472 A 175,175 0 1 0 875,472 C 875,412 740,320 700,150 Z" fill="url(#dbody)" stroke="#12608f" stroke-width="4"/>
+    <ellipse cx="632" cy="332" rx="30" ry="76" fill="#fff" opacity=".30"/><circle cx="782" cy="286" r="13" fill="#fff" opacity=".4"/>
+    <circle cx="700" cy="580" r="24" fill="#3FA8E8" stroke="#1C79C0" stroke-width="3"/><path d="M700,566 C700,566 690,578 690,585 A10,10 0 1 0 710,585 C710,578 700,566 700,566 Z" fill="#0d2136"/>
+    <path d="M596,398 Q642,380 686,400" stroke="#153049" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M714,400 Q758,380 804,398" stroke="#153049" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <ellipse cx="646" cy="442" rx="35" ry="42" fill="#fff"/><circle cx="652" cy="446" r="22" fill="#2E6FA8"/><circle cx="654" cy="448" r="11" fill="#0f2233"/><circle cx="645" cy="438" r="6" fill="#fff"/>
+    <ellipse cx="754" cy="442" rx="35" ry="42" fill="#fff"/><circle cx="748" cy="446" r="22" fill="#2E6FA8"/><circle cx="746" cy="448" r="11" fill="#0f2233"/><circle cx="739" cy="438" r="6" fill="#fff"/>
+    <ellipse cx="606" cy="496" rx="22" ry="13" fill="#f39b8f" opacity=".28"/><ellipse cx="794" cy="496" rx="22" ry="13" fill="#f39b8f" opacity=".28"/>
+    <path d="M654,512 Q700,562 746,512 Q700,532 654,512 Z" fill="#0e2733"/><ellipse cx="700" cy="532" rx="21" ry="10" fill="#e07e72"/>
+  </symbol>
+</defs></svg>
+
+
+<div id="rprog"></div>
+
+<div class="wrap" id="top">
+  <span class="hpill"><span class="d"></span>Chapter 01 &middot; Part A &middot; Foundations</span>
+  <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+      <h1>What a <span>project</span> is</h1>
+      <p class="sub">Before we get into schedules and budgets, let's start with the basics. What actually makes something a project? What are the three things you are always trading off against each other? And how do you decide whether a project is even worth doing in the first place? We will walk through all three, and you will get to try each one yourself.</p>
+    </div>
+    <svg viewBox="460 130 500 700" style="width:92px;height:120px;flex:none" aria-label="Droobi"><use href="#droobi"/></svg>
+  </div>
+  <div class="lens" role="tablist" aria-label="Depth">
+    <button data-l="f" class="on">Foundation</button><button data-l="p">Practitioner</button><button data-l="l">Leader</button>
+  </div>
+  <p class="lenshint">Pick your level above and the explanations change to match it. Hover over any <span class="term" data-term="dotted term" data-def="Like this one. Hover over any dotted word and you get a plain-English definition of it.">dotted term</span> for a definition. This chapter has 3 short sections.</p>
+
+  <!-- SECTION 1 -->
+  <div class="sec">
+    <span class="tag">Section 1 of 3</span>
+    <h2>A quick word on how this works, and what you will get out of it</h2>
+    <p>Every chapter teaches at three levels, and you just picked one up above. You can switch it anytime, so if something feels too basic or too deep, change it. Whichever level you pick, you will not just read about the idea. You will try it out yourself in the tools on the page, because things stick better when you do them than when you only read about them. Droobi walks you through each step, and any word with a dotted underline has a plain definition, so hover if a term is new.</p>
+    <p>Here is what you will be able to do by the end of this chapter. Tick each one off as we go.</p>
+    <ul class="goals" id="goals">
+      <li><span class="bx">&#10003;</span><span>Tell a project apart from ordinary operations, using a one-question test.</span></li>
+      <li><span class="bx">&#10003;</span><span>Explain the three things every project trades off, and why quality pays the price when they get out of balance.</span></li>
+      <li><span class="bx">&#10003;</span><span>Read a business case (three numbers) and say whether a project is worth doing.</span></li>
+    </ul>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="sec">
+    <span class="tag">Section 2 of 3</span>
+    <h2>Is it a project, or is it operations?</h2>
+    <p>Here is the easiest way to tell the two apart. A <span class="term" data-term="project" data-def="A piece of work that has a finish line. It has a start, an end, and a specific thing it hands over when it is done. After that, it is over.">project</span> has a finish line. You start it, you work through it, and one day it is finished and handed over. Replacing a mile of old water main is a project. <span class="term" data-term="operations" data-def="The ongoing, everyday work that keeps the utility running. It has no end date. Treating the water, reading the meters, answering calls.">Operations</span> are the opposite. They never finish. They just keep going, day after day, like treating the water or reading the meters.</p>
+
+    <!-- FRAMEWORK -->
+    <div class="comp">
+      <div class="hd"><span>The one-question test</span><span class="kind">Framework</span></div>
+      <div class="bd">
+        <div class="flow">
+          <div class="fbox q">Does the work<br>have a finish line?</div>
+          <span class="farrow">&rarr;</span>
+          <div class="fbranch">
+            <div class="fpath"><span class="lbl">Yes</span><button class="fbtn" data-ans="project">It is a <b>project</b></button></div>
+            <div class="fpath"><span class="lbl">No</span><button class="fbtn" data-ans="operation">It is <b>operations</b></button></div>
+          </div>
+        </div>
+        <div class="fresult" id="fRes"></div>
+      </div>
+      <div class="droocue"><svg class="av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg><div class="m">This is the whole framework, and it really is this simple. One question decides it. Tap a branch to see how it plays out on a real water job.</div></div>
+    </div>
+
+    <div class="lv f"><p>Why does this matter on day one? Because you run the two in completely different ways. A project needs a plan, a schedule, and a clear finish. Operations need a steady routine. When people treat a project like it is just "a quick job," it tends to drift along with no real finish line and nobody watching the budget.</p></div>
+    <div class="lv p"><p>The fastest way to spot the difference is to look for the end state. If there is a specific thing you are delivering and a date when it is done, handle it as a project. If the work just continues, handle it as operations, with a routine and a budget line.</p></div>
+    <div class="lv l"><p>This shapes how you fund things too. Capital projects compete for money and finish. Operations are the steady baseline cost of service. Mix them together and your capital plan gets muddy and the real cost of both is harder to see.</p></div>
+
+    <!-- QUIZ TYPE 1: CLASSIFY -->
+    <div class="comp">
+      <div class="hd"><span>Sort each one</span><span class="kind">Quiz &middot; classify</span></div>
+      <div class="bd"><div id="sorter"></div><div class="score" id="sortScore">Nothing answered yet</div></div>
+      <div class="droocue"><svg class="av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg><div class="m" id="sortCue">Tap <b>Project</b> or <b>Operation</b> for each. I will tell you right away whether you got it, and why.</div></div>
+    </div>
+
+    <h3>The three things you are always trading off</h3>
+    <p>Every project balances how much work you take on (<span class="term" data-term="scope" data-def="How much work you are taking on. The size of the job and everything it includes.">scope</span>), how long you have (<span class="term" data-term="time" data-def="How long you have to finish the work.">time</span>), and how much you can spend (<span class="term" data-term="cost" data-def="How much money and how many crews you have to get the work done.">cost</span>). You cannot change one without it showing up in the others. If the council adds two blocks to a main job but will not move the deadline or the budget, something gives, and it is usually quality. People call this the <span class="term" data-term="triple constraint" data-def="The trade-off between scope, time, and cost, with quality in the middle. Change one and at least one of the others must move, or quality suffers. Also called the iron triangle.">iron triangle</span>. Move the corners below and watch it happen.</p>
+
+    <!-- DIAGRAM: IRON TRIANGLE -->
+    <div class="comp">
+      <div class="hd"><span>The iron triangle</span><span class="kind">Diagram &middot; interactive</span></div>
+      <div class="bd">
+        <div class="trirow">
+          <svg class="trisvg" viewBox="0 0 260 230" id="triSvg" aria-label="Iron triangle diagram"></svg>
+          <div class="tricontrols">
+            <div class="ctl"><span class="nm">Scope <small>how much work</small></span><span class="step"><button data-tc="scope" data-d="-1">&minus;</button><span class="v" id="tcScopeV">Medium</span><button data-tc="scope" data-d="1">+</button></span></div>
+            <div class="ctl"><span class="nm">Time <small>weeks you have</small></span><span class="step"><button data-tc="time" data-d="-1">&minus;</button><span class="v" id="tcTimeV">Medium</span><button data-tc="time" data-d="1">+</button></span></div>
+            <div class="ctl"><span class="nm">Cost <small>budget and crews</small></span><span class="step"><button data-tc="cost" data-d="-1">&minus;</button><span class="v" id="tcCostV">Medium</span><button data-tc="cost" data-d="1">+</button></span></div>
+            <div class="qbadge" id="tcBadge"></div>
+          </div>
+        </div>
+      </div>
+      <div class="droocue"><svg class="av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg><div class="m" id="tcCue">Turn <b>Scope</b> up a couple of times without adding time or cost. Watch the triangle stretch and the quality dot in the middle turn red. That is the squeeze everyone runs into.</div></div>
+    </div>
+
+    <h3>The phases a project moves through</h3>
+    <p>A project officially begins with a <span class="term" data-term="charter" data-def="The short document that officially starts a project. It names the goal, the sponsor, who controls the budget, and what done means. It is your permission to begin.">charter</span>, the one-page "go ahead." From there it moves through a set of phases called the <span class="term" data-term="life cycle" data-def="The phases a project moves through from start to finish. For a utility that is usually planning, design, bidding, construction, commissioning, and closeout.">life cycle</span>. Between the phases are <span class="term" data-term="gate" data-def="A checkpoint between phases where someone decides whether the project is ready to move on. A go or no-go moment.">gates</span>, which are simple go or no-go checkpoints. Click a phase to see what happens in it.</p>
+
+    <!-- PROCESS: LIFECYCLE -->
+    <div class="comp">
+      <div class="hd"><span>The project life cycle</span><span class="kind">Process &middot; interactive</span></div>
+      <div class="bd">
+        <div class="life" id="life">
+          <div class="lphase on" data-p="0"><b>Start it</b><span>Charter, goal, sponsor</span><span class="gate">G</span></div>
+          <div class="lphase" data-p="1"><b>Plan it</b><span>Scope, schedule, budget</span><span class="gate">G</span></div>
+          <div class="lphase" data-p="2"><b>Build it</b><span>Do the work</span><span class="gate">G</span></div>
+          <div class="lphase" data-p="3"><b>Close it</b><span>Accept, hand over, learn</span></div>
+        </div>
+        <div class="ldetail" id="lifeDetail"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="sec">
+    <span class="tag">Section 3 of 3</span>
+    <h2>Is the project even worth doing?</h2>
+    <p>Before a project gets its charter, someone has to ask the honest question: is this worth the money? The answer is the <span class="term" data-term="business case" data-def="The honest answer to whether a project is worth the money you would spend. It is built from three numbers: NPV, payback, and the benefit-cost ratio.">business case</span>. You do not need to be a finance person to build one. Here is the method.</p>
+
+    <!-- METHOD -->
+    <div class="comp method">
+      <div class="hd"><span>How to build a business case</span><span class="kind">Method</span></div>
+      <div class="bd">
+        <div class="stepn"><span class="n">1</span><span class="tx"><b>Add up what it costs</b> to build, up front.</span></div>
+        <div class="stepn"><span class="n">2</span><span class="tx"><b>Add up what it saves or earns</b> each year (fewer main breaks, less lost water, lower energy).</span></div>
+        <div class="stepn"><span class="n">3</span><span class="tx"><b>Turn those future savings into today's dollars</b> and subtract the cost. That gives you the <span class="term" data-term="NPV" data-def="Net present value. All the future benefits converted into today's dollars, minus what it costs. Positive means worth doing.">NPV</span>.</span></div>
+        <div class="stepn"><span class="n">4</span><span class="tx"><b>Check two sanity numbers:</b> the <span class="term" data-term="payback" data-def="How many years until the yearly savings add up to what you spent up front.">payback</span> (how many years to break even) and the <span class="term" data-term="benefit-cost ratio" data-def="Benefits divided by cost. Above 1 means you get back more than you put in.">benefit-cost ratio</span> (dollars back per dollar spent).</span></div>
+      </div>
+    </div>
+
+    <p>Now run the real numbers on the Millpond main replacement. As you slide, watch two pictures update: a <strong>curve</strong> showing your money over time, and a <strong>bar chart</strong> comparing what you spend to what you get back.</p>
+
+    <!-- CALCULATOR + CURVE + CHART -->
+    <div class="comp">
+      <div class="hd"><span>Run the numbers: Millpond main replacement</span><span class="kind">Calculator &middot; curve &middot; chart</span></div>
+      <div class="bd">
+        <div class="ctl"><span class="nm">What it costs to build <small>up-front dollars</small></span><span style="flex:1;max-width:250px"><input type="range" id="bcCost" min="500" max="3000" step="50" value="1300"><span class="v" id="bcCostV" style="display:block;text-align:right"></span></span></div>
+        <div class="ctl"><span class="nm">What it saves each year <small>fewer breaks, less lost water</small></span><span style="flex:1;max-width:250px"><input type="range" id="bcBen" min="20" max="400" step="10" value="180"><span class="v" id="bcBenV" style="display:block;text-align:right"></span></span></div>
+        <div class="ctl"><span class="nm">How long the pipe lasts <small>years</small></span><span style="flex:1;max-width:250px"><input type="range" id="bcLife" min="10" max="75" step="5" value="50"><span class="v" id="bcLifeV" style="display:block;text-align:right"></span></span></div>
+        <div class="ctl"><span class="nm">Discount rate <small>roughly, the cost of money</small></span><span style="flex:1;max-width:250px"><input type="range" id="bcRate" min="1" max="10" step="0.5" value="4"><span class="v" id="bcRateV" style="display:block;text-align:right"></span></span></div>
+        <div class="out">
+          <div class="o"><div class="k">NPV (today's dollars)</div><div class="val" id="bcNPV">&nbsp;</div></div>
+          <div class="o"><div class="k">Payback</div><div class="val" id="bcPB">&nbsp;</div></div>
+          <div class="o"><div class="k">Benefit-cost ratio</div><div class="val" id="bcBCR">&nbsp;</div></div>
+        </div>
+        <div class="chartrow">
+          <div class="chartbox"><div class="cap">Your money over time (the curve)</div><svg viewBox="0 0 300 150" id="curve" style="width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)"></svg></div>
+          <div class="chartbox"><div class="cap">Spend vs get back (the chart)</div><div class="bars2" id="bars2"></div></div>
+        </div>
+        <div class="verdict" id="bcVerdict"></div>
+      </div>
+      <div class="droocue"><svg class="av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg><div class="m" id="bcCue">Watch the curve. It starts below zero because you spent the money, then climbs as the savings pile up. Where it crosses the middle line, that is your payback. Slide the yearly saving down until the curve never crosses. That is a project that does not pay off.</div></div>
+    </div>
+
+    <!-- QUIZ TYPE 2: MULTIPLE CHOICE -->
+    <div class="comp mc">
+      <div class="hd"><span>Pick the best answer</span><span class="kind">Quiz &middot; multiple choice</span></div>
+      <div class="bd" id="mc">
+        <p style="font-weight:700;color:var(--ink);margin:0 0 12px">Two projects both cost $1 million. Project A saves $250k a year, Project B saves $120k a year. Same pipe life. Which has the better business case?</p>
+        <button class="opt" data-c="1">Project A, because it pays back faster and returns more per dollar.</button>
+        <button class="opt" data-c="0">Project B, because spending less each year is safer.</button>
+        <button class="opt" data-c="0">They are equal, because they cost the same to build.</button>
+        <div class="fb" id="mcFb"></div>
+      </div>
+    </div>
+
+    <!-- QUIZ TYPE 3: SLIDER ESTIMATE -->
+    <div class="comp sq">
+      <div class="hd"><span>Estimate it, then check</span><span class="kind">Quiz &middot; estimate</span></div>
+      <div class="bd">
+        <p style="font-weight:600;color:var(--ink);margin:0">A project costs $1,000k and saves $200k a year. Drag the slider to your best guess for the simple payback, in years, then check it.</p>
+        <div class="row"><input type="range" id="sqGuess" min="1" max="15" step="0.5" value="8" style="flex:1"><span class="val" id="sqVal">8.0 yr</span></div>
+        <button class="btn" id="sqCheck" style="border:0;cursor:pointer">Check my guess</button>
+        <div class="fb" id="sqFb"></div>
+      </div>
+    </div>
+    <div class="lv l"><p>For a utility that runs on rates, the business case is also a conversation about rates. A positive NPV over the life of the pipe is how you explain to a board, and to the customers paying the bill, why the money is worth spending now. And remember the other side of it. Waiting until the old main finally breaks has its own cost, usually a bigger one.</p></div>
+  </div>
+
+  <!-- REVIEW: flip cards, matching, true/false -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>A few quick ways to make the words stick, each a different kind of check so it does not get dull. First, flip through the key terms. Tap a card to see what it means.</p>
+    <div class="comp"><div class="hd"><span>Key terms</span><span class="kind">Quiz &middot; flip cards</span></div>
+      <div class="bd"><div class="flips" id="flips"></div></div></div>
+
+    <p>Now match each term to what it means. Tap a term on the left, then its meaning on the right.</p>
+    <div class="comp"><div class="hd"><span>Match them up</span><span class="kind">Quiz &middot; matching</span></div>
+      <div class="bd"><div class="match"><div class="mcol" id="mLeft"></div><div class="mcol" id="mRight"></div></div><div class="fb2" id="matchFb"></div></div></div>
+
+    <p>Last one. True or false?</p>
+    <div class="comp"><div class="hd"><span>True or false</span><span class="kind">Quiz &middot; true / false</span></div>
+      <div class="bd"><div class="tf" id="tf"></div></div></div>
+  </div>
+
+  <!-- QUIZ TYPE 4: REFLECTION -->
+  <div class="sec">
+    <h2>One more, in your own words</h2>
+    <div class="check"><div class="q">Your crew flushes every fire hydrant every spring. Project or operations, and how would you handle it?</div><details><summary>Show the answer</summary><div class="a">Operations. It happens every year and never finishes, so you handle it with a routine and a line in the budget, not a charter and a schedule. The one-question test settles it: there is no finish line.</div></details></div>
+  </div>
+
+  <div class="card"><div class="h">What to remember</div>
+    <p>A project has a finish line. Operations just keep going. You manage the two differently.<br><br>
+    Scope, time, and cost are tied together. Change one, and another has to move, or quality pays for it.<br><br>
+    A charter starts a project, and the life cycle carries it from kickoff to closeout, with a go or no-go gate between phases.<br><br>
+    The business case, made of NPV, payback, and the benefit-cost ratio, tells you whether a project is worth doing before you spend a dollar.</p>
+  </div>
+
+  <div class="navrow">
+    <a href="masterclass-project-management.html">&lsaquo; Back to the Master Class</a>
+    <a class="btn" href="masterclass-project-management.html">Next up: Chapter 02, Delivery &amp; life cycles &rarr;</a>
+  </div>
+</div>
+
+
+
+<div id="tt"></div>
+<script>
+(function(){
+  "use strict";
+  // goals checklist
+  // FLIP CARDS
+  var CARDS=[['Project','Work with a finish line: a start, an end, and a thing it delivers.'],['Operations','Ongoing everyday work that never finishes, like treating water.'],['Charter','The one-page document that officially starts a project.'],['Scope','How much work you are taking on.'],['Triple constraint','Scope, time, and cost are linked; change one and another moves.'],['NPV','Future benefits in today’s dollars, minus the cost.'],['Payback','How many years until the savings repay the cost.'],['BCR','Benefits divided by cost; above 1 means it is worth it.']];
+  var fl=document.getElementById('flips');
+  if(fl)CARDS.forEach(function(c){var d=document.createElement('div');d.className='flip';d.innerHTML='<div class="fin"><div class="ff">'+c[0]+'<span class="hint">flip</span></div><div class="fbk">'+c[1]+'</div></div>';d.onclick=function(){d.classList.toggle('on');};fl.appendChild(d);});
+  // MATCHING
+  var PAIRS=[['Charter','Starts the project'],['Scope','How much work'],['NPV','Worth in today’s dollars'],['Payback','Years to break even']];
+  var L=document.getElementById('mLeft'),R=document.getElementById('mRight'),msel=null,mdone=0;
+  if(L){var rr=PAIRS.map(function(p,i){return {t:p[1],k:i};});for(var mi=rr.length-1;mi>0;mi--){var mj=(mi*7+3)%(mi+1);var t2=rr[mi];rr[mi]=rr[mj];rr[mj]=t2;}
+    PAIRS.forEach(function(p,i){var b=document.createElement('button');b.className='mitem';b.textContent=p[0];b.setAttribute('data-k',i);b.setAttribute('data-side','L');L.appendChild(b);});
+    rr.forEach(function(r){var b=document.createElement('button');b.className='mitem';b.textContent=r.t;b.setAttribute('data-k',r.k);b.setAttribute('data-side','R');R.appendChild(b);});
+    var mClick=function(e){var b=e.target.closest('.mitem');if(!b||b.classList.contains('done'))return;
+      if(b.getAttribute('data-side')==='L'){L.querySelectorAll('.mitem').forEach(function(x){x.classList.remove('sel');});b.classList.add('sel');msel=b;return;}
+      if(!msel)return;
+      if(b.getAttribute('data-k')===msel.getAttribute('data-k')){b.classList.add('done');msel.classList.add('done');msel.classList.remove('sel');msel=null;mdone++;if(mdone===PAIRS.length){var f=document.getElementById('matchFb');f.className='fb2 on ok';f.textContent='All matched. Those four terms are the backbone of this chapter.';}}
+      else{var a=msel,c=b;a.classList.add('bad');c.classList.add('bad');setTimeout(function(){a.classList.remove('bad','sel');c.classList.remove('bad');},550);msel=null;}};
+    L.addEventListener('click',mClick);R.addEventListener('click',mClick);}
+  // TRUE / FALSE
+  var TF=[['A project can run forever with no end date.',false,'False. If it never ends, it is operations, not a project.'],['Adding scope with no more time or money usually costs you quality.',true,'True. That is the triple constraint at work.'],['A positive NPV means a project is worth doing.',true,'True. It is worth more than it costs, in today’s dollars.']];
+  var tfEl=document.getElementById('tf');
+  if(tfEl){TF.forEach(function(r,i){var row=document.createElement('div');row.className='tfrow';row.innerHTML='<span class="s">'+r[0]+'</span><button class="tfbtn" data-i="'+i+'" data-v="true">True</button><button class="tfbtn" data-i="'+i+'" data-v="false">False</button><span id="tfx'+i+'" style="flex-basis:100%;font-size:12.5px;color:var(--ink-3);display:none"></span>';tfEl.appendChild(row);});
+    tfEl.addEventListener('click',function(e){var b=e.target.closest('.tfbtn');if(!b||b.disabled)return;var i=+b.getAttribute('data-i'),v=b.getAttribute('data-v')==='true',r=TF[i];tfEl.querySelectorAll('[data-i="'+i+'"]').forEach(function(x){x.disabled=true;});if(v===r[1])b.classList.add('right');else{b.classList.add('wrong');tfEl.querySelector('[data-i="'+i+'"][data-v="'+r[1]+'"]').classList.add('right');}var x=document.getElementById('tfx'+i);x.style.display='block';x.textContent=r[2];});}
+
+  document.querySelectorAll('#goals li').forEach(function(li){li.onclick=function(){li.classList.toggle('on');};});
+
+  // framework test
+  document.querySelectorAll('.fbtn').forEach(function(b){b.onclick=function(){
+    document.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+    var r=document.getElementById('fRes'),a=b.getAttribute('data-ans');r.classList.add('on');
+    if(a==='project'){r.style.background='var(--green-50)';r.style.color='var(--green)';r.innerHTML='Yes. Take "replace a mile of water main." It has a clear finish, so it is a <b>project</b>. You give it a charter, a schedule, and a closeout.';}
+    else{r.style.background='var(--surface-2)';r.style.color='var(--ink-2)';r.innerHTML='Right. Take "treat the water every day." It never ends, so it is <b>operations</b>. You give it a routine and a budget line, not a schedule.';}
+  };});
+
+  // QUIZ 1: classify
+  var ITEMS=[
+    {lab:'Replace a mile of old water main',t:'project',why:'This one has a clear finish. You lay the pipe, wrap it up, and it is done. That makes it a project.'},
+    {lab:'Read every customer meter each month',t:'operation',why:'This happens every single month and never ends. That is ongoing operations.'},
+    {lab:'Build a new lift station',t:'project',why:'A one-time build with a clear finish and a handover at the end. That is a project.'},
+    {lab:'Answer after-hours service calls',t:'operation',why:'The calls never stop coming. Keeping up with them is ongoing operations.'},
+    {lab:'Swap every meter in town for smart meters',t:'project',why:'It is a big job, but it has an end. Once the last meter is swapped, the project is finished.'},
+    {lab:'Treat the water to standard every day',t:'operation',why:'This is the everyday job that never ends. That is operations, not a project.'}
+  ];
+  var box=document.getElementById('sorter'),answered=0,correct=0;
+  ITEMS.forEach(function(it,i){var row=document.createElement('div');row.className='sortitem';
+    row.innerHTML='<span class="lab">'+it.lab+'</span><button class="sbtn" data-i="'+i+'" data-a="project">Project</button><button class="sbtn" data-i="'+i+'" data-a="operation">Operation</button><span class="why">'+it.why+'</span>';
+    box.appendChild(row);});
+  box.addEventListener('click',function(e){var b=e.target.closest('.sbtn');if(!b||b.disabled)return;
+    var i=+b.getAttribute('data-i'),a=b.getAttribute('data-a'),it=ITEMS[i],row=b.closest('.sortitem');
+    if(row.classList.contains('done'))return;row.classList.add('done');answered++;
+    row.querySelectorAll('.sbtn').forEach(function(x){x.disabled=true;});
+    if(a===it.t){b.classList.add('right');correct++;}else{b.classList.add('wrong');row.querySelector('[data-a="'+it.t+'"]').classList.add('right');}
+    document.getElementById('sortScore').innerHTML=answered+' of '+ITEMS.length+' answered, <b style="color:var(--green)">'+correct+' correct</b>';
+    if(answered===ITEMS.length)document.getElementById('sortCue').innerHTML=(correct===ITEMS.length?'Nice work, all six. The trick is always the same. Look for the finish line.':'Good effort. Keep the trick in mind: if the work has an end, it is a project.');
+  });
+
+  // DIAGRAM: iron triangle
+  var tc={scope:2,time:2,cost:2},NAMES=['Very low','Low','Medium','High','Very high'];
+  var CX=130,CY=118;
+  function vert(ang,val){var r=48+val*15;return [CX+r*Math.cos(ang),CY+r*Math.sin(ang)];}
+  function triRender(){
+    document.getElementById('tcScopeV').textContent=NAMES[tc.scope];
+    document.getElementById('tcTimeV').textContent=NAMES[tc.time];
+    document.getElementById('tcCostV').textContent=NAMES[tc.cost];
+    var q=Math.max(0,Math.min(100,100-(tc.scope-(tc.time+tc.cost)/2)*28));
+    var s=vert(-Math.PI/2,tc.scope),t=vert(Math.PI*0.833,tc.time),c=vert(Math.PI*0.167,tc.cost);
+    var qc=q>=75?'#0E8A64':q>=45?'#A97B0F':'#D64545';
+    var qr=10+q/100*24;
+    var svg='<polygon points="'+s[0]+','+s[1]+' '+c[0]+','+c[1]+' '+t[0]+','+t[1]+'" fill="rgba(10,120,186,.08)" stroke="#0A78BA" stroke-width="2.5" stroke-linejoin="round"/>'+
+      '<circle cx="'+CX+'" cy="'+CY+'" r="'+qr+'" fill="'+qc+'"/>'+
+      '<text x="'+CX+'" y="'+(CY+4)+'" text-anchor="middle" font-family="var(--fm)" font-size="10" font-weight="700" fill="#fff">'+Math.round(q)+'</text>'+
+      '<text x="'+s[0]+'" y="'+(s[1]-9)+'" text-anchor="middle" font-family="var(--fm)" font-size="10" font-weight="600" fill="#0F1728">Scope</text>'+
+      '<text x="'+(t[0]-4)+'" y="'+(t[1]+16)+'" text-anchor="middle" font-family="var(--fm)" font-size="10" font-weight="600" fill="#0F1728">Time</text>'+
+      '<text x="'+(c[0]+4)+'" y="'+(c[1]+16)+'" text-anchor="middle" font-family="var(--fm)" font-size="10" font-weight="600" fill="#0F1728">Cost</text>'+
+      '<text x="'+CX+'" y="215" text-anchor="middle" font-family="var(--fm)" font-size="9" fill="#8595AB">the dot is quality, 0 to 100</text>';
+    document.getElementById('triSvg').innerHTML=svg;
+    var badge=document.getElementById('tcBadge');
+    badge.style.background=q>=75?'var(--green-50)':q>=45?'#FBF3E2':'var(--red-50)';
+    badge.style.color=qc;badge.innerHTML='Quality holding at <b>'+Math.round(q)+'%</b> ('+(q>=75?'in good shape':q>=45?'getting strained':'corners being cut')+')';
+    var cue=document.getElementById('tcCue');
+    if(q<45)cue.innerHTML='See it? You added scope but not time or money, so the quality dot went red. To fix it, add time, add budget, or take some work back out.';
+    else if(q>=75&&tc.scope>=3)cue.innerHTML='That is the honest way to grow a job. You added scope and paid for it with time and cost, so quality held.';
+    else cue.innerHTML='Turn <b>Scope</b> up a couple of times without adding time or cost. Watch the triangle stretch and the middle dot turn red.';
+  }
+  document.querySelectorAll('[data-tc]').forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-tc'),d=+b.getAttribute('data-d');tc[k]=Math.max(0,Math.min(4,tc[k]+d));triRender();};});
+  triRender();
+
+  // PROCESS: lifecycle
+  var LIFE=[
+    {t:'Start it (initiate)',d:'You write the <b>charter</b>: the goal, the sponsor, the budget authority, and what "done" means. At the end is a <b>gate</b>, a go or no-go decision. On Millpond, this is where the utility decides the old main is worth replacing.'},
+    {t:'Plan it',d:'You work out the <b>scope, schedule, and budget</b> in detail, plus permits and risks. Another gate follows: is the plan good enough to spend real money on? This is where a Gantt chart first shows up.'},
+    {t:'Build it (execute)',d:'The crews do the work: locates, excavation, pipe, tie-ins. You track progress against the plan and keep status honest. On Millpond, this is the months of actual construction.'},
+    {t:'Close it',d:'You test and accept the work, hand it over to operations, file the as-builts, and capture lessons learned. The project is officially over, and from here it becomes operations.'}
+  ];
+  var life=document.getElementById('life'),ld=document.getElementById('lifeDetail');
+  function lifeShow(i){life.querySelectorAll('.lphase').forEach(function(p){p.classList.toggle('on',+p.getAttribute('data-p')===i);});ld.innerHTML='<b>'+LIFE[i].t+'.</b> '+LIFE[i].d;}
+  life.querySelectorAll('.lphase').forEach(function(p){p.onclick=function(){lifeShow(+p.getAttribute('data-p'));};});
+  lifeShow(0);
+
+  // CALCULATOR + CURVE + CHART
+  function money(k){var v=k*1000;if(Math.abs(v)>=1e6)return '$'+(v/1e6).toFixed(2)+'M';return '$'+Math.round(v/1000)+'k';}
+  function bc(){
+    var cost=+document.getElementById('bcCost').value,ben=+document.getElementById('bcBen').value,
+        life2=+document.getElementById('bcLife').value,r=(+document.getElementById('bcRate').value)/100;
+    document.getElementById('bcCostV').textContent=money(cost);
+    document.getElementById('bcBenV').textContent=money(ben)+'/yr';
+    document.getElementById('bcLifeV').textContent=life2+' years';
+    document.getElementById('bcRateV').textContent=(r*100).toFixed(1)+'%';
+    var pvBen=r>0?ben*(1-Math.pow(1+r,-life2))/r:ben*life2;
+    var npv=pvBen-cost,bcr=pvBen/cost,pb=ben>0?cost/ben:Infinity;
+    document.getElementById('bcNPV').innerHTML=(npv>=0?'+':'&minus;')+money(Math.abs(npv));
+    document.getElementById('bcPB').textContent=(isFinite(pb)?pb.toFixed(1)+' years':'never');
+    document.getElementById('bcBCR').textContent=bcr.toFixed(2);
+    var v=document.getElementById('bcVerdict');
+    if(npv>0){v.className='verdict go';v.innerHTML='This one is worth doing. Every dollar you put in gives back about $'+bcr.toFixed(2)+' over the life of the pipe, and the curve crosses into positive around year '+(isFinite(pb)?Math.round(pb):'') +'.';}
+    else{v.className='verdict no';v.innerHTML='At these numbers it does not pay off. NPV is negative, so it costs more than it gives back. You would need a bigger yearly saving, a longer pipe life, or the project waits.';}
+    // curve: discounted cumulative cash flow over years
+    var W=300,H=150,x0=8,x1=292,y0=12,y1=126,zeroPad;
+    var pts=[],minV=-cost,maxV=Math.max(0,npv);
+    for(var t=0;t<=life2;t++){var cum=(r>0?ben*(1-Math.pow(1+r,-t))/r:ben*t)-cost;pts.push([t,cum]);if(cum<minV)minV=cum;if(cum>maxV)maxV=cum;}
+    var span=(maxV-minV)||1;
+    function X(t){return x0+t/life2*(x1-x0);}
+    function Y(val){return y1-(val-minV)/span*(y1-y0);}
+    var zeroY=Y(0);
+    var poly=pts.map(function(p){return X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1);}).join(' ');
+    var cross='';
+    if(pvBen>cost){ // find crossing
+      for(var t2=1;t2<=life2;t2++){var c0=(r>0?ben*(1-Math.pow(1+r,-(t2-1)))/r:ben*(t2-1))-cost;var c1=(r>0?ben*(1-Math.pow(1+r,-t2))/r:ben*t2)-cost;if(c0<0&&c1>=0){var frac=(0-c0)/(c1-c0);var tx=t2-1+frac;cross='<circle cx="'+X(tx).toFixed(1)+'" cy="'+zeroY.toFixed(1)+'" r="4" fill="#0E8A64"/><text x="'+X(tx).toFixed(1)+'" y="'+(zeroY-7).toFixed(1)+'" text-anchor="middle" font-family="var(--fm)" font-size="9" fill="#0E8A64">payback</text>';break;}}
+    }
+    document.getElementById('curve').innerHTML=
+      '<line x1="'+x0+'" y1="'+zeroY.toFixed(1)+'" x2="'+x1+'" y2="'+zeroY.toFixed(1)+'" stroke="#CDD6E1" stroke-width="1" stroke-dasharray="3 3"/>'+
+      '<text x="'+x0+'" y="'+(zeroY-4).toFixed(1)+'" font-family="var(--fm)" font-size="8" fill="#8595AB">break even</text>'+
+      '<polyline points="'+poly+'" fill="none" stroke="#0A78BA" stroke-width="2.2"/>'+cross+
+      '<text x="'+x0+'" y="'+(H-2)+'" font-family="var(--fm)" font-size="8" fill="#8595AB">year 0</text>'+
+      '<text x="'+x1+'" y="'+(H-2)+'" text-anchor="end" font-family="var(--fm)" font-size="8" fill="#8595AB">year '+life2+'</text>';
+    // bar chart: cost vs PV of benefits
+    var mx=Math.max(cost,pvBen)||1;
+    document.getElementById('bars2').innerHTML=
+      '<div class="col"><span class="bv">'+money(cost)+'</span><div class="bar" style="height:'+(cost/mx*100)+'%;background:var(--ink-3)"></div><span class="bl">You spend</span></div>'+
+      '<div class="col"><span class="bv">'+money(pvBen)+'</span><div class="bar" style="height:'+(pvBen/mx*100)+'%;background:'+(pvBen>=cost?'var(--brand)':'var(--red)')+'"></div><span class="bl">You get back</span></div>';
+  }
+  ['bcCost','bcBen','bcLife','bcRate'].forEach(function(id){document.getElementById(id).addEventListener('input',bc);});
+  bc();
+
+  // QUIZ 2: multiple choice
+  document.getElementById('mc').addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o)return;
+    if(document.querySelector('#mc .opt.right'))return;
+    var right=o.getAttribute('data-c')==='1';var fb=document.getElementById('mcFb');fb.classList.add('on');
+    if(right){o.classList.add('right');fb.style.color='var(--green)';fb.innerHTML='Correct. Project A saves more each year on the same cost, so it pays back in about 4 years instead of about 8, and returns more per dollar. Cost alone never tells you which project is better. The savings do.';}
+    else{o.classList.add('wrong');document.querySelector('#mc .opt[data-c="1"]').classList.add('right');fb.style.color='var(--red)';fb.innerHTML='Not quite. The one that saves more each year (Project A) pays back faster and returns more per dollar, even though both cost the same to build. Highlighted above is the better answer.';}
+  });
+
+  // QUIZ 3: slider estimate
+  var sq=document.getElementById('sqGuess');
+  sq.addEventListener('input',function(){document.getElementById('sqVal').textContent=(+sq.value).toFixed(1)+' yr';});
+  document.getElementById('sqVal').textContent='8.0 yr';
+  document.getElementById('sqCheck').onclick=function(){var g=+sq.value,ans=5,fb=document.getElementById('sqFb');fb.classList.add('on');
+    var off=Math.abs(g-ans);
+    if(off<=0.5){fb.style.background='var(--green-50)';fb.style.color='var(--green)';fb.innerHTML='Spot on. Payback is just cost divided by yearly saving: $1,000k / $200k = <b>5 years</b>. Simple as that.';}
+    else{fb.style.background='var(--red-50)';fb.style.color='var(--red)';fb.innerHTML='Close but not there. The simple payback is cost divided by yearly saving: $1,000k / $200k = <b>5 years</b>. You guessed '+g.toFixed(1)+'. It is just division, no discounting in the simple version.';}
+  };
+
+  // tooltips
+  var tt=document.getElementById('tt');
+  function showTT(el){tt.innerHTML='<b>'+(el.getAttribute('data-term')||'')+'</b>'+el.getAttribute('data-def');
+    var r=el.getBoundingClientRect();tt.style.opacity='1';
+    var top=r.bottom+8,left=Math.min(Math.max(8,r.left),window.innerWidth-tt.offsetWidth-8);
+    if(top+tt.offsetHeight>window.innerHeight-8)top=r.top-tt.offsetHeight-8;tt.style.top=top+'px';tt.style.left=left+'px';}
+  function hideTT(){tt.style.opacity='0';}
+  document.querySelectorAll('.term').forEach(function(el){el.tabIndex=0;
+    el.addEventListener('mouseenter',function(){showTT(el);});el.addEventListener('mouseleave',hideTT);
+    el.addEventListener('focus',function(){showTT(el);});el.addEventListener('blur',hideTT);});
+
+  document.querySelectorAll('.lens button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.lens button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');document.body.setAttribute('data-lens',b.getAttribute('data-l'));};});
+  document.body.setAttribute('data-lens','f');
+  var rp=document.getElementById('rprog');
+  window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;rp.style.width=(h>0?window.scrollY/h*100:0)+'%';},{passive:true});
+})();
+</script>
+</body></html>
