@@ -142,6 +142,25 @@
   .sq .val{font:700 15px var(--fm);color:var(--brand);min-width:80px;text-align:right}
   .sq .fb{margin-top:8px;font-size:14px;padding:10px 13px;border-radius:10px;display:none}.sq .fb.on{display:block}
   /* reflection quiz */
+  /* flip cards */
+  .flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+  .flip{perspective:900px;height:100px;cursor:pointer}
+  .fin{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+  .flip.on .fin{transform:rotateY(180deg)}
+  .ff,.fbk{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px}
+  .ff{background:var(--brand);color:#fff;font-weight:700;font-size:14px}
+  .fbk{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);transform:rotateY(180deg);font-size:12px;line-height:1.4}
+  .flip .hint{position:absolute;bottom:4px;right:7px;font:8px var(--fm);opacity:.7;color:#fff}
+  /* matching */
+  .match{display:flex;gap:14px}.mcol{flex:1;display:flex;flex-direction:column;gap:8px}
+  .mitem{border:1.5px solid var(--line-2);background:var(--surface);border-radius:10px;padding:9px 11px;font-size:13px;color:var(--ink-2);cursor:pointer;text-align:left}
+  .mitem:hover{border-color:var(--brand)}.mitem.sel{border-color:var(--brand);background:var(--brand-50);color:var(--brand)}
+  .mitem.done{border-color:#BFE0CE;background:var(--green-50);color:var(--green);cursor:default;font-weight:600}
+  .mitem.bad{border-color:#EAC7C0;background:var(--red-50);color:var(--red)}
+  /* true / false */
+  .tf{display:flex;flex-direction:column;gap:10px}.tfrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tfrow .s{flex:1;min-width:180px;font-size:14.5px;color:var(--ink-2)}
+  .tfbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:6px 13px;font:600 12.5px var(--f);cursor:pointer;color:var(--ink-2)}.tfbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.tfbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.tfbtn:disabled{cursor:default}
+  .fb2{margin-top:10px;font-size:14px;padding:9px 12px;border-radius:10px;display:none}.fb2.on{display:block}.fb2.ok{background:var(--green-50);color:var(--green)}.fb2.no{background:var(--red-50);color:var(--red)}
   .check{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:var(--sh)}
   .check .q{font-size:17px;color:var(--ink);font-weight:700}
   .check details summary{cursor:pointer;color:var(--brand);font:600 13.5px var(--f);margin-top:8px}
@@ -350,6 +369,22 @@
     <div class="lv l"><p>For a utility that runs on rates, the business case is also a conversation about rates. A positive NPV over the life of the pipe is how you explain to a board, and to the customers paying the bill, why the money is worth spending now. And remember the other side of it. Waiting until the old main finally breaks has its own cost, usually a bigger one.</p></div>
   </div>
 
+  <!-- REVIEW: flip cards, matching, true/false -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>A few quick ways to make the words stick, each a different kind of check so it does not get dull. First, flip through the key terms. Tap a card to see what it means.</p>
+    <div class="comp"><div class="hd"><span>Key terms</span><span class="kind">Quiz &middot; flip cards</span></div>
+      <div class="bd"><div class="flips" id="flips"></div></div></div>
+
+    <p>Now match each term to what it means. Tap a term on the left, then its meaning on the right.</p>
+    <div class="comp"><div class="hd"><span>Match them up</span><span class="kind">Quiz &middot; matching</span></div>
+      <div class="bd"><div class="match"><div class="mcol" id="mLeft"></div><div class="mcol" id="mRight"></div></div><div class="fb2" id="matchFb"></div></div></div>
+
+    <p>Last one. True or false?</p>
+    <div class="comp"><div class="hd"><span>True or false</span><span class="kind">Quiz &middot; true / false</span></div>
+      <div class="bd"><div class="tf" id="tf"></div></div></div>
+  </div>
+
   <!-- QUIZ TYPE 4: REFLECTION -->
   <div class="sec">
     <h2>One more, in your own words</h2>
@@ -379,6 +414,28 @@
 (function(){
   "use strict";
   // goals checklist
+  // FLIP CARDS
+  var CARDS=[['Project','Work with a finish line: a start, an end, and a thing it delivers.'],['Operations','Ongoing everyday work that never finishes, like treating water.'],['Charter','The one-page document that officially starts a project.'],['Scope','How much work you are taking on.'],['Triple constraint','Scope, time, and cost are linked; change one and another moves.'],['NPV','Future benefits in today’s dollars, minus the cost.'],['Payback','How many years until the savings repay the cost.'],['BCR','Benefits divided by cost; above 1 means it is worth it.']];
+  var fl=document.getElementById('flips');
+  if(fl)CARDS.forEach(function(c){var d=document.createElement('div');d.className='flip';d.innerHTML='<div class="fin"><div class="ff">'+c[0]+'<span class="hint">flip</span></div><div class="fbk">'+c[1]+'</div></div>';d.onclick=function(){d.classList.toggle('on');};fl.appendChild(d);});
+  // MATCHING
+  var PAIRS=[['Charter','Starts the project'],['Scope','How much work'],['NPV','Worth in today’s dollars'],['Payback','Years to break even']];
+  var L=document.getElementById('mLeft'),R=document.getElementById('mRight'),msel=null,mdone=0;
+  if(L){var rr=PAIRS.map(function(p,i){return {t:p[1],k:i};});for(var mi=rr.length-1;mi>0;mi--){var mj=(mi*7+3)%(mi+1);var t2=rr[mi];rr[mi]=rr[mj];rr[mj]=t2;}
+    PAIRS.forEach(function(p,i){var b=document.createElement('button');b.className='mitem';b.textContent=p[0];b.setAttribute('data-k',i);b.setAttribute('data-side','L');L.appendChild(b);});
+    rr.forEach(function(r){var b=document.createElement('button');b.className='mitem';b.textContent=r.t;b.setAttribute('data-k',r.k);b.setAttribute('data-side','R');R.appendChild(b);});
+    var mClick=function(e){var b=e.target.closest('.mitem');if(!b||b.classList.contains('done'))return;
+      if(b.getAttribute('data-side')==='L'){L.querySelectorAll('.mitem').forEach(function(x){x.classList.remove('sel');});b.classList.add('sel');msel=b;return;}
+      if(!msel)return;
+      if(b.getAttribute('data-k')===msel.getAttribute('data-k')){b.classList.add('done');msel.classList.add('done');msel.classList.remove('sel');msel=null;mdone++;if(mdone===PAIRS.length){var f=document.getElementById('matchFb');f.className='fb2 on ok';f.textContent='All matched. Those four terms are the backbone of this chapter.';}}
+      else{var a=msel,c=b;a.classList.add('bad');c.classList.add('bad');setTimeout(function(){a.classList.remove('bad','sel');c.classList.remove('bad');},550);msel=null;}};
+    L.addEventListener('click',mClick);R.addEventListener('click',mClick);}
+  // TRUE / FALSE
+  var TF=[['A project can run forever with no end date.',false,'False. If it never ends, it is operations, not a project.'],['Adding scope with no more time or money usually costs you quality.',true,'True. That is the triple constraint at work.'],['A positive NPV means a project is worth doing.',true,'True. It is worth more than it costs, in today’s dollars.']];
+  var tfEl=document.getElementById('tf');
+  if(tfEl){TF.forEach(function(r,i){var row=document.createElement('div');row.className='tfrow';row.innerHTML='<span class="s">'+r[0]+'</span><button class="tfbtn" data-i="'+i+'" data-v="true">True</button><button class="tfbtn" data-i="'+i+'" data-v="false">False</button><span id="tfx'+i+'" style="flex-basis:100%;font-size:12.5px;color:var(--ink-3);display:none"></span>';tfEl.appendChild(row);});
+    tfEl.addEventListener('click',function(e){var b=e.target.closest('.tfbtn');if(!b||b.disabled)return;var i=+b.getAttribute('data-i'),v=b.getAttribute('data-v')==='true',r=TF[i];tfEl.querySelectorAll('[data-i="'+i+'"]').forEach(function(x){x.disabled=true;});if(v===r[1])b.classList.add('right');else{b.classList.add('wrong');tfEl.querySelector('[data-i="'+i+'"][data-v="'+r[1]+'"]').classList.add('right');}var x=document.getElementById('tfx'+i);x.style.display='block';x.textContent=r[2];});}
+
   document.querySelectorAll('#goals li').forEach(function(li){li.onclick=function(){li.classList.toggle('on');};});
 
   // framework test

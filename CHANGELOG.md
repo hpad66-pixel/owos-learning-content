@@ -3,6 +3,13 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.2.1] - 2026-07-18
+### Changed
+- Finished Chapter 01 (What a project is) as the full exemplar. It now uses the whole palette:
+  a decision framework, an interactive iron-triangle diagram, a clickable life-cycle process, a
+  method, a calculator with a cash-flow curve and a bar chart, and seven quiz types (classify,
+  multiple choice, estimate, flip cards, matching, true/false, reflection). Plain voice, no em dashes.
+
 ## [0.2.0] - 2026-07-18
 ### Changed
 - Restructured into a monorepo so every app can reuse one shared foundation.
