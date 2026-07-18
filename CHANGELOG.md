@@ -1,7 +1,16 @@
 # Changelog
 
-All notable changes to the One Water OS PM System are recorded here, newest first.
+All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
+
+## [0.2.0] - 2026-07-18
+### Changed
+- Restructured into a monorepo so every app can reuse one shared foundation.
+  - `core/` now holds the reusable wheel: `brand/`, `standards/` (writing standard + visual arsenal),
+    and `components/` (component gallery, quiz gallery, module template, catalogs).
+  - The Project Management work moved into `apps/project-management/` (curriculum, playbook, starter kit).
+- Renamed the repo from `onewater-pm-system` to `onewater-os`.
+- Rewrote the README to document the monorepo and how to add a new app.
 
 ## [0.1.0] - 2026-07-18
 Initial commit. Everything to date is captured and put under version control.

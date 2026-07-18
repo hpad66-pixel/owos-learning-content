@@ -1,53 +1,55 @@
-# One Water OS PM System
+# One Water OS
 
-The project-management masterclass, brand system, and course-building framework for
-**One Water OS Academy**, by APAS.ai. Taught by Droobi.
+The single home for all One Water OS technical content and apps, by APAS.ai. Taught by Droobi.
 
-**Version:** 0.1.0 &middot; **Last updated:** 2026-07-18
+**Version:** 0.2.0 &middot; **Last updated:** 2026-07-18
+
+This is a **monorepo**. The reusable foundation lives in `core/` and is shared by every app in
+`apps/`. Build the wheel once in `core/`, reuse it everywhere. That is how we keep the branding,
+the voice, and the approach consistent across every application.
 
 ---
 
-## What is in here
+## Structure
 
 ```
-brand/            The One Water OS "Clearwater" brand: guidelines + assets (logo, Droobi, icons)
-playbook/         The utilities/water PM field playbook (HTML + PDF)
-curriculum/       The masterclass: syllabus, chapters, the course "chrome", and the build framework
-starter-kit/      A plain-file project scaffold you copy to start a real job
+core/                     the reusable foundation. Build once, every app uses it.
+  brand/                  Clearwater brand: owos-brand.css, Droobi, logos, BRAND-GUIDELINES.md
+  standards/              WRITING-STANDARD.md, VISUAL-ARSENAL.md
+  components/             component-gallery.html, quiz-gallery.html, module-template.html,
+                          COMPONENTS.md, QUIZ-TYPES.md
+apps/                     one folder per application. Each reuses core/.
+  project-management/     the Project Management masterclass (built)
+    curriculum/           syllabus, the course "chrome", and the chapters
+    playbook/             the utilities PM field playbook (HTML + PDF)
+    starter-kit/          a plain-file project scaffold you copy to run a real job
+  ( living-graph/ , fable-agent/ , one-water-os/ ... come next )
+README.md  CHANGELOG.md  VERSION
 ```
 
-## The course-building framework (how a module gets made)
+## How to add a new app (so you never reinvent the wheel)
+1. Make a folder under `apps/` (for example `apps/living-graph/`).
+2. Copy `core/components/module-template.html` as your starting page.
+3. Point at the foundation in `core/`: the brand in `core/brand/`, the rules in `core/standards/`,
+   and the palettes in `core/components/`.
+4. Follow the build order in `core/standards/WRITING-STANDARD.md`.
 
-Four files work together. Follow them in order to build any chapter:
+Because every app pulls from the same `core/`, changing the brand or the writing standard once updates
+the approach for all of them.
 
-1. **`curriculum/WRITING-STANDARD.md`** — the voice rules (plain, conversational, no em dashes, no
-   cliches, always a water example) plus the required learning components and quiz variety.
-2. **`curriculum/VISUAL-ARSENAL.md`** — a catalog of ~35 visual types and a Selection Prompt you run
-   per module so the visuals fit the ideas (never default to the same triangle or curve).
-3. **`curriculum/component-gallery.html`** — every visual rendered live. Pick what you need.
-4. **`curriculum/quiz-gallery.html`** — every quiz type, working. Mix them so nothing repeats.
+## The build order for any module
+1. Read `core/standards/WRITING-STANDARD.md` (voice + component + quiz rules).
+2. Run the Selection Prompt in `core/standards/VISUAL-ARSENAL.md` (pick visuals that fit the ideas).
+3. Pick visuals from `core/components/component-gallery.html` (catalog: `COMPONENTS.md`).
+4. Pick and mix quizzes from `core/components/quiz-gallery.html` (catalog: `QUIZ-TYPES.md`).
+5. Copy `core/components/module-template.html` and fill it in.
 
-Then copy **`curriculum/module-template.html`** and fill it in.
-
-Markdown catalogs of the galleries (for quick reference): **`curriculum/COMPONENTS.md`** and
-**`curriculum/QUIZ-TYPES.md`**.
-
-## The masterclass
-
-- **`curriculum/masterclass-project-management.html`** — the course shell ("chrome"): 21 chapters,
-  60 sections.
-- **`curriculum/module-01-what-is-a-project.html`** — Chapter 01, built (interactive).
-- **`curriculum/module-b3-b6-critical-path.html`** — the Scheduling & Critical Path chapter (the
-  interactive format mold).
-- **`curriculum/SYLLABUS.md`** — the full curriculum blueprint.
-
-## Working note (HTML vs Markdown)
-Reference and standard docs are Markdown so they are easy to read and update. The galleries,
-template, and chapters are HTML because they are interactive (a flip card has to flip). The
-`*.artifact.html` files are preview copies used for sharing; the plain `*.html` files are the ones
-you deploy to the site.
+## Formats
+Reference and standard docs are Markdown (easy to read and update). The galleries, template, and
+chapters are HTML because they are interactive. `*.artifact.html` files are preview copies for
+sharing; the plain `*.html` files are what you deploy.
 
 ## Versioning
-See `CHANGELOG.md` for dated entries and `VERSION` for the current number. Each release is also a git
-tag (for example `v0.1.0`). When a document changes, the change is committed here so it can be tracked
-and rolled back.
+`VERSION` holds the current number, `CHANGELOG.md` has dated entries, and each release is a git tag
+(for example `v0.2.0`). When a document changes, it is committed here so it can be tracked and
+rolled back.
