@@ -107,6 +107,25 @@
        ]}
       </script>
     </div>
+
+    <p>For the discretionary pile, selection is a <b>weighted score</b>: rate each project against a few criteria, weight the criteria by what your utility values most, and rank them. Change the weights and watch the order shift. That is, in miniature, how a capital plan gets prioritized.</p>
+
+    <div data-ac="scoreboard" data-title="Score and rank the capital candidates" data-kind="Interactive &middot; simulation" data-cue="Drag 'Regulatory pressure' up and watch compliance-driven work rise to the top. The ranking always follows what you choose to weight.">
+      <script type="application/json">
+      {"criteria":[
+        {"key":"risk","label":"Reduces failure risk","weight":5},
+        {"key":"compliance","label":"Regulatory pressure","weight":4},
+        {"key":"benefit","label":"Cost savings / benefit","weight":3},
+        {"key":"equity","label":"Community equity","weight":2}
+       ],
+       "projects":[
+        {"name":"Millpond main replacement","scores":{"risk":5,"compliance":3,"benefit":4,"equity":3}},
+        {"name":"Lift station rebuild","scores":{"risk":4,"compliance":4,"benefit":3,"equity":2}},
+        {"name":"Smart-meter pilot","scores":{"risk":2,"compliance":1,"benefit":4,"equity":3}},
+        {"name":"New admin building","scores":{"risk":1,"compliance":1,"benefit":2,"equity":2}}
+       ]}
+      </script>
+    </div>
   </div>
 
   <!-- ===================== SECTION 2 ===================== -->
@@ -155,6 +174,20 @@
        ],
        "right":"Correct. A scope change ripples. Integration means updating the schedule, cost, and risk together and taking the change through change control so the baselines stay honest.",
        "wrong":"Not quite. A scope change ripples into schedule, cost, and risk. Good integration updates them together and runs the change through change control, rather than absorbing it silently or refusing outright."}
+      </script>
+    </div>
+
+    <p>Integration is easiest to feel when you poke it. Scope is one input. Add a couple of blocks to the Millpond job and watch the schedule, the cost, and the risk all move at once. That simultaneous movement is the thing integration manages, and the reason a scope change goes through change control instead of a quiet edit.</p>
+
+    <div data-ac="ripple" data-title="Move one thing, watch the rest react" data-kind="Interactive &middot; simulation" data-cue="You cannot move scope on its own. Every output responds. The integrator keeps all three honest, together.">
+      <script type="application/json">
+      {"driver":{"label":"Scope added","unit":"blocks","min":0,"max":6,"start":0},
+       "baseNote":"Add scope and watch schedule, cost, and risk all react at once.",
+       "effects":[
+        {"label":"Schedule","base":24,"per":1.5,"unit":"weeks","max":36},
+        {"label":"Cost","base":1300,"per":170,"unit":"$k","max":2400},
+        {"label":"Risk","base":2,"per":0.5,"unit":"/5","max":5}
+       ]}
       </script>
     </div>
   </div>

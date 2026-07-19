@@ -172,6 +172,24 @@
       </script>
     </div>
 
+    <p>Now try it. Shorten a task with the steppers and watch the finish move, or not. Crash a <b>gold</b> task and the end date drops. Crash a <b>blue</b> one and nothing happens to the finish, that task just gains float. Push hard enough on one chain and the critical path jumps to another.</p>
+
+    <div data-ac="ganttedit" data-title="What-if: crash the schedule yourself" data-kind="Interactive &middot; simulation" data-cue="Try cutting the 14-week procurement down a few weeks and watch the finish fall, then watch the critical path hand off to the permit chain once procurement is no longer the longest.">
+      <script type="application/json">
+      {"unit":"weeks","tasks":[
+        {"id":"s","name":"Survey & design","dur":6,"deps":[]},
+        {"id":"p","name":"Permit approval","dur":8,"deps":["s"]},
+        {"id":"m","name":"Procure materials","dur":14,"deps":["s"]},
+        {"id":"b","name":"Bid & award","dur":4,"deps":["s"]},
+        {"id":"z","name":"Mobilize","dur":1,"deps":["p","b"]},
+        {"id":"x","name":"Excavate & lay pipe","dur":4,"deps":["z","m"]},
+        {"id":"t","name":"Service tie-ins","dur":2,"deps":["x"]},
+        {"id":"d","name":"Test & disinfect","dur":2,"deps":["t"]},
+        {"id":"c","name":"Restore & close out","dur":2,"deps":["d"]}
+      ]}
+      </script>
+    </div>
+
     <div class="lv l leadcall">
       <p class="h">Leader's call</p>
       <p>Ask one question in every schedule review: <b>what is on the critical path right now, and is it the long-lead procurement or a permit rather than the field work?</b> Manage those, protect their float, and stop pouring urgency onto activities that have slack to spare.</p>

@@ -265,7 +265,7 @@ def landing(chapters: list[Chapter]) -> str:
     <div class="dg-list"><div class="dg-row"><span class="dg-num">CP</span><span><h3>Prove the operating model on one material decision</h3><span class="dg-sections">Decision chain &middot; evidence &middot; 90-day launch &middot; funded roadmap &middot; assurance boundary</span></span><span class="dg-pill">Design ready</span></div></div>
   </section>
 </main>
-<footer class="dg-footer"><div class="wrap">Course ID: {COURSE_ID} &middot; Store: {STORE_KEY} &middot; Native OWOS HTML &middot; Structure version 0.12.0</div></footer>
+<footer class="dg-footer"><div class="wrap">Course ID: {COURSE_ID} &middot; Store: {STORE_KEY} &middot; Native OWOS HTML &middot; Structure version 0.13.0</div></footer>
 <script src="../../../core/components/academy.js"></script>
 </body></html>"""
 

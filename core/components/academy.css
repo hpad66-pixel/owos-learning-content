@@ -222,6 +222,85 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- pert: three-point estimate ---- */
+.pertrow{display:flex;align-items:center;gap:12px;margin:9px 0}.pertrow .nm{flex:none;width:150px;font-weight:600;color:var(--ink);font-size:14px}.pertrow .nm small{display:block;font:11px var(--fm);color:var(--ink-3);font-weight:400}
+.pertrow input{flex:1}.pertrow .v{flex:none;width:74px;text-align:right;font:700 13px var(--fm);color:var(--brand)}
+.pertsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:6px}
+.pertout{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.pertout .o{flex:1;min-width:110px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.pertout .o .k{font:9px var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}.pertout .o .val{font:800 18px var(--fm);color:var(--ink)}.pertout .o.hi .val{color:var(--brand)}
+
+/* ---- reslevel: resource histogram + leveling ---- */
+.rltoggle{display:inline-flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:4px;margin-bottom:12px}
+.rltoggle button{background:none;border:none;color:var(--ink-2);font:600 13px var(--f);padding:6px 14px;border-radius:8px;cursor:pointer}.rltoggle button.on{background:var(--brand);color:#fff}
+.rlwrap{overflow-x:auto}
+.rlbars{display:flex;gap:5px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:0 4px;position:relative;min-width:340px}
+.rlcap{position:absolute;left:4px;right:4px;border-top:2px dashed var(--red);z-index:2}.rlcap span{position:absolute;right:0;top:-16px;font:700 10px var(--fm);color:var(--red)}
+.rlcol{flex:1;display:flex;flex-direction:column-reverse;align-items:center;height:100%;gap:2px;min-width:20px}
+.rlseg{width:80%;border-radius:2px}.rlover{outline:2px solid var(--red);outline-offset:-1px}
+.rllabels{display:flex;gap:5px;padding:5px 4px 0;min-width:340px}.rllabels span{flex:1;text-align:center;font:9px var(--fm);color:var(--ink-3);min-width:20px}
+.rlnote{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink)}.rlnote.warn{background:#FBF3E2;border-color:#EAD9AE;color:var(--gold)}.rlnote.ok{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.rlnote b{color:inherit}
+
+/* ---- montecarlo: probabilistic finish ---- */
+.mcsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.mcctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.mcctrl button{border:1px solid var(--line-2);background:var(--surface);border-radius:9px;padding:8px 15px;font:600 13px var(--f);cursor:pointer;color:var(--ink-2)}.mcctrl button.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.mcctrl button.primary:hover{background:var(--brand-700)}.mcctrl button:disabled{opacity:.5;cursor:default}
+.mccount{font:600 12px var(--fm);color:var(--ink-3);margin-left:auto}
+.mcstats{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.mcstats .o{flex:1;min-width:120px;border-radius:12px;padding:10px 14px;border:1px solid var(--line);background:var(--surface-2)}
+.mcstats .o .k{font:9px var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}.mcstats .o .val{font:800 18px var(--fm);color:var(--ink)}
+.mcstats .o.det .val{color:var(--ink-3)}.mcstats .o.p50 .val{color:var(--brand)}.mcstats .o.p80 .val{color:var(--gold)}
+.mcout{margin-top:12px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14.5px;color:var(--ink)}.mcout b{color:var(--brand-700)}.mcout .g{color:var(--gold);font-weight:700}
+
+/* ---- costcurve: cost of a change over the life cycle ---- */
+.ccbars{display:flex;gap:10px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:0 6px}
+.ccbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;cursor:pointer}
+.ccbar .fill{width:78%;border-radius:5px 5px 0 0;background:var(--surface-3);transition:height .25s,background .2s;min-height:4px}
+.ccbar.on .fill{background:var(--gold)}
+.ccbar .m{font:700 12px var(--fm);color:var(--ink-3);margin-bottom:4px}.ccbar.on .m{color:var(--gold)}
+.cclabels{display:flex;gap:10px;padding:6px 6px 0}.cclabels span{flex:1;text-align:center;font:600 11px var(--fm);color:var(--ink-2)}
+.ccout{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink)}.ccout b{color:var(--gold)}
+
+/* ---- ripple: change one input, watch outputs move ---- */
+.rpdriver{display:flex;align-items:center;gap:12px;margin:6px 0 16px}.rpdriver .nm{font-weight:600;color:var(--ink);font-size:14.5px;flex:none}.rpdriver input{flex:1}.rpdriver .v{font:700 14px var(--fm);color:var(--brand);min-width:120px;text-align:right}
+.rpeff{display:flex;flex-direction:column;gap:12px}
+.rprow{display:flex;align-items:center;gap:12px}.rprow .lb{flex:none;width:96px;font-weight:600;color:var(--ink);font-size:13.5px}
+.rpmeter{flex:1;height:16px;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.rpfill{height:100%;background:var(--brand);border-radius:9px;transition:width .3s,background .3s}
+.rprow .val{flex:none;width:96px;text-align:right;font:700 13px var(--fm);color:var(--ink)}
+.rpnote{margin-top:14px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.rpnote b{color:var(--brand-700)}
+
+/* ---- editable gantt (what-if) ---- */
+.gstep{flex:none;display:inline-flex;gap:3px;align-items:center;margin-right:6px}
+.gstep button{width:20px;height:20px;border:1px solid var(--line-2);background:var(--surface);border-radius:6px;font:700 12px var(--fm);line-height:1;color:var(--ink-2);cursor:pointer}
+.gstep button:hover{border-color:var(--brand);color:var(--brand)}
+.gname.ed{width:132px}.gd-note{margin-top:10px;padding:10px 14px;border-radius:11px;font-size:14px;background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}.gd-note b{color:var(--ink)}.gd-note.warn{background:#FBF3E2;border-color:#EAD9AE;color:var(--gold)}
+
+/* ---- rollup tree (WBS 100% rule) ---- */
+.rutotal{display:flex;justify-content:space-between;align-items:center;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;padding:10px 16px;margin-bottom:12px}
+.rutotal .k{font:600 11px var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--brand-700)}.rutotal .v{font:800 20px var(--fm);color:var(--brand)}
+.rurow{display:flex;align-items:center;gap:8px;padding:5px 0}
+.runame{flex:1;color:var(--ink);font-size:14px}.runame.parent{font-weight:700}
+.rusum{font:700 12px var(--fm);color:var(--brand-700);background:var(--brand-50);border-radius:7px;padding:2px 9px}
+.ruinput{width:70px;border:1px solid var(--line-2);border-radius:7px;padding:4px 7px;font:600 12px var(--fm);color:var(--ink);text-align:right}
+.ruinput:focus{outline:none;border-color:var(--brand)}
+.rukids{list-style:none;margin:0;padding:0 0 0 20px}.rukids.root{padding:0}
+
+/* ---- scoreboard: weighted project scoring ---- */
+.sbcrit{display:flex;flex-direction:column;gap:9px;margin:4px 0 16px}
+.sbcrow{display:flex;align-items:center;gap:12px}.sbcrow .lb{flex:none;width:130px;font-weight:600;color:var(--ink);font-size:13.5px}.sbcrow input{flex:1}.sbcrow .w{flex:none;width:44px;text-align:right;font:700 12px var(--fm);color:var(--brand)}
+.sbtable{width:100%;border-collapse:collapse;font-size:13.5px}
+.sbtable th{text-align:left;font:600 10px var(--fm);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);padding:7px 8px;border-bottom:1px solid var(--line)}
+.sbtable td{padding:9px 8px;border-bottom:1px solid var(--line)}.sbtable tr:last-child td{border-bottom:none}
+.sbtable .rk{font:800 14px var(--fm);color:var(--ink-3);width:26px}.sbtable tr.top .rk{color:var(--gold)}.sbtable tr.top{background:#FBF7EC}
+.sbtable .pn{font-weight:700;color:var(--ink)}.sbtable .sc{font:700 14px var(--fm);color:var(--brand)}
+.sbbar{height:7px;background:var(--surface-2);border-radius:5px;margin-top:4px;overflow:hidden}.sbbar i{display:block;height:100%;background:var(--brand);border-radius:5px;transition:width .3s}
+
+/* ---- present value mini-sim ---- */
+.pvrow{display:flex;align-items:center;gap:12px;margin:10px 0}.pvrow .nm{flex:none;width:130px;font-weight:600;color:var(--ink);font-size:14px}.pvrow input{flex:1}.pvrow .v{flex:none;width:80px;text-align:right;font:700 13px var(--fm);color:var(--brand)}
+.pvbars{display:flex;gap:24px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:10px 20px 0;margin-top:8px}
+.pvcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.pvcol .bar{width:64%;border-radius:6px 6px 0 0;transition:height .3s}.pvcol .bv{font:700 13px var(--fm);color:var(--ink);margin-bottom:5px}.pvcol .bl{font:600 11px var(--fm);color:var(--ink-2);margin-top:6px;text-align:center}
+.pvout{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink)}.pvout b{color:var(--brand)}
+
 /* ---- tree / work breakdown structure ---- */
 .tree{font-size:14.5px}
 .tkids{list-style:none;margin:0;padding:0 0 0 22px}.tkids.root{padding-left:0}

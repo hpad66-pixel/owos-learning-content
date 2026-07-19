@@ -3,8 +3,21 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
-## [0.12.0] - 2026-07-19
-### Added: governed Course-to-Learn architecture and Data Governance course shell
+## [0.13.0] - 2026-07-19
+### Added: complete Data Governance curriculum structure and OWOS delivery architecture
+- Added `apps/data-ai-governance/` as the governed course-content home for the Data Before AI Master
+  Class.
+- Added a complete 25-chapter, 75-section syllabus for drinking water, wastewater, stormwater,
+  reuse, and integrated One Water utilities.
+- Mapped every Version 2.3 assessment criterion from D01.1 through D12.5 and assigned all 21 controlled
+  figures a teaching job.
+- Added Foundation, Practitioner, and Leader lenses; seven role pathways; the fictional Riverbend
+  utility running case; chapter-level utility examples; deployment studios; evidence gates; visual and
+  simulation plans; varied checks; and a 20-artifact Utility Data and AI Governance Launch Pack.
+- Added the proposed entry diagnostic, chapter checks, part assessments, final scenario assessment,
+  capstone, critical-gate pass rule, and course-completion credential boundary.
+- Added `course.yaml` with the stable OWOS course ID, pinned Version 2.3 method commit, release gates,
+  structure, roles, planning effort, assessment proposal, and credential status.
 - Added the canonical ownership, data-flow, release, and version-control contract from `onewater-os`
   through the `2-brain` OWOS.ai runtime, Supabase, Knowledge Graph, and Cloudflare.
 - Added Mermaid system and release-flow diagrams, the system-of-record matrix, release gates, stable
@@ -14,29 +27,46 @@ Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
   marked pending until it passes the governed content acceptance gates.
 - Added reproducible self-contained distribution outputs for controlled copy-on-publish into OWOS.ai.
 
-## [0.11.0] - 2026-07-19
-### Added: complete Data and Artificial Intelligence Governance syllabus
-- Added `apps/data-ai-governance/` as the governed course-content home for the Data Before AI Master
-  Class.
-- Added a complete 25-chapter, 75-section syllabus built for drinking water, wastewater, stormwater,
-  reuse, and integrated One Water utilities.
-- Mapped every Version 2.3 assessment criterion from D01.1 through D12.5 and assigned all 21 controlled
-  figures a teaching job.
-- Added Foundation, Practitioner, and Leader lenses; seven role pathways; the fictional Riverbend
-  utility running case; chapter-level utility examples; deployment studios; evidence gates; visual and
-  simulation plans; varied checks; and a 20-artifact Utility Data and AI Governance Launch Pack.
-- Added the proposed entry diagnostic, chapter checks, part assessments, final scenario assessment,
-  capstone, critical-gate pass rule, and course-completion credential boundary.
-- Added the applied capstone for deploying one governed material decision chain with a 90-day launch
-  and 12 to 24 month funded roadmap.
-- Added `course.yaml` with the stable OWOS course ID, pinned Version 2.3 method commit, release gates,
-  structure, roles, planning effort, assessment proposal, and credential status.
-- Added a controlled build order from owner lock through utility pilot, OWOS Learn integration,
-  Supabase learner records, Knowledge Graph alignments, acceptance, release, and improvement.
-
 ### Changed
 - Updated the root and apps indexes to include the new Master Class.
-- Synchronized the root README version with `VERSION` at 0.11.0.
+- Synchronized the root README version with `VERSION` at 0.13.0.
+
+## [0.12.0] - 2026-07-19
+### Added: Chapter 06 + three quantitative simulations
+- `pert` : three-point / PERT estimator, slide optimistic/most-likely/pessimistic and watch the
+  distribution and the expected value ((O + 4M + P) / 6). Verified O4 M6 P14 -> expected 7, sigma 1.7.
+- `reslevel` : resource histogram with a Before/After leveling toggle; over-allocated weeks are red,
+  leveling clears them at the cost of a later finish.
+- `montecarlo` : runs the schedule 1,000 times with sampled durations and builds the finish-date
+  distribution with plan / P50 / P80 markers. Verified: plan 32 wks < P50 36 < P80 38, ~9% hit the plan.
+- Chapter 06 "Advanced scheduling" built on the library (estimating methods, PERT, leveling, crashing vs
+  fast-tracking, critical chain, Monte Carlo). Working lens, Millpond thread, recap and leader's bottom line.
+### Changed
+- Masterclass chrome: Chapter 06 now live; status note "Chapters 01 to 06 are live." Rebuilt all six lessons.
+### Deployed
+- Published all six lessons + course page to owos.ai; verified each new sim computes on the live site.
+
+## [0.11.1] - 2026-07-19
+### Added
+- `apps/_course-template/` : a clone-me starter for any new course. Points at `core/` (no copying), with
+  a working example module wired to the library, a syllabus template, and a README with the 4-step start.
+  Verified the example renders from its apps/ location (spectrum, calculator, flip, classify, reflection).
+
+## [0.11.0] - 2026-07-19
+### Added: six new simulations (one+ per chapter), applying the "show it" rule across the course
+- `pv` (Ch01): present-value mini-sim, slide years/rate and watch a future dollar shrink to today's value.
+- `costcurve` (Ch02): the cost of a change by when it is caught (1x to 100x across the life cycle).
+- `scoreboard` (Ch03): weighted project scoring, adjust criteria weights and watch the portfolio re-rank.
+- `ripple` (Ch03): integration in action, move scope and watch schedule, cost, and risk all react at once.
+- `rollup` (Ch04): the WBS 100% rule, type hours into work packages and watch them roll up the tree.
+- `ganttedit` (Ch05): what-if scheduling, crash a task and watch the finish move and the critical path jump.
+- All verified for correct math (discounting, weighted ranking, CPM recompute, rollup sums) in the browser.
+### Deployed
+- Rebuilt all five lessons and published to owos.ai; verified each new sim renders and computes on the live site.
+
+## [0.10.2] - 2026-07-19
+### Fixed
+- Corrected the cpmsim node width/layout mismatch so the fitted diagram spaces correctly (shipped as v0.10.2).
 
 ## [0.10.1] - 2026-07-19
 ### Fixed
