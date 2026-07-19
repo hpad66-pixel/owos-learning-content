@@ -189,6 +189,20 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .step{display:flex;align-items:center;gap:6px}.step button{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);border-radius:7px;font-size:15px;font-weight:700;color:var(--ink-2);cursor:pointer;line-height:1}.step button:hover{border-color:var(--brand);color:var(--brand)}.step .v{font:600 13px var(--fm);width:78px;text-align:center;color:var(--ink)}
 .qbadge{margin-top:12px;font:600 13px var(--f);padding:9px 13px;border-radius:10px;text-align:center}
 
+/* ---- tree / work breakdown structure ---- */
+.tree{font-size:14.5px}
+.tkids{list-style:none;margin:0;padding:0 0 0 22px}.tkids.root{padding-left:0}
+.tnode{position:relative}
+.tkids:not(.root)>.tnode:before{content:"";position:absolute;left:-13px;top:0;bottom:0;width:1px;background:var(--line-2)}
+.trow{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:9px;cursor:pointer}
+.trow:hover{background:var(--surface-2)}.trow.on{background:var(--brand-50)}
+.ttoggle{flex:none;width:22px;height:22px;border:1px solid var(--line-2);background:var(--surface);border-radius:6px;font:700 14px var(--fm);line-height:1;color:var(--brand);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ttoggle.open{background:var(--brand);color:#fff;border-color:var(--brand)}
+.tdot{flex:none;width:7px;height:7px;border-radius:50%;background:var(--brand-100);margin:0 7px}
+.tlabel{font-weight:600;color:var(--ink)}
+.tkids.root>.tnode>.trow>.tlabel{font-weight:800}
+.tdetail{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink-2);display:none}.tdetail.on{display:block}.tdetail b{color:var(--ink)}
+
 /* ---- two-figure contrast ---- */
 .twofig{display:flex;gap:14px;flex-wrap:wrap}.twofig .box{flex:1;min-width:200px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
 .twofig .cap{font:600 11px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}.twofig .note{font-size:12.5px;color:var(--ink-3);margin-top:6px}
@@ -880,6 +894,33 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
   R.twofig=function(el){var c=cfgOf(el);function box(o){return '<div class="box"><div class="cap">'+o.cap+'</div>'+o.svg+'<div class="note">'+o.note+'</div></div>';}
     shell(el,'<div class="twofig">'+box(c.left)+box(c.right)+'</div>');
+  };
+
+  R.tree=function(el){var c=cfgOf(el);
+    function render(nodes){
+      return '<ul class="tkids">'+(nodes||[]).map(function(n){
+        var kids=n.children&&n.children.length;
+        return '<li class="tnode"><div class="trow" data-d="'+encodeURIComponent(n.detail||'')+'">'+
+          (kids?'<button class="ttoggle" type="button">+</button>':'<span class="tdot"></span>')+
+          '<span class="tlabel">'+n.label+'</span></div>'+
+          (kids?'<div class="tkidwrap" hidden>'+render(n.children)+'</div>':'')+'</li>';
+      }).join('')+'</ul>';
+    }
+    var top='<div class="tree"><ul class="tkids root">'+(c.nodes||[]).map(function(n){
+      var kids=n.children&&n.children.length;
+      return '<li class="tnode"><div class="trow" data-d="'+encodeURIComponent(n.detail||'')+'">'+
+        (kids?'<button class="ttoggle open" type="button">−</button>':'<span class="tdot"></span>')+
+        '<span class="tlabel">'+n.label+'</span></div>'+
+        (kids?'<div class="tkidwrap">'+render(n.children)+'</div>':'')+'</li>';
+    }).join('')+'</ul></div><div class="tdetail" data-td></div>';
+    var b=shell(el,top);var td=b.querySelector('[data-td]');
+    b.querySelectorAll('.ttoggle').forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();
+      var wrap=t.closest('.tnode').querySelector('.tkidwrap');if(!wrap)return;
+      wrap.hidden=!wrap.hidden;t.classList.toggle('open',!wrap.hidden);t.textContent=wrap.hidden?'+':'−';});});
+    b.querySelectorAll('.trow').forEach(function(r){r.addEventListener('click',function(){
+      var d=decodeURIComponent(r.getAttribute('data-d')||'');if(!d)return;
+      b.querySelectorAll('.trow').forEach(function(x){x.classList.remove('on');});r.classList.add('on');
+      td.className='tdetail on';td.innerHTML=d;});});
   };
 
   /* ---- boot ---- */

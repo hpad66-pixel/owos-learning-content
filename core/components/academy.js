@@ -390,6 +390,33 @@
     shell(el,'<div class="twofig">'+box(c.left)+box(c.right)+'</div>');
   };
 
+  R.tree=function(el){var c=cfgOf(el);
+    function render(nodes){
+      return '<ul class="tkids">'+(nodes||[]).map(function(n){
+        var kids=n.children&&n.children.length;
+        return '<li class="tnode"><div class="trow" data-d="'+encodeURIComponent(n.detail||'')+'">'+
+          (kids?'<button class="ttoggle" type="button">+</button>':'<span class="tdot"></span>')+
+          '<span class="tlabel">'+n.label+'</span></div>'+
+          (kids?'<div class="tkidwrap" hidden>'+render(n.children)+'</div>':'')+'</li>';
+      }).join('')+'</ul>';
+    }
+    var top='<div class="tree"><ul class="tkids root">'+(c.nodes||[]).map(function(n){
+      var kids=n.children&&n.children.length;
+      return '<li class="tnode"><div class="trow" data-d="'+encodeURIComponent(n.detail||'')+'">'+
+        (kids?'<button class="ttoggle open" type="button">−</button>':'<span class="tdot"></span>')+
+        '<span class="tlabel">'+n.label+'</span></div>'+
+        (kids?'<div class="tkidwrap">'+render(n.children)+'</div>':'')+'</li>';
+    }).join('')+'</ul></div><div class="tdetail" data-td></div>';
+    var b=shell(el,top);var td=b.querySelector('[data-td]');
+    b.querySelectorAll('.ttoggle').forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();
+      var wrap=t.closest('.tnode').querySelector('.tkidwrap');if(!wrap)return;
+      wrap.hidden=!wrap.hidden;t.classList.toggle('open',!wrap.hidden);t.textContent=wrap.hidden?'+':'−';});});
+    b.querySelectorAll('.trow').forEach(function(r){r.addEventListener('click',function(){
+      var d=decodeURIComponent(r.getAttribute('data-d')||'');if(!d)return;
+      b.querySelectorAll('.trow').forEach(function(x){x.classList.remove('on');});r.classList.add('on');
+      td.className='tdetail on';td.innerHTML=d;});});
+  };
+
   /* ---- boot ---- */
   function boot(){
     injectDroobi();

@@ -28,6 +28,7 @@ LINK_MAP = {
     "module-01-what-is-a-project.html":    "lesson-pm-01-what-is-a-project.html",
     "module-02-delivery-and-life-cycles.html": "lesson-pm-02-delivery-life-cycles.html",
     "module-03-governance-integration-tailoring.html": "lesson-pm-03-governance-integration-tailoring.html",
+    "module-04-scope-and-requirements.html": "lesson-pm-04-scope-and-requirements.html",
 }
 
 def build(src_path, out_path):

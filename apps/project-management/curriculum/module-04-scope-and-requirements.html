@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 04 &middot; Scope and requirements &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 4 of the Project Management masterclass. Getting requirements right and turning them into a scope you can build and accept: requirement types, testable requirements, traceability, the scope statement, the Work Breakdown Structure, and scope creep.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 04</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 04 &middot; Scope and schedule</span>
+  <h1>Getting the <span>scope</span> right</h1>
+  <p class="sub">Most projects that blow their budget did not fail during construction. They failed at the start, when the scope was fuzzy and the requirements were vague. This chapter shows how to pin down what a job actually has to do, and how to break that into work you can plan, price, and accept.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job we will follow</p>
+      <p><b>The Millpond Road water main replacement, again.</b> Same job from Chapter 01. This time we pin down exactly what it must do (the requirements) and break it into a structure you can build and check (the scope). Get this part wrong and every later chapter, schedule, cost, risk, inherits the mess.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Tell the main kinds of requirements apart, and write one that can actually be tested</li>
+    <li><span class="bx"></span> Explain traceability and why it protects you at the end of a job</li>
+    <li><span class="bx"></span> Read and build a Work Breakdown Structure down to work packages</li>
+    <li><span class="bx"></span> Spot scope creep early and handle a scope change the right way</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 2</span>
+    <h2>Requirements: what the job must actually do</h2>
+    <p>A <span class="term" data-term="Requirement" data-def="A specific thing the finished project must do or meet. Good requirements are clear and testable, so you can prove at the end whether you met them.">requirement</span> is a specific thing the finished job has to do or meet. On Millpond Road they come in a few flavors, and it helps to know which is which, because you gather and verify them differently. Sort a handful below.</p>
+
+    <div data-ac="classify" data-title="What kind of requirement is it?" data-kind="Quiz &middot; classify" data-cue="Functional is what it does. Regulatory is a rule you cannot negotiate. Performance is how well, usually a number.">
+      <script type="application/json">
+      {"buckets":["Functional","Regulatory","Performance"],
+       "items":[
+        ["Carry potable water from the booster station to the Elm Street loop",0,"This is what the main is for. Functional, the core job it does."],
+        ["Deliver at least 40 psi at every service under peak demand",2,"A number and a condition, how well it must perform. Performance."],
+        ["Use only pipe and fittings approved by the state drinking water program",1,"A rule set by code, not a choice. Regulatory."],
+        ["Pass bacteriological testing before going into service",1,"Required by drinking water rules before the main is used. Regulatory."],
+        ["Serve the corridor without any outage longer than four hours",2,"A measurable limit on how well the work is done. Performance."]
+       ]}
+      </script>
+    </div>
+
+    <p>The single most common mistake is a requirement you cannot test. "Good water pressure" is not a requirement, it is a wish. Two people will read it differently and nobody can sign it off. Compare.</p>
+
+    <div data-ac="twofig" data-title="Vague versus testable" data-kind="Diagram &middot; contrast" data-cue="If a requirement has no number and no condition, you cannot prove you met it. Add both, and it becomes something you can accept or reject.">
+      <script type="application/json">
+      {"left":{"cap":"Vague (a wish)",
+        "svg":"<div style='padding:22px 14px;font:700 16px var(--fm);color:#D64545'>&ldquo;Good water pressure&rdquo;</div>",
+        "note":"You cannot measure good. No one can sign this off."},
+       "right":{"cap":"Testable (a requirement)",
+        "svg":"<div style='padding:22px 14px;font:700 15px var(--fm);color:#0E8A64'>&#8805; 40 psi at every<br>service at peak</div>",
+        "note":"A number and a condition. Measure it, accept it."}}
+      </script>
+    </div>
+
+    <p>Two more terms before the method. <span class="term" data-term="Elicitation" data-def="Actively drawing requirements out of the people who have them: operators, engineers, regulators, the public. You gather requirements, you rarely just receive them.">Elicitation</span> is the work of drawing requirements out of people, operators, engineers, regulators, rather than waiting for them to arrive. <span class="term" data-term="Traceability" data-def="Being able to trace each requirement forward to the design element that meets it and the test that proves it. It stops requirements from quietly getting lost.">Traceability</span> is being able to follow each requirement forward to the design that meets it and the test that proves it. Here is how to do both.</p>
+
+    <div data-ac="method" data-title="How to gather and lock down requirements" data-kind="Method &middot; four steps">
+      <script type="application/json">
+      {"steps":[
+        ["Talk to the people who will run it.","Operations knows what the last main lacked and where it broke. That knowledge is the best source of real requirements."],
+        ["Check the rules.","The state drinking water code, county standards, and permit conditions set hard requirements you cannot negotiate away. Pull them in early."],
+        ["Write each one so it can be tested.","A number and a condition, not an adjective. 'At least 40 psi at peak,' not 'good pressure.' If you cannot test it, rewrite it."],
+        ["Give each an ID and trace it.","Tag every requirement, tie it to the design element that meets it and the test that proves it, and get the sponsor to sign off the set. That trace is what protects you at closeout."]
+      ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Why traceability matters so much: at the end of a job, someone asks "did we get everything the community was promised?" Without a traced list, you are guessing. With one, you walk the list, point to each test result, and prove it. It is also how you catch a requirement that quietly fell out during design, while it is still cheap to fix.</p>
+    </div>
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Spend real time here, before design. A requirement missed at the start costs a little to add in design, a lot to fix in construction, and a fortune to discover after startup. <b>The cheapest place to get the scope right is the beginning.</b></p>
+    </div>
+
+    <div data-ac="truefalse" data-title="Quick check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["'The main should have good flow' is a testable requirement.",false,"No. It has no number and no condition. Rewrite it as a flow or pressure you can measure."],
+        ["Traceability means each requirement can be tied to how it will be verified.",true,"Right. Requirement to design to test. That trace proves you delivered what was promised."],
+        ["It is cheaper to fix a missed requirement in construction than in design.",false,"The opposite. The later you catch it, the more it costs. Design is cheap; construction is not."]
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 2</span>
+    <h2>Scope: breaking the job into buildable pieces</h2>
+    <p>Once you know what the job must do, you write it down as scope. The <span class="term" data-term="Scope statement" data-def="The written description of exactly what the project will deliver, and what it will not. It is the reference everyone points back to when a question comes up.">scope statement</span> says exactly what the project will deliver and, just as important, what it will not. Then you break that scope into a tree called the <span class="term" data-term="WBS" data-def="Work Breakdown Structure. A tree that breaks the whole project down into deliverables and then into small work packages you can estimate, assign, and track.">Work Breakdown Structure (WBS)</span>. Each branch splits the work until you reach a <span class="term" data-term="Work package" data-def="The lowest level of the WBS: a chunk of work small enough to estimate, assign to someone, and track to completion.">work package</span>, small enough to estimate, assign, and track. Click through the Millpond WBS.</p>
+
+    <div data-ac="tree" data-title="Work Breakdown Structure: Millpond Road main" data-kind="Interactive &middot; WBS" data-cue="Click any item for what it includes. Expand a branch with the plus button. The lowest items are work packages, the pieces you actually schedule and price.">
+      <script type="application/json">
+      {"nodes":[{"label":"Millpond Road water main replacement","detail":"<b>The whole project.</b> Everything below rolls up to this. The WBS is how you make sure nothing in the job is forgotten and nothing outside it sneaks in.","children":[
+        {"label":"1. Design and permits","detail":"<b>Design and permits.</b> Turning the requirements into buildable drawings and getting legal permission to dig.","children":[
+          {"label":"1.1 Survey and geotech","detail":"Locate existing utilities, shoot the alignment, and test the soil so the design fits the ground you actually have."},
+          {"label":"1.2 Hydraulic design and drawings","detail":"Size the pipe, set the alignment, and produce the drawings and specs the contractor builds from."},
+          {"label":"1.3 Permits and Sunshine 811 coordination","detail":"Apply for the permits and coordinate utility locates so the dig is legal and safe."}
+        ]},
+        {"label":"2. Procurement","detail":"<b>Procurement.</b> Getting a contractor and the long-lead materials under contract.","children":[
+          {"label":"2.1 Bid documents","detail":"Package the drawings and specs into a biddable set."},
+          {"label":"2.2 Contractor selection","detail":"Advertise, evaluate, and award to the winning bidder."},
+          {"label":"2.3 Long-lead materials","detail":"Order valves and fittings with long delivery times before they can hold up the schedule."}
+        ]},
+        {"label":"3. Construction","detail":"<b>Construction.</b> The physical work of replacing the main.","children":[
+          {"label":"3.1 Mobilization and traffic control","detail":"Set up the site and the traffic plan so crews can work safely in the road."},
+          {"label":"3.2 Excavation","detail":"Open the trench along the alignment, keeping clear of the located utilities."},
+          {"label":"3.3 Pipe and fittings install","detail":"Lay the new main, set valves and hydrants, and connect fittings."},
+          {"label":"3.4 Service tie-ins","detail":"Reconnect the corridor's service laterals to the new main."},
+          {"label":"3.5 Restoration","detail":"Backfill, compact, and restore the pavement to county standard."}
+        ]},
+        {"label":"4. Testing and startup","detail":"<b>Testing and startup.</b> Proving the main is safe and putting it in service.","children":[
+          {"label":"4.1 Pressure test","detail":"Confirm the main holds pressure with no leaks."},
+          {"label":"4.2 Disinfection and sampling","detail":"Disinfect and pass bacteriological testing before any customer drinks from it."},
+          {"label":"4.3 Place in service","detail":"Switch customers over to the new main and retire the old one."}
+        ]},
+        {"label":"5. Closeout","detail":"<b>Closeout.</b> The paperwork that lets Operations own it.","children":[
+          {"label":"5.1 As-built drawings","detail":"Record what was actually built, not just what was drawn."},
+          {"label":"5.2 Warranties and O&M","detail":"Hand over warranties and operating information."},
+          {"label":"5.3 Lessons learned","detail":"Capture what to do differently on the next main."}
+        ]}
+      ]}]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Two rules make a WBS useful. First, it is built on <b>deliverables</b> (things you produce), not activities, so nothing gets double-counted. Second, every level rolls up completely: the children of a box add up to the whole box, no more and no less. That "100 percent" rule is what lets you trust that the WBS covers the whole job and only the job.</p>
+    </div>
+
+    <p>The WBS is also your best defense against <span class="term" data-term="Scope creep" data-def="Work that gets added to a project without a matching change to the time and budget. It is the slow, quiet way projects go over.">scope creep</span>: work that gets added without adjusting the time or the budget. If a request is not on the WBS, it is a change, and a change gets priced and approved, not just absorbed. Sort what belongs.</p>
+
+    <div data-ac="classify" data-title="In scope or out?" data-kind="Quiz &middot; classify" data-cue="If it is not what the scope statement promised, it is a change, not a freebie.">
+      <script type="application/json">
+      {"buckets":["In scope","Out of scope"],
+       "items":[
+        ["Replace the main from the booster station to the Elm Street loop",0,"That is the project. In scope."],
+        ["Reconnect the 320 service laterals to the new main",0,"Part of delivering water to customers. In scope (work package 3.4)."],
+        ["Repave the entire road curb to curb, well beyond the trench",1,"Restoration is trench width. A full repave is extra work. Out of scope unless added as a change."],
+        ["Upgrade the booster station pumps while you are out there",1,"A different asset and a different project. Out of scope."],
+        ["Restore the trench pavement to county standard",0,"Restoration of what you disturbed. In scope (work package 3.5)."]
+       ]}
+      </script>
+    </div>
+
+    <div data-ac="mc" data-title="A scope change lands" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"Midway through construction, a commissioner asks you to extend the new main two blocks past the project limit. It is not in the scope statement. What is the right move?",
+       "options":[
+        ["Log it as a change, price the added scope and time, and take it through change control",1],
+        ["Just do it to keep the commissioner happy",0],
+        ["Refuse flatly, because the scope statement is final",0],
+        ["Absorb it quietly inside the current budget",0]
+       ],
+       "right":"Correct. A new request is a change. You price the added scope and schedule and run it through change control (Chapter 03), so the baselines stay honest and someone with authority decides.",
+       "wrong":"Not quite. Extending the main is real added work. Price it and run it through change control rather than absorbing it silently or refusing outright. That keeps the budget and schedule honest."}
+      </script>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["A work package is the lowest level of the WBS, small enough to estimate and assign.",true,"Right. That is exactly what a work package is for."],
+        ["Scope creep is adding work without adjusting time or budget.",true,"Yes. The added work is real; the missing adjustment is what makes it creep."],
+        ["The definition of done can be skipped if everyone already knows what finished looks like.",false,"No. 'Everyone knows' is how disputes start. Write the acceptance criteria down so done is not an opinion."]
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Requirement","A specific, testable thing the finished job must do or meet."],
+        ["Traceability","Following each requirement to the design that meets it and the test that proves it."],
+        ["Scope statement","The written description of what the project will deliver, and what it will not."],
+        ["WBS","Work Breakdown Structure: the tree that breaks the job into deliverables and work packages."],
+        ["Work package","The lowest level of the WBS, small enough to estimate, assign, and track."],
+        ["Scope creep","Added work with no matching change to time or budget."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Think of a job on your desk. Is its scope written down clearly enough that you could hand it to a contractor and both of you would agree on exactly what 'done' means?",
+       "a":"A good test: could a contractor who has never met you read your scope statement and WBS and build the right thing, then could you both look at the acceptance criteria and agree it is finished, without an argument? If the answer is no, the gap is not in the field, it is in the paperwork you wrote at the start. Most change orders and most disputes trace back to a scope that was clear in someone's head but never made it, in testable words, onto the page. The fix is cheap now and expensive later."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>A requirement must be testable.</b> A number and a condition, not an adjective. If you cannot measure it, you cannot accept it.</div></li>
+      <li><span class="n">2.</span><div><b>Trace every requirement</b> to the design that meets it and the test that proves it. That trace is what protects you at closeout.</div></li>
+      <li><span class="n">3.</span><div><b>The WBS breaks the job into work packages.</b> Built on deliverables, rolling up completely, so nothing is forgotten and nothing outside the job sneaks in.</div></li>
+      <li><span class="n">4.</span><div><b>Scope creep is change without a decision.</b> If it is not on the WBS, price it and run it through change control, do not absorb it.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Scope is where projects are won or lost, long before the first shovel. <b>Write the requirements so they can be tested, break the job into a WBS that rolls up to 100 percent, and treat every new ask as a priced change.</b> Do that and the schedule, cost, and risk chapters that follow all sit on solid ground.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-03-governance-integration-tailoring.html">&#8592; Chapter 03 &middot; Governance, integration and tailoring</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 04 &middot; v0.8.0 &middot; 2026-07-18</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>

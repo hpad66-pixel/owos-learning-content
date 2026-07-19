@@ -3,6 +3,23 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.8.0] - 2026-07-18
+### Added: Chapter 04 + a WBS tree component
+- New library `tree` renderer: an interactive Work Breakdown Structure (expand/collapse branches, click
+  any node for its detail). CSS added for the tree.
+- Chapter 04 "Scope and requirements" built fresh on the library: requirement-type classification, a
+  vague-vs-testable contrast, a gather-and-lock-down method, a traceability check, the Millpond WBS tree
+  (23 nodes to work packages), in/out-of-scope sorting, a scope-change judgment, and myths. Working lens,
+  Millpond thread, recap and leader's bottom line.
+### Changed
+- Masterclass chrome: Chapter 04 now live; status note "Chapters 01 to 04 are live."
+- Rebuilt all four lessons + the course page self-contained.
+### Process
+- New rule: a deploy is not "done" until the LIVE authenticated page is confirmed rendering in the
+  browser (not just the local build). Verified Chapters 01 to 04 render on owos.ai before shipping.
+### Deployed
+- Published all four lessons + the course page to owos.ai via the Cloudflare Pages deploy.
+
 ## [0.7.0] - 2026-07-18
 ### Added: two library components
 - `calc` renderer: a reusable business-case calculator (NPV, payback, benefit-cost ratio) with a live
