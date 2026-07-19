@@ -3,6 +3,54 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.22.0] - 2026-07-19
+
+### Added
+- **PM Chapter 15: Measurement and honest status** (`module-15-measurement-honest-status.html`). Two sections: metrics, KPIs and dashboards; evidence-grounded status and the weekly ritual. Leading vs lagging indicators, the measures worth watching on a capital job, and how to write a status a board can act on.
+- **New reusable component: `dashboard`.** A live KPI dashboard: each measure gets a slider and a red/amber/green chip, and the honest overall status takes the **worst** light, not the average. Teaches the watermelon failure (green outside, red at the core) by letting the learner try to average bad news away and watch it refuse.
+
+### Changed
+- Chrome marks Chapter 15 live; `tools/build-selfcontained.py` LINK_MAP extended to module-15.
+
+## [0.21.0] - 2026-07-19
+### Added: Data Governance Chapters 03 through 05
+- Released Chapter 03, "Standards, law, and the applicability record," with an authority stack,
+  standards-to-jobs crosswalk, authority classification, legal applicability gate, jurisdiction-change
+  cycle, register builder, source-edition review, evidence gate, and completion event for `dga001:03`.
+- Released Chapter 04, "Map the utility data estate around decisions," with a filterable physical and
+  digital estate network, minimum utility-domain tree, governed interface simulation, decision-priority
+  matrix, weighted shortlist, estate-map builder, reconstruction method, and completion event for
+  `dga001:04`.
+- Released Chapter 05, "Shared identity and minimum governed records," with an evidence-based identity
+  bridge, controlled match-rate chart, duplicate-impact model, minimum-record stack and profiles,
+  identity-resolution cycle, two deployment builders, change test, and completion event for `dga001:05`.
+- Added reusable `applicability`, `estatemap`, and `identitybridge` Academy components, documented and
+  rendered in the shared component gallery.
+
+### Changed
+- Changed the Data Governance mixed release to six available lessons and 19 governed content-pending
+  destinations.
+- Bumped governed course metadata, root version, component catalog, build manifest, landing page, and
+  release event keys to 0.21.0.
+
+## [0.20.0] - 2026-07-19
+### Added: Data Governance Chapter 02
+- Released the complete utility deployment lesson, "The language of trustworthy utility data," using
+  Riverbend's drinking-water release and the controlled Version 2.3 Chapter 2 and Figure 2.
+- Added governance-versus-management comparison and classification, a step-through provenance
+  network, minimum-event ordering, a live quality-by-use model, and a governed data-product package.
+- Added matching, classification, ordering, true-or-false, multiple-choice, and reflection checks
+  with plain explanatory feedback.
+- Added evidence-safe provenance-event and data-product builders, a Chapter 02 Launch Pack tracker,
+  an evidence gate, and the OWOS Learn completion event for learning object `dga001:02`.
+- Added reusable `provnet` and `qualityfit` Academy components for later courses and chapters.
+
+### Changed
+- Changed the Data Governance mixed release to three available lessons and 22 governed
+  content-pending destinations.
+- Bumped the governed course metadata, root version, component catalog, manifest, and landing page to
+  0.20.0.
+
 ## [0.19.0] - 2026-07-19
 ### Added: Chapters 10-14 + four reusable simulations
 - `coq` (Ch10): cost-of-quality curve, slide prevention and watch failure cost fall and total cost bottom
@@ -378,13 +426,4 @@ Initial commit. Everything to date is captured and put under version control.
 ## [0.x.0] - YYYY-MM-DD
 ### Added / Changed / Fixed / Removed
 - ...
--->## 0.20.0 - 2026-07-19
-
-### Added
-- **PM Chapter 15: Measurement and honest status** (`module-15-measurement-honest-status.html`). Two sections: metrics, KPIs and dashboards; evidence-grounded status and the weekly ritual. Leading vs lagging indicators, the measures worth watching on a capital job, and how to write a status a board can act on.
-- **New reusable component: `dashboard`.** A live KPI dashboard: each measure gets a slider and a red/amber/green chip, and the honest overall status takes the **worst** light, not the average. Teaches the watermelon failure (green outside, red at the core) by letting the learner try to average bad news away and watch it refuse.
-
-### Changed
-- Chrome marks Chapter 15 live; `tools/build-selfcontained.py` LINK_MAP extended to module-15.
-
-
+-->
