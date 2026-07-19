@@ -3,7 +3,7 @@
 The Markdown list of every visual in `component-gallery.html`. Open the gallery to see them rendered
 live. Pick the one that fits the idea. Do not reuse the same shape across a chapter.
 
-**Last updated:** 2026-07-19 &middot; **v0.18.0**
+**Last updated:** 2026-07-19 &middot; **v0.20.0**
 
 ## Parts of a whole, and balance
 | Component | Kind | Use when |
@@ -36,6 +36,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Component | Kind | Use when |
 |---|---|---|
 | Network / wire diagram | Diagram | things connected by lines (a graph, a SCADA network) |
+| Provenance network | Interactive diagram | step through entities, activities, agents, versions, and evidence relationships |
 | Tree / WBS | Diagram | a breakdown or hierarchy |
 | RACI grid | Framework | who is Responsible / Accountable / Consulted / Informed |
 | Fishbone (Ishikawa) | Diagram | finding the root causes of a problem |
@@ -61,6 +62,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Artifact tracker | Interactive status | move governed artifacts through draft, evidence, and review states; save status on the learner's device |
 | Fragmentation tax model | Interactive chart | estimate direct search, join, rework, and labor effort from visible assumptions |
 | Artifact builder | Interactive method | draft, preview, save, and copy a governed working artifact without posting it to a server |
+| Quality-by-use model | Interactive framework | change the intended use and evidence levels to see which critical requirements pass or fail |
 
 > Rule: at least 4 different visual types per module, and run the Selection Prompt in
 > `VISUAL-ARSENAL.md` first. The arsenal also lists a few more (pie, org chart, driver tree,

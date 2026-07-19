@@ -3,6 +3,24 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.20.0] - 2026-07-19
+### Added: Data Governance Chapter 02
+- Released the complete utility deployment lesson, "The language of trustworthy utility data," using
+  Riverbend's drinking-water release and the controlled Version 2.3 Chapter 2 and Figure 2.
+- Added governance-versus-management comparison and classification, a step-through provenance
+  network, minimum-event ordering, a live quality-by-use model, and a governed data-product package.
+- Added matching, classification, ordering, true-or-false, multiple-choice, and reflection checks
+  with plain explanatory feedback.
+- Added evidence-safe provenance-event and data-product builders, a Chapter 02 Launch Pack tracker,
+  an evidence gate, and the OWOS Learn completion event for learning object `dga001:02`.
+- Added reusable `provnet` and `qualityfit` Academy components for later courses and chapters.
+
+### Changed
+- Changed the Data Governance mixed release to three available lessons and 22 governed
+  content-pending destinations.
+- Bumped the governed course metadata, root version, component catalog, manifest, and landing page to
+  0.20.0.
+
 ## [0.18.0] - 2026-07-19
 ### Added: Data Governance Chapter 01
 - Released the complete utility deployment lesson, "The missing layer above utility systems," using
