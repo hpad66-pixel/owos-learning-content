@@ -5,6 +5,8 @@ behave consistently.
 
 - **`project-management/`** the Project Management masterclass (course chrome, chapters, playbook,
   starter kit). Built.
+- **`data-governance/`** the controlled learning distribution for Data Ready Before AI Ready,
+  Version 2.3, including HTML, Markdown, PDF, Word and SCORM 1.2 outputs.
 - Coming next: `living-graph/`, `fable-agent/`, `one-water-os/`, and others.
 
 To start a new app: make a folder here, copy `../core/components/module-template.html`, point at
