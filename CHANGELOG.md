@@ -3,6 +3,30 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.11.0] - 2026-07-19
+### Added: complete Data and Artificial Intelligence Governance syllabus
+- Added `apps/data-ai-governance/` as the governed course-content home for the Data Before AI Master
+  Class.
+- Added a complete 25-chapter, 75-section syllabus built for drinking water, wastewater, stormwater,
+  reuse, and integrated One Water utilities.
+- Mapped every Version 2.3 assessment criterion from D01.1 through D12.5 and assigned all 21 controlled
+  figures a teaching job.
+- Added Foundation, Practitioner, and Leader lenses; seven role pathways; the fictional Riverbend
+  utility running case; chapter-level utility examples; deployment studios; evidence gates; visual and
+  simulation plans; varied checks; and a 20-artifact Utility Data and AI Governance Launch Pack.
+- Added the proposed entry diagnostic, chapter checks, part assessments, final scenario assessment,
+  capstone, critical-gate pass rule, and course-completion credential boundary.
+- Added the applied capstone for deploying one governed material decision chain with a 90-day launch
+  and 12 to 24 month funded roadmap.
+- Added `course.yaml` with the stable OWOS course ID, pinned Version 2.3 method commit, release gates,
+  structure, roles, planning effort, assessment proposal, and credential status.
+- Added a controlled build order from owner lock through utility pilot, OWOS Learn integration,
+  Supabase learner records, Knowledge Graph alignments, acceptance, release, and improvement.
+
+### Changed
+- Updated the root and apps indexes to include the new Master Class.
+- Synchronized the root README version with `VERSION` at 0.11.0.
+
 ## [0.10.1] - 2026-07-19
 ### Fixed
 - The `cpmsim` critical-path diagram ran off the right edge of the page. It now scales the fixed-width
