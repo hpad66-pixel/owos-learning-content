@@ -2,7 +2,7 @@
 
 The single home for all One Water OS technical content and apps, by APAS.ai. Taught by Droobi.
 
-**Version:** 0.2.0 &middot; **Last updated:** 2026-07-18
+**Version:** 0.8.0 &middot; **Last updated:** 2026-07-18
 
 This is a **monorepo**. The reusable foundation lives in `core/` and is shared by every app in
 `apps/`. Build the wheel once in `core/`, reuse it everywhere. That is how we keep the branding,
@@ -23,6 +23,7 @@ apps/                     one folder per application. Each reuses core/.
     curriculum/           syllabus, the course "chrome", and the chapters
     playbook/             the utilities PM field playbook (HTML + PDF)
     starter-kit/          a plain-file project scaffold you copy to run a real job
+  data-governance/        Version 2.3 publication and learning-package distribution
   ( living-graph/ , fable-agent/ , one-water-os/ ... come next )
 README.md  CHANGELOG.md  VERSION
 ```
@@ -48,6 +49,9 @@ the approach for all of them.
 Reference and standard docs are Markdown (easy to read and update). The galleries, template, and
 chapters are HTML because they are interactive. `*.artifact.html` files are preview copies for
 sharing; the plain `*.html` files are what you deploy.
+
+The data-governance learning path also carries controlled PDF, Word and Markdown editions plus a
+SCORM 1.2 package. Its canonical source remains the private utility-data-ai-governance repository.
 
 ## Versioning
 `VERSION` holds the current number, `CHANGELOG.md` has dated entries, and each release is a git tag

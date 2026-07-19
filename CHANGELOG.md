@@ -3,6 +3,14 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.8.0] - 2026-07-18
+### Added: Utility Data and AI Governance learning distribution
+- Added Data Ready Before AI Ready, Version 2.3 in HTML, Markdown, PDF and Word formats.
+- Added a seven-module learning map, machine-readable learning manifest and SCORM 1.2 package.
+- Pinned the downstream package to canonical commit `825e4661a6dbdfe6628148eb005c86cfb10b8515`
+  and release tag `v2.3` in `hpad66-pixel/utility-data-ai-governance`.
+- Explicitly excluded the superseded Version 1.1 workstream.
+
 ## [0.7.0] - 2026-07-18
 ### Added: two library components
 - `calc` renderer: a reusable business-case calculator (NPV, payback, benefit-cost ratio) with a live
