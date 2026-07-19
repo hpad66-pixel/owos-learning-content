@@ -234,6 +234,29 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- estrange: AACE estimate accuracy range ---- */
+.ertrack{position:relative;height:46px;margin:18px 0 6px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
+.erband{position:absolute;top:9px;bottom:9px;background:var(--brand-100);border:1px solid var(--brand);border-radius:6px;transition:left .25s,width .25s}
+.erpoint{position:absolute;top:3px;bottom:3px;width:2px;background:var(--ink);z-index:2}
+.erpoint span{position:absolute;top:-15px;left:50%;transform:translateX(-50%);font:700 9px var(--fm);color:var(--ink);white-space:nowrap}
+.erout{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.erout .o{flex:1;min-width:100px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:9px 13px}
+.erout .o .k{font:9px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}.erout .o .val{font:800 17px var(--fm);color:var(--ink)}
+.erout .o.lo .val{color:var(--red)}.erout .o.pt .val{color:var(--brand)}.erout .o.hi2 .val{color:var(--gold)}
+.ernote{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.ernote b{color:var(--brand-700)}
+
+/* ---- cipplan: fit the CIP into an annual budget ---- */
+.cipsum{display:flex;justify-content:space-between;align-items:center;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;padding:9px 15px;margin:12px 0}.cipsum .k{font:600 11px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--brand-700)}.cipsum .v{font:800 16px var(--fm);color:var(--brand)}
+.ciprow{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:9px;margin-bottom:6px;border:1px solid var(--line)}
+.ciprow.fund{background:var(--green-50);border-color:#BFE0CE}.ciprow.defer{background:var(--surface-2);opacity:.75}
+.ciprow .nm{flex:1;font-weight:600;color:var(--ink);font-size:14px}.ciprow .cost{font:700 12px var(--fm);color:var(--ink-2)}
+.ciprow .tag{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;padding:2px 9px;border-radius:999px}.ciprow.fund .tag{background:var(--green);color:#fff}.ciprow.defer .tag{background:var(--line-2);color:var(--ink)}
+
+/* ---- rateimpact: bill impact per customer ---- */
+.riout{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}.riout .o{flex:1;min-width:130px;text-align:center;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:14px}
+.riout .o.big{background:var(--brand-50);border-color:var(--brand-100)}.riout .o .k{font:9px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.riout .o .val{font:800 26px var(--fm);color:var(--ink);letter-spacing:-.02em}.riout .o.big .val{color:var(--brand)}
+.rinote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.rinote b{color:var(--ink)}
+
 /* ---- pert: three-point estimate ---- */
 .pertrow{display:flex;align-items:center;gap:12px;margin:9px 0}.pertrow .nm{flex:none;width:150px;font-weight:600;color:var(--ink);font-size:14px}.pertrow .nm small{display:block;font:11px var(--fm);color:var(--ink-3);font-weight:400}
 .pertrow input{flex:1}.pertrow .v{flex:none;width:74px;text-align:right;font:700 13px var(--fm);color:var(--brand)}
@@ -1309,6 +1332,77 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       var pv=amt/Math.pow(1+r,y);b.querySelector('[data-pvv]').textContent=m0(pv);b.querySelector('[data-pvbar]').style.height=Math.max(2,pv/amt*100)+'%';
       b.querySelector('[data-out]').innerHTML=m0(amt)+' promised '+y+' years out is worth about <b>'+m0(pv)+'</b> today at '+(r*100).toFixed(1)+'%. That is why future savings are discounted: a dollar later is worth less than a dollar now. The formula is PV = FV / (1 + r) raised to the number of years.';}
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
+  };
+
+  R.estrange=function(el){var c=cfgOf(el);var base=c.base||1300;
+    var cls=c.classes||[
+      {label:"Class 5 (Concept)",lo:-30,hi:50,note:"Order of magnitude, drawn on a napkin. Less than 2% design. Useful for a go / no-go, useless for a commitment."},
+      {label:"Class 4 (Study)",lo:-20,hi:30,note:"Early feasibility, maybe 10% design. Good enough to compare options."},
+      {label:"Class 3 (Budget)",lo:-15,hi:20,note:"Preliminary design, around 30%. This is the estimate you take to the board for budget authority."},
+      {label:"Class 2 (Control)",lo:-10,hi:15,note:"Detailed design, 60 to 90%. Tight enough to control the project against."},
+      {label:"Class 1 (Definitive)",lo:-5,hi:10,note:"Complete design, ready to bid. The narrowest range you will get before real bids come in."}
+    ];
+    function money(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    var span=base*1.6;
+    var b=shell(el,'<div class="pvrow"><span class="nm">Design maturity</span><input type="range" min="0" max="'+(cls.length-1)+'" step="1" value="0"><span class="v" data-cls></span></div>'+
+      '<div class="ertrack" data-track></div>'+
+      '<div class="erout"><div class="o lo"><div class="k">Low end</div><div class="val" data-lo></div></div>'+
+      '<div class="o pt"><div class="k">Point estimate</div><div class="val">'+money(base)+'</div></div>'+
+      '<div class="o hi2"><div class="k">High end</div><div class="val" data-hi></div></div></div>'+
+      '<div class="ernote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var i=+rng.value,cl=cls[i],lo=base*(1+cl.lo/100),hi=base*(1+cl.hi/100);
+      b.querySelector('[data-cls]').textContent=cl.label;
+      b.querySelector('[data-track]').innerHTML='<div class="erband" style="left:'+(lo/span*100).toFixed(1)+'%;width:'+((hi-lo)/span*100).toFixed(1)+'%"></div>'+
+        '<div class="erpoint" style="left:'+(base/span*100).toFixed(1)+'%"><span>'+money(base)+'</span></div>';
+      b.querySelector('[data-lo]').textContent=money(lo)+' ('+cl.lo+'%)';
+      b.querySelector('[data-hi]').textContent=money(hi)+' (+'+cl.hi+'%)';
+      b.querySelector('[data-note]').innerHTML='<b>'+cl.label+'.</b> '+cl.note+' The point estimate barely moves; what changes is how much you could be <b>wrong</b> by. Committing a budget on a Class 5 estimate is how projects blow up.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.cipplan=function(el){var c=cfgOf(el);var projects=c.projects||[];
+    function money(k){return k>=1000?'$'+(k/1000).toFixed(1)+'M':'$'+k+'k';}
+    var b=shell(el,'<div class="pvrow"><span class="nm">This year’s capital budget</span><input type="range" min="'+(c.min||1000)+'" max="'+(c.max||9000)+'" step="'+(c.step||250)+'" value="'+(c.start||4000)+'"><span class="v" data-cap></span></div>'+
+      '<div class="cipsum"><span class="k">Funded this year</span><span class="v" data-sum></span></div><div data-list></div><div class="ernote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var cap=+rng.value,spent=0,funded=0;
+      b.querySelector('[data-cap]').textContent=money(cap);
+      b.querySelector('[data-list]').innerHTML=projects.map(function(p){var fit=spent+p.cost<=cap;if(fit){spent+=p.cost;funded++;}
+        return '<div class="ciprow '+(fit?'fund':'defer')+'"><span class="nm">'+p.name+'</span><span class="cost">'+money(p.cost)+'</span><span class="tag">'+(fit?'funded':'deferred')+'</span></div>';}).join('');
+      b.querySelector('[data-sum]').textContent=money(spent)+' of '+money(cap);
+      var deferred=projects.length-funded;
+      b.querySelector('[data-note]').innerHTML=deferred>0?'<b>'+funded+' funded, '+deferred+' deferred</b> to a later year. A CIP is a queue: you fund the top priorities each year and the rest wait their turn. Raise the budget and more fit, but that money has to come from rates, debt, or grants, which is the next section.':'Everything fits this year. Most utilities are not so lucky and spread projects across the multi-year plan.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.rateimpact=function(el){var c=cfgOf(el);
+    function row(k,label,sub,val,mn,mx,st){return '<div class="pvrow"><span class="nm">'+label+'<small style="display:block;font:11px var(--fm);color:var(--ink-3)">'+sub+'</small></span><input type="range" data-k="'+k+'" min="'+mn+'" max="'+mx+'" step="'+st+'" value="'+val+'"><span class="v" data-v="'+k+'"></span></div>';}
+    var b=shell(el,
+      row('cost','Project cost','up-front dollars',c.cost||1300,200,4000,50)+
+      row('debt','Share funded by debt','the rest is cash or grants',c.debt||80,0,100,5)+
+      row('rate','Interest rate','SRF is far below market',c.rate||4,1,8,0.25)+
+      row('term','Loan term','years',c.term||20,5,40,1)+
+      row('acct','Customer accounts','thousands of bills',c.acct||15,1,120,1)+
+      '<div class="riout"><div class="o"><div class="k">Debt service / year</div><div class="val" data-ds></div></div>'+
+      '<div class="o"><div class="k">Per account / year</div><div class="val" data-yr></div></div>'+
+      '<div class="o big"><div class="k">Per account / month</div><div class="val" data-mo></div></div></div>'+
+      '<div class="rinote" data-note></div>');
+    function val(k){return +b.querySelector('input[data-k="'+k+'"]').value;}
+    function money(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    function upd(){
+      var cost=val('cost'),debtPct=val('debt'),rate=val('rate'),term=val('term'),acct=val('acct');
+      b.querySelector('[data-v="cost"]').textContent=money(cost);b.querySelector('[data-v="debt"]').textContent=debtPct+'%';
+      b.querySelector('[data-v="rate"]').textContent=rate.toFixed(2)+'%';b.querySelector('[data-v="term"]').textContent=term+' yr';b.querySelector('[data-v="acct"]').textContent=acct+'k';
+      var debt=cost*debtPct/100,r=rate/100;
+      var ds=r>0?debt*(r*Math.pow(1+r,term))/(Math.pow(1+r,term)-1):debt/term; // annual debt service, $k
+      var perYr=ds/acct;            // $k / (k accounts) = dollars per account per year
+      var perMo=perYr/12;
+      b.querySelector('[data-ds]').textContent=money(ds)+'/yr';
+      b.querySelector('[data-yr]').textContent='$'+perYr.toFixed(2);
+      b.querySelector('[data-mo]').textContent='$'+perMo.toFixed(2);
+      b.querySelector('[data-note]').innerHTML='This one project adds about <b>$'+perMo.toFixed(2)+' a month</b> to the average bill. Small on its own, but a utility runs many at once, and the whole capital plan stacked together is what actually moves the rate. This per-bill number is what a board and the public really ask about.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
   };
 
   R.pert=function(el){var c=cfgOf(el);var unit=c.unit||'days',mn=c.min||1,mx=c.max||30;

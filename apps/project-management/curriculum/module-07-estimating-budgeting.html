@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 07 &middot; Estimating and budgeting &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 7 of the Project Management masterclass. Cost estimating and AACE accuracy classes, the cost baseline, capital vs O&M, the Capital Improvement Plan, and how utilities pay for it: SRF, WIFIA, grants, bonds, and the rate impact per customer.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 07</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 07 &middot; Cost and procurement</span>
+  <h1>What it costs, and <span>who pays</span></h1>
+  <p class="sub">A schedule tells you when. This chapter tells you how much, and where the money comes from. How accurate is an estimate really, how do you fit a wish list into a budget, and what does a project add to the bill your customers pay every month?</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job we will cost</p>
+      <p><b>The Millpond Road water main replacement.</b> Same job. Now we estimate it honestly at each stage of design, place it in the utility's multi-year plan against everything else competing for money, and work out what it adds to the average customer's bill.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Read an estimate as a range, and know how accurate each AACE class really is</li>
+    <li><span class="bx"></span> Build a cost baseline and tell capital costs from operating costs</li>
+    <li><span class="bx"></span> Fit projects into a multi-year Capital Improvement Plan</li>
+    <li><span class="bx"></span> Compare the ways utilities fund work, and estimate a project's rate impact</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 3</span>
+    <h2>An estimate is a range, not a number</h2>
+    <p>The single most misunderstood thing about a cost estimate is that it is never one number, it is a range, and the range depends entirely on how far along the design is. The industry names these levels with <span class="term" data-term="AACE" data-def="AACE International, the Association for the Advancement of Cost Engineering. It defines five estimate classes, from Class 5 (concept, very wide range) to Class 1 (complete design, narrow range).">AACE</span> estimate classes, from Class 5 (a concept sketch) to Class 1 (a complete design ready to bid). Slide through them and watch the range close in on the number.</p>
+
+    <div data-ac="estrange" data-title="How accurate is the Millpond estimate?" data-kind="Interactive &middot; simulation" data-cue="Notice the point estimate barely moves. What changes as design matures is how wrong you could be. That band is the risk you carry into a budget.">
+      <script type="application/json">
+      {"base":1300}
+      </script>
+    </div>
+
+    <p>Three add-ons turn a raw estimate into a usable one. An <span class="term" data-term="Allowance" data-def="Money set aside for work you know you will need but cannot yet price precisely, like restoration or unsuitable-soil handling.">allowance</span> covers work you know is coming but cannot price yet. <span class="term" data-term="Escalation" data-def="An adjustment for cost inflation between when you estimate and when you build. Materials and labor cost more next year than this year.">Escalation</span> accounts for inflation between today and construction. And <span class="term" data-term="Contingency" data-def="Money held for the known unknowns, the things that usually go wrong but you cannot name in advance. It belongs to the project manager. Separate from management reserve, which covers true surprises.">contingency</span> covers the known unknowns, the things that usually go wrong but you cannot name yet.</p>
+
+    <div data-ac="truefalse" data-title="Quick check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["A Class 5 concept estimate is accurate enough to commit a budget.",false,"No. A Class 5 can be off by minus 30 to plus 50 percent. You commit a budget from a Class 3 or better, once real design exists."],
+        ["Escalation adjusts an estimate for inflation between now and construction.",true,"Yes. Money spent two years out buys less, so the estimate has to grow to match."],
+        ["Contingency covers the known unknowns; it is not padding.",true,"Right. It is a deliberate, managed reserve for the problems that usually appear, held by the project manager."]
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 3</span>
+    <h2>From estimate to budget: the cost baseline and the CIP</h2>
+    <p>Approve an estimate with its contingency and spread it over the schedule, and you have a <span class="term" data-term="Cost baseline" data-def="The approved, time-phased budget you measure spending against. It is the estimate plus contingency, laid out over the schedule (the S-curve from the scheduling chapter).">cost baseline</span>, the number you measure actual spending against. But first, one distinction that trips up every new utility PM: capital versus operating money.</p>
+    <p>A <span class="term" data-term="Capital cost" data-def="One-time money to build or replace a long-lived asset. It is planned in the Capital Improvement Plan and usually funded by debt, grants, or reserves.">capital cost</span> builds or replaces a long-lived asset. An <span class="term" data-term="O&M cost" data-def="Operations and Maintenance: the ongoing, recurring cost of running the system day to day, funded from rates in the operating budget.">O&M cost</span> (Operations and Maintenance) is the recurring cost of running the system. They come from different budgets and are funded differently, so sort them right.</p>
+
+    <div data-ac="classify" data-title="Capital or O&amp;M?" data-kind="Quiz &middot; classify" data-cue="One-time build of a lasting asset is capital. Recurring cost to keep it running is O&amp;M.">
+      <script type="application/json">
+      {"buckets":["Capital","O&M"],
+       "items":[
+        ["Replacing the Millpond water main",0,"A one-time build of a long-lived asset. Capital."],
+        ["Chemicals to treat the water every day",1,"A recurring cost of running the plant. O&M."],
+        ["A new SCADA control system",0,"A lasting asset you install once. Capital."],
+        ["Electricity to run the pumps",1,"An ongoing utility bill. O&M."],
+        ["The annual valve-exercising program",1,"Recurring maintenance, every year. O&M."]
+       ]}
+      </script>
+    </div>
+
+    <p>Capital projects live in the <span class="term" data-term="CIP" data-def="Capital Improvement Plan (or Program): the utility's multi-year, prioritized list of capital projects and how each year's money is allocated across them.">Capital Improvement Plan (CIP)</span>, a multi-year, prioritized list. The hard truth of a CIP is that you can never fund everything at once. Slide the annual budget and watch which projects make the cut and which wait.</p>
+
+    <div data-ac="cipplan" data-title="Fit this year's CIP" data-kind="Interactive &middot; simulation" data-cue="These are ranked top to bottom. Raise the budget and more get funded this year; drop it and good projects slide to next year. That queue is the CIP.">
+      <script type="application/json">
+      {"min":1000,"max":9000,"step":250,"start":4000,
+       "projects":[
+        {"name":"Millpond main replacement","cost":1300},
+        {"name":"Central lift station rebuild","cost":2200},
+        {"name":"SCADA controls upgrade","cost":900},
+        {"name":"Booster pump station","cost":1800},
+        {"name":"Smart-meter pilot","cost":600},
+        {"name":"Admin building refresh","cost":1500}
+       ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 3 ===================== -->
+  <div class="sec">
+    <span class="tag">3 / 3</span>
+    <h2>Paying for it, and what it does to the bill</h2>
+    <p>Capital money comes from a few places, and the cheaper it is, the more strings it carries. Click each source.</p>
+
+    <div data-ac="table" data-title="Where the money comes from" data-kind="Interactive &middot; comparison table" data-cue="Click any source for how it fits a utility like this one.">
+      <script type="application/json">
+      {"headers":["Source","Cost of money","Strings attached"],
+       "rows":[
+        {"name":"SRF loan","cells":[["hi","Very low"],["me","Several"]],
+         "detail":"The State Revolving Fund lends federal-state money well below market rate, sometimes with partial principal forgiveness. In return you accept requirements like prevailing wage (Davis-Bacon) and Buy America. Usually the cheapest money a utility can get."},
+        {"name":"WIFIA","cells":[["hi","Very low"],["me","Several"]],
+         "detail":"A federal program for large water projects (tens of millions and up). Low fixed-rate, long-term loans. Great for a major program, overkill for a single small main."},
+        {"name":"Grants","cells":[["hi","Free"],["lo","Many"]],
+         "detail":"Money you do not repay, but competitive, limited, and heavy on compliance and reporting. Chase them for eligible work, but never build a plan that depends on winning one."},
+        {"name":"Revenue bonds","cells":[["lo","Market rate"],["hi","Fewest"]],
+         "detail":"Borrow from the bond market against your rate revenue. The most flexible money and the fewest federal strings, but the most expensive, and it uses up your debt capacity."}
+       ]}
+      </script>
+    </div>
+
+    <p>Whatever the source, debt has to be repaid, and that repayment shows up on customer bills. The <span class="term" data-term="Rate impact" data-def="How much a capital project adds to a customer's bill, once its debt service is spread across all the accounts that pay for it.">rate impact</span> is the number a board and the public actually care about. Work it out for Millpond.</p>
+
+    <div data-ac="rateimpact" data-title="What does Millpond add to the bill?" data-kind="Interactive &middot; simulation" data-cue="Drop the interest rate to see why cheap SRF money matters. One main is pennies a month, but the whole capital plan stacked together is what moves the rate.">
+      <script type="application/json">
+      {"cost":1300,"debt":80,"rate":4,"term":20,"acct":15}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>One compliance note that catches utilities off guard. The moment you take federal money, whether SRF, WIFIA, or a grant, strings attach to the construction itself. <span class="term" data-term="Davis-Bacon" data-def="A federal law requiring contractors on federally funded public works to pay local prevailing wages. It can raise construction cost and adds payroll reporting.">Davis-Bacon</span> prevailing-wage rules, Buy America material sourcing, and extra reporting all apply. They can raise the construction cost and the administrative load, so cheap money is not entirely free. Factor that in before you assume the SRF loan is the obvious choice.</p>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Two numbers decide a capital project at the board table: <b>the cost baseline you can defend</b> (built from a Class 3 or better estimate with contingency) and <b>the rate impact per customer</b>. If you walk in with a Class 5 guess and no per-bill number, you will not get a yes, and you should not.</p>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["SRF loans are usually cheaper than bonds.",true,"Yes. State Revolving Fund loans lend below market rate, often with subsidy, which is why utilities reach for them first."],
+        ["Grants come with no strings.",false,"No. Grants are free of repayment but heavy on eligibility, compliance, and reporting, and they are competitive and rare."],
+        ["Taking federal money can raise the construction cost through prevailing-wage rules.",true,"Right. Davis-Bacon and Buy America requirements come with federal funding and can add cost and paperwork."]
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["AACE class","The maturity level of an estimate, from Class 5 (concept, very wide) to Class 1 (definitive, narrow)."],
+        ["Contingency","Managed money for the known unknowns. Held by the PM, not padding."],
+        ["Cost baseline","The approved, time-phased budget you measure spending against."],
+        ["CIP","Capital Improvement Plan: the multi-year, prioritized list of capital projects."],
+        ["SRF","State Revolving Fund: low-interest federal-state loans, with strings."],
+        ["Rate impact","What a project adds to a customer's bill once debt service is spread across accounts."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Think of a project you took to a board or a manager for money. Was the number a real Class 3-or-better estimate with contingency, and did you know its rate impact per customer? Or was it a hopeful round figure?",
+       "a":"Most funding fights are lost before the meeting, on the quality of the number. A round figure with no design behind it invites doubt, and rightly so, because a Class 5 estimate can be off by half. The strong position is a cost baseline built from real design with a named contingency, paired with the per-bill rate impact and a funding source. That combination answers the two questions every board asks, what will it really cost and what will it do to my constituents' bills, before they have to ask them."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>An estimate is a range set by the design.</b> Class 5 can be off by half; commit budgets from Class 3 or better, with contingency and escalation.</div></li>
+      <li><span class="n">2.</span><div><b>Keep capital and O&amp;M separate.</b> The cost baseline is your time-phased budget, and capital projects compete in the multi-year CIP.</div></li>
+      <li><span class="n">3.</span><div><b>Cheaper money carries more strings.</b> SRF and WIFIA beat bonds on rate, but bring Davis-Bacon, Buy America, and reporting.</div></li>
+      <li><span class="n">4.</span><div><b>Know the rate impact.</b> Debt service divided across accounts is the per-bill number the board and the public actually weigh.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>You do not win capital money with a number, you win it with a <b>defensible cost baseline and an honest rate impact</b>, funded from the cheapest source you can live with the strings of. Estimate quality and the per-bill number are the whole game at the board table.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-06-advanced-scheduling.html">&#8592; Chapter 06 &middot; Advanced scheduling</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 07 &middot; v0.13.0 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>

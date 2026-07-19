@@ -3,6 +3,20 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.13.0] - 2026-07-19
+### Added: Chapter 07 + three cost/finance simulations
+- `estrange` : AACE estimate-accuracy range, slide design maturity (Class 5 to 1) and watch the low-high
+  band narrow around the point estimate. Verified 1300 base -> Class5 910/1950, Class1 1235/1430.
+- `cipplan` : fit a multi-year CIP into an annual budget; ranked projects fund or defer as the cap moves.
+- `rateimpact` : project cost -> monthly bill per customer via a debt-service amortization. Verified
+  1300k / 80% debt / 4% / 20yr / 15k accounts -> 77k/yr -> $5.10/yr -> $0.43/month.
+- Chapter 07 "Estimating and budgeting" built on the library (AACE classes, allowances/escalation/
+  contingency, cost baseline, capital vs O&M, the CIP, SRF/WIFIA/grants/bonds, Davis-Bacon, rate impact).
+### Changed
+- Masterclass chrome: Chapter 07 now live; status note "Chapters 01 to 07 are live." Rebuilt all seven lessons.
+### Deployed
+- Published all seven lessons + course page to owos.ai; verified each new sim computes on the live site.
+
 ## [0.12.0] - 2026-07-19
 ### Added: Chapter 06 + three quantitative simulations
 - `pert` : three-point / PERT estimator, slide optimistic/most-likely/pessimistic and watch the
