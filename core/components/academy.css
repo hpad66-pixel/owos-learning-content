@@ -222,6 +222,37 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- coq: cost of quality curve ---- */
+.coqsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
+.coqleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.coqleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.coqout{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.coqout .o{flex:1;min-width:100px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:9px 12px;text-align:center}.coqout .o .k{font:8.5px var(--fm);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}.coqout .o .val{font:800 16px var(--fm);color:var(--ink)}.coqout .o.key{background:var(--brand-50);border-color:var(--brand-100)}.coqout .o.key .val{color:var(--brand)}
+.coqnote{margin-top:12px;padding:11px 14px;border-radius:12px;font-size:14px}.coqnote.warn{background:#FBF3E2;border:1px solid #EAD9AE;color:var(--gold)}.coqnote.ok{background:var(--green-50);border:1px solid #BFE0CE;color:var(--green)}.coqnote b{color:inherit}
+
+/* ---- grid: 2x2 matrix (risk, stakeholders) ---- */
+.gridwrap{position:relative;margin-top:14px}
+.gridsq{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;height:280px;border-left:2px solid var(--line-2);border-bottom:2px solid var(--line-2);padding:3px;margin-left:16px}
+.gridcell{border-radius:8px;padding:8px;position:relative;font-size:11px}
+.gridcell .qlab{font:700 10px var(--fm);text-transform:uppercase;letter-spacing:.04em}
+.gridcell.hi-hi{background:var(--red-50)}.gridcell.hi-lo{background:#FBF3E2}.gridcell.lo-hi{background:var(--brand-50)}.gridcell.lo-lo{background:var(--surface-2)}
+.gridcell.hi-hi .qlab{color:var(--red)}.gridcell.hi-lo .qlab{color:var(--gold)}.gridcell.lo-hi .qlab{color:var(--brand)}.gridcell.lo-lo .qlab{color:var(--ink-3)}
+.griddot{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--ink);border:2px solid #fff;transform:translate(-50%,50%);cursor:pointer;z-index:3;box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;font:700 9px var(--fm);color:#fff}
+.griddot:hover,.griddot.on{background:var(--brand);transform:translate(-50%,50%) scale(1.25)}
+.gridyax{position:absolute;left:-20px;top:0;bottom:20px;display:flex;align-items:center;writing-mode:vertical-rl;transform:rotate(180deg);font:700 10px var(--fm);color:var(--ink-3);letter-spacing:.08em}
+.gridxax{text-align:center;font:700 10px var(--fm);color:var(--ink-3);letter-spacing:.08em;margin-top:6px;padding-left:14px}
+.griddetail{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink-2);min-height:20px}.griddetail b{color:var(--ink)}.griddetail.on{border-color:var(--brand)}
+
+/* ---- channels: communication channels ---- */
+.chsvg{width:100%;max-width:280px;display:block;margin:8px auto 0}
+.chout{text-align:center;margin-top:8px;font-size:15px;color:var(--ink)}.chout b{font:800 20px var(--fm);color:var(--brand)}
+.chnote{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.chnote b{color:var(--brand-700)}
+
+/* ---- zopa: negotiation zone ---- */
+.zotrack{position:relative;height:70px;margin:16px 0 6px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
+.zoband{position:absolute;height:16px;border-radius:8px;top:14px}.zoband.sell{background:var(--brand-100);border:1px solid var(--brand)}.zoband.buy{background:#FBE5C8;border:1px solid var(--gold);top:38px}
+.zozopa{position:absolute;top:8px;bottom:8px;background:rgba(14,138,100,.16);border:1.5px solid var(--green);border-radius:6px;z-index:2}
+.zolabel{position:absolute;font:700 9px var(--fm);color:var(--ink-3)}
+.zoout{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px;font-weight:600}.zoout.deal{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.zoout.nodeal{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+
 /* ---- contractrisk: who bears the cost risk ---- */
 .crcards{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .crcard{flex:1;min-width:150px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:13px}

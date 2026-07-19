@@ -3,6 +3,25 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.18.0] - 2026-07-19
+### Added: Chapters 10-14 + four reusable simulations
+- `coq` (Ch10): cost-of-quality curve, slide prevention and watch failure cost fall and total cost bottom
+  at the sweet spot. Verified failBase 400 / K 100 -> optimum at prevention 100, total 300.
+- `grid` (Ch11 risk, Ch12 stakeholders): interactive 2x2 probability-impact / power-interest matrix with
+  colored quadrants, plotted items, and per-item strategy on click.
+- `channels` (Ch12): communication-channels explosion, n(n-1)/2 as a live node graph. Verified 6 -> 15, 12 -> 66.
+- `zopa` (Ch13): negotiation zone-of-possible-agreement, seller floor vs buyer ceiling with the overlap band.
+- Chapter 10 Quality management (QA/QC, ITP hold/witness points, cost of quality, NCR).
+- Chapter 11 Risk & uncertainty (threat/opportunity, probability-impact matrix, EMV, responses & reserves, resilience).
+- Chapter 12 Teams, stakeholders & communication (Tuckman, RACI, power-interest grid, comm channels).
+- Chapter 13 Leadership, negotiation & ethics (situational leadership, BATNA/ZOPA, conflict modes, ethics).
+- Chapter 14 Executing & controlling (process groups, operating rhythm, integrated change control with the ripple).
+- All verified in the browser: sim math correct, no data-ac collisions, no dashes.
+### Changed
+- Masterclass chrome: Chapters 10 to 14 now live; status note "Chapters 01 to 14 are live." (14 live cards.)
+### Deployed
+- Published Chapters 10-14 + course page to owos.ai.
+
 ## [0.17.0] - 2026-07-19
 ### Added: Chapter 09 + a contract-risk simulator
 - `contractrisk` : drag the final actual cost and watch who eats the overrun under Firm Fixed Price,

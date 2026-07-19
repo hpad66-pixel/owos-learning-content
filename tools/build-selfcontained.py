@@ -34,6 +34,11 @@ LINK_MAP = {
     "module-07-estimating-budgeting.html": "lesson-pm-07-estimating-budgeting.html",
     "module-08-earned-value.html": "lesson-pm-08-earned-value.html",
     "module-09-procurement-contracts-claims.html": "lesson-pm-09-procurement-contracts-claims.html",
+    "module-10-quality-management.html": "lesson-pm-10-quality-management.html",
+    "module-11-risk-uncertainty.html": "lesson-pm-11-risk-uncertainty.html",
+    "module-12-teams-stakeholders-communication.html": "lesson-pm-12-teams-stakeholders-communication.html",
+    "module-13-leadership-negotiation-ethics.html": "lesson-pm-13-leadership-negotiation-ethics.html",
+    "module-14-executing-controlling.html": "lesson-pm-14-executing-controlling.html",
 }
 
 def build(src_path, out_path):

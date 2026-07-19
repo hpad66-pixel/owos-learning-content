@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 11 &middot; Risk and uncertainty &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 11 of the Project Management masterclass. Risk fundamentals, the probability-impact matrix, quantitative risk (EMV, decision trees, Monte Carlo), risk responses and reserves, and managing uncertainty and building resilience.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 11</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 11 &middot; Quality and risk</span>
+  <h1>Risk: managing what <span>might</span> happen</h1>
+  <p class="sub">Every project is a bet on an uncertain future. Risk management is not eliminating uncertainty, it is deciding which uncertainties to act on, how much to spend on each, and what to hold in reserve for the ones you cannot see coming. We will score risks, price them, respond to them, and plan for the unknown.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job we are de-risking</p>
+      <p><b>The Millpond Road water main replacement.</b> Same job. Now we list what could go wrong (and right), rank it, put dollars on it, decide our responses, and set aside the reserves for the surprises that always come.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Define a risk as a threat or an opportunity, and keep a risk register</li>
+    <li><span class="bx"></span> Score and prioritize risks on a probability-impact matrix</li>
+    <li><span class="bx"></span> Put a dollar value on a risk with Expected Monetary Value</li>
+    <li><span class="bx"></span> Choose the right response, and hold the right reserves for what you cannot foresee</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 5</span>
+    <h2>What a risk actually is</h2>
+    <p>A <span class="term" data-term="Risk" data-def="An uncertain event that, if it happens, affects the project. It can be a threat (a negative effect) or an opportunity (a positive one). A risk has not happened yet; once it does, it is an issue.">risk</span> is an uncertain event that would affect the project if it happens. The word usually means bad news, but a risk can also be an <span class="term" data-term="Opportunity" data-def="A risk with a positive effect: something uncertain that, if it happens, would help the project (finish early, cost less, add value).">opportunity</span>. You capture them all in a <span class="term" data-term="Risk register" data-def="The living list of every identified risk, with its probability, impact, owner, response, and status. The backbone of risk management.">risk register</span>, and you find them through deliberate identification, like a premortem where the team imagines the project has already failed and asks why. Sort a few.</p>
+
+    <div data-ac="classify" data-title="Threat or opportunity?" data-kind="Quiz &middot; classify" data-cue="Would it hurt the project or help it? Both are risks worth managing.">
+      <script type="application/json">
+      {"buckets":["Threat","Opportunity"],
+       "items":[
+        ["Unforeseen utilities in the trench alignment",0,"A negative uncertain event. A threat."],
+        ["A nearby paving project could share mobilization costs",1,"An uncertain event that would help. An opportunity, worth pursuing."],
+        ["The long-lead valves might arrive late",0,"A negative event that would delay the job. A threat."],
+        ["A mild winter could let construction run faster",1,"An uncertain upside. An opportunity to exploit if it appears."]
+       ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 5</span>
+    <h2>Qualitative: score and rank</h2>
+    <p>Before you spend a dollar analyzing risks, you sort them fast on two simple questions: how <b>likely</b> is it, and how <b>bad</b> if it happens? That is <span class="term" data-term="Qualitative risk analysis" data-def="A quick assessment of each risk by probability and impact, usually on a simple scale, to rank them and decide which deserve deeper analysis or action.">qualitative analysis</span>, and it lives on a probability-impact matrix. Tap each Millpond risk to see where it lands and what to do about it.</p>
+
+    <div data-ac="grid" data-title="The Millpond risk matrix" data-kind="Interactive &middot; probability-impact grid" data-cue="Top-right is where your attention goes first: likely and severe. Bottom-left you simply watch. The matrix turns a long list into a short action plan.">
+      <script type="application/json">
+      {"xLabel":"Likelihood","yLabel":"Impact",
+       "quadrants":{
+        "tr":{"label":"Top priority","strategy":"Likely and severe. Act now: mitigate or avoid, assign an owner today, and track it every week."},
+        "tl":{"label":"Insure / transfer","strategy":"Rare but severe. Transfer it (insurance, contract terms, a bond) or hold a real contingency plan for it."},
+        "br":{"label":"Manage actively","strategy":"Frequent but minor. Mitigate cheaply and monitor, so a pile of small hits does not add up."},
+        "bl":{"label":"Accept and watch","strategy":"Low both ways. Accept it, note it, and keep it on the watch list in case it grows."}
+       },
+       "items":[
+        {"name":"Unforeseen utility conflict","x":74,"y":80},
+        {"name":"Long-lead valve delay","x":58,"y":66},
+        {"name":"Contractor insolvency","x":22,"y":86},
+        {"name":"Weather delays","x":82,"y":30},
+        {"name":"Minor spec question","x":26,"y":24}
+       ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 3 ===================== -->
+  <div class="sec">
+    <span class="tag">3 / 5</span>
+    <h2>Quantitative: put a dollar on it</h2>
+    <p>For the risks that matter, you go further and attach real numbers. The workhorse is <span class="term" data-term="EMV" data-def="Expected Monetary Value = probability times impact. A 30% chance of a $200k hit has an EMV of $60k. It lets you compare risks and decisions on a common dollar footing.">Expected Monetary Value (EMV)</span>: probability times impact. It sounds abstract until you use it to make a decision. Work one out.</p>
+
+    <div data-ac="estimate" data-title="Compute the EMV" data-kind="Quiz &middot; estimate" data-cue="EMV is just probability times impact. Nothing fancier.">
+      <script type="application/json">
+      {"q":"The utility-conflict risk has a 30% chance of costing $200,000. Drag to its Expected Monetary Value, then check.",
+       "min":0,"max":200000,"step":10000,"start":0,"answer":60000,"tol":0,"unit":"$",
+       "solution":"0.30 times $200,000 = $60,000. That is the risk-weighted cost, and it is what you compare against the cost of preventing it."}
+      </script>
+    </div>
+
+    <div data-ac="mc" data-title="Use EMV to decide" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"You can pay $40,000 now to pothole and reroute around the suspected utility conflict, removing the risk. The risk untreated is a 30% chance of a $200,000 hit (EMV $60,000). What does EMV say?",
+       "options":[
+        ["Spend the $40,000: it is less than the $60,000 expected cost of doing nothing",1],
+        ["Do nothing: $40,000 is a guaranteed spend and the risk might not happen",0],
+        ["EMV cannot inform this decision",0],
+        ["Wait until the risk becomes an issue, then decide",0]
+       ],
+       "right":"Correct. $40,000 certain beats a $60,000 expected loss. EMV turns a gut call into a comparison: pay to remove the risk when the prevention costs less than the risk-weighted exposure.",
+       "wrong":"Not quite. The untreated risk carries a $60,000 expected cost, and prevention is $40,000. EMV says buy down the risk, because the certain spend is lower than the expected loss."}
+      </script>
+    </div>
+
+    <p>For whole-project uncertainty, you stack all the risks together and run a <span class="term" data-term="Monte Carlo simulation" data-def="Running the project thousands of times with random draws for each uncertain input, to get a distribution of outcomes (a P80 date or budget) instead of a single number.">Monte Carlo simulation</span>, exactly the finish-date distribution you built in Chapter 06. EMV prices one risk; Monte Carlo prices the whole cloud of them.</p>
+  </div>
+
+  <!-- ===================== SECTION 4 ===================== -->
+  <div class="sec">
+    <span class="tag">4 / 5</span>
+    <h2>Responses and reserves</h2>
+    <p>Once a risk is understood, you choose a response. For threats there are four: <b>avoid</b> (remove the cause), <b>transfer</b> (shift it to someone else), <b>mitigate</b> (reduce the probability or impact), or <b>accept</b> (live with it, with a plan). Opportunities have mirror images (exploit, enhance, share, accept). Match each move.</p>
+
+    <div data-ac="classify" data-title="Which threat response?" data-kind="Quiz &middot; classify" data-cue="Avoid removes it, transfer shifts it, mitigate shrinks it, accept lives with it.">
+      <script type="application/json">
+      {"buckets":["Avoid","Transfer","Mitigate","Accept"],
+       "items":[
+        ["Reroute the main to dodge the suspected utility conflict entirely",0,"You removed the cause, so the risk is gone. Avoid."],
+        ["Buy builder's risk insurance for a flood during construction",1,"You shifted the financial impact to an insurer. Transfer."],
+        ["Order the long-lead valves early to shrink the delay risk",2,"You reduced the probability and impact, not removed it. Mitigate."],
+        ["Keep a watch item for a minor, unlikely spec question",3,"Low enough to simply live with, on the watch list. Accept."]
+       ]}
+      </script>
+    </div>
+
+    <p>Even a well-managed project holds money back for what it cannot name. <span class="term" data-term="Contingency reserve" data-def="Money (and time) set aside for the known unknowns, the identified risks you chose to accept. It belongs to the project manager, inside the cost baseline.">Contingency reserve</span> covers the known unknowns, the risks you identified and accepted; it is the project manager's to spend. <span class="term" data-term="Management reserve" data-def="Money held for the unknown unknowns, the surprises nobody identified. It sits outside the baseline and is released by the sponsor, not the PM.">Management reserve</span> covers the unknown unknowns, the true surprises; it sits outside the baseline and only the sponsor releases it.</p>
+
+    <div data-ac="truefalse" data-title="Quick check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["Transferring a risk (like buying insurance) makes it disappear.",false,"No. Transfer shifts who bears the impact; the event can still happen. You have moved the cost, not removed the risk."],
+        ["Contingency reserve covers known risks; management reserve covers unknown ones.",true,"Right. Contingency is for identified risks and belongs to the PM; management reserve is for true surprises and is released by the sponsor."],
+        ["Accepting a risk means ignoring it.",false,"No. Acceptance is a deliberate choice to live with it, usually with a watch item and often a contingency set aside."]
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 5 ===================== -->
+  <div class="sec">
+    <span class="tag">5 / 5</span>
+    <h2>Uncertainty and resilience</h2>
+    <p>Risk analysis handles the things you can name. The harder frontier is genuine <span class="term" data-term="Uncertainty" data-def="The part of the future you cannot list or price in advance: the unknown unknowns. You cannot register what you have not imagined, so you build resilience instead.">uncertainty</span>, the unknown unknowns you could never have listed. You cannot register what you cannot imagine, so instead of predicting each one, you build <span class="term" data-term="Resilience" data-def="The ability of a project (or a plan) to absorb surprises and keep going: buffers, flexibility, redundancy, and reserves that work no matter what specifically goes wrong.">resilience</span>: buffers, flexibility, redundancy, and reserves that help no matter what specifically goes wrong.</p>
+
+    <div class="lv f">
+      <p>This is why a schedule buffer, a management reserve, and a flexible delivery method are worth more than a longer risk list on a truly complex job. A longer list still only covers what you thought of. Resilience covers what you did not. On a simple, well-understood job, lean hard on the risk register. On a complex, first-of-its-kind job, invest in slack and adaptability, because the risk that gets you will not be on the list.</p>
+    </div>
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Match your approach to how knowable the job is. <b>Known work: a tight risk register and lean reserves. Novel, complex work: real buffers, a healthy management reserve, and a delivery method you can adapt.</b> The biggest risk on a hard job is always the one nobody wrote down.</p>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"On your riskiest current project, is your protection mostly a long risk register, or real resilience (buffers, reserves, flexibility)? Which would actually save you if something you never imagined went wrong?",
+       "a":"A risk register is necessary and, on well-understood work, mostly sufficient: you can name the threats, price them, and respond. But on genuinely novel work, the register gives false comfort, because it can only hold the risks you were smart or lucky enough to imagine, and the one that hurts you is usually not among them. The mature move is to spend on the register for the knowable risks and on resilience for the rest: a schedule buffer that absorbs any delay, a management reserve the sponsor can release fast, a delivery method that lets you change course. Ask of any protection: does this only help if I guessed the specific problem, or does it help no matter what goes wrong?"}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Risk","An uncertain event that would affect the project: a threat or an opportunity."],
+        ["Risk register","The living list of risks with probability, impact, owner, and response."],
+        ["EMV","Expected Monetary Value: probability times impact."],
+        ["Mitigate","Reduce a threat's probability or impact (not remove it)."],
+        ["Contingency reserve","Money for known risks; the PM's, inside the baseline."],
+        ["Management reserve","Money for unknown surprises; the sponsor's, outside the baseline."]
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>A risk is uncertain, and can be good or bad.</b> Capture threats and opportunities in a living register.</div></li>
+      <li><span class="n">2.</span><div><b>Rank fast on probability and impact.</b> The matrix turns a long list into a short action plan; top-right gets attention first.</div></li>
+      <li><span class="n">3.</span><div><b>Price it with EMV.</b> Probability times impact lets you compare risks and decide whether prevention is worth it.</div></li>
+      <li><span class="n">4.</span><div><b>Respond and reserve.</b> Avoid, transfer, mitigate, or accept; hold contingency for known risks and a management reserve for the unknown.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Risk management is spending attention and money in proportion to exposure: hard on the likely-and-severe, lightly on the rest, and always holding reserve for what you could not foresee. <b>The register handles the known; resilience handles the rest.</b></p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-10-quality-management.html">&#8592; Chapter 10 &middot; Quality management</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 11 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>

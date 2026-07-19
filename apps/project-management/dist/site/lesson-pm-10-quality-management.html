@@ -1,3 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 10 &middot; Quality management &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 10 of the Project Management masterclass. Quality assurance vs quality control, Inspection and Test Plans, hold and witness points, the cost of quality, and non-conformance reports.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   OWOS ACADEMY COMPONENT LIBRARY  (academy.css)
+   The single source of truth for how every module looks. A module links
+   this file and academy.js, writes declarative markup, and gets the same
+   polished components everywhere. Change a component here, every module updates.
+   ===================================================================== */
+:root{
+  --bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;
+  --ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;
+  --brand:#0A78BA;--brand-700:#08669F;--brand-800:#07547F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;
+  --gold:#A97B0F;--green:#0E8A64;--green-50:#E7F6F0;--red:#D64545;--red-50:#FCEDED;--mut:#9AA7B4;
+  --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --fm:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+  --sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);
+  --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
+h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
+h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
+h2{font-size:25px;margin:8px 0 12px}h3{font-size:19px;margin:30px 0 8px}
+p{font-size:17px;color:var(--ink-2);margin:0 0 15px}strong{color:var(--ink)}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}em{font-style:italic;color:var(--ink)}
+code{font-family:var(--fm);font-size:.85em;background:var(--surface-3);color:var(--ink);padding:1px 6px;border-radius:6px}
+button{font-family:var(--f)}
+svg text{font-family:var(--fm)}
+
+/* ---- page chrome ---- */
+.owos-nav{position:fixed;top:0;left:0;right:0;z-index:60;height:64px;background:rgba(255,255,255,.86);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;padding:0 24px}
+.owos-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.owos-logo{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+.owos-wm{font-weight:800;font-size:15.5px;letter-spacing:-.015em;color:var(--ink)}.owos-wm b{color:var(--brand)}
+.owos-pw{font-size:11px;color:var(--ink-3);margin-left:4px}.owos-pw em{font-style:normal;color:var(--gold);font-weight:600}
+.crumb{margin-left:auto;font:600 12px var(--fm);letter-spacing:.06em;color:var(--ink-3)}.crumb a{color:var(--brand)}.crumb b{color:var(--brand)}
+#rprog{position:fixed;top:64px;left:0;height:3px;background:var(--brand);width:0;z-index:61;transition:width .1s linear}
+.wrap{max-width:820px;margin:0 auto;padding:30px 24px 40px}
+.hpill{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-700);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:6px 14px;margin-bottom:16px}
+.hpill .d{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.sub{color:var(--ink-2);font-size:18px;line-height:1.65;max-width:62ch}
+.lens{display:inline-flex;gap:5px;margin:22px 0 0;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:4px}
+.lens button{background:none;border:none;color:var(--ink-2);font:600 13px var(--f);padding:7px 13px;border-radius:8px;cursor:pointer}
+.lens button.on{background:var(--brand);color:#fff}
+.lenshint{font-family:var(--fm);font-size:12px;color:var(--ink-3);margin:10px 0 0}
+.lv{display:none}body[data-lens="f"] .lv.f,body[data-lens="p"] .lv.p,body[data-lens="l"] .lv.l{display:block}
+.sec{margin:48px 0 0}.sec .tag{font-family:var(--fm);font-size:11px;letter-spacing:.14em;color:var(--ink-3);float:right;margin-top:8px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap}.navrow a{font:600 14px var(--f)}
+.btn{background:var(--brand);color:#fff;border:0;border-radius:10px;padding:10px 18px;font-weight:700;font-size:14px;box-shadow:var(--sh);cursor:pointer}.btn:hover{background:var(--brand-700);text-decoration:none}
+.foot{background:var(--surface);border-top:1px solid var(--line);margin-top:30px}.foot .in{max-width:820px;margin:0 auto;padding:22px 24px;font:12.5px var(--fm);color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.foot a{color:var(--brand)}
+
+/* ---- tooltip (exactly one per page) ---- */
+.term{border-bottom:1.5px dotted var(--brand);cursor:help;color:var(--ink);font-weight:600}
+#ac-tt{position:fixed;z-index:200;max-width:300px;background:var(--ink);color:#fff;font-size:13px;line-height:1.55;padding:11px 14px;border-radius:12px;box-shadow:var(--sh-lg);opacity:0;pointer-events:none;transition:opacity .12s;font-family:var(--f)}
+#ac-tt b{color:#9BE3F8;display:block;margin-bottom:3px}
+
+/* ---- goals / callouts / method ---- */
+.goals{list-style:none;padding:0;margin:16px 0}.goals li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer;font-size:15.5px}
+.goals .bx{flex:none;width:22px;height:22px;border:2px solid var(--line-2);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;transition:.15s}.goals li.on .bx{background:var(--green);border-color:var(--green)}
+.goals .bx:after{content:"¹3"}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:14px;padding:16px 18px;margin:20px 0;box-shadow:var(--sh)}
+.card .h{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin:0 0 8px}.card p{margin:0;font-size:15.5px}
+/* running-case callout: one job carried through the chapter */
+.casebox{display:flex;gap:13px;align-items:flex-start;background:linear-gradient(180deg,var(--brand-50),var(--surface));border:1px solid var(--brand-100);border-radius:16px;padding:15px 18px;margin:20px 0;box-shadow:var(--sh)}
+.casebox .pin{flex:none;width:34px;height:34px;border-radius:9px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px}
+.casebox .h{font:600 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:var(--brand-700);margin:0 0 3px}.casebox p{margin:0;font-size:14.5px;color:var(--ink)}
+/* leader's-call card (shown in the Leader lens) */
+.leadcall{background:var(--ink);color:#E7EDF5;border-radius:14px;padding:14px 18px;margin:16px 0}
+.leadcall .h{font:600 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#9BE3F8;margin:0 0 5px}.leadcall p{margin:0;color:#E7EDF5;font-size:15px}.leadcall b{color:#fff}
+/* recap takeaways */
+.recap{list-style:none;padding:0;margin:14px 0}.recap li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--ink-2)}.recap li:last-child{border-bottom:none}.recap .n{flex:none;color:var(--brand);font-weight:800}.recap b{color:var(--ink)}
+
+/* ---- component shell ---- */
+.comp{background:var(--surface);border:1px solid var(--line);border-radius:18px;margin:22px 0;box-shadow:var(--sh-lg);overflow:hidden}
+.comp>.hd{display:flex;align-items:center;gap:9px;padding:12px 18px;border-bottom:1px solid var(--line);font:600 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+.comp>.hd .kind{margin-left:auto;color:var(--brand);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:2px 9px;font-size:9.5px}
+.comp>.bd{padding:18px}
+.droocue{display:flex;gap:12px;align-items:flex-start;padding:14px 18px;background:var(--brand-50);border-top:1px solid var(--brand-100)}
+.droocue .av{flex:none;width:38px;height:38px}.droocue .m{font-size:14.5px;color:var(--ink);line-height:1.55}.droocue .m b{color:var(--brand-700)}
+.method .stepn{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);align-items:flex-start}.method .stepn:last-child{border-bottom:none}
+.method .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font:800 13px var(--fm);display:flex;align-items:center;justify-content:center}.method .tx{font-size:14.5px}.method .tx b{color:var(--ink)}
+
+/* ---- shared feedback ---- */
+.ac-fb{margin-top:10px;font-size:14px;padding:9px 12px;border-radius:10px;display:none;line-height:1.5}.ac-fb.on{display:block}.ac-fb.ok{background:var(--green-50);color:var(--green)}.ac-fb.no{background:var(--red-50);color:var(--red)}
+.ac-score{font:600 12.5px var(--fm);color:var(--ink-3);margin-top:12px}.ac-score b{color:var(--green)}
+
+/* ---- flip cards ---- */
+.flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.flip{perspective:900px;height:106px;cursor:pointer}.fin{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}.flip.on .fin{transform:rotateY(180deg)}
+.ff,.fbk{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px}
+.ff{background:var(--brand);color:#fff;font-weight:800;font-size:15px}.fbk{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);transform:rotateY(180deg);font-size:12.5px;line-height:1.4}.flip .hint{position:absolute;bottom:4px;right:7px;font:8px var(--fm);opacity:.75;color:#fff}
+
+/* ---- matching ---- */
+.match{display:flex;gap:14px}.mcol{flex:1;display:flex;flex-direction:column;gap:8px}
+.mitem{border:1.5px solid var(--line-2);background:var(--surface);border-radius:10px;padding:10px 12px;font-size:13.5px;color:var(--ink-2);cursor:pointer;text-align:left}
+.mitem:hover{border-color:var(--brand)}.mitem.sel{border-color:var(--brand);background:var(--brand-50);color:var(--brand)}
+.mitem.done{border-color:#BFE0CE;background:var(--green-50);color:var(--green);cursor:default;font-weight:600}.mitem.bad{border-color:#EAC7C0;background:var(--red-50);color:var(--red)}
+
+/* ---- options (mc / multi) ---- */
+.acq{font-weight:700;color:var(--ink);font-size:15.5px;margin:0 0 12px}
+.opt{display:block;width:100%;text-align:left;background:var(--surface-2);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:9px;cursor:pointer;font-size:14.5px;color:var(--ink-2);font-family:inherit}
+.opt:hover{border-color:var(--brand)}.opt.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green);font-weight:600}.opt.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.opt.sel{border-color:var(--brand);background:var(--brand-50)}
+
+/* ---- classify / sort ---- */
+.sortitem{display:flex;align-items:center;gap:8px;padding:11px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}.sortitem:last-child{border-bottom:none}
+.sortitem .lab{flex:1;min-width:170px;font-weight:600;color:var(--ink);font-size:14.5px}
+.sortitem .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2);margin-top:2px;display:none;line-height:1.5}.sortitem.done .why{display:block}
+.sbtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);border-radius:8px;padding:6px 11px;font:600 12px var(--f);cursor:pointer}.sbtn:hover{border-color:var(--brand);color:var(--brand)}.sbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.sbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.sbtn:disabled{cursor:default}
+
+/* ---- estimate ---- */
+input[type=range]{width:100%;accent-color:var(--brand)}
+.erow{display:flex;align-items:center;gap:12px;margin:12px 0}.erow input{flex:1}.erow .v{font:700 15px var(--fm);color:var(--brand);min-width:80px;text-align:right}
+
+/* ---- calculator (business case: NPV / payback / BCR + curve + bars) ---- */
+.calcrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;flex-wrap:wrap}
+.calcrow .nm{font-weight:600;color:var(--ink);font-size:14.5px;flex:1;min-width:170px}.calcrow .nm small{display:block;font:11px var(--fm);color:var(--ink-3);font-weight:400}
+.calcrow .ip{flex:1;max-width:260px;min-width:150px}.calcrow .ip input{width:100%}.calcrow .rv{display:block;text-align:right;font:600 13px var(--fm);color:var(--brand)}
+.out{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.out .o{flex:1;min-width:110px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.out .o .k{font:9px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.out .o .val{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.verdict{margin-top:12px;padding:11px 15px;border-radius:12px;font-weight:600;font-size:14.5px;line-height:1.5}
+.verdict.go{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.verdict.no{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.chartrow{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}.chartbox{flex:1;min-width:240px}
+.chartbox .cap{font:600 10px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.bars2{display:flex;gap:18px;align-items:flex-end;height:120px;border-bottom:2px solid var(--line-2);padding:0 10px}
+.bars2 .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bars2 .bar{width:70%;border-radius:5px 5px 0 0;transition:height .3s}
+.bars2 .bl{font:600 11px var(--fm);color:var(--ink-2);margin-top:5px}.bars2 .bv{font:700 11px var(--fm);color:var(--ink);margin-bottom:4px}
+
+/* ---- true / false ---- */
+.tf{display:flex;flex-direction:column;gap:10px}.tfrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tfrow .s{flex:1;min-width:180px;font-size:14.5px;color:var(--ink-2)}
+.tfbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:6px 13px;font:600 12.5px var(--f);cursor:pointer;color:var(--ink-2)}.tfbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.tfbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.tfbtn:disabled{cursor:default}
+.tfx{flex-basis:100%;font-size:12.5px;color:var(--ink-3);display:none}.tfx.on{display:block}
+
+/* ---- order ---- */
+.order .oi{display:flex;align-items:center;gap:10px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-bottom:7px}.order .oi .t{flex:1;font-size:14px;color:var(--ink-2)}
+.order .ob{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);border-radius:7px;cursor:pointer;font-weight:700;color:var(--ink-2)}.order .oi.ok{border-color:#BFE0CE;background:var(--green-50)}
+
+/* ---- reflection ---- */
+.check{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:var(--sh)}.check .q{font-size:17px;color:var(--ink);font-weight:700}.check details summary{cursor:pointer;color:var(--brand);font:600 13.5px var(--f);margin-top:8px}.check .a{margin-top:8px;font-size:14.5px;color:var(--ink-2);line-height:1.6}
+
+/* ---- spectrum ---- */
+.splabels{display:flex;justify-content:space-between;font:600 12px var(--fm);color:var(--ink-2);margin-bottom:4px}
+.sptrack{position:relative;height:10px;background:linear-gradient(90deg,#0A78BA,#5B95C4,#9AA7B4);border-radius:20px;margin:8px 0 4px}
+.spout{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink)}.spout b{color:var(--brand)}
+
+/* ---- comparison table ---- */
+.cmpwrap{overflow-x:auto}
+.cmp{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+.cmp th{text-align:left;font:600 10px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:9px 10px;border-bottom:1px solid var(--line)}
+.cmp td{padding:10px;border-bottom:1px solid var(--line);color:var(--ink-2)}.cmp tr:last-child td{border-bottom:none}
+.cmp .m{color:var(--ink);font-weight:700;cursor:pointer}.cmp tbody tr:hover{background:var(--surface-2)}.cmp tr.on{background:var(--brand-50)}
+.lvl{display:inline-block;font:700 10px var(--fm);padding:2px 8px;border-radius:999px}
+.lvl.hi{background:var(--green-50);color:var(--green)}.lvl.me{background:#FBF3E2;color:var(--gold)}.lvl.lo{background:var(--red-50);color:var(--red)}
+.cmpdetail{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink);display:none}.cmpdetail.on{display:block}.cmpdetail b{color:var(--brand)}
+
+/* ---- recommender ---- */
+.recopts{display:flex;flex-wrap:wrap;gap:8px}
+.recbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:10px;padding:9px 13px;font:600 13px var(--f);color:var(--ink-2);cursor:pointer}.recbtn:hover{border-color:var(--brand);color:var(--brand)}.recbtn.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.recout{margin-top:14px;padding:13px 16px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:14.5px;display:none}.recout.on{display:block}.recout b{color:var(--brand)}
+
+/* ---- framework flow ---- */
+.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+.fbox{background:var(--surface-2);border:1px solid var(--line-2);border-radius:12px;padding:12px 16px;text-align:center;font-weight:600;color:var(--ink);font-size:14.5px;min-width:120px}.fbox.q{background:var(--brand-50);border-color:var(--brand-100);color:var(--brand-800)}
+.farrow{color:var(--ink-3);font-weight:700}.fbranch{display:flex;gap:10px;flex-direction:column}.fpath{display:flex;align-items:center;gap:8px}.fpath .lbl{font:700 11px var(--fm);color:var(--ink-3);min-width:34px}
+.fbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:10px;padding:8px 14px;font:600 13px var(--f);cursor:pointer;color:var(--ink-2)}.fbtn:hover{border-color:var(--brand);color:var(--brand)}.fbtn.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.fresult{margin-top:14px;padding:11px 15px;border-radius:12px;font-size:14.5px;display:none;background:var(--surface-2);color:var(--ink-2)}.fresult.on{display:block}
+
+/* ---- process (clickable phases) ---- */
+.life{display:flex;gap:6px;flex-wrap:wrap}.lphase{flex:1;min-width:120px;background:var(--surface-2);border:1px solid var(--line);border-top:3px solid var(--brand);border-radius:10px;padding:11px 12px;cursor:pointer;transition:.15s;position:relative}
+.lphase:hover{border-color:var(--brand)}.lphase.on{background:var(--brand-50);border-color:var(--brand)}.lphase b{display:block;color:var(--ink);font-size:14px}.lphase span{font-size:11.5px;color:var(--ink-3)}
+.lphase .gate{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:16px;height:16px;border-radius:50%;background:var(--gold);color:#fff;font:700 9px var(--fm);display:flex;align-items:center;justify-content:center;z-index:2}.lphase:last-child .gate{display:none}
+.ldetail{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink-2)}.ldetail b{color:var(--ink)}
+
+/* ---- iron triangle (interactive) ---- */
+.trirow{display:flex;gap:20px;flex-wrap:wrap;align-items:center}.trisvg{flex:none;width:270px;max-width:100%}.tricontrols{flex:1;min-width:200px}
+.ctl{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}.ctl:last-of-type{border-bottom:none}.ctl .nm{font-weight:600;color:var(--ink);font-size:14.5px}.ctl .nm small{display:block;font:11px var(--fm);color:var(--ink-3);font-weight:400}
+.step{display:flex;align-items:center;gap:6px}.step button{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);border-radius:7px;font-size:15px;font-weight:700;color:var(--ink-2);cursor:pointer;line-height:1}.step button:hover{border-color:var(--brand);color:var(--brand)}.step .v{font:600 13px var(--fm);width:78px;text-align:center;color:var(--ink)}
+.qbadge{margin-top:12px;font:600 13px var(--f);padding:9px 13px;border-radius:10px;text-align:center}
+
+/* ---- gantt + critical path ---- */
+.gantt{overflow-x:auto}
+.ginner{min-width:460px}
+.grow{display:flex;align-items:center;gap:10px;padding:4px 0;cursor:pointer;border-radius:8px}
+.grow:hover{background:var(--surface-2)}.grow.on{background:var(--brand-50)}
+.gname{flex:none;width:158px;font-weight:600;color:var(--ink);font-size:12.5px}
+.gtrack{flex:1;position:relative;height:20px;background:var(--surface-2);border-radius:6px}
+.gbar{position:absolute;top:3px;height:14px;border-radius:4px;background:var(--brand)}
+.gbar.crit{background:var(--gold)}
+.gslack{position:absolute;top:8px;height:4px;border-radius:2px;background:var(--line-2)}
+.gaxis{display:flex;justify-content:space-between;font:9px var(--fm);color:var(--ink-3);margin:6px 0 0 168px}
+.glegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:10px;flex-wrap:wrap}
+.glegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
+.gsum{font:600 13px var(--fm);color:var(--ink);margin-top:10px}.gsum b{color:var(--gold)}
+.gdetail{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink-2);display:none}.gdetail.on{display:block}.gdetail b{color:var(--ink)}.gdetail .crit{color:var(--gold);font-weight:700}
+
+/* ---- CPM simulator (step-through critical path derivation) ---- */
+.cpmstage{overflow-x:auto;padding:8px 2px 4px}
+.cpmcanvas{position:relative}
+.cpmsvg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.cnode{position:absolute;width:114px;background:var(--surface);border:2px solid var(--line-2);border-radius:10px;box-shadow:var(--sh);z-index:2}
+.cnode.crit{border-color:var(--gold);box-shadow:0 0 0 3px rgba(169,123,15,.18)}
+.cnode.active{border-color:var(--brand);box-shadow:0 0 0 3px rgba(10,120,186,.16)}
+.cn-top,.cn-bot{display:flex;justify-content:space-between;font:700 9.5px var(--fm);padding:2px 8px}
+.cn-top{color:var(--brand-700)}.cn-bot{color:var(--ink-3);border-top:1px dashed var(--line)}
+.cn-mid{text-align:center;padding:3px 5px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cn-name{font:700 11px var(--f);color:var(--ink);line-height:1.12}.cn-dur{font:9px var(--fm);color:var(--ink-3)}
+.cn-float{position:absolute;top:-10px;right:-10px;background:var(--ink);color:#fff;font:700 9px var(--fm);border-radius:9px;padding:2px 6px;z-index:3}
+.cnode.crit .cn-float{background:var(--gold)}
+.cn-v{opacity:0;transition:opacity .25s}.cn-v.on{opacity:1}
+.cpmctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.cpmctrl button{border:1px solid var(--line-2);background:var(--surface);border-radius:9px;padding:8px 13px;font:600 13px var(--f);cursor:pointer;color:var(--ink-2)}
+.cpmctrl button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+.cpmctrl button.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.cpmctrl button.primary:hover{background:var(--brand-700)}
+.cpmctrl button:disabled{opacity:.4;cursor:default}
+.cpmstep{font:600 12px var(--fm);color:var(--ink-3);margin-left:auto}
+.cpmnarr{margin-top:12px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14.5px;color:var(--ink);line-height:1.55}.cpmnarr b{color:var(--brand-700)}.cpmnarr .g{color:var(--gold);font-weight:700}
+.cpmkey{display:flex;gap:8px 16px;font:600 10.5px var(--fm);color:var(--ink-2);margin-top:10px;flex-wrap:wrap}
+.cpmkey span span{color:var(--brand-700)}
+
+/* ---- S-curve (cost-loaded schedule) ---- */
+.scurve svg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
+.sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
+
+/* ---- coq: cost of quality curve ---- */
+.coqsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
+.coqleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.coqleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.coqout{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.coqout .o{flex:1;min-width:100px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:9px 12px;text-align:center}.coqout .o .k{font:8.5px var(--fm);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}.coqout .o .val{font:800 16px var(--fm);color:var(--ink)}.coqout .o.key{background:var(--brand-50);border-color:var(--brand-100)}.coqout .o.key .val{color:var(--brand)}
+.coqnote{margin-top:12px;padding:11px 14px;border-radius:12px;font-size:14px}.coqnote.warn{background:#FBF3E2;border:1px solid #EAD9AE;color:var(--gold)}.coqnote.ok{background:var(--green-50);border:1px solid #BFE0CE;color:var(--green)}.coqnote b{color:inherit}
+
+/* ---- grid: 2x2 matrix (risk, stakeholders) ---- */
+.gridwrap{position:relative;margin-top:14px}
+.gridsq{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;height:280px;border-left:2px solid var(--line-2);border-bottom:2px solid var(--line-2);padding:3px;margin-left:16px}
+.gridcell{border-radius:8px;padding:8px;position:relative;font-size:11px}
+.gridcell .qlab{font:700 10px var(--fm);text-transform:uppercase;letter-spacing:.04em}
+.gridcell.hi-hi{background:var(--red-50)}.gridcell.hi-lo{background:#FBF3E2}.gridcell.lo-hi{background:var(--brand-50)}.gridcell.lo-lo{background:var(--surface-2)}
+.gridcell.hi-hi .qlab{color:var(--red)}.gridcell.hi-lo .qlab{color:var(--gold)}.gridcell.lo-hi .qlab{color:var(--brand)}.gridcell.lo-lo .qlab{color:var(--ink-3)}
+.griddot{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--ink);border:2px solid #fff;transform:translate(-50%,50%);cursor:pointer;z-index:3;box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;font:700 9px var(--fm);color:#fff}
+.griddot:hover,.griddot.on{background:var(--brand);transform:translate(-50%,50%) scale(1.25)}
+.gridyax{position:absolute;left:-20px;top:0;bottom:20px;display:flex;align-items:center;writing-mode:vertical-rl;transform:rotate(180deg);font:700 10px var(--fm);color:var(--ink-3);letter-spacing:.08em}
+.gridxax{text-align:center;font:700 10px var(--fm);color:var(--ink-3);letter-spacing:.08em;margin-top:6px;padding-left:14px}
+.griddetail{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink-2);min-height:20px}.griddetail b{color:var(--ink)}.griddetail.on{border-color:var(--brand)}
+
+/* ---- channels: communication channels ---- */
+.chsvg{width:100%;max-width:280px;display:block;margin:8px auto 0}
+.chout{text-align:center;margin-top:8px;font-size:15px;color:var(--ink)}.chout b{font:800 20px var(--fm);color:var(--brand)}
+.chnote{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.chnote b{color:var(--brand-700)}
+
+/* ---- zopa: negotiation zone ---- */
+.zotrack{position:relative;height:70px;margin:16px 0 6px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
+.zoband{position:absolute;height:16px;border-radius:8px;top:14px}.zoband.sell{background:var(--brand-100);border:1px solid var(--brand)}.zoband.buy{background:#FBE5C8;border:1px solid var(--gold);top:38px}
+.zozopa{position:absolute;top:8px;bottom:8px;background:rgba(14,138,100,.16);border:1.5px solid var(--green);border-radius:6px;z-index:2}
+.zolabel{position:absolute;font:700 9px var(--fm);color:var(--ink-3)}
+.zoout{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px;font-weight:600}.zoout.deal{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.zoout.nodeal{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+
+/* ---- contractrisk: who bears the cost risk ---- */
+.crcards{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.crcard{flex:1;min-width:150px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:13px}
+.crcard .nm{font:700 13.5px var(--f);color:var(--ink)}.crcard .sub2{font:10px var(--fm);color:var(--ink-3);margin-bottom:9px}
+.crcard .line{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}.crcard .line .k{color:var(--ink-2)}.crcard .line .v{font:700 13px var(--fm);color:var(--ink)}
+.crcard .prof.pos{color:var(--green)}.crcard .prof.neg{color:var(--red)}
+.crexposed{margin-top:9px;font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px;display:inline-block}
+.crexposed.owner{background:var(--red-50);color:var(--red)}.crexposed.contractor{background:#FBF3E2;color:var(--gold)}.crexposed.shared{background:var(--brand-50);color:var(--brand)}
+.crnote{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.crnote b{color:var(--brand-700)}
+
+/* ---- evm: earned value chart + indices ---- */
+.evmsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
+.evmleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.evmleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.evmstat{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.evmstat .o{flex:1;min-width:84px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:9px 10px;text-align:center}
+.evmstat .o .k{font:8.5px var(--fm);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}.evmstat .o .val{font:800 16px var(--fm);color:var(--ink)}
+.evmstat .o.good .val{color:var(--green)}.evmstat .o.bad .val{color:var(--red)}.evmstat .o.key{background:var(--brand-50);border-color:var(--brand-100)}.evmstat .o.key .val{color:var(--brand)}
+.evmverdict{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px;font-weight:600;line-height:1.5}
+.evmverdict.ok{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.evmverdict.warn{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.evmverdict.bad{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+
+/* ---- estrange: AACE estimate accuracy range ---- */
+.ertrack{position:relative;height:46px;margin:18px 0 6px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
+.erband{position:absolute;top:9px;bottom:9px;background:var(--brand-100);border:1px solid var(--brand);border-radius:6px;transition:left .25s,width .25s}
+.erpoint{position:absolute;top:3px;bottom:3px;width:2px;background:var(--ink);z-index:2}
+.erpoint span{position:absolute;top:-15px;left:50%;transform:translateX(-50%);font:700 9px var(--fm);color:var(--ink);white-space:nowrap}
+.erout{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.erout .o{flex:1;min-width:100px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:9px 13px}
+.erout .o .k{font:9px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}.erout .o .val{font:800 17px var(--fm);color:var(--ink)}
+.erout .o.lo .val{color:var(--red)}.erout .o.pt .val{color:var(--brand)}.erout .o.hi2 .val{color:var(--gold)}
+.ernote{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.ernote b{color:var(--brand-700)}
+
+/* ---- cipplan: fit the CIP into an annual budget ---- */
+.cipsum{display:flex;justify-content:space-between;align-items:center;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;padding:9px 15px;margin:12px 0}.cipsum .k{font:600 11px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--brand-700)}.cipsum .v{font:800 16px var(--fm);color:var(--brand)}
+.ciprow{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:9px;margin-bottom:6px;border:1px solid var(--line)}
+.ciprow.fund{background:var(--green-50);border-color:#BFE0CE}.ciprow.defer{background:var(--surface-2);opacity:.75}
+.ciprow .nm{flex:1;font-weight:600;color:var(--ink);font-size:14px}.ciprow .cost{font:700 12px var(--fm);color:var(--ink-2)}
+.ciprow .tag{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;padding:2px 9px;border-radius:999px}.ciprow.fund .tag{background:var(--green);color:#fff}.ciprow.defer .tag{background:var(--line-2);color:var(--ink)}
+
+/* ---- rateimpact: bill impact per customer ---- */
+.riout{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}.riout .o{flex:1;min-width:130px;text-align:center;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:14px}
+.riout .o.big{background:var(--brand-50);border-color:var(--brand-100)}.riout .o .k{font:9px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.riout .o .val{font:800 26px var(--fm);color:var(--ink);letter-spacing:-.02em}.riout .o.big .val{color:var(--brand)}
+.rinote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.rinote b{color:var(--ink)}
+
+/* ---- pert: three-point estimate ---- */
+.pertrow{display:flex;align-items:center;gap:12px;margin:9px 0}.pertrow .nm{flex:none;width:150px;font-weight:600;color:var(--ink);font-size:14px}.pertrow .nm small{display:block;font:11px var(--fm);color:var(--ink-3);font-weight:400}
+.pertrow input{flex:1}.pertrow .v{flex:none;width:74px;text-align:right;font:700 13px var(--fm);color:var(--brand)}
+.pertsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:6px}
+.pertout{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.pertout .o{flex:1;min-width:110px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.pertout .o .k{font:9px var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}.pertout .o .val{font:800 18px var(--fm);color:var(--ink)}.pertout .o.hi .val{color:var(--brand)}
+
+/* ---- reslevel: resource histogram + leveling ---- */
+.rltoggle{display:inline-flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:4px;margin-bottom:12px}
+.rltoggle button{background:none;border:none;color:var(--ink-2);font:600 13px var(--f);padding:6px 14px;border-radius:8px;cursor:pointer}.rltoggle button.on{background:var(--brand);color:#fff}
+.rlwrap{overflow-x:auto}
+.rlbars{display:flex;gap:5px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:0 4px;position:relative;min-width:340px}
+.rlcap{position:absolute;left:4px;right:4px;border-top:2px dashed var(--red);z-index:2}.rlcap span{position:absolute;right:0;top:-16px;font:700 10px var(--fm);color:var(--red)}
+.rlcol{flex:1;display:flex;flex-direction:column-reverse;align-items:center;height:100%;gap:2px;min-width:20px}
+.rlseg{width:80%;border-radius:2px}.rlover{outline:2px solid var(--red);outline-offset:-1px}
+.rllabels{display:flex;gap:5px;padding:5px 4px 0;min-width:340px}.rllabels span{flex:1;text-align:center;font:9px var(--fm);color:var(--ink-3);min-width:20px}
+.rlnote{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink)}.rlnote.warn{background:#FBF3E2;border-color:#EAD9AE;color:var(--gold)}.rlnote.ok{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.rlnote b{color:inherit}
+
+/* ---- montecarlo: probabilistic finish ---- */
+.mcsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.mcctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.mcctrl button{border:1px solid var(--line-2);background:var(--surface);border-radius:9px;padding:8px 15px;font:600 13px var(--f);cursor:pointer;color:var(--ink-2)}.mcctrl button.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.mcctrl button.primary:hover{background:var(--brand-700)}.mcctrl button:disabled{opacity:.5;cursor:default}
+.mccount{font:600 12px var(--fm);color:var(--ink-3);margin-left:auto}
+.mcstats{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.mcstats .o{flex:1;min-width:120px;border-radius:12px;padding:10px 14px;border:1px solid var(--line);background:var(--surface-2)}
+.mcstats .o .k{font:9px var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}.mcstats .o .val{font:800 18px var(--fm);color:var(--ink)}
+.mcstats .o.det .val{color:var(--ink-3)}.mcstats .o.p50 .val{color:var(--brand)}.mcstats .o.p80 .val{color:var(--gold)}
+.mcout{margin-top:12px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14.5px;color:var(--ink)}.mcout b{color:var(--brand-700)}.mcout .g{color:var(--gold);font-weight:700}
+
+/* ---- costcurve: cost of a change over the life cycle ---- */
+.ccbars{display:flex;gap:10px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:0 6px}
+.ccbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;cursor:pointer}
+.ccbar .fill{width:78%;border-radius:5px 5px 0 0;background:var(--surface-3);transition:height .25s,background .2s;min-height:4px}
+.ccbar.on .fill{background:var(--gold)}
+.ccbar .m{font:700 12px var(--fm);color:var(--ink-3);margin-bottom:4px}.ccbar.on .m{color:var(--gold)}
+.cclabels{display:flex;gap:10px;padding:6px 6px 0}.cclabels span{flex:1;text-align:center;font:600 11px var(--fm);color:var(--ink-2)}
+.ccout{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink)}.ccout b{color:var(--gold)}
+
+/* ---- ripple: change one input, watch outputs move ---- */
+.rpdriver{display:flex;align-items:center;gap:12px;margin:6px 0 16px}.rpdriver .nm{font-weight:600;color:var(--ink);font-size:14.5px;flex:none}.rpdriver input{flex:1}.rpdriver .v{font:700 14px var(--fm);color:var(--brand);min-width:120px;text-align:right}
+.rpeff{display:flex;flex-direction:column;gap:12px}
+.rprow{display:flex;align-items:center;gap:12px}.rprow .lb{flex:none;width:96px;font-weight:600;color:var(--ink);font-size:13.5px}
+.rpmeter{flex:1;height:16px;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.rpfill{height:100%;background:var(--brand);border-radius:9px;transition:width .3s,background .3s}
+.rprow .val{flex:none;width:96px;text-align:right;font:700 13px var(--fm);color:var(--ink)}
+.rpnote{margin-top:14px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.rpnote b{color:var(--brand-700)}
+
+/* ---- editable gantt (what-if) ---- */
+.gstep{flex:none;display:inline-flex;gap:3px;align-items:center;margin-right:6px}
+.gstep button{width:20px;height:20px;border:1px solid var(--line-2);background:var(--surface);border-radius:6px;font:700 12px var(--fm);line-height:1;color:var(--ink-2);cursor:pointer}
+.gstep button:hover{border-color:var(--brand);color:var(--brand)}
+.gname.ed{width:132px}.gd-note{margin-top:10px;padding:10px 14px;border-radius:11px;font-size:14px;background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}.gd-note b{color:var(--ink)}.gd-note.warn{background:#FBF3E2;border-color:#EAD9AE;color:var(--gold)}
+
+/* ---- rollup tree (WBS 100% rule) ---- */
+.rutotal{display:flex;justify-content:space-between;align-items:center;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;padding:10px 16px;margin-bottom:12px}
+.rutotal .k{font:600 11px var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--brand-700)}.rutotal .v{font:800 20px var(--fm);color:var(--brand)}
+.rurow{display:flex;align-items:center;gap:8px;padding:5px 0}
+.runame{flex:1;color:var(--ink);font-size:14px}.runame.parent{font-weight:700}
+.rusum{font:700 12px var(--fm);color:var(--brand-700);background:var(--brand-50);border-radius:7px;padding:2px 9px}
+.ruinput{width:70px;border:1px solid var(--line-2);border-radius:7px;padding:4px 7px;font:600 12px var(--fm);color:var(--ink);text-align:right}
+.ruinput:focus{outline:none;border-color:var(--brand)}
+.rukids{list-style:none;margin:0;padding:0 0 0 20px}.rukids.root{padding:0}
+
+/* ---- scoreboard: weighted project scoring ---- */
+.sbcrit{display:flex;flex-direction:column;gap:9px;margin:4px 0 16px}
+.sbcrow{display:flex;align-items:center;gap:12px}.sbcrow .lb{flex:none;width:130px;font-weight:600;color:var(--ink);font-size:13.5px}.sbcrow input{flex:1}.sbcrow .w{flex:none;width:44px;text-align:right;font:700 12px var(--fm);color:var(--brand)}
+.sbtable{width:100%;border-collapse:collapse;font-size:13.5px}
+.sbtable th{text-align:left;font:600 10px var(--fm);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);padding:7px 8px;border-bottom:1px solid var(--line)}
+.sbtable td{padding:9px 8px;border-bottom:1px solid var(--line)}.sbtable tr:last-child td{border-bottom:none}
+.sbtable .rk{font:800 14px var(--fm);color:var(--ink-3);width:26px}.sbtable tr.top .rk{color:var(--gold)}.sbtable tr.top{background:#FBF7EC}
+.sbtable .pn{font-weight:700;color:var(--ink)}.sbtable .sc{font:700 14px var(--fm);color:var(--brand)}
+.sbbar{height:7px;background:var(--surface-2);border-radius:5px;margin-top:4px;overflow:hidden}.sbbar i{display:block;height:100%;background:var(--brand);border-radius:5px;transition:width .3s}
+
+/* ---- present value mini-sim ---- */
+.pvrow{display:flex;align-items:center;gap:12px;margin:10px 0}.pvrow .nm{flex:none;width:130px;font-weight:600;color:var(--ink);font-size:14px}.pvrow input{flex:1}.pvrow .v{flex:none;width:80px;text-align:right;font:700 13px var(--fm);color:var(--brand)}
+.pvbars{display:flex;gap:24px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:10px 20px 0;margin-top:8px}
+.pvcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.pvcol .bar{width:64%;border-radius:6px 6px 0 0;transition:height .3s}.pvcol .bv{font:700 13px var(--fm);color:var(--ink);margin-bottom:5px}.pvcol .bl{font:600 11px var(--fm);color:var(--ink-2);margin-top:6px;text-align:center}
+.pvout{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink)}.pvout b{color:var(--brand)}
+
+/* ---- tree / work breakdown structure ---- */
+.tree{font-size:14.5px}
+.tkids{list-style:none;margin:0;padding:0 0 0 22px}.tkids.root{padding-left:0}
+.tnode{position:relative}
+.tkids:not(.root)>.tnode:before{content:"";position:absolute;left:-13px;top:0;bottom:0;width:1px;background:var(--line-2)}
+.trow{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:9px;cursor:pointer}
+.trow:hover{background:var(--surface-2)}.trow.on{background:var(--brand-50)}
+.ttoggle{flex:none;width:22px;height:22px;border:1px solid var(--line-2);background:var(--surface);border-radius:6px;font:700 14px var(--fm);line-height:1;color:var(--brand);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ttoggle.open{background:var(--brand);color:#fff;border-color:var(--brand)}
+.tdot{flex:none;width:7px;height:7px;border-radius:50%;background:var(--brand-100);margin:0 7px}
+.tlabel{font-weight:600;color:var(--ink)}
+.tkids.root>.tnode>.trow>.tlabel{font-weight:800}
+.tdetail{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink-2);display:none}.tdetail.on{display:block}.tdetail b{color:var(--ink)}
+
+/* ---- two-figure contrast ---- */
+.twofig{display:flex;gap:14px;flex-wrap:wrap}.twofig .box{flex:1;min-width:200px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
+.twofig .cap{font:600 11px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}.twofig .note{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+
+/* ---- artifact tracker ---- */
+.at-summary{display:grid;grid-template-columns:minmax(150px,auto) 1fr;gap:16px;align-items:center;margin-bottom:14px}.at-summary b{display:block;font:800 18px var(--fm);color:var(--ink)}.at-summary span{font:600 11px var(--fm);color:var(--ink-3)}
+.at-meter{height:10px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;overflow:hidden}.at-meter i{display:block;height:100%;width:0;background:var(--green);border-radius:999px;transition:width .25s}
+.at-list{display:grid;gap:8px}.at-item{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.at-item b{font-size:14px;color:var(--ink)}.at-item p{font-size:12.5px;line-height:1.45;color:var(--ink-3);margin:3px 0 0}.at-state{min-width:112px;border:1px solid var(--line-2);border-radius:999px;padding:7px 10px;background:var(--surface-2);color:var(--ink-2);font:700 10px var(--fm);cursor:pointer}.at-state:hover{border-color:var(--brand);color:var(--brand)}
+.at-item[data-state="1"]{border-color:var(--brand-100);background:var(--brand-50)}.at-item[data-state="1"] .at-state{border-color:var(--brand);background:#fff;color:var(--brand)}.at-item[data-state="2"]{border-color:#ead89d;background:#fff9e8}.at-item[data-state="2"] .at-state{border-color:#c7a94c;background:#fff;color:#795809}.at-item[data-state="3"]{border-color:#bfe0d4;background:var(--green-50)}.at-item[data-state="3"] .at-state{border-color:var(--green);background:#fff;color:var(--green)}
+.at-reset{margin-top:12px}
+@media(max-width:620px){.at-summary{grid-template-columns:1fr}.at-item{grid-template-columns:1fr}.at-state{width:100%}}
+
+@media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
+
+</style>
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="course-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 10</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 10 &middot; Quality and risk</span>
+  <h1>Quality: building it <span>right</span>, not gold-plating it</h1>
+  <p class="sub">Quality is not making the fanciest thing. It is delivering exactly what the requirements called for, provably. This chapter covers how you build quality in (assurance), how you check it (control), where to spend to get it, and what to do when something does not conform.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job we are inspecting</p>
+      <p><b>The Millpond Road water main replacement, under construction.</b> Same job. Now we make sure the pipe going in the ground actually meets the spec, that we catch problems before they are buried, and that we spend the right amount doing it.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Tell quality assurance from quality control, and use each correctly</li>
+    <li><span class="bx"></span> Read an Inspection and Test Plan and know a hold point from a witness point</li>
+    <li><span class="bx"></span> Find the right amount to spend on quality, using the cost of quality</li>
+    <li><span class="bx"></span> Handle a non-conformance the right way</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 1</span>
+    <h2>Assurance, control, and the plan</h2>
+    <p>Two words that sound alike and mean different things. <span class="term" data-term="Quality Assurance (QA)" data-def="Building quality in through the process: the right procedures, trained crews, approved materials, and a plan. QA is about preventing defects before they happen.">Quality Assurance (QA)</span> is about the process: the procedures, training, and approved materials that <em>prevent</em> defects. <span class="term" data-term="Quality Control (QC)" data-def="Checking the product against the spec: inspections, tests, and measurements that catch defects that slipped through. QC is about detecting problems.">Quality Control (QC)</span> is about the product: the inspections and tests that <em>catch</em> defects. Assurance prevents, control detects. Sort a few.</p>
+
+    <div data-ac="classify" data-title="Assurance or control?" data-kind="Quiz &middot; classify" data-cue="Building it right (process, prevention) is assurance. Checking it after (inspection, detection) is control.">
+      <script type="application/json">
+      {"buckets":["Quality Assurance","Quality Control"],
+       "items":[
+        ["Approving the pipe supplier and materials before they ship",0,"Setting the process up to prevent bad materials. Assurance."],
+        ["Pressure-testing the finished main",1,"Checking the product against the spec. Control."],
+        ["Training the crew on the joint-assembly procedure",0,"Building capability in so defects do not happen. Assurance."],
+        ["Inspecting each joint before backfill",1,"Detecting defects in the actual work. Control."]
+       ]}
+      </script>
+    </div>
+
+    <p>QC runs on an <span class="term" data-term="ITP" data-def="Inspection and Test Plan. A document that lists every inspection and test on a job, when it happens, who does it, and whether it is a hold point or a witness point.">Inspection and Test Plan (ITP)</span>, which lists every check on the job. Two kinds of checkpoint matter most. A <span class="term" data-term="Hold point" data-def="A point where work must stop until the inspector signs off. You cannot proceed without approval, for example inspecting pipe joints before backfilling covers them.">hold point</span> stops the work until an inspector signs off. A <span class="term" data-term="Witness point" data-def="A point where the inspector is invited to observe, but work may proceed if they do not attend. Less strict than a hold point.">witness point</span> invites the inspector but lets work continue. Walk the Millpond ITP.</p>
+
+    <div data-ac="process" data-title="The Millpond inspection sequence" data-kind="Interactive &middot; process" data-cue="The gold gates are hold points: work stops until sign-off. Notice the hold point sits right before backfill, because once the pipe is buried, fixing a bad joint costs a fortune.">
+      <script type="application/json">
+      {"gate":true,"phases":[
+        {"title":"Submittal","sub":"approve materials","detail":"<b>Submittal review.</b> Before anything arrives, the contractor proves the pipe, fittings, and methods meet the spec, and you approve them. Quality assurance, done on paper first."},
+        {"title":"Install","sub":"lay the pipe","detail":"<b>Install.</b> Crews assemble and lay the main to the approved procedure. This is where the joints that matter get made."},
+        {"title":"Joint inspection","sub":"hold point","detail":"<b>Joint inspection (HOLD POINT).</b> Work stops. An inspector checks every joint and the bedding before anything is covered. Nothing proceeds until this is signed off, because the next step hides it forever."},
+        {"title":"Backfill","sub":"cover it","detail":"<b>Backfill.</b> Only after the hold point clears do you backfill and compact. Bury a bad joint and you have traded a cheap fix now for an expensive dig-up later."},
+        {"title":"Pressure test","sub":"witness point","detail":"<b>Pressure test (WITNESS POINT).</b> The inspector is invited to witness the test, but it can proceed on schedule. Pass it, disinfect, sample, and the main is ready to accept."}
+      ]}
+      </script>
+    </div>
+
+    <p>How much should you spend on all this checking? There is a real answer, and it is not "as much as possible." The <span class="term" data-term="Cost of quality" data-def="The total of what you spend preventing and finding defects (prevention and appraisal) plus what defects cost you (internal and external failure). It has a minimum: a sweet spot of investment.">cost of quality</span> is prevention and appraisal spend plus the cost of the failures that slip through. Spend too little and failures are expensive; spend too much and you over-inspect. There is a sweet spot. Find it.</p>
+
+    <div data-ac="coq" data-title="How much quality is worth buying?" data-kind="Interactive &middot; simulation" data-cue="Slide prevention up from zero. Failure cost drops fast at first, then the total curve bottoms out and starts rising again. That bottom is where to aim.">
+      <script type="application/json">
+      {"failBase":400,"K":100,"max":300,"start":30}
+      </script>
+    </div>
+
+    <p>When something does not meet spec, it gets logged as a <span class="term" data-term="NCR" data-def="Non-Conformance Report. The formal record that something did not meet the requirement, what was done about it (rework, repair, use-as-is with approval, or reject), and how it was closed out.">Non-Conformance Report (NCR)</span>. The NCR is not a punishment, it is a controlled way to decide what to do (rework it, repair it, use it as-is with engineering approval, or reject it) and to prove you handled it. A job with zero NCRs is usually a job that is not inspecting hard enough.</p>
+
+    <div data-ac="mc" data-title="Handle the non-conformance" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"An inspector finds a pipe joint that does not meet the spec, at the hold point before backfill. What is the right first move?",
+       "options":[
+        ["Log an NCR and decide the disposition (rework, repair, use-as-is, or reject) before proceeding",1],
+        ["Backfill it anyway to stay on schedule and note it later",0],
+        ["Quietly have the crew fix it and say nothing",0],
+        ["Reject the whole main and start over",0]
+       ],
+       "right":"Correct. That is exactly what the hold point and the NCR are for: stop, document the non-conformance, decide the disposition with the right sign-offs, then proceed. It keeps quality and the record honest.",
+       "wrong":"Not quite. The hold point exists so you stop and handle it: log an NCR, decide the disposition (rework, repair, use-as-is with approval, or reject), and proceed only once it is resolved. Burying it or hiding it is how small defects become failures and disputes."}
+      </script>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["Quality means building the best possible thing, above the requirements.",false,"No. Quality is conformance to the requirements. Exceeding them (gold-plating) wastes money the requirements did not ask for."],
+        ["Quality assurance prevents defects; quality control detects them.",true,"Right. Assurance builds quality into the process; control checks the product for what slipped through."],
+        ["Spending more on inspection always lowers the total cost of quality.",false,"No. Past the sweet spot, extra inspection costs more than the failures it prevents. Quality has diminishing returns."]
+      ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Put your quality money at the front, in prevention and hold points, not at the end in rework. <b>A joint inspected before backfill costs minutes; the same joint found after a road is repaved costs a project.</b> And do not read zero NCRs as good news, read it as nobody looking.</p>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Quality Assurance","Building quality in through process: prevents defects."],
+        ["Quality Control","Checking the product against spec: detects defects."],
+        ["ITP","Inspection and Test Plan: every check, when, who, and hold or witness."],
+        ["Hold point","Work stops until the inspector signs off."],
+        ["Cost of quality","Prevention plus failure cost. It has a sweet-spot minimum."],
+        ["NCR","Non-Conformance Report: the controlled record and disposition of a defect."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"On your last job, was quality mostly assurance (built in up front) or mostly control (caught at the end)? And did the inspections sit at the points where a missed defect gets buried or expensive?",
+       "a":"The cheapest quality is the kind you build in: approved materials, trained crews, clear procedures, so the defect never happens. The next cheapest is a hold point placed exactly where a defect is about to become invisible or permanent, like the joint inspection before backfill. The most expensive quality is the failure you find after handover, when fixing it means tearing out finished work. Good quality management pushes the effort to the front and the checkpoints to the moments of no return, and it treats every NCR as information, not as blame."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>Quality is conformance, not gold-plating.</b> Deliver exactly what the requirements asked for, and prove it.</div></li>
+      <li><span class="n">2.</span><div><b>Assurance prevents, control detects.</b> Build quality in with process; catch what slips through with inspection and test.</div></li>
+      <li><span class="n">3.</span><div><b>Put hold points where defects get buried.</b> The ITP checkpoint before backfill is worth a hundred after handover.</div></li>
+      <li><span class="n">4.</span><div><b>There is a sweet spot.</b> Spend enough on prevention to keep failures low, and treat every NCR as information.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Quality is cheapest when it is prevented and most expensive when it is buried. <b>Spend at the front, inspect at the points of no return, and log every non-conformance honestly.</b> That is the whole discipline, and it pays for itself many times over.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="lesson-pm-09-procurement-contracts-claims.html">&#8592; Chapter 09 &middot; Procurement, contracts and claims</a>
+    <a class="btn" href="course-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 10 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
    Modules write declarative markup; this file renders and wires the real
@@ -5,7 +593,7 @@
 
    A component is:
      <div data-ac="TYPE" data-title="..." data-kind="..." data-cue="Droobi note">
-       <script type="application/json"> ...config... </script>
+       <script type="application/json"> ...config... <\/script>
      </div>
    ===================================================================== */
 (function(){
@@ -1001,3 +1589,7 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
+
+</script>
+</body>
+</html>
