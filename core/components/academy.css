@@ -222,6 +222,17 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- dashboard: honest RAG status ---- */
+.dashrow{display:flex;align-items:center;gap:12px;margin:10px 0}
+.dashrow .nm{flex:1;min-width:150px;font-weight:600;color:var(--ink);font-size:14px}.dashrow .nm b{font-family:var(--fm);color:var(--brand);font-weight:700}
+.dashrow input{flex:1;min-width:90px}
+.dashrow .rag{flex:none;width:76px;text-align:center;font:700 10.5px var(--fm);padding:4px 0;border-radius:7px}
+.rag.g{background:var(--green-50);color:var(--green)}.rag.a{background:#FBF3E2;color:var(--gold)}.rag.r{background:var(--red-50);color:var(--red)}
+.dashoverall{margin-top:14px;padding:14px 16px;border-radius:14px;text-align:center}
+.dashoverall .k{font:9px var(--fm);letter-spacing:.08em;text-transform:uppercase;opacity:.85}.dashoverall .v{font:800 22px var(--f);margin-top:2px}
+.dashoverall.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.dashoverall.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.dashoverall.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.dashnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.dashnote b{color:var(--ink)}
+
 /* ---- coq: cost of quality curve ---- */
 .coqsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
 .coqleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.coqleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}

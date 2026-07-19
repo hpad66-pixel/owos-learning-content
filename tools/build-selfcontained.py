@@ -39,6 +39,7 @@ LINK_MAP = {
     "module-12-teams-stakeholders-communication.html": "lesson-pm-12-teams-stakeholders-communication.html",
     "module-13-leadership-negotiation-ethics.html": "lesson-pm-13-leadership-negotiation-ethics.html",
     "module-14-executing-controlling.html": "lesson-pm-14-executing-controlling.html",
+    "module-15-measurement-honest-status.html": "lesson-pm-15-measurement-honest-status.html",
 }
 
 def build(src_path, out_path):

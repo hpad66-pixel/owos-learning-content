@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 15 &middot; Measurement and honest status &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 15 of the Project Management masterclass. Metrics, KPIs and dashboards, leading versus lagging indicators, and evidence-grounded status reporting with an honest red-amber-green rollup.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 15</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 15 &middot; Measurement</span>
+  <h1>Measurement and <span>honest</span> status</h1>
+  <p class="sub">Every project reports status. Far fewer report it honestly, and almost none report it in a way a decision-maker can act on. This chapter is about measuring the few things that matter, and telling the truth about them early enough to do something.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job we are reporting on</p>
+      <p><b>The Millpond Road water main replacement, mid-construction.</b> Same job. It is running a little over budget and a little behind. This chapter is about which numbers reveal that, and how to put them in front of a board while there is still time to fix it.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Tell a leading indicator from a lagging one, and know why you need both</li>
+    <li><span class="bx"></span> Pick metrics that change a decision instead of filling a slide</li>
+    <li><span class="bx"></span> Roll measures into an honest status instead of a comfortable one</li>
+    <li><span class="bx"></span> Write a status report a board can actually act on</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 2</span>
+    <h2>Metrics, KPIs, and what is worth measuring</h2>
+    <p>A <span class="term" data-term="KPI" data-def="Key Performance Indicator: one of the few measures that genuinely tells you whether the project is succeeding, and that you would actually act on. If a number would not change a decision, it is not a KPI.">Key Performance Indicator (KPI)</span> is not just any number you can collect. The test is simple: <em>would this number ever change a decision?</em> If not, it is decoration. And the most useful measures come in two flavors. A <span class="term" data-term="Lagging indicator" data-def="A measure of what already happened: cost variance last month, injuries last quarter. Accurate but too late to prevent.">lagging indicator</span> tells you what already happened; a <span class="term" data-term="Leading indicator" data-def="A measure that predicts what is coming: near-miss reports, first-pass submittal approvals, long-lead orders placed on time. Early enough to act on.">leading indicator</span> warns you about what is coming. You need both, but only one of them lets you act in time. Sort a few.</p>
+
+    <div data-ac="classify" data-title="Leading or lagging?" data-kind="Quiz &middot; classify" data-cue="Does it tell you what already happened, or warn you about what is about to?">
+      <script type="application/json">
+      {"buckets":["Leading","Lagging"],
+       "items":[
+        ["Near-miss reports filed by the crew this month",0,"Warns you about incidents that have not happened yet. Leading, and the most valuable safety signal you have."],
+        ["Recordable injuries last quarter",1,"Counts harm already done. Lagging: accurate, but too late to prevent."],
+        ["Percent of submittals approved on the first pass",0,"Predicts rework and quality trouble downstream. Leading."],
+        ["Cost variance reported at the end of the phase",1,"Tells you the money is already spent. Lagging."],
+        ["Long-lead orders placed on schedule",0,"Predicts whether procurement will hold the critical path. Leading."]
+       ]}
+      </script>
+    </div>
+
+    <p>For a utility capital job, a short list carries most of the signal. Click each one for what it actually tells you, and when to worry.</p>
+
+    <div data-ac="table" data-title="The measures worth watching" data-kind="Interactive &middot; comparison table" data-cue="Click any measure. Notice the last one: near-misses falling to zero is bad news, not good.">
+      <script type="application/json">
+      {"headers":["Measure","What it tells you","Worry when"],
+       "rows":[
+        {"name":"CPI","cells":["Cost efficiency: value earned per dollar spent","below 1.00"],
+         "detail":"From Chapter 08. CPI under 1.00 means every dollar is buying less than a dollar of work, and the forecast (EAC) is drifting above budget. On Millpond it is 0.87, which is a red flag, not a rounding error."},
+        {"name":"SPI","cells":["Schedule efficiency: work done versus planned","below 1.00"],
+         "detail":"Earned value against planned value. Under 1.00 means you are behind the plan. Pair it with float: SPI tells you how much, float tells you whether it matters."},
+        {"name":"Critical-path float","cells":["How much slack still protects the finish","trending toward zero"],
+         "detail":"A schedule can look fine while its float quietly erodes. Watch the trend, not the number: float falling week over week is an early warning even while the finish date still says green."},
+        {"name":"Open NCRs","cells":["Quality problems not yet closed","rising, or aging"],
+         "detail":"From Chapter 10. Rising counts mean quality is slipping; old open items mean nobody is closing them. Aging matters as much as the count."},
+        {"name":"Near-miss reports","cells":["Leading safety signal","falling to zero"],
+         "detail":"The counter-intuitive one. Plenty of near-miss reports means the crew trusts you enough to report them. Zero usually means under-reporting, not a safe job, and the incident you never saw coming is next."}
+       ]}
+      </script>
+    </div>
+
+    <div data-ac="mc" data-title="Which number earns its place?" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"Your dashboard has room for one more number. Which of these would actually change a decision?",
+       "options":[
+        ["Percent of submittals approved on the first pass",1],
+        ["Total pages of documentation produced",0],
+        ["Number of project emails sent this month",0],
+        ["Hours the team spent in meetings",0]
+       ],
+       "right":"Correct. First-pass approval rate is a leading indicator of rework: if it drops, you know quality trouble and schedule delay are coming, and you can act. The others are activity counts that never change what you do.",
+       "wrong":"Not quite. Ask which number would change a decision. Pages, emails, and meeting hours measure activity, not progress or risk. First-pass submittal approval predicts rework, so it earns its place."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 2</span>
+    <h2>Honest status: the worst light, not the average</h2>
+    <p>Most status reporting uses <span class="term" data-term="RAG status" data-def="Red, Amber, Green: a simple status rating. Red means at risk and needs help, amber means watch, green means on track. Its value depends entirely on being assigned honestly.">red, amber, green (RAG)</span>. The failure mode is so common it has a name: the <span class="term" data-term="Watermelon status" data-def="A status reported green on the outside while the underlying measures are red. It usually comes from averaging away bad news or from optimism, and it removes the chance to fix things early.">watermelon</span>, green on the outside and red at the core. It happens when someone averages the measures, or reports a feeling instead of evidence. Set the Millpond numbers and watch what an honest rollup does.</p>
+
+    <div data-ac="dashboard" data-title="The Millpond status dashboard" data-kind="Interactive &middot; simulation" data-cue="Safety is green and the overall is still red. That is correct. An honest status takes the worst light, because a board cannot act on an average that hides the one thing going wrong.">
+      <script type="application/json">
+      {"metrics":[
+        {"key":"cpi","label":"Cost performance (CPI)","min":0.7,"max":1.2,"step":0.01,"value":0.87,"dir":"high","amber":1.0,"red":0.9,"fmt":"num"},
+        {"key":"spi","label":"Schedule performance (SPI)","min":0.7,"max":1.2,"step":0.01,"value":0.95,"dir":"high","amber":1.0,"red":0.9,"fmt":"num"},
+        {"key":"risks","label":"Open high risks","min":0,"max":6,"step":1,"value":2,"dir":"low","amber":1,"red":3,"fmt":"int"},
+        {"key":"safety","label":"Recordable incidents","min":0,"max":5,"step":1,"value":0,"dir":"low","amber":1,"red":2,"fmt":"int"}
+      ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Notice what the rollup refuses to do. Three of the four measures are green or amber, and an average would land somewhere comfortable. But the cost number is genuinely at risk, and hiding it inside an average is how a project arrives at the end $200k over with everyone surprised. Honest status is not pessimism, it is precision: green where things are green, red exactly where they are red.</p>
+    </div>
+
+    <p>A status report is <span class="term" data-term="Evidence-grounded" data-def="Backed by a number and its source (earned value, an inspection result, a test report) rather than by impression or reassurance. If you cannot point to where a claim came from, it is an opinion.">evidence-grounded</span> when every claim points to something measurable. Here is the shape of a status a board can actually use.</p>
+
+    <div data-ac="method" data-title="How to write an honest status" data-kind="Method &middot; four steps">
+      <script type="application/json">
+      {"steps":[
+        ["Lead with the rating and the reason.","'Red: CPI is 0.87, forecasting about $200k over.' Not 'generally progressing well.' The reader should know the situation in one sentence."],
+        ["Show evidence, not impressions.","Every claim gets a number and a source: earned value, inspection results, the float on the critical path. 'Feels on track' is not a status."],
+        ["Say what changed since last time.","A steady amber and a sliding amber are different situations. Trend is what tells a reader whether to intervene now."],
+        ["Name the decision or the help you need.","A status with no ask is a diary. End with what you need from the reader: a decision, money, or a door opened."]
+      ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Make it safe to report red. <b>If your team believes a red status is a career risk, you will get green reports until the project fails,</b> and you will lose the months when it was still fixable. Reward the person who raises the flag early, every time, and watch what you do the first time someone does.</p>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["An honest overall status takes the worst measure, not the average.",true,"Right. Averaging hides the one thing that needs attention, which is the whole point of a status."],
+        ["Zero near-miss reports is always good news.",false,"Usually the opposite. It normally means under-reporting. A crew that reports near-misses is a crew that trusts you and is catching problems early."],
+        ["Leading indicators tell you what already happened.",false,"No, that is a lagging indicator. Leading indicators warn you about what is coming, early enough to act."]
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["KPI","A measure you would actually act on. If it changes no decision, it is decoration."],
+        ["Leading indicator","Warns you what is coming: near-misses, first-pass approvals. Early enough to act."],
+        ["Lagging indicator","Reports what already happened: injuries, cost variance. Accurate but late."],
+        ["RAG status","Red, amber, green. Only as good as the honesty behind it."],
+        ["Watermelon status","Green outside, red at the core. The classic reporting failure."],
+        ["Evidence-grounded","Every claim points to a number and its source, not an impression."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Think about the last status report you wrote or received. Was the rating backed by evidence, or by a feeling? And if it had been red, would saying so have been safe?",
+       "a":"Most status reporting fails for one of two reasons, and only one of them is about measurement. The first is technical: nobody had real numbers, so the rating was a vibe, and vibes are always a bit more optimistic than reality. The second is cultural, and it is the harder one: people knew the truth and did not feel safe saying it, because the last person who reported red got interrogated instead of helped. You can fix the first with earned value and a dashboard. You fix the second only by how you respond the first time someone brings you bad news early, and everyone on the team is watching to find out."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>Measure what changes a decision.</b> If a number would never alter what you do, it does not belong on the dashboard.</div></li>
+      <li><span class="n">2.</span><div><b>You need leading indicators.</b> Lagging measures are accurate but too late; leading ones (near-misses, first-pass approvals) buy you time to act.</div></li>
+      <li><span class="n">3.</span><div><b>Honest status takes the worst light.</b> Averaging measures into a comfortable green is the watermelon, and it costs you the months when the problem was still cheap.</div></li>
+      <li><span class="n">4.</span><div><b>Ground every claim in evidence,</b> say what changed, and end with the decision you need.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>The value of a status report is measured in how early it lets someone act. <b>Report the worst light, back every claim with a number, and make raising a red flag the safest thing a person on your team can do.</b> Projects are rarely lost to bad news; they are lost to bad news that arrived late.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-14-executing-controlling.html">&#8592; Chapter 14 &middot; Executing and controlling</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 15 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>

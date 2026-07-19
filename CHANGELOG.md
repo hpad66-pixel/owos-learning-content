@@ -378,4 +378,13 @@ Initial commit. Everything to date is captured and put under version control.
 ## [0.x.0] - YYYY-MM-DD
 ### Added / Changed / Fixed / Removed
 - ...
--->
+-->## 0.20.0 - 2026-07-19
+
+### Added
+- **PM Chapter 15: Measurement and honest status** (`module-15-measurement-honest-status.html`). Two sections: metrics, KPIs and dashboards; evidence-grounded status and the weekly ritual. Leading vs lagging indicators, the measures worth watching on a capital job, and how to write a status a board can act on.
+- **New reusable component: `dashboard`.** A live KPI dashboard: each measure gets a slider and a red/amber/green chip, and the honest overall status takes the **worst** light, not the average. Teaches the watermelon failure (green outside, red at the core) by letting the learner try to average bad news away and watch it refuse.
+
+### Changed
+- Chrome marks Chapter 15 live; `tools/build-selfcontained.py` LINK_MAP extended to module-15.
+
+
