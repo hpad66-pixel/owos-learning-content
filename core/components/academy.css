@@ -58,6 +58,15 @@ svg text{font-family:var(--fm)}
 .goals .bx:after{content:"\2713"}
 .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:14px;padding:16px 18px;margin:20px 0;box-shadow:var(--sh)}
 .card .h{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin:0 0 8px}.card p{margin:0;font-size:15.5px}
+/* running-case callout: one job carried through the chapter */
+.casebox{display:flex;gap:13px;align-items:flex-start;background:linear-gradient(180deg,var(--brand-50),var(--surface));border:1px solid var(--brand-100);border-radius:16px;padding:15px 18px;margin:20px 0;box-shadow:var(--sh)}
+.casebox .pin{flex:none;width:34px;height:34px;border-radius:9px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px}
+.casebox .h{font:600 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:var(--brand-700);margin:0 0 3px}.casebox p{margin:0;font-size:14.5px;color:var(--ink)}
+/* leader's-call card (shown in the Leader lens) */
+.leadcall{background:var(--ink);color:#E7EDF5;border-radius:14px;padding:14px 18px;margin:16px 0}
+.leadcall .h{font:600 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#9BE3F8;margin:0 0 5px}.leadcall p{margin:0;color:#E7EDF5;font-size:15px}.leadcall b{color:#fff}
+/* recap takeaways */
+.recap{list-style:none;padding:0;margin:14px 0}.recap li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--ink-2)}.recap li:last-child{border-bottom:none}.recap .n{flex:none;color:var(--brand);font-weight:800}.recap b{color:var(--ink)}
 
 /* ---- component shell ---- */
 .comp{background:var(--surface);border:1px solid var(--line);border-radius:18px;margin:22px 0;box-shadow:var(--sh-lg);overflow:hidden}

@@ -3,6 +3,21 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.6.0] - 2026-07-18
+### Changed: Chapter 02 deepened (it felt thin as a survey)
+- Wired the Full / Plain / Leader lens for real. It had zero content variants and did nothing; now
+  Full shows the detail, Plain trims it, and Leader shows only the call. Verified across all three modes.
+- Threaded one running job through the whole chapter: the Millpond Road lift station rebuild. Every
+  component now works that job (spectrum, phase-gate, comparison table, recommender, quizzes).
+- Added a numbers moment (a schedule-savings estimate) and an ordering quiz, taking it to eight quiz
+  types. Added a closing recap and a leader's bottom line.
+- Added the Florida procurement reality: qualifications-based design selection under the Consultants'
+  Competitive Negotiation Act (CCNA), and how competitive-bid rules and alternative-delivery authority
+  bound the delivery choice. New library styles: `.casebox`, `.leadcall`, `.recap`.
+- Grew from ~1,955 to ~2,884 words (depth, not padding), no em/en dashes.
+### Deployed
+- Rebuilt the self-contained Chapter 02 and republished it to the `2-brain` site (owos.ai).
+
 ## [0.5.0] - 2026-07-18
 ### Added: the shared component library (the real fix)
 - `core/components/academy.css` and `core/components/academy.js`: one place that holds every
