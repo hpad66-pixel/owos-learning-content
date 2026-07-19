@@ -222,6 +222,15 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- evm: earned value chart + indices ---- */
+.evmsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
+.evmleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.evmleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.evmstat{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.evmstat .o{flex:1;min-width:84px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:9px 10px;text-align:center}
+.evmstat .o .k{font:8.5px var(--fm);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}.evmstat .o .val{font:800 16px var(--fm);color:var(--ink)}
+.evmstat .o.good .val{color:var(--green)}.evmstat .o.bad .val{color:var(--red)}.evmstat .o.key{background:var(--brand-50);border-color:var(--brand-100)}.evmstat .o.key .val{color:var(--brand)}
+.evmverdict{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px;font-weight:600;line-height:1.5}
+.evmverdict.ok{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.evmverdict.warn{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.evmverdict.bad{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+
 /* ---- estrange: AACE estimate accuracy range ---- */
 .ertrack{position:relative;height:46px;margin:18px 0 6px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
 .erband{position:absolute;top:9px;bottom:9px;background:var(--brand-100);border:1px solid var(--brand);border-radius:6px;transition:left .25s,width .25s}

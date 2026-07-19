@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 08 &middot; Earned Value and forecasting &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 8 of the Project Management masterclass. Earned Value Management made visual: Planned Value, Earned Value, Actual Cost, the CPI and SPI indices, and forecasting the finish cost with EAC.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 08</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 08 &middot; Cost and procurement</span>
+  <h1>Earned value: are you <span>really</span> on track?</h1>
+  <p class="sub">You have spent half the budget. Are you halfway done, or in trouble? Percent spent cannot tell you. Earned Value Management can, by comparing three numbers, and it is far easier to see than to read about. So we will build the picture and let you drag it.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job we are tracking</p>
+      <p><b>The Millpond Road water main replacement, mid-construction.</b> A $1.3M job. We are partway through, some money is spent, some pipe is in the ground. This chapter works out whether we are actually on track, and where we will end up.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Tell Planned Value, Earned Value, and Actual Cost apart</li>
+    <li><span class="bx"></span> Read the CPI and SPI indices and say instantly whether a project is healthy</li>
+    <li><span class="bx"></span> Forecast the final cost (EAC) from today's performance</li>
+    <li><span class="bx"></span> Report status with numbers a board can trust instead of a gut feeling</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 2</span>
+    <h2>Three numbers, not one</h2>
+    <p><span class="term" data-term="EVM" data-def="Earned Value Management. A method that measures project health by comparing what you planned to spend, the value of the work actually done, and what you actually spent.">Earned Value Management (EVM)</span> works because it stops looking at money alone and compares three things. <span class="term" data-term="Planned Value (PV)" data-def="The budgeted cost of the work you planned to have finished by today. Where the schedule said you would be.">Planned Value (PV)</span> is what you planned to have accomplished by now. <span class="term" data-term="Earned Value (EV)" data-def="The budgeted value of the work you have actually finished. If a $1.3M job is 40% done, you have earned $520k of value, no matter what you spent.">Earned Value (EV)</span> is the budgeted worth of the work actually done. <span class="term" data-term="Actual Cost (AC)" data-def="The money you have actually spent so far, regardless of how much work it bought.">Actual Cost (AC)</span> is the cash out the door. Sort a few.</p>
+
+    <div data-ac="classify" data-title="Which value is it?" data-kind="Quiz &middot; classify" data-cue="Planned = where you should be. Earned = the worth of what is done. Actual = what you spent.">
+      <script type="application/json">
+      {"buckets":["Planned Value","Earned Value","Actual Cost"],
+       "items":[
+        ["You budgeted to have finished $650k of work by today",0,"What the plan said you would accomplish by now. Planned Value."],
+        ["You have completed 40% of the $1.3M job, worth $520k",1,"The budgeted value of finished work. Earned Value."],
+        ["You have actually paid out $600k so far",2,"Cash spent, whatever it bought. Actual Cost."],
+        ["The value of the pipe actually in the ground",1,"Work truly completed, valued at budget. Earned Value."]
+       ]}
+      </script>
+    </div>
+
+    <p>The magic is in comparing them. Put all three on one chart, mark where the project is today, and the whole health of the job jumps out. Drag the sliders and watch it.</p>
+
+    <div data-ac="evm" data-title="The Millpond earned-value chart" data-kind="Interactive &middot; simulation" data-cue="Set work complete below the money spent and watch CPI drop under 1 (over budget). Set it below schedule elapsed and SPI drops under 1 (behind). The forecast moves with them.">
+      <script type="application/json">
+      {"bac":1300,"t":50,"w":40,"a":600}
+      </script>
+    </div>
+
+    <p>Two indices turn that picture into a scorecard. The <span class="term" data-term="CPI" data-def="Cost Performance Index = EV / AC. Above 1 means under budget (you are getting more than a dollar of work per dollar spent). Below 1 means over budget.">Cost Performance Index (CPI)</span> is EV divided by AC: above 1 is under budget, below 1 is over. The <span class="term" data-term="SPI" data-def="Schedule Performance Index = EV / PV. Above 1 means ahead of schedule, below 1 means behind.">Schedule Performance Index (SPI)</span> is EV divided by PV: above 1 is ahead, below 1 is behind. One glance at the two numbers tells you where a project stands.</p>
+
+    <div data-ac="mc" data-title="Read the scorecard" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"A status report shows CPI = 0.87 and SPI = 0.80. What is the honest one-line summary?",
+       "options":[
+        ["Over budget and behind schedule",1],
+        ["Under budget and ahead of schedule",0],
+        ["On budget but ahead of schedule",0],
+        ["The report does not say anything useful",0]
+       ],
+       "right":"Correct. Both indices are below 1: CPI under 1 means over budget, SPI under 1 means behind schedule. Two numbers, instant diagnosis.",
+       "wrong":"Not quite. Both indices are below 1. CPI below 1 is over budget; SPI below 1 is behind schedule. Above 1 would be the good news."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 2</span>
+    <h2>Forecasting the finish</h2>
+    <p>The best part of earned value is that it predicts. If a job is running at a <span class="term" data-term="CPI" data-def="Cost Performance Index = EV / AC. Below 1 means every planned dollar of work is costing more than a dollar.">CPI</span> of 0.87 now, it will very likely keep running that way, so the final cost will overshoot the budget. That forecast is the <span class="term" data-term="EAC" data-def="Estimate At Completion. The forecast of what the whole project will finally cost. The common formula is EAC = BAC / CPI: today's cost efficiency, carried to the end.">Estimate at Completion (EAC)</span>, and the simplest, most-used formula is <span class="term" data-term="BAC" data-def="Budget At Completion. The original approved total budget for the whole project.">Budget at Completion (BAC)</span> divided by CPI.</p>
+
+    <div data-ac="mc" data-title="Forecast the finish" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"The Millpond BAC is $1.3M and the current CPI is 0.87. Roughly what will the job actually cost (EAC)?",
+       "options":[
+        ["About $1.5M, because EAC = BAC / CPI = 1.3 / 0.87",1],
+        ["$1.3M, because that is the budget",0],
+        ["About $1.13M, better than budget",0],
+        ["You cannot forecast until the job is done",0]
+       ],
+       "right":"Correct. EAC = BAC / CPI = 1,300 / 0.87, about $1.5M. Today's cost performance, carried to the end, is your best forecast, and it says you are heading roughly $200k over.",
+       "wrong":"Not quite. EAC = BAC / CPI = 1,300 / 0.87, about $1.5M. A CPI below 1 forecasts a final cost above budget, and you can see it long before the end."}
+      </script>
+    </div>
+
+    <p>A few cousins finish the toolkit. The <span class="term" data-term="ETC" data-def="Estimate To Complete. The money still needed to finish from today: EAC minus what you have already spent (AC).">Estimate to Complete (ETC)</span> is what is left to spend from here. The <span class="term" data-term="VAC" data-def="Variance At Completion. How far off budget you will finish: BAC minus EAC. Negative means an overrun.">Variance at Completion (VAC)</span> is how far off budget you will land. And the <span class="term" data-term="TCPI" data-def="To-Complete Performance Index. The cost efficiency you would have to hit on all remaining work to still finish on budget. When it is well above your current CPI, the budget is no longer realistic.">To-Complete Performance Index (TCPI)</span> tells you the efficiency you would need on the rest of the work to still land on budget, which is your reality check.</p>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["A CPI above 1 means you are over budget.",false,"The opposite. CPI above 1 means you are getting more than a dollar of work per dollar spent: under budget."],
+        ["Earned Value is the money you have spent.",false,"No. That is Actual Cost. Earned Value is the budgeted worth of the work actually finished, whatever it cost you."],
+        ["EAC = BAC / CPI assumes today's cost efficiency continues to the end.",true,"Yes. It is the standard forecast, and it is usually right because performance rarely turns around on its own."]
+      ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Ban "percent of budget spent" from your status reports. It hides trouble. <b>Report EV, CPI, SPI, and the EAC forecast.</b> Those four numbers tell a board exactly where the project stands and where it will land, early enough to actually do something about it.</p>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Planned Value (PV)","The budgeted cost of the work you planned to have finished by today."],
+        ["Earned Value (EV)","The budgeted worth of the work actually done, whatever it cost."],
+        ["Actual Cost (AC)","The money actually spent so far."],
+        ["CPI","EV / AC. Above 1 under budget, below 1 over budget."],
+        ["SPI","EV / PV. Above 1 ahead of schedule, below 1 behind."],
+        ["EAC","Estimate at completion. Usually BAC / CPI: where the job will finish."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Think about your last project status update. Did it report percent of budget spent, or did it report earned value, CPI, and a forecast? What would each have told the reader?",
+       "a":"Percent spent is the number that feels like status but is not. A project 50% through its budget could be 60% done and cruising, or 30% done and about to blow up, and 'we have spent half the money' cannot tell them apart. Earned value can: EV against AC gives you cost health (CPI), EV against PV gives you schedule health (SPI), and BAC over CPI gives you the finish. The shift from reporting spending to reporting earned value is the shift from describing the past to forecasting the future, which is the only kind of status a board can actually act on."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>Compare three numbers, not one.</b> Planned Value (where you should be), Earned Value (what is done), Actual Cost (what you spent).</div></li>
+      <li><span class="n">2.</span><div><b>Two indices diagnose the job.</b> CPI = EV / AC for cost, SPI = EV / PV for schedule. Above 1 good, below 1 trouble.</div></li>
+      <li><span class="n">3.</span><div><b>Earned value forecasts.</b> EAC = BAC / CPI tells you where the job will finish, long before it does.</div></li>
+      <li><span class="n">4.</span><div><b>Report earned value, not spending.</b> Percent spent hides the truth; EV, CPI, SPI, and EAC reveal it early.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Earned value is an early-warning system. A CPI drifting below 1 in month two tells you the budget is in trouble while you can still fix it. <b>Watch CPI and SPI every reporting period, and act the moment they slip, not the month the money runs out.</b></p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-07-estimating-budgeting.html">&#8592; Chapter 07 &middot; Estimating and budgeting</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 08 &middot; v0.15.0 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>

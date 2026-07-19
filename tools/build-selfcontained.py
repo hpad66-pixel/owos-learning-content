@@ -32,6 +32,7 @@ LINK_MAP = {
     "module-05-scheduling-critical-path.html": "lesson-pm-05-scheduling-critical-path.html",
     "module-06-advanced-scheduling.html": "lesson-pm-06-advanced-scheduling.html",
     "module-07-estimating-budgeting.html": "lesson-pm-07-estimating-budgeting.html",
+    "module-08-earned-value.html": "lesson-pm-08-earned-value.html",
 }
 
 def build(src_path, out_path):

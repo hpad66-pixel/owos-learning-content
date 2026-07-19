@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chapter 05 &middot; Scheduling and the Critical Path &middot; One Water OS Academy</title>
-<meta name="description" content="Chapter 5 of the Project Management masterclass. Building a schedule and finding what really drives the finish date: the Gantt, dependencies and lag, the Critical Path Method (float, forward and backward pass), and the cost-loaded S-curve.">
+<title>Chapter 08 &middot; Earned Value and forecasting &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 8 of the Project Management masterclass. Earned Value Management made visual: Planned Value, Earned Value, Actual Cost, the CPI and SPI indices, and forecasting the finish cost with EAC.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -375,15 +375,15 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-wm">One Water <b>OS</b></span>
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
-  <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 05</b></span>
+  <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 08</b></span>
 </nav>
 <div id="rprog"></div>
 
 <div class="wrap">
 
-  <span class="hpill"><span class="d"></span> Chapter 05 &middot; Scope and schedule</span>
-  <h1>The schedule and the <span>critical path</span></h1>
-  <p class="sub">A schedule is not a list of dates. It is a model of how the work connects, and it quietly tells you one thing that matters more than all the rest: which activities actually set your finish date. This chapter builds a schedule and finds that chain, the critical path, then loads cost onto it.</p>
+  <span class="hpill"><span class="d"></span> Chapter 08 &middot; Cost and procurement</span>
+  <h1>Earned value: are you <span>really</span> on track?</h1>
+  <p class="sub">You have spent half the budget. Are you halfway done, or in trouble? Percent spent cannot tell you. Earned Value Management can, by comparing three numbers, and it is far easier to see than to read about. So we will build the picture and let you drag it.</p>
 
   <div class="lens">
     <button class="on" data-lens="f">Full</button>
@@ -395,191 +395,97 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   <div class="casebox">
     <span class="pin">&#9873;</span>
     <div>
-      <p class="h">The job we will schedule</p>
-      <p><b>The Millpond Road water main replacement.</b> Same job. Now we lay out its activities, connect them, and let the schedule tell us where the real risk to the finish date lives. Spoiler: it is not where most people look.</p>
+      <p class="h">The job we are tracking</p>
+      <p><b>The Millpond Road water main replacement, mid-construction.</b> A $1.3M job. We are partway through, some money is spent, some pipe is in the ground. This chapter works out whether we are actually on track, and where we will end up.</p>
     </div>
   </div>
 
   <h3>What you will be able to do</h3>
   <ul class="goals">
-    <li><span class="bx"></span> Read a Gantt chart: activities, durations, dependencies, and milestones</li>
-    <li><span class="bx"></span> Tell the dependency types apart and use lag correctly</li>
-    <li><span class="bx"></span> Find the critical path and read float, and know why it matters</li>
-    <li><span class="bx"></span> Load cost onto a schedule and read the cash-flow S-curve</li>
+    <li><span class="bx"></span> Tell Planned Value, Earned Value, and Actual Cost apart</li>
+    <li><span class="bx"></span> Read the CPI and SPI indices and say instantly whether a project is healthy</li>
+    <li><span class="bx"></span> Forecast the final cost (EAC) from today's performance</li>
+    <li><span class="bx"></span> Report status with numbers a board can trust instead of a gut feeling</li>
   </ul>
 
   <!-- ===================== SECTION 1 ===================== -->
   <div class="sec">
-    <span class="tag">1 / 4</span>
-    <h2>The Gantt: the schedule you can see</h2>
-    <p>A schedule is built from <span class="term" data-term="Activity" data-def="A single piece of work in the schedule, with a duration and a place in the sequence. For example, excavate the trench.">activities</span>, each with a <span class="term" data-term="Duration" data-def="How long an activity takes to do, once it starts. Not the same as when it happens.">duration</span>, connected by <span class="term" data-term="Dependency" data-def="A rule that one activity cannot happen until another does. It is the logic that links the schedule together.">dependencies</span> (what waits on what). A <span class="term" data-term="Milestone" data-def="A zero-duration marker for an important moment, like permit approved or main in service. It marks a point, it is not work itself.">milestone</span> marks an important moment. Drawn out over time, that is a <span class="term" data-term="Gantt chart" data-def="A bar chart of the schedule: each activity is a bar, positioned by when it happens and sized by how long it takes.">Gantt chart</span>. Here is the Millpond schedule. Click any bar to see its details.</p>
+    <span class="tag">1 / 2</span>
+    <h2>Three numbers, not one</h2>
+    <p><span class="term" data-term="EVM" data-def="Earned Value Management. A method that measures project health by comparing what you planned to spend, the value of the work actually done, and what you actually spent.">Earned Value Management (EVM)</span> works because it stops looking at money alone and compares three things. <span class="term" data-term="Planned Value (PV)" data-def="The budgeted cost of the work you planned to have finished by today. Where the schedule said you would be.">Planned Value (PV)</span> is what you planned to have accomplished by now. <span class="term" data-term="Earned Value (EV)" data-def="The budgeted value of the work you have actually finished. If a $1.3M job is 40% done, you have earned $520k of value, no matter what you spent.">Earned Value (EV)</span> is the budgeted worth of the work actually done. <span class="term" data-term="Actual Cost (AC)" data-def="The money you have actually spent so far, regardless of how much work it bought.">Actual Cost (AC)</span> is the cash out the door. Sort a few.</p>
 
-    <div data-ac="gantt" data-title="Millpond Road schedule" data-kind="Interactive &middot; Gantt + critical path" data-cue="The gold bars are the critical path, the chain that sets the finish date. We get to those in Section 3. For now, click any bar to read its dates.">
+    <div data-ac="classify" data-title="Which value is it?" data-kind="Quiz &middot; classify" data-cue="Planned = where you should be. Earned = the worth of what is done. Actual = what you spent.">
       <script type="application/json">
-      {"unit":"weeks","tasks":[
-        {"id":"s","name":"Survey & design","dur":6,"deps":[]},
-        {"id":"p","name":"Permit approval","dur":8,"deps":["s"],"note":"Permits feel urgent, but here they finish with room to spare."},
-        {"id":"m","name":"Procure long-lead materials","dur":14,"deps":["s"],"note":"A 14-week lead time is set the day you order, not something a crew can speed up in the field."},
-        {"id":"b","name":"Bid & award","dur":4,"deps":["s"]},
-        {"id":"z","name":"Mobilize & traffic control","dur":1,"deps":["p","b"]},
-        {"id":"x","name":"Excavate & lay pipe","dur":4,"deps":["z","m"]},
-        {"id":"t","name":"Service tie-ins","dur":2,"deps":["x"]},
-        {"id":"d","name":"Pressure test & disinfect","dur":2,"deps":["t"]},
-        {"id":"c","name":"Restore & close out","dur":2,"deps":["d"]}
-      ]}
+      {"buckets":["Planned Value","Earned Value","Actual Cost"],
+       "items":[
+        ["You budgeted to have finished $650k of work by today",0,"What the plan said you would accomplish by now. Planned Value."],
+        ["You have completed 40% of the $1.3M job, worth $520k",1,"The budgeted value of finished work. Earned Value."],
+        ["You have actually paid out $600k so far",2,"Cash spent, whatever it bought. Actual Cost."],
+        ["The value of the pipe actually in the ground",1,"Work truly completed, valued at budget. Earned Value."]
+       ]}
       </script>
     </div>
 
-    <p>One more term. The <span class="term" data-term="Baseline" data-def="The approved version of the schedule you measure against. When someone asks are we on time, they mean against the baseline.">baseline</span> is the approved schedule you measure against later. You do not judge progress against your hopes, you judge it against the baseline.</p>
+    <p>The magic is in comparing them. Put all three on one chart, mark where the project is today, and the whole health of the job jumps out. Drag the sliders and watch it.</p>
 
-    <div class="lv f">
-      <p>Notice the shape already. The visible field work, excavate and lay pipe, is only four weeks. The two longest bars are design and material procurement, neither of which happens in the trench. That is the first lesson of scheduling: the work you can see is rarely the work that sets your finish date.</p>
+    <div data-ac="evm" data-title="The Millpond earned-value chart" data-kind="Interactive &middot; simulation" data-cue="Set work complete below the money spent and watch CPI drop under 1 (over budget). Set it below schedule elapsed and SPI drops under 1 (behind). The forecast moves with them.">
+      <script type="application/json">
+      {"bac":1300,"t":50,"w":40,"a":600}
+      </script>
+    </div>
+
+    <p>Two indices turn that picture into a scorecard. The <span class="term" data-term="CPI" data-def="Cost Performance Index = EV / AC. Above 1 means under budget (you are getting more than a dollar of work per dollar spent). Below 1 means over budget.">Cost Performance Index (CPI)</span> is EV divided by AC: above 1 is under budget, below 1 is over. The <span class="term" data-term="SPI" data-def="Schedule Performance Index = EV / PV. Above 1 means ahead of schedule, below 1 means behind.">Schedule Performance Index (SPI)</span> is EV divided by PV: above 1 is ahead, below 1 is behind. One glance at the two numbers tells you where a project stands.</p>
+
+    <div data-ac="mc" data-title="Read the scorecard" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"A status report shows CPI = 0.87 and SPI = 0.80. What is the honest one-line summary?",
+       "options":[
+        ["Over budget and behind schedule",1],
+        ["Under budget and ahead of schedule",0],
+        ["On budget but ahead of schedule",0],
+        ["The report does not say anything useful",0]
+       ],
+       "right":"Correct. Both indices are below 1: CPI under 1 means over budget, SPI under 1 means behind schedule. Two numbers, instant diagnosis.",
+       "wrong":"Not quite. Both indices are below 1. CPI below 1 is over budget; SPI below 1 is behind schedule. Above 1 would be the good news."}
+      </script>
     </div>
   </div>
 
   <!-- ===================== SECTION 2 ===================== -->
   <div class="sec">
-    <span class="tag">2 / 4</span>
-    <h2>Dependencies and lag: the logic that links it</h2>
-    <p>Dependencies come in a few types. Most are <span class="term" data-term="Finish-to-Start (FS)" data-def="The most common dependency: an activity cannot start until the one before it finishes. Excavate, then lay pipe.">Finish-to-Start (FS)</span>: one thing must finish before the next starts. But not all. <span class="term" data-term="Start-to-Start (SS)" data-def="Two activities that can run together, once the first has started. Paving can begin once excavation has started, following behind.">Start-to-Start (SS)</span> lets work run in parallel, and <span class="term" data-term="Finish-to-Finish (FF)" data-def="Two activities that must finish together. Inspection wraps up when the construction it inspects wraps up.">Finish-to-Finish (FF)</span> ties two finishes together. Sort a few.</p>
+    <span class="tag">2 / 2</span>
+    <h2>Forecasting the finish</h2>
+    <p>The best part of earned value is that it predicts. If a job is running at a <span class="term" data-term="CPI" data-def="Cost Performance Index = EV / AC. Below 1 means every planned dollar of work is costing more than a dollar.">CPI</span> of 0.87 now, it will very likely keep running that way, so the final cost will overshoot the budget. That forecast is the <span class="term" data-term="EAC" data-def="Estimate At Completion. The forecast of what the whole project will finally cost. The common formula is EAC = BAC / CPI: today's cost efficiency, carried to the end.">Estimate at Completion (EAC)</span>, and the simplest, most-used formula is <span class="term" data-term="BAC" data-def="Budget At Completion. The original approved total budget for the whole project.">Budget at Completion (BAC)</span> divided by CPI.</p>
 
-    <div data-ac="classify" data-title="Which dependency type?" data-kind="Quiz &middot; classify" data-cue="FS is one after another. SS is starting together. FF is finishing together.">
+    <div data-ac="mc" data-title="Forecast the finish" data-kind="Quiz &middot; multiple choice">
       <script type="application/json">
-      {"buckets":["Finish-to-Start","Start-to-Start","Finish-to-Finish"],
-       "items":[
-        ["You cannot lay pipe until the trench is excavated",0,"One must finish before the next starts. Finish-to-Start."],
-        ["Restoration crews follow behind the pipe crew, starting once pipe-laying has started",1,"Both run together once the first begins. Start-to-Start."],
-        ["Inspection must be complete at the same time construction is complete",2,"Two finishes tied together. Finish-to-Finish."],
-        ["You cannot backfill the trench until the pipe is laid",0,"Finish one, start the next. Finish-to-Start."]
-       ]}
+      {"q":"The Millpond BAC is $1.3M and the current CPI is 0.87. Roughly what will the job actually cost (EAC)?",
+       "options":[
+        ["About $1.5M, because EAC = BAC / CPI = 1.3 / 0.87",1],
+        ["$1.3M, because that is the budget",0],
+        ["About $1.13M, better than budget",0],
+        ["You cannot forecast until the job is done",0]
+       ],
+       "right":"Correct. EAC = BAC / CPI = 1,300 / 0.87, about $1.5M. Today's cost performance, carried to the end, is your best forecast, and it says you are heading roughly $200k over.",
+       "wrong":"Not quite. EAC = BAC / CPI = 1,300 / 0.87, about $1.5M. A CPI below 1 forecasts a final cost above budget, and you can see it long before the end."}
       </script>
     </div>
 
-    <p>You also adjust timing with <span class="term" data-term="Lag" data-def="Required waiting time built into a dependency. After a concrete pour, a cure time before the next step is a lag.">lag</span> and <span class="term" data-term="Lead" data-def="Negative lag: letting an activity start before its predecessor fully finishes, to overlap and save time.">lead</span>. A lag is a forced wait, like curing time after a concrete thrust block before you can pressurize the line. A lead is the opposite, an overlap you allow to save time. Lags are logic, not padding: they belong in the schedule because the work truly requires them, not because you want a cushion.</p>
+    <p>A few cousins finish the toolkit. The <span class="term" data-term="ETC" data-def="Estimate To Complete. The money still needed to finish from today: EAC minus what you have already spent (AC).">Estimate to Complete (ETC)</span> is what is left to spend from here. The <span class="term" data-term="VAC" data-def="Variance At Completion. How far off budget you will finish: BAC minus EAC. Negative means an overrun.">Variance at Completion (VAC)</span> is how far off budget you will land. And the <span class="term" data-term="TCPI" data-def="To-Complete Performance Index. The cost efficiency you would have to hit on all remaining work to still finish on budget. When it is well above your current CPI, the budget is no longer realistic.">To-Complete Performance Index (TCPI)</span> tells you the efficiency you would need on the rest of the work to still land on budget, which is your reality check.</p>
 
-    <div data-ac="truefalse" data-title="Quick check" data-kind="Quiz &middot; true or false">
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
       <script type="application/json">
       {"items":[
-        ["Finish-to-Start is the most common dependency type.",true,"Yes. Most construction logic is simply one thing after another."],
-        ["A lag is extra padding you add to feel safe.",false,"No. A lag is a real, required wait (like a cure time). Padding belongs in reserves, managed openly, not hidden in a lag."],
-        ["Start-to-Start dependencies let two activities overlap.",true,"Right. Once the first starts, the second can run alongside it."]
-      ]}
-      </script>
-    </div>
-  </div>
-
-  <!-- ===================== SECTION 3 ===================== -->
-  <div class="sec">
-    <span class="tag">3 / 4</span>
-    <h2>The critical path: what really sets the finish date</h2>
-    <p>Here is the heart of scheduling. The <span class="term" data-term="Critical Path Method (CPM)" data-def="A way to find the longest path of dependent activities through a schedule. That path sets the shortest possible finish date, and any delay on it delays the whole project.">Critical Path Method (CPM)</span> finds the longest chain of dependent activities through the schedule. That chain is the <span class="term" data-term="Critical path" data-def="The sequence of activities with zero float. It sets the finish date: delay any activity on it, and the whole project slips.">critical path</span>, and it sets your finish date. Everything else has <span class="term" data-term="Float" data-def="Slack: how long an activity can slip without moving the project finish date. Zero float means it is on the critical path.">float</span>, room to slip without moving the end. Scroll back to the Gantt: the gold bars are the critical path. Here is how it is found.</p>
-
-    <div data-ac="method" data-title="How the critical path is found" data-kind="Method &middot; five steps">
-      <script type="application/json">
-      {"steps":[
-        ["List the activities and durations.","Every piece of work and how long it takes."],
-        ["Set the dependencies.","What must come before what. This is the logic that makes it a network, not a list."],
-        ["Forward pass.","Sweep left to right for the earliest each activity can start and finish. The largest finish is the project duration."],
-        ["Backward pass.","Sweep right to left for the latest each can start and finish without slipping the end date."],
-        ["Float equals latest minus earliest.","Zero float activities are critical. The unbroken chain of them, start to end, is the critical path."]
-      ]}
-      </script>
-    </div>
-
-    <p>Reading those steps is one thing. Watching them run is another. Step through the derivation below, or press Play. Each earliest date fills in on the forward pass, each latest date on the backward pass, then float appears and the critical chain lights up gold. This is the actual algorithm, not a picture of it.</p>
-
-    <div data-ac="cpmsim" data-title="Derive the critical path, step by step" data-kind="Interactive &middot; simulation" data-cue="Play it once end to end, then step through slowly. Watch how the backward pass gives the permit five weeks of float while procurement gets none.">
-      <script type="application/json">
-      {"unit":"weeks","tasks":[
-        {"id":"s","name":"Survey & design","dur":6,"deps":[]},
-        {"id":"p","name":"Permit approval","dur":8,"deps":["s"]},
-        {"id":"m","name":"Procure materials","dur":14,"deps":["s"]},
-        {"id":"b","name":"Bid & award","dur":4,"deps":["s"]},
-        {"id":"z","name":"Mobilize","dur":1,"deps":["p","b"]},
-        {"id":"x","name":"Excavate & lay pipe","dur":4,"deps":["z","m"]},
-        {"id":"t","name":"Service tie-ins","dur":2,"deps":["x"]},
-        {"id":"d","name":"Test & disinfect","dur":2,"deps":["t"]},
-        {"id":"c","name":"Restore & close out","dur":2,"deps":["d"]}
-      ]}
-      </script>
-    </div>
-
-    <p>On Millpond, the critical path does not run through the pipe crew. It runs through the <b>14-week material procurement</b>. The permits, which everyone frets about, actually finish with five weeks of float to spare. Test your read of it.</p>
-
-    <div data-ac="estimate" data-title="What happens if a critical task slips?" data-kind="Interactive &middot; estimate" data-cue="Zero float means a one-to-one slip. That is exactly what makes the critical path critical.">
-      <script type="application/json">
-      {"q":"The long-lead materials are on the critical path with zero float. If the vendor slips delivery by 3 weeks, how many weeks does the whole project finish slip?",
-       "min":0,"max":8,"step":1,"start":0,"answer":3,"tol":0,"unit":"weeks",
-       "solution":"Three weeks. An activity with zero float has no slack, so a 3-week slip pushes the finish by exactly 3 weeks. Now compare: slipping the permit (which has 5 weeks of float) by 3 weeks moves the finish by nothing."}
-      </script>
-    </div>
-
-    <div data-ac="mc" data-title="Where do you push?" data-kind="Quiz &middot; multiple choice">
-      <script type="application/json">
-      {"q":"The schedule finishes in 30 weeks and the board wants 27. Which activity is worth attacking first to pull the finish in?",
-       "options":[
-        ["A task on the critical path (a gold bar), because only those move the finish date",1],
-        ["Permit approval, because permits always feel urgent",0],
-        ["The longest bar on the chart, whatever it is",0],
-        ["Any task, since they all add up to the total",0]
-       ],
-       "right":"Correct. Only critical-path activities set the finish date, so compressing (crashing) one of them is the only way to pull the end in. Speeding up a task with float just creates more float.",
-       "wrong":"Not quite. Only the critical path sets the finish, so effort spent on a task with float does not move the end date. Attack a gold-bar activity first, even if it is not the single longest task."}
-      </script>
-    </div>
-
-    <p>Now try it. Shorten a task with the steppers and watch the finish move, or not. Crash a <b>gold</b> task and the end date drops. Crash a <b>blue</b> one and nothing happens to the finish, that task just gains float. Push hard enough on one chain and the critical path jumps to another.</p>
-
-    <div data-ac="ganttedit" data-title="What-if: crash the schedule yourself" data-kind="Interactive &middot; simulation" data-cue="Try cutting the 14-week procurement down a few weeks and watch the finish fall, then watch the critical path hand off to the permit chain once procurement is no longer the longest.">
-      <script type="application/json">
-      {"unit":"weeks","tasks":[
-        {"id":"s","name":"Survey & design","dur":6,"deps":[]},
-        {"id":"p","name":"Permit approval","dur":8,"deps":["s"]},
-        {"id":"m","name":"Procure materials","dur":14,"deps":["s"]},
-        {"id":"b","name":"Bid & award","dur":4,"deps":["s"]},
-        {"id":"z","name":"Mobilize","dur":1,"deps":["p","b"]},
-        {"id":"x","name":"Excavate & lay pipe","dur":4,"deps":["z","m"]},
-        {"id":"t","name":"Service tie-ins","dur":2,"deps":["x"]},
-        {"id":"d","name":"Test & disinfect","dur":2,"deps":["t"]},
-        {"id":"c","name":"Restore & close out","dur":2,"deps":["d"]}
+        ["A CPI above 1 means you are over budget.",false,"The opposite. CPI above 1 means you are getting more than a dollar of work per dollar spent: under budget."],
+        ["Earned Value is the money you have spent.",false,"No. That is Actual Cost. Earned Value is the budgeted worth of the work actually finished, whatever it cost you."],
+        ["EAC = BAC / CPI assumes today's cost efficiency continues to the end.",true,"Yes. It is the standard forecast, and it is usually right because performance rarely turns around on its own."]
       ]}
       </script>
     </div>
 
     <div class="lv l leadcall">
       <p class="h">Leader's call</p>
-      <p>Ask one question in every schedule review: <b>what is on the critical path right now, and is it the long-lead procurement or a permit rather than the field work?</b> Manage those, protect their float, and stop pouring urgency onto activities that have slack to spare.</p>
-    </div>
-  </div>
-
-  <!-- ===================== SECTION 4 ===================== -->
-  <div class="sec">
-    <span class="tag">4 / 4</span>
-    <h2>Loading cost onto the schedule: the S-curve</h2>
-    <p>Once the schedule is set, you spread each activity's cost across the weeks it runs. That is a <span class="term" data-term="Cost-loaded schedule" data-def="A schedule where each activity carries its cost, spread over its duration. Add it all up over time and you get the project's planned cash flow.">cost-loaded schedule</span>, and adding it all up over time gives the <span class="term" data-term="S-curve" data-def="The cumulative-spend curve of a project. It is slow at the start, steep through construction, and flattens at the end, so it looks like a stretched S.">S-curve</span>. It is slow at first (design, procurement), steep through construction, and flattens at the end. That shape is your planned cash flow, and later it becomes the baseline you measure earned value against.</p>
-
-    <div data-ac="scurve" data-title="Millpond cost-loaded cash flow" data-kind="Chart &middot; S-curve" data-cue="Light bars are what you spend each month. The blue line is the running total. Notice the gentle start, the steep climb during construction, and the flat tail.">
-      <script type="application/json">
-      {"totalLabel":"cumulative spend","periods":[
-        {"label":"M1","spend":40},{"label":"M2","spend":60},{"label":"M3","spend":90},
-        {"label":"M4","spend":200},{"label":"M5","spend":280},{"label":"M6","spend":300},
-        {"label":"M7","spend":180},{"label":"M8","spend":60}
-      ]}
-      </script>
-    </div>
-
-    <div class="lv f">
-      <p>Two reasons this matters beyond the picture. First, finance needs it: a utility has to know when the cash goes out to plan draws and rate impacts, and a lumpy or front-loaded curve is a warning sign. Second, it is the foundation for tracking. When you compare what you planned to spend (this curve) with what you have actually earned and spent, you get earned value, the subject of a later chapter.</p>
-    </div>
-
-    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
-      <script type="application/json">
-      {"items":[
-        ["The critical path is always the single longest activity.",false,"No. It is the longest connected path of activities, which can be several short ones in a row, not one long bar."],
-        ["An activity with float can slip a little without moving the finish date.",true,"Right. Float is exactly that slack. Only zero-float activities move the end."],
-        ["A cost-loaded schedule spreads each activity's cost across its duration to build the cash-flow curve.",true,"Yes. Sum those over time and you get the S-curve."]
-      ]}
-      </script>
+      <p>Ban "percent of budget spent" from your status reports. It hides trouble. <b>Report EV, CPI, SPI, and the EAC forecast.</b> Those four numbers tell a board exactly where the project stands and where it will land, early enough to actually do something about it.</p>
     </div>
   </div>
 
@@ -591,20 +497,20 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
       <script type="application/json">
       {"cards":[
-        ["Activity","One piece of work in the schedule, with a duration."],
-        ["Dependency","A rule that one activity waits on another (usually Finish-to-Start)."],
-        ["Milestone","A zero-duration marker for an important moment."],
-        ["Float","Slack: how long an activity can slip without moving the finish."],
-        ["Critical path","The zero-float chain that sets the finish date."],
-        ["S-curve","The cumulative cash-flow curve: slow, steep, then flat."]
+        ["Planned Value (PV)","The budgeted cost of the work you planned to have finished by today."],
+        ["Earned Value (EV)","The budgeted worth of the work actually done, whatever it cost."],
+        ["Actual Cost (AC)","The money actually spent so far."],
+        ["CPI","EV / AC. Above 1 under budget, below 1 over budget."],
+        ["SPI","EV / PV. Above 1 ahead of schedule, below 1 behind."],
+        ["EAC","Estimate at completion. Usually BAC / CPI: where the job will finish."]
       ]}
       </script>
     </div>
 
     <div data-ac="reflect">
       <script type="application/json">
-      {"q":"On a job you know, do you actually know what is on the critical path today? Is it the field work everyone watches, or a permit or a long-lead order nobody is tracking?",
-       "a":"Most schedule surprises are not really surprises. They are long-lead items and approvals that were sitting on the critical path the whole time, while attention went to the visible construction. The discipline is simple but rare: know your critical path, know the float on everything else, and spend your management energy on the chain that actually sets the date. If you cannot name your critical path in a review, the schedule is running you, not the other way around."}
+      {"q":"Think about your last project status update. Did it report percent of budget spent, or did it report earned value, CPI, and a forecast? What would each have told the reader?",
+       "a":"Percent spent is the number that feels like status but is not. A project 50% through its budget could be 60% done and cruising, or 30% done and about to blow up, and 'we have spent half the money' cannot tell them apart. Earned value can: EV against AC gives you cost health (CPI), EV against PV gives you schedule health (SPI), and BAC over CPI gives you the finish. The shift from reporting spending to reporting earned value is the shift from describing the past to forecasting the future, which is the only kind of status a board can actually act on."}
       </script>
     </div>
   </div>
@@ -613,20 +519,20 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   <div class="sec">
     <h2>What to carry out of this chapter</h2>
     <ul class="recap">
-      <li><span class="n">1.</span><div><b>A schedule is a network, not a list.</b> Activities, durations, and dependencies, drawn as a Gantt and measured against a baseline.</div></li>
-      <li><span class="n">2.</span><div><b>The critical path sets the finish date.</b> It is the longest chain of zero-float activities. Delay any one and the whole job slips.</div></li>
-      <li><span class="n">3.</span><div><b>Float tells you where the slack is.</b> Spend management energy on the critical path; stop rushing activities that have room to spare.</div></li>
-      <li><span class="n">4.</span><div><b>On utility jobs the driver is usually procurement or permits,</b> not the pipe crew. Load cost onto the schedule and the S-curve shows you the cash flow.</div></li>
+      <li><span class="n">1.</span><div><b>Compare three numbers, not one.</b> Planned Value (where you should be), Earned Value (what is done), Actual Cost (what you spent).</div></li>
+      <li><span class="n">2.</span><div><b>Two indices diagnose the job.</b> CPI = EV / AC for cost, SPI = EV / PV for schedule. Above 1 good, below 1 trouble.</div></li>
+      <li><span class="n">3.</span><div><b>Earned value forecasts.</b> EAC = BAC / CPI tells you where the job will finish, long before it does.</div></li>
+      <li><span class="n">4.</span><div><b>Report earned value, not spending.</b> Percent spent hides the truth; EV, CPI, SPI, and EAC reveal it early.</div></li>
     </ul>
 
     <div class="leadcall" style="background:var(--brand-800)">
       <p class="h">The leader's bottom line</p>
-      <p>The finish date is not set by how hard the crews work. It is set by the critical path. <b>Find it, protect it, and check every review whether it runs through a long-lead order or an approval rather than the field.</b> That single habit prevents most schedule blowups.</p>
+      <p>Earned value is an early-warning system. A CPI drifting below 1 in month two tells you the budget is in trouble while you can still fix it. <b>Watch CPI and SPI every reporting period, and act the moment they slip, not the month the money runs out.</b></p>
     </div>
   </div>
 
   <div class="navrow">
-    <a href="lesson-pm-04-scope-and-requirements.html">&#8592; Chapter 04 &middot; Scope and requirements</a>
+    <a href="lesson-pm-07-estimating-budgeting.html">&#8592; Chapter 07 &middot; Estimating and budgeting</a>
     <a class="btn" href="course-project-management.html">Back to the masterclass &#8594;</a>
   </div>
 
@@ -635,7 +541,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 <footer class="foot">
   <div class="in">
     <span>One Water OS Academy &middot; Project Management</span>
-    <span>Chapter 05 &middot; v0.9.0 &middot; 2026-07-18</span>
+    <span>Chapter 08 &middot; v0.15.0 &middot; 2026-07-19</span>
   </div>
 </footer>
 

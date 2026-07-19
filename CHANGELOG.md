@@ -3,6 +3,19 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.15.0] - 2026-07-19
+### Added: Chapter 08 + an Earned Value simulator
+- `evm` : an interactive Earned Value chart. Drag schedule elapsed, work complete, and actual cost, and
+  watch the PV / EV / AC curves, the CPI and SPI indices, and the EAC forecast update live, with a
+  plain-language verdict. Verified: t50/w40/a600 on a 1300 BAC -> PV 650, EV 520, AC 600, CPI 0.87,
+  SPI 0.80, EAC 1.50M (over budget + behind); w60 flips it green (CPI 1.30, SPI 1.20, EAC 1.00M).
+- Fixed a `data-ac` attribute collision in the EVM Actual-Cost cell (renamed to data-acost).
+- Chapter 08 "Earned Value and forecasting" built on the library (PV/EV/AC, CPI/SPI, EAC/ETC/VAC/TCPI).
+### Changed
+- Masterclass chrome: Chapter 08 now live; status note "Chapters 01 to 08 are live." Rebuilt all eight lessons.
+### Deployed
+- Published all eight lessons + course page to owos.ai; verified the EVM sim computes on the live site.
+
 ## [0.14.0] - 2026-07-19
 ### Added: Chapter 07 + three cost/finance simulations
 - `estrange` : AACE estimate-accuracy range, slide design maturity (Class 5 to 1) and watch the low-high

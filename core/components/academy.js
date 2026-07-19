@@ -667,6 +667,58 @@
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
   };
 
+  R.evm=function(el){var c=cfgOf(el);var bac=c.bac||1300;
+    function m(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    function row(k,label,sub,val,mn,mx,st){return '<div class="pvrow"><span class="nm">'+label+'<small style="display:block;font:11px var(--fm);color:var(--ink-3)">'+sub+'</small></span><input type="range" data-k="'+k+'" min="'+mn+'" max="'+mx+'" step="'+st+'" value="'+val+'"><span class="v" data-v="'+k+'"></span></div>';}
+    var b=shell(el,
+      '<p style="font-size:14px;color:var(--ink-2);margin:0 0 6px">Budget at completion (BAC): <b style="color:var(--ink)">'+m(bac)+'</b>. Now say where the job stands.</p>'+
+      row('t','Schedule elapsed','how far through the planned time',c.t||50,0,100,5)+
+      row('w','Work actually complete','percent of the job done',c.w||40,0,100,5)+
+      row('a','Actual cost spent','dollars out the door so far',c.a||600,0,Math.round(bac*1.4),25)+
+      '<svg class="evmsvg" viewBox="0 0 320 150" data-svg></svg>'+
+      '<div class="evmleg"><span><span class="sw" style="background:#0A78BA"></span>Planned Value (PV)</span><span><span class="sw" style="background:#0E8A64"></span>Earned Value (EV)</span><span><span class="sw" style="background:#D64545"></span>Actual Cost (AC)</span></div>'+
+      '<div class="evmstat"><div class="o"><div class="k">PV</div><div class="val" data-pv></div></div>'+
+      '<div class="o"><div class="k">EV</div><div class="val" data-ev></div></div>'+
+      '<div class="o"><div class="k">AC</div><div class="val" data-acost></div></div>'+
+      '<div class="o" data-cpio><div class="k">CPI</div><div class="val" data-cpi></div></div>'+
+      '<div class="o" data-spio><div class="k">SPI</div><div class="val" data-spi></div></div>'+
+      '<div class="o key"><div class="k">Forecast (EAC)</div><div class="val" data-eac></div></div></div>'+
+      '<div class="evmverdict" data-verdict></div>');
+    function val(k){return +b.querySelector('input[data-k="'+k+'"]').value;}
+    function ss(x){return x*x*(3-2*x);}
+    function upd(){
+      var t=val('t'),w=val('w'),ac=val('a');
+      b.querySelector('[data-v="t"]').textContent=t+'%';b.querySelector('[data-v="w"]').textContent=w+'%';b.querySelector('[data-v="a"]').textContent=m(ac);
+      var pv=bac*ss(t/100),ev=bac*w/100;
+      var cpi=ac>0?ev/ac:0,spi=pv>0?ev/pv:0,eac=cpi>0?bac/cpi:bac;
+      b.querySelector('[data-pv]').textContent=m(pv);b.querySelector('[data-ev]').textContent=m(ev);b.querySelector('[data-acost]').textContent=m(ac);
+      b.querySelector('[data-cpi]').textContent=cpi.toFixed(2);b.querySelector('[data-spi]').textContent=spi.toFixed(2);b.querySelector('[data-eac]').textContent=m(eac);
+      b.querySelector('[data-cpio]').className='o '+(cpi>=1?'good':'bad');b.querySelector('[data-spio]').className='o '+(spi>=1?'good':'bad');
+      // chart
+      var x0=8,x1=312,y0=10,y1=128,ymax=Math.max(bac,ac)*1.08||1;
+      function X(f){return x0+f*(x1-x0);}function Y(v){return y1-v/ymax*(y1-y0);}
+      var pvpts='';for(var i=0;i<=40;i++){var f=i/40;pvpts+=X(f).toFixed(1)+','+Y(bac*ss(f)).toFixed(1)+' ';}
+      var tf=t/100;
+      var svg='<polyline points="'+pvpts+'" fill="none" stroke="#0A78BA" stroke-width="1.6" opacity=".55"/>'+
+        '<line x1="'+X(tf).toFixed(1)+'" y1="'+y0+'" x2="'+X(tf).toFixed(1)+'" y2="'+y1+'" stroke="#8595AB" stroke-dasharray="3 3"/>'+
+        '<text x="'+X(tf).toFixed(1)+'" y="8" text-anchor="middle" font-size="8" fill="#8595AB">today</text>'+
+        '<line x1="'+x0+'" y1="'+Y(0)+'" x2="'+X(tf).toFixed(1)+'" y2="'+Y(ev).toFixed(1)+'" stroke="#0E8A64" stroke-width="1.8"/>'+
+        '<line x1="'+x0+'" y1="'+Y(0)+'" x2="'+X(tf).toFixed(1)+'" y2="'+Y(ac).toFixed(1)+'" stroke="#D64545" stroke-width="1.8"/>'+
+        '<circle cx="'+X(tf).toFixed(1)+'" cy="'+Y(pv).toFixed(1)+'" r="3.4" fill="#0A78BA"/>'+
+        '<circle cx="'+X(tf).toFixed(1)+'" cy="'+Y(ev).toFixed(1)+'" r="3.4" fill="#0E8A64"/>'+
+        '<circle cx="'+X(tf).toFixed(1)+'" cy="'+Y(ac).toFixed(1)+'" r="3.4" fill="#D64545"/>'+
+        '<line x1="'+x0+'" y1="'+y1+'" x2="'+x1+'" y2="'+y1+'" stroke="#CDD6E1"/>';
+      b.querySelector('[data-svg]').innerHTML=svg;
+      var v=b.querySelector('[data-verdict]'),over=cpi<1,behind=spi<1;
+      var cls=(!over&&!behind)?'ok':((over&&behind)?'bad':'warn');
+      var costTxt=cpi<1?'<b>over budget</b> (every dollar of work is costing '+(1/cpi).toFixed(2)+' dollars)':(cpi>1?'<b>under budget</b>':'right on budget');
+      var schTxt=spi<1?'<b>behind schedule</b> (only '+(spi*100).toFixed(0)+' cents of work done per planned dollar)':(spi>1?'<b>ahead of schedule</b>':'on schedule');
+      v.className='evmverdict '+cls;
+      v.innerHTML='You are '+costTxt+' and '+schTxt+'. At this rate the job finishes near <b>'+m(eac)+'</b>'+(eac>bac?', about '+m(eac-bac)+' over the '+m(bac)+' budget.':(eac<bac?', under the '+m(bac)+' budget.':'.'))+' EAC = BAC / CPI: keep spending at today\'s efficiency and that is where you land.';
+    }
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
+  };
+
   R.estrange=function(el){var c=cfgOf(el);var base=c.base||1300;
     var cls=c.classes||[
       {label:"Class 5 (Concept)",lo:-30,hi:50,note:"Order of magnitude, drawn on a napkin. Less than 2% design. Useful for a go / no-go, useless for a commitment."},
