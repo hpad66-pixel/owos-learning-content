@@ -472,7 +472,7 @@
     var topo=tasks.slice().sort(function(a,b){return rank[a.id]-rank[b.id];});
     // layout: x by rank, y by row within rank
     var cols={};topo.forEach(function(t){(cols[rank[t.id]]=cols[rank[t.id]]||[]).push(t.id);});
-    var BW=98,BH=70,GX=26,GY=18,pos={},maxRow=0;
+    var BW=104,BH=68,GX=24,GY=18,pos={},maxRow=0;
     Object.keys(cols).forEach(function(cn){cols[cn].forEach(function(id,row){pos[id]={x:(+cn)*(BW+GX),y:row*(BH+GY)+11};if(row>maxRow)maxRow=row;});});
     var maxCol=Math.max.apply(null,tasks.map(function(t){return rank[t.id];}));
     var cw=(maxCol+1)*(BW+GX)-GX,ch=(maxRow+1)*(BH+GY)-GY+22;
@@ -498,7 +498,7 @@
     function nodeHTML(t,cur){
       var showF=cur>=fIndex[t.id],showB=cur>=bIndex[t.id],showFL=cur>=flIndex,isCrit=cur>=cIndex&&crit(t.id);
       var active=steps[cur]&&steps[cur].id===t.id;
-      return '<div class="cnode'+(isCrit?' crit':'')+(active?' active':'')+'" style="left:'+pos[t.id].x+'px;top:'+pos[t.id].y+'px">'+
+      return '<div class="cnode'+(isCrit?' crit':'')+(active?' active':'')+'" style="left:'+pos[t.id].x+'px;top:'+pos[t.id].y+'px;width:'+BW+'px">'+
         (showFL?'<span class="cn-float">float '+fl(t.id)+'</span>':'')+
         '<div class="cn-top"><span class="cn-v'+(showF?' on':'')+'">ES '+ES[t.id]+'</span><span class="cn-v'+(showF?' on':'')+'">EF '+EF[t.id]+'</span></div>'+
         '<div class="cn-mid"><div class="cn-name">'+t.name+'</div><div class="cn-dur">'+t.dur+' '+unit+'</div></div>'+
@@ -554,6 +554,7 @@
       else{canvas.style.transformOrigin='top left';canvas.style.transform='scale('+sc.toFixed(3)+')';stage.style.height=Math.ceil(ch*sc+6)+'px';}
       stage.style.overflowX='hidden';}
     var ft;window.addEventListener('resize',function(){clearTimeout(ft);ft=setTimeout(fit,150);});
+    window.addEventListener('load',fit);setTimeout(fit,400);
     draw();fit();
   };
 
