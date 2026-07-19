@@ -193,6 +193,30 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .gsum{font:600 13px var(--fm);color:var(--ink);margin-top:10px}.gsum b{color:var(--gold)}
 .gdetail{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink-2);display:none}.gdetail.on{display:block}.gdetail b{color:var(--ink)}.gdetail .crit{color:var(--gold);font-weight:700}
 
+/* ---- CPM simulator (step-through critical path derivation) ---- */
+.cpmstage{overflow-x:auto;padding:8px 2px 4px}
+.cpmcanvas{position:relative}
+.cpmsvg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.cnode{position:absolute;width:114px;background:var(--surface);border:2px solid var(--line-2);border-radius:10px;box-shadow:var(--sh);z-index:2}
+.cnode.crit{border-color:var(--gold);box-shadow:0 0 0 3px rgba(169,123,15,.18)}
+.cnode.active{border-color:var(--brand);box-shadow:0 0 0 3px rgba(10,120,186,.16)}
+.cn-top,.cn-bot{display:flex;justify-content:space-between;font:700 9.5px var(--fm);padding:2px 8px}
+.cn-top{color:var(--brand-700)}.cn-bot{color:var(--ink-3);border-top:1px dashed var(--line)}
+.cn-mid{text-align:center;padding:3px 5px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cn-name{font:700 11px var(--f);color:var(--ink);line-height:1.12}.cn-dur{font:9px var(--fm);color:var(--ink-3)}
+.cn-float{position:absolute;top:-10px;right:-10px;background:var(--ink);color:#fff;font:700 9px var(--fm);border-radius:9px;padding:2px 6px;z-index:3}
+.cnode.crit .cn-float{background:var(--gold)}
+.cn-v{opacity:0;transition:opacity .25s}.cn-v.on{opacity:1}
+.cpmctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.cpmctrl button{border:1px solid var(--line-2);background:var(--surface);border-radius:9px;padding:8px 13px;font:600 13px var(--f);cursor:pointer;color:var(--ink-2)}
+.cpmctrl button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+.cpmctrl button.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.cpmctrl button.primary:hover{background:var(--brand-700)}
+.cpmctrl button:disabled{opacity:.4;cursor:default}
+.cpmstep{font:600 12px var(--fm);color:var(--ink-3);margin-left:auto}
+.cpmnarr{margin-top:12px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14.5px;color:var(--ink);line-height:1.55}.cpmnarr b{color:var(--brand-700)}.cpmnarr .g{color:var(--gold);font-weight:700}
+.cpmkey{display:flex;gap:8px 16px;font:600 10.5px var(--fm);color:var(--ink-2);margin-top:10px;flex-wrap:wrap}
+.cpmkey span span{color:var(--brand-700)}
+
 /* ---- S-curve (cost-loaded schedule) ---- */
 .scurve svg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}

@@ -3,6 +3,20 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.10.0] - 2026-07-19
+### Added: a critical-path simulator + the "show it" principle
+- New library `cpmsim` renderer: an interactive activity-on-node simulation that DERIVES the critical
+  path step by step. Reset / Back / Step / Play controls walk the forward pass (earliest dates), the
+  backward pass (latest dates), float, then light up the critical chain in gold, with live narration at
+  each step. Added to Chapter 05, Section 3. Verified: floats compute to permit 5, procurement 0, and
+  the critical chain reads survey → procure → pipe → tie-ins → test → close out.
+- Standards updated (WRITING-STANDARD, VISUAL-ARSENAL) with the **"simulate, do not just describe"**
+  rule: any process, algorithm, or thing-that-unfolds gets an interactive that shows it happening
+  (step-through, live model, or reveal), not just prose. Build it into the shared library so every
+  future chapter can reuse it. This is now a standing requirement, per Hardeep.
+### Deployed
+- Rebuilt all five lessons + course page and published to owos.ai; verified live.
+
 ## [0.9.0] - 2026-07-18
 ### Added: Chapter 05 + two scheduling components
 - New library `gantt` renderer: an interactive Gantt that runs a real Critical Path Method engine

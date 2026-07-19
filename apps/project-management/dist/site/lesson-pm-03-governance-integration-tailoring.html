@@ -205,6 +205,30 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .gsum{font:600 13px var(--fm);color:var(--ink);margin-top:10px}.gsum b{color:var(--gold)}
 .gdetail{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink-2);display:none}.gdetail.on{display:block}.gdetail b{color:var(--ink)}.gdetail .crit{color:var(--gold);font-weight:700}
 
+/* ---- CPM simulator (step-through critical path derivation) ---- */
+.cpmstage{overflow-x:auto;padding:8px 2px 4px}
+.cpmcanvas{position:relative}
+.cpmsvg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.cnode{position:absolute;width:114px;background:var(--surface);border:2px solid var(--line-2);border-radius:10px;box-shadow:var(--sh);z-index:2}
+.cnode.crit{border-color:var(--gold);box-shadow:0 0 0 3px rgba(169,123,15,.18)}
+.cnode.active{border-color:var(--brand);box-shadow:0 0 0 3px rgba(10,120,186,.16)}
+.cn-top,.cn-bot{display:flex;justify-content:space-between;font:700 9.5px var(--fm);padding:2px 8px}
+.cn-top{color:var(--brand-700)}.cn-bot{color:var(--ink-3);border-top:1px dashed var(--line)}
+.cn-mid{text-align:center;padding:3px 5px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cn-name{font:700 11px var(--f);color:var(--ink);line-height:1.12}.cn-dur{font:9px var(--fm);color:var(--ink-3)}
+.cn-float{position:absolute;top:-10px;right:-10px;background:var(--ink);color:#fff;font:700 9px var(--fm);border-radius:9px;padding:2px 6px;z-index:3}
+.cnode.crit .cn-float{background:var(--gold)}
+.cn-v{opacity:0;transition:opacity .25s}.cn-v.on{opacity:1}
+.cpmctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.cpmctrl button{border:1px solid var(--line-2);background:var(--surface);border-radius:9px;padding:8px 13px;font:600 13px var(--f);cursor:pointer;color:var(--ink-2)}
+.cpmctrl button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+.cpmctrl button.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.cpmctrl button.primary:hover{background:var(--brand-700)}
+.cpmctrl button:disabled{opacity:.4;cursor:default}
+.cpmstep{font:600 12px var(--fm);color:var(--ink-3);margin-left:auto}
+.cpmnarr{margin-top:12px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14.5px;color:var(--ink);line-height:1.55}.cpmnarr b{color:var(--brand-700)}.cpmnarr .g{color:var(--gold);font-weight:700}
+.cpmkey{display:flex;gap:8px 16px;font:600 10.5px var(--fm);color:var(--ink-2);margin-top:10px;flex-wrap:wrap}
+.cpmkey span span{color:var(--brand-700)}
+
 /* ---- S-curve (cost-loaded schedule) ---- */
 .scurve svg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
@@ -940,6 +964,102 @@ input[type=range]{width:100%;accent-color:var(--brand)}
         (crit?'<span class="crit">On the critical path.</span> It has no slack, so any delay here pushes the finish date.':'It has '+fl+' '+unit+' of slack, so a small delay here will not move the finish date.')+
         (t.note?' '+t.note:'');
     });});
+  };
+
+  R.cpmsim=function(el){var c=cfgOf(el);var tasks=c.tasks||[];var unit=c.unit||'weeks';
+    var by={};tasks.forEach(function(t){by[t.id]=t;});
+    function deps(t){return (t.deps||[]).map(function(d){return typeof d==='object'?{id:d.to||d.id,lag:d.lag||0}:{id:d,lag:0};});}
+    var ES={},EF={},LS={},LF={},rank={};
+    tasks.forEach(function(t){ES[t.id]=0;EF[t.id]=t.dur;});
+    for(var i=0;i<tasks.length+1;i++){tasks.forEach(function(t){var es=0;deps(t).forEach(function(d){es=Math.max(es,EF[d.id]+d.lag);});ES[t.id]=es;EF[t.id]=es+t.dur;});}
+    var proj=0;tasks.forEach(function(t){proj=Math.max(proj,EF[t.id]);});
+    var succ={};tasks.forEach(function(t){succ[t.id]=[];});
+    tasks.forEach(function(t){deps(t).forEach(function(d){succ[d.id].push({id:t.id,lag:d.lag});});});
+    tasks.forEach(function(t){LF[t.id]=proj;LS[t.id]=proj-t.dur;});
+    for(var j=0;j<tasks.length+1;j++){tasks.forEach(function(t){var lf=succ[t.id].length?Infinity:proj;succ[t.id].forEach(function(s){lf=Math.min(lf,LS[s.id]-s.lag);});LF[t.id]=lf;LS[t.id]=lf-t.dur;});}
+    function fl(id){return Math.round((LS[id]-ES[id])*100)/100;}
+    function crit(id){return fl(id)<=0.001;}
+    // rank = longest predecessor chain (columns)
+    for(var k=0;k<tasks.length+1;k++){tasks.forEach(function(t){var r=0;deps(t).forEach(function(d){r=Math.max(r,rank[d.id]+1);});rank[t.id]=r||0;});}
+    var topo=tasks.slice().sort(function(a,b){return rank[a.id]-rank[b.id];});
+    // layout: x by rank, y by row within rank
+    var cols={};topo.forEach(function(t){(cols[rank[t.id]]=cols[rank[t.id]]||[]).push(t.id);});
+    var BW=114,BH=64,GX=48,GY=22,pos={},maxRow=0;
+    Object.keys(cols).forEach(function(cn){cols[cn].forEach(function(id,row){pos[id]={x:(+cn)*(BW+GX),y:row*(BH+GY)};if(row>maxRow)maxRow=row;});});
+    var maxCol=Math.max.apply(null,tasks.map(function(t){return rank[t.id];}));
+    var cw=(maxCol+1)*(BW+GX)-GX,ch=(maxRow+1)*(BH+GY)-GY+12;
+    // build step list
+    var steps=[];
+    topo.forEach(function(t){steps.push({type:'F',id:t.id});});
+    topo.slice().reverse().forEach(function(t){steps.push({type:'B',id:t.id});});
+    steps.push({type:'FL'});steps.push({type:'C'});
+    var fIndex={},bIndex={};steps.forEach(function(s,ix){if(s.type==='F')fIndex[s.id]=ix;if(s.type==='B')bIndex[s.id]=ix;});
+    var flIndex=steps.findIndex(function(s){return s.type==='FL';}),cIndex=steps.length-1;
+    var critNames=tasks.filter(function(t){return crit(t.id);}).sort(function(a,b){return ES[a.id]-ES[b.id];}).map(function(t){return t.name;});
+    // arrows svg
+    function arrows(cur){
+      var out='';
+      tasks.forEach(function(t){deps(t).forEach(function(d){
+        var a=pos[d.id],b2=pos[t.id];if(!a||!b2)return;
+        var x1=a.x+BW,y1=a.y+BH/2,x2=b2.x,y2=b2.y+BH/2;
+        var gold=cur>=cIndex&&crit(t.id)&&crit(d.id);
+        out+='<path d="M'+x1+' '+y1+' C'+(x1+26)+' '+y1+','+(x2-26)+' '+y2+','+(x2-2)+' '+y2+'" fill="none" stroke="'+(gold?'#A97B0F':'#CDD6E1')+'" stroke-width="'+(gold?2.5:1.5)+'" marker-end="url(#cpmar'+(gold?'g':'')+')"/>';
+      });});
+      return out;
+    }
+    function nodeHTML(t,cur){
+      var showF=cur>=fIndex[t.id],showB=cur>=bIndex[t.id],showFL=cur>=flIndex,isCrit=cur>=cIndex&&crit(t.id);
+      var active=steps[cur]&&steps[cur].id===t.id;
+      return '<div class="cnode'+(isCrit?' crit':'')+(active?' active':'')+'" style="left:'+pos[t.id].x+'px;top:'+pos[t.id].y+'px">'+
+        (showFL?'<span class="cn-float">float '+fl(t.id)+'</span>':'')+
+        '<div class="cn-top"><span class="cn-v'+(showF?' on':'')+'">ES '+ES[t.id]+'</span><span class="cn-v'+(showF?' on':'')+'">EF '+EF[t.id]+'</span></div>'+
+        '<div class="cn-mid"><div class="cn-name">'+t.name+'</div><div class="cn-dur">'+t.dur+' '+unit+'</div></div>'+
+        '<div class="cn-bot"><span class="cn-v'+(showB?' on':'')+'">LS '+LS[t.id]+'</span><span class="cn-v'+(showB?' on':'')+'">LF '+LF[t.id]+'</span></div></div>';
+    }
+    function narr(cur){
+      if(cur<0)return 'Press <b>Step</b> or <b>Play</b> to watch the critical path get derived. First the forward pass fills in the earliest dates, then the backward pass fills in the latest, then float reveals the critical chain.';
+      var s=steps[cur];
+      if(s.type==='F'){var t=by[s.id],ds=deps(t);
+        return '<b>Forward pass.</b> '+t.name+': '+(ds.length?'it waits on '+ds.map(function(d){return by[d.id].name+' (finishes '+EF[d.id]+')';}).join(' and ')+', so earliest start = '+ES[t.id]:'no predecessors, so earliest start = 0')+'. Earliest finish = '+ES[t.id]+' + '+t.dur+' = '+EF[t.id]+'.';}
+      if(s.type==='B'){var t2=by[s.id],ss=succ[t2.id];
+        return '<b>Backward pass.</b> '+t2.name+': '+(ss.length?'latest finish = the earliest of what follows = '+LF[t2.id]:'last on its branch, so latest finish = project finish = '+proj)+'. Latest start = '+LF[t2.id]+' − '+t2.dur+' = '+LS[t2.id]+'.';}
+      if(s.type==='FL')return '<b>Float = latest start − earliest start.</b> Zero float means no slack: the activity has nowhere to move. Every zero-float badge is on the critical path.';
+      return 'The unbroken chain of zero-float activities is the <span class="g">critical path</span>: '+critNames.join(' → ')+'. It sets the finish at <span class="g">'+proj+' '+unit+'</span>. Slip any gold activity and the whole job slips.';
+    }
+    var b=shell(el,
+      '<div class="cpmstage"><div class="cpmcanvas" style="width:'+cw+'px;height:'+ch+'px">'+
+      '<svg class="cpmsvg" width="'+cw+'" height="'+ch+'"><defs>'+
+      '<marker id="cpmar" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#CDD6E1"/></marker>'+
+      '<marker id="cpmarg" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#A97B0F"/></marker></defs><g data-arrows></g></svg>'+
+      '<div data-nodes></div></div></div>'+
+      '<div class="cpmkey"><span><span>ES/EF</span> earliest start/finish (top)</span><span><span>LS/LF</span> latest start/finish (bottom)</span><span>gold = zero float = critical</span></div>'+
+      '<div class="cpmctrl"><button data-reset>&#8635; Reset</button><button data-back>&#8592; Back</button>'+
+      '<button class="primary" data-step>Step &#8594;</button><button data-play>&#9654; Play</button>'+
+      '<button data-end>Skip to critical path</button><span class="cpmstep" data-lbl></span></div>'+
+      '<div class="cpmnarr" data-narr></div>');
+    var cur=-1,timer=null;var canvas=b.querySelector('.cpmcanvas');
+    var nodesEl=b.querySelector('[data-nodes]'),arrowsEl=b.querySelector('[data-arrows]'),narrEl=b.querySelector('[data-narr]'),lbl=b.querySelector('[data-lbl]');
+    var phaseName=function(cur){if(cur<0)return 'ready';var t=steps[cur].type;return t==='F'?'forward pass':t==='B'?'backward pass':t==='FL'?'float':'critical path';};
+    function draw(){
+      arrowsEl.innerHTML=arrows(cur);
+      nodesEl.innerHTML=tasks.map(function(t){return nodeHTML(t,cur);}).join('');
+      narrEl.innerHTML=narr(cur);
+      lbl.textContent='Step '+(cur+1)+' / '+steps.length+' · '+phaseName(cur);
+      b.querySelector('[data-back]').disabled=cur<0;b.querySelector('[data-step]').disabled=cur>=steps.length-1;
+    }
+    function stop(){if(timer){clearInterval(timer);timer=null;b.querySelector('[data-play]').innerHTML='&#9654; Play';}}
+    function step(){if(cur<steps.length-1){cur++;draw();}else stop();}
+    b.querySelector('[data-step]').addEventListener('click',function(){stop();step();});
+    b.querySelector('[data-back]').addEventListener('click',function(){stop();if(cur>=0){cur--;draw();}});
+    b.querySelector('[data-reset]').addEventListener('click',function(){stop();cur=-1;draw();});
+    b.querySelector('[data-end]').addEventListener('click',function(){stop();cur=steps.length-1;draw();});
+    b.querySelector('[data-play]').addEventListener('click',function(){
+      if(timer){stop();return;}
+      if(cur>=steps.length-1)cur=-1;
+      b.querySelector('[data-play]').innerHTML='&#10073;&#10073; Pause';
+      timer=setInterval(function(){if(cur>=steps.length-1){stop();}else step();},1100);
+    });
+    draw();
   };
 
   R.scurve=function(el){var c=cfgOf(el);var p=c.periods||[];

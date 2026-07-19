@@ -14,6 +14,13 @@ than the one in the gallery, it is wrong. Also: spell out every acronym in full 
 appears (for example "Design-Build (DB)"), and give every term and acronym a hover tooltip. Use one
 tooltip element per page, never a second `title`-attribute tooltip.
 
+**Simulate, do not just describe.** If an idea is a *process, an algorithm, or something that unfolds
+over time*, do not settle for a static diagram plus prose. Build an interactive that shows it happening:
+a step-through with Play/Step/Back controls (like `cpmsim`, which derives the critical path live), a
+live model the learner drives (`calc`, `triangle`, `recommender`), or a reveal (`tree`, `process`,
+`spectrum`). If the learner still has to take your word for how the mechanism works, the section is not
+done. When the needed interactive does not exist, build it into the shared library so every chapter can reuse it.
+
 ---
 
 ## How to choose: match the visual to the JOB the idea is doing

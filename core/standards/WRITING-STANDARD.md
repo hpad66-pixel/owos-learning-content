@@ -114,3 +114,20 @@ components in and fill them with this chapter's content, in the voice above. Not
 Best practice: keep the gallery components identical across modules by sharing one CSS file and one JS
 file for them, so a fix in one place fixes every module. When that shared library exists, link it
 instead of copying.
+
+## Simulate, do not just describe. (The show-it rule.)
+Talking about a concept is not enough. If a concept has a process, an algorithm, or a cause-and-effect
+behind it, the learner has to SEE it happen, not just read that it happens. Whenever you catch yourself
+explaining *how something is derived or computed or unfolds over time*, stop and build an interactive
+that shows it:
+- A **step-through** with Reset / Back / Step / Play controls, so the learner can watch each stage fill
+  in and replay it (example: the `cpmsim` component derives the critical path with a live forward pass,
+  backward pass, float, then the critical chain lighting up).
+- A **live model** where the learner changes an input and watches the outputs and a chart move (example:
+  the `calc` business case, the iron `triangle` quality dot, the delivery `recommender`).
+- A **reveal** where hidden structure is uncovered by interaction (expand a `tree`, click a `process`
+  phase, slide a `spectrum`).
+
+The test: if a section describes a mechanism and the reader still has to take your word for it, you have
+not finished. Add the simulation. When the right interactive does not exist yet, build it into the shared
+library (like `cpmsim`, `gantt`, `tree`, `scurve` were) so every future chapter can reach for it.

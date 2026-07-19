@@ -130,6 +130,24 @@
       </script>
     </div>
 
+    <p>Reading those steps is one thing. Watching them run is another. Step through the derivation below, or press Play. Each earliest date fills in on the forward pass, each latest date on the backward pass, then float appears and the critical chain lights up gold. This is the actual algorithm, not a picture of it.</p>
+
+    <div data-ac="cpmsim" data-title="Derive the critical path, step by step" data-kind="Interactive &middot; simulation" data-cue="Play it once end to end, then step through slowly. Watch how the backward pass gives the permit five weeks of float while procurement gets none.">
+      <script type="application/json">
+      {"unit":"weeks","tasks":[
+        {"id":"s","name":"Survey & design","dur":6,"deps":[]},
+        {"id":"p","name":"Permit approval","dur":8,"deps":["s"]},
+        {"id":"m","name":"Procure materials","dur":14,"deps":["s"]},
+        {"id":"b","name":"Bid & award","dur":4,"deps":["s"]},
+        {"id":"z","name":"Mobilize","dur":1,"deps":["p","b"]},
+        {"id":"x","name":"Excavate & lay pipe","dur":4,"deps":["z","m"]},
+        {"id":"t","name":"Service tie-ins","dur":2,"deps":["x"]},
+        {"id":"d","name":"Test & disinfect","dur":2,"deps":["t"]},
+        {"id":"c","name":"Restore & close out","dur":2,"deps":["d"]}
+      ]}
+      </script>
+    </div>
+
     <p>On Millpond, the critical path does not run through the pipe crew. It runs through the <b>14-week material procurement</b>. The permits, which everyone frets about, actually finish with five weeks of float to spare. Test your read of it.</p>
 
     <div data-ac="estimate" data-title="What happens if a critical task slips?" data-kind="Interactive &middot; estimate" data-cue="Zero float means a one-to-one slip. That is exactly what makes the critical path critical.">
