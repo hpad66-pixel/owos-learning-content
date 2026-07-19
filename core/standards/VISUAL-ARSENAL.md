@@ -8,6 +8,12 @@ same visual, change one of them so the chapter has variety.
 Run the **Selection Prompt** (bottom of this file) first, every module. It looks at each teaching
 point and picks the fitting visuals. Only then do you build.
 
+**Copy, do not hand-roll.** Once you pick a visual, copy its exact markup, CSS, and JavaScript out of
+`component-gallery.html`. Do not draw a simpler version by hand. If a module's diagram looks worse
+than the one in the gallery, it is wrong. Also: spell out every acronym in full the first time it
+appears (for example "Design-Build (DB)"), and give every term and acronym a hover tooltip. Use one
+tooltip element per page, never a second `title`-attribute tooltip.
+
 ---
 
 ## How to choose: match the visual to the JOB the idea is doing

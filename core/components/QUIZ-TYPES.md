@@ -3,6 +3,11 @@
 The Markdown list of every quiz in `quiz-gallery.html`. Open the gallery to try them live.
 Mix them across a chapter so the learner never does the same kind of task twice in a row.
 
+**Copy the exact quiz block** (its markup and its piece of the script) out of `quiz-gallery.html`.
+Do not hand-roll a plainer version. The gallery is the source of truth for how a quiz looks and works.
+Also: spell out every acronym in full the first time it appears, and give every term a hover tooltip
+(one tooltip element per page, never a second `title`-attribute tooltip).
+
 **Last updated:** 2026-07-18 &middot; **v0.1.0**
 
 | Quiz type | Use it for | How it works |

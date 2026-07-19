@@ -17,6 +17,12 @@ its own sake.
    reader is smart but new to this.
 5. **Always include a concrete water example.** Every concept gets tied to a real utility situation
    (a main replacement, a lift station, a meter route, the Millpond job, etc.).
+6. **Spell out every acronym in full the first time it appears**, with the short form in parentheses,
+   for example "Design-Bid-Build (DBB)" or "Net Present Value (NPV)". After that you may use the short
+   form. Never drop an acronym on the reader cold.
+7. **Tooltips.** Every new term AND every acronym gets a hover definition (a dotted `.term` span with a
+   `data-def`). Use exactly ONE tooltip element per page (`#tt`). Do NOT also put `title` attributes on
+   anything, because the browser then shows a second, duplicate tooltip. One tooltip, never two.
 
 ## Voice
 - Write like you're talking to one person. Use "you" and contractions ("you're", "it's", "that's").
@@ -86,3 +92,25 @@ Everything is wired together. Before and during a build, use these:
 
 **Mix the quiz types.** Do not use the same quiz twice in a row. Rotate them through a chapter so the
 learner keeps getting a different kind of task. Aim for at least 3 different quiz types per module.
+
+## Wire the four files together. DO NOT hand-roll. (This is the most important rule.)
+A module is ASSEMBLED from the four reference files below. You do not invent components from scratch,
+and you do not draw a simpler version of a diagram or quiz by hand. If a module's diagram or quiz
+looks worse than the gallery, it is wrong.
+
+1. **Content** comes from the curriculum, `SYLLABUS.md`: the chapter, its sections, and the exact
+   terms and acronyms it must teach.
+2. **Rules** come from this file, `WRITING-STANDARD.md`.
+3. **Diagrams** come from `component-gallery.html` (catalog: `COMPONENTS.md`). Run the Selection Prompt
+   in `VISUAL-ARSENAL.md` to choose which ones, then **copy the exact markup, CSS, and JavaScript** of
+   each chosen component out of the gallery into the module. Same code, same quality, every time.
+4. **Quizzes** come from `quiz-gallery.html` (catalog: `QUIZ-TYPES.md`). **Copy the exact quiz block**
+   (its markup and its piece of the script). Do not rewrite a plainer version.
+
+The galleries are the single source of truth for how a component looks and behaves. Building a module
+means: read the chapter in `SYLLABUS.md`, run the Selection Prompt, then paste the real gallery
+components in and fill them with this chapter's content, in the voice above. Nothing hand-rolled.
+
+Best practice: keep the gallery components identical across modules by sharing one CSS file and one JS
+file for them, so a fix in one place fixes every module. When that shared library exists, link it
+instead of copying.

@@ -3,6 +3,18 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.4.1] - 2026-07-18
+### Changed (standards, per Hardeep's direction)
+- Added hard rules: spell out every acronym in full on first use (short form in parentheses); every
+  term and acronym gets ONE hover tooltip (no second `title`-attribute tooltip).
+- Added the top rule: a module is ASSEMBLED by copying the exact components out of `component-gallery.html`
+  and `quiz-gallery.html` (chosen via the Selection Prompt, content from `SYLLABUS.md`). Never hand-roll
+  a simpler diagram or quiz. The galleries are the single source of truth for how components look and work.
+- Reinforced the same in `VISUAL-ARSENAL.md` and `QUIZ-TYPES.md`.
+### Next
+- Build a shared component library (one CSS + one JS) so every module uses the real gallery components,
+  then rebuild Chapter 02 on it. Acronyms defined first, tooltip doubling fixed.
+
 ## [0.4.0] - 2026-07-18
 ### Added
 - Chapter 02 (Delivery & life cycles), built with a fresh visual palette so it does not echo
