@@ -237,6 +237,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- contractrisk: who bears the cost risk ---- */
+.crcards{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.crcard{flex:1;min-width:150px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:13px}
+.crcard .nm{font:700 13.5px var(--f);color:var(--ink)}.crcard .sub2{font:10px var(--fm);color:var(--ink-3);margin-bottom:9px}
+.crcard .line{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}.crcard .line .k{color:var(--ink-2)}.crcard .line .v{font:700 13px var(--fm);color:var(--ink)}
+.crcard .prof.pos{color:var(--green)}.crcard .prof.neg{color:var(--red)}
+.crexposed{margin-top:9px;font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px;display:inline-block}
+.crexposed.owner{background:var(--red-50);color:var(--red)}.crexposed.contractor{background:#FBF3E2;color:var(--gold)}.crexposed.shared{background:var(--brand-50);color:var(--brand)}
+.crnote{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.crnote b{color:var(--brand-700)}
+
+/* ---- evm: earned value chart + indices ---- */
+.evmsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
+.evmleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.evmleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.evmstat{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.evmstat .o{flex:1;min-width:84px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:9px 10px;text-align:center}
+.evmstat .o .k{font:8.5px var(--fm);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}.evmstat .o .val{font:800 16px var(--fm);color:var(--ink)}
+.evmstat .o.good .val{color:var(--green)}.evmstat .o.bad .val{color:var(--red)}.evmstat .o.key{background:var(--brand-50);border-color:var(--brand-100)}.evmstat .o.key .val{color:var(--brand)}
+.evmverdict{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px;font-weight:600;line-height:1.5}
+.evmverdict.ok{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.evmverdict.warn{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.evmverdict.bad{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+
 /* ---- estrange: AACE estimate accuracy range ---- */
 .ertrack{position:relative;height:46px;margin:18px 0 6px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
 .erband{position:absolute;top:9px;bottom:9px;background:var(--brand-100);border:1px solid var(--brand);border-radius:6px;transition:left .25s,width .25s}
@@ -364,6 +383,24 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .at-item[data-state="1"]{border-color:var(--brand-100);background:var(--brand-50)}.at-item[data-state="1"] .at-state{border-color:var(--brand);background:#fff;color:var(--brand)}.at-item[data-state="2"]{border-color:#ead89d;background:#fff9e8}.at-item[data-state="2"] .at-state{border-color:#c7a94c;background:#fff;color:#795809}.at-item[data-state="3"]{border-color:#bfe0d4;background:var(--green-50)}.at-item[data-state="3"] .at-state{border-color:var(--green);background:#fff;color:var(--green)}
 .at-reset{margin-top:12px}
 @media(max-width:620px){.at-summary{grid-template-columns:1fr}.at-item{grid-template-columns:1fr}.at-state{width:100%}}
+
+/* ---- layered stack ---- */
+.lsstack{display:flex;flex-direction:column;gap:8px;max-width:760px;margin:0 auto}.lslayer{display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:center;width:100%;border:1px solid var(--line-2);border-radius:12px;background:var(--surface);padding:11px 14px;text-align:left;color:var(--ink);cursor:pointer;transition:transform .18s,border-color .18s,background .18s}.lslayer:nth-child(2){margin-left:3%;width:94%}.lslayer:nth-child(3){margin-left:6%;width:88%}.lslayer:nth-child(4){margin-left:9%;width:82%}.lslayer:hover,.lslayer.on{border-color:var(--brand);background:var(--brand-50);transform:translateY(-1px)}.lslayer b{display:block;font-size:14px}.lslayer small{display:block;margin-top:2px;color:var(--ink-3);font:500 10.5px var(--fm)}.lsnum{width:27px;height:27px;border-radius:8px;display:grid;place-items:center;background:var(--brand);color:#fff;font:800 10px var(--fm)}.lsdetail{margin-top:13px;padding:12px 15px;border:1px solid var(--brand-100);border-radius:12px;background:var(--brand-50);color:var(--ink);font-size:14px;line-height:1.55}.lsdetail b{color:var(--brand-700)}
+
+/* ---- before / after reveal ---- */
+.bastage{position:relative;min-height:270px;border:1px solid var(--line-2);border-radius:15px;overflow:hidden;background:var(--surface)}.bapanel{position:absolute;inset:0;padding:30px 24px 22px}.bapanel.before{background:linear-gradient(145deg,#fff7f4,#fff)}.bapanel.after{background:linear-gradient(145deg,#eef9f5,#fff)}.baafter{position:absolute;inset:0}.balabel{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--red-50);color:var(--red);font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em}.after .balabel{background:var(--green-50);color:var(--green)}.bapanel h4{margin:10px 0 8px;font-size:1.02rem;color:var(--ink)}.bapanel ul{margin:0;padding-left:19px}.bapanel li{margin:7px 0;font-size:13.5px;line-height:1.4;color:var(--ink-2)}.badivider{position:absolute;top:0;bottom:0;width:3px;background:var(--brand);transform:translateX(-1px);pointer-events:none}.badivider span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font-style:normal;box-shadow:0 3px 12px rgba(15,23,40,.22)}.barange{display:grid;grid-template-columns:minmax(170px,auto) 1fr auto;gap:12px;align-items:center;margin-top:14px}.barange label{font-weight:700;font-size:13px;color:var(--ink)}.barange output{font:700 11px var(--fm);color:var(--brand);min-width:96px;text-align:right}.banote{margin-top:11px;padding:11px 14px;border-radius:11px;background:var(--surface-2);border:1px solid var(--line);font-size:13.5px;color:var(--ink)}
+
+/* ---- handoff simulator ---- */
+.hotoggle{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);margin-bottom:15px}.hotoggle button{border:0;background:transparent;border-radius:8px;padding:7px 12px;color:var(--ink-2);font-weight:700;cursor:pointer}.hotoggle button.on{background:var(--brand);color:#fff}.hochain{display:flex;gap:22px;align-items:stretch;overflow-x:auto;padding:7px 4px 14px}.honode{position:relative;flex:1;min-width:130px;padding:13px;border:1px solid var(--line-2);border-radius:12px;background:var(--surface);opacity:.5}.honode.done{opacity:.78;border-color:var(--brand-100);background:var(--brand-50)}.honode.active{opacity:1;border:2px solid var(--brand);box-shadow:0 0 0 3px rgba(10,120,186,.12)}.honode>span{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:var(--brand-100);color:var(--brand-700);font:800 10px var(--fm);margin-bottom:8px}.honode.active>span{background:var(--brand);color:#fff}.honode b{display:block;color:var(--ink);font-size:13px}.honode small{display:block;color:var(--ink-3);font:500 9.5px var(--fm);margin-top:3px}.honode>i{position:absolute;right:-18px;top:50%;font-style:normal;color:var(--brand)}.hoctrl{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.hoctrl button{border:1px solid var(--line-2);border-radius:8px;background:var(--surface);padding:7px 11px;color:var(--ink-2);font-weight:700;cursor:pointer}.hoctrl button.primary{background:var(--brand);border-color:var(--brand);color:#fff}.hoctrl button:disabled{opacity:.45;cursor:default}.hoctrl span{margin-left:auto;font:600 10px var(--fm);color:var(--ink-3)}.honarr{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14px;line-height:1.55}.honarr.warn{background:#fff9e8;border:1px solid #ead89d;color:#795809}.honarr.ok{background:var(--green-50);border:1px solid #bfe0d4;color:#086b50}.honarr b{color:inherit}
+
+/* ---- fragmentation tax model ---- */
+.ftinputs{display:grid;gap:10px}.ftinputs label{display:grid;grid-template-columns:minmax(190px,1fr) minmax(150px,2fr) 74px;gap:12px;align-items:center}.ftinputs label span b{display:block;font-size:13.5px;color:var(--ink)}.ftinputs label span small{display:block;font:500 9.5px var(--fm);color:var(--ink-3)}.ftinputs output{text-align:right;font:700 12px var(--fm);color:var(--brand)}.ftkpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}.ftkpis div{padding:11px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);text-align:center}.ftkpis div.key{background:var(--brand-50);border-color:var(--brand-100)}.ftkpis b{display:block;font:800 18px var(--fm);color:var(--ink)}.ftkpis .key b{color:var(--brand)}.ftkpis span{display:block;margin-top:3px;font:600 8.5px var(--fm);color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}.ftchart{display:flex;gap:22px;align-items:flex-end;height:180px;padding:10px 22px 0;border-bottom:2px solid var(--line-2);background:linear-gradient(180deg,var(--surface),var(--surface-2));border-radius:12px 12px 0 0}.ftcol{flex:1;display:flex;height:100%;flex-direction:column;justify-content:flex-end;align-items:center}.ftcol b{font:700 11px var(--fm);color:var(--ink);margin-bottom:4px}.ftcol i{display:block;width:min(110px,70%);height:5px;background:var(--brand);border-radius:6px 6px 0 0;transition:height .2s}.ftcol i.rework{background:var(--gold)}.ftcol span{font:600 10px var(--fm);color:var(--ink-3);margin:6px 0 8px;text-align:center}.ftnote{margin-top:11px;padding:11px 14px;border:1px solid #ead89d;border-radius:11px;background:#fff9e8;color:#795809;font-size:13px;line-height:1.5}
+
+/* ---- governed artifact builder ---- */
+.abnotice{padding:11px 14px;border:1px solid #ead89d;border-radius:11px;background:#fff9e8;color:#795809;font-size:13px;line-height:1.5;margin-bottom:13px}.abfields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.abfields label{display:block;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.abfields label b{display:block;font-size:13px;color:var(--ink)}.abfields label small{display:block;min-height:2.8em;margin:3px 0 8px;color:var(--ink-3);font-size:11px;line-height:1.4}.abfields textarea{width:100%;resize:vertical;border:1px solid var(--line-2);border-radius:9px;padding:9px;font:500 13px var(--f);color:var(--ink);background:var(--surface-2)}.abfields textarea:focus{outline:2px solid var(--brand-100);border-color:var(--brand)}.abpreview{margin-top:14px;border:1px solid var(--brand-100);border-radius:13px;background:var(--brand-50);overflow:hidden}.abpreview>span{display:block;padding:8px 12px;background:var(--brand);color:#fff;font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em}.abpreview pre{margin:0;padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;font:500 12.5px/1.6 var(--fm);color:var(--ink)}.abactions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:11px}.abactions span{font:600 10.5px var(--fm);color:var(--ink-3)}
+
+@media(max-width:700px){.barange{grid-template-columns:1fr}.barange output{text-align:left}.bastage{min-height:340px}.ftinputs label{grid-template-columns:1fr}.ftinputs output{text-align:left}.ftkpis{grid-template-columns:repeat(2,1fr)}.abfields{grid-template-columns:1fr}.honode{min-width:150px}}
+@media(max-width:460px){.lslayer:nth-child(n){margin-left:0;width:100%}.bapanel{padding:27px 17px 18px}.bapanel li{font-size:12px}.ftkpis{grid-template-columns:1fr 1fr}.hotoggle{display:grid;width:100%}.hotoggle button{width:100%}}
 
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
@@ -691,7 +728,8 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   /* ---- lens toggle, reading progress, goals ---- */
   function initChrome(){
     var lens=document.querySelector('.lens');
-    if(lens){lens.querySelectorAll('button').forEach(function(b){
+    if(lens){var active=lens.querySelector('button.on')||lens.querySelector('button');if(active&&!document.body.hasAttribute('data-lens'))document.body.setAttribute('data-lens',active.getAttribute('data-lens'));
+      lens.querySelectorAll('button').forEach(function(b){
       b.addEventListener('click',function(){
         lens.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
         b.classList.add('on');
@@ -1024,6 +1062,63 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     b.querySelector('[data-reset]').addEventListener('click',function(){saved={};b.querySelectorAll('.at-item').forEach(paint);report();});report();
   };
 
+  R.layerstack=function(el){var c=cfgOf(el);var layers=c.layers||[];
+    var b=shell(el,'<div class="lsstack">'+layers.map(function(layer,i){
+      return '<button type="button" class="lslayer'+(i===0?' on':'')+'" data-i="'+i+'" aria-pressed="'+(i===0?'true':'false')+'"><span class="lsnum">'+(layer.number||i+1)+'</span><span><b>'+layer.label+'</b><small>'+(layer.sub||'')+'</small></span></button>';
+    }).join('')+'</div><div class="lsdetail" data-detail aria-live="polite">'+(layers[0]?layers[0].detail:'')+'</div>');
+    var detail=b.querySelector('[data-detail]');
+    b.querySelectorAll('.lslayer').forEach(function(button){button.addEventListener('click',function(){
+      b.querySelectorAll('.lslayer').forEach(function(item){item.classList.remove('on');item.setAttribute('aria-pressed','false');});button.classList.add('on');button.setAttribute('aria-pressed','true');
+      detail.innerHTML=layers[+button.dataset.i].detail||'';
+    });});
+  };
+
+  R.beforeafter=function(el){var c=cfgOf(el);var before=c.before||{},after=c.after||{};
+    function panel(kind,data){return '<div class="bapanel '+kind+'"><span class="balabel">'+(data.label||kind)+'</span><h4>'+(data.title||'')+'</h4><ul>'+(data.items||[]).map(function(item){return '<li>'+item+'</li>';}).join('')+'</ul></div>';}
+    var b=shell(el,'<div class="bastage">'+panel('before',before)+'<div class="baafter" data-after>'+panel('after',after)+'</div><i class="badivider" data-divider aria-hidden="true"><span>&#8596;</span></i></div><div class="barange"><label>'+(c.rangeLabel||'Move from fragmented to governed')+'</label><input type="range" min="0" max="100" value="50" aria-label="'+(c.rangeLabel||'Before and after comparison')+'"><output data-value>50% governed</output></div><div class="banote" data-note aria-live="polite"></div>');
+    var range=b.querySelector('input'),overlay=b.querySelector('[data-after]'),divider=b.querySelector('[data-divider]'),out=b.querySelector('[data-value]'),note=b.querySelector('[data-note]');
+    function update(){var v=+range.value;overlay.style.clipPath='inset(0 '+(100-v)+'% 0 0)';divider.style.left=v+'%';out.textContent=v+'% governed';
+      var notes=c.notes||[];var selected=notes[notes.length-1]||'';for(var i=0;i<notes.length;i++){if(v<=notes[i].max){selected=notes[i].body;break;}}note.innerHTML=selected;}
+    range.addEventListener('input',update);update();
+  };
+
+  R.handoff=function(el){var c=cfgOf(el);var steps=c.steps||[],mode='fragmented',index=0,timer=null;
+    var b=shell(el,'<div class="hotoggle"><button type="button" class="on" data-mode="fragmented">Fragmented handoff</button><button type="button" data-mode="governed">Governed handoff</button></div><div class="hochain" data-chain></div><div class="hoctrl"><button type="button" data-action="reset">Reset</button><button type="button" data-action="back">Back</button><button type="button" class="primary" data-action="next">Next handoff</button><button type="button" data-action="play">Play</button><span data-count></span></div><div class="honarr" data-narr aria-live="polite"></div>');
+    var chain=b.querySelector('[data-chain]'),narr=b.querySelector('[data-narr]'),count=b.querySelector('[data-count]');
+    function stop(){if(timer){clearInterval(timer);timer=null;}b.querySelector('[data-action="play"]').textContent='Play';}
+    function paint(){chain.innerHTML=steps.map(function(step,i){var state=i<index?' done':i===index?' active':'';var message=mode==='fragmented'?step.risk:step.control;return '<div class="honode'+state+'"><span>'+(i+1)+'</span><b>'+step.label+'</b><small>'+(step.sub||'')+'</small>'+(i<steps.length-1?'<i>&#8594;</i>':'')+'</div>';}).join('');
+      var step=steps[index]||{};narr.className='honarr '+(mode==='fragmented'?'warn':'ok');narr.innerHTML='<b>'+(step.label||'')+'.</b> '+(mode==='fragmented'?(step.risk||''):(step.control||''));count.textContent=(steps.length?index+1:0)+' of '+steps.length;
+      b.querySelector('[data-action="back"]').disabled=index===0;b.querySelector('[data-action="next"]').disabled=index>=steps.length-1;}
+    b.querySelectorAll('[data-mode]').forEach(function(button){button.setAttribute('aria-pressed',button.classList.contains('on')?'true':'false');button.addEventListener('click',function(){stop();mode=button.dataset.mode;index=0;b.querySelectorAll('[data-mode]').forEach(function(item){item.classList.remove('on');item.setAttribute('aria-pressed','false');});button.classList.add('on');button.setAttribute('aria-pressed','true');paint();});});
+    b.querySelector('[data-action="reset"]').addEventListener('click',function(){stop();index=0;paint();});
+    b.querySelector('[data-action="back"]').addEventListener('click',function(){stop();index=Math.max(0,index-1);paint();});
+    b.querySelector('[data-action="next"]').addEventListener('click',function(){stop();index=Math.min(steps.length-1,index+1);paint();});
+    b.querySelector('[data-action="play"]').addEventListener('click',function(){if(timer){stop();return;}index=0;paint();this.textContent='Pause';timer=setInterval(function(){if(index>=steps.length-1){stop();return;}index++;paint();},1400);});paint();
+  };
+
+  R.fragtax=function(el){var c=cfgOf(el);var settings=c.inputs||{};
+    function setting(id,label,unit,min,max,step,value){var x=settings[id]||{};return {id:id,label:x.label||label,unit:x.unit||unit,min:x.min==null?min:x.min,max:x.max==null?max:x.max,step:x.step==null?step:x.step,value:x.value==null?value:x.value};}
+    var inputs=[setting('decisions','Decision cycles each month','cycles',1,60,1,12),setting('people','People rebuilding each answer','people',1,20,1,5),setting('minutes','Minutes per person per cycle','minutes',10,360,10,90),setting('rework','Added rework and exception time','%',0,100,5,25),setting('cost','Loaded labor cost','$ / hour',25,180,5,65)];
+    var b=shell(el,'<div class="ftinputs">'+inputs.map(function(input){return '<label><span><b>'+input.label+'</b><small>'+input.unit+'</small></span><input type="range" data-id="'+input.id+'" min="'+input.min+'" max="'+input.max+'" step="'+input.step+'" value="'+input.value+'"><output data-out="'+input.id+'"></output></label>';}).join('')+'</div><div class="ftkpis"><div><b data-hours></b><span>annual search and join hours</span></div><div><b data-rework></b><span>annual rework hours</span></div><div class="key"><b data-cost></b><span>direct labor planning estimate</span></div><div><b data-weeks></b><span>40-hour work weeks</span></div></div><div class="ftchart"><div class="ftcol"><b data-base-label></b><i data-base-bar></i><span>search and reconcile</span></div><div class="ftcol"><b data-rework-label></b><i class="rework" data-rework-bar></i><span>added rework</span></div></div><div class="ftnote">'+(c.note||'This is a planning estimate of direct labor only. Validate local cycle counts, time, cost, service consequences, and risk before using it in a funding decision.')+'</div>');
+    function value(id){return +b.querySelector('input[data-id="'+id+'"]').value;}function money(n){return '$'+Math.round(n).toLocaleString();}
+    function paint(){inputs.forEach(function(input){var v=value(input.id),text=input.id==='cost'?money(v):v.toLocaleString();if(input.id==='rework')text+='%';b.querySelector('[data-out="'+input.id+'"]').textContent=text;});
+      var base=value('decisions')*12*value('people')*value('minutes')/60,rework=base*value('rework')/100,total=base+rework,cost=total*value('cost'),max=Math.max(base,rework,1);
+      b.querySelector('[data-hours]').textContent=Math.round(base).toLocaleString();b.querySelector('[data-rework]').textContent=Math.round(rework).toLocaleString();b.querySelector('[data-cost]').textContent=money(cost);b.querySelector('[data-weeks]').textContent=(total/40).toFixed(1);
+      b.querySelector('[data-base-label]').textContent=Math.round(base).toLocaleString()+' h';b.querySelector('[data-rework-label]').textContent=Math.round(rework).toLocaleString()+' h';b.querySelector('[data-base-bar]').style.height=Math.max(5,base/max*120)+'px';b.querySelector('[data-rework-bar]').style.height=Math.max(5,rework/max*120)+'px';}
+    b.querySelectorAll('input').forEach(function(input){input.addEventListener('input',paint);});paint();
+  };
+
+  R.artifactbuilder=function(el){var c=cfgOf(el),fields=c.fields||[],key='owos:artifactbuilder:'+(c.key||location.pathname),saved={};
+    try{saved=JSON.parse(localStorage.getItem(key)||'{}')||{};}catch(e){saved={};}
+    var b=shell(el,'<div class="abnotice">'+(c.notice||'Use only non-sensitive working text here. Save controlled utility evidence in an approved repository.')+'</div><div class="abfields">'+fields.map(function(field){return '<label><b>'+field.label+'</b><small>'+(field.help||'')+'</small><textarea data-id="'+field.id+'" rows="'+(field.rows||3)+'" placeholder="'+(field.placeholder||'')+'"></textarea></label>';}).join('')+'</div><div class="abpreview"><span>'+(c.previewLabel||'Executive case preview')+'</span><pre data-preview></pre></div><div class="abactions"><button type="button" class="btn" data-copy>Copy preview</button><button type="button" class="btn" data-clear>Clear saved draft</button><span data-status aria-live="polite"></span></div>');
+    var preview=b.querySelector('[data-preview]'),status=b.querySelector('[data-status]');
+    function compose(){var text=c.template||'';fields.forEach(function(field){var v=saved[field.id]||'['+field.label+']';text=text.split('{'+field.id+'}').join(v);});return text;}
+    function save(){try{localStorage.setItem(key,JSON.stringify(saved));status.textContent='Draft saved on this device.';}catch(e){status.textContent='Draft could not be saved in this browser.';}preview.textContent=compose();}
+    fields.forEach(function(field){var input=b.querySelector('[data-id="'+field.id+'"]').value=saved[field.id]||'';b.querySelector('[data-id="'+field.id+'"]').addEventListener('input',function(){saved[field.id]=this.value.trim();save();});});save();
+    b.querySelector('[data-copy]').addEventListener('click',async function(){try{await navigator.clipboard.writeText(compose());status.textContent='Preview copied. Move it into your approved Launch Pack workspace.';}catch(e){status.textContent='Copy was blocked. Select the preview text and copy it manually.';}});
+    b.querySelector('[data-clear]').addEventListener('click',function(){saved={};fields.forEach(function(field){b.querySelector('[data-id="'+field.id+'"]').value='';});try{localStorage.removeItem(key);}catch(e){}save();status.textContent='Saved draft cleared.';});
+  };
+
   R.twofig=function(el){var c=cfgOf(el);function box(o){return '<div class="box"><div class="cap">'+o.cap+'</div>'+o.svg+'<div class="note">'+o.note+'</div></div>';}
     shell(el,'<div class="twofig">'+box(c.left)+box(c.right)+'</div>');
   };
@@ -1303,6 +1398,81 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       var pv=amt/Math.pow(1+r,y);b.querySelector('[data-pvv]').textContent=m0(pv);b.querySelector('[data-pvbar]').style.height=Math.max(2,pv/amt*100)+'%';
       b.querySelector('[data-out]').innerHTML=m0(amt)+' promised '+y+' years out is worth about <b>'+m0(pv)+'</b> today at '+(r*100).toFixed(1)+'%. That is why future savings are discounted: a dollar later is worth less than a dollar now. The formula is PV = FV / (1 + r) raised to the number of years.';}
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
+  };
+
+  R.contractrisk=function(el){var c=cfgOf(el);var target=c.target||1000,fee=c.fee||100,ffp=c.ffp||Math.round(target*1.10),gmpCap=c.gmpCap||Math.round(target*1.15);
+    function m(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    var b=shell(el,'<p style="font-size:14px;color:var(--ink-2);margin:0 0 8px">Estimated cost <b style="color:var(--ink)">'+m(target)+'</b>. Fixed price '+m(ffp)+', GMP cap '+m(gmpCap)+', fee '+m(fee)+'. Now move the actual cost the job really came in at.</p>'+
+      '<div class="pvrow"><span class="nm">Final actual cost</span><input type="range" min="'+(c.min||Math.round(target*0.7))+'" max="'+(c.max||Math.round(target*1.5))+'" step="25" value="'+(c.start||Math.round(target*1.2))+'"><span class="v" data-a></span></div>'+
+      '<div class="crcards" data-cards></div><div class="crnote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var actual=+rng.value;b.querySelector('[data-a]').textContent=m(actual);
+      var types=[
+        {nm:'Firm Fixed Price',sub:'FFP: one price, no matter what',owner:ffp,cls:'contractor',who:'Contractor'},
+        {nm:'Cost-plus / T&M',sub:'owner pays cost + a fee',owner:actual+fee,cls:'owner',who:'Owner'},
+        {nm:'Guaranteed Max Price',sub:'GMP: owner pays cost + fee, capped',owner:Math.min(actual+fee,gmpCap),cls:'shared',who:'Shared'}
+      ];
+      b.querySelector('[data-cards]').innerHTML=types.map(function(t){var prof=t.owner-actual;
+        return '<div class="crcard"><div class="nm">'+t.nm+'</div><div class="sub2">'+t.sub+'</div>'+
+          '<div class="line"><span class="k">Owner pays</span><span class="v">'+m(t.owner)+'</span></div>'+
+          '<div class="line"><span class="k">Contractor keeps</span><span class="v prof '+(prof>=0?'pos':'neg')+'">'+(prof>=0?'+':'')+m(prof)+'</span></div>'+
+          '<div class="crexposed '+t.cls+'">'+t.who+' carries the risk</div></div>';}).join('');
+      var over=actual>target,note=b.querySelector('[data-note]');
+      if(actual>ffp)note.innerHTML='At <b>'+m(actual)+'</b> actual on a '+m(target)+' estimate, Fixed Price protects the owner (still '+m(ffp)+') while the contractor eats the '+m(actual-ffp)+' overrun. Cost-plus hands the whole overrun to the owner. GMP caps the owner at '+m(gmpCap)+' and the contractor covers the rest. <b>That risk transfer is exactly what you pay for in the price.</b>';
+      else note.innerHTML='At <b>'+m(actual)+'</b>, under the fixed price, the Fixed Price contractor pockets the '+m(ffp-actual)+' saving, cost-plus passes the low cost straight to the owner, and GMP shares it. Push the actual above '+m(ffp)+' and watch who starts losing money.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.evm=function(el){var c=cfgOf(el);var bac=c.bac||1300;
+    function m(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    function row(k,label,sub,val,mn,mx,st){return '<div class="pvrow"><span class="nm">'+label+'<small style="display:block;font:11px var(--fm);color:var(--ink-3)">'+sub+'</small></span><input type="range" data-k="'+k+'" min="'+mn+'" max="'+mx+'" step="'+st+'" value="'+val+'"><span class="v" data-v="'+k+'"></span></div>';}
+    var b=shell(el,
+      '<p style="font-size:14px;color:var(--ink-2);margin:0 0 6px">Budget at completion (BAC): <b style="color:var(--ink)">'+m(bac)+'</b>. Now say where the job stands.</p>'+
+      row('t','Schedule elapsed','how far through the planned time',c.t||50,0,100,5)+
+      row('w','Work actually complete','percent of the job done',c.w||40,0,100,5)+
+      row('a','Actual cost spent','dollars out the door so far',c.a||600,0,Math.round(bac*1.4),25)+
+      '<svg class="evmsvg" viewBox="0 0 320 150" data-svg></svg>'+
+      '<div class="evmleg"><span><span class="sw" style="background:#0A78BA"></span>Planned Value (PV)</span><span><span class="sw" style="background:#0E8A64"></span>Earned Value (EV)</span><span><span class="sw" style="background:#D64545"></span>Actual Cost (AC)</span></div>'+
+      '<div class="evmstat"><div class="o"><div class="k">PV</div><div class="val" data-pv></div></div>'+
+      '<div class="o"><div class="k">EV</div><div class="val" data-ev></div></div>'+
+      '<div class="o"><div class="k">AC</div><div class="val" data-acost></div></div>'+
+      '<div class="o" data-cpio><div class="k">CPI</div><div class="val" data-cpi></div></div>'+
+      '<div class="o" data-spio><div class="k">SPI</div><div class="val" data-spi></div></div>'+
+      '<div class="o key"><div class="k">Forecast (EAC)</div><div class="val" data-eac></div></div></div>'+
+      '<div class="evmverdict" data-verdict></div>');
+    function val(k){return +b.querySelector('input[data-k="'+k+'"]').value;}
+    function ss(x){return x*x*(3-2*x);}
+    function upd(){
+      var t=val('t'),w=val('w'),ac=val('a');
+      b.querySelector('[data-v="t"]').textContent=t+'%';b.querySelector('[data-v="w"]').textContent=w+'%';b.querySelector('[data-v="a"]').textContent=m(ac);
+      var pv=bac*ss(t/100),ev=bac*w/100;
+      var cpi=ac>0?ev/ac:0,spi=pv>0?ev/pv:0,eac=cpi>0?bac/cpi:bac;
+      b.querySelector('[data-pv]').textContent=m(pv);b.querySelector('[data-ev]').textContent=m(ev);b.querySelector('[data-acost]').textContent=m(ac);
+      b.querySelector('[data-cpi]').textContent=cpi.toFixed(2);b.querySelector('[data-spi]').textContent=spi.toFixed(2);b.querySelector('[data-eac]').textContent=m(eac);
+      b.querySelector('[data-cpio]').className='o '+(cpi>=1?'good':'bad');b.querySelector('[data-spio]').className='o '+(spi>=1?'good':'bad');
+      // chart
+      var x0=8,x1=312,y0=10,y1=128,ymax=Math.max(bac,ac)*1.08||1;
+      function X(f){return x0+f*(x1-x0);}function Y(v){return y1-v/ymax*(y1-y0);}
+      var pvpts='';for(var i=0;i<=40;i++){var f=i/40;pvpts+=X(f).toFixed(1)+','+Y(bac*ss(f)).toFixed(1)+' ';}
+      var tf=t/100;
+      var svg='<polyline points="'+pvpts+'" fill="none" stroke="#0A78BA" stroke-width="1.6" opacity=".55"/>'+
+        '<line x1="'+X(tf).toFixed(1)+'" y1="'+y0+'" x2="'+X(tf).toFixed(1)+'" y2="'+y1+'" stroke="#8595AB" stroke-dasharray="3 3"/>'+
+        '<text x="'+X(tf).toFixed(1)+'" y="8" text-anchor="middle" font-size="8" fill="#8595AB">today</text>'+
+        '<line x1="'+x0+'" y1="'+Y(0)+'" x2="'+X(tf).toFixed(1)+'" y2="'+Y(ev).toFixed(1)+'" stroke="#0E8A64" stroke-width="1.8"/>'+
+        '<line x1="'+x0+'" y1="'+Y(0)+'" x2="'+X(tf).toFixed(1)+'" y2="'+Y(ac).toFixed(1)+'" stroke="#D64545" stroke-width="1.8"/>'+
+        '<circle cx="'+X(tf).toFixed(1)+'" cy="'+Y(pv).toFixed(1)+'" r="3.4" fill="#0A78BA"/>'+
+        '<circle cx="'+X(tf).toFixed(1)+'" cy="'+Y(ev).toFixed(1)+'" r="3.4" fill="#0E8A64"/>'+
+        '<circle cx="'+X(tf).toFixed(1)+'" cy="'+Y(ac).toFixed(1)+'" r="3.4" fill="#D64545"/>'+
+        '<line x1="'+x0+'" y1="'+y1+'" x2="'+x1+'" y2="'+y1+'" stroke="#CDD6E1"/>';
+      b.querySelector('[data-svg]').innerHTML=svg;
+      var v=b.querySelector('[data-verdict]'),over=cpi<1,behind=spi<1;
+      var cls=(!over&&!behind)?'ok':((over&&behind)?'bad':'warn');
+      var costTxt=cpi<1?'<b>over budget</b> (every dollar of work is costing '+(1/cpi).toFixed(2)+' dollars)':(cpi>1?'<b>under budget</b>':'right on budget');
+      var schTxt=spi<1?'<b>behind schedule</b> (only '+(spi*100).toFixed(0)+' cents of work done per planned dollar)':(spi>1?'<b>ahead of schedule</b>':'on schedule');
+      v.className='evmverdict '+cls;
+      v.innerHTML='You are '+costTxt+' and '+schTxt+'. At this rate the job finishes near <b>'+m(eac)+'</b>'+(eac>bac?', about '+m(eac-bac)+' over the '+m(bac)+' budget.':(eac<bac?', under the '+m(bac)+' budget.':'.'))+' EAC = BAC / CPI: keep spending at today\'s efficiency and that is where you land.';
+    }
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
   };
 
   R.estrange=function(el){var c=cfgOf(el);var base=c.base||1300;

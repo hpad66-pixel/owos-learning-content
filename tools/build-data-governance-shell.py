@@ -33,8 +33,8 @@ STORE_KEY = "dga001"
 COURSE_TITLE = "Data Before AI: Data and Artificial Intelligence Governance for Utilities"
 COURSE_SOURCE = "masterclass-data-governance.html"
 COURSE_OUTPUT = "course-data-governance.html"
-RELEASED_CHAPTERS = {"00"}
-SHELL_VERSION = "0.15.0"
+RELEASED_CHAPTERS = {"00", "01"}
+SHELL_VERSION = "0.18.0"
 
 CORE_CSS = (ROOT / "core/components/academy.css").read_text(encoding="utf-8")
 CORE_JS = (ROOT / "core/components/academy.js").read_text(encoding="utf-8")
@@ -239,17 +239,17 @@ def landing(chapters: list[Chapter]) -> str:
     <div class="dg-eyebrow">OWOS Academy &middot; Utility Master Class</div>
     <h1>Data Before AI</h1>
     <p>Build the governance layer that makes utility data trustworthy enough for operations, regulation, capital decisions, analytics, artificial intelligence, and digital twins.</p>
-    <span class="dg-status"><i></i>Chapter 00 available &middot; 24 chapters in development</span>
+    <span class="dg-status"><i></i>Chapters 00 and 01 available &middot; 23 chapters in development</span>
   </header>
 
   <div class="dg-stats" aria-label="Course structure">
     <div class="dg-stat"><b>25</b><span>Chapters 00 to 24</span></div>
     <div class="dg-stat"><b>75</b><span>Planned sections</span></div>
     <div class="dg-stat"><b>12</b><span>Governance domains</span></div>
-    <div class="dg-stat"><b>{len(RELEASED_CHAPTERS)}</b><span>Lesson released</span></div>
+    <div class="dg-stat"><b>{len(RELEASED_CHAPTERS)}</b><span>Lessons released</span></div>
   </div>
 
-  <aside class="dg-note"><strong>The course is now releasing chapter by chapter.</strong><p>Chapter 00 is a complete orientation lesson with an interactive Deployment Studio and completion event. The other 24 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
+  <aside class="dg-note"><strong>The course is releasing chapter by chapter.</strong><p>Chapter 00 establishes the governed Launch Pack. Chapter 01 builds the executive case for the missing layer above utility systems and measures fragmentation. The other 23 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
 
   <h2>One source, one delivery path</h2>
   <div class="dg-flow" aria-label="Course delivery path"><div>onewater-os curriculum</div><div>Validated native build</div><div>OWOS.ai Learn</div><div>Supabase learner records</div><div>Knowledge Graph alignment</div></div>

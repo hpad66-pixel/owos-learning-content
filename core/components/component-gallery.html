@@ -2,6 +2,7 @@
 <title>Component Gallery &middot; One Water OS Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="academy.css">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="%230B7DC2"/><path d="M20 6C20 6 11 16 11 23C11 28 15 32 20 32C25 32 29 28 29 23C29 16 20 6 20 6Z" fill="none" stroke="%23FFFFFF" stroke-width="2"/><circle cx="20" cy="23" r="3.4" fill="%23F2C94C"/></svg>'>
 <style>
   :root{--bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;--ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;--brand:#0A78BA;--brand-700:#08669F;--brand-800:#07547F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;--gold:#A97B0F;--green:#0E8A64;--red:#D64545;--mut:#9AA7B4;--f:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;--fm:'JetBrains Mono',Menlo,monospace;--sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);--sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16)}
@@ -85,6 +86,24 @@
     <div class="g"><div class="gh"><b>Method (numbered)</b><span class="kind">Method</span><span class="use">use when: a how-to recipe</span></div><div class="gb"><div class="method2"><div class="s"><span class="n">1</span><span class="t">Add up the cost</span></div><div class="s"><span class="n">2</span><span class="t">Add up the savings</span></div><div class="s"><span class="n">3</span><span class="t">Compare, decide</span></div></div></div></div>
     <div class="g"><div class="gh"><b>Artifact tracker</b><span class="kind">Interactive status</span><span class="use">use when: records move through evidence and review states</span></div><div class="gb"><div style="width:100%;display:grid;gap:7px"><div style="padding:9px;border:1px solid var(--line);border-radius:9px;display:flex;justify-content:space-between;gap:8px"><b style="font-size:12px">Decision statement</b><span style="font:700 9px var(--fm);color:var(--green)">Reviewed</span></div><div style="padding:9px;border:1px solid var(--line);border-radius:9px;display:flex;justify-content:space-between;gap:8px"><b style="font-size:12px">Source baseline</b><span style="font:700 9px var(--fm);color:var(--gold)">Evidence noted</span></div><div style="height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden"><i style="display:block;width:50%;height:100%;background:var(--green)"></i></div></div></div></div>
   </div>
+
+  <div class="cat">Reusable governance interactions</div>
+  <p class="lead">These components are driven by the shared Academy library. Their labels, values, and explanations come from the JSON configuration inside each lesson.</p>
+  <div data-ac="layerstack" data-title="Layered stack" data-kind="Interactive diagram" data-cue="Select a tier to reveal why it exists.">
+    <script type="application/json">{"layers":[{"label":"Decisions and outcomes","sub":"the accountable use","detail":"The top layer is the utility decision and its service, safety, customer, or compliance outcome."},{"label":"Governed layer","sub":"identity, meaning, ownership, evidence","detail":"The governed layer connects source data to accountable use without replacing the source systems."},{"label":"Source systems","sub":"operational and business records","detail":"Source systems capture and maintain data for their local operating jobs."}]}</script>
+  </div>
+  <div data-ac="beforeafter" data-title="Before and after reveal" data-kind="Interactive chart" data-cue="Drag the divider to compare two operating states.">
+    <script type="application/json">{"rangeLabel":"Reveal the governed state","before":{"label":"Before","title":"Fragmented handoff","items":["Meaning rebuilt by memory","Exceptions hidden in email","No linked decision record"]},"after":{"label":"After","title":"Governed handoff","items":["Meaning and owner are named","Exceptions are assigned","Decision evidence is retained"]},"notes":[{"max":49,"body":"The fragmented state still depends on personal reconstruction."},{"max":100,"body":"The governed state makes the rule, limit, owner, and record visible."}]}</script>
+  </div>
+  <div data-ac="handoff" data-title="Handoff simulator" data-kind="Interactive process" data-cue="Switch modes, then step through or play the chain.">
+    <script type="application/json">{"steps":[{"label":"Source","sub":"observation","risk":"The source identity is copied without context.","control":"Identity, time, unit, and quality travel with the observation."},{"label":"Join","sub":"transformation","risk":"A plausible value joins to the wrong asset.","control":"A controlled mapping and validation check the join."},{"label":"Decision","sub":"action","risk":"The action cannot be reconstructed later.","control":"Authority, input, reason, action, and outcome are retained."}]}</script>
+  </div>
+  <div data-ac="fragtax" data-title="Fragmentation tax model" data-kind="Interactive chart" data-cue="Move the inputs and keep every planning assumption visible.">
+    <script type="application/json">{"inputs":{"decisions":{"value":8,"max":30},"people":{"value":4,"max":12},"minutes":{"value":60,"max":240},"rework":{"value":20,"max":100},"cost":{"value":65,"max":180}}}</script>
+  </div>
+  <div data-ac="artifactbuilder" data-title="Governed artifact builder" data-kind="Interactive method" data-cue="Draft locally, preview the controlled shape, then copy it into an approved workspace.">
+    <script type="application/json">{"key":"component-gallery-artifact-builder","notice":"Gallery example only. Do not enter protected utility information.","fields":[{"id":"decision","label":"Decision","help":"Name the choice and authorized role.","placeholder":"Duty manager decides whether to escalate."},{"id":"evidence","label":"Evidence","help":"Name the source and limit.","placeholder":"Alarm, rain, work, and permit records."}],"template":"Decision\n{decision}\n\nEvidence\n{evidence}"}</script>
+  </div>
 </div>
 <script>
   var stool=document.getElementById('stool'),weak=false;
@@ -92,4 +111,5 @@
     stool.innerHTML='<g '+tilt+'><ellipse cx="130" cy="52" rx="72" ry="15" fill="var(--brand)"/><line x1="72" y1="60" x2="58" y2="128" stroke="#0F1728" stroke-width="6" stroke-linecap="round"/><line x1="188" y1="60" x2="202" y2="128" stroke="#0F1728" stroke-width="6" stroke-linecap="round"/><line x1="130" y1="64" x2="130" y2="132" stroke="'+legR+'" stroke-width="6" stroke-linecap="round" '+dash+'/><text x="72" y="120" text-anchor="middle" font-size="8" fill="#44546A">Env.</text><text x="188" y="120" text-anchor="middle" font-size="8" fill="#44546A">Social</text><text x="130" y="146" text-anchor="middle" font-size="8" fill="'+(weak?'#D64545':'#44546A')+'">Economic</text></g>';}
   drawStool();document.getElementById('stoolBtn').onclick=function(){weak=!weak;this.textContent=weak?'Restore the leg':'Weaken a leg';drawStool();};
 </script>
+<script src="academy.js"></script>
 </body></html>
