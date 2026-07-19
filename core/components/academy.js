@@ -743,6 +743,81 @@
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
   };
 
+  R.coq=function(el){var c=cfgOf(el);var failBase=c.failBase||400,K=c.K||100,max=c.max||300,unit=c.unit||'k';
+    function m(k){return '$'+Math.round(k)+unit;}
+    var b=shell(el,'<div class="pvrow"><span class="nm">Prevention &amp; appraisal spend</span><input type="range" min="0" max="'+max+'" step="10" value="'+(c.start||40)+'"><span class="v" data-p></span></div>'+
+      '<svg class="coqsvg" viewBox="0 0 300 150" data-svg></svg>'+
+      '<div class="coqleg"><span><span class="sw" style="background:#0A78BA"></span>Prevention + appraisal</span><span><span class="sw" style="background:#D64545"></span>Failure cost</span><span><span class="sw" style="background:#0F1728"></span>Total</span></div>'+
+      '<div class="coqout"><div class="o"><div class="k">Prevention</div><div class="val" data-vp></div></div><div class="o"><div class="k">Failure</div><div class="val" data-vf></div></div><div class="o key"><div class="k">Total quality cost</div><div class="val" data-vt></div></div></div>'+
+      '<div class="coqnote" data-note></div>');
+    var rng=b.querySelector('input');function failAt(p){return failBase*K/(K+p);}
+    var optP=Math.max(0,Math.round(Math.sqrt(failBase*K)-K));
+    function upd(){var p=+rng.value,f=failAt(p),t=p+f;
+      b.querySelector('[data-p]').textContent=m(p);b.querySelector('[data-vp]').textContent=m(p);b.querySelector('[data-vf]').textContent=m(f);b.querySelector('[data-vt]').textContent=m(t);
+      var x0=8,x1=292,y0=10,y1=128,xmax=max,ymax=failBase*1.05;function X(v){return x0+v/xmax*(x1-x0);}function Y(v){return y1-v/ymax*(y1-y0);}
+      var pl='',fc='',tc='';for(var i=0;i<=40;i++){var pp=i/40*xmax;pl+=X(pp).toFixed(1)+','+Y(pp).toFixed(1)+' ';fc+=X(pp).toFixed(1)+','+Y(failAt(pp)).toFixed(1)+' ';tc+=X(pp).toFixed(1)+','+Y(pp+failAt(pp)).toFixed(1)+' ';}
+      b.querySelector('[data-svg]').innerHTML='<polyline points="'+pl+'" fill="none" stroke="#0A78BA" stroke-width="1.5" opacity=".55"/>'+
+        '<polyline points="'+fc+'" fill="none" stroke="#D64545" stroke-width="1.5" opacity=".55"/>'+
+        '<polyline points="'+tc+'" fill="none" stroke="#0F1728" stroke-width="2.2"/>'+
+        '<line x1="'+X(optP).toFixed(1)+'" y1="'+y0+'" x2="'+X(optP).toFixed(1)+'" y2="'+y1+'" stroke="#0E8A64" stroke-dasharray="3 3"/><text x="'+X(optP).toFixed(1)+'" y="8" text-anchor="middle" font-size="8" fill="#0E8A64">sweet spot</text>'+
+        '<line x1="'+X(p).toFixed(1)+'" y1="'+y0+'" x2="'+X(p).toFixed(1)+'" y2="'+y1+'" stroke="#8595AB" stroke-dasharray="2 2"/>';
+      var note=b.querySelector('[data-note]');
+      if(p<optP-15){note.className='coqnote warn';note.innerHTML='<b>Under-investing.</b> Another dollar of prevention here still saves more than a dollar of failure. Catch problems earlier: better inspection, better specs, better training.';}
+      else if(p>optP+15){note.className='coqnote warn';note.innerHTML='<b>Past the sweet spot.</b> More inspection now costs more than the failures it prevents. Quality has diminishing returns too.';}
+      else{note.className='coqnote ok';note.innerHTML='<b>Near the sweet spot</b> (about '+m(optP)+'). Total cost of quality is close to its minimum: enough prevention to keep failures down, not so much you over-inspect.';}}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.grid=function(el){var c=cfgOf(el);var q=c.quadrants||{},items=c.items||[];
+    var b=shell(el,'<div class="gridwrap"><div class="gridyax">'+(c.yLabel||'Impact')+'</div><div class="gridsq">'+
+      '<div class="gridcell lo-hi"><span class="qlab">'+((q.tl&&q.tl.label)||'')+'</span></div>'+
+      '<div class="gridcell hi-hi"><span class="qlab">'+((q.tr&&q.tr.label)||'')+'</span></div>'+
+      '<div class="gridcell lo-lo"><span class="qlab">'+((q.bl&&q.bl.label)||'')+'</span></div>'+
+      '<div class="gridcell hi-lo"><span class="qlab">'+((q.br&&q.br.label)||'')+'</span></div>'+
+      items.map(function(it,i){return '<div class="griddot" data-i="'+i+'" style="left:'+it.x+'%;bottom:'+it.y+'%">'+(i+1)+'</div>';}).join('')+
+      '</div><div class="gridxax">'+(c.xLabel||'Likelihood')+'</div></div>'+
+      '<div style="font:600 12px var(--fm);color:var(--ink-2);margin:8px 0 0;display:flex;flex-wrap:wrap;gap:5px 14px">'+items.map(function(it,i){return '<span>'+(i+1)+'. '+it.name+'</span>';}).join('')+'</div>'+
+      '<div class="griddetail" data-detail>Tap a numbered marker to read where it lands and what to do about it.</div>');
+    var det=b.querySelector('[data-detail]');
+    b.querySelectorAll('.griddot').forEach(function(d){d.addEventListener('click',function(){
+      var it=items[+d.dataset.i],xh=it.x>=50,yh=it.y>=50,quad=yh?(xh?q.tr:q.tl):(xh?q.br:q.bl);
+      b.querySelectorAll('.griddot').forEach(function(x){x.classList.remove('on');});d.classList.add('on');
+      det.className='griddetail on';det.innerHTML='<b>'+it.name+'.</b> '+((quad&&quad.label)?'<b>'+quad.label+'</b>: ':'')+((quad&&quad.strategy)||'')+(it.note?' '+it.note:'');});});
+  };
+
+  R.channels=function(el){var c=cfgOf(el);var mn=c.min||2,mx=c.max||24;
+    var b=shell(el,'<div class="pvrow"><span class="nm">Team size</span><input type="range" min="'+mn+'" max="'+mx+'" step="1" value="'+(c.start||6)+'"><span class="v" data-n></span></div>'+
+      '<svg class="chsvg" viewBox="0 0 200 200" data-svg></svg><div class="chout" data-out></div><div class="chnote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var n=+rng.value,ch=n*(n-1)/2;b.querySelector('[data-n]').textContent=n+' people';
+      var cx=100,cy=100,r=80,pts=[];for(var i=0;i<n;i++){var a=-Math.PI/2+i/n*2*Math.PI;pts.push([cx+r*Math.cos(a),cy+r*Math.sin(a)]);}
+      var lines='';for(var i2=0;i2<n;i2++)for(var j=i2+1;j<n;j++)lines+='<line x1="'+pts[i2][0].toFixed(1)+'" y1="'+pts[i2][1].toFixed(1)+'" x2="'+pts[j][0].toFixed(1)+'" y2="'+pts[j][1].toFixed(1)+'" stroke="#0A78BA" stroke-width="0.6" opacity="0.4"/>';
+      var dots=pts.map(function(p){return '<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="5" fill="#0A78BA"/>';}).join('');
+      b.querySelector('[data-svg]').innerHTML=lines+dots;
+      b.querySelector('[data-out]').innerHTML='<b>'+ch+'</b> communication channels';
+      b.querySelector('[data-note]').innerHTML='Channels grow as n(n-1)/2. Going from '+n+' to '+(n+1)+' people does not add one channel, it adds <b>'+n+'</b>. That is why large teams drown in communication, and why you structure it instead of letting everyone talk to everyone.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.zopa=function(el){var c=cfgOf(el);var mn=c.min||0,mx=c.max||100,unit=c.unit||'k',step=c.step||5;
+    function m(v){return '$'+v+unit;}
+    var b=shell(el,'<div class="pvrow"><span class="nm">Seller will not go below</span><input type="range" data-k="sell" min="'+mn+'" max="'+mx+'" step="'+step+'" value="'+(c.sell||60)+'"><span class="v" data-vsell></span></div>'+
+      '<div class="pvrow"><span class="nm">Buyer will not go above</span><input type="range" data-k="buy" min="'+mn+'" max="'+mx+'" step="'+step+'" value="'+(c.buy||80)+'"><span class="v" data-vbuy></span></div>'+
+      '<div class="zotrack" data-track></div><div class="zoout" data-out></div>');
+    var isell=b.querySelector('[data-k=sell]'),ibuy=b.querySelector('[data-k=buy]');
+    function X(v){return (v-mn)/(mx-mn)*100;}
+    function upd(){var sell=+isell.value,buy=+ibuy.value;
+      b.querySelector('[data-vsell]').textContent=m(sell);b.querySelector('[data-vbuy]').textContent=m(buy);
+      var band='<div class="zoband sell" style="left:'+X(sell).toFixed(1)+'%;width:'+(100-X(sell)).toFixed(1)+'%"></div>'+
+        '<div class="zoband buy" style="left:0;width:'+X(buy).toFixed(1)+'%"></div>';
+      var out=b.querySelector('[data-out]');
+      if(buy>=sell){band+='<div class="zozopa" style="left:'+X(sell).toFixed(1)+'%;width:'+(X(buy)-X(sell)).toFixed(1)+'%"></div>';
+        out.className='zoout deal';out.innerHTML='Deal zone. Any price from <b>'+m(sell)+'</b> to <b>'+m(buy)+'</b> works for both. That overlap is the ZOPA, the zone of possible agreement ('+m(buy-sell)+' wide). Skilled negotiators find it, then split the difference.';}
+      else{out.className='zoout nodeal';out.innerHTML='No deal. The seller floor ('+m(sell)+') is above the buyer ceiling ('+m(buy)+'), so there is <b>no overlap</b>. Someone must move their number, improve their alternative (BATNA), or walk away.';}
+      b.querySelector('[data-track]').innerHTML=band;}
+    isell.addEventListener('input',upd);ibuy.addEventListener('input',upd);upd();
+  };
+
   R.contractrisk=function(el){var c=cfgOf(el);var target=c.target||1000,fee=c.fee||100,ffp=c.ffp||Math.round(target*1.10),gmpCap=c.gmpCap||Math.round(target*1.15);
     function m(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
     var b=shell(el,'<p style="font-size:14px;color:var(--ink-2);margin:0 0 8px">Estimated cost <b style="color:var(--ink)">'+m(target)+'</b>. Fixed price '+m(ffp)+', GMP cap '+m(gmpCap)+', fee '+m(fee)+'. Now move the actual cost the job really came in at.</p>'+

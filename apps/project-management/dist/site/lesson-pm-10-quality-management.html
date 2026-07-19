@@ -3,11 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chapter 01: The missing layer above utility systems &middot; One Water OS Academy</title>
-<meta name="description" content="Find the governed layer above utility source systems, trace accountability through a wet-weather decision, and build an executive case for reducing fragmentation.">
-<meta name="owos-course-id" content="owos-master-data-governance-001">
-<meta name="owos-course-store" content="dga001">
-<meta name="owos-release-state" content="released">
+<title>Chapter 10 &middot; Quality management &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 10 of the Project Management masterclass. Quality assurance vs quality control, Inspection and Test Plans, hold and witness points, the cost of quality, and non-conformance reports.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +67,7 @@ svg text{font-family:var(--fm)}
 /* ---- goals / callouts / method ---- */
 .goals{list-style:none;padding:0;margin:16px 0}.goals li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer;font-size:15.5px}
 .goals .bx{flex:none;width:22px;height:22px;border:2px solid var(--line-2);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;transition:.15s}.goals li.on .bx{background:var(--green);border-color:var(--green)}
-.goals .bx:after{content:"\2713"}
+.goals .bx:after{content:"¹3"}
 .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:14px;padding:16px 18px;margin:20px 0;box-shadow:var(--sh)}
 .card .h{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin:0 0 8px}.card p{margin:0;font-size:15.5px}
 /* running-case callout: one job carried through the chapter */
@@ -338,12 +335,6 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .mcstats .o.det .val{color:var(--ink-3)}.mcstats .o.p50 .val{color:var(--brand)}.mcstats .o.p80 .val{color:var(--gold)}
 .mcout{margin-top:12px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14.5px;color:var(--ink)}.mcout b{color:var(--brand-700)}.mcout .g{color:var(--gold);font-weight:700}
 
-/* ---- provenance entity-activity-agent network ---- */
-.pnstage{overflow-x:auto;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,var(--surface),var(--surface-2))}.pnstage svg{display:block;width:100%;min-width:650px;height:auto}.pnedge line{stroke:var(--line-2);stroke-width:2}.pnedge text{font:600 9px var(--fm);fill:var(--ink-3);text-anchor:middle}.pnedge.on line{stroke:var(--brand);stroke-width:3}.pnedge.on text{fill:var(--brand-700)}.pnnode{opacity:.34;transition:opacity .2s}.pnnode rect{fill:var(--surface);stroke:var(--line-2);stroke-width:1.5}.pnnode.on{opacity:1}.pnnode.on rect{stroke:var(--brand);stroke-width:3;filter:drop-shadow(0 4px 8px rgba(15,23,40,.12))}.pnnode.activity.on rect{stroke:var(--gold)}.pnnode.agent.on rect{stroke:var(--green)}.pnnode .main{font:800 12px var(--f);fill:var(--ink);text-anchor:middle}.pnnode .sub{font:600 8.5px var(--fm);fill:var(--ink-3);text-anchor:middle}.pnkey{display:flex;gap:15px;flex-wrap:wrap;margin:10px 0 0;font:600 10px var(--fm);color:var(--ink-3)}.pnkey i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.pnkey i.entity{background:var(--brand)}.pnkey i.activity{background:var(--gold)}.pnkey i.agent{background:var(--green)}.pnctrl{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:12px}.pnctrl button{border:1px solid var(--line-2);border-radius:8px;background:var(--surface);padding:7px 12px;color:var(--ink-2);font-weight:700;cursor:pointer}.pnctrl button.primary{background:var(--brand);border-color:var(--brand);color:#fff}.pnctrl button:disabled{opacity:.45;cursor:default}.pnctrl span{margin-left:auto;font:600 10px var(--fm);color:var(--ink-3)}.pnnarr{margin-top:12px;padding:12px 15px;border:1px solid var(--brand-100);border-radius:12px;background:var(--brand-50);font-size:14px;line-height:1.55;color:var(--ink)}.pnnarr b{color:var(--brand-700)}
-
-/* ---- quality by stated use ---- */
-.qfuse{display:grid;grid-template-columns:minmax(220px,1fr) 2fr;gap:14px;align-items:center;padding:12px 14px;border:1px solid var(--brand-100);border-radius:12px;background:var(--brand-50)}.qfuse label{font:700 11px var(--fm);letter-spacing:.05em;text-transform:uppercase;color:var(--brand-700)}.qfuse select{display:block;width:100%;margin-top:5px;border:1px solid var(--line-2);border-radius:9px;background:#fff;padding:8px 10px;color:var(--ink);font:600 13px var(--f)}.qfuse p{margin:0;font-size:13.5px;color:var(--ink)}.qfrows{display:grid;gap:10px;margin-top:14px}.qfrow{display:grid;grid-template-columns:minmax(150px,1fr) minmax(140px,1.5fr) 72px;gap:8px 12px;align-items:center;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface)}.qfrow>span b{display:block;font-size:13.5px;color:var(--ink)}.qfrow>span small{display:block;font:500 9.5px var(--fm);color:var(--ink-3)}.qfrow output{text-align:right;font:700 11px var(--fm);color:var(--brand)}.qftrack{grid-column:2/4;position:relative;height:12px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);overflow:visible}.qftrack i{display:block;height:100%;width:0;border-radius:999px;background:var(--brand);transition:width .2s}.qftrack em{position:absolute;top:-5px;bottom:-5px;width:3px;border-radius:3px;background:var(--gold);transform:translateX(-1px)}.qfrow>strong{grid-column:1;font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.04em}.qfrow>strong.pass{color:var(--green)}.qfrow>strong.fail{color:var(--red)}.qfverdict{margin-top:13px;padding:12px 15px;border-radius:12px;font-size:14px;line-height:1.55}.qfverdict.pass{background:var(--green-50);border:1px solid #bfe0d4;color:#086b50}.qfverdict.fail{background:var(--red-50);border:1px solid #eac7c0;color:var(--red)}.qfverdict b{color:inherit}.qfboundary{margin-top:10px;padding:10px 13px;border:1px solid #ead89d;border-radius:11px;background:#fff9e8;color:#795809;font-size:12.5px;line-height:1.5}
-
 /* ---- costcurve: cost of a change over the life cycle ---- */
 .ccbars{display:flex;gap:10px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:0 6px}
 .ccbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;cursor:pointer}
@@ -421,313 +412,179 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .at-reset{margin-top:12px}
 @media(max-width:620px){.at-summary{grid-template-columns:1fr}.at-item{grid-template-columns:1fr}.at-state{width:100%}}
 
-/* ---- layered stack ---- */
-.lsstack{display:flex;flex-direction:column;gap:8px;max-width:760px;margin:0 auto}.lslayer{display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:center;width:100%;border:1px solid var(--line-2);border-radius:12px;background:var(--surface);padding:11px 14px;text-align:left;color:var(--ink);cursor:pointer;transition:transform .18s,border-color .18s,background .18s}.lslayer:nth-child(2){margin-left:3%;width:94%}.lslayer:nth-child(3){margin-left:6%;width:88%}.lslayer:nth-child(4){margin-left:9%;width:82%}.lslayer:hover,.lslayer.on{border-color:var(--brand);background:var(--brand-50);transform:translateY(-1px)}.lslayer b{display:block;font-size:14px}.lslayer small{display:block;margin-top:2px;color:var(--ink-3);font:500 10.5px var(--fm)}.lsnum{width:27px;height:27px;border-radius:8px;display:grid;place-items:center;background:var(--brand);color:#fff;font:800 10px var(--fm)}.lsdetail{margin-top:13px;padding:12px 15px;border:1px solid var(--brand-100);border-radius:12px;background:var(--brand-50);color:var(--ink);font-size:14px;line-height:1.55}.lsdetail b{color:var(--brand-700)}
-
-/* ---- before / after reveal ---- */
-.bastage{position:relative;min-height:270px;border:1px solid var(--line-2);border-radius:15px;overflow:hidden;background:var(--surface)}.bapanel{position:absolute;inset:0;padding:30px 24px 22px}.bapanel.before{background:linear-gradient(145deg,#fff7f4,#fff)}.bapanel.after{background:linear-gradient(145deg,#eef9f5,#fff)}.baafter{position:absolute;inset:0}.balabel{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--red-50);color:var(--red);font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em}.after .balabel{background:var(--green-50);color:var(--green)}.bapanel h4{margin:10px 0 8px;font-size:1.02rem;color:var(--ink)}.bapanel ul{margin:0;padding-left:19px}.bapanel li{margin:7px 0;font-size:13.5px;line-height:1.4;color:var(--ink-2)}.badivider{position:absolute;top:0;bottom:0;width:3px;background:var(--brand);transform:translateX(-1px);pointer-events:none}.badivider span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font-style:normal;box-shadow:0 3px 12px rgba(15,23,40,.22)}.barange{display:grid;grid-template-columns:minmax(170px,auto) 1fr auto;gap:12px;align-items:center;margin-top:14px}.barange label{font-weight:700;font-size:13px;color:var(--ink)}.barange output{font:700 11px var(--fm);color:var(--brand);min-width:96px;text-align:right}.banote{margin-top:11px;padding:11px 14px;border-radius:11px;background:var(--surface-2);border:1px solid var(--line);font-size:13.5px;color:var(--ink)}
-
-/* ---- handoff simulator ---- */
-.hotoggle{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);margin-bottom:15px}.hotoggle button{border:0;background:transparent;border-radius:8px;padding:7px 12px;color:var(--ink-2);font-weight:700;cursor:pointer}.hotoggle button.on{background:var(--brand);color:#fff}.hochain{display:flex;gap:22px;align-items:stretch;overflow-x:auto;padding:7px 4px 14px}.honode{position:relative;flex:1;min-width:130px;padding:13px;border:1px solid var(--line-2);border-radius:12px;background:var(--surface);opacity:.5}.honode.done{opacity:.78;border-color:var(--brand-100);background:var(--brand-50)}.honode.active{opacity:1;border:2px solid var(--brand);box-shadow:0 0 0 3px rgba(10,120,186,.12)}.honode>span{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:var(--brand-100);color:var(--brand-700);font:800 10px var(--fm);margin-bottom:8px}.honode.active>span{background:var(--brand);color:#fff}.honode b{display:block;color:var(--ink);font-size:13px}.honode small{display:block;color:var(--ink-3);font:500 9.5px var(--fm);margin-top:3px}.honode>i{position:absolute;right:-18px;top:50%;font-style:normal;color:var(--brand)}.hoctrl{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.hoctrl button{border:1px solid var(--line-2);border-radius:8px;background:var(--surface);padding:7px 11px;color:var(--ink-2);font-weight:700;cursor:pointer}.hoctrl button.primary{background:var(--brand);border-color:var(--brand);color:#fff}.hoctrl button:disabled{opacity:.45;cursor:default}.hoctrl span{margin-left:auto;font:600 10px var(--fm);color:var(--ink-3)}.honarr{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14px;line-height:1.55}.honarr.warn{background:#fff9e8;border:1px solid #ead89d;color:#795809}.honarr.ok{background:var(--green-50);border:1px solid #bfe0d4;color:#086b50}.honarr b{color:inherit}
-
-/* ---- fragmentation tax model ---- */
-.ftinputs{display:grid;gap:10px}.ftinputs label{display:grid;grid-template-columns:minmax(190px,1fr) minmax(150px,2fr) 74px;gap:12px;align-items:center}.ftinputs label span b{display:block;font-size:13.5px;color:var(--ink)}.ftinputs label span small{display:block;font:500 9.5px var(--fm);color:var(--ink-3)}.ftinputs output{text-align:right;font:700 12px var(--fm);color:var(--brand)}.ftkpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}.ftkpis div{padding:11px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);text-align:center}.ftkpis div.key{background:var(--brand-50);border-color:var(--brand-100)}.ftkpis b{display:block;font:800 18px var(--fm);color:var(--ink)}.ftkpis .key b{color:var(--brand)}.ftkpis span{display:block;margin-top:3px;font:600 8.5px var(--fm);color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em}.ftchart{display:flex;gap:22px;align-items:flex-end;height:180px;padding:10px 22px 0;border-bottom:2px solid var(--line-2);background:linear-gradient(180deg,var(--surface),var(--surface-2));border-radius:12px 12px 0 0}.ftcol{flex:1;display:flex;height:100%;flex-direction:column;justify-content:flex-end;align-items:center}.ftcol b{font:700 11px var(--fm);color:var(--ink);margin-bottom:4px}.ftcol i{display:block;width:min(110px,70%);height:5px;background:var(--brand);border-radius:6px 6px 0 0;transition:height .2s}.ftcol i.rework{background:var(--gold)}.ftcol span{font:600 10px var(--fm);color:var(--ink-3);margin:6px 0 8px;text-align:center}.ftnote{margin-top:11px;padding:11px 14px;border:1px solid #ead89d;border-radius:11px;background:#fff9e8;color:#795809;font-size:13px;line-height:1.5}
-
-/* ---- governed artifact builder ---- */
-.abnotice{padding:11px 14px;border:1px solid #ead89d;border-radius:11px;background:#fff9e8;color:#795809;font-size:13px;line-height:1.5;margin-bottom:13px}.abfields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.abfields label{display:block;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.abfields label b{display:block;font-size:13px;color:var(--ink)}.abfields label small{display:block;min-height:2.8em;margin:3px 0 8px;color:var(--ink-3);font-size:11px;line-height:1.4}.abfields textarea{width:100%;resize:vertical;border:1px solid var(--line-2);border-radius:9px;padding:9px;font:500 13px var(--f);color:var(--ink);background:var(--surface-2)}.abfields textarea:focus{outline:2px solid var(--brand-100);border-color:var(--brand)}.abpreview{margin-top:14px;border:1px solid var(--brand-100);border-radius:13px;background:var(--brand-50);overflow:hidden}.abpreview>span{display:block;padding:8px 12px;background:var(--brand);color:#fff;font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em}.abpreview pre{margin:0;padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;font:500 12.5px/1.6 var(--fm);color:var(--ink)}.abactions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:11px}.abactions span{font:600 10.5px var(--fm);color:var(--ink-3)}
-
-@media(max-width:700px){.barange{grid-template-columns:1fr}.barange output{text-align:left}.bastage{min-height:340px}.ftinputs label{grid-template-columns:1fr}.ftinputs output{text-align:left}.ftkpis{grid-template-columns:repeat(2,1fr)}.abfields{grid-template-columns:1fr}.honode{min-width:150px}}
-@media(max-width:700px){.qfuse{grid-template-columns:1fr}.qfrow{grid-template-columns:1fr}.qftrack,.qfrow>strong{grid-column:1}.qfrow output{text-align:left}.pnstage svg{min-width:600px}}
-@media(max-width:460px){.lslayer:nth-child(n){margin-left:0;width:100%}.bapanel{padding:27px 17px 18px}.bapanel li{font-size:12px}.ftkpis{grid-template-columns:1fr 1fr}.hotoggle{display:grid;width:100%}.hotoggle button{width:100%}}
-
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
-<style>
-.dg01-hero{margin:28px 0 24px;padding:34px;border-radius:24px;background:linear-gradient(135deg,#082f49,#0a78ba 58%,#0e8a64);color:#fff;box-shadow:0 20px 60px rgba(8,58,92,.22);position:relative;overflow:hidden}.dg01-hero:after{content:"";position:absolute;width:320px;height:320px;border:58px solid rgba(255,255,255,.08);border-radius:50%;right:-125px;top:-135px}.dg01-hero h1{position:relative;color:#fff;max-width:19ch;margin:.45rem 0 .8rem;font-size:clamp(2.15rem,5vw,4rem)}.dg01-hero p{position:relative;color:#e8f5fb;max-width:70ch;font-size:1.08rem;margin:0}.dg01-kicker{position:relative;font:700 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#bfeaff}.dg01-status{position:relative;display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:7px 12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);border-radius:999px;font:700 10px var(--fm);letter-spacing:.05em;text-transform:uppercase;color:#fff}.dg01-status i{width:8px;height:8px;border-radius:50%;background:#7ce0be}
-.dg01-system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 24px}.dg01-system{padding:15px;border:1px solid var(--line);border-radius:13px;background:#fff}.dg01-system b{display:block;color:var(--brand);font-size:.84rem;margin-bottom:4px}.dg01-system p{font-size:.82rem;line-height:1.5;margin:0}.dg01-rule{display:grid;grid-template-columns:auto 1fr;gap:13px;padding:18px;border-radius:15px;background:#0c3b59;color:#fff;margin:18px 0}.dg01-rule .n{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;background:#fff;color:#0c3b59;font:900 15px var(--fm)}.dg01-rule b{display:block;color:#9bddff;margin-bottom:3px}.dg01-rule p{margin:0;color:#fff;font-size:.91rem;line-height:1.55}
-.dg01-five{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0 24px}.dg01-five article{padding:13px 11px;border:1px solid var(--line);border-radius:12px;background:#fff}.dg01-five b{display:block;font:800 11px var(--fm);color:var(--brand);margin-bottom:5px}.dg01-five p{margin:0;font-size:.78rem;line-height:1.45}.dg01-five article:not(:last-child){position:relative}.dg01-five article:not(:last-child):after{content:"→";position:absolute;right:-9px;top:50%;z-index:2;transform:translateY(-50%);color:var(--brand);background:var(--bg);padding:1px}
-.dg01-boundary{padding:18px 20px;border:1px solid #ead89d;border-radius:15px;background:#fff9e8;margin:18px 0;color:#5f4a10}.dg01-boundary b{color:#795809}.dg01-studio{padding:22px;border:1px solid #9fd2bf;border-radius:18px;background:linear-gradient(140deg,#eef8f5,#fff);margin:22px 0}.dg01-studio h3{margin-top:0}.dg01-output{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin:14px 0}.dg01-output article{padding:14px;border:1px solid #c7ded6;border-radius:12px;background:#fff}.dg01-output b{display:block;font-size:.82rem;color:#086b50}.dg01-output p{font-size:.83rem;margin:4px 0 0;line-height:1.5}.dg01-gate{padding:18px;border:2px solid var(--green);border-radius:16px;background:var(--green-50);margin:24px 0}.dg01-gate h3{margin:0 0 7px;color:#086b50}.dg01-gate ul{margin:0;padding-left:20px}.dg01-complete{padding:22px;border-radius:18px;background:#0b3f63;color:#fff;margin:24px 0}.dg01-complete h2,.dg01-complete p{color:#fff}.dg01-complete h2{margin-top:0}.dg01-complete button{border:0;border-radius:10px;background:#fff;color:#0b3f63;padding:11px 17px;font-weight:800;cursor:pointer}.dg01-complete button:disabled{opacity:.65;cursor:wait}.dg01-complete .result{display:block;min-height:1.4em;margin-top:10px;font:600 12px var(--fm);color:#cce4f2}.dg01-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;margin:30px 0}.dg01-nav a{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;font-weight:700;font-size:.83rem}.dg01-nav a:last-child{text-align:right}.dg01-nav .home{text-align:center;background:var(--brand);border-color:var(--brand);color:#fff}.dg01-footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 38px;color:var(--ink-3);font:500 11px var(--fm)}
-@media(max-width:860px){.dg01-five{grid-template-columns:1fr 1fr}.dg01-five article:not(:last-child):after{display:none}.dg01-system-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:620px){.owos-nav{padding:0 12px}.owos-pw{display:none}.wrap{padding-left:16px;padding-right:16px}.dg01-hero{padding:27px 20px}.dg01-system-grid,.dg01-five,.dg01-output{grid-template-columns:1fr}.dg01-rule{grid-template-columns:1fr}.dg01-nav{grid-template-columns:1fr}.dg01-nav a,.dg01-nav a:last-child{text-align:center}}
-</style>
 </head>
-<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-module="01" data-release-state="released">
+<body>
+
 <nav class="owos-nav">
-  <a class="owos-brand" href="course-data-governance.html"><span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span><span class="owos-wm">One Water <b>OS</b></span><span class="owos-pw">Academy &middot; <em>Data Governance</em></span></a>
-  <span class="crumb"><a href="course-data-governance.html">Master Class</a> / <b>Chapter 01</b></span>
+  <a class="owos-brand" href="course-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 10</b></span>
 </nav>
 <div id="rprog"></div>
-<main class="wrap">
-  <header class="dg01-hero">
-    <div class="dg01-kicker">Part A &middot; Chapter 01 &middot; Why data must be ready before AI</div>
-    <h1>The missing layer above utility systems</h1>
-    <p>Your utility may own every source system it needs and still be unable to defend one material answer. This chapter shows what sits between systems and accountable decisions.</p>
-    <span class="dg01-status"><i></i>Released lesson &middot; utility deployment chapter</span>
-  </header>
 
-  <div class="lens" aria-label="Choose lesson depth">
-    <button class="on" data-lens="f">Foundation</button>
-    <button data-lens="p">Practitioner</button>
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 10 &middot; Quality and risk</span>
+  <h1>Quality: building it <span>right</span>, not gold-plating it</h1>
+  <p class="sub">Quality is not making the fanciest thing. It is delivering exactly what the requirements called for, provably. This chapter covers how you build quality in (assurance), how you check it (control), where to spend to get it, and what to do when something does not conform.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
     <button data-lens="l">Leader</button>
   </div>
-  <p class="lenshint">The main lesson stays visible in every view. The lens changes the role-specific guidance. Select any dotted term for its definition.</p>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
   <div class="casebox">
     <span class="pin">&#9873;</span>
-    <div><p class="h">Riverbend, 5:42 a.m. during heavy rain</p><p>A high-level alarm reaches the duty manager. The <span class="term" data-term="Supervisory Control and Data Acquisition (SCADA)" data-def="The operational system used to monitor and control equipment and processes. It may show a current signal without explaining its business meaning, quality, or later use.">Supervisory Control and Data Acquisition (SCADA)</span> system shows a rising wet well. Rainfall data uses a different clock. The <span class="term" data-term="Geographic Information System (GIS)" data-def="The system used to manage mapped assets and locations. A GIS can hold a location without proving that its asset identifier matches another system.">Geographic Information System (GIS)</span> and collection model disagree on the lift-station identifier. A work order sits in the <span class="term" data-term="Computerized Maintenance Management System (CMMS)" data-def="A system used to plan, record, and manage maintenance work. Some utilities use an enterprise asset management platform for the same or broader work.">Computerized Maintenance Management System (CMMS)</span>, but the operator does not know whether it affects the alarm. The systems are working. The decision chain is not.</p></div>
+    <div>
+      <p class="h">The job we are inspecting</p>
+      <p><b>The Millpond Road water main replacement, under construction.</b> Same job. Now we make sure the pipe going in the ground actually meets the spec, that we catch problems before they are buried, and that we spend the right amount doing it.</p>
+    </div>
   </div>
 
   <h3>What you will be able to do</h3>
   <ul class="goals">
-    <li><span class="bx"></span> Explain why system count and data volume do not prove decision readiness</li>
-    <li><span class="bx"></span> Identify the governed layer that connects systems to an accountable decision</li>
-    <li><span class="bx"></span> Trace the consequence of a weak handoff through a utility decision chain</li>
-    <li><span class="bx"></span> Estimate the direct labor part of fragmentation and write an executive case for action</li>
+    <li><span class="bx"></span> Tell quality assurance from quality control, and use each correctly</li>
+    <li><span class="bx"></span> Read an Inspection and Test Plan and know a hold point from a witness point</li>
+    <li><span class="bx"></span> Find the right amount to spend on quality, using the cost of quality</li>
+    <li><span class="bx"></span> Handle a non-conformance the right way</li>
   </ul>
 
-  <p class="lv f">Start with this simple test: can a qualified new team member find, access, join, and understand the data needed for the decision without depending on the one person who knows where everything is hidden? If not, the utility has data risk and knowledge risk at the same time.</p>
-  <p class="lv p">You will leave with a repeatable diagnostic: inventory the system handoffs, name the missing governance record at each handoff, estimate the direct effort spent rebuilding the answer, and assign the first corrective action.</p>
-  <p class="lv l">Your job is to fund an operating capability tied to service, safety, compliance, customers, capital, and trust. Do not approve a general data-cleanup program without a named decision, consequence, owner, and measurable change.</p>
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 1</span>
+    <h2>Assurance, control, and the plan</h2>
+    <p>Two words that sound alike and mean different things. <span class="term" data-term="Quality Assurance (QA)" data-def="Building quality in through the process: the right procedures, trained crews, approved materials, and a plan. QA is about preventing defects before they happen.">Quality Assurance (QA)</span> is about the process: the procedures, training, and approved materials that <em>prevent</em> defects. <span class="term" data-term="Quality Control (QC)" data-def="Checking the product against the spec: inspections, tests, and measurements that catch defects that slipped through. QC is about detecting problems.">Quality Control (QC)</span> is about the product: the inspections and tests that <em>catch</em> defects. Assurance prevents, control detects. Sort a few.</p>
 
-  <div data-ac="multi" data-title="Read the first alert" data-kind="Entry check &middot; choose all that apply" data-cue="A working source system can still leave an important decision unsupported.">
-    <script type="application/json">
-    {"q":"Which facts would Riverbend still need before it treats the high-level alarm as a governed decision input?","options":[["The sensor identity and its mapped asset",true],["The time rule used across rainfall and SCADA",true],["The fact that the SCADA screen loaded",false],["The current quality and exception state",true],["The person authorized to accept or escalate the condition",true]],"ok":"Correct. Identity, time, quality, exception, and authority make the signal usable in the decision. A working screen proves only that the interface loaded.","no":"The full set is marked in green. A system can display a value without proving identity, time alignment, quality, exception handling, or decision authority."}
-    </script>
+    <div data-ac="classify" data-title="Assurance or control?" data-kind="Quiz &middot; classify" data-cue="Building it right (process, prevention) is assurance. Checking it after (inspection, detection) is control.">
+      <script type="application/json">
+      {"buckets":["Quality Assurance","Quality Control"],
+       "items":[
+        ["Approving the pipe supplier and materials before they ship",0,"Setting the process up to prevent bad materials. Assurance."],
+        ["Pressure-testing the finished main",1,"Checking the product against the spec. Control."],
+        ["Training the crew on the joint-assembly procedure",0,"Building capability in so defects do not happen. Assurance."],
+        ["Inspecting each joint before backfill",1,"Detecting defects in the actual work. Control."]
+       ]}
+      </script>
+    </div>
+
+    <p>QC runs on an <span class="term" data-term="ITP" data-def="Inspection and Test Plan. A document that lists every inspection and test on a job, when it happens, who does it, and whether it is a hold point or a witness point.">Inspection and Test Plan (ITP)</span>, which lists every check on the job. Two kinds of checkpoint matter most. A <span class="term" data-term="Hold point" data-def="A point where work must stop until the inspector signs off. You cannot proceed without approval, for example inspecting pipe joints before backfilling covers them.">hold point</span> stops the work until an inspector signs off. A <span class="term" data-term="Witness point" data-def="A point where the inspector is invited to observe, but work may proceed if they do not attend. Less strict than a hold point.">witness point</span> invites the inspector but lets work continue. Walk the Millpond ITP.</p>
+
+    <div data-ac="process" data-title="The Millpond inspection sequence" data-kind="Interactive &middot; process" data-cue="The gold gates are hold points: work stops until sign-off. Notice the hold point sits right before backfill, because once the pipe is buried, fixing a bad joint costs a fortune.">
+      <script type="application/json">
+      {"gate":true,"phases":[
+        {"title":"Submittal","sub":"approve materials","detail":"<b>Submittal review.</b> Before anything arrives, the contractor proves the pipe, fittings, and methods meet the spec, and you approve them. Quality assurance, done on paper first."},
+        {"title":"Install","sub":"lay the pipe","detail":"<b>Install.</b> Crews assemble and lay the main to the approved procedure. This is where the joints that matter get made."},
+        {"title":"Joint inspection","sub":"hold point","detail":"<b>Joint inspection (HOLD POINT).</b> Work stops. An inspector checks every joint and the bedding before anything is covered. Nothing proceeds until this is signed off, because the next step hides it forever."},
+        {"title":"Backfill","sub":"cover it","detail":"<b>Backfill.</b> Only after the hold point clears do you backfill and compact. Bury a bad joint and you have traded a cheap fix now for an expensive dig-up later."},
+        {"title":"Pressure test","sub":"witness point","detail":"<b>Pressure test (WITNESS POINT).</b> The inspector is invited to witness the test, but it can proceed on schedule. Pass it, disinfect, sample, and the main is ready to accept."}
+      ]}
+      </script>
+    </div>
+
+    <p>How much should you spend on all this checking? There is a real answer, and it is not "as much as possible." The <span class="term" data-term="Cost of quality" data-def="The total of what you spend preventing and finding defects (prevention and appraisal) plus what defects cost you (internal and external failure). It has a minimum: a sweet spot of investment.">cost of quality</span> is prevention and appraisal spend plus the cost of the failures that slip through. Spend too little and failures are expensive; spend too much and you over-inspect. There is a sweet spot. Find it.</p>
+
+    <div data-ac="coq" data-title="How much quality is worth buying?" data-kind="Interactive &middot; simulation" data-cue="Slide prevention up from zero. Failure cost drops fast at first, then the total curve bottoms out and starts rising again. That bottom is where to aim.">
+      <script type="application/json">
+      {"failBase":400,"K":100,"max":300,"start":30}
+      </script>
+    </div>
+
+    <p>When something does not meet spec, it gets logged as a <span class="term" data-term="NCR" data-def="Non-Conformance Report. The formal record that something did not meet the requirement, what was done about it (rework, repair, use-as-is with approval, or reject), and how it was closed out.">Non-Conformance Report (NCR)</span>. The NCR is not a punishment, it is a controlled way to decide what to do (rework it, repair it, use it as-is with engineering approval, or reject it) and to prove you handled it. A job with zero NCRs is usually a job that is not inspecting hard enough.</p>
+
+    <div data-ac="mc" data-title="Handle the non-conformance" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"An inspector finds a pipe joint that does not meet the spec, at the hold point before backfill. What is the right first move?",
+       "options":[
+        ["Log an NCR and decide the disposition (rework, repair, use-as-is, or reject) before proceeding",1],
+        ["Backfill it anyway to stay on schedule and note it later",0],
+        ["Quietly have the crew fix it and say nothing",0],
+        ["Reject the whole main and start over",0]
+       ],
+       "right":"Correct. That is exactly what the hold point and the NCR are for: stop, document the non-conformance, decide the disposition with the right sign-offs, then proceed. It keeps quality and the record honest.",
+       "wrong":"Not quite. The hold point exists so you stop and handle it: log an NCR, decide the disposition (rework, repair, use-as-is with approval, or reject), and proceed only once it is resolved. Burying it or hiding it is how small defects become failures and disputes."}
+      </script>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["Quality means building the best possible thing, above the requirements.",false,"No. Quality is conformance to the requirements. Exceeding them (gold-plating) wastes money the requirements did not ask for."],
+        ["Quality assurance prevents defects; quality control detects them.",true,"Right. Assurance builds quality into the process; control checks the product for what slipped through."],
+        ["Spending more on inspection always lowers the total cost of quality.",false,"No. Past the sweet spot, extra inspection costs more than the failures it prevents. Quality has diminishing returns."]
+      ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Put your quality money at the front, in prevention and hold points, not at the end in rework. <b>A joint inspected before backfill costs minutes; the same joint found after a road is repaved costs a project.</b> And do not read zero NCRs as good news, read it as nobody looking.</p>
+    </div>
   </div>
 
-  <section class="sec">
-    <span class="tag">1 / 3</span>
-    <h2>The utility has systems, but not always accountable data</h2>
-    <p>A <span class="term" data-term="Source system" data-def="A system in which data is first created, captured, or maintained for a defined operating purpose. Being the source does not automatically make every field fit for every later use.">source system</span> is built to do a job. SCADA controls and monitors processes. GIS maps assets. CMMS manages maintenance work. <span class="term" data-term="Advanced Metering Infrastructure (AMI)" data-def="A network of meters, communications, and data systems used to record and exchange customer or system meter information.">Advanced Metering Infrastructure (AMI)</span> records meter activity. A <span class="term" data-term="Laboratory Information Management System (LIMS)" data-def="A system used to manage laboratory samples, methods, results, approvals, amendments, and related records.">Laboratory Information Management System (LIMS)</span> manages samples and results. Each can work well inside its own boundary while the answer breaks between systems.</p>
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
 
-    <div class="dg01-system-grid" aria-label="Utility source systems and their limits">
-      <article class="dg01-system"><b>SCADA and historian</b><p>Show signals and operating history. They do not automatically explain the approved use, asset match, or quality limit.</p></article>
-      <article class="dg01-system"><b>GIS and network model</b><p>Show place and modeled behavior. They may use different asset identifiers, versions, and update dates.</p></article>
-      <article class="dg01-system"><b>AMI and customer systems</b><p>Show meter events, use, accounts, and bills. They do not settle purpose, estimation, correction, or sharing rights by themselves.</p></article>
-      <article class="dg01-system"><b>CMMS and asset records</b><p>Show work and asset history. They may not reveal whether an open defect changes today's operating decision.</p></article>
-      <article class="dg01-system"><b>LIMS and compliance records</b><p>Show samples, methods, and results. They still need approval, amendment, reporting, and retention rules.</p></article>
-      <article class="dg01-system"><b>Spreadsheets and vendor portals</b><p>Often bridge gaps quickly. Their formulas, copies, owners, and exceptions may be hard to reconstruct later.</p></article>
-    </div>
-
-    <div class="dg01-rule"><span class="n">1</span><div><b>System count is not decision readiness.</b><p>Decision readiness means the people using an answer can identify its sources, meaning, owner, route, quality limits, rights, retained evidence, and correction path for the stated use.</p></div></div>
-
-    <div data-ac="layerstack" data-title="The missing governed layer" data-kind="Interactive diagram &middot; layered stack" data-cue="Select each layer from the decision down to the source. The governed layer does not replace the systems. It connects their data to accountable use.">
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
       <script type="application/json">
-      {"layers":[
-        {"number":"4","label":"Public and utility outcomes","sub":"service, safety, compliance, affordability, trust","detail":"<b>Outcomes are where the consequence lands.</b> Riverbend is not governing an alarm for its own sake. It is protecting service, people, the environment, customers, permit duties, and the ability to explain what happened."},
-        {"number":"3","label":"Decisions, analytics, and artificial intelligence","sub":"the answer, recommendation, action, and approval","detail":"<b>This layer uses the data.</b> A duty manager decides whether to escalate crews and incident coordination. An analytic or artificial intelligence tool may support that choice, but it does not become the accountable authority."},
-        {"number":"2","label":"The governed layer","sub":"identity, meaning, ownership, lineage, quality, rights, retention, evidence","detail":"<b>This is the missing layer.</b> It states what each record represents, how systems refer to the same thing, who is accountable, how the data moved, whether it fits the decision, who may use it, what is retained, and how failure is corrected."},
-        {"number":"1","label":"Source systems and physical observations","sub":"SCADA, rainfall, GIS, model, CMMS, calls, permit records","detail":"<b>These are the inputs.</b> Riverbend already owns most of them. Governance begins by connecting them without pretending that one source system can answer every question alone."}
+      {"cards":[
+        ["Quality Assurance","Building quality in through process: prevents defects."],
+        ["Quality Control","Checking the product against spec: detects defects."],
+        ["ITP","Inspection and Test Plan: every check, when, who, and hold or witness."],
+        ["Hold point","Work stops until the inspector signs off."],
+        ["Cost of quality","Prevention plus failure cost. It has a sweet-spot minimum."],
+        ["NCR","Non-Conformance Report: the controlled record and disposition of a defect."]
       ]}
       </script>
     </div>
 
-    <p>The <span class="term" data-term="Governed layer" data-def="The connected decisions, responsibilities, controls, and retained evidence that make data understandable and accountable across source systems for a stated use.">governed layer</span> has eight jobs in the controlled method: <span class="term" data-term="Identity" data-def="The stable way records in different systems refer to the same asset, event, customer, sample, work item, rule, or decision.">identity</span>, meaning, ownership, <span class="term" data-term="Lineage" data-def="The route data followed from source through transformation to use.">lineage</span>, quality, rights, retention, and evidence. It is not another data warehouse. A platform may support it, but the layer also includes decision rights, operating controls, records, and correction.</p>
-
-    <div data-ac="table" data-title="Eight jobs above and between the systems" data-kind="Interactive &middot; governed-layer table" data-cue="Select a row. Ask whether Riverbend has an operating record for the job, not only a policy sentence.">
+    <div data-ac="reflect">
       <script type="application/json">
-      {"headers":["Governance job","Question at 5:42 a.m.","Minimum visible record"],"rows":[
-        {"name":"Identity","cells":["Do all systems mean lift station LS-17?","shared identifier and mapping"],"detail":"Riverbend needs a stable station identifier plus a controlled mapping for any system that still uses an older code."},
-        {"name":"Meaning","cells":["What exactly does high level mean here?","definition, unit, time rule, threshold"],"detail":"A label is not enough. The operator needs the measured condition, unit, time basis, approved threshold, and known limit."},
-        {"name":"Ownership","cells":["Who sets the rule and accepts an exception?","named owner and decision authority"],"detail":"A service desk can route an issue. The accountable owner decides the rule, exception, escalation, and residual risk."},
-        {"name":"Lineage","cells":["How did this value reach the response view?","source, transformation, version, time"],"detail":"The route should show the sensor, historian tag, calculation, model or spreadsheet step, version, and consuming view."},
-        {"name":"Quality","cells":["Is this value fit for wet-weather response now?","rule, threshold, result, exception"],"detail":"Fitness is tied to this decision and time. The same reading might support a trend review but fail a real-time response rule."},
-        {"name":"Rights","cells":["Who may see, change, share, or approve it?","access and use rule with decision record"],"detail":"Technical access alone does not prove the purpose is approved. Use, change, and sharing rules also matter."},
-        {"name":"Retention","cells":["What must be kept for incident review?","retention and disposition rule"],"detail":"The utility needs the source, transformation, approval, exception, and correction records for the required period."},
-        {"name":"Evidence","cells":["Can another person reconstruct the choice?","linked decision and control records"],"detail":"Evidence ties the answer to its sources, controls, owner, approval, action, outcome, and any later correction."}
-      ]}
+      {"q":"On your last job, was quality mostly assurance (built in up front) or mostly control (caught at the end)? And did the inspections sit at the points where a missed defect gets buried or expensive?",
+       "a":"The cheapest quality is the kind you build in: approved materials, trained crews, clear procedures, so the defect never happens. The next cheapest is a hold point placed exactly where a defect is about to become invisible or permanent, like the joint inspection before backfill. The most expensive quality is the failure you find after handover, when fixing it means tearing out finished work. Good quality management pushes the effort to the front and the checkpoints to the moments of no return, and it treats every NCR as information, not as blame."}
       </script>
     </div>
+  </div>
 
-    <div data-ac="beforeafter" data-title="Move one alert from fragmented to governed" data-kind="Interactive chart &middot; before and after reveal" data-cue="Move the slider. A governed state does not promise perfect data. It makes the limits and authority visible enough to act or escalate honestly.">
-      <script type="application/json">
-      {"rangeLabel":"Reveal the governed decision state","before":{"label":"Fragmented","title":"The alert is visible, but its use is uncertain","items":["Station code differs across SCADA, GIS, and the model","Rainfall and level readings use unconfirmed time rules","An open work order is found through a phone call","The response threshold lives in personal memory","No linked record explains the decision later"]},"after":{"label":"Governed","title":"The alert carries the context needed for a controlled choice","items":["A shared identifier connects the station and its records","Time, unit, freshness, and quality state are visible","The relevant work condition is linked to the decision","The authorized threshold and exception path are named","The source, owner, action, and reason are retained"]},"notes":[{"max":25,"body":"Most of the answer is still rebuilt by people. The alarm may be real, but the decision context remains hidden."},{"max":70,"body":"Some controls are visible, but a material gap still needs an owner, exception decision, and due date."},{"max":100,"body":"The governed state supports an accountable decision. It still requires monitoring, correction, and review when conditions change."}]}
-      </script>
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>Quality is conformance, not gold-plating.</b> Deliver exactly what the requirements asked for, and prove it.</div></li>
+      <li><span class="n">2.</span><div><b>Assurance prevents, control detects.</b> Build quality in with process; catch what slips through with inspection and test.</div></li>
+      <li><span class="n">3.</span><div><b>Put hold points where defects get buried.</b> The ITP checkpoint before backfill is worth a hundred after handover.</div></li>
+      <li><span class="n">4.</span><div><b>There is a sweet spot.</b> Spend enough on prevention to keep failures low, and treat every NCR as information.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Quality is cheapest when it is prevented and most expensive when it is buried. <b>Spend at the front, inspect at the points of no return, and log every non-conformance honestly.</b> That is the whole discipline, and it pays for itself many times over.</p>
     </div>
+  </div>
 
-    <div data-ac="classify" data-title="System feature or governance evidence?" data-kind="Quiz &middot; classify" data-cue="A system feature can support governance, but it is not proof that the utility decision is governed.">
-      <script type="application/json">
-      {"buckets":["System feature","Governance evidence"],"items":[
-        ["The historian stores one-minute readings",0,"That is a system capability. Riverbend still needs the identity, time, quality, use, and retention rules for the decision."],
-        ["A named owner approved the wet-weather quality threshold and exception path",1,"That is governance evidence because authority, a rule, and an exception path are visible."],
-        ["The GIS has a map layer for lift stations",0,"That is a useful system feature. It does not prove the station maps to the same identifier elsewhere."],
-        ["The decision record links the source versions, duty manager, action, and later correction",1,"That retained chain is governance evidence."],
-        ["A vendor dashboard displays a risk score",0,"The display is a feature. The utility still needs provenance, fitness, limits, ownership, and challenge."],
-        ["A recurring control records failed joins and assigns each exception",1,"That is operating evidence because the control runs, leaves a result, and creates accountable follow-up."]
-      ]}
-      </script>
-    </div>
-  </section>
+  <div class="navrow">
+    <a href="lesson-pm-09-procurement-contracts-claims.html">&#8592; Chapter 09 &middot; Procurement, contracts and claims</a>
+    <a class="btn" href="course-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
 
-  <section class="sec">
-    <span class="tag">2 / 3</span>
-    <h2>Governance becomes visible in a decision</h2>
-    <p>A policy is useful, but it is a statement of intent. Governance becomes dependable when the utility can point to five connected things for a real decision.</p>
+</div>
 
-    <div class="dg01-five" aria-label="Five visible parts of an accountable decision">
-      <article><b>1. Decision right</b><p>Who has authority to choose, approve, stop, or escalate?</p></article>
-      <article><b>2. Named owner</b><p>Who is accountable for the rule, outcome, and accepted exception?</p></article>
-      <article><b>3. Operating control</b><p>What check runs during normal work, and what happens when it fails?</p></article>
-      <article><b>4. Retained record</b><p>What lets another person reconstruct the input, reason, action, and result?</p></article>
-      <article><b>5. Correction path</b><p>Who fixes the source, amends the answer, notifies users, and confirms closure?</p></article>
-    </div>
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 10 &middot; 2026-07-19</span>
+  </div>
+</footer>
 
-    <p>A <span class="term" data-term="Decision right" data-def="The defined authority to make, approve, stop, challenge, or escalate a decision.">decision right</span> is not the same as access to a screen. An <span class="term" data-term="Operating control" data-def="A check or action that runs during normal work, produces a result, and has a defined response when it fails.">operating control</span> is not the same as a policy. A <span class="term" data-term="Retained record" data-def="Evidence kept under an approved rule so another authorized person can reconstruct what happened.">retained record</span> is not the same as an undated screenshot. A <span class="term" data-term="Correction path" data-def="The defined way to repair the source or output, notify affected users, approve an amendment, and confirm that the issue is closed.">correction path</span> keeps the utility from fixing one display while the bad source continues to spread.</p>
-
-    <div data-ac="handoff" data-title="Watch the wet-weather answer cross five handoffs" data-kind="Simulation &middot; step-through handoff chain" data-cue="Play both modes. In the fragmented mode, each local shortcut moves uncertainty forward. In the governed mode, each handoff carries a control and evidence.">
-      <script type="application/json">
-      {"steps":[
-        {"label":"Rain and level","sub":"physical observations","risk":"The rainfall feed and station level use different time rules, so the apparent sequence may be wrong.","control":"The source identity, time zone, clock synchronization, freshness, unit, and quality state travel with each observation."},
-        {"label":"SCADA and historian","sub":"operational history","risk":"A copied tag name loses the calibration state and the reason a value was substituted.","control":"The approved tag mapping, substitution flag, quality result, and source version are retained."},
-        {"label":"GIS and model","sub":"place and prediction","risk":"The model joins to an old station code and produces a plausible result for the wrong asset.","control":"A controlled identifier mapping and model-input validation reject or flag the failed join."},
-        {"label":"Work and calls","sub":"condition and field context","risk":"A work order and customer calls are found through personal memory after the response has started.","control":"Relevant work, inspection, and call records are linked by asset, place, event, and time with a named exception owner."},
-        {"label":"Duty decision","sub":"action and record","risk":"The manager acts but cannot later show which inputs, threshold, exception, or authority shaped the choice.","control":"The decision record names the authorized person, source versions, rule, exception, action, reason, notifications, and outcome."}
-      ]}
-      </script>
-    </div>
-
-    <div data-ac="tree" data-title="Decision consequence map" data-kind="Interactive diagram &middot; consequence tree" data-cue="Open each branch and select a consequence. One weak join can reach several utility outcomes at the same time.">
-      <script type="application/json">
-      {"nodes":[{"label":"Late or unsupported wet-weather response","detail":"The data issue matters because it changes a material utility decision. Map the consequence before choosing the control.","children":[
-        {"label":"Service and safety","detail":"A delayed crew or wrong operating action can increase exposure for staff, the public, facilities, and continuity of service.","children":[{"label":"Crew sent late or to the wrong asset","detail":"A failed identifier or location join can turn a correct alarm into the wrong dispatch."},{"label":"Storage or pumping action misses the useful window","detail":"Time alignment and freshness affect whether the response still changes the outcome."}]},
-        {"label":"Environment and compliance","detail":"An overflow or unsupported report can create permit, notification, investigation, and evidence consequences.","children":[{"label":"Permit condition is applied late or incorrectly","detail":"The current authority, trigger, and approved interpretation need a named owner and version."},{"label":"Incident record cannot be reconstructed","detail":"Missing lineage and decision evidence make later review slower and less reliable."}]},
-        {"label":"Customers and public trust","detail":"Customers may receive late, inconsistent, or incorrect information when operational, call, and location records do not connect.","children":[{"label":"Affected area is described incorrectly","detail":"Place, asset, service area, and customer records need controlled relationships."},{"label":"A correction does not reach every consumer","detail":"The correction path should identify downstream reports, dashboards, notices, and users."}]},
-        {"label":"Cost and workforce","detail":"People spend time rebuilding the answer, repeat work, delay other tasks, and depend on scarce personal knowledge.","children":[{"label":"Manual search and reconciliation","detail":"Count the people, cycles, and minutes spent finding, joining, checking, and explaining the same answer."},{"label":"Rework and specialist interruption","detail":"Record repeated corrections, emergency calls, spreadsheet rebuilds, and work that waits for the one person who knows the path."}]}
-      ]}]}
-      </script>
-    </div>
-
-    <div data-ac="mc" data-title="Where should Riverbend act first?" data-kind="Quiz &middot; utility judgment" data-cue="Choose the action that makes the material decision more accountable without waiting for a full platform replacement.">
-      <script type="application/json">
-      {"q":"The wet-weather alert works, but the station code and time rules differ across systems. What is the best first governance action?","options":[["Buy a new dashboard and move every feed into it",false],["Name the decision owner, approve the station mapping and time rule, run a join check, and record exceptions",true],["Ask the most experienced operator to maintain a private crosswalk",false],["Wait until the enterprise data program defines every utility domain",false]],"right":"Correct. Riverbend can govern the high-consequence handoff now with named authority, controlled rules, an operating check, and exception evidence.","wrong":"A dashboard, private memory, or enterprise delay does not establish the needed authority and control. Start with the material handoff and leave evidence."}
-      </script>
-    </div>
-
-    <div data-ac="truefalse" data-title="Can a policy prove the control works?" data-kind="Quiz &middot; true or false" data-cue="Separate intent from recurring operating evidence.">
-      <script type="application/json">
-      {"items":[["An approved policy proves that the station-identifier check runs on every wet-weather data load.",false,"False. The policy proves intent. Run logs, results, exceptions, assignments, and closure evidence show whether the control operates."],["One person may hold several governance roles in a small utility, but each responsibility and decision right still needs a name.",true,"True. Limited staffing changes the design, not the need to make accountability and review visible."],["A corrected dashboard is enough even if downstream reports and users still hold the old value.",false,"False. The correction path must reach the source, affected outputs, users, notices, and closure record."],["A qualified duty manager can use an imperfect input when its limit, consequence, authority, and exception are visible and accepted.",true,"True. Governance does not promise perfect data. It makes fitness, limits, authority, and risk treatment explicit."]]}
-      </script>
-    </div>
-
-    <div class="lv l leadcall"><p class="h">Leader's call</p><p>Decide who owns this decision chain and which condition requires a stop, escalation, or accepted exception. Fund the smallest governed slice that changes the decision now, then expand it using the evidence from operation.</p></div>
-  </section>
-
-  <section class="sec">
-    <span class="tag">3 / 3</span>
-    <h2>Find the fragmentation tax</h2>
-    <p>The <span class="term" data-term="Fragmentation tax" data-def="The recurring time, delay, rework, dependence, and risk created when people must rebuild meaning and evidence across disconnected systems and undocumented handoffs.">fragmentation tax</span> is the cost of rebuilding the same truth. It appears in searches, manual joins, copied spreadsheets, phone calls, repeated explanations, corrections, delayed work, and dependence on one specialist. The direct labor is only the easiest part to estimate. Service, safety, compliance, customer, and trust consequences stay separate until the utility has defensible evidence for them.</p>
-
-    <div class="dg01-boundary"><b>Do not blame the spreadsheet.</b> A spreadsheet can be a controlled tool when its owner, source, formula, version, access, review, exception, and retention are managed. A large platform can be an uncontrolled <span class="term" data-term="Shadow system" data-def="A tool, copy, or process used outside the approved inventory or control path. A shadow system can be a spreadsheet, script, vendor portal, or even an enterprise platform used for an unapproved purpose.">shadow system</span> when those facts are hidden. Measure the handoff, not the brand of tool.</div>
-
-    <div data-ac="fragtax" data-title="Estimate the direct labor part of fragmentation" data-kind="Simulation &middot; live planning model" data-cue="Use a typical decision cycle, not an extreme incident. Move every input and record the basis for your estimate.">
-      <script type="application/json">
-      {"inputs":{"decisions":{"label":"Wet-weather decision cycles each month","value":12,"max":60},"people":{"label":"People searching or reconciling","value":5,"max":20},"minutes":{"label":"Minutes per person per cycle","value":90,"max":360},"rework":{"label":"Added rework and exception time","value":25,"max":100},"cost":{"label":"Loaded labor cost","value":65,"max":180}},"note":"Planning boundary: this model estimates direct labor from stated assumptions. It does not price avoided overflows, legal exposure, public health, regulatory outcomes, customer trust, or every delayed task. Validate local records before using the result in a budget or benefit claim."}
-      </script>
-    </div>
-
-    <p>The model uses a transparent planning formula: cycles per month multiplied by 12 months, people, and minutes per person, then adjusted for added rework. Multiply the resulting hours by a locally approved loaded labor cost. Keep every input visible. If the team cannot support an input, label it as an estimate and name the record needed to verify it.</p>
-
-    <div data-ac="table" data-title="Turn friction into measurable evidence" data-kind="Interactive &middot; measurement table" data-cue="Select a row. Start with records the utility can collect without creating a large reporting burden.">
-      <script type="application/json">
-      {"headers":["Fragmentation pattern","What to count","Evidence source"],"rows":[
-        {"name":"Search","cells":["people and minutes spent finding inputs","short time sample, work log, meeting record"],"detail":"Sample several normal cycles. Separate time spent finding the input from time spent doing the actual professional analysis."},
-        {"name":"Manual join","cells":["files, mappings, copy steps, failed matches","run record, crosswalk, reconciliation log"],"detail":"Record which identifiers, time rules, units, or versions require manual repair before the answer can be used."},
-        {"name":"Exception","cells":["failed rules, owner, age, consequence, disposition","issue and exception register"],"detail":"An exception without an owner and due date becomes a permanent part of the operating process."},
-        {"name":"Rework","cells":["repeated calculation, correction, notice, and approval time","change log, amendment, ticket, report history"],"detail":"Count the full correction path, including downstream users and records that need an amended value."},
-        {"name":"Delay","cells":["elapsed time from trigger to usable answer and action","event timestamps and decision record"],"detail":"Keep elapsed delay separate from labor hours. A ten-minute delay can matter greatly even when it uses little staff time."},
-        {"name":"Knowledge dependence","cells":["handoffs that require a named individual","handoff test and continuity exercise"],"detail":"Ask a qualified alternate to reconstruct the decision. Record where the path stops, what was missing, and the corrective action."}
-      ]}
-      </script>
-    </div>
-
-    <div data-ac="reflect" data-title="Executive reflection" data-kind="Check &middot; reflection" data-cue="A fundable case ties the data problem to a utility outcome and a first controlled change.">
-      <script type="application/json">
-      {"q":"Your executive says, 'We already bought the systems. Why do we need a governance program?' How would you answer in two minutes?","a":"Start with the decision, not the program name. Explain that the systems perform their local jobs, but Riverbend still rebuilds identity, time, meaning, quality, and authority at each handoff. Show one normal decision cycle, the direct time spent rebuilding it, the service or compliance consequence of a late or unsupported answer, and the first controlled change. Ask for an owner, a small pilot around that decision, and measures for search time, failed joins, exceptions, decision delay, and correction. Do not promise savings or risk reduction that the utility has not measured."}
-      </script>
-    </div>
-
-    <div class="dg01-studio">
-      <h3>Deployment Studio: write the executive case for action</h3>
-      <p>Use your Chapter 00 material decision. Keep protected infrastructure, customer information, security detail, legal advice, and controlled evidence in a utility-approved repository. This browser tool saves only your draft text on this device.</p>
-      <div class="dg01-output">
-        <article><b>Decision and consequence</b><p>Name the trigger, authorized decision, current failure pattern, and the service, safety, compliance, customer, financial, environmental, or trust consequence.</p></article>
-        <article><b>Fragmentation evidence</b><p>State the people, cycles, minutes, manual joins, exceptions, delays, and record source. Separate measured facts from planning assumptions.</p></article>
-        <article><b>First governed change</b><p>Name the identifier, definition, owner, control, record, or correction path that would improve this decision without waiting for a full platform program.</p></article>
-        <article><b>Value and review</b><p>Name the expected operating change, baseline measure, target, owner, due date, and the gate for funding the next slice.</p></article>
-      </div>
-    </div>
-
-    <div data-ac="artifactbuilder" data-title="Build your one-page executive case" data-kind="Interactive studio &middot; saved draft" data-cue="Use plain, specific language. If a value is not verified, write planning estimate and name the evidence needed.">
-      <script type="application/json">
-      {"key":"dga001-chapter-01-executive-case-v1","notice":"Enter only non-sensitive working text. This draft stays in this browser. Move the reviewed version and its evidence links into your utility-approved Launch Pack workspace.","previewLabel":"Executive case for action","fields":[
-        {"id":"decision","label":"Material decision","help":"Who decides what, for which service, asset, customer, or obligation?","placeholder":"The wet-weather duty manager decides whether to escalate crews and incident coordination."},
-        {"id":"trigger","label":"Trigger and current failure pattern","help":"What starts the decision, and where does the answer break?","placeholder":"Heavy rainfall and a high-level alarm; station codes and time rules differ across systems."},
-        {"id":"consequence","label":"Utility consequence","help":"What could a wrong, late, or unsupported answer change?","placeholder":"Late response, increased overflow, permit, safety, customer, and evidence consequences."},
-        {"id":"evidence","label":"Fragmentation evidence","help":"State measured facts and label estimates. Include the source to verify.","placeholder":"Planning estimate: 12 cycles per month, 5 people, 90 minutes each, plus 25 percent rework. Verify with a four-week time sample."},
-        {"id":"change","label":"First governed change","help":"Name the smallest controlled change that improves the decision.","placeholder":"Approve the station identifier map and time rule, run a join check, and assign every exception."},
-        {"id":"owner","label":"Owner and first review","help":"Who owns the result, what will be measured, and when is the next decision?","placeholder":"Operations director owns the pilot. Review failed joins, search time, exceptions, and decision delay after 30 days."}
-      ],"template":"EXECUTIVE CASE FOR ACTION\n\nDecision\n{decision}\n\nTrigger and current failure pattern\n{trigger}\n\nUtility consequence\n{consequence}\n\nCurrent fragmentation evidence and assumptions\n{evidence}\n\nFirst governed change\n{change}\n\nOwner, measure, and next review\n{owner}\n\nClaim boundary\nThis case supports a scoped utility pilot and measurement plan. It is not a certification, compliance opinion, assurance conclusion, or verified savings claim."}
-      </script>
-    </div>
-
-    <div data-ac="method" data-title="Move the case from draft to funded action" data-kind="Method &middot; six steps" data-cue="Keep the case small enough to verify and important enough to matter.">
-      <script type="application/json">
-      {"steps":[
-        ["Name the decision.","Use the trigger, authorized person, action, evidence, and consequence from Chapter 00."],
-        ["Show one normal failure chain.","Trace where identity, time, meaning, quality, authority, or evidence breaks across the handoffs."],
-        ["Measure the current tax.","Sample search, join, exception, rework, delay, and knowledge dependence. Mark assumptions clearly."],
-        ["Choose the first governed change.","Assign an owner and implement one controlled identifier, definition, rule, record, or correction path."],
-        ["Set the operating measures.","Track the baseline, control result, exceptions, time to usable answer, correction, and utility outcome."],
-        ["Approve the next gate.","After the pilot, decide whether to correct, expand, fund, redesign, or stop. Keep the evidence behind that choice."]
-      ]}
-      </script>
-    </div>
-
-    <div data-ac="artifacttracker" data-title="Chapter 01 Launch Pack tracker" data-kind="Interactive status &middot; saved on this device" data-cue="Evidence noted means the Launch Pack points to an approved source. Reviewed means the named utility role has checked the artifact within the stated scope.">
-      <script type="application/json">
-      {"key":"dga001-chapter-01-launch-pack-v1","states":["Not started","Draft","Evidence noted","Reviewed"],"items":[
-        {"id":"case","label":"Executive case for action","detail":"Decision, failure pattern, consequence, first governed change, owner, measures, and next gate."},
-        {"id":"map","label":"Value and consequence map","detail":"Service, safety, environment, compliance, customer, workforce, financial, and trust paths that apply."},
-        {"id":"tax","label":"Fragmentation baseline","detail":"Cycles, people, minutes, joins, exceptions, rework, delay, dependence, source, and assumption status."},
-        {"id":"pilot","label":"First controlled-change record","detail":"Owner, rule or control, retained evidence, exception path, baseline, target, due date, and review."}
-      ]}
-      </script>
-    </div>
-
-    <div class="dg01-gate">
-      <h3>Chapter 01 evidence gate</h3>
-      <ul>
-        <li>The executive case begins with one material decision and a named utility consequence.</li>
-        <li>The system handoff map identifies at least one missing identity, meaning, ownership, lineage, quality, rights, retention, or evidence record.</li>
-        <li>Measured facts, planning estimates, and unverified claims are labeled separately.</li>
-        <li>The fragmentation estimate records its formula, inputs, source, owner, and validation plan.</li>
-        <li>The first governed change has an accountable owner, operating measure, exception path, due date, and next review.</li>
-      </ul>
-    </div>
-
-    <div class="lv l leadcall"><p class="h">Leader's call</p><p>Approve a 30-day governed slice around the material decision. Require the team to show the baseline, the control result, the exceptions, and the decision outcome before asking for a larger platform or program investment.</p></div>
-  </section>
-
-  <section class="sec">
-    <span class="tag">Close</span>
-    <h2>Take this into Chapter 02</h2>
-    <p>You can now see the gap above and between utility systems, connect it to an accountable decision, and state the cost and consequence without overclaiming. Chapter 02 gives you the plain language for governance, management, lineage, provenance, integrity, traceability, quality, and governed data products.</p>
-    <div class="dg01-complete">
-      <h2>Record Chapter 01 completion</h2>
-      <p>Use this after your executive case, consequence map, fragmentation baseline, and first controlled-change record are saved in your utility-approved Launch Pack. This records course progress. It is not certification, a compliance opinion, or an assurance conclusion.</p>
-      <button type="button" id="completeChapter">Mark Chapter 01 complete</button>
-      <span class="result" id="completionResult" role="status" aria-live="polite"></span>
-    </div>
-  </section>
-
-  <section class="dg01-boundary" aria-label="Provenance">
-    <b>Provenance and control.</b> This lesson implements Chapter 1 and Figure 1 of <i>Data Ready Before AI Ready</i>, Version 2.3, controlled commit <code>825e4661a6dbdfe6628148eb005c86cfb10b8515</code>, for course <code>owos-master-data-governance-001</code> and learning object <code>dga001:01</code>. Source identifiers DG01 and DG02 support the controlled paper's data-volume context, but this lesson does not use data volume as proof of utility readiness. Utility-specific law, permits, standards, policies, security requirements, and records remain under their authorized owners.
-  </section>
-
-  <nav class="dg01-nav" aria-label="Chapter navigation"><a href="lesson-dg-00-how-to-use-the-master-class.html">&larr; Chapter 00</a><a class="home" href="course-data-governance.html">All 25 chapters</a><a href="lesson-dg-02-the-language-of-trustworthy-utility-data.html">Chapter 02 &rarr;</a></nav>
-</main>
-<footer class="dg01-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:01 &middot; Released in course build 0.18.0</div></footer>
 <script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
@@ -802,8 +659,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   /* ---- lens toggle, reading progress, goals ---- */
   function initChrome(){
     var lens=document.querySelector('.lens');
-    if(lens){var active=lens.querySelector('button.on')||lens.querySelector('button');if(active&&!document.body.hasAttribute('data-lens'))document.body.setAttribute('data-lens',active.getAttribute('data-lens'));
-      lens.querySelectorAll('button').forEach(function(b){
+    if(lens){lens.querySelectorAll('button').forEach(function(b){
       b.addEventListener('click',function(){
         lens.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
         b.classList.add('on');
@@ -1134,63 +990,6 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     }
     b.querySelectorAll('.at-item').forEach(function(row){paint(row);row.querySelector('.at-state').addEventListener('click',function(){var id=row.dataset.id;saved[id]=(value(row)+1)%states.length;paint(row);report();});});
     b.querySelector('[data-reset]').addEventListener('click',function(){saved={};b.querySelectorAll('.at-item').forEach(paint);report();});report();
-  };
-
-  R.layerstack=function(el){var c=cfgOf(el);var layers=c.layers||[];
-    var b=shell(el,'<div class="lsstack">'+layers.map(function(layer,i){
-      return '<button type="button" class="lslayer'+(i===0?' on':'')+'" data-i="'+i+'" aria-pressed="'+(i===0?'true':'false')+'"><span class="lsnum">'+(layer.number||i+1)+'</span><span><b>'+layer.label+'</b><small>'+(layer.sub||'')+'</small></span></button>';
-    }).join('')+'</div><div class="lsdetail" data-detail aria-live="polite">'+(layers[0]?layers[0].detail:'')+'</div>');
-    var detail=b.querySelector('[data-detail]');
-    b.querySelectorAll('.lslayer').forEach(function(button){button.addEventListener('click',function(){
-      b.querySelectorAll('.lslayer').forEach(function(item){item.classList.remove('on');item.setAttribute('aria-pressed','false');});button.classList.add('on');button.setAttribute('aria-pressed','true');
-      detail.innerHTML=layers[+button.dataset.i].detail||'';
-    });});
-  };
-
-  R.beforeafter=function(el){var c=cfgOf(el);var before=c.before||{},after=c.after||{};
-    function panel(kind,data){return '<div class="bapanel '+kind+'"><span class="balabel">'+(data.label||kind)+'</span><h4>'+(data.title||'')+'</h4><ul>'+(data.items||[]).map(function(item){return '<li>'+item+'</li>';}).join('')+'</ul></div>';}
-    var b=shell(el,'<div class="bastage">'+panel('before',before)+'<div class="baafter" data-after>'+panel('after',after)+'</div><i class="badivider" data-divider aria-hidden="true"><span>&#8596;</span></i></div><div class="barange"><label>'+(c.rangeLabel||'Move from fragmented to governed')+'</label><input type="range" min="0" max="100" value="50" aria-label="'+(c.rangeLabel||'Before and after comparison')+'"><output data-value>50% governed</output></div><div class="banote" data-note aria-live="polite"></div>');
-    var range=b.querySelector('input'),overlay=b.querySelector('[data-after]'),divider=b.querySelector('[data-divider]'),out=b.querySelector('[data-value]'),note=b.querySelector('[data-note]');
-    function update(){var v=+range.value;overlay.style.clipPath='inset(0 '+(100-v)+'% 0 0)';divider.style.left=v+'%';out.textContent=v+'% governed';
-      var notes=c.notes||[];var selected=notes[notes.length-1]||'';for(var i=0;i<notes.length;i++){if(v<=notes[i].max){selected=notes[i].body;break;}}note.innerHTML=selected;}
-    range.addEventListener('input',update);update();
-  };
-
-  R.handoff=function(el){var c=cfgOf(el);var steps=c.steps||[],mode='fragmented',index=0,timer=null;
-    var b=shell(el,'<div class="hotoggle"><button type="button" class="on" data-mode="fragmented">Fragmented handoff</button><button type="button" data-mode="governed">Governed handoff</button></div><div class="hochain" data-chain></div><div class="hoctrl"><button type="button" data-action="reset">Reset</button><button type="button" data-action="back">Back</button><button type="button" class="primary" data-action="next">Next handoff</button><button type="button" data-action="play">Play</button><span data-count></span></div><div class="honarr" data-narr aria-live="polite"></div>');
-    var chain=b.querySelector('[data-chain]'),narr=b.querySelector('[data-narr]'),count=b.querySelector('[data-count]');
-    function stop(){if(timer){clearInterval(timer);timer=null;}b.querySelector('[data-action="play"]').textContent='Play';}
-    function paint(){chain.innerHTML=steps.map(function(step,i){var state=i<index?' done':i===index?' active':'';var message=mode==='fragmented'?step.risk:step.control;return '<div class="honode'+state+'"><span>'+(i+1)+'</span><b>'+step.label+'</b><small>'+(step.sub||'')+'</small>'+(i<steps.length-1?'<i>&#8594;</i>':'')+'</div>';}).join('');
-      var step=steps[index]||{};narr.className='honarr '+(mode==='fragmented'?'warn':'ok');narr.innerHTML='<b>'+(step.label||'')+'.</b> '+(mode==='fragmented'?(step.risk||''):(step.control||''));count.textContent=(steps.length?index+1:0)+' of '+steps.length;
-      b.querySelector('[data-action="back"]').disabled=index===0;b.querySelector('[data-action="next"]').disabled=index>=steps.length-1;}
-    b.querySelectorAll('[data-mode]').forEach(function(button){button.setAttribute('aria-pressed',button.classList.contains('on')?'true':'false');button.addEventListener('click',function(){stop();mode=button.dataset.mode;index=0;b.querySelectorAll('[data-mode]').forEach(function(item){item.classList.remove('on');item.setAttribute('aria-pressed','false');});button.classList.add('on');button.setAttribute('aria-pressed','true');paint();});});
-    b.querySelector('[data-action="reset"]').addEventListener('click',function(){stop();index=0;paint();});
-    b.querySelector('[data-action="back"]').addEventListener('click',function(){stop();index=Math.max(0,index-1);paint();});
-    b.querySelector('[data-action="next"]').addEventListener('click',function(){stop();index=Math.min(steps.length-1,index+1);paint();});
-    b.querySelector('[data-action="play"]').addEventListener('click',function(){if(timer){stop();return;}index=0;paint();this.textContent='Pause';timer=setInterval(function(){if(index>=steps.length-1){stop();return;}index++;paint();},1400);});paint();
-  };
-
-  R.fragtax=function(el){var c=cfgOf(el);var settings=c.inputs||{};
-    function setting(id,label,unit,min,max,step,value){var x=settings[id]||{};return {id:id,label:x.label||label,unit:x.unit||unit,min:x.min==null?min:x.min,max:x.max==null?max:x.max,step:x.step==null?step:x.step,value:x.value==null?value:x.value};}
-    var inputs=[setting('decisions','Decision cycles each month','cycles',1,60,1,12),setting('people','People rebuilding each answer','people',1,20,1,5),setting('minutes','Minutes per person per cycle','minutes',10,360,10,90),setting('rework','Added rework and exception time','%',0,100,5,25),setting('cost','Loaded labor cost','$ / hour',25,180,5,65)];
-    var b=shell(el,'<div class="ftinputs">'+inputs.map(function(input){return '<label><span><b>'+input.label+'</b><small>'+input.unit+'</small></span><input type="range" data-id="'+input.id+'" min="'+input.min+'" max="'+input.max+'" step="'+input.step+'" value="'+input.value+'"><output data-out="'+input.id+'"></output></label>';}).join('')+'</div><div class="ftkpis"><div><b data-hours></b><span>annual search and join hours</span></div><div><b data-rework></b><span>annual rework hours</span></div><div class="key"><b data-cost></b><span>direct labor planning estimate</span></div><div><b data-weeks></b><span>40-hour work weeks</span></div></div><div class="ftchart"><div class="ftcol"><b data-base-label></b><i data-base-bar></i><span>search and reconcile</span></div><div class="ftcol"><b data-rework-label></b><i class="rework" data-rework-bar></i><span>added rework</span></div></div><div class="ftnote">'+(c.note||'This is a planning estimate of direct labor only. Validate local cycle counts, time, cost, service consequences, and risk before using it in a funding decision.')+'</div>');
-    function value(id){return +b.querySelector('input[data-id="'+id+'"]').value;}function money(n){return '$'+Math.round(n).toLocaleString();}
-    function paint(){inputs.forEach(function(input){var v=value(input.id),text=input.id==='cost'?money(v):v.toLocaleString();if(input.id==='rework')text+='%';b.querySelector('[data-out="'+input.id+'"]').textContent=text;});
-      var base=value('decisions')*12*value('people')*value('minutes')/60,rework=base*value('rework')/100,total=base+rework,cost=total*value('cost'),max=Math.max(base,rework,1);
-      b.querySelector('[data-hours]').textContent=Math.round(base).toLocaleString();b.querySelector('[data-rework]').textContent=Math.round(rework).toLocaleString();b.querySelector('[data-cost]').textContent=money(cost);b.querySelector('[data-weeks]').textContent=(total/40).toFixed(1);
-      b.querySelector('[data-base-label]').textContent=Math.round(base).toLocaleString()+' h';b.querySelector('[data-rework-label]').textContent=Math.round(rework).toLocaleString()+' h';b.querySelector('[data-base-bar]').style.height=Math.max(5,base/max*120)+'px';b.querySelector('[data-rework-bar]').style.height=Math.max(5,rework/max*120)+'px';}
-    b.querySelectorAll('input').forEach(function(input){input.addEventListener('input',paint);});paint();
-  };
-
-  R.artifactbuilder=function(el){var c=cfgOf(el),fields=c.fields||[],key='owos:artifactbuilder:'+(c.key||location.pathname),saved={};
-    try{saved=JSON.parse(localStorage.getItem(key)||'{}')||{};}catch(e){saved={};}
-    var b=shell(el,'<div class="abnotice">'+(c.notice||'Use only non-sensitive working text here. Save controlled utility evidence in an approved repository.')+'</div><div class="abfields">'+fields.map(function(field){return '<label><b>'+field.label+'</b><small>'+(field.help||'')+'</small><textarea data-id="'+field.id+'" rows="'+(field.rows||3)+'" placeholder="'+(field.placeholder||'')+'"></textarea></label>';}).join('')+'</div><div class="abpreview"><span>'+(c.previewLabel||'Executive case preview')+'</span><pre data-preview></pre></div><div class="abactions"><button type="button" class="btn" data-copy>Copy preview</button><button type="button" class="btn" data-clear>Clear saved draft</button><span data-status aria-live="polite"></span></div>');
-    var preview=b.querySelector('[data-preview]'),status=b.querySelector('[data-status]');
-    function compose(){var text=c.template||'';fields.forEach(function(field){var v=saved[field.id]||'['+field.label+']';text=text.split('{'+field.id+'}').join(v);});return text;}
-    function save(){try{localStorage.setItem(key,JSON.stringify(saved));status.textContent='Draft saved on this device.';}catch(e){status.textContent='Draft could not be saved in this browser.';}preview.textContent=compose();}
-    fields.forEach(function(field){var input=b.querySelector('[data-id="'+field.id+'"]').value=saved[field.id]||'';b.querySelector('[data-id="'+field.id+'"]').addEventListener('input',function(){saved[field.id]=this.value.trim();save();});});save();
-    b.querySelector('[data-copy]').addEventListener('click',async function(){try{await navigator.clipboard.writeText(compose());status.textContent='Preview copied. Move it into your approved Launch Pack workspace.';}catch(e){status.textContent='Copy was blocked. Select the preview text and copy it manually.';}});
-    b.querySelector('[data-clear]').addEventListener('click',function(){saved={};fields.forEach(function(field){b.querySelector('[data-id="'+field.id+'"]').value='';});try{localStorage.removeItem(key);}catch(e){}save();status.textContent='Saved draft cleared.';});
   };
 
   R.twofig=function(el){var c=cfgOf(el);function box(o){return '<div class="box"><div class="cap">'+o.cap+'</div>'+o.svg+'<div class="note">'+o.note+'</div></div>';}
@@ -1777,45 +1576,6 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     b.querySelector('[data-reset]').addEventListener('click',function(){reset();b.querySelector('[data-out]').innerHTML='Reset. Press Run to simulate again.';b.querySelector('[data-run]').innerHTML='&#9654; Run 1,000 simulations';});
   };
 
-  R.provnet=function(el){var c=cfgOf(el),nodes=c.nodes||[],edges=c.edges||[],steps=c.steps||[],cur=0,timer=null;
-    var b=shell(el,'<div class="pnstage"><svg viewBox="0 0 760 330" role="img" aria-label="'+(c.ariaLabel||'Provenance network')+'" data-svg></svg></div><div class="pnkey"><span><i class="entity"></i>Entity or record</span><span><i class="activity"></i>Activity</span><span><i class="agent"></i>Agent</span></div><div class="pnctrl"><button data-action="reset">Reset</button><button data-action="back">Back</button><button class="primary" data-action="step">Step</button><button data-action="play">Play</button><span data-count></span></div><div class="pnnarr" data-narr aria-live="polite"></div>');
-    var svg=b.querySelector('[data-svg]'),narr=b.querySelector('[data-narr]'),count=b.querySelector('[data-count]');
-    function stop(){if(timer){clearInterval(timer);timer=null;}b.querySelector('[data-action="play"]').textContent='Play';}
-    function color(kind){return kind==='activity'?'#A97B0F':kind==='agent'?'#0E8A64':'#0A78BA';}
-    function paint(){var step=steps[cur]||{focus:[],title:'Network',body:''},focus=step.focus||[];
-      var edgeHtml=edges.map(function(edge){var a=nodes.find(function(n){return n.id===edge.from;}),z=nodes.find(function(n){return n.id===edge.to;});if(!a||!z)return '';
-        var active=focus.includes(edge.from)&&focus.includes(edge.to);var mx=(a.x+z.x)/2,my=(a.y+z.y)/2;
-        return '<g class="pnedge'+(active?' on':'')+'"><line x1="'+a.x+'" y1="'+a.y+'" x2="'+z.x+'" y2="'+z.y+'" marker-end="url(#pn-arrow)"/><text x="'+mx+'" y="'+(my-7)+'">'+(edge.label||'')+'</text></g>';}).join('');
-      var nodeHtml=nodes.map(function(node){var active=focus.includes(node.id),w=node.w||142,h=node.h||58,x=node.x-w/2,y=node.y-h/2;
-        return '<g class="pnnode '+(node.kind||'entity')+(active?' on':'')+'" transform="translate('+x+' '+y+')"><rect width="'+w+'" height="'+h+'" rx="12"/><circle cx="17" cy="17" r="6" fill="'+color(node.kind)+'"/><text class="main" x="'+(w/2)+'" y="'+(h/2-2)+'">'+node.label+'</text><text class="sub" x="'+(w/2)+'" y="'+(h/2+16)+'">'+(node.sub||'')+'</text></g>';}).join('');
-      svg.innerHTML='<defs><marker id="pn-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8595AB"/></marker></defs>'+edgeHtml+nodeHtml;
-      narr.innerHTML='<b>'+((cur+1)+'. '+(step.title||'Follow the evidence'))+'</b> '+(step.body||'');count.textContent=(cur+1)+' / '+Math.max(steps.length,1);
-      b.querySelector('[data-action="back"]').disabled=cur===0;b.querySelector('[data-action="step"]').disabled=cur>=steps.length-1;
-    }
-    function advance(){if(cur<steps.length-1){cur++;paint();}else stop();}
-    b.querySelector('[data-action="reset"]').addEventListener('click',function(){stop();cur=0;paint();});
-    b.querySelector('[data-action="back"]').addEventListener('click',function(){stop();if(cur>0)cur--;paint();});
-    b.querySelector('[data-action="step"]').addEventListener('click',function(){stop();advance();});
-    b.querySelector('[data-action="play"]').addEventListener('click',function(){if(timer){stop();return;}if(cur>=steps.length-1){cur=0;paint();}this.textContent='Pause';advance();timer=setInterval(advance,1800);});paint();
-  };
-
-  R.qualityfit=function(el){var c=cfgOf(el),dims=c.dimensions||[],uses=c.uses||[];
-    var options=uses.map(function(use,i){return '<option value="'+i+'">'+use.label+'</option>';}).join('');
-    var rows=dims.map(function(dim){return '<label class="qfrow"><span><b>'+dim.label+'</b><small>'+(dim.help||'')+'</small></span><input type="range" min="0" max="100" step="1" value="'+(dim.value==null?80:dim.value)+'" data-id="'+dim.id+'" aria-label="'+dim.label+' evidence level"><output data-value="'+dim.id+'"></output><div class="qftrack"><i data-fill="'+dim.id+'"></i><em data-gate="'+dim.id+'"></em></div><strong data-state="'+dim.id+'"></strong></label>';}).join('');
-    var b=shell(el,'<div class="qfuse"><label>Intended use<select data-use>'+options+'</select></label><p data-use-note></p></div><div class="qfrows">'+rows+'</div><div class="qfverdict" data-verdict aria-live="polite"></div><div class="qfboundary">'+(c.boundary||'This teaching model compares stated evidence with stated use thresholds. It is not a certified data-quality score or a compliance conclusion.')+'</div>');
-    function val(id){return +b.querySelector('input[data-id="'+id+'"]').value;}
-    function paint(){var use=uses[+b.querySelector('[data-use]').value]||{required:{},label:'this use'},failed=[];
-      dims.forEach(function(dim){var current=val(dim.id),required=(use.required||{})[dim.id]||0,ok=current>=required;
-        b.querySelector('[data-value="'+dim.id+'"]').textContent=current+' / 100';b.querySelector('[data-fill="'+dim.id+'"]').style.width=current+'%';b.querySelector('[data-gate="'+dim.id+'"]').style.left=required+'%';
-        var state=b.querySelector('[data-state="'+dim.id+'"]');state.className=ok?'pass':'fail';state.textContent=ok?'Meets '+required:'Needs '+required;if(!ok)failed.push(dim.label);
-      });
-      b.querySelector('[data-use-note]').textContent=use.note||'';var verdict=b.querySelector('[data-verdict]');
-      if(failed.length){verdict.className='qfverdict fail';verdict.innerHTML='<b>Not fit for '+use.label+'.</b> The stated evidence does not yet meet: '+failed.join(', ')+'. '+(use.consequence||'Resolve the gap or change the intended use.');}
-      else{verdict.className='qfverdict pass';verdict.innerHTML='<b>Fit for the stated use in this exercise.</b> Every required dimension meets its threshold. Retain the evidence, approval, use limits, and review date. This result does not transfer automatically to another use.';}
-    }
-    b.querySelector('[data-use]').addEventListener('change',paint);b.querySelectorAll('input[type="range"]').forEach(function(input){input.addEventListener('input',paint);});paint();
-  };
-
   /* ---- boot ---- */
   function boot(){
     injectDroobi();
@@ -1830,23 +1590,6 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 
-</script>
-<script>
-(function(){
-  var button=document.getElementById('completeChapter');
-  var result=document.getElementById('completionResult');
-  if(!button||!result)return;
-  button.addEventListener('click',async function(){
-    button.disabled=true;result.textContent='Recording your progress...';
-    try{
-      var enrollment=await fetch('/api/learn/enrollments',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001'})});
-      if(!enrollment.ok)throw new Error(enrollment.status===401?'Sign in to record progress.':'Enrollment could not be opened.');
-      var eventResponse=await fetch('/api/learn/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001',module:1,eventType:'completed',idempotencyKey:'course:dga001:1:complete:v0.18.0',page:location.pathname})});
-      if(!eventResponse.ok)throw new Error(eventResponse.status===401?'Sign in to record progress.':'Completion could not be recorded.');
-      result.textContent='Chapter 01 is complete. Your OWOS Learn progress is saved.';button.textContent='Chapter 01 complete';
-    }catch(error){result.textContent=error.message+' Refresh the page and try again.';button.disabled=false;}
-  });
-})();
 </script>
 </body>
 </html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 10 &middot; Quality management &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 10 of the Project Management masterclass. Quality assurance vs quality control, Inspection and Test Plans, hold and witness points, the cost of quality, and non-conformance reports.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 10</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 10 &middot; Quality and risk</span>
+  <h1>Quality: building it <span>right</span>, not gold-plating it</h1>
+  <p class="sub">Quality is not making the fanciest thing. It is delivering exactly what the requirements called for, provably. This chapter covers how you build quality in (assurance), how you check it (control), where to spend to get it, and what to do when something does not conform.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job we are inspecting</p>
+      <p><b>The Millpond Road water main replacement, under construction.</b> Same job. Now we make sure the pipe going in the ground actually meets the spec, that we catch problems before they are buried, and that we spend the right amount doing it.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Tell quality assurance from quality control, and use each correctly</li>
+    <li><span class="bx"></span> Read an Inspection and Test Plan and know a hold point from a witness point</li>
+    <li><span class="bx"></span> Find the right amount to spend on quality, using the cost of quality</li>
+    <li><span class="bx"></span> Handle a non-conformance the right way</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 1</span>
+    <h2>Assurance, control, and the plan</h2>
+    <p>Two words that sound alike and mean different things. <span class="term" data-term="Quality Assurance (QA)" data-def="Building quality in through the process: the right procedures, trained crews, approved materials, and a plan. QA is about preventing defects before they happen.">Quality Assurance (QA)</span> is about the process: the procedures, training, and approved materials that <em>prevent</em> defects. <span class="term" data-term="Quality Control (QC)" data-def="Checking the product against the spec: inspections, tests, and measurements that catch defects that slipped through. QC is about detecting problems.">Quality Control (QC)</span> is about the product: the inspections and tests that <em>catch</em> defects. Assurance prevents, control detects. Sort a few.</p>
+
+    <div data-ac="classify" data-title="Assurance or control?" data-kind="Quiz &middot; classify" data-cue="Building it right (process, prevention) is assurance. Checking it after (inspection, detection) is control.">
+      <script type="application/json">
+      {"buckets":["Quality Assurance","Quality Control"],
+       "items":[
+        ["Approving the pipe supplier and materials before they ship",0,"Setting the process up to prevent bad materials. Assurance."],
+        ["Pressure-testing the finished main",1,"Checking the product against the spec. Control."],
+        ["Training the crew on the joint-assembly procedure",0,"Building capability in so defects do not happen. Assurance."],
+        ["Inspecting each joint before backfill",1,"Detecting defects in the actual work. Control."]
+       ]}
+      </script>
+    </div>
+
+    <p>QC runs on an <span class="term" data-term="ITP" data-def="Inspection and Test Plan. A document that lists every inspection and test on a job, when it happens, who does it, and whether it is a hold point or a witness point.">Inspection and Test Plan (ITP)</span>, which lists every check on the job. Two kinds of checkpoint matter most. A <span class="term" data-term="Hold point" data-def="A point where work must stop until the inspector signs off. You cannot proceed without approval, for example inspecting pipe joints before backfilling covers them.">hold point</span> stops the work until an inspector signs off. A <span class="term" data-term="Witness point" data-def="A point where the inspector is invited to observe, but work may proceed if they do not attend. Less strict than a hold point.">witness point</span> invites the inspector but lets work continue. Walk the Millpond ITP.</p>
+
+    <div data-ac="process" data-title="The Millpond inspection sequence" data-kind="Interactive &middot; process" data-cue="The gold gates are hold points: work stops until sign-off. Notice the hold point sits right before backfill, because once the pipe is buried, fixing a bad joint costs a fortune.">
+      <script type="application/json">
+      {"gate":true,"phases":[
+        {"title":"Submittal","sub":"approve materials","detail":"<b>Submittal review.</b> Before anything arrives, the contractor proves the pipe, fittings, and methods meet the spec, and you approve them. Quality assurance, done on paper first."},
+        {"title":"Install","sub":"lay the pipe","detail":"<b>Install.</b> Crews assemble and lay the main to the approved procedure. This is where the joints that matter get made."},
+        {"title":"Joint inspection","sub":"hold point","detail":"<b>Joint inspection (HOLD POINT).</b> Work stops. An inspector checks every joint and the bedding before anything is covered. Nothing proceeds until this is signed off, because the next step hides it forever."},
+        {"title":"Backfill","sub":"cover it","detail":"<b>Backfill.</b> Only after the hold point clears do you backfill and compact. Bury a bad joint and you have traded a cheap fix now for an expensive dig-up later."},
+        {"title":"Pressure test","sub":"witness point","detail":"<b>Pressure test (WITNESS POINT).</b> The inspector is invited to witness the test, but it can proceed on schedule. Pass it, disinfect, sample, and the main is ready to accept."}
+      ]}
+      </script>
+    </div>
+
+    <p>How much should you spend on all this checking? There is a real answer, and it is not "as much as possible." The <span class="term" data-term="Cost of quality" data-def="The total of what you spend preventing and finding defects (prevention and appraisal) plus what defects cost you (internal and external failure). It has a minimum: a sweet spot of investment.">cost of quality</span> is prevention and appraisal spend plus the cost of the failures that slip through. Spend too little and failures are expensive; spend too much and you over-inspect. There is a sweet spot. Find it.</p>
+
+    <div data-ac="coq" data-title="How much quality is worth buying?" data-kind="Interactive &middot; simulation" data-cue="Slide prevention up from zero. Failure cost drops fast at first, then the total curve bottoms out and starts rising again. That bottom is where to aim.">
+      <script type="application/json">
+      {"failBase":400,"K":100,"max":300,"start":30}
+      </script>
+    </div>
+
+    <p>When something does not meet spec, it gets logged as a <span class="term" data-term="NCR" data-def="Non-Conformance Report. The formal record that something did not meet the requirement, what was done about it (rework, repair, use-as-is with approval, or reject), and how it was closed out.">Non-Conformance Report (NCR)</span>. The NCR is not a punishment, it is a controlled way to decide what to do (rework it, repair it, use it as-is with engineering approval, or reject it) and to prove you handled it. A job with zero NCRs is usually a job that is not inspecting hard enough.</p>
+
+    <div data-ac="mc" data-title="Handle the non-conformance" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"An inspector finds a pipe joint that does not meet the spec, at the hold point before backfill. What is the right first move?",
+       "options":[
+        ["Log an NCR and decide the disposition (rework, repair, use-as-is, or reject) before proceeding",1],
+        ["Backfill it anyway to stay on schedule and note it later",0],
+        ["Quietly have the crew fix it and say nothing",0],
+        ["Reject the whole main and start over",0]
+       ],
+       "right":"Correct. That is exactly what the hold point and the NCR are for: stop, document the non-conformance, decide the disposition with the right sign-offs, then proceed. It keeps quality and the record honest.",
+       "wrong":"Not quite. The hold point exists so you stop and handle it: log an NCR, decide the disposition (rework, repair, use-as-is with approval, or reject), and proceed only once it is resolved. Burying it or hiding it is how small defects become failures and disputes."}
+      </script>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["Quality means building the best possible thing, above the requirements.",false,"No. Quality is conformance to the requirements. Exceeding them (gold-plating) wastes money the requirements did not ask for."],
+        ["Quality assurance prevents defects; quality control detects them.",true,"Right. Assurance builds quality into the process; control checks the product for what slipped through."],
+        ["Spending more on inspection always lowers the total cost of quality.",false,"No. Past the sweet spot, extra inspection costs more than the failures it prevents. Quality has diminishing returns."]
+      ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Put your quality money at the front, in prevention and hold points, not at the end in rework. <b>A joint inspected before backfill costs minutes; the same joint found after a road is repaved costs a project.</b> And do not read zero NCRs as good news, read it as nobody looking.</p>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Quality Assurance","Building quality in through process: prevents defects."],
+        ["Quality Control","Checking the product against spec: detects defects."],
+        ["ITP","Inspection and Test Plan: every check, when, who, and hold or witness."],
+        ["Hold point","Work stops until the inspector signs off."],
+        ["Cost of quality","Prevention plus failure cost. It has a sweet-spot minimum."],
+        ["NCR","Non-Conformance Report: the controlled record and disposition of a defect."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"On your last job, was quality mostly assurance (built in up front) or mostly control (caught at the end)? And did the inspections sit at the points where a missed defect gets buried or expensive?",
+       "a":"The cheapest quality is the kind you build in: approved materials, trained crews, clear procedures, so the defect never happens. The next cheapest is a hold point placed exactly where a defect is about to become invisible or permanent, like the joint inspection before backfill. The most expensive quality is the failure you find after handover, when fixing it means tearing out finished work. Good quality management pushes the effort to the front and the checkpoints to the moments of no return, and it treats every NCR as information, not as blame."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>Quality is conformance, not gold-plating.</b> Deliver exactly what the requirements asked for, and prove it.</div></li>
+      <li><span class="n">2.</span><div><b>Assurance prevents, control detects.</b> Build quality in with process; catch what slips through with inspection and test.</div></li>
+      <li><span class="n">3.</span><div><b>Put hold points where defects get buried.</b> The ITP checkpoint before backfill is worth a hundred after handover.</div></li>
+      <li><span class="n">4.</span><div><b>There is a sweet spot.</b> Spend enough on prevention to keep failures low, and treat every NCR as information.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Quality is cheapest when it is prevented and most expensive when it is buried. <b>Spend at the front, inspect at the points of no return, and log every non-conformance honestly.</b> That is the whole discipline, and it pays for itself many times over.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-09-procurement-contracts-claims.html">&#8592; Chapter 09 &middot; Procurement, contracts and claims</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 10 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>
