@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 19 &middot; Program and portfolio management &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 19 of the Project Management masterclass. Program management and benefit realization, portfolio prioritization, resource leveling across projects, and organizational project management maturity.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 19</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 19 &middot; Above the project</span>
+  <h1>Program and <span>portfolio</span> management</h1>
+  <p class="sub">Everything so far has been about running one project well. That is not enough. A utility runs dozens at once, competing for the same money and the same crews, and the decisions that matter most happen above any single project: which ones exist at all, in what order, and whether the benefit anybody promised ever actually arrives.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">Zooming out from one job</p>
+      <p><b>Millpond Road was never really about Millpond Road.</b> It is one of three projects in a pressure zone improvement program: the main replacement, a new booster station, and a storage tank rehabilitation. None of them delivers the promised benefit alone. Meanwhile the utility has eleven other projects and one capital budget.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Tell a project from a program from a portfolio, and know which problem you are solving</li>
+    <li><span class="bx"></span> Manage toward a benefit instead of a set of completion dates</li>
+    <li><span class="bx"></span> Prioritize a capital plan defensibly when everything cannot be funded</li>
+    <li><span class="bx"></span> See why the same crews constrain every project at once</li>
+    <li><span class="bx"></span> Place your organization on a maturity ladder and name the next rung</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 4</span>
+    <h2>Program management and the benefit</h2>
+    <p>A <span class="term" data-term="Project" data-def="A temporary effort to produce a specific deliverable: a pipeline, a pump station, a study. It ends when the thing exists.">project</span> produces a deliverable. A <span class="term" data-term="Program" data-def="A group of related projects managed together because the benefit only arrives when they are coordinated. A program manages the benefit; the projects underneath it manage the deliverables.">program</span> is a group of related projects managed together because coordinating them produces something none of them delivers alone. A <span class="term" data-term="Portfolio" data-def="All the projects and programs an organization has chosen to run, viewed together, so that money and people can be allocated across them. A portfolio is about choosing; a program is about coordinating.">portfolio</span> is everything the organization has chosen to do, viewed together so money can be allocated across it. The distinction sounds academic until you watch a benefit fail to arrive. Set the three pressure zone projects.</p>
+
+    <div data-ac="program" data-title="When does the benefit actually arrive?" data-kind="Interactive &middot; simulation" data-cue="Pull the first two projects earlier and watch the benefit date refuse to move. Only the gold bar matters.">
+      <script type="application/json">
+      {"maxMonths":36,"benefit":"Adequate pressure and fire flow across the zone","benefitName":"Benefit realized",
+       "projects":[
+        {"name":"Main replacement","months":14,"min":6},
+        {"name":"Booster station","months":22,"min":6},
+        {"name":"Tank rehabilitation","months":17,"min":6}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>This is the whole argument for program management in one picture. Three project managers can each deliver on time and under budget, and the utility still gets no benefit until month 22, because customers do not experience a main, a booster station, or a tank. They experience pressure, and pressure needs all three. Anything spent accelerating the main replacement is spent for nothing. <b>The program manager's job is to find the driver and push there,</b> which is the same critical path logic from Chapter 05 applied one level up, with benefits in place of activities.</p>
+    </div>
+
+    <div data-ac="mc" data-title="Where does the money go?" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"You are the program manager. You have $200,000 of discretionary funds and the three projects above. Where should it go?",
+       "options":[
+        ["Accelerating the booster station, the project setting the benefit date",1],
+        ["Split it evenly across all three projects to keep everyone moving",0],
+        ["Accelerating the main replacement, which is furthest along",0],
+        ["Hold it as contingency until a project reports a problem",0]
+       ],
+       "right":"Correct. Only the driver moves the benefit date. Spending on the other two produces earlier deliverables and not one day of earlier benefit, which is precisely the trap the simulation is built to show.",
+       "wrong":"Not quite. Ask which spend moves the benefit date, not which project would appreciate the help. The main replacement and the tank already finish before the booster station, so accelerating them changes nothing a customer experiences. Splitting evenly is the same mistake in three parts."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 4</span>
+    <h2>Portfolio management and prioritization</h2>
+    <p>At the portfolio level the question changes from "how do we deliver this" to "which of these do we do at all." Utilities have far more needed projects than money, so prioritization is not a bureaucratic exercise, it is the single most consequential decision the organization makes each year. The defensible way to do it is to agree the criteria and their weights <em>before</em> looking at the projects. Move the weights and watch the ranking rearrange.</p>
+
+    <div data-ac="scoreboard" data-title="Weighting the capital plan" data-kind="Interactive &middot; simulation" data-cue="Set risk to 5 and growth to 0, then reverse it. The same projects, a completely different plan. This is why the weights are the political decision, not the scores.">
+      <script type="application/json">
+      {"criteria":[
+        {"key":"risk","label":"Risk of failure if deferred","weight":5},
+        {"key":"comp","label":"Regulatory compliance driver","weight":5},
+        {"key":"growth","label":"Supports growth","weight":2},
+        {"key":"cost","label":"Cost effectiveness","weight":3},
+        {"key":"lvl","label":"Level of service to customers","weight":3}
+       ],
+       "projects":[
+        {"name":"Wellfield treatment (compliance deadline)","scores":{"risk":4,"comp":5,"growth":2,"cost":2,"lvl":4}},
+        {"name":"Millpond pressure zone program","scores":{"risk":4,"comp":1,"growth":3,"cost":3,"lvl":5}},
+        {"name":"Lead service line replacement","scores":{"risk":3,"comp":5,"growth":1,"cost":2,"lvl":4}},
+        {"name":"New east side transmission main","scores":{"risk":2,"comp":1,"growth":5,"cost":3,"lvl":3}},
+        {"name":"Plant SCADA replacement","scores":{"risk":4,"comp":2,"growth":1,"cost":4,"lvl":2}},
+        {"name":"Downtown reuse expansion","scores":{"risk":1,"comp":3,"growth":4,"cost":3,"lvl":3}}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Two things are worth noticing. First, the ranking is genuinely sensitive to the weights, which means the weights are where the real decision lives. Agreeing them in a calm room with your leadership, in advance, is worth more than any amount of careful scoring afterwards. Second, a scoring model does not remove judgment, it makes judgment visible and reviewable. When a council member asks why their neighborhood's project is eighth, "because growth is weighted 2 and compliance is weighted 5, and here is the model we adopted in November" is an answer. "Engineering judgment" is not.</p>
+    </div>
+
+    <p>Ranking tells you the order. The budget tells you where the line falls.</p>
+
+    <div data-ac="cipplan" data-title="Fitting the plan into one year's budget" data-kind="Interactive &middot; simulation" data-cue="Drag the budget down and watch good projects fall below the line. Nothing here is a bad project, and most of them still do not get funded.">
+      <script type="application/json">
+      {"min":2000,"max":14000,"step":500,"start":8000,
+       "projects":[
+        {"name":"Wellfield treatment (compliance deadline)","cost":6200},
+        {"name":"Lead service line replacement, year 1","cost":2400},
+        {"name":"Millpond pressure zone program","cost":3100},
+        {"name":"Plant SCADA replacement","cost":1800},
+        {"name":"New east side transmission main","cost":4500},
+        {"name":"Downtown reuse expansion","cost":2900}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Set the weights in public and in advance, then let the model do the arguing. <b>A prioritization your council helped weight is a prioritization your council will defend; one that arrives as a ranked list from engineering is one they will relitigate every year, project by project.</b> The point of the model is not accuracy, it is that the conversation happens once, at the level of principles, instead of eleven times at the level of individual neighborhoods.</p>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 3 ===================== -->
+  <div class="sec">
+    <span class="tag">3 / 4</span>
+    <h2>Resources across the whole portfolio</h2>
+    <p>Every project in that plan draws on the same finite pool: inspectors, engineers, operations staff who must be present for tie-ins, and the two or three contractors who actually bid your work. Chapter 06 introduced <span class="term" data-term="Resource leveling" data-def="Adjusting when work happens so that demand for a limited resource stays within what is actually available, usually by delaying work that has float.">resource leveling</span> inside one schedule. At portfolio level the same problem appears across projects that have no idea the others exist.</p>
+
+    <div data-ac="reslevel" data-title="The same crews, across the portfolio" data-kind="Interactive &middot; simulation" data-cue="Toggle to After leveling. Nothing gained capacity, work simply moved into the gaps. The finish moves, and that is the honest trade.">
+      <script type="application/json">
+      {"cap":3,"unit":"inspection crews",
+       "before":{"weeks":8,"tasks":[
+         {"name":"Wellfield treatment","start":0,"dur":5,"crew":2},
+         {"name":"Millpond program","start":1,"dur":5,"crew":2},
+         {"name":"Lead service lines","start":3,"dur":5,"crew":1}]},
+       "after":{"weeks":11,"tasks":[
+         {"name":"Wellfield treatment","start":0,"dur":5,"crew":2},
+         {"name":"Millpond program","start":5,"dur":5,"crew":2},
+         {"name":"Lead service lines","start":0,"dur":11,"crew":1}]}}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>The uncomfortable truth in that picture is that leveling does not create capacity, it moves work into the gaps and the portfolio takes longer. There are only three honest responses when demand exceeds supply: extend the schedule, add capacity by hiring or outsourcing inspection, or do fewer projects. Pretending all three projects can run at full speed with three crews is a fourth option that organizations choose constantly, and it resolves itself as quality problems, burnt-out staff, and slipped dates that nobody predicted but everyone could have.</p>
+    </div>
+
+    <div data-ac="multi" data-title="Which of these are genuine portfolio constraints?" data-kind="Quiz &middot; select all that apply">
+      <script type="application/json">
+      {"q":"Select every resource that is realistically shared across a utility's whole capital portfolio, and therefore constrains it as a whole.",
+       "options":[
+        ["Inspection staff",true],
+        ["The capital budget",true],
+        ["Operations staff needed for tie-ins and shutdowns",true],
+        ["The local contractor market that bids your work",true],
+        ["Pipe and fittings from suppliers",false],
+        ["Office space at the utility",false]
+       ],
+       "ok":"Yes, all four. The first three are the obvious ones. The contractor market is the one people miss: if you advertise six projects in the same quarter, you are competing against yourself for the same bidders, and the prices you get back will tell you so.",
+       "no":"The green ones are the full set. Inspection staff, budget, operations availability, and the contractor market all constrain the whole portfolio. Materials are usually a project-level procurement issue rather than a portfolio ceiling, and office space rarely decides what gets built."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 4 ===================== -->
+  <div class="sec">
+    <span class="tag">4 / 4</span>
+    <h2>Organizational maturity</h2>
+    <p><span class="term" data-term="OPM" data-def="Organizational Project Management: managing projects, programs and portfolios as one connected system aligned to strategy, rather than as unrelated individual efforts.">Organizational Project Management (OPM)</span> is the idea that all of this should work as one system rather than as habits that vary by whoever is running a given job. Maturity models describe the ladder. The rungs matter less than being honest about which one you are standing on.</p>
+
+    <div data-ac="table" data-title="The maturity ladder" data-kind="Interactive &middot; comparison table" data-cue="Click each level. Most utilities sit between 2 and 3, and the jump to 4 is the one that requires data nobody is collecting yet.">
+      <script type="application/json">
+      {"headers":["Level","What it looks like","What breaks"],
+       "rows":[
+        {"name":"1. Ad hoc","cells":["Every project run the way its manager prefers","Nothing transfers between people"],
+         "detail":"Projects succeed or fail on individual talent. There is no common vocabulary, so lessons stay with whoever learned them, and when a good project manager leaves the capability leaves with them. Many small utilities operate here, and it works right up until it does not."},
+        {"name":"2. Repeatable","cells":["Common templates and a basic process exist","Followed inconsistently under pressure"],
+         "detail":"There is a charter template, a schedule format, a status report. People use them when things are calm and abandon them when things are not, which unfortunately is when they matter. The process exists but is not yet load bearing."},
+        {"name":"3. Defined","cells":["One documented process everybody actually uses","Still no data to improve it with"],
+         "detail":"A real methodology, applied consistently, with gates that mean something. Projects become comparable to each other, which is the doorway to everything above. This is a genuinely good place to be and where a well-run utility usually sits."},
+        {"name":"4. Measured","cells":["Performance data collected and used","Requires discipline nobody feels the benefit of at first"],
+         "detail":"You know your actual cost and schedule performance across projects, so estimates start being grounded in your own history rather than in optimism. Getting here means capturing data during projects for a payoff that only arrives later, which is exactly why most organizations stall just below it."},
+        {"name":"5. Optimizing","cells":["The process itself improves deliberately","Rare, and easy to fake with vocabulary"],
+         "detail":"Lessons feed back into method, estimating models are recalibrated from real outcomes, and the organization changes how it works based on evidence. Worth aiming at, worth being suspicious of anyone who claims it without the data from level 4 underneath."}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>One caution about maturity models. They are useful as a mirror and dangerous as a goal. An organization that sets out to reach level 4 produces documentation; an organization that sets out to know its real cost performance produces level 4 as a side effect. The rung is a description of a capability you actually have, not a thing to be awarded. If you take one action from this section, make it the level 4 one: <b>start capturing what your projects really cost and really took, against what you estimated.</b> Within about three years that data changes every estimate you produce, and Chapter 07 becomes a great deal easier.</p>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["Accelerating any project in a program brings the benefit forward.",false,"Only accelerating the driver does. Money spent on components that already finish earlier buys deliverables, not benefit."],
+        ["Resource leveling across a portfolio creates additional capacity.",false,"It never does. It moves work into gaps and usually extends the portfolio. The honest options are more time, more capacity, or fewer projects."],
+        ["Agreeing prioritization weights before seeing the project list makes the result more defensible.",true,"Substantially. It moves the argument to principles, once, instead of to individual projects, repeatedly."],
+        ["A portfolio is a group of related projects delivering a shared benefit.",false,"That is a program. A portfolio is everything the organization has chosen to run, related or not, viewed together so resources can be allocated."]
+       ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Project","A temporary effort producing one deliverable. It ends when the thing exists."],
+        ["Program","Related projects coordinated because the benefit needs all of them. Manages benefits, not tasks."],
+        ["Portfolio","Everything the organization chose to run, viewed together so money and people can be allocated."],
+        ["Benefit realization","The date customers actually experience the improvement. Set by the slowest component, not the average."],
+        ["Prioritization weights","Where the real decision lives. Agree them before you see the project list."],
+        ["Resource leveling","Moving work into the gaps. Never creates capacity; usually extends the schedule."],
+        ["OPM","Organizational Project Management: projects, programs and portfolios run as one system aligned to strategy."],
+        ["Maturity level","An honest description of a capability you have. A mirror, not a target."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Think about your organization's capital plan. Who decides the order, on what basis, and could you explain that basis to a resident whose street came out eighth?",
+       "a":"There is a fairly reliable tell for how a utility really prioritizes, and it is what happens when someone influential is unhappy. If a phone call can move a project up the list, then the published criteria are documentation rather than a decision process, and everyone in the organization already knows it. That is not necessarily corruption; it is usually just the absence of anything strong enough to point at. Which is the actual case for doing this formally: not that a weighted model is objectively correct, because it is not, but that it gives you and your leadership something to stand behind when the pressure arrives. The model's real output is not the ranking. It is the ability to say no to a well-connected request without it becoming personal, and to say yes to an unglamorous project that quietly prevents the failure nobody would have credited you for avoiding."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>Project, program, portfolio are three different problems.</b> Deliver a thing, coordinate toward a benefit, choose what to do at all.</div></li>
+      <li><span class="n">2.</span><div><b>A benefit arrives on the slowest component's date.</b> Find the driver and push there. Accelerating anything else buys deliverables, not benefit.</div></li>
+      <li><span class="n">3.</span><div><b>The weights are the decision.</b> Agree them publicly and in advance, and the annual argument happens once at the level of principles instead of every year project by project.</div></li>
+      <li><span class="n">4.</span><div><b>Leveling never creates capacity.</b> More time, more capacity, or fewer projects. Refusing to choose picks the fourth option, which resolves as quality problems and burnt-out staff.</div></li>
+      <li><span class="n">5.</span><div><b>Capture what projects really cost and really took.</b> It is the one maturity move that pays for itself, because within a few years your estimates stop being optimism.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Above the project, your leverage is in choosing and sequencing, not in delivering. <b>Fund the driver, weight the criteria in public, and be honest about how many projects your crews can actually carry.</b> A utility that runs eleven projects badly because it could not say no to three of them is not more ambitious than one that runs eight well. It is just slower, and more expensive.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-18-asset-management-digital-resilience.html">&#8592; Chapter 18 &middot; Asset management and resilience</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 19 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>

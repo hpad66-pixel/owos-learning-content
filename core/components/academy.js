@@ -32,6 +32,14 @@
     el.innerHTML=h;
     return el.querySelector('.bd');
   }
+  // Randomize answer order so learners cannot pattern-match on position.
+  // Authors write the correct answer wherever it reads best; the learner never sees a fixed slot.
+  function shuffled(list){
+    var a=(list||[]).slice();
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}
+    return a;
+  }
+
   function cfgOf(el){
     var s=el.querySelector('script[type="application/json"]');
     if(!s)return {};
@@ -126,7 +134,7 @@
 
   R.mc=function(el){var c=cfgOf(el);var b=shell(el,
     '<p class="acq">'+(c.q||'')+'</p>'+
-    (c.options||[]).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
+    shuffled(c.options).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
     '<div class="ac-fb" data-fb></div>');
     var fb=b.querySelector('[data-fb]'),done=false;
     b.querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){
@@ -139,7 +147,7 @@
 
   R.multi=function(el){var c=cfgOf(el);var b=shell(el,
     '<p class="acq">'+(c.q||'')+'</p>'+
-    (c.options||[]).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
+    shuffled(c.options).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
     '<button class="btn" data-check style="margin-top:6px">Check</button><div class="ac-fb" data-fb></div>');
     var fb=b.querySelector('[data-fb]'),done=false;
     b.querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){if(!done)o.classList.toggle('sel');});});
@@ -741,6 +749,54 @@
       var pv=amt/Math.pow(1+r,y);b.querySelector('[data-pvv]').textContent=m0(pv);b.querySelector('[data-pvbar]').style.height=Math.max(2,pv/amt*100)+'%';
       b.querySelector('[data-out]').innerHTML=m0(amt)+' promised '+y+' years out is worth about <b>'+m0(pv)+'</b> today at '+(r*100).toFixed(1)+'%. That is why future savings are discounted: a dollar later is worth less than a dollar now. The formula is PV = FV / (1 + r) raised to the number of years.';}
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
+  };
+
+  R.program=function(el){var c=cfgOf(el);var ps=c.projects||[],mx=c.maxMonths||36;
+    var b=shell(el,ps.map(function(p,i){return '<div class="pvrow"><span class="nm">'+p.name+'</span><input type="range" data-i="'+i+'" min="'+(p.min||6)+'" max="'+mx+'" step="1" value="'+p.months+'"><span class="v" data-v="'+i+'"></span></div>';}).join('')+
+      '<div class="pgbars" data-bars></div><div class="pgout" data-out></div><div class="pgnote" data-note></div>');
+    function upd(){var vals=ps.map(function(p,i){return +b.querySelector('input[data-i="'+i+'"]').value;});
+      var last=Math.max.apply(null,vals),driver=ps[vals.indexOf(last)];
+      ps.forEach(function(p,i){b.querySelector('[data-v="'+i+'"]').textContent=vals[i]+' mo';});
+      b.querySelector('[data-bars]').innerHTML=ps.map(function(p,i){var drives=vals[i]===last;
+        return '<div class="pgrow"><span class="pn">'+p.name+'</span><span class="pt"><i class="'+(drives?'drv':'')+'" style="width:'+(vals[i]/mx*100)+'%"></i></span><span class="pm">'+vals[i]+'</span></div>';}).join('')+
+        '<div class="pgrow ben"><span class="pn">'+(c.benefitName||'Benefit realized')+'</span><span class="pt"><i class="ben" style="width:'+(last/mx*100)+'%"></i></span><span class="pm">'+last+'</span></div>';
+      b.querySelector('[data-out]').innerHTML='<b>'+(c.benefit||'The benefit')+'</b> arrives in month <b>'+last+'</b>, set by <b>'+driver.name+'</b>.';
+      var early=vals.filter(function(v){return v<last;}).length;
+      b.querySelector('[data-note]').innerHTML=early>0
+        ? 'Notice what finishing early buys you: nothing. '+early+' of these '+(early===1?'project is':'projects are')+' done before month '+last+', and the benefit still waits for <b>'+driver.name+'</b>. Money spent accelerating anything except the driver is money spent for no earlier benefit. <b>A program manages the benefit, not the projects,</b> which is why a program manager pushes on the slowest component and leaves the others alone.'
+        : 'Everything lands in the same month, so every project is a driver and there is no slack anywhere in the program. That is efficient and extremely fragile: any one slip moves the benefit.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
+  };
+
+  R.examsim=function(el){var c=cfgOf(el);var qs=c.questions||[],i=0,score=0,answered=false;
+    var b=shell(el,'<div class="exhead"><span class="exq" data-pos></span><span class="exsc" data-score></span></div>'+
+      '<p class="acq" data-q></p><div class="exopts" data-opts></div><div class="ac-fb" data-fb></div>'+
+      '<button class="btn" data-next style="margin-top:10px;display:none">Next question</button>'+
+      '<div class="exdone" data-done></div>');
+    var qEl=b.querySelector('[data-q]'),opts=b.querySelector('[data-opts]'),fb=b.querySelector('[data-fb]'),
+        nx=b.querySelector('[data-next]'),done=b.querySelector('[data-done]');
+    function render(){answered=false;var q=qs[i];
+      b.querySelector('[data-pos]').textContent='Question '+(i+1)+' of '+qs.length;
+      b.querySelector('[data-score]').textContent=score+' correct';
+      qEl.innerHTML=q.q;fb.className='ac-fb';fb.innerHTML='';nx.style.display='none';
+      var shown=q._shown||(q._shown=shuffled(q.options));
+      opts.innerHTML=shown.map(function(o,j){return '<button class="opt" data-j="'+j+'">'+o[0]+'</button>';}).join('');
+      opts.querySelectorAll('.opt').forEach(function(btn){btn.addEventListener('click',function(){
+        if(answered)return;answered=true;var j=+btn.dataset.j,right=!!shown[j][1];
+        opts.querySelectorAll('.opt').forEach(function(x,k){if(shown[k][1])x.classList.add('right');});
+        if(!right)btn.classList.add('wrong');else score++;
+        b.querySelector('[data-score]').textContent=score+' correct';
+        fb.className='ac-fb on '+(right?'ok':'no');
+        fb.innerHTML=(right?'<b>Correct.</b> ':'<b>Not this one.</b> ')+(q.why||'');
+        if(i<qs.length-1)nx.style.display='inline-block';else finish();});});}
+    function finish(){var pct=Math.round(score/qs.length*100);
+      done.className='exdone on '+(pct>=80?'g':(pct>=60?'a':'r'));
+      done.innerHTML='<b>'+score+' of '+qs.length+' ('+pct+'%).</b> '+
+        (pct>=80?'That is the range you want to be sitting in before you book the exam. Keep going on full-length timed sets rather than short ones, because the real challenge is concentration over four hours, not any single question.'
+        :(pct>=60?'Passing territory on a good day, not on a bad one. Work out whether your misses cluster in one domain, because a pattern is much faster to fix than a scatter.'
+        :'Not ready yet, and that is useful to know now rather than on exam day. Go back to the chapters behind your misses rather than doing more questions: more practice on shaky foundations mostly teaches you to be confidently wrong.'));}
+    nx.addEventListener('click',function(){if(i<qs.length-1){i++;render();}});
+    render();
   };
 
   R.tco=function(el){var c=cfgOf(el);var A=c.a||{},B=c.b||{},mn=c.minYears||5,mx=c.maxYears||50;

@@ -43,6 +43,9 @@ LINK_MAP = {
     "module-16-capital-lifecycle-regulatory.html": "lesson-pm-16-capital-lifecycle-regulatory.html",
     "module-17-safety-locates-commissioning.html": "lesson-pm-17-safety-locates-commissioning.html",
     "module-18-asset-management-digital-resilience.html": "lesson-pm-18-asset-management-digital-resilience.html",
+    "module-19-program-portfolio.html": "lesson-pm-19-program-portfolio.html",
+    "module-20-capstone-agentic-pm.html": "lesson-pm-20-capstone-agentic-pm.html",
+    "module-21-exam-prep.html": "lesson-pm-21-exam-prep.html",
 }
 
 def build(src_path, out_path):

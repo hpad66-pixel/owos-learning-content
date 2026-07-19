@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chapter 09 &middot; Procurement, contracts and claims &middot; One Water OS Academy</title>
-<meta name="description" content="Chapter 9 of the Project Management masterclass. How you buy the work (IFB, RFP, RFQ), the contract types and who carries the cost risk (FFP, cost-plus, GMP), contract administration, and handling change, claims, liquidated damages, and disputes.">
+<title>Chapter 21 &middot; PMP and CAPM exam preparation &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 21 of the Project Management masterclass. The PMP and CAPM exams, the Examination Content Outline, predictive versus agile versus hybrid, the formulas worth memorizing, and test strategy with a practice question runner.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -588,15 +588,15 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-wm">One Water <b>OS</b></span>
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
-  <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 09</b></span>
+  <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 21</b></span>
 </nav>
 <div id="rprog"></div>
 
 <div class="wrap">
 
-  <span class="hpill"><span class="d"></span> Chapter 09 &middot; Cost and procurement</span>
-  <h1>Buying the work, and <span>who carries the risk</span></h1>
-  <p class="sub">A contract is not paperwork, it is a risk-allocation machine. This chapter covers how you solicit the work, which contract type puts the cost risk on the owner or the contractor, and what to do when the job changes, slips, or ends up in a fight.</p>
+  <span class="hpill"><span class="d"></span> Chapter 21 &middot; Certification</span>
+  <h1>Passing the <span>PMP</span> or the CAPM</h1>
+  <p class="sub">This chapter is a different kind of work from the rest of the course. Everything before it was about running utility projects well. This is about passing a specific exam, which is a related but genuinely separate skill, and one with its own rules worth learning deliberately.</p>
 
   <div class="lens">
     <button class="on" data-lens="f">Full</button>
@@ -608,158 +608,237 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   <div class="casebox">
     <span class="pin">&#9873;</span>
     <div>
-      <p class="h">The job we are contracting</p>
-      <p><b>The Millpond Road water main replacement, construction contract.</b> The design is done. Now we solicit a contractor, pick a contract type that puts the risk in the right place, and set up how we will handle the changes and claims that always come.</p>
+      <p class="h">A word before you start</p>
+      <p><b>Exam requirements, question counts, and content weightings change.</b> Everything here reflects the structure at the time of writing and is the right shape to study against, but the Project Management Institute is the only authority on current requirements. Check their handbook before you pay for anything.</p>
     </div>
   </div>
 
   <h3>What you will be able to do</h3>
   <ul class="goals">
-    <li><span class="bx"></span> Pick the right way to solicit work: low bid, best value, or qualifications</li>
-    <li><span class="bx"></span> Choose a contract type and know exactly who carries the cost risk</li>
-    <li><span class="bx"></span> Run contract administration: submittals, pay applications, retainage, lien waivers</li>
-    <li><span class="bx"></span> Handle change orders, claims, liquidated damages, and the dispute ladder</li>
+    <li><span class="bx"></span> Choose between the CAPM and the PMP, and know what each requires</li>
+    <li><span class="bx"></span> Study against the Examination Content Outline rather than a textbook</li>
+    <li><span class="bx"></span> Answer predictive, agile and hybrid questions in the right frame</li>
+    <li><span class="bx"></span> Recall the formulas that actually appear, and skip the ones that do not</li>
+    <li><span class="bx"></span> Recognize the question patterns and apply a test strategy</li>
   </ul>
 
   <!-- ===================== SECTION 1 ===================== -->
   <div class="sec">
-    <span class="tag">1 / 3</span>
-    <h2>Soliciting the work</h2>
-    <p>First a quick decision every project starts with: <span class="term" data-term="Make-or-buy" data-def="The choice between doing work with your own crews (make) or hiring it out under contract (buy). Utilities buy most capital construction and make most routine operations.">make-or-buy</span>. Utilities make most operations and buy most capital construction. Once you are buying, how you ask for it matters, because the way you solicit sets what you are allowed to weigh when you pick a winner.</p>
+    <span class="tag">1 / 4</span>
+    <h2>The exams and the Examination Content Outline</h2>
+    <p>Two certifications, one publisher. The <span class="term" data-term="CAPM" data-def="Certified Associate in Project Management: the entry level certification from the Project Management Institute, aimed at people without extensive project leadership experience.">Certified Associate in Project Management (CAPM)</span> is the entry point and needs no project leadership experience, only education and a course. The <span class="term" data-term="PMP" data-def="Project Management Professional: the senior certification from the Project Management Institute, requiring documented project leadership experience as well as formal training.">Project Management Professional (PMP)</span> requires documented experience leading projects and is the one that carries weight in utility hiring.</p>
 
-    <div data-ac="table" data-title="Three ways to solicit" data-kind="Interactive &middot; comparison table" data-cue="Click any method for how it fits the Millpond contract.">
+    <div data-ac="table" data-title="Which certification, and what it takes" data-kind="Interactive &middot; comparison table" data-cue="Click each. Verify current requirements with the Project Management Institute before you commit money.">
       <script type="application/json">
-      {"headers":["Method","Award on","Use when"],
+      {"headers":["Certification","Who it is for","What it asks of you"],
        "rows":[
-        {"name":"IFB / ITB","cells":["lowest price","the work is well defined"],
-         "detail":"Invitation for Bids (or Invitation to Bid). You publish a complete design and award to the lowest responsive, responsible bidder. Price only. Perfect for Millpond, a fully designed main where any qualified contractor can build it."},
-        {"name":"RFP","cells":["best value","approach or qualifications matter"],
-         "detail":"Request for Proposals. Bidders submit price plus approach, schedule, and qualifications, and you award on best value, not just low price. Use it when how they do the work matters, like a complex plant or a design-build."},
-        {"name":"RFQ","cells":["qualifications","then you negotiate price"],
-         "detail":"Request for Qualifications. You rank firms on qualifications alone, then negotiate scope and fee with the top one. This is how you must hire design engineers in Florida under the CCNA."}
+        {"name":"CAPM","cells":["Early career, or moving into projects","Education plus formal project management training"],
+         "detail":"No requirement to have led projects, which makes it the realistic option for an engineer or analyst moving toward project work. It tests knowledge of the framework and terminology more than judgment. For a utility professional, it is a credible way to signal intent while you accumulate the experience the PMP requires."},
+        {"name":"PMP","cells":["Practicing project managers","Documented leadership experience plus training, and an experience audit is possible"],
+         "detail":"The experience requirement is the real gate, and it must be described as leading and directing projects, not merely participating. Start recording your projects, roles, dates and hours now rather than reconstructing them later, because reconstruction under audit pressure is miserable and the dates have to hold together."},
+        {"name":"Renewal","cells":["Both, on a cycle","Continuing education units, earned and reported"],
+         "detail":"Certification is not permanent. You earn professional development units over a multi-year cycle through training, reading, volunteering, and practice. Many people let this lapse quietly. Put the cycle end date in a calendar the day you pass."}
        ]}
       </script>
     </div>
 
-    <div data-ac="recommender" data-title="Which solicitation?" data-kind="Interactive &middot; recommender" data-cue="Match how you ask to what you are buying and what your rules allow.">
+    <p>The single most useful thing to understand about the modern PMP is that it is not a test of a book. It is built from the <span class="term" data-term="ECO" data-def="Examination Content Outline: the document from the Project Management Institute listing the domains, tasks and enablers the exam actually tests. It is the exam's real syllabus, published free.">Examination Content Outline (ECO)</span>, which is published free and lists exactly what is tested.</p>
+
+    <div data-ac="table" data-title="The three domains" data-kind="Interactive &middot; comparison table" data-cue="Click each domain. Notice that People carries roughly as much weight as Process, which surprises most engineers.">
       <script type="application/json">
-      {"prompt":"Pick the situation and see the fitting solicitation.",
-       "options":[
-        {"label":"A fully designed water main, any qualified contractor can build it","name":"IFB / ITB (low bid)","why":"The design is complete and price is the only real variable. Publish it and take the lowest responsive, responsible bid."},
-        {"label":"A complex treatment upgrade where approach and team matter","name":"RFP (best value)","why":"You need to weigh technical approach, schedule, and qualifications alongside price. Best-value selection lets you do that."},
-        {"label":"Hiring the design engineer for the project","name":"RFQ (qualifications)","why":"You select engineers on qualifications first and negotiate fee after. In Florida the CCNA requires it."}
+      {"headers":["Domain","Roughly","What it is really testing"],
+       "rows":[
+        {"name":"People","cells":["About 42 percent","Leading, conflict, teams, stakeholders"],
+         "detail":"The largest surprise for technical candidates. Questions about managing conflict, supporting team performance, removing blockers, negotiating, and mentoring. The answers consistently favor engaging directly with the person involved, and consistently disfavor escalating first or solving it by email. Chapters 12 and 13 of this course sit here."},
+        {"name":"Process","cells":["About 50 percent","The technical work of delivery"],
+         "detail":"Scope, schedule, cost, quality, risk, procurement and integration, across predictive and adaptive approaches. Most of Chapters 04 through 11 land here. Do not assume this is the easy part just because it is familiar; the questions test what you do next, not what a term means."},
+        {"name":"Business environment","cells":["About 8 percent","Compliance, value, organizational change"],
+         "detail":"Small in weight, easy to neglect, and cheap to pick up. Compliance requirements, delivering benefits and value, external business environment changes, and supporting organizational change. For utility candidates this is comfortable territory, since Chapter 16 is essentially this domain applied to water."}
        ]}
       </script>
     </div>
 
-    <p>Once a contract is signed, work does not start until you issue the <span class="term" data-term="NTP" data-def="Notice to Proceed: the formal written go-ahead that starts the contract clock. Durations, milestones, and liquidated damages are all measured from it.">Notice to Proceed (NTP)</span>. It starts the clock that every deadline and penalty is measured from.</p>
-
-    <div data-ac="truefalse" data-title="Quick check" data-kind="Quiz &middot; true or false">
-      <script type="application/json">
-      {"items":[
-        ["An Invitation for Bids awards to the lowest responsive, responsible bidder.",true,"Yes. IFB is price-based: the design is complete, so low bid decides, as long as the bidder is responsive and responsible."],
-        ["A Request for Proposals lets you weigh more than price.",true,"Right. RFP is best-value: approach, schedule, and qualifications count alongside cost."],
-        ["The contract clock starts the day the contract is signed.",false,"No. It starts at the Notice to Proceed, which can be days or weeks after signing."]
-      ]}
-      </script>
+    <div class="lv f">
+      <p>The practical advice that follows from this: download the ECO, and use it as a checklist rather than reading a textbook front to back. Go task by task and ask yourself whether you could answer a scenario question about it. The gaps you find are your study plan, and they are usually not where you expected.</p>
     </div>
   </div>
 
   <!-- ===================== SECTION 2 ===================== -->
   <div class="sec">
-    <span class="tag">2 / 3</span>
-    <h2>Contract types: where the risk sits</h2>
-    <p>Here is the idea that matters most in this whole chapter. A contract type is a decision about <b>who eats the overrun if the job costs more than planned</b>. A <span class="term" data-term="FFP" data-def="Firm Fixed Price: the contractor agrees to one price no matter what it actually costs. The contractor carries the cost risk, and prices it in.">Firm Fixed Price (FFP)</span> puts that risk on the contractor. A <span class="term" data-term="T&M" data-def="Time and Materials, a form of cost-reimbursable contract: the owner pays the actual cost plus a fee. The owner carries the cost risk.">Time and Materials (T&M)</span> or cost-plus contract puts it on the owner. A <span class="term" data-term="GMP" data-def="Guaranteed Maximum Price: the owner pays actual cost plus a fee, but only up to a cap. Below the cap the owner carries the risk; above it, the contractor does.">Guaranteed Maximum Price (GMP)</span> splits it. Drag the actual cost and watch who pays.</p>
+    <span class="tag">2 / 4</span>
+    <h2>Predictive, agile and hybrid</h2>
+    <p>Roughly half the exam is set in adaptive or hybrid environments, which catches out candidates from construction-heavy backgrounds where nearly everything is predictive. You do not need to have run a sprint. You do need to recognize which world a question is set in, because the correct answer differs.</p>
 
-    <div data-ac="contractrisk" data-title="Who carries the risk?" data-kind="Interactive &middot; simulation" data-cue="Push the actual cost above the fixed price and watch the Fixed Price contractor go into the red while the cost-plus owner just keeps paying. That is the risk you are pricing.">
+    <div data-ac="classify" data-title="Which approach does this question assume?" data-kind="Quiz &middot; classify" data-cue="Look for the tell: fixed scope and a change control board, or an evolving backlog and a fixed cadence.">
       <script type="application/json">
-      {"target":1000,"fee":100}
+      {"buckets":["Predictive","Adaptive or agile"],
+       "items":[
+        ["A change control board reviews a scope change request",0,"Predictive. Formal change control against an approved baseline."],
+        ["The team pulls the highest priority item from the backlog",1,"Adaptive. Backlog, prioritization by value, work pulled rather than assigned."],
+        ["The sponsor asks for a variance analysis against the cost baseline",0,"Predictive. Baselines and earned value belong here."],
+        ["The team holds a retrospective and changes how it works",1,"Adaptive. Inspect and adapt on a fixed cadence."],
+        ["Requirements are progressively elaborated each iteration",1,"Adaptive. Scope evolves deliberately rather than being fixed up front."],
+        ["A work breakdown structure decomposes the full scope before execution",0,"Predictive. Define all of it, then build it."]
+       ]}
       </script>
     </div>
 
-    <p>Signing the contract is the easy part. Running it is <span class="term" data-term="Contract administration" data-def="The day-to-day management of a construction contract: reviewing submittals, processing payments, holding retainage, and closing out.">contract administration</span>, and it runs on a few instruments. Learn them.</p>
-
-    <div data-ac="flip" data-title="Contract administration terms" data-kind="Quiz &middot; flip cards" data-cue="Tap each card. These four run the money and the paperwork on every job.">
-      <script type="application/json">
-      {"cards":[
-        ["Submittal","The contractor's proof that materials and methods meet the spec, approved before installation."],
-        ["Pay application","The contractor's monthly invoice for work completed, which you verify against actual progress before paying."],
-        ["Retainage","A percentage (often 5 to 10%) held back from each payment until the job is accepted, as leverage to finish."],
-        ["Lien waiver","A signed release confirming the contractor and its subs have been paid, so no lien can be filed against the utility."]
-      ]}
-      </script>
+    <div class="lv f">
+      <p>Two things worth internalizing. First, a water main replacement is genuinely predictive and the exam knows that; adaptive is not presented as universally superior, and questions reward matching the approach to the work. Second, hybrid questions are common and usually describe exactly the situation utilities live in: a predictive construction schedule with an adaptive software or technology component inside it. If a question describes a stage-gated project containing an iterative element, it is testing whether you panic.</p>
     </div>
 
-    <div data-ac="mc" data-title="Read the contract" data-kind="Quiz &middot; multiple choice">
+    <div data-ac="mc" data-title="A People-domain question in adaptive clothing" data-kind="Quiz &middot; multiple choice">
       <script type="application/json">
-      {"q":"The Millpond construction is fully designed and you want price certainty, with the contractor carrying the risk of overruns. Which contract type fits?",
+      {"q":"A team member has missed two consecutive iteration commitments. Other members are beginning to complain. What should the project manager do first?",
        "options":[
-        ["Firm Fixed Price (FFP)",1],
-        ["Time and Materials (T&M)",0],
-        ["Cost-plus with no cap",0],
-        ["Whatever the contractor prefers",0]
+        ["Speak with the team member privately to understand what is blocking them",1],
+        ["Raise it in the next retrospective so the team can address it together",0],
+        ["Reassign their work to a more reliable team member",0],
+        ["Escalate to their functional manager",0]
        ],
-       "right":"Correct. A complete design plus a desire for price certainty is the textbook case for Firm Fixed Price. The contractor prices the risk and owns any overrun.",
-       "wrong":"Not the best fit. With a finished design and a need for price certainty, Firm Fixed Price hands the overrun risk to the contractor. T&M and cost-plus leave that risk with you, the owner."}
+       "right":"Correct, and this pattern repeats across the whole People domain. The exam almost always rewards a private, direct, curious conversation with the individual before any group discussion, reassignment, or escalation. Note the assumption embedded in the right answer: something is blocking them, rather than they are failing. That framing is itself part of what is being tested.",
+       "wrong":"Not first. The exam has a strong and consistent preference: talk to the person directly and privately before you take it to the group, move their work, or escalate. Raising a named individual's performance in a retrospective is a public correction, reassigning skips the diagnosis entirely, and escalation is nearly always the last resort rather than the first move."}
       </script>
     </div>
   </div>
 
   <!-- ===================== SECTION 3 ===================== -->
   <div class="sec">
-    <span class="tag">3 / 3</span>
-    <h2>When the job changes, or goes wrong</h2>
-    <p>No job runs exactly to contract. The clean path is a <span class="term" data-term="Change order" data-def="A formal, agreed amendment to the contract that adjusts scope, price, and time. Both sides sign it, so it is not a dispute.">change order</span>: both sides agree on the change, the price, and the time, and sign. The messy path is a <span class="term" data-term="Claim" data-def="A contractor's assertion of entitlement to more money or time that the owner has not agreed to. Unresolved claims lead to disputes.">claim</span>: the contractor asserts they are owed more and you do not agree yet. The difference is agreement.</p>
+    <span class="tag">3 / 4</span>
+    <h2>Formulas worth memorizing</h2>
+    <p>Far fewer calculations appear than candidates fear, and they cluster in earned value. These are the ones that earn their memorization. Everything in this table came up in Chapters 05 through 08 with a water example attached, so it should feel familiar rather than new.</p>
 
-    <div data-ac="mc" data-title="Change order or claim?" data-kind="Quiz &middot; multiple choice">
+    <div data-ac="table" data-title="The formula sheet" data-kind="Interactive &middot; comparison table" data-cue="Click each. If you can only hold a few, hold CPI, SPI, EAC and float.">
       <script type="application/json">
-      {"q":"The city adds two blocks of new main mid-job. You and the contractor agree on the added price and two extra weeks, and both sign. What is that?",
+      {"headers":["Term","Formula","What it tells you"],
+       "rows":[
+        {"name":"Cost variance","cells":["CV = EV minus AC","Negative means over budget"],
+         "detail":"Earned value minus actual cost. Negative is bad. Everything in earned value follows the same convention: variances subtract actual from earned, indices divide earned by actual, and under 1.0 or below zero is trouble. Learn the convention and you can rebuild any of these under pressure."},
+        {"name":"Schedule variance","cells":["SV = EV minus PV","Negative means behind plan"],
+         "detail":"Earned value minus planned value. Note the well known limitation: near the end of a project schedule variance drifts to zero even if you finish late, because all the planned value eventually gets earned. Pair it with critical path float, which is what actually tells you about the finish date."},
+        {"name":"Cost performance index","cells":["CPI = EV divided by AC","Under 1.0 means every dollar buys less than a dollar"],
+         "detail":"The single most useful number in this table. It is also relatively stable after about 20 percent completion, which is why it is defensible to forecast with. Millpond at 0.87 in Chapter 15 meant the project was buying 87 cents of work per dollar spent."},
+        {"name":"Schedule performance index","cells":["SPI = EV divided by PV","Under 1.0 means behind the plan"],
+         "detail":"The schedule counterpart. Same limitation as schedule variance at the tail end of a project. Useful in combination with CPI rather than alone."},
+        {"name":"Estimate at completion","cells":["EAC = BAC divided by CPI","The forecast final cost if current performance holds"],
+         "detail":"The most commonly examined forecasting formula. Budget at completion divided by cost performance index. Other variants exist for when the overrun was a one-off, and the exam will usually tell you which assumption applies. If it says performance is expected to continue, use this one."},
+        {"name":"Estimate to complete","cells":["ETC = EAC minus AC","What the rest of the job will cost"],
+         "detail":"What remains to be spent. Straightforward once you have the estimate at completion, and frequently the second half of a two-step question."},
+        {"name":"Three-point (beta) estimate","cells":["(O + 4M + P) divided by 6","A weighted expected duration"],
+         "detail":"Optimistic plus four times most likely plus pessimistic, over six. Chapter 06 built this interactively. The triangular variant, the plain average of the three, also appears; read carefully which one the question wants."},
+        {"name":"Standard deviation","cells":["(P minus O) divided by 6","How uncertain that estimate is"],
+         "detail":"Pessimistic minus optimistic, over six. Combine with the beta estimate for ranges, which is how you get answers like 7 weeks plus or minus 1.7."},
+        {"name":"Total float","cells":["LS minus ES, or LF minus EF","How long an activity can slip before the finish moves"],
+         "detail":"Late start minus early start. Zero float means the activity is on the critical path. Chapter 05 derived this with the forward and backward pass, which is worth being able to run by hand for a small network."},
+        {"name":"Communication channels","cells":["n times (n minus 1), divided by 2","How fast communication complexity grows"],
+         "detail":"A perennial exam favorite because it is quick to test. Twelve people means 66 channels. Chapter 13 has the node graph if the growth rate does not feel intuitive."},
+        {"name":"Expected monetary value","cells":["probability times impact","What a risk is worth in dollars"],
+         "detail":"Used for contingency and decision trees. A 30 percent chance of a $200,000 impact is a $60,000 expected monetary value. Chapter 11 covered this in the risk register."}
+       ]}
+      </script>
+    </div>
+
+    <div data-ac="mc" data-title="A two-step earned value question" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"A pipeline project has a budget at completion of $4,000,000. Earned value is $1,500,000, actual cost is $2,000,000, and current performance is expected to continue. What is the estimate at completion?",
        "options":[
-        ["A change order, because both sides agreed and signed",1],
-        ["A claim, because the scope grew",0],
-        ["A dispute, automatically",0],
-        ["Nothing, just do the work",0]
+        ["About $5,330,000",1],
+        ["$4,000,000",0],
+        ["About $4,500,000",0],
+        ["About $2,670,000",0]
        ],
-       "right":"Correct. Agreement is what makes it a change order, not a claim. Scope grew, but because both sides signed on price and time, there is no dispute.",
-       "wrong":"Not quite. Because both sides agreed on the price and time and signed, this is a change order. It only becomes a claim when the contractor asserts entitlement you have not agreed to."}
+       "right":"Correct. CPI is 1,500,000 divided by 2,000,000, which is 0.75. EAC is BAC divided by CPI, so 4,000,000 divided by 0.75, which is about $5,330,000. The project is forecasting roughly $1.33 million over budget, and it is only 37.5 percent complete by value, which is exactly the situation where reporting early still helps.",
+       "wrong":"Work it in two steps. First CPI: earned value 1,500,000 divided by actual cost 2,000,000 gives 0.75. Then EAC: budget at completion 4,000,000 divided by 0.75, which is about $5,330,000. The trap answer is $4,000,000, which is what you get by assuming the budget still holds."}
       </script>
     </div>
+  </div>
 
-    <p>Contracts also carry a stick for lateness. <span class="term" data-term="Liquidated damages" data-def="A pre-agreed dollar amount the contractor owes for each day the job finishes late. It is set in the contract as a genuine estimate of the owner's daily loss, not a punishment.">Liquidated damages (LDs)</span> are a set dollar amount owed per day late, agreed up front so nobody has to prove the actual loss. Work one out.</p>
+  <!-- ===================== SECTION 4 ===================== -->
+  <div class="sec">
+    <span class="tag">4 / 4</span>
+    <h2>Practice and test strategy</h2>
+    <p>Most people who fail this exam do not fail on knowledge. They fail on question interpretation, on stamina, or on second-guessing themselves out of correct answers. These patterns are worth knowing before you sit down.</p>
 
-    <div data-ac="estimate" data-title="Compute the liquidated damages" data-kind="Quiz &middot; estimate" data-cue="It is just the daily rate times the days late. Simple, and it comes straight off the final payment.">
+    <div data-ac="method" data-title="How to read an exam question" data-kind="Method &middot; five habits">
       <script type="application/json">
-      {"q":"The contract sets liquidated damages at $2,000 per day. The main finishes 15 days late. Drag to what the contractor owes, then check.",
-       "min":0,"max":60000,"step":2000,"start":0,"answer":30000,"tol":0,"unit":"$",
-       "solution":"$2,000 per day times 15 days = $30,000, withheld from the final payment. Liquidated damages are agreed in advance so no one has to litigate the owner's actual daily loss."}
-      </script>
-    </div>
-
-    <p>When a claim will not settle, resolution climbs a ladder, and every rung costs more money, more time, and more of the relationship. Click up it.</p>
-
-    <div data-ac="process" data-title="The dispute-resolution ladder" data-kind="Interactive &middot; process" data-cue="Almost everything should end on the bottom rung. Every step up is slower, costlier, and worse for the next project together.">
-      <script type="application/json">
-      {"gate":false,"phases":[
-        {"title":"Negotiation","sub":"talk it out","detail":"<b>Negotiation.</b> The two parties sit down and settle directly. Cheapest, fastest, and where the large majority of changes and claims should end. Always try this first, and hard."},
-        {"title":"Mediation","sub":"a neutral helps","detail":"<b>Mediation.</b> A neutral third party helps both sides reach agreement. Non-binding and still relatively cheap. A good next step when direct talks stall but both sides want to settle."},
-        {"title":"Arbitration","sub":"a private ruling","detail":"<b>Arbitration.</b> A private arbitrator hears both sides and issues a binding decision. Faster and more private than court, but now you are paying for a process and the outcome is out of your hands."},
-        {"title":"Litigation","sub":"court","detail":"<b>Litigation.</b> Court. The slowest and most expensive path, often years and heavy legal cost, and by the time you are here the working relationship is usually finished. The rung you work hard never to reach."}
+      {"steps":[
+        ["Find the actual question first.","Read the last line before the scenario. Long scenarios often contain deliberately irrelevant detail, and knowing what is being asked tells you which details matter."],
+        ["Identify the approach.","Predictive or adaptive changes the correct answer. Look for the tells: baselines and change control, or backlogs and iterations."],
+        ["Ask what comes next, not what is true.","Most questions ask what the project manager should do next. Several options are usually true statements. Only one is the right next action."],
+        ["Prefer engaging over escalating.","Across the People domain, the exam rewards talking to the person, understanding the cause, and acting within your authority. Escalation is rarely first and almost never the whole answer."],
+        ["Answer as the process intends, not as your utility does.","Your organization may skip steps for good practical reasons. The exam does not. Answer from the framework, then go back to real life afterwards."]
       ]}
       </script>
     </div>
 
+    <p>Now run a short mixed set. These are written in the exam's style, drawing on this course.</p>
+
+    <div data-ac="examsim" data-title="Practice set: mixed domains" data-kind="Interactive &middot; practice exam" data-cue="Answer honestly rather than carefully. The point is to find your weak domain, not to score well here.">
+      <script type="application/json">
+      {"questions":[
+        {"q":"A project manager discovers that a key stakeholder has not been receiving status reports for two months and is now openly critical of the project. What should the project manager do first?",
+         "options":[
+          ["Meet with the stakeholder to understand their concerns and information needs",true],
+          ["Add the stakeholder to the distribution list and resume reports",false],
+          ["Escalate the criticism to the sponsor",false],
+          ["Update the stakeholder register and communications plan",false]],
+         "why":"People domain, and the pattern holds: engage the person directly first. Updating the register and fixing the distribution list are both correct actions, but they come after you have understood what this stakeholder actually needs. Fixing the mechanics without the conversation leaves the relationship damaged."},
+        {"q":"During execution of a predictive project, a contractor requests a change that would add scope and $80,000. The change is within the project's contingency. What should the project manager do?",
+         "options":[
+          ["Submit the change request through the integrated change control process",true],
+          ["Approve it, since it is within contingency",false],
+          ["Reject it, since the scope baseline is approved",false],
+          ["Ask the sponsor to decide",false]],
+         "why":"Process domain. Having contingency available is not authority to change the scope baseline. Every change goes through integrated change control, which is where impact on scope, schedule, cost, quality and risk is assessed together. Chapter 14 covered this."},
+        {"q":"An agile team consistently completes less work than forecast each iteration. The product owner is frustrated. What is the most appropriate response?",
+         "options":[
+          ["Use actual velocity from completed iterations to forecast future ones",true],
+          ["Ask the team to commit to more work to close the gap",false],
+          ["Extend iteration length so more work fits",false],
+          ["Add team members to increase capacity",false]],
+         "why":"Adaptive. Velocity is measured, not negotiated. The whole point of empirical planning is to forecast from what the team actually does rather than from what anyone wishes. Pressuring for higher commitments produces optimistic forecasts, not faster work, and adding people mid-flow usually slows things down."},
+        {"q":"A project has a cost performance index of 0.92 and a schedule performance index of 1.05. What is the most accurate reading?",
+         "options":[
+          ["Over budget and ahead of schedule",true],
+          ["Under budget and behind schedule",false],
+          ["Over budget and behind schedule",false],
+          ["On budget and ahead of schedule",false]],
+         "why":"Both indices use the same convention: under 1.0 is unfavorable, over 1.0 is favorable. CPI 0.92 means you are spending more than the work is worth, so over budget. SPI 1.05 means more work is done than planned, so ahead of schedule. A common real cause is running extra crews, which buys schedule with money."},
+        {"q":"A risk identified in planning has now occurred and is affecting the project. What should the project manager do?",
+         "options":[
+          ["Implement the response already planned for that risk",true],
+          ["Add it to the issue log and develop a new response",false],
+          ["Use management reserve to cover the impact",false],
+          ["Convene the risk committee to reassess",false]],
+         "why":"Risk domain, and a favorite distinction. A risk that has occurred is now an issue, and a risk with a planned response has a response ready to implement, which is the entire reason you wrote it. It does get recorded in the issue log too, but the first action is to execute the plan. Management reserve is for unknown-unknowns, not for risks you identified."},
+        {"q":"Halfway through construction, the sponsor asks the project manager to compress the schedule by six weeks without additional funding. What is the best first response?",
+         "options":[
+          ["Analyze schedule compression options and present the cost and risk of each",true],
+          ["Explain that compression without funding is not possible",false],
+          ["Fast-track the remaining work to recover the time",false],
+          ["Reduce scope to fit the new schedule",false]],
+         "why":"Process domain. The project manager's job here is analysis, not refusal or immediate action. Crashing costs money, fast-tracking adds rework risk, scope reduction needs approval. Present the options with their costs and risks and let the decision be made with information. Chapter 06 built exactly this trade."}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>A realistic study plan for a working utility professional: six to ten weeks, an hour on weeknights, built around the Examination Content Outline rather than a book. Do full-length timed practice exams in the final two weeks, because the real difficulty of the PMP is sustaining careful reading for four hours, not any individual question. And trust your first instinct on scenario questions. Reviewing changed answers is one of the most reliable ways candidates convert correct answers into incorrect ones.</p>
+    </div>
+
     <div class="lv l leadcall">
       <p class="h">Leader's call</p>
-      <p>Two moves prevent most contract pain. <b>Match the contract type to who should own the risk</b> (fixed price when the design is done, shared or cost-reimbursable when it is not), and <b>settle changes early, at the bottom of the ladder.</b> A change order signed this month is a fraction of the cost of a claim litigated next year.</p>
+      <p>If you are sponsoring someone through this, pay for the exam and protect the study time, in that order. <b>The money is the easy part and the calendar is the real constraint,</b> and a person studying for the PMP in the gaps between deliverables is a person who will fail it once and then not try again. Also be honest with yourself about why you want it on your team: it is a signal of shared vocabulary and commitment, not evidence that somebody can run a $20 million capital project.</p>
     </div>
 
     <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
       <script type="application/json">
       {"items":[
-        ["Under a Firm Fixed Price contract, the owner pays the overrun if costs run high.",false,"No. That is the point of fixed price: the contractor carries the overrun. The owner pays the fixed price either way."],
-        ["Liquidated damages must be proven as actual losses in court.",false,"No. They are agreed in advance precisely so nobody has to prove the actual daily loss."],
-        ["Most changes and claims should be settled by negotiation, not litigation.",true,"Right. Every rung up the ladder costs more money, time, and goodwill. Settle low."]
-      ]}
+        ["The modern PMP is essentially a test of one textbook.",false,"No. It is built from the Examination Content Outline, spans predictive, agile and hybrid, and rewards judgment about what to do next rather than recall of definitions."],
+        ["Roughly half the exam is set in adaptive or hybrid environments.",true,"About half, which is why candidates from purely construction backgrounds need to prepare deliberately for it rather than hoping to reason it out."],
+        ["Escalating to the sponsor is usually the safest exam answer.",false,"It is usually wrong. The exam rewards acting within your authority and engaging directly first. Escalation is a late step, not a first one."],
+        ["Changing answers on review is generally a good idea.",false,"Generally not on scenario questions. Change an answer when you spot a genuine misreading, not because a different option started to feel better."]
+       ]}
       </script>
     </div>
   </div>
@@ -772,20 +851,24 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
       <script type="application/json">
       {"cards":[
-        ["IFB","Invitation for Bids: award to the lowest responsive, responsible bidder."],
-        ["RFP","Request for Proposals: award on best value, price plus approach and qualifications."],
-        ["FFP","Firm Fixed Price: one price, and the contractor carries the overrun risk."],
-        ["GMP","Guaranteed Maximum Price: owner pays cost plus fee, up to a cap; risk is shared."],
-        ["Change order","An agreed, signed change to scope, price, and time. Not a dispute."],
-        ["Liquidated damages","A pre-agreed dollar amount owed per day the job finishes late."]
+        ["CAPM","Entry level certification. No project leadership experience required."],
+        ["PMP","Senior certification. Documented experience leading and directing projects, and it can be audited."],
+        ["ECO","Examination Content Outline: the exam's real syllabus, published free. Study against this."],
+        ["People domain","About 42% of the exam. Answers favor engaging directly with the person, not escalating."],
+        ["Process domain","About 50%. The delivery work, across predictive and adaptive approaches."],
+        ["Business environment","About 8%. Compliance, value and organizational change. Cheap marks, often neglected."],
+        ["CPI","Earned value over actual cost. Under 1.0 means each dollar buys less than a dollar of work."],
+        ["EAC","Budget at completion divided by CPI, when current performance is expected to continue."],
+        ["Total float","Late start minus early start. Zero float puts the activity on the critical path."],
+        ["Velocity","Measured, not negotiated. Forecast from what the team actually completed."]
       ]}
       </script>
     </div>
 
     <div data-ac="reflect">
       <script type="application/json">
-      {"q":"Think about your last contract. Did the contract type put the risk where it belonged, and were changes settled early, or did small disagreements grow into claims?",
-       "a":"Two patterns cause most contract grief. The first is a mismatched contract type: using cost-plus on well-defined work (and paying for risk you did not need to transfer), or forcing fixed price onto a job so uncertain the bidders either padded it heavily or fought every unforeseen condition. The second is letting changes fester. A disagreement handled as a signed change order this week is cheap and keeps the relationship intact; the same disagreement left to harden becomes a claim, then a dispute, then a rung up a ladder where everyone loses. Right contract type, and settle low and early: that is most of contract management."}
+      {"q":"Be honest: do you want this certification, or do you want what you think it will get you? And is the exam the fastest route to that thing?",
+       "a":"Both answers are legitimate, and they lead to different plans. If you want the credential because a job posting or a promotion path requires it, that is a perfectly good reason and the right move is to be efficient: study against the Examination Content Outline, do timed practice, pass it, and get back to work. If what you actually want is to be better at the job, be aware that the exam and the work overlap but are not the same. The exam rewards knowing the framework's intended answer; the job rewards judgment under real constraints with incomplete information and people who disagree with you. This course spent twenty chapters on the second thing and one on the first. The certification is worth having, and it is a signal of shared vocabulary rather than proof of capability. Plenty of excellent utility project managers do not hold it, and plenty of people hold it who have never had to tell a board their project is red."}
       </script>
     </div>
   </div>
@@ -794,20 +877,21 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   <div class="sec">
     <h2>What to carry out of this chapter</h2>
     <ul class="recap">
-      <li><span class="n">1.</span><div><b>Match the solicitation to the buy.</b> IFB for a finished design (low bid), RFP when approach matters (best value), RFQ for qualifications-based hiring like engineers.</div></li>
-      <li><span class="n">2.</span><div><b>The contract type allocates the cost risk.</b> Fixed price puts it on the contractor, cost-plus on the owner, GMP shares it. Choose on purpose.</div></li>
-      <li><span class="n">3.</span><div><b>Administration runs on instruments.</b> Submittals, pay applications, retainage, and lien waivers control quality, money, and legal exposure.</div></li>
-      <li><span class="n">4.</span><div><b>Settle low on the ladder.</b> Agreed change orders beat claims; negotiation beats litigation, every time, on cost and on relationship.</div></li>
+      <li><span class="n">1.</span><div><b>Study against the Examination Content Outline,</b> not a textbook front to back. It is free, it is the real syllabus, and the gaps you find in it are your study plan.</div></li>
+      <li><span class="n">2.</span><div><b>People is roughly 42 percent.</b> Technical candidates consistently underprepare for it, and the answers reliably favor engaging with the person directly before escalating or reassigning.</div></li>
+      <li><span class="n">3.</span><div><b>Half the exam is adaptive or hybrid.</b> Learn to spot which world a question is set in, because it changes the correct answer.</div></li>
+      <li><span class="n">4.</span><div><b>Learn the earned value convention, not ten separate formulas.</b> Variances subtract, indices divide, under 1.0 is trouble. From there you can rebuild the rest under pressure.</div></li>
+      <li><span class="n">5.</span><div><b>Practice for stamina, and trust your first instinct.</b> Four hours of careful reading is the real difficulty, and changed answers on scenario questions usually get worse rather than better.</div></li>
     </ul>
 
     <div class="leadcall" style="background:var(--brand-800)">
       <p class="h">The leader's bottom line</p>
-      <p>A contract is where you decide who carries the risk, so <b>put the risk on the party best able to control it</b>, and then manage changes so small disagreements never grow into claims. Do those two things and procurement stops being where projects go to bleed.</p>
+      <p>The certification is worth having and it is not the point. <b>It proves you share a vocabulary; it does not prove you can run a $20 million capital project through a wet season, a differing site condition, and a council meeting.</b> Get it if it opens the door you want, then judge yourself and everyone you hire on the twenty chapters that came before this one.</p>
     </div>
   </div>
 
   <div class="navrow">
-    <a href="lesson-pm-08-earned-value.html">&#8592; Chapter 08 &middot; Earned Value and forecasting</a>
+    <a href="lesson-pm-20-capstone-agentic-pm.html">&#8592; Chapter 20 &middot; Capstone</a>
     <a class="btn" href="course-project-management.html">Back to the masterclass &#8594;</a>
   </div>
 
@@ -816,7 +900,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 <footer class="foot">
   <div class="in">
     <span>One Water OS Academy &middot; Project Management</span>
-    <span>Chapter 09 &middot; 2026-07-19</span>
+    <span>Chapter 21 &middot; 2026-07-19</span>
   </div>
 </footer>
 

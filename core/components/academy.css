@@ -233,6 +233,31 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .dashoverall.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.dashoverall.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.dashoverall.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
 .dashnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.dashnote b{color:var(--ink)}
 
+/* ---- program: benefit realization is gated by the slowest component ---- */
+.pgbars{margin-top:14px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.pgrow{display:flex;align-items:center;gap:10px;padding:9px 13px;border-bottom:1px solid var(--line)}
+.pgrow:last-child{border-bottom:none}
+.pgrow .pn{flex:none;width:150px;font-size:13px;font-weight:600;color:var(--ink)}
+@media(max-width:560px){.pgrow .pn{width:96px;font-size:12px}}
+.pgrow .pt{flex:1;height:14px;background:var(--surface-3);border-radius:7px;overflow:hidden}
+.pgrow .pt i{display:block;height:100%;background:#8FC7E8;border-radius:7px;transition:width .25s}
+.pgrow .pt i.drv{background:var(--gold)}
+.pgrow .pt i.ben{background:var(--brand-800)}
+.pgrow .pm{flex:none;width:30px;text-align:right;font:700 12px var(--fm);color:var(--ink-2)}
+.pgrow.ben{background:var(--brand-50)}.pgrow.ben .pn{color:var(--brand-800);font-weight:800}
+.pgout{margin-top:12px;padding:12px 15px;border-radius:12px;background:var(--brand-50);border:1px solid var(--brand-100);font-size:14.5px;color:var(--ink)}
+.pgnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- examsim: timed-style practice question runner ---- */
+.exhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font:700 11px var(--fm);letter-spacing:.06em;text-transform:uppercase}
+.exhead .exq{color:var(--ink-3)}.exhead .exsc{color:var(--brand)}
+.exopts{display:flex;flex-direction:column;gap:7px}
+.exdone{display:none}
+.exdone.on{display:block;margin-top:12px;padding:13px 16px;border-radius:12px;font-size:14.5px}
+.exdone.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.exdone.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.exdone.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+
 /* ---- tco: life-cycle cost, where the winner flips ---- */
 .tcogrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
 @media(max-width:640px){.tcogrid{grid-template-columns:1fr}}

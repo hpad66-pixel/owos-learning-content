@@ -3,6 +3,31 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.27.0] - 2026-07-19
+### Added: PM Chapters 19, 20 and 21 (course complete)
+- Released Chapter 19, "Program and portfolio management": project versus program versus portfolio,
+  benefit realization, prioritization weighting, portfolio resource constraints, and OPM maturity.
+- Released Chapter 20, the capstone: the Cypress Creek lift station run gate by gate, ending with a
+  sort of which project work is the manager's own and which should be delegated to an agent.
+- Released Chapter 21, PMP and CAPM exam preparation: the Examination Content Outline and its three
+  domains, predictive versus adaptive framing, the formula sheet, test strategy, and a practice runner.
+- Added reusable `program` component: benefit realization gated by the slowest component, so pulling
+  the other projects earlier visibly buys nothing.
+- Added reusable `examsim` component: a multi-question practice runner with running score and a
+  readiness verdict.
+
+### Fixed
+- **Answer-order bias across the whole course.** An audit found the correct answer sat in the first
+  position in 31 of 32 multiple-choice and practice questions, spanning 19 chapters, so a learner could
+  pattern-match position instead of reasoning. Added a `shuffled()` helper and applied it in `mc`,
+  `multi` and `examsim`, which fixes every chapter at once and prevents the bias in future authoring.
+  Verified uniform distribution over 40,000 shuffles, no options dropped, and scoring still correct.
+  All 21 lessons rebuilt so the fix reaches the deployed self-contained pages.
+- Corrected Chapter 18 prose that stated a 6 year crossover and a $2M penalty; the simulation computes
+  7 years and $1.65M over 30 years.
+- Corrected the Chapter 19 `reslevel` config, which used the wrong shape (`bars`/`load` instead of
+  `tasks` with start, duration and crew) and would have rendered an empty histogram.
+
 ## [0.26.0] - 2026-07-19
 ### Added: PM Chapter 18
 - Released Chapter 18, "Asset management, digital delivery, and resilience," covering life-cycle cost

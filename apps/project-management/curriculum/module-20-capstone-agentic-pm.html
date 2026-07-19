@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 20 &middot; Capstone: agentic project management with Droobi &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 20 of the Project Management masterclass. A capstone running one real utility job from need to closeout, deciding at every gate, with an agent doing the mechanical work.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 20</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 20 &middot; Capstone</span>
+  <h1>Run the whole job: <span>you decide</span>, Droobi does</h1>
+  <p class="sub">Nineteen chapters of method, applied once, end to end, on a job that behaves like a real one. At each gate you make the call. The mechanical work, the arithmetic, the drafting, the document assembly, gets done for you. What is left is the part that was always the actual job.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job, from the beginning</p>
+      <p><b>Cypress Creek lift station, rated capacity 2.5 million gallons per day.</b> Built in 1978. Two pumps, both original. It has overflowed twice in three years during heavy rain, and one of those events was reported to the state. The area it serves has grown by about 30 percent since it was designed. You have just been handed it.</p>
+    </div>
+  </div>
+
+  <h3>What this capstone asks of you</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Choose a delivery approach and defend the choice</li>
+    <li><span class="bx"></span> Take the decisions at each gate, in the order they actually arrive</li>
+    <li><span class="bx"></span> Recognize which work is yours and which should be delegated to an agent</li>
+    <li><span class="bx"></span> Write the honest status when the job goes sideways</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 1</span>
+    <h2>The Cypress Creek job, gate by gate</h2>
+    <p>Start where every project should start and almost none does: not with a solution, but with the question of what problem you are solving. Two overflows and 30 percent growth could mean several different projects.</p>
+
+    <div data-ac="decide" data-title="Gate 1: What is this project actually for?" data-kind="Decision &middot; make the call">
+      <script type="application/json">
+      {"flow":["Two overflows","Growth of 30%",{"q":"What is the project?"}],
+       "q":"Before anyone designs anything, you have to name the driver. Which framing do you take to your director?",
+       "options":[
+        {"label":"Replace the pumps, they are 48 years old",
+         "result":"<b>Tempting, and premature.</b> This is a solution wearing the costume of a problem. Old pumps might be the cause, or the wet well might be undersized for current flows, or inflow and infiltration during rain might be swamping a station that is otherwise fine. Commit to pumps now and you may spend $2 million solving the wrong thing while the overflows continue. Chapter 16: the leverage is in planning, and you have not done any yet."},
+        {"label":"Establish why it overflows, then decide what to build",
+         "result":"<b>Right call.</b> You have two failure events and a growth number, and no diagnosis. A short evaluation, flow monitoring through a wet season, a capacity analysis against current and projected flows, costs a fraction of the capital project and determines what the capital project should be. This is the cheapest decision point you will ever stand at, and the one most often skipped because it looks like delay."},
+        {"label":"Report it to the state and wait for direction",
+         "result":"<b>Half right, and passive.</b> The reportable event was already reported, and staying in front of your regulator is genuinely wise. But waiting for an agency to tell you what to build hands them the definition of your project, and they will define it more conservatively and more expensively than you would. Diagnose first, then go to them with a plan."},
+        {"label":"Add a bypass pump for wet weather as an interim fix",
+         "result":"<b>A reasonable stopgap, not a project definition.</b> If overflows are imminent this may be exactly what you do next week to stop harm, and there is no shame in a temporary measure. But it is a mitigation, not a decision about what the permanent answer is, and interim fixes have a way of quietly becoming the permanent answer once the pressure comes off."}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>The evaluation comes back after a wet season. The station's pumps are near end of life but functional. Peak wet weather flow reaches about 3.8 MGD against a firm capacity of 1.4 MGD, because with one pump out the station cannot handle it. Roughly 40 percent of that peak is <span class="term" data-term="Inflow and infiltration" data-def="Groundwater and stormwater entering a sanitary sewer system through cracks, bad joints, and improper connections. It consumes capacity you built for sewage and is why wet weather overflows happen.">inflow and infiltration (I&amp;I)</span>: rainwater getting into a sewer built for sewage. So there are two candidate projects and they are very different sizes.</p>
+    </div>
+
+    <div data-ac="recommender" data-title="Gate 2: Which alternative do you carry forward?" data-kind="Decision &middot; pick and see the consequence">
+      <script type="application/json">
+      {"prompt":"Peak wet weather flow is 3.8 MGD, firm capacity is 1.4 MGD, and about 40 percent of the peak is rainwater entering the sewer. Which alternative do you take through preliminary design?",
+       "options":[
+        {"label":"Build a station sized for 3.8 MGD","name":"Build for the peak you measured",
+         "why":"You will solve the overflow, and you will spend the most money doing it. You are also permanently building, powering, and maintaining capacity for rainwater, and paying to treat that rainwater at the plant every wet season for the next fifty years. Chapter 18's life-cycle lesson applies with force: this option has the highest capital cost and the highest operating cost at the same time, which is a rare combination and not one you want."},
+        {"label":"Reduce inflow and infiltration first, then size the station","name":"Fix the leaks, then build smaller",
+         "why":"Usually the strongest answer, and the one requiring the most nerve. Rehabilitating the collection system reduces peak flow, so the station you eventually build is smaller, cheaper to run, and treats less rainwater. The catch is real: I&amp;I reduction is hard to guarantee, takes time, and gives you no ribbon to cut. Most utilities do a version of this and size the station for a defensible reduced peak, accepting some risk in exchange for a much better asset."},
+        {"label":"Build for 2.5 MGD and accept occasional overflow","name":"Undersize deliberately",
+         "why":"Be careful. There are legitimate engineering conversations about design storms and acceptable risk, but 'we accepted occasional overflows' is a very different sentence in a consent order than it is in a design memo. If you go this route the reasoning has to be documented, defensible against your permit, and known to your leadership before it is built rather than after the next event."},
+        {"label":"Add storage to buffer the wet weather peak","name":"Store the peak, pump it down later",
+         "why":"Genuinely viable and often overlooked. Equalization storage lets a smaller station work through the peak over hours rather than matching it instantaneously. It costs land and adds an operational burden, and it pairs well with partial I&amp;I reduction. On a constrained site it is frequently the answer that survives the alternatives analysis."}
+       ]}
+      </script>
+    </div>
+
+    <p>You carry forward I&amp;I reduction plus a station sized for a reduced peak, with storage. Now the money. The project needs about $4.6 million and the annual capital budget is already committed.</p>
+
+    <div data-ac="decide" data-title="Gate 3: Funding and the compliance clock" data-kind="Decision &middot; make the call">
+      <script type="application/json">
+      {"q":"Your utility has a State Revolving Fund loan available at below market rate, but it brings federal requirements and adds roughly five months of environmental review. The state has been informally clear that they expect a corrective schedule for the overflows. What do you do?",
+       "options":[
+        {"label":"Take the low-interest loan and absorb the five months",
+         "result":"<b>Usually correct, if you start now.</b> The interest saving on $4.6 million over twenty years dwarfs the cost of five months, provided those five months do not push you past what your regulator will accept. Chapter 16's back-planning applies directly: work backwards from the corrective deadline, and if the loan timeline still fits, take the cheaper money. If it does not fit, you have just learned something important early."},
+        {"label":"Fund it from rates and cash to move faster",
+         "result":"<b>Fast, and expensive in a way that is easy to hide.</b> Cash funding avoids the review and the federal requirements, but it either displaces other capital projects, and Chapter 19 says something has to fall below the line, or it pushes a rate increase. Both are real costs. If you choose this, say plainly which projects are being deferred, because that trade is being made whether or not anyone names it."},
+        {"label":"Phase it: fund the I&I work now, the station next cycle",
+         "result":"<b>Often the practical answer.</b> The collection system rehabilitation is smaller, can start sooner, and reduces the peak flow that sizes the station, so phasing is not just financial convenience, it improves the design. The risk to manage is momentum: phase two must be genuinely committed in the capital plan, or you will have spent money on I&amp;I and never built the station, which is the worst of both."},
+        {"label":"Ask the state for more time before deciding",
+         "result":"<b>Do this in parallel, never instead.</b> Approaching your regulator with a credible plan and a specific request is very different from approaching them with a question. Decide your funding approach, back-plan the schedule, and then go to them with dates you can defend. Turning up empty invites them to set the schedule for you."}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Notice the shape of the last three decisions. Not one of them was an engineering question. They were about defining the problem, choosing among alternatives with different lifetime consequences, and trading money against time against risk. That is what the job is, and it is the part no tool does for you.</p>
+    </div>
+
+    <p>Design and permitting run. Construction starts. In month nine, the thing that always happens, happens.</p>
+
+    <div data-ac="decide" data-title="Gate 4: The bad news arrives" data-kind="Decision &middot; make the call">
+      <script type="application/json">
+      {"q":"Month nine. Excavation for the wet well hits rock that was not in the geotechnical report. The contractor submits a change order for $310,000 and six weeks. Your contingency has $240,000 left and the corrective schedule has four weeks of float. What is your first move?",
+       "options":[
+        {"label":"Verify the claim against the contract's differing site conditions clause",
+         "result":"<b>Correct first move, before any negotiation.</b> Chapter 09: who carries this risk was decided when the contract was signed. A differing site conditions clause typically means the owner carries genuinely unforeseen conditions, so this may well be a valid claim, but validity, entitlement, and amount are three separate questions. Establish what you actually owe before you argue about what you will pay. Then, and only then, negotiate the number."},
+        {"label":"Reject it, the contractor should have inspected the site",
+         "result":"<b>A reflex that usually costs money.</b> Site inspection duties are real but rarely extend to discovering subsurface rock that the owner's own geotechnical report missed. Rejecting a probably-valid claim invites a formal dispute, hardens the relationship for the remaining year of work, and often ends with you paying the original amount plus delay costs. Chapter 13: you have to work with these people tomorrow."},
+        {"label":"Approve it to keep the job moving",
+         "result":"<b>Understandable, and it teaches an expensive lesson.</b> Paying quickly without establishing entitlement or testing the pricing tells the contractor how the rest of the change orders on this job will go. There is a version of speed that is good project management and a version that is just avoidance, and the difference is whether you did the verification first."},
+        {"label":"Escalate to your director immediately",
+         "result":"<b>Yes, but not first, and not empty handed.</b> This exceeds your contingency and threatens a regulatory schedule, so your leadership absolutely needs to know, and early. But Chapter 15: bring the evidence and the ask, not just the problem. Verify entitlement, price the schedule impact, then escalate with a recommendation. Escalation without analysis is delegation of your own job."}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>The claim is valid under the differing site conditions clause. Negotiated, it settles at $265,000 and four weeks, which is $25,000 over your remaining contingency and consumes every day of float on the corrective schedule. Nothing has technically failed. Everything is now tight. This is the exact moment where status reporting either earns its keep or quietly fails.</p>
+    </div>
+
+    <div data-ac="mc" data-title="Gate 5: The status report" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"You are writing the monthly report to your director and the utility board. What does it say?",
+       "options":[
+        ["Red: contingency exhausted and all schedule float consumed, with a specific ask",1],
+        ["Amber: a change order was settled and the team is working to recover the schedule",0],
+        ["Green: the change order is resolved and construction continues",0],
+        ["Amber, with the detail held back until you see whether you can recover the float",0]
+       ],
+       "right":"Correct, and it will feel like an overreaction. But apply Chapter 15's rule: honest status takes the worst light. Contingency is gone and float is zero on a project with a regulatory deadline, which means any further surprise, and there is always a further surprise, goes straight to the deadline. Reporting red now, with the specific ask (additional contingency authority, or a conversation with the state about the schedule), is what buys the months in which this is still fixable.",
+       "wrong":"Not quite. The change order being settled is not the story. The story is that contingency is exhausted and float is zero on a project with a regulatory deadline, which means the next surprise has nowhere to go. Waiting to see whether you can recover it is exactly how a fixable problem becomes an unfixable one, and it is the watermelon status from Chapter 15."}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Every gate in this chapter came down to something Chapters 01 through 19 covered: define before you solve, choose alternatives on life-cycle terms, back-plan from the compliance date, establish entitlement before negotiating, and report the worst light early. None of it required you to compute anything.</p>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION: AGENTIC ===================== -->
+  <div class="sec">
+    <h2>Where the agent fits</h2>
+    <p>The reason to end this course with an agent is not novelty. It is that the work in the job splits cleanly into two piles, and most project managers spend far too much of their week in the wrong one. Sort the Cypress Creek tasks.</p>
+
+    <div data-ac="classify" data-title="Yours, or delegated?" data-kind="Quiz &middot; classify" data-cue="The test: does this task require accountability and judgment, or is it mechanical work with a checkable answer?">
+      <script type="application/json">
+      {"buckets":["Yours: judgment and accountability","Delegate: mechanical and checkable"],
+       "items":[
+        ["Deciding whether to accept the differing site conditions claim",0,"Yours. It is a judgment about entitlement, relationship, and risk, and you are accountable for it."],
+        ["Recalculating the forecast at completion after the change order",1,"Delegate. Earned value arithmetic is defined, repeatable, and verifiable. You check the inputs and read the output."],
+        ["Choosing which alternative goes forward to design",0,"Yours. It sets the asset the utility owns for fifty years."],
+        ["Assembling the monthly report from schedule, cost and inspection data",1,"Delegate. Gathering and formatting is mechanical. Deciding what the status actually is remains yours."],
+        ["Telling the board the project is red",0,"Yours, unambiguously. Accountability cannot be delegated to anything, and a red status is an act of professional courage, not a data output."],
+        ["Drafting the change order log and tracking submittal due dates",1,"Delegate. Tracking is exactly what software should do, and it is where human attention leaks away for no benefit."],
+        ["Deciding what to say to the resident whose driveway is blocked",0,"Yours. Chapter 12. A person is upset, and that is not a data problem."],
+        ["Checking a schedule for logic errors and missing predecessors",1,"Delegate. There are right answers, and a machine finds them faster and more consistently than you do at 5pm."]
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>The pattern is consistent. Everything in the delegate column has a checkable right answer; everything in the yours column requires someone to be accountable for a judgment. This is why the arrival of capable agents does not shrink the project manager's role, it concentrates it. The arithmetic, tracking, and assembly that filled the calendar were never the value you added. They were the tax you paid to get to the decisions, and the decisions are where the whole job lives. A project manager who was mostly a spreadsheet operator should be concerned. One who was mostly making the calls in this chapter has just had their week handed back.</p>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Delegate the mechanical work aggressively, and never delegate the accountability. <b>An agent can tell you the forecast at completion is $4.87 million and the float is zero. Only a person can walk into a board meeting and say the project is red.</b> If you find yourself hoping a tool will make the uncomfortable call for you, that is the clearest possible signal that the call is yours.</p>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Think about your own last working week. What share of it went to work with a checkable right answer, and what share to decisions only you could make?",
+       "a":"Most project managers who do this honestly find the ratio uncomfortable, and it is usually somewhere around 70 to 30 in the wrong direction. Chasing submittal status, rebuilding a schedule someone broke, assembling a report from four systems, retyping numbers between spreadsheets. None of it is wasted exactly, because it all has to happen, but almost none of it is the thing you were hired for or the thing that determines whether the project succeeds. The decisions in this chapter, what problem to solve, which alternative to carry, whether to report red, took perhaps a few hours in total and determined nearly everything about the outcome. That is the real argument for delegating the mechanical work: not that it saves time in the abstract, but that the hours it frees are the ones you currently do not have enough of for the judgments that actually move projects."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this capstone</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>Define the problem before you accept a solution.</b> "Replace the pumps" arrived as a diagnosis and was really a guess. The evaluation that felt like delay was the cheapest decision on the job.</div></li>
+      <li><span class="n">2.</span><div><b>Alternatives are chosen on lifetime terms.</b> Building for the measured peak would have meant pumping and treating rainwater for fifty years.</div></li>
+      <li><span class="n">3.</span><div><b>Establish entitlement before you negotiate.</b> Valid, entitled, and priced are three separate questions, and answering them out of order costs money either way.</div></li>
+      <li><span class="n">4.</span><div><b>Report the worst light while it is still fixable.</b> Zero contingency and zero float on a regulatory deadline is red, whatever the change order status says.</div></li>
+      <li><span class="n">5.</span><div><b>Delegate what is checkable, own what is accountable.</b> The mechanical work was never the value. It was the tax paid to reach the decisions.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Twenty chapters reduce to something fairly simple. <b>Projects are decided early and delivered late, and the decisions that matter are made by people who are accountable for them.</b> Everything else in this course, the critical path, earned value, the risk register, the status report, exists to get the right information in front of that person while there is still time to act on it. Build the habit of being that person, and the tooling is a detail.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-19-program-portfolio.html">&#8592; Chapter 19 &middot; Program and portfolio management</a>
+    <a class="btn" href="module-21-exam-prep.html">Chapter 21 &middot; Exam prep &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 20 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>
