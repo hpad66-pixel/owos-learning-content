@@ -2,7 +2,7 @@
 
 The single home for all One Water OS technical content and apps, by APAS.ai. Taught by Droobi.
 
-**Version:** 0.11.0 &middot; **Last updated:** 2026-07-19
+**Version:** 0.12.0 &middot; **Last updated:** 2026-07-19
 
 This is a **monorepo**. The reusable foundation lives in `core/` and is shared by every app in
 `apps/`. Build the wheel once in `core/`, reuse it everywhere. That is how we keep the branding,
@@ -23,9 +23,12 @@ apps/                     one folder per application. Each reuses core/.
     curriculum/           syllabus, the course "chrome", and the chapters
     playbook/             the utilities PM field playbook (HTML + PDF)
     starter-kit/          a plain-file project scaffold you copy to run a real job
-  data-ai-governance/     the Data Before AI Master Class (syllabus ready for owner lock)
-    curriculum/           complete 25-chapter, 75-section syllabus and coverage controls
+  data-ai-governance/     the Data Before AI Master Class (structure ready for owner lock)
+    curriculum/           syllabus, landing page, and 25 linked chapter shells
+    dist/site/            self-contained OWOS.ai build outputs
     course.yaml           machine-readable course and controlled-method record
+docs/
+  OWOS-COURSE-TO-LEARN-ARCHITECTURE.md  canonical source-to-runtime ownership and release map
   ( living-graph/ , fable-agent/ , one-water-os/ ... come next )
 README.md  CHANGELOG.md  VERSION
 ```
@@ -56,3 +59,6 @@ sharing; the plain `*.html` files are what you deploy.
 `VERSION` holds the current number, `CHANGELOG.md` has dated entries, and each release is a git tag
 (for example `v0.2.0`). When a document changes, it is committed here so it can be tracked and
 rolled back.
+
+The cross-repository course delivery contract is documented in
+[`docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md`](docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md).

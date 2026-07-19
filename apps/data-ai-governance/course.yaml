@@ -79,3 +79,21 @@ credential:
 source_files:
   syllabus: curriculum/SYLLABUS.md
   readme: README.md
+  architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
+
+delivery:
+  shell_status: structure_ready_content_pending
+  available_chapters: 0
+  landing_source: curriculum/masterclass-data-governance.html
+  landing_output: dist/site/course-data-governance.html
+  runtime_manifest: dist/course-manifest.json
+  chapter_source_pattern: curriculum/module-{chapter}-{slug}.html
+  chapter_output_pattern: dist/site/lesson-dg-{chapter}-{slug}.html
+  runtime_repository: hpad66-pixel/2-brain
+  runtime_path: site
+  runtime_store_key: dga001
+  runtime_canonical: /course-data-governance
+  learner_records: supabase
+  semantic_alignment: owos_knowledge_graph
+  edge_delivery: cloudflare_pages_and_worker
+  completion_events_enabled: false

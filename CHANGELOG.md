@@ -3,6 +3,17 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.12.0] - 2026-07-19
+### Added: governed Course-to-Learn architecture and Data Governance course shell
+- Added the canonical ownership, data-flow, release, and version-control contract from `onewater-os`
+  through the `2-brain` OWOS.ai runtime, Supabase, Knowledge Graph, and Cloudflare.
+- Added Mermaid system and release-flow diagrams, the system-of-record matrix, release gates, stable
+  Data Governance identifiers, catalog-preservation rule, and definition of done.
+- Added delivery metadata for a native 25-chapter Data Governance shell and its OWOS.ai runtime path.
+- Added a generated browser landing page and 25 linked chapter shells, with all lesson content clearly
+  marked pending until it passes the governed content acceptance gates.
+- Added reproducible self-contained distribution outputs for controlled copy-on-publish into OWOS.ai.
+
 ## [0.11.0] - 2026-07-19
 ### Added: complete Data and Artificial Intelligence Governance syllabus
 - Added `apps/data-ai-governance/` as the governed course-content home for the Data Before AI Master

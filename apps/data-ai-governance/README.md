@@ -7,6 +7,7 @@ Master Class **Data Before AI: Data and Artificial Intelligence Governance for U
 
 - [Complete syllabus](curriculum/SYLLABUS.md)
 - [Machine-readable course record](course.yaml)
+- [Course-to-Learn architecture](../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md)
 
 ## Source authority
 
@@ -20,9 +21,10 @@ must not silently redefine the controlled method.
 
 ## Current state
 
-The complete syllabus and coverage design are ready for owner review. The chapter structure, guided
+The complete syllabus and coverage design are ready for owner review. A generated, linked landing page
+and all 25 chapter shells make the structure reviewable in a browser. The chapter content, guided
 effort, final assessment blueprint, and credential language remain draft until the owner locks them.
-Interactive chapter implementation has not started.
+The shells are not released lessons and do not produce completion or credential records.
 
 ## Build rule
 
