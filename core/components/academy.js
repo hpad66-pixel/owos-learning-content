@@ -71,7 +71,8 @@
   /* ---- lens toggle, reading progress, goals ---- */
   function initChrome(){
     var lens=document.querySelector('.lens');
-    if(lens){lens.querySelectorAll('button').forEach(function(b){
+    if(lens){var active=lens.querySelector('button.on')||lens.querySelector('button');if(active&&!document.body.hasAttribute('data-lens'))document.body.setAttribute('data-lens',active.getAttribute('data-lens'));
+      lens.querySelectorAll('button').forEach(function(b){
       b.addEventListener('click',function(){
         lens.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
         b.classList.add('on');
@@ -402,6 +403,63 @@
     }
     b.querySelectorAll('.at-item').forEach(function(row){paint(row);row.querySelector('.at-state').addEventListener('click',function(){var id=row.dataset.id;saved[id]=(value(row)+1)%states.length;paint(row);report();});});
     b.querySelector('[data-reset]').addEventListener('click',function(){saved={};b.querySelectorAll('.at-item').forEach(paint);report();});report();
+  };
+
+  R.layerstack=function(el){var c=cfgOf(el);var layers=c.layers||[];
+    var b=shell(el,'<div class="lsstack">'+layers.map(function(layer,i){
+      return '<button type="button" class="lslayer'+(i===0?' on':'')+'" data-i="'+i+'" aria-pressed="'+(i===0?'true':'false')+'"><span class="lsnum">'+(layer.number||i+1)+'</span><span><b>'+layer.label+'</b><small>'+(layer.sub||'')+'</small></span></button>';
+    }).join('')+'</div><div class="lsdetail" data-detail aria-live="polite">'+(layers[0]?layers[0].detail:'')+'</div>');
+    var detail=b.querySelector('[data-detail]');
+    b.querySelectorAll('.lslayer').forEach(function(button){button.addEventListener('click',function(){
+      b.querySelectorAll('.lslayer').forEach(function(item){item.classList.remove('on');item.setAttribute('aria-pressed','false');});button.classList.add('on');button.setAttribute('aria-pressed','true');
+      detail.innerHTML=layers[+button.dataset.i].detail||'';
+    });});
+  };
+
+  R.beforeafter=function(el){var c=cfgOf(el);var before=c.before||{},after=c.after||{};
+    function panel(kind,data){return '<div class="bapanel '+kind+'"><span class="balabel">'+(data.label||kind)+'</span><h4>'+(data.title||'')+'</h4><ul>'+(data.items||[]).map(function(item){return '<li>'+item+'</li>';}).join('')+'</ul></div>';}
+    var b=shell(el,'<div class="bastage">'+panel('before',before)+'<div class="baafter" data-after>'+panel('after',after)+'</div><i class="badivider" data-divider aria-hidden="true"><span>&#8596;</span></i></div><div class="barange"><label>'+(c.rangeLabel||'Move from fragmented to governed')+'</label><input type="range" min="0" max="100" value="50" aria-label="'+(c.rangeLabel||'Before and after comparison')+'"><output data-value>50% governed</output></div><div class="banote" data-note aria-live="polite"></div>');
+    var range=b.querySelector('input'),overlay=b.querySelector('[data-after]'),divider=b.querySelector('[data-divider]'),out=b.querySelector('[data-value]'),note=b.querySelector('[data-note]');
+    function update(){var v=+range.value;overlay.style.clipPath='inset(0 '+(100-v)+'% 0 0)';divider.style.left=v+'%';out.textContent=v+'% governed';
+      var notes=c.notes||[];var selected=notes[notes.length-1]||'';for(var i=0;i<notes.length;i++){if(v<=notes[i].max){selected=notes[i].body;break;}}note.innerHTML=selected;}
+    range.addEventListener('input',update);update();
+  };
+
+  R.handoff=function(el){var c=cfgOf(el);var steps=c.steps||[],mode='fragmented',index=0,timer=null;
+    var b=shell(el,'<div class="hotoggle"><button type="button" class="on" data-mode="fragmented">Fragmented handoff</button><button type="button" data-mode="governed">Governed handoff</button></div><div class="hochain" data-chain></div><div class="hoctrl"><button type="button" data-action="reset">Reset</button><button type="button" data-action="back">Back</button><button type="button" class="primary" data-action="next">Next handoff</button><button type="button" data-action="play">Play</button><span data-count></span></div><div class="honarr" data-narr aria-live="polite"></div>');
+    var chain=b.querySelector('[data-chain]'),narr=b.querySelector('[data-narr]'),count=b.querySelector('[data-count]');
+    function stop(){if(timer){clearInterval(timer);timer=null;}b.querySelector('[data-action="play"]').textContent='Play';}
+    function paint(){chain.innerHTML=steps.map(function(step,i){var state=i<index?' done':i===index?' active':'';var message=mode==='fragmented'?step.risk:step.control;return '<div class="honode'+state+'"><span>'+(i+1)+'</span><b>'+step.label+'</b><small>'+(step.sub||'')+'</small>'+(i<steps.length-1?'<i>&#8594;</i>':'')+'</div>';}).join('');
+      var step=steps[index]||{};narr.className='honarr '+(mode==='fragmented'?'warn':'ok');narr.innerHTML='<b>'+(step.label||'')+'.</b> '+(mode==='fragmented'?(step.risk||''):(step.control||''));count.textContent=(steps.length?index+1:0)+' of '+steps.length;
+      b.querySelector('[data-action="back"]').disabled=index===0;b.querySelector('[data-action="next"]').disabled=index>=steps.length-1;}
+    b.querySelectorAll('[data-mode]').forEach(function(button){button.setAttribute('aria-pressed',button.classList.contains('on')?'true':'false');button.addEventListener('click',function(){stop();mode=button.dataset.mode;index=0;b.querySelectorAll('[data-mode]').forEach(function(item){item.classList.remove('on');item.setAttribute('aria-pressed','false');});button.classList.add('on');button.setAttribute('aria-pressed','true');paint();});});
+    b.querySelector('[data-action="reset"]').addEventListener('click',function(){stop();index=0;paint();});
+    b.querySelector('[data-action="back"]').addEventListener('click',function(){stop();index=Math.max(0,index-1);paint();});
+    b.querySelector('[data-action="next"]').addEventListener('click',function(){stop();index=Math.min(steps.length-1,index+1);paint();});
+    b.querySelector('[data-action="play"]').addEventListener('click',function(){if(timer){stop();return;}index=0;paint();this.textContent='Pause';timer=setInterval(function(){if(index>=steps.length-1){stop();return;}index++;paint();},1400);});paint();
+  };
+
+  R.fragtax=function(el){var c=cfgOf(el);var settings=c.inputs||{};
+    function setting(id,label,unit,min,max,step,value){var x=settings[id]||{};return {id:id,label:x.label||label,unit:x.unit||unit,min:x.min==null?min:x.min,max:x.max==null?max:x.max,step:x.step==null?step:x.step,value:x.value==null?value:x.value};}
+    var inputs=[setting('decisions','Decision cycles each month','cycles',1,60,1,12),setting('people','People rebuilding each answer','people',1,20,1,5),setting('minutes','Minutes per person per cycle','minutes',10,360,10,90),setting('rework','Added rework and exception time','%',0,100,5,25),setting('cost','Loaded labor cost','$ / hour',25,180,5,65)];
+    var b=shell(el,'<div class="ftinputs">'+inputs.map(function(input){return '<label><span><b>'+input.label+'</b><small>'+input.unit+'</small></span><input type="range" data-id="'+input.id+'" min="'+input.min+'" max="'+input.max+'" step="'+input.step+'" value="'+input.value+'"><output data-out="'+input.id+'"></output></label>';}).join('')+'</div><div class="ftkpis"><div><b data-hours></b><span>annual search and join hours</span></div><div><b data-rework></b><span>annual rework hours</span></div><div class="key"><b data-cost></b><span>direct labor planning estimate</span></div><div><b data-weeks></b><span>40-hour work weeks</span></div></div><div class="ftchart"><div class="ftcol"><b data-base-label></b><i data-base-bar></i><span>search and reconcile</span></div><div class="ftcol"><b data-rework-label></b><i class="rework" data-rework-bar></i><span>added rework</span></div></div><div class="ftnote">'+(c.note||'This is a planning estimate of direct labor only. Validate local cycle counts, time, cost, service consequences, and risk before using it in a funding decision.')+'</div>');
+    function value(id){return +b.querySelector('input[data-id="'+id+'"]').value;}function money(n){return '$'+Math.round(n).toLocaleString();}
+    function paint(){inputs.forEach(function(input){var v=value(input.id),text=input.id==='cost'?money(v):v.toLocaleString();if(input.id==='rework')text+='%';b.querySelector('[data-out="'+input.id+'"]').textContent=text;});
+      var base=value('decisions')*12*value('people')*value('minutes')/60,rework=base*value('rework')/100,total=base+rework,cost=total*value('cost'),max=Math.max(base,rework,1);
+      b.querySelector('[data-hours]').textContent=Math.round(base).toLocaleString();b.querySelector('[data-rework]').textContent=Math.round(rework).toLocaleString();b.querySelector('[data-cost]').textContent=money(cost);b.querySelector('[data-weeks]').textContent=(total/40).toFixed(1);
+      b.querySelector('[data-base-label]').textContent=Math.round(base).toLocaleString()+' h';b.querySelector('[data-rework-label]').textContent=Math.round(rework).toLocaleString()+' h';b.querySelector('[data-base-bar]').style.height=Math.max(5,base/max*120)+'px';b.querySelector('[data-rework-bar]').style.height=Math.max(5,rework/max*120)+'px';}
+    b.querySelectorAll('input').forEach(function(input){input.addEventListener('input',paint);});paint();
+  };
+
+  R.artifactbuilder=function(el){var c=cfgOf(el),fields=c.fields||[],key='owos:artifactbuilder:'+(c.key||location.pathname),saved={};
+    try{saved=JSON.parse(localStorage.getItem(key)||'{}')||{};}catch(e){saved={};}
+    var b=shell(el,'<div class="abnotice">'+(c.notice||'Use only non-sensitive working text here. Save controlled utility evidence in an approved repository.')+'</div><div class="abfields">'+fields.map(function(field){return '<label><b>'+field.label+'</b><small>'+(field.help||'')+'</small><textarea data-id="'+field.id+'" rows="'+(field.rows||3)+'" placeholder="'+(field.placeholder||'')+'"></textarea></label>';}).join('')+'</div><div class="abpreview"><span>'+(c.previewLabel||'Executive case preview')+'</span><pre data-preview></pre></div><div class="abactions"><button type="button" class="btn" data-copy>Copy preview</button><button type="button" class="btn" data-clear>Clear saved draft</button><span data-status aria-live="polite"></span></div>');
+    var preview=b.querySelector('[data-preview]'),status=b.querySelector('[data-status]');
+    function compose(){var text=c.template||'';fields.forEach(function(field){var v=saved[field.id]||'['+field.label+']';text=text.split('{'+field.id+'}').join(v);});return text;}
+    function save(){try{localStorage.setItem(key,JSON.stringify(saved));status.textContent='Draft saved on this device.';}catch(e){status.textContent='Draft could not be saved in this browser.';}preview.textContent=compose();}
+    fields.forEach(function(field){var input=b.querySelector('[data-id="'+field.id+'"]').value=saved[field.id]||'';b.querySelector('[data-id="'+field.id+'"]').addEventListener('input',function(){saved[field.id]=this.value.trim();save();});});save();
+    b.querySelector('[data-copy]').addEventListener('click',async function(){try{await navigator.clipboard.writeText(compose());status.textContent='Preview copied. Move it into your approved Launch Pack workspace.';}catch(e){status.textContent='Copy was blocked. Select the preview text and copy it manually.';}});
+    b.querySelector('[data-clear]').addEventListener('click',function(){saved={};fields.forEach(function(field){b.querySelector('[data-id="'+field.id+'"]').value='';});try{localStorage.removeItem(key);}catch(e){}save();status.textContent='Saved draft cleared.';});
   };
 
   R.twofig=function(el){var c=cfgOf(el);function box(o){return '<div class="box"><div class="cap">'+o.cap+'</div>'+o.svg+'<div class="note">'+o.note+'</div></div>';}

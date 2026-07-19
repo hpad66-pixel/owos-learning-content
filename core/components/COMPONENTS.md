@@ -3,7 +3,7 @@
 The Markdown list of every visual in `component-gallery.html`. Open the gallery to see them rendered
 live. Pick the one that fits the idea. Do not reuse the same shape across a chapter.
 
-**Last updated:** 2026-07-19 &middot; **v0.15.0**
+**Last updated:** 2026-07-19 &middot; **v0.17.0**
 
 ## Parts of a whole, and balance
 | Component | Kind | Use when |
@@ -11,7 +11,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Three-legged stool | Diagram | three parts must all hold (sustainability). Tips when a leg is weak. |
 | Pillars | Diagram | a few named supports hold up a whole |
 | Pyramid | Diagram | layers build on a foundation (data before AI) |
-| Layered stack | Diagram | tiers, each one enables the tier above (a tech stack) |
+| Layered stack | Interactive diagram | select tiers to reveal how each enables the layer above |
 | Venn | Diagram | overlap or shared ground between groups |
 | Donut | Chart | shares of one total (where the budget goes) |
 
@@ -22,6 +22,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Cycle / loop | Process | steps that repeat forever (plan-do-check-act) |
 | Swimlane | Process | who does what, across the steps |
 | Timeline / roadmap | Process | milestones along a time axis |
+| Handoff simulator | Interactive process | step through fragmented and governed versions of a cross-system handoff |
 
 ## Trade-off and position
 | Component | Kind | Use when |
@@ -44,7 +45,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 |---|---|---|
 | Line / S-curve | Curve | a value over time; mark key points (payback, break-even) |
 | Bar chart | Chart | compare amounts side by side |
-| Before / after slider | Chart | show the change a project makes |
+| Before / after slider | Interactive chart | drag a divider to compare fragmented and governed states |
 | Tornado | Chart | which input swings the result most (sensitivity) |
 
 ## Hidden depth, flow, and status
@@ -58,6 +59,8 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Progress ring | Chart | percent complete |
 | Method (numbered) | Method | a step-by-step how-to recipe |
 | Artifact tracker | Interactive status | move governed artifacts through draft, evidence, and review states; save status on the learner's device |
+| Fragmentation tax model | Interactive chart | estimate direct search, join, rework, and labor effort from visible assumptions |
+| Artifact builder | Interactive method | draft, preview, save, and copy a governed working artifact without posting it to a server |
 
 > Rule: at least 4 different visual types per module, and run the Selection Prompt in
 > `VISUAL-ARSENAL.md` first. The arsenal also lists a few more (pie, org chart, driver tree,

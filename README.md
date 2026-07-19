@@ -2,7 +2,7 @@
 
 The single home for all One Water OS technical content and apps, by APAS.ai. Taught by Droobi.
 
-**Version:** 0.15.0 &middot; **Last updated:** 2026-07-19
+**Version:** 0.17.0 &middot; **Last updated:** 2026-07-19
 
 This is a **monorepo**. The reusable foundation lives in `core/` and is shared by every app in
 `apps/`. Build the wheel once in `core/`, reuse it everywhere. That is how we keep the branding,
@@ -23,7 +23,7 @@ apps/                     one folder per application. Each reuses core/.
     curriculum/           syllabus, the course "chrome", and the chapters
     playbook/             the utilities PM field playbook (HTML + PDF)
     starter-kit/          a plain-file project scaffold you copy to run a real job
-  data-ai-governance/     the Data Before AI Master Class (Chapter 00 released)
+  data-ai-governance/     the Data Before AI Master Class (Chapters 00 and 01 released)
     curriculum/           syllabus, landing page, released lessons, and governed chapter shells
     dist/site/            self-contained OWOS.ai build outputs
     course.yaml           machine-readable course and controlled-method record

@@ -3,6 +3,26 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.17.0] - 2026-07-19
+### Added: Data Governance Chapter 01
+- Released the complete utility deployment lesson, "The missing layer above utility systems," using
+  the Riverbend wet-weather response decision and the controlled Version 2.3 Chapter 1 and Figure 1.
+- Added five varied teaching shapes: the governed layered stack, a fragmented-to-governed reveal,
+  a step-through handoff simulation, an expandable consequence tree, and a live fragmentation-cost
+  planning model.
+- Added system-versus-governance classification, utility judgment, true-or-false, multi-select, and
+  executive-reflection checks with explanatory feedback.
+- Added an evidence-safe executive-case builder, a Chapter 01 Launch Pack tracker, an evidence gate,
+  and the OWOS Learn completion event for learning object `dga001:01`.
+- Added reusable `layerstack`, `beforeafter`, `handoff`, `fragtax`, and `artifactbuilder` Academy
+  components for later courses and chapters.
+
+### Changed
+- Changed the Data Governance mixed release to two available lessons and 23 governed
+  content-pending destinations.
+- Bumped the governed course metadata, root version, component catalog, manifest, and landing page to
+  0.17.0.
+
 ## [0.16.0] - 2026-07-19
 ### Added: Chapter 08 + an Earned Value simulator
 - `evm` : an interactive Earned Value chart. Drag schedule elapsed, work complete, and actual cost, and
