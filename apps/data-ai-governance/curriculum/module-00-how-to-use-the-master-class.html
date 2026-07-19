@@ -4,89 +4,281 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 00: How to use the Master Class &middot; One Water OS Academy</title>
-<meta name="description" content="Chapter 00 shell for How to use the Master Class in the OWOS utility Data and AI Governance Master Class.">
+<meta name="description" content="Choose a material utility decision, understand the course claim boundaries, and create the governed Launch Pack used throughout the Data Before AI Master Class.">
 <meta name="owos-course-id" content="owos-master-data-governance-001">
 <meta name="owos-course-store" content="dga001">
-<meta name="owos-release-state" content="structure-ready-content-pending">
+<meta name="owos-release-state" content="released">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../core/components/academy.css">
 <style>
-html,body{max-width:100%;overflow-x:hidden}
-.dg-hero{margin:28px 0 24px;padding:32px;border-radius:24px;background:linear-gradient(135deg,#083a5c,#0a78ba 62%,#15937a);color:#fff;box-shadow:0 20px 60px rgba(8,58,92,.2);overflow:hidden;position:relative}
-.dg-hero:after{content:"";position:absolute;width:280px;height:280px;border:54px solid rgba(255,255,255,.08);border-radius:50%;right:-105px;top:-110px}
-.dg-hero h1{color:#fff;max-width:19ch;margin:.45rem 0 .8rem;font-size:clamp(2.15rem,5vw,4rem)}
-.dg-hero p{color:#e8f5fb;max-width:68ch;font-size:1.08rem;margin:0}
-.dg-eyebrow{font:700 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#bfeaff}
-.dg-status{display:inline-flex;align-items:center;gap:8px;max-width:100%;margin-top:18px;padding:7px 12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);border-radius:999px;font:700 11px var(--fm);line-height:1.45;letter-spacing:.04em;text-transform:uppercase;color:#fff;white-space:normal}
-.dg-status i{width:8px;height:8px;border-radius:50%;background:#f2c94c}
-.dg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 28px}.dg-stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--sh)}.dg-stat b{display:block;color:var(--ink);font-size:1.55rem}.dg-stat span{font:600 10px var(--fm);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
-.dg-note{border:1px solid #ead89d;background:#fff9e8;border-radius:16px;padding:18px 20px;margin:20px 0}.dg-note strong{color:#795809}.dg-note p{margin:4px 0 0}
-.dg-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 30px}.dg-flow div{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12px;font-weight:700;color:var(--ink);text-align:center}.dg-flow div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;z-index:2;color:var(--brand);transform:translateY(-50%);background:var(--bg);padding:0 3px}
-.dg-lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.dg-lens{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--brand)}.dg-lens:nth-child(2){border-top-color:var(--green)}.dg-lens:nth-child(3){border-top-color:var(--gold)}.dg-lens h3{margin:0 0 5px;font-size:1rem}.dg-lens p{margin:0;font-size:.88rem;line-height:1.55}
-.dg-part{margin:24px 0}.dg-part-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;background:#0b3f63;color:#fff;border-radius:14px 14px 0 0;padding:13px 16px}.dg-part-head b{font:700 11px var(--fm);letter-spacing:.1em;color:#9bddff}.dg-part-head span{font-weight:800}.dg-part-head small{margin-left:auto;color:#cce4f2}.dg-list{border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 14px 14px;overflow:hidden}.dg-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:16px;align-items:start;border-bottom:1px solid var(--line);text-decoration:none}.dg-row:last-child{border-bottom:0}.dg-row:hover{background:var(--brand-50);text-decoration:none}.dg-num{width:42px;height:42px;border-radius:11px;background:var(--brand-50);border:1px solid var(--brand-100);display:grid;place-items:center;color:var(--brand-700);font:800 13px var(--fm)}.dg-row h3{margin:0 0 5px;font-size:1rem}.dg-sections{font-size:.79rem;color:var(--ink-3);line-height:1.5}.dg-pill{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;padding:5px 9px;border-radius:999px;white-space:nowrap}
-.dg-shell{border:1px solid #ead89d;background:linear-gradient(120deg,#fff9e8,#fff);border-radius:16px;padding:20px;margin:18px 0 26px;display:flex;gap:14px}.dg-shell-icon{width:40px;height:40px;flex:none;border-radius:12px;background:#f2c94c;display:grid;place-items:center;color:#493800;font-weight:900}.dg-shell h2{font-size:1.05rem;margin:0 0 4px}.dg-shell p{margin:0;font-size:.91rem}
-.dg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 28px}.dg-plan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.dg-plan-card .k{font:700 10px var(--fm);letter-spacing:.08em;color:var(--brand);text-transform:uppercase}.dg-plan-card h2{font-size:1.12rem;margin:7px 0}.dg-plan-card p{font-size:.9rem;margin:0}.dg-plan-card .pending{display:inline-block;margin-top:14px;font:700 9px var(--fm);text-transform:uppercase;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;border-radius:999px;padding:4px 8px}
-.dg-artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.dg-artifact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.dg-artifact b{display:block;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.dg-artifact p{font-size:.88rem;margin:0}
-.dg-gates{background:#eef8f5;border:1px solid #bfe0d4;border-radius:16px;padding:18px;margin:24px 0}.dg-gates h2{font-size:1.1rem;margin:0 0 9px}.dg-gates ul{margin:0;padding-left:20px}.dg-gates li{margin:5px 0;font-size:.88rem}
-.dg-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:30px 0}.dg-nav a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:700;font-size:.83rem}.dg-nav a:last-child{text-align:right}.dg-nav .home{text-align:center;background:var(--brand);color:#fff;border-color:var(--brand)}
-.dg-footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 38px;color:var(--ink-3);font:500 11px var(--fm)}
-@media(max-width:760px){.dg-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dg-flow{grid-template-columns:1fr}.dg-flow div:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}.dg-lenses,.dg-plan,.dg-artifacts{grid-template-columns:1fr}.dg-row{grid-template-columns:42px minmax(0,1fr)}.dg-pill{grid-column:2}.dg-nav{grid-template-columns:1fr}.dg-nav a,.dg-nav a:last-child{text-align:center}}
-@media(max-width:520px){.owos-nav{padding:0 12px}.owos-brand{gap:6px;min-width:0}.owos-wm{font-size:13px}.owos-pw{display:none}.crumb{font-size:9px;line-height:1.35;text-align:right;max-width:100px}.wrap{padding-left:16px;padding-right:16px}.dg-hero{padding:26px 20px;border-radius:20px}.dg-hero h1{font-size:2.15rem}.dg-hero p{font-size:1rem}.dg-status{border-radius:14px;font-size:9px}.dg-stat{padding:14px 12px}.dg-stat b{font-size:1.35rem}.dg-row{padding:14px 12px;gap:10px}.dg-sections{overflow-wrap:anywhere}.dg-shell{padding:16px;flex-direction:column}.dg-shell-icon{width:36px;height:36px}}
+.dg00-hero{margin:28px 0 24px;padding:34px;border-radius:24px;background:linear-gradient(135deg,#07334f,#0a78ba 62%,#0b806a);color:#fff;box-shadow:0 20px 60px rgba(8,58,92,.2);position:relative;overflow:hidden}.dg00-hero:after{content:"";position:absolute;width:280px;height:280px;border:54px solid rgba(255,255,255,.08);border-radius:50%;right:-105px;top:-110px}.dg00-hero h1{position:relative;color:#fff;max-width:18ch;margin:.45rem 0 .8rem;font-size:clamp(2.15rem,5vw,4rem)}.dg00-hero p{position:relative;color:#e8f5fb;max-width:70ch;font-size:1.08rem;margin:0}.dg00-kicker{position:relative;font:700 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#bfeaff}.dg00-status{position:relative;display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:7px 12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);border-radius:999px;font:700 10px var(--fm);letter-spacing:.05em;text-transform:uppercase;color:#fff}.dg00-status i{width:8px;height:8px;border-radius:50%;background:#7ce0be}
+.dg00-roadmap{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin:16px 0 28px}.dg00-roadmap div{position:relative;padding:13px 8px;background:#fff;border:1px solid var(--line);border-radius:11px;text-align:center}.dg00-roadmap b{display:block;font:800 11px var(--fm);color:var(--brand)}.dg00-roadmap span{font-size:11px;color:var(--ink-2)}.dg00-roadmap div:not(:last-child):after{content:"→";position:absolute;right:-10px;top:50%;z-index:2;transform:translateY(-50%);color:var(--brand);background:var(--bg);padding:1px}
+.dg00-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}.dg00-card{padding:17px;border:1px solid var(--line);border-radius:14px;background:#fff}.dg00-card b{display:block;color:var(--brand);margin-bottom:5px}.dg00-card p{margin:0;font-size:.88rem;line-height:1.55}.dg00-boundary{padding:18px 20px;border:1px solid #ead89d;border-radius:15px;background:#fff9e8;margin:18px 0}.dg00-boundary b{color:#795809}.dg00-template{padding:19px;border-radius:15px;background:#0d3e5d;color:#fff;margin:18px 0}.dg00-template .cap{font:700 10px var(--fm);letter-spacing:.1em;text-transform:uppercase;color:#9bddff}.dg00-template p{color:#fff;font-size:1.02rem;line-height:1.65;margin:7px 0 0}.dg00-example{display:grid;grid-template-columns:130px 1fr;gap:10px 18px;padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff;margin:16px 0}.dg00-example dt{font:700 10px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}.dg00-example dd{margin:0;color:var(--ink);font-size:.9rem}.dg00-studio{padding:22px;border:1px solid #9fd2bf;border-radius:18px;background:linear-gradient(140deg,#eef8f5,#fff);margin:22px 0}.dg00-studio h3{margin-top:0}.dg00-fields{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}.dg00-field{padding:14px;border:1px solid #c7ded6;border-radius:12px;background:#fff}.dg00-field b{font-size:.82rem;color:#086b50}.dg00-field p{font-size:.84rem;margin:4px 0 0}.dg00-gate{padding:18px;border:2px solid var(--green);border-radius:16px;background:var(--green-50);margin:24px 0}.dg00-gate h3{margin:0 0 7px;color:#086b50}.dg00-gate ul{margin:0;padding-left:20px}.dg00-complete{padding:22px;border-radius:18px;background:#0b3f63;color:#fff;margin:24px 0}.dg00-complete h2,.dg00-complete p{color:#fff}.dg00-complete h2{margin-top:0}.dg00-complete button{border:0;border-radius:10px;background:#fff;color:#0b3f63;padding:11px 17px;font-weight:800;cursor:pointer}.dg00-complete button:disabled{opacity:.65;cursor:wait}.dg00-complete .result{display:block;min-height:1.4em;margin-top:10px;font:600 12px var(--fm);color:#cce4f2}.dg00-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;margin:30px 0}.dg00-nav a{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;font-weight:700;font-size:.83rem}.dg00-nav a:last-child{text-align:right}.dg00-nav .home{text-align:center;background:var(--brand);border-color:var(--brand);color:#fff}.dg00-footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 38px;color:var(--ink-3);font:500 11px var(--fm)}
+@media(max-width:780px){.dg00-roadmap{grid-template-columns:1fr 1fr}.dg00-roadmap div:not(:last-child):after{display:none}.dg00-grid{grid-template-columns:1fr}.dg00-fields{grid-template-columns:1fr}}
+@media(max-width:560px){.owos-nav{padding:0 12px}.owos-pw{display:none}.wrap{padding-left:16px;padding-right:16px}.dg00-hero{padding:27px 20px}.dg00-example{grid-template-columns:1fr;gap:4px}.dg00-nav{grid-template-columns:1fr}.dg00-nav a,.dg00-nav a:last-child{text-align:center}}
 </style>
 </head>
-<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-module="00" data-release-state="content-pending">
+<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-module="0" data-release-state="released">
 <nav class="owos-nav">
   <a class="owos-brand" href="masterclass-data-governance.html"><span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span><span class="owos-wm">One Water <b>OS</b></span><span class="owos-pw">Academy &middot; <em>Data Governance</em></span></a>
   <span class="crumb"><a href="masterclass-data-governance.html">Master Class</a> / <b>Chapter 00</b></span>
 </nav>
 <div id="rprog"></div>
 <main class="wrap">
-  <header class="dg-hero">
-    <div class="dg-eyebrow">ORIENTATION &middot; Learn it, build it, prove it &middot; Core orientation</div>
+  <header class="dg00-hero">
+    <div class="dg00-kicker">Orientation &middot; Chapter 00 &middot; Learn it, build it, prove it</div>
     <h1>How to use the Master Class</h1>
-    <p>distinguish learning, screening, assessment, audit, certification, and assurance; select a decision suitable for the capstone; establish source and version control.</p>
-    <span class="dg-status"><i></i>Chapter 00 shell &middot; content pending</span>
+    <p>Start with one real utility decision. Build its governance records as you learn. Finish with evidence that another person can inspect, question, and improve.</p>
+    <span class="dg00-status"><i></i>Released lesson &middot; guided orientation</span>
   </header>
 
-  <section class="dg-shell" role="status">
-    <div class="dg-shell-icon">00</div>
-    <div><h2>Structure is wired; the lesson is not released.</h2><p>This page preserves the approved syllabus plan and navigation. It intentionally contains no completion event, scored assessment, or credential claim. Those activate only after the full lesson passes content, interaction, evidence, accessibility, and utility-pilot review.</p></div>
-  </section>
+  <div class="lens" aria-label="Choose lesson depth">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full shows the complete lesson. Plain keeps the core ideas. Leader keeps the decisions and evidence gates. Select any dotted term for its definition.</p>
 
-  <h2>What the learner will be able to do</h2>
-  <p>distinguish learning, screening, assessment, audit, certification, and assurance; select a decision suitable for the capstone; establish source and version control.</p>
-
-  <div class="dg-plan"><article class="dg-plan-card">
-  <span class="k">Section 1 of 3</span>
-  <h2>The promise and the boundaries.</h2>
-  <p>What the course can help a utility build, and what still requires licensed standards, counsel, security review, pilots, or independent assurance.</p>
-  <span class="pending">Content development pending</span>
-</article><article class="dg-plan-card">
-  <span class="k">Section 2 of 3</span>
-  <h2>Choose your material decision.</h2>
-  <p>Select one operational, regulatory, customer, capital, or AI decision with a named user, consequence, and evidence problem.</p>
-  <span class="pending">Content development pending</span>
-</article><article class="dg-plan-card">
-  <span class="k">Section 3 of 3</span>
-  <h2>Set up the Launch Pack.</h2>
-  <p>Record utility context, scope, roles, source version, learning goals, and the first list of believed-but-unverified claims.</p>
-  <span class="pending">Content development pending</span>
-</article></div>
-
-  <h2>The utility deployment thread</h2>
-  <div class="dg-artifacts">
-    <article class="dg-artifact"><b>Riverbend utility case</b><p>choose wet-weather overflow response as the running decision while retaining drinking-water, customer, capital, and AI comparison cases.</p></article>
-    <article class="dg-artifact"><b>Deployment Studio</b><p>capstone charter, source baseline, learner-role map, and evidence-safe workspace.</p></article>
-    <article class="dg-artifact"><b>Chapter output</b><p>Launch Pack index and capstone decision statement.</p></article>
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div><p class="h">The utility case that runs through the course</p><p><b>Riverbend Water Utility</b> must decide how to respond during wet weather when rainfall, collection-system levels, work orders, mapping, customer calls, and permit conditions do not tell one clean story. We will follow that decision and compare it with drinking-water, customer, capital, and <span class="term" data-term="Artificial intelligence (AI)" data-def="Computer systems that produce predictions, recommendations, classifications, or generated content from data. In this course, AI is governed as part of a utility decision, not treated as an authority by itself.">artificial intelligence (AI)</span> decisions.</p></div>
   </div>
 
-  <section class="dg-gates"><h2>What must be added before release</h2><ul><li>Complete utility lesson narrative at Foundation, Practitioner, and Leader depth</li><li>Approved diagrams or simulations selected from the OWOS visual system</li><li>Varied knowledge checks with explanatory feedback and critical-gate handling</li><li>Citations, applicability boundaries, accessible interactions, and mobile visual review</li><li>Supabase completion rule and Knowledge Graph alignments verified against the released version</li></ul></section>
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Tell learning, screening, assessment, audit, certification, and assurance apart</li>
+    <li><span class="bx"></span> Select one decision that is strong enough to carry your course capstone</li>
+    <li><span class="bx"></span> Establish the source, version, role, and evidence controls for your Launch Pack</li>
+  </ul>
 
-  <nav class="dg-nav" aria-label="Chapter navigation"><a href="masterclass-data-governance.html">&larr; Course landing</a><a class="home" href="masterclass-data-governance.html">All 25 chapters</a><a href="module-01-the-missing-layer-above-utility-systems.html">Chapter 01 &rarr;</a></nav>
+  <h2>Your route through the course</h2>
+  <div class="dg00-roadmap" aria-label="Six-part course roadmap">
+    <div><b>Orientation</b><span>choose the decision</span></div><div><b>Part A</b><span>understand the method</span></div><div><b>Part B</b><span>set the operating model</span></div><div><b>Part C</b><span>control data</span></div><div><b>Parts D and E</b><span>govern delivery and AI</span></div><div><b>Capstone</b><span>prove the decision chain</span></div>
+  </div>
+
+  <div data-ac="multi" data-title="Entry diagnostic" data-kind="Ungraded &middot; choose all that apply" data-cue="This is a starting point, not a score. Use the feedback to notice where your current practice is already strong.">
+    <script type="application/json">
+    {"q":"Which records would help another person understand why a wet-weather response decision was made?","options":[["The named decision owner",true],["The source and version of each input",true],["A note that the model is accurate",false],["The applicable operating and permit conditions",true],["A screenshot with no date or source",false]],"ok":"Good starting point. A named owner, governed inputs, and applicable conditions make the decision traceable.","no":"The complete set is marked in green. A confidence claim or screenshot is not enough without source, version, and context."}
+    </script>
+  </div>
+
+  <section class="sec">
+    <span class="tag">1 / 3</span>
+    <h2>The promise and the boundaries</h2>
+    <p>This course helps a utility design governance for one material decision, build reusable records, check whether evidence supports a claim, and plan a 90-day start. It does not grant legal approval, certify a system, replace a licensed standard, approve a security design, or issue an independent opinion.</p>
+
+    <div class="dg00-grid">
+      <article class="dg00-card"><b>Foundation lens</b><p>Learn the language and see each idea on a utility decision.</p></article>
+      <article class="dg00-card"><b>Practitioner lens</b><p>Build the records, roles, controls, and evidence path for your own utility.</p></article>
+      <article class="dg00-card"><b>Leader lens</b><p>Set decision rights, accept or reject risk, fund the work, and state what can be claimed.</p></article>
+    </div>
+
+    <p>The six claim levels below are not interchangeable. The work, evidence, independence, and authority increase as you move from learning toward formal third-party conclusions.</p>
+
+    <div data-ac="table" data-title="Six different claims" data-kind="Interactive &middot; boundary table" data-cue="Select a row. Ask what evidence, authority, and independence the words would lead a reader to expect.">
+      <script type="application/json">
+      {"headers":["Claim","What it does","What it does not prove"],"rows":[
+        {"name":"Learning","cells":["builds knowledge and practice","utility conformity"],"detail":"Learning helps a person understand and practice a method. Completing this chapter records learning activity. It does not say Riverbend's controls work."},
+        {"name":"Screening","cells":["finds possible gaps","a final finding"],"detail":"Screening is a quick first pass. It tells Riverbend where to look next, not whether a criterion is fully met."},
+        {"name":"Assessment","cells":["evaluates defined criteria and evidence","automatic independence"],"detail":"An assessment compares evidence with stated criteria. Its strength depends on scope, method, assessor competence, and evidence quality."},
+        {"name":"Audit","cells":["tests records or controls to a defined scope","certification by itself"],"detail":"An audit is a structured examination. Riverbend would need a stated scope, criteria, evidence plan, and authorized audit role."},
+        {"name":"Certification","cells":["records a third-party conformity decision under a scheme","a claim this course can issue"],"detail":"Certification requires an authorized certification scheme and body. Course completion is not certification."},
+        {"name":"Assurance","cells":["adds independent confidence over a stated subject","certainty beyond its scope"],"detail":"Assurance depends on an independent provider, agreed subject, criteria, evidence, and level of assurance. The conclusion stays inside that scope."}
+      ]}
+      </script>
+    </div>
+
+    <p class="lv f"><span class="term" data-term="Learning" data-def="Building knowledge or skill through explanation, practice, and feedback. Learning does not state that a utility or system meets external criteria.">Learning</span> builds capability. <span class="term" data-term="Screening" data-def="A quick first pass used to flag possible gaps or risks for more work. It is not a final determination.">Screening</span> flags where to look. An <span class="term" data-term="Assessment" data-def="A structured evaluation of evidence against stated criteria and scope.">assessment</span> compares evidence with criteria. An <span class="term" data-term="Audit" data-def="A structured examination of records or controls against stated criteria, scope, and an audit method.">audit</span> tests records or controls. <span class="term" data-term="Certification" data-def="A formal third-party decision that a defined subject conforms to the requirements of an authorized certification scheme.">Certification</span> is a formal third-party conformity decision under a scheme. <span class="term" data-term="Assurance" data-def="An independent conclusion designed to increase confidence in a stated subject, based on stated criteria, evidence, and scope.">Assurance</span> adds independent confidence within a defined scope.</p>
+
+    <div class="dg00-boundary"><b>Boundary rule.</b> If the decision depends on licensed standards, law, permits, cybersecurity, privacy, public health, labor obligations, engineering judgment, or an external claim, bring in the authorized utility role and qualified adviser. Record the source, version, scope, and decision. Do not turn course language into an approval it cannot provide.</div>
+
+    <div data-ac="process" data-title="The four release decisions" data-kind="Interactive &middot; phase-gate" data-cue="Select each gate. A pass at one gate does not imply a pass at the next.">
+      <script type="application/json">
+      {"gate":true,"phases":[
+        {"title":"1. Publish method","sub":"source and quality gate","detail":"Confirm the controlled method, source register, figures, and quality findings are publication-ready. The current method is Data Ready Before AI Ready, Version 2.3."},
+        {"title":"2. Pilot assessment","sub":"test the criteria","detail":"Pilot the assessment method with real utility evidence. Refine instructions, scoring, and assessor guidance before treating results as repeatable."},
+        {"title":"3. Design application","sub":"fit the utility","detail":"Design and test how the method works inside the utility's authority, systems, security controls, laws, permits, records, and operating conditions."},
+        {"title":"4. Independent review","sub":"support external claims","detail":"Use qualified independent review when a certification, compliance, or assurance claim requires it. State the subject, criteria, scope, evidence, provider, and limitations."}
+      ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall"><p class="h">Leader's call</p><p>Decide which gate you are funding. A published method, a piloted assessment, a utility deployment, and an independent conclusion are four different products with different budgets, authorities, and risks.</p></div>
+
+    <div data-ac="classify" data-title="Classify the claim" data-kind="Quiz &middot; classify" data-cue="Choose the narrowest accurate label. Stronger words create stronger evidence and independence expectations.">
+      <script type="application/json">
+      {"buckets":["Learning","Screening","Assessment","Audit","Certification","Assurance"],"items":[
+        ["A supervisor completes this chapter and practices the decision template",0,"That is learning. It builds skill but makes no utility conformity claim."],
+        ["A steward uses a ten-question first pass to flag records that need review",1,"That is screening. It identifies possible gaps for follow-up."],
+        ["A team compares evidence with the method's 60 criteria",2,"That is an assessment when the criteria, scope, and evidence are defined."],
+        ["Internal audit tests access-review records against an approved control",3,"That is an audit because an authorized audit function is examining records against a control."],
+        ["An authorized third party issues a conformity decision under its scheme",4,"That is certification, subject to the scheme and the body's authority."],
+        ["An independent provider concludes on a defined subject using agreed criteria",5,"That is assurance within the stated subject, criteria, evidence, and scope."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="order" data-title="Put the gates in order" data-kind="Quiz &middot; ordering" data-cue="Move each row. Each gate creates the evidence needed to make the next decision honestly.">
+      <script type="application/json">
+      {"q":"Order the controlled release path from method publication through an external claim.","items":["Publish the controlled method","Pilot the assessment method","Design and test the utility application","Obtain independent review where the claim requires it"],"ok":"That is the sequence. Each pass is evidence for the next decision, not permission to skip it.","no":"Start with the controlled method, test the assessment, fit it to the utility, then obtain independent review where the claim requires it."}
+      </script>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="tag">2 / 3</span>
+    <h2>Choose your material decision</h2>
+    <p>A <span class="term" data-term="Material decision" data-def="A decision where a wrong, late, or unsupported answer could cause a meaningful operational, safety, legal, customer, financial, environmental, or trust consequence.">material decision</span> gives governance a real job. It has a named user, a choice or action, a meaningful consequence, and an evidence problem. Starting with a data platform or policy alone often hides who needs the data and what is at stake.</p>
+
+    <div class="dg00-template">
+      <div class="cap">Capstone decision statement</div>
+      <p>When <b>[trigger]</b>, <b>[named role]</b> decides <b>[action]</b> for <b>[service, asset, customer, or obligation]</b>, using <b>[governed evidence]</b>, because a wrong or late decision could <b>[consequence]</b>.</p>
+    </div>
+
+    <dl class="dg00-example">
+      <dt>Riverbend trigger</dt><dd>Heavy rainfall and rising collection-system levels.</dd>
+      <dt>Named user</dt><dd>The duty manager responsible for wet-weather response.</dd>
+      <dt>Decision</dt><dd>Whether to escalate crews, storage, notifications, and incident coordination.</dd>
+      <dt>Consequence</dt><dd>A late or wrong response could increase overflow, safety, permit, customer, and environmental harm.</dd>
+      <dt>Evidence problem</dt><dd>Rainfall, sensor readings, mapping, model output, work orders, customer calls, and permit conditions use different identifiers, times, owners, and quality checks.</dd>
+    </dl>
+
+    <p class="lv p">Riverbend's <span class="term" data-term="Supervisory Control and Data Acquisition (SCADA)" data-def="The operational system used to monitor and control equipment and processes through field devices, communications, and operator interfaces.">Supervisory Control and Data Acquisition (SCADA)</span> readings show what instruments reported. Its <span class="term" data-term="Geographic Information System (GIS)" data-def="A system used to manage and analyze information tied to physical locations, networks, and assets.">Geographic Information System (GIS)</span> shows where assets are believed to be. Neither source owns the response decision. The duty manager needs the sources joined, qualified, and presented with limits.</p>
+
+    <div data-ac="recommender" data-title="Which decision should carry your capstone?" data-kind="Interactive &middot; decision selector" data-cue="Choose a decision close to your work. The result gives you a practical starting point, not a universal rule.">
+      <script type="application/json">
+      {"prompt":"Select the consequence that best matches the decision you can influence during this course.","options":[
+        {"label":"Operational response or public health","name":"Start with an operating decision","why":"Name the operator or duty manager, the trigger, the allowed actions, and the data needed at decision time. Riverbend's wet-weather response is the running example."},
+        {"label":"Permit, reporting, or regulatory obligation","name":"Start with an obligation decision","why":"Name who signs or submits, the applicable requirement and version, the reporting boundary, and the evidence needed to support the statement."},
+        {"label":"Customer service or affordability","name":"Start with a customer decision","why":"Name the customer-facing role, the eligibility or service choice, the personal data involved, and the consequence of a wrong or delayed answer."},
+        {"label":"Capital planning or asset investment","name":"Start with an investment decision","why":"Name the approving role, asset or program, alternatives, condition and risk evidence, and the consequence of funding the wrong work."},
+        {"label":"Analytics, automation, or AI","name":"Start with an AI-assisted decision","why":"Name the human decision owner first. Then state what the model may recommend, what evidence supports it, when a person must intervene, and how performance and harm are monitored."}
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="mc" data-title="Pick the stronger decision statement" data-kind="Quiz &middot; multiple choice" data-cue="Look for a trigger, named user, action, evidence, and consequence.">
+      <script type="application/json">
+      {"q":"Which statement is ready to anchor governance work?","options":[["Improve Riverbend's data quality",false],["Build an enterprise data platform",false],["During heavy rain, the duty manager decides whether to escalate wet-weather response using qualified rainfall, level, asset, work-order, customer-call, and permit evidence because delay could increase overflow and public harm",true],["Use AI to optimize operations",false]],"right":"Correct. It names the trigger, user, action, evidence, and consequence.","wrong":"Not yet. Choose the statement that names the trigger, user, action, evidence, and consequence."}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Write your first capstone decision statement. Who decides what, when, with which evidence, and what could happen if the answer is wrong or late?","a":"Use the template above. If you cannot name the user and consequence yet, write those as believed-but-unverified claims in your Launch Pack. A good first draft is narrow enough to test within 90 days."}
+      </script>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="tag">3 / 3</span>
+    <h2>Set up the Launch Pack</h2>
+    <p>The <span class="term" data-term="Launch Pack" data-def="The governed set of course artifacts that turns learning into a utility deployment record. It begins with context, decision, sources, roles, claims, and workspace controls, then grows across the course.">Launch Pack</span> is the working record you build throughout the Master Class. Chapter 00 creates the index and decision statement. Later chapters add the governance charter, decision chain, source records, issue controls, risk records, AI controls, 90-day plan, and evidence package.</p>
+
+    <div data-ac="tree" data-title="Role pathways around one decision" data-kind="Interactive &middot; role map" data-cue="Open a branch and select a role. One person may hold several roles in a small utility, but the responsibilities still need names.">
+      <script type="application/json">
+      {"nodes":[{"label":"Material utility decision","detail":"The decision is the center of the role map. Governance should make its authority, inputs, controls, and evidence visible.","children":[
+        {"label":"Accountable decision owner","detail":"Owns the decision outcome and accepts or escalates the operating risk. At Riverbend, this is the authorized wet-weather duty manager."},
+        {"label":"Data owner","detail":"Sets rules and accepts risk for a defined data domain, such as asset, customer, laboratory, or operational data."},
+        {"label":"Data steward","detail":"Maintains definitions, quality rules, issue records, and working coordination for the data domain."},
+        {"label":"System and security roles","detail":"Information technology, operational technology, cybersecurity, privacy, and records roles keep systems and evidence inside approved controls."},
+        {"label":"Independent review role","detail":"Provides challenge or a conclusion when the scope and claim require separation from the delivery team."}
+      ]}]}
+      </script>
+    </div>
+
+    <div class="dg00-studio">
+      <h3>Deployment Studio: create an evidence-safe workspace</h3>
+      <p>Use a utility-approved repository for real records. This browser lesson stores only tracker status on this device. Do not enter customer information, credentials, protected infrastructure detail, security weaknesses, legal advice, or controlled operating data into a course field or public repository.</p>
+      <div class="dg00-fields">
+        <article class="dg00-field"><b>1. Utility context</b><p>Service type, operating scale, jurisdiction, and the decision boundary.</p></article>
+        <article class="dg00-field"><b>2. Roles</b><p>Learner, decision owner, data owner, steward, system roles, reviewer, and approver.</p></article>
+        <article class="dg00-field"><b>3. Source baseline</b><p>Method name, Version 2.3, source commit, retrieval date, local authority, and approved storage location.</p></article>
+        <article class="dg00-field"><b>4. Learning goal</b><p>The decision or governance capability you will be able to demonstrate.</p></article>
+        <article class="dg00-field"><b>5. Claims register</b><p>Believed-but-unverified statements, source needed, owner, due date, and current status.</p></article>
+        <article class="dg00-field"><b>6. Evidence rules</b><p>Naming, versioning, access, retention, review, and links to approved records.</p></article>
+      </div>
+    </div>
+
+    <div data-ac="method" data-title="Start the Launch Pack" data-kind="Method &middot; five steps" data-cue="Keep the first version small. The course will add and improve records as the decision becomes clearer.">
+      <script type="application/json">
+      {"steps":[
+        ["Create the index.","Give each planned artifact an identifier, owner, status, version, approved location, and evidence link."],
+        ["Record the source baseline.","Name the controlled method and version, local requirements, retrieval date, and who confirmed applicability."],
+        ["Add the decision statement.","Use the trigger, named role, action, evidence, and consequence template from Section 2."],
+        ["Open the claims register.","Mark every unconfirmed statement as believed-but-unverified. Name the evidence and owner needed to resolve it."],
+        ["Set the workspace boundary.","Use utility-approved storage and access. Put links or safe references in the index instead of copying sensitive evidence into the course."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="artifacttracker" data-title="Live Launch Pack tracker" data-kind="Interactive &middot; saved on this device" data-cue="Select a status to move it forward. Evidence noted means the index points to an approved source; it does not mean the claim has passed review.">
+      <script type="application/json">
+      {"key":"dga001-chapter-00-launch-pack-v1","states":["Not started","Draft","Evidence noted","Reviewed"],"items":[
+        {"id":"index","label":"Launch Pack index","detail":"Artifact identifier, name, owner, status, version, approved location, and evidence link."},
+        {"id":"decision","label":"Capstone decision statement","detail":"Trigger, named role, action, governed evidence, and consequence."},
+        {"id":"context","label":"Utility context and scope","detail":"Service, scale, jurisdiction, decision boundary, and explicit exclusions."},
+        {"id":"roles","label":"Learner and utility role map","detail":"Decision owner, data owner, steward, system roles, reviewer, and approver."},
+        {"id":"baseline","label":"Source and version baseline","detail":"Controlled method Version 2.3, source commit, local authority, retrieval date, and applicability owner."},
+        {"id":"claims","label":"Believed-but-unverified claims register","detail":"Claim, needed evidence, owner, due date, status, and resolution."},
+        {"id":"workspace","label":"Evidence-safe workspace rule","detail":"Approved repository, naming, access, version, review, retention, and safe-link rules."}
+      ]}
+      </script>
+    </div>
+
+    <div class="dg00-gate">
+      <h3>Chapter 00 evidence gate</h3>
+      <ul>
+        <li>Your decision has a trigger, named user, action, consequence, and evidence problem.</li>
+        <li>Your Launch Pack index has an owner, version, status, approved location, and evidence-link field.</li>
+        <li>The source baseline records Data Ready Before AI Ready, Version 2.3, plus applicable local sources.</li>
+        <li>Unconfirmed statements are marked believed-but-unverified and assigned to an owner.</li>
+        <li>The workspace rule prevents protected or sensitive utility evidence from being copied into unsafe locations.</li>
+      </ul>
+    </div>
+
+    <div class="lv l leadcall"><p class="h">Leader's call</p><p>Approve the decision boundary, accountable owner, workspace, and source baseline before the team expands the Launch Pack. That small approval prevents a large body of polished work from being built around the wrong decision or an unsupported claim.</p></div>
+  </section>
+
+  <section class="sec">
+    <span class="tag">Close</span>
+    <h2>Take this into Chapter 01</h2>
+    <p>You now have the thread that holds the course together: one material decision, one source baseline, named roles, a list of unverified claims, and an evidence-safe Launch Pack. Chapter 01 will show why the systems a utility already owns do not, by themselves, govern the decisions made across them.</p>
+    <div class="dg00-complete">
+      <h2>Record Chapter 00 completion</h2>
+      <p>Use this only after your Launch Pack index and capstone decision statement are saved in your utility-approved workspace. This records course completion progress. It is not certification, a compliance opinion, or an assurance conclusion.</p>
+      <button type="button" id="completeChapter">Mark Chapter 00 complete</button>
+      <span class="result" id="completionResult" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <section class="dg00-boundary" aria-label="Provenance">
+    <b>Provenance and control.</b> This lesson implements the governed syllabus for course <code>owos-master-data-governance-001</code>, learning object <code>dga001:00</code>. Its method anchor is <i>Data Ready Before AI Ready</i>, Version 2.3, controlled commit <code>825e4661a6dbdfe6628148eb005c86cfb10b8515</code>. Utility-specific law, permits, standards, policies, security requirements, and records remain under their authorized owners.
+  </section>
+
+  <nav class="dg00-nav" aria-label="Chapter navigation"><a href="masterclass-data-governance.html">&larr; Course landing</a><a class="home" href="masterclass-data-governance.html">All 25 chapters</a><a href="module-01-the-missing-layer-above-utility-systems.html">Chapter 01 &rarr;</a></nav>
 </main>
-<footer class="dg-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:00 &middot; Content status: pending</div></footer>
+<footer class="dg00-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:00 &middot; Released in course build 0.15.0</div></footer>
 <script src="../../../core/components/academy.js"></script>
-</body></html>
+<script>
+(function(){
+  var button=document.getElementById('completeChapter');
+  var result=document.getElementById('completionResult');
+  if(!button||!result)return;
+  button.addEventListener('click',async function(){
+    button.disabled=true;result.textContent='Recording your progress...';
+    try{
+      var enrollment=await fetch('/api/learn/enrollments',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001'})});
+      if(!enrollment.ok)throw new Error(enrollment.status===401?'Sign in to record progress.':'Enrollment could not be opened.');
+      var eventResponse=await fetch('/api/learn/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001',module:0,eventType:'completed',idempotencyKey:'course:dga001:0:complete:v0.15.0',page:location.pathname})});
+      if(!eventResponse.ok)throw new Error(eventResponse.status===401?'Sign in to record progress.':'Completion could not be recorded.');
+      result.textContent='Chapter 00 is complete. Your OWOS Learn progress is saved.';button.textContent='Chapter 00 complete';
+    }catch(error){result.textContent=error.message+' Refresh the page and try again.';button.disabled=false;}
+  });
+})();
+</script>
+</body>
+</html>

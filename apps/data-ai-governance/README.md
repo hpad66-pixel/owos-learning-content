@@ -21,10 +21,11 @@ must not silently redefine the controlled method.
 
 ## Current state
 
-The complete syllabus and coverage design are ready for owner review. A generated, linked landing page
-and all 25 chapter shells make the structure reviewable in a browser. The chapter content, guided
-effort, final assessment blueprint, and credential language remain draft until the owner locks them.
-The shells are not released lessons and do not produce completion or credential records.
+The complete syllabus and coverage design are governed. Chapter 00 is a released interactive lesson
+with a Deployment Studio, Launch Pack tracker, checks, and an OWOS Learn completion event. The other
+24 chapter destinations preserve the approved syllabus structure while their lesson bodies remain in
+development. Course-completion credential language and scored assessments remain proposed until their
+separate review and pilot gates pass.
 
 ## Build rule
 

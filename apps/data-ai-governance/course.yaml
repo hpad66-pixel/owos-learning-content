@@ -4,9 +4,9 @@ slug: data-before-ai-governance
 title: "Data Before AI: Data and Artificial Intelligence Governance for Utilities"
 course_family: master_class
 source_format: native_html
-status: draft_for_owner_lock
-visibility: private_review
-course_version: 0.1.0
+status: in_development
+visibility: production_preview
+course_version: 0.15.0
 content_owner: Hardeep Anand
 organization: One Water Operating System
 platform: APAS.ai
@@ -82,8 +82,10 @@ source_files:
   architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
 
 delivery:
-  shell_status: structure_ready_content_pending
-  available_chapters: 0
+  shell_status: chapter_release_in_progress
+  available_chapters: 1
+  released_chapters:
+    - "00"
   landing_source: curriculum/masterclass-data-governance.html
   landing_output: dist/site/course-data-governance.html
   runtime_manifest: dist/course-manifest.json
@@ -96,4 +98,6 @@ delivery:
   learner_records: supabase
   semantic_alignment: owos_knowledge_graph
   edge_delivery: cloudflare_pages_and_worker
-  completion_events_enabled: false
+  completion_events_enabled: true
+  completion_events_enabled_for:
+    - "00"

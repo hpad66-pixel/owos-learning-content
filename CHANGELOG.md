@@ -3,7 +3,7 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
-## [0.15.0] - 2026-07-19
+## [0.16.0] - 2026-07-19
 ### Added: Chapter 08 + an Earned Value simulator
 - `evm` : an interactive Earned Value chart. Drag schedule elapsed, work complete, and actual cost, and
   watch the PV / EV / AC curves, the CPI and SPI indices, and the EAC forecast update live, with a
@@ -16,7 +16,26 @@ Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 ### Deployed
 - Published all eight lessons + course page to owos.ai; verified the EVM sim computes on the live site.
 
+## [0.15.0] - 2026-07-19
+### Added: Data Governance Chapter 00
+- Released the complete interactive orientation lesson, "How to use the Master Class," with
+  Foundation, Practitioner, and Leader lenses and the Riverbend wet-weather response case.
+- Added a six-part course roadmap, four release-decision gates, claim-boundary comparison, capstone
+  decision selector, role pathway map, Deployment Studio, evidence gate, and provenance record.
+- Added an ungraded entry diagnostic plus classification, ordering, multiple-choice, and reflection
+  checks with explanatory feedback.
+- Added the reusable `artifacttracker` Academy component with four record states and device-local
+  progress persistence, then documented it in the component catalog and gallery.
+- Added the Chapter 00 completion control for OWOS Learn while keeping certification, compliance, and
+  assurance claims outside the course-completion event.
+
+### Changed
+- Changed the Data Governance build from an all-placeholder shell to a mixed release: Chapter 00 is
+  available and Chapters 01 through 24 retain governed content-pending destinations.
+- Bumped the governed course metadata, root version, manifest, and landing page to 0.15.0.
+
 ## [0.14.0] - 2026-07-19
+
 ### Added: Chapter 07 + three cost/finance simulations
 - `estrange` : AACE estimate-accuracy range, slide design maturity (Class 5 to 1) and watch the low-high
   band narrow around the point estimate. Verified 1300 base -> Class5 910/1950, Class1 1235/1430.

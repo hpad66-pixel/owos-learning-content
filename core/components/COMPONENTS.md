@@ -3,7 +3,7 @@
 The Markdown list of every visual in `component-gallery.html`. Open the gallery to see them rendered
 live. Pick the one that fits the idea. Do not reuse the same shape across a chapter.
 
-**Last updated:** 2026-07-18 &middot; **v0.1.0**
+**Last updated:** 2026-07-19 &middot; **v0.15.0**
 
 ## Parts of a whole, and balance
 | Component | Kind | Use when |
@@ -57,6 +57,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Heat / RAG grid | Chart | status across a matrix |
 | Progress ring | Chart | percent complete |
 | Method (numbered) | Method | a step-by-step how-to recipe |
+| Artifact tracker | Interactive status | move governed artifacts through draft, evidence, and review states; save status on the learner's device |
 
 > Rule: at least 4 different visual types per module, and run the Selection Prompt in
 > `VISUAL-ARSENAL.md` first. The arsenal also lists a few more (pie, org chart, driver tree,
