@@ -3,6 +3,22 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.11.0] - 2026-07-19
+### Added: six new simulations (one+ per chapter), applying the "show it" rule across the course
+- `pv` (Ch01): present-value mini-sim, slide years/rate and watch a future dollar shrink to today's value.
+- `costcurve` (Ch02): the cost of a change by when it is caught (1x to 100x across the life cycle).
+- `scoreboard` (Ch03): weighted project scoring, adjust criteria weights and watch the portfolio re-rank.
+- `ripple` (Ch03): integration in action, move scope and watch schedule, cost, and risk all react at once.
+- `rollup` (Ch04): the WBS 100% rule, type hours into work packages and watch them roll up the tree.
+- `ganttedit` (Ch05): what-if scheduling, crash a task and watch the finish move and the critical path jump.
+- All verified for correct math (discounting, weighted ranking, CPM recompute, rollup sums) in the browser.
+### Deployed
+- Rebuilt all five lessons and published to owos.ai; verified each new sim renders and computes on the live site.
+
+## [0.10.2] - 2026-07-19
+### Fixed
+- Corrected the cpmsim node width/layout mismatch so the fitted diagram spaces correctly (shipped as v0.10.2).
+
 ## [0.10.1] - 2026-07-19
 ### Fixed
 - The `cpmsim` critical-path diagram ran off the right edge of the page. It now scales the fixed-width

@@ -234,6 +234,57 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- costcurve: cost of a change over the life cycle ---- */
+.ccbars{display:flex;gap:10px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:0 6px}
+.ccbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;cursor:pointer}
+.ccbar .fill{width:78%;border-radius:5px 5px 0 0;background:var(--surface-3);transition:height .25s,background .2s;min-height:4px}
+.ccbar.on .fill{background:var(--gold)}
+.ccbar .m{font:700 12px var(--fm);color:var(--ink-3);margin-bottom:4px}.ccbar.on .m{color:var(--gold)}
+.cclabels{display:flex;gap:10px;padding:6px 6px 0}.cclabels span{flex:1;text-align:center;font:600 11px var(--fm);color:var(--ink-2)}
+.ccout{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink)}.ccout b{color:var(--gold)}
+
+/* ---- ripple: change one input, watch outputs move ---- */
+.rpdriver{display:flex;align-items:center;gap:12px;margin:6px 0 16px}.rpdriver .nm{font-weight:600;color:var(--ink);font-size:14.5px;flex:none}.rpdriver input{flex:1}.rpdriver .v{font:700 14px var(--fm);color:var(--brand);min-width:120px;text-align:right}
+.rpeff{display:flex;flex-direction:column;gap:12px}
+.rprow{display:flex;align-items:center;gap:12px}.rprow .lb{flex:none;width:96px;font-weight:600;color:var(--ink);font-size:13.5px}
+.rpmeter{flex:1;height:16px;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.rpfill{height:100%;background:var(--brand);border-radius:9px;transition:width .3s,background .3s}
+.rprow .val{flex:none;width:96px;text-align:right;font:700 13px var(--fm);color:var(--ink)}
+.rpnote{margin-top:14px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.rpnote b{color:var(--brand-700)}
+
+/* ---- editable gantt (what-if) ---- */
+.gstep{flex:none;display:inline-flex;gap:3px;align-items:center;margin-right:6px}
+.gstep button{width:20px;height:20px;border:1px solid var(--line-2);background:var(--surface);border-radius:6px;font:700 12px var(--fm);line-height:1;color:var(--ink-2);cursor:pointer}
+.gstep button:hover{border-color:var(--brand);color:var(--brand)}
+.gname.ed{width:132px}.gd-note{margin-top:10px;padding:10px 14px;border-radius:11px;font-size:14px;background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}.gd-note b{color:var(--ink)}.gd-note.warn{background:#FBF3E2;border-color:#EAD9AE;color:var(--gold)}
+
+/* ---- rollup tree (WBS 100% rule) ---- */
+.rutotal{display:flex;justify-content:space-between;align-items:center;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;padding:10px 16px;margin-bottom:12px}
+.rutotal .k{font:600 11px var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--brand-700)}.rutotal .v{font:800 20px var(--fm);color:var(--brand)}
+.rurow{display:flex;align-items:center;gap:8px;padding:5px 0}
+.runame{flex:1;color:var(--ink);font-size:14px}.runame.parent{font-weight:700}
+.rusum{font:700 12px var(--fm);color:var(--brand-700);background:var(--brand-50);border-radius:7px;padding:2px 9px}
+.ruinput{width:70px;border:1px solid var(--line-2);border-radius:7px;padding:4px 7px;font:600 12px var(--fm);color:var(--ink);text-align:right}
+.ruinput:focus{outline:none;border-color:var(--brand)}
+.rukids{list-style:none;margin:0;padding:0 0 0 20px}.rukids.root{padding:0}
+
+/* ---- scoreboard: weighted project scoring ---- */
+.sbcrit{display:flex;flex-direction:column;gap:9px;margin:4px 0 16px}
+.sbcrow{display:flex;align-items:center;gap:12px}.sbcrow .lb{flex:none;width:130px;font-weight:600;color:var(--ink);font-size:13.5px}.sbcrow input{flex:1}.sbcrow .w{flex:none;width:44px;text-align:right;font:700 12px var(--fm);color:var(--brand)}
+.sbtable{width:100%;border-collapse:collapse;font-size:13.5px}
+.sbtable th{text-align:left;font:600 10px var(--fm);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);padding:7px 8px;border-bottom:1px solid var(--line)}
+.sbtable td{padding:9px 8px;border-bottom:1px solid var(--line)}.sbtable tr:last-child td{border-bottom:none}
+.sbtable .rk{font:800 14px var(--fm);color:var(--ink-3);width:26px}.sbtable tr.top .rk{color:var(--gold)}.sbtable tr.top{background:#FBF7EC}
+.sbtable .pn{font-weight:700;color:var(--ink)}.sbtable .sc{font:700 14px var(--fm);color:var(--brand)}
+.sbbar{height:7px;background:var(--surface-2);border-radius:5px;margin-top:4px;overflow:hidden}.sbbar i{display:block;height:100%;background:var(--brand);border-radius:5px;transition:width .3s}
+
+/* ---- present value mini-sim ---- */
+.pvrow{display:flex;align-items:center;gap:12px;margin:10px 0}.pvrow .nm{flex:none;width:130px;font-weight:600;color:var(--ink);font-size:14px}.pvrow input{flex:1}.pvrow .v{flex:none;width:80px;text-align:right;font:700 13px var(--fm);color:var(--brand)}
+.pvbars{display:flex;gap:24px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:10px 20px 0;margin-top:8px}
+.pvcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.pvcol .bar{width:64%;border-radius:6px 6px 0 0;transition:height .3s}.pvcol .bv{font:700 13px var(--fm);color:var(--ink);margin-bottom:5px}.pvcol .bl{font:600 11px var(--fm);color:var(--ink-2);margin-top:6px;text-align:center}
+.pvout{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink)}.pvout b{color:var(--brand)}
+
 /* ---- tree / work breakdown structure ---- */
 .tree{font-size:14.5px}
 .tkids{list-style:none;margin:0;padding:0 0 0 22px}.tkids.root{padding-left:0}
@@ -378,6 +429,20 @@ input[type=range]{width:100%;accent-color:var(--brand)}
         {"title":"Build","sub":"construct it","detail":"<b>Build.</b> The contractor mobilizes, calls in Sunshine 811 locates, and constructs. This is the most expensive phase, which is why the gates before it matter. A gap you missed in design costs far more to fix once a crew is on site."},
         {"title":"Start up","sub":"prove it works","detail":"<b>Start up.</b> Test the pumps, prove the generator transfers, confirm the new controls talk to the existing system, and run the station under real flow. You do not pass this gate until it performs, not just powers on."},
         {"title":"Close out","sub":"hand it over","detail":"<b>Close out.</b> Record drawings, warranties, spare parts, and lessons learned. The job is done when Operations can own and run the station, not when the last pump is bolted down."}
+      ]}
+      </script>
+    </div>
+
+    <h3>Why the gate matters: the cost of catching it late</h3>
+    <p>Those gates are not paperwork. They exist because the cost to fix a problem grows fast the later you find it. A missed detail on the Millpond controls is cheap to fix on paper, painful once steel is in the ground, and brutal after the station is running. Click through the stages and watch the multiplier climb.</p>
+
+    <div data-ac="costcurve" data-title="What a change costs, by when you catch it" data-kind="Interactive &middot; simulation" data-cue="This is why front-end design and gate reviews pay for themselves. An hour spent catching a problem early saves days of rework later.">
+      <script type="application/json">
+      {"stages":[
+        {"label":"Planning","mult":1,"note":"Caught here it is a conversation and a redline. On Millpond, deciding the controls approach before design costs almost nothing to change."},
+        {"label":"Design","mult":5,"note":"Now it means reworking drawings and specs. Still cheap compared to what comes next, which is exactly why you want it found at the design gate."},
+        {"label":"Construction","mult":20,"note":"A crew is on site and materials are ordered. Fixing the same problem now means change orders, downtime, and rework in the trench."},
+        {"label":"After startup","mult":100,"note":"The station is in service. Fixing it now can mean taking it back offline, re-permitting, and disrupting customers. The most expensive place of all."}
       ]}
       </script>
     </div>
@@ -1023,10 +1088,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     var topo=tasks.slice().sort(function(a,b){return rank[a.id]-rank[b.id];});
     // layout: x by rank, y by row within rank
     var cols={};topo.forEach(function(t){(cols[rank[t.id]]=cols[rank[t.id]]||[]).push(t.id);});
-    var BW=114,BH=64,GX=48,GY=22,pos={},maxRow=0;
-    Object.keys(cols).forEach(function(cn){cols[cn].forEach(function(id,row){pos[id]={x:(+cn)*(BW+GX),y:row*(BH+GY)};if(row>maxRow)maxRow=row;});});
+    var BW=104,BH=68,GX=24,GY=18,pos={},maxRow=0;
+    Object.keys(cols).forEach(function(cn){cols[cn].forEach(function(id,row){pos[id]={x:(+cn)*(BW+GX),y:row*(BH+GY)+11};if(row>maxRow)maxRow=row;});});
     var maxCol=Math.max.apply(null,tasks.map(function(t){return rank[t.id];}));
-    var cw=(maxCol+1)*(BW+GX)-GX,ch=(maxRow+1)*(BH+GY)-GY+12;
+    var cw=(maxCol+1)*(BW+GX)-GX,ch=(maxRow+1)*(BH+GY)-GY+22;
     // build step list
     var steps=[];
     topo.forEach(function(t){steps.push({type:'F',id:t.id});});
@@ -1049,7 +1114,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     function nodeHTML(t,cur){
       var showF=cur>=fIndex[t.id],showB=cur>=bIndex[t.id],showFL=cur>=flIndex,isCrit=cur>=cIndex&&crit(t.id);
       var active=steps[cur]&&steps[cur].id===t.id;
-      return '<div class="cnode'+(isCrit?' crit':'')+(active?' active':'')+'" style="left:'+pos[t.id].x+'px;top:'+pos[t.id].y+'px">'+
+      return '<div class="cnode'+(isCrit?' crit':'')+(active?' active':'')+'" style="left:'+pos[t.id].x+'px;top:'+pos[t.id].y+'px;width:'+BW+'px">'+
         (showFL?'<span class="cn-float">float '+fl(t.id)+'</span>':'')+
         '<div class="cn-top"><span class="cn-v'+(showF?' on':'')+'">ES '+ES[t.id]+'</span><span class="cn-v'+(showF?' on':'')+'">EF '+EF[t.id]+'</span></div>'+
         '<div class="cn-mid"><div class="cn-name">'+t.name+'</div><div class="cn-dur">'+t.dur+' '+unit+'</div></div>'+
@@ -1098,7 +1163,15 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       b.querySelector('[data-play]').innerHTML='&#10073;&#10073; Pause';
       timer=setInterval(function(){if(cur>=steps.length-1){stop();}else step();},1100);
     });
-    draw();
+    // scale the fixed-width network down to fit the page width, so nothing runs off the right edge
+    var stage=b.querySelector('.cpmstage');
+    function fit(){var avail=stage.clientWidth||canvas.parentNode.clientWidth||700;var sc=Math.min(1,avail/(cw+42));
+      if(sc>=0.999){canvas.style.transform='';stage.style.height='';}
+      else{canvas.style.transformOrigin='top left';canvas.style.transform='scale('+sc.toFixed(3)+')';stage.style.height=Math.ceil(ch*sc+6)+'px';}
+      stage.style.overflowX='hidden';}
+    var ft;window.addEventListener('resize',function(){clearTimeout(ft);ft=setTimeout(fit,150);});
+    window.addEventListener('load',fit);setTimeout(fit,400);
+    draw();fit();
   };
 
   R.scurve=function(el){var c=cfgOf(el);var p=c.periods||[];
@@ -1119,6 +1192,95 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       '<text x="'+x0+'" y="'+(y0-3)+'" font-size="8" fill="#8595AB">'+(c.totalLabel||('total '+total))+'</text></svg></div>'+
       '<div class="sclegend"><span><span class="sw" style="background:#D3EAF8"></span>spend each period</span>'+
       '<span><span class="sw" style="background:var(--brand)"></span>cumulative (the S-curve)</span></div>');
+  };
+
+  R.costcurve=function(el){var c=cfgOf(el);var st=c.stages||[];
+    var maxM=Math.max.apply(null,st.map(function(s){return s.mult;}))||1;
+    function h(m){return Math.max(3,(Math.log(m)/Math.log(maxM))*100)+'%';}
+    var b=shell(el,'<div class="ccbars">'+st.map(function(s,i){return '<div class="ccbar'+(i===0?' on':'')+'" data-i="'+i+'"><span class="m">'+s.mult+'x</span><div class="fill" style="height:'+h(s.mult)+'"></div></div>';}).join('')+
+      '</div><div class="cclabels">'+st.map(function(s){return '<span>'+s.label+'</span>';}).join('')+'</div><div class="ccout" data-out></div>');
+    var out=b.querySelector('[data-out]');
+    function sel(i){b.querySelectorAll('.ccbar').forEach(function(x,j){x.classList.toggle('on',j===i);});var s=st[i];out.innerHTML='A problem caught at <b>'+s.label+'</b> costs about <b>'+s.mult+'x</b> to fix. '+(s.note||'');}
+    b.querySelectorAll('.ccbar').forEach(function(x){x.addEventListener('click',function(){sel(+x.dataset.i);});});sel(0);
+  };
+
+  R.ripple=function(el){var c=cfgOf(el);var d=c.driver||{},eff=c.effects||[];
+    var b=shell(el,'<div class="rpdriver"><span class="nm">'+(d.label||'Driver')+'</span><input type="range" min="'+(d.min||0)+'" max="'+(d.max||10)+'" step="'+(d.step||1)+'" value="'+(d.start||0)+'"><span class="v" data-dv></span></div>'+
+      '<div class="rpeff">'+eff.map(function(e,i){return '<div class="rprow"><span class="lb">'+e.label+'</span><span class="rpmeter"><span class="rpfill" data-fill="'+i+'"></span></span><span class="val" data-val="'+i+'"></span></div>';}).join('')+'</div><div class="rpnote" data-note></div>');
+    var rng=b.querySelector('input'),dv=b.querySelector('[data-dv]'),note=b.querySelector('[data-note]');
+    function fmt(v,unit){if(unit==='$k'){var n=v*1000;return n>=1e6?'$'+(n/1e6).toFixed(2)+'M':'$'+Math.round(v)+'k';}return (Math.round(v*10)/10)+(unit?(' '+unit):'');}
+    function upd(){var x=+rng.value;dv.textContent=x+(d.unit?(' '+d.unit):'');
+      eff.forEach(function(e,i){var val=(e.base||0)+x*(e.per||0),mx=e.max||val||1,f=b.querySelector('[data-fill="'+i+'"]');
+        f.style.width=Math.min(100,val/mx*100)+'%';f.style.background=(val/mx>0.85?'var(--red)':'var(--brand)');
+        b.querySelector('[data-val="'+i+'"]').textContent=fmt(val,e.unit);});
+      note.innerHTML=(x===(d.start||0))?(c.baseNote||'Move the slider. Watch every output move at once.'):'Adding <b>'+x+' '+(d.unit||'')+'</b> ripples into all three. Integration means you update them <b>together</b> and run the change through change control, not one in isolation.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.ganttedit=function(el){var c=cfgOf(el);var unit=c.unit||'weeks';
+    var tasks=(c.tasks||[]).map(function(t){return {id:t.id,name:t.name,dur:t.dur,deps:t.deps||[]};});
+    function deps(t){return (t.deps||[]).map(function(d){return typeof d==='object'?{id:d.to||d.id,lag:d.lag||0}:{id:d,lag:0};});}
+    function compute(){var ES={},EF={},LS={},LF={};tasks.forEach(function(t){ES[t.id]=0;EF[t.id]=t.dur;});
+      for(var i=0;i<tasks.length+1;i++)tasks.forEach(function(t){var es=0;deps(t).forEach(function(d){es=Math.max(es,EF[d.id]+d.lag);});ES[t.id]=es;EF[t.id]=es+t.dur;});
+      var proj=0;tasks.forEach(function(t){proj=Math.max(proj,EF[t.id]);});
+      var succ={};tasks.forEach(function(t){succ[t.id]=[];});tasks.forEach(function(t){deps(t).forEach(function(d){succ[d.id].push({id:t.id,lag:d.lag});});});
+      tasks.forEach(function(t){LF[t.id]=proj;LS[t.id]=proj-t.dur;});
+      for(var j=0;j<tasks.length+1;j++)tasks.forEach(function(t){var lf=succ[t.id].length?Infinity:proj;succ[t.id].forEach(function(s){lf=Math.min(lf,LS[s.id]-s.lag);});LF[t.id]=lf;LS[t.id]=lf-t.dur;});
+      return {ES:ES,LS:LS,proj:proj};}
+    var b=shell(el,'<div class="gantt"><div class="ginner" data-inner></div><div class="gaxis" data-axis style="margin-left:200px"></div></div>'+
+      '<div class="glegend"><span><span class="sw" style="background:var(--gold)"></span>critical path</span><span><span class="sw" style="background:var(--brand)"></span>has float</span></div>'+
+      '<div class="gsum" data-sum></div><div class="gd-note" data-note></div>');
+    var inner=b.querySelector('[data-inner]'),axis=b.querySelector('[data-axis]'),sum=b.querySelector('[data-sum]'),note=b.querySelector('[data-note]'),lastCrit='';
+    function fl(r,id){return Math.round((r.LS[id]-r.ES[id])*100)/100;}
+    function render(){var r=compute();function pct(v){return v/r.proj*100;}
+      inner.innerHTML=tasks.map(function(t){var crit=fl(r,t.id)<=0.001;
+        return '<div class="grow"><span class="gname ed">'+t.name+'</span><span class="gstep" data-id="'+t.id+'"><button data-d="-1">-</button><button data-d="1">+</button></span><span class="gtrack"><span class="gbar'+(crit?' crit':'')+'" style="left:'+pct(r.ES[t.id]).toFixed(1)+'%;width:'+pct(t.dur).toFixed(1)+'%"></span></span></div>';}).join('');
+      axis.innerHTML='<span>0</span><span>'+r.proj+' '+unit+'</span>';
+      sum.innerHTML='Finish: <b>'+r.proj+' '+unit+'</b>. Change any duration and watch the critical path and the finish move.';
+      var critNow=tasks.filter(function(t){return fl(r,t.id)<=0.001;}).map(function(t){return t.id;}).join(',');
+      if(lastCrit&&critNow!==lastCrit){note.className='gd-note warn';note.innerHTML='The critical path just <b>changed</b>. Speeding up one chain can hand the lead to another, so the bottleneck moves somewhere new.';}
+      else{note.className='gd-note';note.innerHTML='Shorten a <b>gold</b> (critical) task to pull the finish in. Shortening a blue task does nothing to the finish, it only buys that task more float.';}
+      lastCrit=critNow;
+      inner.querySelectorAll('.gstep').forEach(function(sp){var id=sp.dataset.id;sp.querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){var t=tasks.filter(function(x){return x.id===id;})[0];t.dur=Math.max(1,t.dur+ +btn.dataset.d);render();});});});}
+    render();
+  };
+
+  R.rollup=function(el){var c=cfgOf(el);var unit=c.unit||'hrs',idc=0,map={};
+    function prep(n){n._id='ru'+(idc++);map[n._id]=n;if(n.children)n.children.forEach(prep);}(c.nodes||[]).forEach(prep);
+    function sum(n){return (n.children&&n.children.length)?n.children.reduce(function(a,ch){return a+sum(ch);},0):(+n.value||0);}
+    function node(n){var kids=n.children&&n.children.length;
+      return '<li><div class="rurow"><span class="runame'+(kids?' parent':'')+'">'+n.label+'</span>'+
+        (kids?'<span class="rusum" data-sum="'+n._id+'"></span>':'<input class="ruinput" type="number" min="0" data-in="'+n._id+'" value="'+(+n.value||0)+'">')+'</div>'+
+        (kids?'<ul class="rukids">'+n.children.map(node).join('')+'</ul>':'')+'</li>';}
+    var b=shell(el,'<div class="rutotal"><span class="k">Project total</span><span class="v" data-total></span></div><ul class="rukids root">'+(c.nodes||[]).map(node).join('')+'</ul>');
+    function refresh(){b.querySelectorAll('[data-sum]').forEach(function(sp){sp.textContent=sum(map[sp.dataset.sum])+' '+unit;});
+      b.querySelector('[data-total]').textContent=(c.nodes||[]).reduce(function(a,n){return a+sum(n);},0)+' '+unit;}
+    b.querySelectorAll('.ruinput').forEach(function(inp){inp.addEventListener('input',function(){map[inp.dataset.in].value=+inp.value||0;refresh();});});refresh();
+  };
+
+  R.scoreboard=function(el){var c=cfgOf(el);var crit=c.criteria||[],proj=c.projects||[];
+    var b=shell(el,'<div class="sbcrit">'+crit.map(function(cr,i){return '<div class="sbcrow"><span class="lb">'+cr.label+'</span><input type="range" min="0" max="5" step="1" value="'+(cr.weight!=null?cr.weight:3)+'" data-w="'+i+'"><span class="w" data-wv="'+i+'"></span></div>';}).join('')+
+      '</div><table class="sbtable"><thead><tr><th></th><th>Project</th><th>Score</th></tr></thead><tbody data-body></tbody></table>');
+    var body=b.querySelector('[data-body]');
+    function upd(){var w=crit.map(function(cr,i){return +b.querySelector('[data-w="'+i+'"]').value;}),wsum=w.reduce(function(a,x){return a+x;},0)||1;
+      crit.forEach(function(cr,i){b.querySelector('[data-wv="'+i+'"]').textContent=w[i];});
+      var scored=proj.map(function(p){var tot=crit.reduce(function(a,cr,i){return a+((p.scores&&p.scores[cr.key])||0)*w[i];},0)/wsum;return {name:p.name,score:tot};});
+      scored.sort(function(a,b2){return b2.score-a.score;});var mx=Math.max.apply(null,scored.map(function(s){return s.score;}))||1;
+      body.innerHTML=scored.map(function(s,i){return '<tr class="'+(i===0?'top':'')+'"><td class="rk">'+(i+1)+'</td><td><span class="pn">'+s.name+'</span><span class="sbbar"><i style="width:'+(s.score/mx*100).toFixed(0)+'%"></i></span></td><td class="sc">'+s.score.toFixed(1)+'</td></tr>';}).join('');}
+    b.querySelectorAll('[data-w]').forEach(function(x){x.addEventListener('input',upd);});upd();
+  };
+
+  R.pv=function(el){var c=cfgOf(el);var amt=c.amount||1000;
+    function m0(v){return '$'+Math.round(v).toLocaleString();}
+    var b=shell(el,'<div class="pvrow"><span class="nm">Years from now</span><input type="range" min="0" max="'+(c.maxYears||50)+'" step="1" value="'+(c.startYears||20)+'" data-y><span class="v" data-yv></span></div>'+
+      '<div class="pvrow"><span class="nm">Discount rate</span><input type="range" min="1" max="10" step="0.5" value="'+(c.startRate||4)+'" data-r><span class="v" data-rv></span></div>'+
+      '<div class="pvbars"><div class="pvcol"><span class="bv">'+m0(amt)+'</span><div class="bar" style="height:100%;background:var(--ink-3)"></div><span class="bl">Value in the future</span></div>'+
+      '<div class="pvcol"><span class="bv" data-pvv></span><div class="bar" data-pvbar style="background:var(--brand)"></div><span class="bl">Worth today</span></div></div><div class="pvout" data-out></div>');
+    var yr=b.querySelector('[data-y]'),rr=b.querySelector('[data-r]');
+    function upd(){var y=+yr.value,r=+rr.value/100;b.querySelector('[data-yv]').textContent=y+' yr';b.querySelector('[data-rv]').textContent=(r*100).toFixed(1)+'%';
+      var pv=amt/Math.pow(1+r,y);b.querySelector('[data-pvv]').textContent=m0(pv);b.querySelector('[data-pvbar]').style.height=Math.max(2,pv/amt*100)+'%';
+      b.querySelector('[data-out]').innerHTML=m0(amt)+' promised '+y+' years out is worth about <b>'+m0(pv)+'</b> today at '+(r*100).toFixed(1)+'%. That is why future savings are discounted: a dollar later is worth less than a dollar now. The formula is PV = FV / (1 + r) raised to the number of years.';}
+    yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
   };
 
   /* ---- boot ---- */

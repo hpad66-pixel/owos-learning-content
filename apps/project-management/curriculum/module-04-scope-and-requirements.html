@@ -160,6 +160,26 @@
       <p>Two rules make a WBS useful. First, it is built on <b>deliverables</b> (things you produce), not activities, so nothing gets double-counted. Second, every level rolls up completely: the children of a box add up to the whole box, no more and no less. That "100 percent" rule is what lets you trust that the WBS covers the whole job and only the job.</p>
     </div>
 
+    <p>See the rule work. Put an estimate of hours on each work package (the leaves) and watch them roll up the tree to the project total. Change any one number and every level above it updates, with no gaps and no double counting.</p>
+
+    <div data-ac="rollup" data-title="Estimate the work packages, watch it roll up" data-kind="Interactive &middot; simulation" data-cue="This is the 100 percent rule doing its job: the parents are only ever the sum of their children, and the project total is only ever the sum of the work packages.">
+      <script type="application/json">
+      {"unit":"hrs","nodes":[{"label":"Millpond Road main","children":[
+        {"label":"Design & permits","children":[
+          {"label":"Survey & geotech","value":120},
+          {"label":"Hydraulic design","value":300},
+          {"label":"Permits","value":80}]},
+        {"label":"Construction","children":[
+          {"label":"Excavation","value":400},
+          {"label":"Pipe install & fittings","value":600},
+          {"label":"Restoration","value":200}]},
+        {"label":"Testing & closeout","children":[
+          {"label":"Pressure test & disinfect","value":100},
+          {"label":"As-builts & closeout","value":90}]}
+      ]}]}
+      </script>
+    </div>
+
     <p>The WBS is also your best defense against <span class="term" data-term="Scope creep" data-def="Work that gets added to a project without a matching change to the time and budget. It is the slow, quiet way projects go over.">scope creep</span>: work that gets added without adjusting the time or the budget. If a request is not on the WBS, it is a change, and a change gets priced and approved, not just absorbed. Sort what belongs.</p>
 
     <div data-ac="classify" data-title="In scope or out?" data-kind="Quiz &middot; classify" data-cue="If it is not what the scope statement promised, it is a change, not a freebie.">

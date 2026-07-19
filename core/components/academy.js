@@ -578,6 +578,95 @@
       '<span><span class="sw" style="background:var(--brand)"></span>cumulative (the S-curve)</span></div>');
   };
 
+  R.costcurve=function(el){var c=cfgOf(el);var st=c.stages||[];
+    var maxM=Math.max.apply(null,st.map(function(s){return s.mult;}))||1;
+    function h(m){return Math.max(3,(Math.log(m)/Math.log(maxM))*100)+'%';}
+    var b=shell(el,'<div class="ccbars">'+st.map(function(s,i){return '<div class="ccbar'+(i===0?' on':'')+'" data-i="'+i+'"><span class="m">'+s.mult+'x</span><div class="fill" style="height:'+h(s.mult)+'"></div></div>';}).join('')+
+      '</div><div class="cclabels">'+st.map(function(s){return '<span>'+s.label+'</span>';}).join('')+'</div><div class="ccout" data-out></div>');
+    var out=b.querySelector('[data-out]');
+    function sel(i){b.querySelectorAll('.ccbar').forEach(function(x,j){x.classList.toggle('on',j===i);});var s=st[i];out.innerHTML='A problem caught at <b>'+s.label+'</b> costs about <b>'+s.mult+'x</b> to fix. '+(s.note||'');}
+    b.querySelectorAll('.ccbar').forEach(function(x){x.addEventListener('click',function(){sel(+x.dataset.i);});});sel(0);
+  };
+
+  R.ripple=function(el){var c=cfgOf(el);var d=c.driver||{},eff=c.effects||[];
+    var b=shell(el,'<div class="rpdriver"><span class="nm">'+(d.label||'Driver')+'</span><input type="range" min="'+(d.min||0)+'" max="'+(d.max||10)+'" step="'+(d.step||1)+'" value="'+(d.start||0)+'"><span class="v" data-dv></span></div>'+
+      '<div class="rpeff">'+eff.map(function(e,i){return '<div class="rprow"><span class="lb">'+e.label+'</span><span class="rpmeter"><span class="rpfill" data-fill="'+i+'"></span></span><span class="val" data-val="'+i+'"></span></div>';}).join('')+'</div><div class="rpnote" data-note></div>');
+    var rng=b.querySelector('input'),dv=b.querySelector('[data-dv]'),note=b.querySelector('[data-note]');
+    function fmt(v,unit){if(unit==='$k'){var n=v*1000;return n>=1e6?'$'+(n/1e6).toFixed(2)+'M':'$'+Math.round(v)+'k';}return (Math.round(v*10)/10)+(unit?(' '+unit):'');}
+    function upd(){var x=+rng.value;dv.textContent=x+(d.unit?(' '+d.unit):'');
+      eff.forEach(function(e,i){var val=(e.base||0)+x*(e.per||0),mx=e.max||val||1,f=b.querySelector('[data-fill="'+i+'"]');
+        f.style.width=Math.min(100,val/mx*100)+'%';f.style.background=(val/mx>0.85?'var(--red)':'var(--brand)');
+        b.querySelector('[data-val="'+i+'"]').textContent=fmt(val,e.unit);});
+      note.innerHTML=(x===(d.start||0))?(c.baseNote||'Move the slider. Watch every output move at once.'):'Adding <b>'+x+' '+(d.unit||'')+'</b> ripples into all three. Integration means you update them <b>together</b> and run the change through change control, not one in isolation.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.ganttedit=function(el){var c=cfgOf(el);var unit=c.unit||'weeks';
+    var tasks=(c.tasks||[]).map(function(t){return {id:t.id,name:t.name,dur:t.dur,deps:t.deps||[]};});
+    function deps(t){return (t.deps||[]).map(function(d){return typeof d==='object'?{id:d.to||d.id,lag:d.lag||0}:{id:d,lag:0};});}
+    function compute(){var ES={},EF={},LS={},LF={};tasks.forEach(function(t){ES[t.id]=0;EF[t.id]=t.dur;});
+      for(var i=0;i<tasks.length+1;i++)tasks.forEach(function(t){var es=0;deps(t).forEach(function(d){es=Math.max(es,EF[d.id]+d.lag);});ES[t.id]=es;EF[t.id]=es+t.dur;});
+      var proj=0;tasks.forEach(function(t){proj=Math.max(proj,EF[t.id]);});
+      var succ={};tasks.forEach(function(t){succ[t.id]=[];});tasks.forEach(function(t){deps(t).forEach(function(d){succ[d.id].push({id:t.id,lag:d.lag});});});
+      tasks.forEach(function(t){LF[t.id]=proj;LS[t.id]=proj-t.dur;});
+      for(var j=0;j<tasks.length+1;j++)tasks.forEach(function(t){var lf=succ[t.id].length?Infinity:proj;succ[t.id].forEach(function(s){lf=Math.min(lf,LS[s.id]-s.lag);});LF[t.id]=lf;LS[t.id]=lf-t.dur;});
+      return {ES:ES,LS:LS,proj:proj};}
+    var b=shell(el,'<div class="gantt"><div class="ginner" data-inner></div><div class="gaxis" data-axis style="margin-left:200px"></div></div>'+
+      '<div class="glegend"><span><span class="sw" style="background:var(--gold)"></span>critical path</span><span><span class="sw" style="background:var(--brand)"></span>has float</span></div>'+
+      '<div class="gsum" data-sum></div><div class="gd-note" data-note></div>');
+    var inner=b.querySelector('[data-inner]'),axis=b.querySelector('[data-axis]'),sum=b.querySelector('[data-sum]'),note=b.querySelector('[data-note]'),lastCrit='';
+    function fl(r,id){return Math.round((r.LS[id]-r.ES[id])*100)/100;}
+    function render(){var r=compute();function pct(v){return v/r.proj*100;}
+      inner.innerHTML=tasks.map(function(t){var crit=fl(r,t.id)<=0.001;
+        return '<div class="grow"><span class="gname ed">'+t.name+'</span><span class="gstep" data-id="'+t.id+'"><button data-d="-1">-</button><button data-d="1">+</button></span><span class="gtrack"><span class="gbar'+(crit?' crit':'')+'" style="left:'+pct(r.ES[t.id]).toFixed(1)+'%;width:'+pct(t.dur).toFixed(1)+'%"></span></span></div>';}).join('');
+      axis.innerHTML='<span>0</span><span>'+r.proj+' '+unit+'</span>';
+      sum.innerHTML='Finish: <b>'+r.proj+' '+unit+'</b>. Change any duration and watch the critical path and the finish move.';
+      var critNow=tasks.filter(function(t){return fl(r,t.id)<=0.001;}).map(function(t){return t.id;}).join(',');
+      if(lastCrit&&critNow!==lastCrit){note.className='gd-note warn';note.innerHTML='The critical path just <b>changed</b>. Speeding up one chain can hand the lead to another, so the bottleneck moves somewhere new.';}
+      else{note.className='gd-note';note.innerHTML='Shorten a <b>gold</b> (critical) task to pull the finish in. Shortening a blue task does nothing to the finish, it only buys that task more float.';}
+      lastCrit=critNow;
+      inner.querySelectorAll('.gstep').forEach(function(sp){var id=sp.dataset.id;sp.querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){var t=tasks.filter(function(x){return x.id===id;})[0];t.dur=Math.max(1,t.dur+ +btn.dataset.d);render();});});});}
+    render();
+  };
+
+  R.rollup=function(el){var c=cfgOf(el);var unit=c.unit||'hrs',idc=0,map={};
+    function prep(n){n._id='ru'+(idc++);map[n._id]=n;if(n.children)n.children.forEach(prep);}(c.nodes||[]).forEach(prep);
+    function sum(n){return (n.children&&n.children.length)?n.children.reduce(function(a,ch){return a+sum(ch);},0):(+n.value||0);}
+    function node(n){var kids=n.children&&n.children.length;
+      return '<li><div class="rurow"><span class="runame'+(kids?' parent':'')+'">'+n.label+'</span>'+
+        (kids?'<span class="rusum" data-sum="'+n._id+'"></span>':'<input class="ruinput" type="number" min="0" data-in="'+n._id+'" value="'+(+n.value||0)+'">')+'</div>'+
+        (kids?'<ul class="rukids">'+n.children.map(node).join('')+'</ul>':'')+'</li>';}
+    var b=shell(el,'<div class="rutotal"><span class="k">Project total</span><span class="v" data-total></span></div><ul class="rukids root">'+(c.nodes||[]).map(node).join('')+'</ul>');
+    function refresh(){b.querySelectorAll('[data-sum]').forEach(function(sp){sp.textContent=sum(map[sp.dataset.sum])+' '+unit;});
+      b.querySelector('[data-total]').textContent=(c.nodes||[]).reduce(function(a,n){return a+sum(n);},0)+' '+unit;}
+    b.querySelectorAll('.ruinput').forEach(function(inp){inp.addEventListener('input',function(){map[inp.dataset.in].value=+inp.value||0;refresh();});});refresh();
+  };
+
+  R.scoreboard=function(el){var c=cfgOf(el);var crit=c.criteria||[],proj=c.projects||[];
+    var b=shell(el,'<div class="sbcrit">'+crit.map(function(cr,i){return '<div class="sbcrow"><span class="lb">'+cr.label+'</span><input type="range" min="0" max="5" step="1" value="'+(cr.weight!=null?cr.weight:3)+'" data-w="'+i+'"><span class="w" data-wv="'+i+'"></span></div>';}).join('')+
+      '</div><table class="sbtable"><thead><tr><th></th><th>Project</th><th>Score</th></tr></thead><tbody data-body></tbody></table>');
+    var body=b.querySelector('[data-body]');
+    function upd(){var w=crit.map(function(cr,i){return +b.querySelector('[data-w="'+i+'"]').value;}),wsum=w.reduce(function(a,x){return a+x;},0)||1;
+      crit.forEach(function(cr,i){b.querySelector('[data-wv="'+i+'"]').textContent=w[i];});
+      var scored=proj.map(function(p){var tot=crit.reduce(function(a,cr,i){return a+((p.scores&&p.scores[cr.key])||0)*w[i];},0)/wsum;return {name:p.name,score:tot};});
+      scored.sort(function(a,b2){return b2.score-a.score;});var mx=Math.max.apply(null,scored.map(function(s){return s.score;}))||1;
+      body.innerHTML=scored.map(function(s,i){return '<tr class="'+(i===0?'top':'')+'"><td class="rk">'+(i+1)+'</td><td><span class="pn">'+s.name+'</span><span class="sbbar"><i style="width:'+(s.score/mx*100).toFixed(0)+'%"></i></span></td><td class="sc">'+s.score.toFixed(1)+'</td></tr>';}).join('');}
+    b.querySelectorAll('[data-w]').forEach(function(x){x.addEventListener('input',upd);});upd();
+  };
+
+  R.pv=function(el){var c=cfgOf(el);var amt=c.amount||1000;
+    function m0(v){return '$'+Math.round(v).toLocaleString();}
+    var b=shell(el,'<div class="pvrow"><span class="nm">Years from now</span><input type="range" min="0" max="'+(c.maxYears||50)+'" step="1" value="'+(c.startYears||20)+'" data-y><span class="v" data-yv></span></div>'+
+      '<div class="pvrow"><span class="nm">Discount rate</span><input type="range" min="1" max="10" step="0.5" value="'+(c.startRate||4)+'" data-r><span class="v" data-rv></span></div>'+
+      '<div class="pvbars"><div class="pvcol"><span class="bv">'+m0(amt)+'</span><div class="bar" style="height:100%;background:var(--ink-3)"></div><span class="bl">Value in the future</span></div>'+
+      '<div class="pvcol"><span class="bv" data-pvv></span><div class="bar" data-pvbar style="background:var(--brand)"></div><span class="bl">Worth today</span></div></div><div class="pvout" data-out></div>');
+    var yr=b.querySelector('[data-y]'),rr=b.querySelector('[data-r]');
+    function upd(){var y=+yr.value,r=+rr.value/100;b.querySelector('[data-yv]').textContent=y+' yr';b.querySelector('[data-rv]').textContent=(r*100).toFixed(1)+'%';
+      var pv=amt/Math.pow(1+r,y);b.querySelector('[data-pvv]').textContent=m0(pv);b.querySelector('[data-pvbar]').style.height=Math.max(2,pv/amt*100)+'%';
+      b.querySelector('[data-out]').innerHTML=m0(amt)+' promised '+y+' years out is worth about <b>'+m0(pv)+'</b> today at '+(r*100).toFixed(1)+'%. That is why future savings are discounted: a dollar later is worth less than a dollar now. The formula is PV = FV / (1 + r) raised to the number of years.';}
+    yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
+  };
+
   /* ---- boot ---- */
   function boot(){
     injectDroobi();
