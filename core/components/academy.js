@@ -685,6 +685,77 @@
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
   };
 
+  R.estrange=function(el){var c=cfgOf(el);var base=c.base||1300;
+    var cls=c.classes||[
+      {label:"Class 5 (Concept)",lo:-30,hi:50,note:"Order of magnitude, drawn on a napkin. Less than 2% design. Useful for a go / no-go, useless for a commitment."},
+      {label:"Class 4 (Study)",lo:-20,hi:30,note:"Early feasibility, maybe 10% design. Good enough to compare options."},
+      {label:"Class 3 (Budget)",lo:-15,hi:20,note:"Preliminary design, around 30%. This is the estimate you take to the board for budget authority."},
+      {label:"Class 2 (Control)",lo:-10,hi:15,note:"Detailed design, 60 to 90%. Tight enough to control the project against."},
+      {label:"Class 1 (Definitive)",lo:-5,hi:10,note:"Complete design, ready to bid. The narrowest range you will get before real bids come in."}
+    ];
+    function money(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    var span=base*1.6;
+    var b=shell(el,'<div class="pvrow"><span class="nm">Design maturity</span><input type="range" min="0" max="'+(cls.length-1)+'" step="1" value="0"><span class="v" data-cls></span></div>'+
+      '<div class="ertrack" data-track></div>'+
+      '<div class="erout"><div class="o lo"><div class="k">Low end</div><div class="val" data-lo></div></div>'+
+      '<div class="o pt"><div class="k">Point estimate</div><div class="val">'+money(base)+'</div></div>'+
+      '<div class="o hi2"><div class="k">High end</div><div class="val" data-hi></div></div></div>'+
+      '<div class="ernote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var i=+rng.value,cl=cls[i],lo=base*(1+cl.lo/100),hi=base*(1+cl.hi/100);
+      b.querySelector('[data-cls]').textContent=cl.label;
+      b.querySelector('[data-track]').innerHTML='<div class="erband" style="left:'+(lo/span*100).toFixed(1)+'%;width:'+((hi-lo)/span*100).toFixed(1)+'%"></div>'+
+        '<div class="erpoint" style="left:'+(base/span*100).toFixed(1)+'%"><span>'+money(base)+'</span></div>';
+      b.querySelector('[data-lo]').textContent=money(lo)+' ('+cl.lo+'%)';
+      b.querySelector('[data-hi]').textContent=money(hi)+' (+'+cl.hi+'%)';
+      b.querySelector('[data-note]').innerHTML='<b>'+cl.label+'.</b> '+cl.note+' The point estimate barely moves; what changes is how much you could be <b>wrong</b> by. Committing a budget on a Class 5 estimate is how projects blow up.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.cipplan=function(el){var c=cfgOf(el);var projects=c.projects||[];
+    function money(k){return k>=1000?'$'+(k/1000).toFixed(1)+'M':'$'+k+'k';}
+    var b=shell(el,'<div class="pvrow"><span class="nm">This year’s capital budget</span><input type="range" min="'+(c.min||1000)+'" max="'+(c.max||9000)+'" step="'+(c.step||250)+'" value="'+(c.start||4000)+'"><span class="v" data-cap></span></div>'+
+      '<div class="cipsum"><span class="k">Funded this year</span><span class="v" data-sum></span></div><div data-list></div><div class="ernote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var cap=+rng.value,spent=0,funded=0;
+      b.querySelector('[data-cap]').textContent=money(cap);
+      b.querySelector('[data-list]').innerHTML=projects.map(function(p){var fit=spent+p.cost<=cap;if(fit){spent+=p.cost;funded++;}
+        return '<div class="ciprow '+(fit?'fund':'defer')+'"><span class="nm">'+p.name+'</span><span class="cost">'+money(p.cost)+'</span><span class="tag">'+(fit?'funded':'deferred')+'</span></div>';}).join('');
+      b.querySelector('[data-sum]').textContent=money(spent)+' of '+money(cap);
+      var deferred=projects.length-funded;
+      b.querySelector('[data-note]').innerHTML=deferred>0?'<b>'+funded+' funded, '+deferred+' deferred</b> to a later year. A CIP is a queue: you fund the top priorities each year and the rest wait their turn. Raise the budget and more fit, but that money has to come from rates, debt, or grants, which is the next section.':'Everything fits this year. Most utilities are not so lucky and spread projects across the multi-year plan.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.rateimpact=function(el){var c=cfgOf(el);
+    function row(k,label,sub,val,mn,mx,st){return '<div class="pvrow"><span class="nm">'+label+'<small style="display:block;font:11px var(--fm);color:var(--ink-3)">'+sub+'</small></span><input type="range" data-k="'+k+'" min="'+mn+'" max="'+mx+'" step="'+st+'" value="'+val+'"><span class="v" data-v="'+k+'"></span></div>';}
+    var b=shell(el,
+      row('cost','Project cost','up-front dollars',c.cost||1300,200,4000,50)+
+      row('debt','Share funded by debt','the rest is cash or grants',c.debt||80,0,100,5)+
+      row('rate','Interest rate','SRF is far below market',c.rate||4,1,8,0.25)+
+      row('term','Loan term','years',c.term||20,5,40,1)+
+      row('acct','Customer accounts','thousands of bills',c.acct||15,1,120,1)+
+      '<div class="riout"><div class="o"><div class="k">Debt service / year</div><div class="val" data-ds></div></div>'+
+      '<div class="o"><div class="k">Per account / year</div><div class="val" data-yr></div></div>'+
+      '<div class="o big"><div class="k">Per account / month</div><div class="val" data-mo></div></div></div>'+
+      '<div class="rinote" data-note></div>');
+    function val(k){return +b.querySelector('input[data-k="'+k+'"]').value;}
+    function money(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    function upd(){
+      var cost=val('cost'),debtPct=val('debt'),rate=val('rate'),term=val('term'),acct=val('acct');
+      b.querySelector('[data-v="cost"]').textContent=money(cost);b.querySelector('[data-v="debt"]').textContent=debtPct+'%';
+      b.querySelector('[data-v="rate"]').textContent=rate.toFixed(2)+'%';b.querySelector('[data-v="term"]').textContent=term+' yr';b.querySelector('[data-v="acct"]').textContent=acct+'k';
+      var debt=cost*debtPct/100,r=rate/100;
+      var ds=r>0?debt*(r*Math.pow(1+r,term))/(Math.pow(1+r,term)-1):debt/term; // annual debt service, $k
+      var perYr=ds/acct;            // $k / (k accounts) = dollars per account per year
+      var perMo=perYr/12;
+      b.querySelector('[data-ds]').textContent=money(ds)+'/yr';
+      b.querySelector('[data-yr]').textContent='$'+perYr.toFixed(2);
+      b.querySelector('[data-mo]').textContent='$'+perMo.toFixed(2);
+      b.querySelector('[data-note]').innerHTML='This one project adds about <b>$'+perMo.toFixed(2)+' a month</b> to the average bill. Small on its own, but a utility runs many at once, and the whole capital plan stacked together is what actually moves the rate. This per-bill number is what a board and the public really ask about.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
+  };
+
   R.pert=function(el){var c=cfgOf(el);var unit=c.unit||'days',mn=c.min||1,mx=c.max||30;
     var b=shell(el,
       '<div class="pertrow"><span class="nm">Optimistic<small>best case</small></span><input type="range" data-k="o" min="'+mn+'" max="'+mx+'" step="1" value="'+(c.o||4)+'"><span class="v" data-vo></span></div>'+
