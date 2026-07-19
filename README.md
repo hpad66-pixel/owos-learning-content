@@ -2,7 +2,7 @@
 
 The single home for all One Water OS technical content and apps, by APAS.ai. Taught by Droobi.
 
-**Version:** 0.17.0 &middot; **Last updated:** 2026-07-19
+**Version:** 0.18.0 &middot; **Last updated:** 2026-07-19
 
 This is a **monorepo**. The reusable foundation lives in `core/` and is shared by every app in
 `apps/`. Build the wheel once in `core/`, reuse it everywhere. That is how we keep the branding,

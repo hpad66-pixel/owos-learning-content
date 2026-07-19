@@ -297,7 +297,7 @@
 
   <nav class="dg01-nav" aria-label="Chapter navigation"><a href="module-00-how-to-use-the-master-class.html">&larr; Chapter 00</a><a class="home" href="masterclass-data-governance.html">All 25 chapters</a><a href="module-02-the-language-of-trustworthy-utility-data.html">Chapter 02 &rarr;</a></nav>
 </main>
-<footer class="dg01-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:01 &middot; Released in course build 0.17.0</div></footer>
+<footer class="dg01-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:01 &middot; Released in course build 0.18.0</div></footer>
 <script src="../../../core/components/academy.js"></script>
 <script>
 (function(){
@@ -309,7 +309,7 @@
     try{
       var enrollment=await fetch('/api/learn/enrollments',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001'})});
       if(!enrollment.ok)throw new Error(enrollment.status===401?'Sign in to record progress.':'Enrollment could not be opened.');
-      var eventResponse=await fetch('/api/learn/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001',module:1,eventType:'completed',idempotencyKey:'course:dga001:1:complete:v0.17.0',page:location.pathname})});
+      var eventResponse=await fetch('/api/learn/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001',module:1,eventType:'completed',idempotencyKey:'course:dga001:1:complete:v0.18.0',page:location.pathname})});
       if(!eventResponse.ok)throw new Error(eventResponse.status===401?'Sign in to record progress.':'Completion could not be recorded.');
       result.textContent='Chapter 01 is complete. Your OWOS Learn progress is saved.';button.textContent='Chapter 01 complete';
     }catch(error){result.textContent=error.message+' Refresh the page and try again.';button.disabled=false;}

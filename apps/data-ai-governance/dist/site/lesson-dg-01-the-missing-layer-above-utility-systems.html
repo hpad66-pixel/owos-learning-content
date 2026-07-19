@@ -237,6 +237,16 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- contractrisk: who bears the cost risk ---- */
+.crcards{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.crcard{flex:1;min-width:150px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:13px}
+.crcard .nm{font:700 13.5px var(--f);color:var(--ink)}.crcard .sub2{font:10px var(--fm);color:var(--ink-3);margin-bottom:9px}
+.crcard .line{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}.crcard .line .k{color:var(--ink-2)}.crcard .line .v{font:700 13px var(--fm);color:var(--ink)}
+.crcard .prof.pos{color:var(--green)}.crcard .prof.neg{color:var(--red)}
+.crexposed{margin-top:9px;font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px;display:inline-block}
+.crexposed.owner{background:var(--red-50);color:var(--red)}.crexposed.contractor{background:#FBF3E2;color:var(--gold)}.crexposed.shared{background:var(--brand-50);color:var(--brand)}
+.crnote{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink)}.crnote b{color:var(--brand-700)}
+
 /* ---- evm: earned value chart + indices ---- */
 .evmsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
 .evmleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.evmleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
@@ -679,7 +689,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
   <nav class="dg01-nav" aria-label="Chapter navigation"><a href="lesson-dg-00-how-to-use-the-master-class.html">&larr; Chapter 00</a><a class="home" href="course-data-governance.html">All 25 chapters</a><a href="lesson-dg-02-the-language-of-trustworthy-utility-data.html">Chapter 02 &rarr;</a></nav>
 </main>
-<footer class="dg01-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:01 &middot; Released in course build 0.17.0</div></footer>
+<footer class="dg01-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:01 &middot; Released in course build 0.18.0</div></footer>
 <script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
@@ -1426,6 +1436,29 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
   };
 
+  R.contractrisk=function(el){var c=cfgOf(el);var target=c.target||1000,fee=c.fee||100,ffp=c.ffp||Math.round(target*1.10),gmpCap=c.gmpCap||Math.round(target*1.15);
+    function m(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    var b=shell(el,'<p style="font-size:14px;color:var(--ink-2);margin:0 0 8px">Estimated cost <b style="color:var(--ink)">'+m(target)+'</b>. Fixed price '+m(ffp)+', GMP cap '+m(gmpCap)+', fee '+m(fee)+'. Now move the actual cost the job really came in at.</p>'+
+      '<div class="pvrow"><span class="nm">Final actual cost</span><input type="range" min="'+(c.min||Math.round(target*0.7))+'" max="'+(c.max||Math.round(target*1.5))+'" step="25" value="'+(c.start||Math.round(target*1.2))+'"><span class="v" data-a></span></div>'+
+      '<div class="crcards" data-cards></div><div class="crnote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var actual=+rng.value;b.querySelector('[data-a]').textContent=m(actual);
+      var types=[
+        {nm:'Firm Fixed Price',sub:'FFP: one price, no matter what',owner:ffp,cls:'contractor',who:'Contractor'},
+        {nm:'Cost-plus / T&M',sub:'owner pays cost + a fee',owner:actual+fee,cls:'owner',who:'Owner'},
+        {nm:'Guaranteed Max Price',sub:'GMP: owner pays cost + fee, capped',owner:Math.min(actual+fee,gmpCap),cls:'shared',who:'Shared'}
+      ];
+      b.querySelector('[data-cards]').innerHTML=types.map(function(t){var prof=t.owner-actual;
+        return '<div class="crcard"><div class="nm">'+t.nm+'</div><div class="sub2">'+t.sub+'</div>'+
+          '<div class="line"><span class="k">Owner pays</span><span class="v">'+m(t.owner)+'</span></div>'+
+          '<div class="line"><span class="k">Contractor keeps</span><span class="v prof '+(prof>=0?'pos':'neg')+'">'+(prof>=0?'+':'')+m(prof)+'</span></div>'+
+          '<div class="crexposed '+t.cls+'">'+t.who+' carries the risk</div></div>';}).join('');
+      var over=actual>target,note=b.querySelector('[data-note]');
+      if(actual>ffp)note.innerHTML='At <b>'+m(actual)+'</b> actual on a '+m(target)+' estimate, Fixed Price protects the owner (still '+m(ffp)+') while the contractor eats the '+m(actual-ffp)+' overrun. Cost-plus hands the whole overrun to the owner. GMP caps the owner at '+m(gmpCap)+' and the contractor covers the rest. <b>That risk transfer is exactly what you pay for in the price.</b>';
+      else note.innerHTML='At <b>'+m(actual)+'</b>, under the fixed price, the Fixed Price contractor pockets the '+m(ffp-actual)+' saving, cost-plus passes the low cost straight to the owner, and GMP shares it. Push the actual above '+m(ffp)+' and watch who starts losing money.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
   R.evm=function(el){var c=cfgOf(el);var bac=c.bac||1300;
     function m(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
     function row(k,label,sub,val,mn,mx,st){return '<div class="pvrow"><span class="nm">'+label+'<small style="display:block;font:11px var(--fm);color:var(--ink-3)">'+sub+'</small></span><input type="range" data-k="'+k+'" min="'+mn+'" max="'+mx+'" step="'+st+'" value="'+val+'"><span class="v" data-v="'+k+'"></span></div>';}
@@ -1656,7 +1689,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     try{
       var enrollment=await fetch('/api/learn/enrollments',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001'})});
       if(!enrollment.ok)throw new Error(enrollment.status===401?'Sign in to record progress.':'Enrollment could not be opened.');
-      var eventResponse=await fetch('/api/learn/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001',module:1,eventType:'completed',idempotencyKey:'course:dga001:1:complete:v0.17.0',page:location.pathname})});
+      var eventResponse=await fetch('/api/learn/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001',module:1,eventType:'completed',idempotencyKey:'course:dga001:1:complete:v0.18.0',page:location.pathname})});
       if(!eventResponse.ok)throw new Error(eventResponse.status===401?'Sign in to record progress.':'Completion could not be recorded.');
       result.textContent='Chapter 01 is complete. Your OWOS Learn progress is saved.';button.textContent='Chapter 01 complete';
     }catch(error){result.textContent=error.message+' Refresh the page and try again.';button.disabled=false;}
