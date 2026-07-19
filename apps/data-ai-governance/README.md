@@ -21,12 +21,15 @@ must not silently redefine the controlled method.
 
 ## Current state
 
-The complete syllabus and coverage design are governed. Chapters 00 through 05 are released interactive
+The complete syllabus and coverage design are governed. Chapters 00 through 08 are released interactive
 lessons. Chapters 00 through 02 establish the Launch Pack, executive case, controlled utility language,
 minimum provenance event, quality-by-use rule, and first governed data-product card. Chapter 03 builds
 the authority register, standards-to-control crosswalk, and legal applicability gate. Chapter 04 maps
 the physical and digital utility data estate around material decisions. Chapter 05 establishes shared
-identity, evidence-based matching, steward exceptions, and minimum reconstructable records. The other 19 chapter destinations preserve
+identity, evidence-based matching, steward exceptions, and minimum reconstructable records. Chapter 06
+builds backward and forward decision traceability, Chapter 07 establishes roles, forums, escalation, and
+the operating rhythm, and Chapter 08 delivers the D01 charter, value, risk, decision-rights, and funded
+roadmap package. The other 16 chapter destinations preserve
 the approved syllabus structure while their lesson bodies remain in development. Course-completion
 credential language and scored assessments remain proposed until their separate review and pilot
 gates pass.

@@ -33,8 +33,8 @@ STORE_KEY = "dga001"
 COURSE_TITLE = "Data Before AI: Data and Artificial Intelligence Governance for Utilities"
 COURSE_SOURCE = "masterclass-data-governance.html"
 COURSE_OUTPUT = "course-data-governance.html"
-RELEASED_CHAPTERS = {"00", "01", "02", "03", "04", "05"}
-SHELL_VERSION = "0.21.0"
+RELEASED_CHAPTERS = {"00", "01", "02", "03", "04", "05", "06", "07", "08"}
+SHELL_VERSION = "0.23.0"
 
 CORE_CSS = (ROOT / "core/components/academy.css").read_text(encoding="utf-8")
 CORE_JS = (ROOT / "core/components/academy.js").read_text(encoding="utf-8")
@@ -239,7 +239,7 @@ def landing(chapters: list[Chapter]) -> str:
     <div class="dg-eyebrow">OWOS Academy &middot; Utility Master Class</div>
     <h1>Data Before AI</h1>
     <p>Build the governance layer that makes utility data trustworthy enough for operations, regulation, capital decisions, analytics, artificial intelligence, and digital twins.</p>
-    <span class="dg-status"><i></i>Chapters 00 to 05 available &middot; 19 chapters in development</span>
+    <span class="dg-status"><i></i>Chapters 00 to 08 available &middot; 16 chapters in development</span>
   </header>
 
   <div class="dg-stats" aria-label="Course structure">
@@ -249,7 +249,7 @@ def landing(chapters: list[Chapter]) -> str:
     <div class="dg-stat"><b>{len(RELEASED_CHAPTERS)}</b><span>Lessons released</span></div>
   </div>
 
-  <aside class="dg-note"><strong>The course is releasing chapter by chapter.</strong><p>Chapters 00 to 02 establish the governed Launch Pack, executive case, controlled utility language, provenance, quality-by-use rule, and first data product. Chapter 03 builds the authority register and legal applicability gate. Chapter 04 maps the physical and digital utility data estate around material decisions. Chapter 05 establishes shared identity and minimum reconstructable records. The other 19 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
+  <aside class="dg-note"><strong>The course is releasing chapter by chapter.</strong><p>Chapters 00 to 02 establish the governed Launch Pack, executive case, controlled utility language, provenance, quality-by-use rule, and first data product. Chapter 03 builds the authority register and legal applicability gate. Chapter 04 maps the utility data estate, Chapter 05 establishes shared identity and minimum records, Chapter 06 traces a material decision from source to outcome, Chapter 07 builds roles, forums, and the operating rhythm, and Chapter 08 delivers the D01 scope, value, risk, decision-rights, and funded-roadmap package. The other 16 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
 
   <h2>One source, one delivery path</h2>
   <div class="dg-flow" aria-label="Course delivery path"><div>onewater-os curriculum</div><div>Validated native build</div><div>OWOS.ai Learn</div><div>Supabase learner records</div><div>Knowledge Graph alignment</div></div>

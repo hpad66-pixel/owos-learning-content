@@ -3,6 +3,23 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.23.0] - 2026-07-19
+### Added: Data Governance Chapters 06 through 08
+- Released Chapter 06 with a backward-and-forward provenance network, governed decision lifecycle,
+  formula-impact model, handoff simulation, four varied checks, a deployable decision evidence package,
+  and the D04.1 through D04.5 evidence gate.
+- Released Chapter 07 with a role handoff simulation, decision-rights table, escalation flow, council
+  charter, conflict-of-duty controls, governance calendar, five varied checks, and the D02 operating-model
+  evidence gate.
+- Released Chapter 08 with a layered scope model, value-driver tree, risk-threshold matrix, decision-rights
+  flow, portfolio prioritizer, evidence-gated roadmap, four varied checks, and the full D01.1 through D01.5
+  deployment package.
+
+### Changed
+- Changed the Data Governance mixed release to nine available lessons and 16 governed content-pending
+  destinations, with completion enabled only for Chapters 00 through 08.
+- Advanced the canonical course, generator, landing page, manifest, and completion event keys to 0.23.0.
+
 ## [0.22.0] - 2026-07-19
 
 ### Added
@@ -11,7 +28,6 @@ Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
 ### Changed
 - Chrome marks Chapter 15 live; `tools/build-selfcontained.py` LINK_MAP extended to module-15.
-
 ## [0.21.0] - 2026-07-19
 ### Added: Data Governance Chapters 03 through 05
 - Released Chapter 03, "Standards, law, and the applicability record," with an authority stack,
