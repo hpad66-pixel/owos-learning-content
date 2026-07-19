@@ -5,6 +5,8 @@ behave consistently.
 
 - **`project-management/`** the Project Management masterclass (course chrome, chapters, playbook,
   starter kit). Built.
+- **`data-ai-governance/`** the Data Before AI Master Class. Its complete utility-deployable syllabus,
+  60-criterion coverage, course record, role pathways, studios, and capstone are ready for owner lock.
 - Coming next: `living-graph/`, `fable-agent/`, `one-water-os/`, and others.
 
 To start a new app: make a folder here, copy `../core/components/module-template.html`, point at

@@ -3,7 +3,7 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
-## [0.13.0] - 2026-07-19
+## [0.14.0] - 2026-07-19
 ### Added: Chapter 07 + three cost/finance simulations
 - `estrange` : AACE estimate-accuracy range, slide design maturity (Class 5 to 1) and watch the low-high
   band narrow around the point estimate. Verified 1300 base -> Class5 910/1950, Class1 1235/1430.
@@ -16,6 +16,34 @@ Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 - Masterclass chrome: Chapter 07 now live; status note "Chapters 01 to 07 are live." Rebuilt all seven lessons.
 ### Deployed
 - Published all seven lessons + course page to owos.ai; verified each new sim computes on the live site.
+
+## [0.13.0] - 2026-07-19
+### Added: complete Data Governance curriculum structure and OWOS delivery architecture
+- Added `apps/data-ai-governance/` as the governed course-content home for the Data Before AI Master
+  Class.
+- Added a complete 25-chapter, 75-section syllabus for drinking water, wastewater, stormwater,
+  reuse, and integrated One Water utilities.
+- Mapped every Version 2.3 assessment criterion from D01.1 through D12.5 and assigned all 21 controlled
+  figures a teaching job.
+- Added Foundation, Practitioner, and Leader lenses; seven role pathways; the fictional Riverbend
+  utility running case; chapter-level utility examples; deployment studios; evidence gates; visual and
+  simulation plans; varied checks; and a 20-artifact Utility Data and AI Governance Launch Pack.
+- Added the proposed entry diagnostic, chapter checks, part assessments, final scenario assessment,
+  capstone, critical-gate pass rule, and course-completion credential boundary.
+- Added `course.yaml` with the stable OWOS course ID, pinned Version 2.3 method commit, release gates,
+  structure, roles, planning effort, assessment proposal, and credential status.
+- Added the canonical ownership, data-flow, release, and version-control contract from `onewater-os`
+  through the `2-brain` OWOS.ai runtime, Supabase, Knowledge Graph, and Cloudflare.
+- Added Mermaid system and release-flow diagrams, the system-of-record matrix, release gates, stable
+  Data Governance identifiers, catalog-preservation rule, and definition of done.
+- Added delivery metadata for a native 25-chapter Data Governance shell and its OWOS.ai runtime path.
+- Added a generated browser landing page and 25 linked chapter shells, with all lesson content clearly
+  marked pending until it passes the governed content acceptance gates.
+- Added reproducible self-contained distribution outputs for controlled copy-on-publish into OWOS.ai.
+
+### Changed
+- Updated the root and apps indexes to include the new Master Class.
+- Synchronized the root README version with `VERSION` at 0.13.0.
 
 ## [0.12.0] - 2026-07-19
 ### Added: Chapter 06 + three quantitative simulations

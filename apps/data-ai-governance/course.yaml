@@ -1,0 +1,99 @@
+schema_version: 1
+course_id: owos-master-data-governance-001
+slug: data-before-ai-governance
+title: "Data Before AI: Data and Artificial Intelligence Governance for Utilities"
+course_family: master_class
+source_format: native_html
+status: draft_for_owner_lock
+visibility: private_review
+course_version: 0.1.0
+content_owner: Hardeep Anand
+organization: One Water Operating System
+platform: APAS.ai
+
+method:
+  repository: hpad66-pixel/utility-data-ai-governance
+  version: "2.3"
+  commit: 825e4661a6dbdfe6628148eb005c86cfb10b8515
+  release_tag: v2.3
+  publication_gate: pass
+  assessment_method_gate: pilot_required
+  application_readiness_gate: design_required
+  independent_assurance_gate: external_review_required
+  source_count: 217
+  criterion_count: 60
+  domain_count: 12
+  figure_count: 21
+  qaqc_finding_count: 30
+
+structure:
+  parts: 6
+  chapters: 25
+  sections: 75
+  capstone: required
+  chapter_range: "00-24"
+  chapter_sections: 3
+
+planning_effort:
+  status: estimate_pending_pilot
+  guided_hours: 45
+  capstone_hours_min: 20
+  capstone_hours_max: 40
+
+learner_lenses:
+  - foundation
+  - practitioner
+  - leader
+
+primary_roles:
+  - governing-body-member
+  - utility-executive
+  - data-owner
+  - data-steward
+  - operations-leader
+  - asset-and-engineering-leader
+  - information-technology-leader
+  - operational-technology-leader
+  - cybersecurity-and-privacy-leader
+  - records-and-legal-leader
+  - analytics-and-ai-owner
+  - assessor-and-assurance-practitioner
+
+assessment:
+  entry_diagnostic: required_ungraded
+  chapter_checks: required
+  part_assessments: required
+  final_blueprint: proposed_40_scenario_questions
+  proposed_pass_percent: 80
+  capstone: required
+  critical_gate_override_prohibited: true
+
+credential:
+  status: proposed
+  name: "OWOS Utility Data and AI Governance Practitioner"
+  type: course_completion
+  certification_claim: false
+  compliance_opinion: false
+  assurance_opinion: false
+
+source_files:
+  syllabus: curriculum/SYLLABUS.md
+  readme: README.md
+  architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
+
+delivery:
+  shell_status: structure_ready_content_pending
+  available_chapters: 0
+  landing_source: curriculum/masterclass-data-governance.html
+  landing_output: dist/site/course-data-governance.html
+  runtime_manifest: dist/course-manifest.json
+  chapter_source_pattern: curriculum/module-{chapter}-{slug}.html
+  chapter_output_pattern: dist/site/lesson-dg-{chapter}-{slug}.html
+  runtime_repository: hpad66-pixel/2-brain
+  runtime_path: site
+  runtime_store_key: dga001
+  runtime_canonical: /course-data-governance
+  learner_records: supabase
+  semantic_alignment: owos_knowledge_graph
+  edge_delivery: cloudflare_pages_and_worker
+  completion_events_enabled: false

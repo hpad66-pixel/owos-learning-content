@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Before AI &middot; One Water OS Academy</title>
+<meta name="description" content="The complete 25-chapter utility Data and AI Governance curriculum structure, ready for governed lesson development.">
+<meta name="owos-course-id" content="owos-master-data-governance-001">
+<meta name="owos-course-store" content="dga001">
+<meta name="owos-release-state" content="structure-ready-content-pending">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+<style>
+html,body{max-width:100%;overflow-x:hidden}
+.dg-hero{margin:28px 0 24px;padding:32px;border-radius:24px;background:linear-gradient(135deg,#083a5c,#0a78ba 62%,#15937a);color:#fff;box-shadow:0 20px 60px rgba(8,58,92,.2);overflow:hidden;position:relative}
+.dg-hero:after{content:"";position:absolute;width:280px;height:280px;border:54px solid rgba(255,255,255,.08);border-radius:50%;right:-105px;top:-110px}
+.dg-hero h1{color:#fff;max-width:19ch;margin:.45rem 0 .8rem;font-size:clamp(2.15rem,5vw,4rem)}
+.dg-hero p{color:#e8f5fb;max-width:68ch;font-size:1.08rem;margin:0}
+.dg-eyebrow{font:700 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#bfeaff}
+.dg-status{display:inline-flex;align-items:center;gap:8px;max-width:100%;margin-top:18px;padding:7px 12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);border-radius:999px;font:700 11px var(--fm);line-height:1.45;letter-spacing:.04em;text-transform:uppercase;color:#fff;white-space:normal}
+.dg-status i{width:8px;height:8px;border-radius:50%;background:#f2c94c}
+.dg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 28px}.dg-stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--sh)}.dg-stat b{display:block;color:var(--ink);font-size:1.55rem}.dg-stat span{font:600 10px var(--fm);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.dg-note{border:1px solid #ead89d;background:#fff9e8;border-radius:16px;padding:18px 20px;margin:20px 0}.dg-note strong{color:#795809}.dg-note p{margin:4px 0 0}
+.dg-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 30px}.dg-flow div{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12px;font-weight:700;color:var(--ink);text-align:center}.dg-flow div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;z-index:2;color:var(--brand);transform:translateY(-50%);background:var(--bg);padding:0 3px}
+.dg-lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.dg-lens{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--brand)}.dg-lens:nth-child(2){border-top-color:var(--green)}.dg-lens:nth-child(3){border-top-color:var(--gold)}.dg-lens h3{margin:0 0 5px;font-size:1rem}.dg-lens p{margin:0;font-size:.88rem;line-height:1.55}
+.dg-part{margin:24px 0}.dg-part-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;background:#0b3f63;color:#fff;border-radius:14px 14px 0 0;padding:13px 16px}.dg-part-head b{font:700 11px var(--fm);letter-spacing:.1em;color:#9bddff}.dg-part-head span{font-weight:800}.dg-part-head small{margin-left:auto;color:#cce4f2}.dg-list{border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 14px 14px;overflow:hidden}.dg-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:16px;align-items:start;border-bottom:1px solid var(--line);text-decoration:none}.dg-row:last-child{border-bottom:0}.dg-row:hover{background:var(--brand-50);text-decoration:none}.dg-num{width:42px;height:42px;border-radius:11px;background:var(--brand-50);border:1px solid var(--brand-100);display:grid;place-items:center;color:var(--brand-700);font:800 13px var(--fm)}.dg-row h3{margin:0 0 5px;font-size:1rem}.dg-sections{font-size:.79rem;color:var(--ink-3);line-height:1.5}.dg-pill{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.dg-shell{border:1px solid #ead89d;background:linear-gradient(120deg,#fff9e8,#fff);border-radius:16px;padding:20px;margin:18px 0 26px;display:flex;gap:14px}.dg-shell-icon{width:40px;height:40px;flex:none;border-radius:12px;background:#f2c94c;display:grid;place-items:center;color:#493800;font-weight:900}.dg-shell h2{font-size:1.05rem;margin:0 0 4px}.dg-shell p{margin:0;font-size:.91rem}
+.dg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 28px}.dg-plan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.dg-plan-card .k{font:700 10px var(--fm);letter-spacing:.08em;color:var(--brand);text-transform:uppercase}.dg-plan-card h2{font-size:1.12rem;margin:7px 0}.dg-plan-card p{font-size:.9rem;margin:0}.dg-plan-card .pending{display:inline-block;margin-top:14px;font:700 9px var(--fm);text-transform:uppercase;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;border-radius:999px;padding:4px 8px}
+.dg-artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.dg-artifact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.dg-artifact b{display:block;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.dg-artifact p{font-size:.88rem;margin:0}
+.dg-gates{background:#eef8f5;border:1px solid #bfe0d4;border-radius:16px;padding:18px;margin:24px 0}.dg-gates h2{font-size:1.1rem;margin:0 0 9px}.dg-gates ul{margin:0;padding-left:20px}.dg-gates li{margin:5px 0;font-size:.88rem}
+.dg-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:30px 0}.dg-nav a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:700;font-size:.83rem}.dg-nav a:last-child{text-align:right}.dg-nav .home{text-align:center;background:var(--brand);color:#fff;border-color:var(--brand)}
+.dg-footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 38px;color:var(--ink-3);font:500 11px var(--fm)}
+@media(max-width:760px){.dg-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dg-flow{grid-template-columns:1fr}.dg-flow div:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}.dg-lenses,.dg-plan,.dg-artifacts{grid-template-columns:1fr}.dg-row{grid-template-columns:42px minmax(0,1fr)}.dg-pill{grid-column:2}.dg-nav{grid-template-columns:1fr}.dg-nav a,.dg-nav a:last-child{text-align:center}}
+@media(max-width:520px){.owos-nav{padding:0 12px}.owos-brand{gap:6px;min-width:0}.owos-wm{font-size:13px}.owos-pw{display:none}.crumb{font-size:9px;line-height:1.35;text-align:right;max-width:100px}.wrap{padding-left:16px;padding-right:16px}.dg-hero{padding:26px 20px;border-radius:20px}.dg-hero h1{font-size:2.15rem}.dg-hero p{font-size:1rem}.dg-status{border-radius:14px;font-size:9px}.dg-stat{padding:14px 12px}.dg-stat b{font-size:1.35rem}.dg-row{padding:14px 12px;gap:10px}.dg-sections{overflow-wrap:anywhere}.dg-shell{padding:16px;flex-direction:column}.dg-shell-icon{width:36px;height:36px}}
+</style>
+</head>
+<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-release-state="structure-ready-content-pending">
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-data-governance.html"><span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span><span class="owos-wm">One Water <b>OS</b></span><span class="owos-pw">Academy &middot; <em>Data Governance</em></span></a>
+  <span class="crumb"><a href="masterclass-data-governance.html">Master Class</a> / <b>Curriculum</b></span>
+</nav>
+<div id="rprog"></div>
+<main class="wrap">
+  <header class="dg-hero">
+    <div class="dg-eyebrow">OWOS Academy &middot; Utility Master Class</div>
+    <h1>Data Before AI</h1>
+    <p>Build the governance layer that makes utility data trustworthy enough for operations, regulation, capital decisions, analytics, artificial intelligence, and digital twins.</p>
+    <span class="dg-status"><i></i>Structure ready &middot; lesson development pending</span>
+  </header>
+
+  <div class="dg-stats" aria-label="Course structure">
+    <div class="dg-stat"><b>25</b><span>Chapters 00 to 24</span></div>
+    <div class="dg-stat"><b>75</b><span>Planned sections</span></div>
+    <div class="dg-stat"><b>12</b><span>Governance domains</span></div>
+    <div class="dg-stat"><b>0</b><span>Lessons released</span></div>
+  </div>
+
+  <aside class="dg-note"><strong>This is the governed course shell.</strong><p>Every destination, title, section, utility outcome, studio, and output is wired for review. The lesson bodies, interactions, checks, and completion events remain disabled until each chapter passes the OWOS release gates.</p></aside>
+
+  <h2>One source, one delivery path</h2>
+  <div class="dg-flow" aria-label="Course delivery path"><div>onewater-os curriculum</div><div>Validated native build</div><div>OWOS.ai Learn</div><div>Supabase learner records</div><div>Knowledge Graph alignment</div></div>
+
+  <h2>Choose the depth that fits your role</h2>
+  <div class="dg-lenses">
+    <article class="dg-lens"><h3>Foundation</h3><p>Plain language, utility examples, and the essential choices every participant should understand.</p></article>
+    <article class="dg-lens"><h3>Practitioner</h3><p>Deployment studios, records, controls, and evidence you can take into a utility implementation.</p></article>
+    <article class="dg-lens"><h3>Leader</h3><p>Decision rights, consequences, investment gates, assurance boundaries, and scale choices.</p></article>
+  </div>
+
+  <section id="curriculum">
+    <h2>The complete curriculum</h2>
+    <p>Open any chapter to review its exact three-section plan, learner outcome, Riverbend utility case, deployment studio, and required output.</p>
+    <section class="dg-part">
+<div class="dg-part-head"><b>ORIENTATION</b><span>Learn it, build it, prove it</span><small>1 chapter</small></div>
+<div class="dg-list"><a class="dg-row" href="module-00-how-to-use-the-master-class.html" data-chapter="00" data-release-state="content-pending">
+  <span class="dg-num">00</span>
+  <span><h3>How to use the Master Class</h3><span class="dg-sections">The promise and the boundaries. &middot; Choose your material decision. &middot; Set up the Launch Pack.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a></div>
+</section><section class="dg-part">
+<div class="dg-part-head"><b>PART A</b><span>Why data must be ready before AI</span><small>3 chapters</small></div>
+<div class="dg-list"><a class="dg-row" href="module-01-the-missing-layer-above-utility-systems.html" data-chapter="01" data-release-state="content-pending">
+  <span class="dg-num">01</span>
+  <span><h3>The missing layer above utility systems</h3><span class="dg-sections">The utility has systems, but not always accountable data. &middot; Governance becomes visible in a decision. &middot; Find the fragmentation tax.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-02-the-language-of-trustworthy-utility-data.html" data-chapter="02" data-release-state="content-pending">
+  <span class="dg-num">02</span>
+  <span><h3>The language of trustworthy utility data</h3><span class="dg-sections">Governance and management. &middot; Lineage, provenance, integrity, and traceability. &middot; Quality and data products.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-03-standards-law-and-the-applicability-record.html" data-chapter="03" data-release-state="content-pending">
+  <span class="dg-num">03</span>
+  <span><h3>Standards, law, and the applicability record</h3><span class="dg-sections">Use standards as one control system. &middot; Separate obligations from guidance and policy signals. &middot; Build the applicability record.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a></div>
+</section><section class="dg-part">
+<div class="dg-part-head"><b>PART B</b><span>Build the utility operating model</span><small>4 chapters</small></div>
+<div class="dg-list"><a class="dg-row" href="module-04-map-the-utility-data-estate-around-decisions.html" data-chapter="04" data-release-state="content-pending">
+  <span class="dg-num">04</span>
+  <span><h3>Map the utility data estate around decisions</h3><span class="dg-sections">Map physical and digital systems together. &middot; Define the minimum governed domains. &middot; Start with three to five material decisions.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-05-shared-identity-and-minimum-governed-records.html" data-chapter="05" data-release-state="content-pending">
+  <span class="dg-num">05</span>
+  <span><h3>Shared identity and minimum governed records</h3><span class="dg-sections">Name the same thing the same way. &middot; Define minimum records. &middot; Reconcile without replacing every system.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-06-trace-one-material-decision-from-source-to-outcome.html" data-chapter="06" data-release-state="content-pending">
+  <span class="dg-num">06</span>
+  <span><h3>Trace one material decision from source to outcome</h3><span class="dg-sections">Trace backward. &middot; Trace forward. &middot; Govern every handoff.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-07-roles-stewardship-forums-and-the-operating-rhythm.html" data-chapter="07" data-release-state="content-pending">
+  <span class="dg-num">07</span>
+  <span><h3>Roles, stewardship, forums, and the operating rhythm</h3><span class="dg-sections">Put accountability in the right seats. &middot; Design forums and escalation. &middot; Run governance through normal work.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a></div>
+</section><section class="dg-part">
+<div class="dg-part-head"><b>PART C</b><span>Operate the twelve governance domains</span><small>12 chapters</small></div>
+<div class="dg-list"><a class="dg-row" href="module-08-d01-strategy-value-and-decision-rights.html" data-chapter="08" data-release-state="content-pending">
+  <span class="dg-num">08</span>
+  <span><h3>D01: Strategy, value, and decision rights</h3><span class="dg-sections">Set scope and principles. &middot; Tie governance to utility value and risk. &middot; Fund and govern the roadmap.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-09-d02-accountability-and-stewardship.html" data-chapter="09" data-release-state="content-pending">
+  <span class="dg-num">09</span>
+  <span><h3>D02: Accountability and stewardship</h3><span class="dg-sections">Name owners and stewards for critical domains and products. &middot; Resolve cross-functional decisions. &middot; Control conflicting and third-party duties.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-10-d03-metadata-catalog-and-semantics.html" data-chapter="10" data-release-state="content-pending">
+  <span class="dg-num">10</span>
+  <span><h3>D03: Metadata, catalog, and semantics</h3><span class="dg-sections">Inventory what exists and why it matters. &middot; Govern shared meaning. &middot; Keep metadata current through change.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-11-d04-lineage-provenance-and-traceability.html" data-chapter="11" data-release-state="content-pending">
+  <span class="dg-num">11</span>
+  <span><h3>D04: Lineage, provenance, and traceability</h3><span class="dg-sections">Capture source-to-consumption lineage. &middot; Record transformation provenance. &middot; Use lineage to answer real questions.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-12-d05-data-quality-and-observability.html" data-chapter="12" data-release-state="content-pending">
+  <span class="dg-num">12</span>
+  <span><h3>D05: Data quality and observability</h3><span class="dg-sections">Define fitness by use and consequence. &middot; Measure the full path. &middot; Correct causes and inform consumers.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-13-d06-integrity-security-and-resilience.html" data-chapter="13" data-release-state="content-pending">
+  <span class="dg-num">13</span>
+  <span><h3>D06: Integrity, security, and resilience</h3><span class="dg-sections">Authorize access and change. &middot; Detect improper alteration. &middot; Recover the data and the proof.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-14-d07-privacy-rights-ethics-and-transparency.html" data-chapter="14" data-release-state="content-pending">
+  <span class="dg-num">14</span>
+  <span><h3>D07: Privacy, rights, ethics, and transparency</h3><span class="dg-sections">State purpose and authority before use. &middot; Make rights and redress work. &middot; Assess high-impact analytics and AI.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-15-d08-lifecycle-retention-and-records.html" data-chapter="15" data-release-state="content-pending">
+  <span class="dg-num">15</span>
+  <span><h3>D08: Lifecycle, retention, and records</h3><span class="dg-sections">Name the system of record and the lifecycle. &middot; Map retention and holds. &middot; Prove deletion and preservation.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-16-d09-sharing-openness-third-parties-and-sovereignty.html" data-chapter="16" data-release-state="content-pending">
+  <span class="dg-num">16</span>
+  <span><h3>D09: Sharing, openness, third parties, and sovereignty</h3><span class="dg-sections">Choose open, shared, or closed deliberately. &middot; Make terms travel with the data. &middot; Control vendors, cloud, and location.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-17-d10-utility-ot-assets-and-digital-twin-governance.html" data-chapter="17" data-release-state="content-pending">
+  <span class="dg-num">17</span>
+  <span><h3>D10: Utility OT, assets, and digital-twin governance</h3><span class="dg-sections">Connect the utility information model. &middot; Govern telemetry and physical change. &middot; Exercise the critical data path.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-18-d11-ai-and-analytics-data-governance.html" data-chapter="18" data-release-state="content-pending">
+  <span class="dg-num">18</span>
+  <span><h3>D11: AI and analytics data governance</h3><span class="dg-sections">Inventory the use case and its data. &middot; Test suitability for the utility context. &middot; Gate, monitor, and retire.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-19-d12-evidence-assurance-and-continuous-improvement.html" data-chapter="19" data-release-state="content-pending">
+  <span class="dg-num">19</span>
+  <span><h3>D12: Evidence, assurance, and continuous improvement</h3><span class="dg-sections">Control the evidence. &middot; Separate design, operation, and assurance. &middot; Close findings so they stay closed.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a></div>
+</section><section class="dg-part">
+<div class="dg-part-head"><b>PART D</b><span>Assess, decide, and fund the work</span><small>3 chapters</small></div>
+<div class="dg-list"><a class="dg-row" href="module-20-run-an-evidence-backed-utility-assessment.html" data-chapter="20" data-release-state="content-pending">
+  <span class="dg-num">20</span>
+  <span><h3>Run an evidence-backed utility assessment</h3><span class="dg-sections">Frame and sample. &middot; Score practice and proof separately. &middot; Calibrate and challenge.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-21-turn-findings-into-a-funded-roadmap.html" data-chapter="21" data-release-state="content-pending">
+  <span class="dg-num">21</span>
+  <span><h3>Turn findings into a funded roadmap</h3><span class="dg-sections">Write a finding that can be acted on. &middot; Separate transactions from operating change. &middot; Sequence the horizons.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-22-launch-governance-in-90-days.html" data-chapter="22" data-release-state="content-pending">
+  <span class="dg-num">22</span>
+  <span><h3>Launch governance in 90 days</h3><span class="dg-sections">Days 1 to 30, frame and select. &middot; Days 31 to 60, trace and test. &middot; Days 61 to 90, decide and fund.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a></div>
+</section><section class="dg-part">
+<div class="dg-part-head"><b>PART E</b><span>Build governed products and scale safely</span><small>2 chapters</small></div>
+<div class="dg-list"><a class="dg-row" href="module-23-governed-data-products-and-the-shared-application-spine.html" data-chapter="23" data-release-state="content-pending">
+  <span class="dg-num">23</span>
+  <span><h3>Governed data products and the shared application spine</h3><span class="dg-sections">Define the governed product. &middot; Build one shared information spine. &middot; Release through gates and evidence.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a><a class="dg-row" href="module-24-from-governed-data-to-digital-twins-decision-twin-and-scale.html" data-chapter="24" data-release-state="content-pending">
+  <span class="dg-num">24</span>
+  <span><h3>From governed data to digital twins, Decision Twin, and scale</h3><span class="dg-sections">Choose the supported capability phase. &middot; Learn from public cases without overclaiming. &middot; Scale through reuse and continuous assurance.</span></span>
+  <span class="dg-pill">Shell ready</span>
+</a></div>
+</section>
+  </section>
+
+  <section class="dg-part">
+    <div class="dg-part-head"><b>APPLIED CAPSTONE</b><span>Deploy one governed utility decision chain</span><small>20-artifact Launch Pack</small></div>
+    <div class="dg-list"><div class="dg-row"><span class="dg-num">CP</span><span><h3>Prove the operating model on one material decision</h3><span class="dg-sections">Decision chain &middot; evidence &middot; 90-day launch &middot; funded roadmap &middot; assurance boundary</span></span><span class="dg-pill">Design ready</span></div></div>
+  </section>
+</main>
+<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Structure version 0.13.0</div></footer>
+<script src="../../../core/components/academy.js"></script>
+</body></html>

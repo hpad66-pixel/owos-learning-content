@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 20: Run an evidence-backed utility assessment &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 20 shell for Run an evidence-backed utility assessment in the OWOS utility Data and AI Governance Master Class.">
+<meta name="owos-course-id" content="owos-master-data-governance-001">
+<meta name="owos-course-store" content="dga001">
+<meta name="owos-release-state" content="structure-ready-content-pending">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+<style>
+html,body{max-width:100%;overflow-x:hidden}
+.dg-hero{margin:28px 0 24px;padding:32px;border-radius:24px;background:linear-gradient(135deg,#083a5c,#0a78ba 62%,#15937a);color:#fff;box-shadow:0 20px 60px rgba(8,58,92,.2);overflow:hidden;position:relative}
+.dg-hero:after{content:"";position:absolute;width:280px;height:280px;border:54px solid rgba(255,255,255,.08);border-radius:50%;right:-105px;top:-110px}
+.dg-hero h1{color:#fff;max-width:19ch;margin:.45rem 0 .8rem;font-size:clamp(2.15rem,5vw,4rem)}
+.dg-hero p{color:#e8f5fb;max-width:68ch;font-size:1.08rem;margin:0}
+.dg-eyebrow{font:700 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#bfeaff}
+.dg-status{display:inline-flex;align-items:center;gap:8px;max-width:100%;margin-top:18px;padding:7px 12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);border-radius:999px;font:700 11px var(--fm);line-height:1.45;letter-spacing:.04em;text-transform:uppercase;color:#fff;white-space:normal}
+.dg-status i{width:8px;height:8px;border-radius:50%;background:#f2c94c}
+.dg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 28px}.dg-stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--sh)}.dg-stat b{display:block;color:var(--ink);font-size:1.55rem}.dg-stat span{font:600 10px var(--fm);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.dg-note{border:1px solid #ead89d;background:#fff9e8;border-radius:16px;padding:18px 20px;margin:20px 0}.dg-note strong{color:#795809}.dg-note p{margin:4px 0 0}
+.dg-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 30px}.dg-flow div{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12px;font-weight:700;color:var(--ink);text-align:center}.dg-flow div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;z-index:2;color:var(--brand);transform:translateY(-50%);background:var(--bg);padding:0 3px}
+.dg-lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.dg-lens{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--brand)}.dg-lens:nth-child(2){border-top-color:var(--green)}.dg-lens:nth-child(3){border-top-color:var(--gold)}.dg-lens h3{margin:0 0 5px;font-size:1rem}.dg-lens p{margin:0;font-size:.88rem;line-height:1.55}
+.dg-part{margin:24px 0}.dg-part-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;background:#0b3f63;color:#fff;border-radius:14px 14px 0 0;padding:13px 16px}.dg-part-head b{font:700 11px var(--fm);letter-spacing:.1em;color:#9bddff}.dg-part-head span{font-weight:800}.dg-part-head small{margin-left:auto;color:#cce4f2}.dg-list{border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 14px 14px;overflow:hidden}.dg-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:16px;align-items:start;border-bottom:1px solid var(--line);text-decoration:none}.dg-row:last-child{border-bottom:0}.dg-row:hover{background:var(--brand-50);text-decoration:none}.dg-num{width:42px;height:42px;border-radius:11px;background:var(--brand-50);border:1px solid var(--brand-100);display:grid;place-items:center;color:var(--brand-700);font:800 13px var(--fm)}.dg-row h3{margin:0 0 5px;font-size:1rem}.dg-sections{font-size:.79rem;color:var(--ink-3);line-height:1.5}.dg-pill{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.dg-shell{border:1px solid #ead89d;background:linear-gradient(120deg,#fff9e8,#fff);border-radius:16px;padding:20px;margin:18px 0 26px;display:flex;gap:14px}.dg-shell-icon{width:40px;height:40px;flex:none;border-radius:12px;background:#f2c94c;display:grid;place-items:center;color:#493800;font-weight:900}.dg-shell h2{font-size:1.05rem;margin:0 0 4px}.dg-shell p{margin:0;font-size:.91rem}
+.dg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 28px}.dg-plan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.dg-plan-card .k{font:700 10px var(--fm);letter-spacing:.08em;color:var(--brand);text-transform:uppercase}.dg-plan-card h2{font-size:1.12rem;margin:7px 0}.dg-plan-card p{font-size:.9rem;margin:0}.dg-plan-card .pending{display:inline-block;margin-top:14px;font:700 9px var(--fm);text-transform:uppercase;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;border-radius:999px;padding:4px 8px}
+.dg-artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.dg-artifact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.dg-artifact b{display:block;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.dg-artifact p{font-size:.88rem;margin:0}
+.dg-gates{background:#eef8f5;border:1px solid #bfe0d4;border-radius:16px;padding:18px;margin:24px 0}.dg-gates h2{font-size:1.1rem;margin:0 0 9px}.dg-gates ul{margin:0;padding-left:20px}.dg-gates li{margin:5px 0;font-size:.88rem}
+.dg-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:30px 0}.dg-nav a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:700;font-size:.83rem}.dg-nav a:last-child{text-align:right}.dg-nav .home{text-align:center;background:var(--brand);color:#fff;border-color:var(--brand)}
+.dg-footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 38px;color:var(--ink-3);font:500 11px var(--fm)}
+@media(max-width:760px){.dg-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dg-flow{grid-template-columns:1fr}.dg-flow div:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}.dg-lenses,.dg-plan,.dg-artifacts{grid-template-columns:1fr}.dg-row{grid-template-columns:42px minmax(0,1fr)}.dg-pill{grid-column:2}.dg-nav{grid-template-columns:1fr}.dg-nav a,.dg-nav a:last-child{text-align:center}}
+@media(max-width:520px){.owos-nav{padding:0 12px}.owos-brand{gap:6px;min-width:0}.owos-wm{font-size:13px}.owos-pw{display:none}.crumb{font-size:9px;line-height:1.35;text-align:right;max-width:100px}.wrap{padding-left:16px;padding-right:16px}.dg-hero{padding:26px 20px;border-radius:20px}.dg-hero h1{font-size:2.15rem}.dg-hero p{font-size:1rem}.dg-status{border-radius:14px;font-size:9px}.dg-stat{padding:14px 12px}.dg-stat b{font-size:1.35rem}.dg-row{padding:14px 12px;gap:10px}.dg-sections{overflow-wrap:anywhere}.dg-shell{padding:16px;flex-direction:column}.dg-shell-icon{width:36px;height:36px}}
+</style>
+</head>
+<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-module="20" data-release-state="content-pending">
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-data-governance.html"><span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span><span class="owos-wm">One Water <b>OS</b></span><span class="owos-pw">Academy &middot; <em>Data Governance</em></span></a>
+  <span class="crumb"><a href="masterclass-data-governance.html">Master Class</a> / <b>Chapter 20</b></span>
+</nav>
+<div id="rprog"></div>
+<main class="wrap">
+  <header class="dg-hero">
+    <div class="dg-eyebrow">PART D &middot; Assess, decide, and fund the work &middot; Core</div>
+    <h1>Run an evidence-backed utility assessment</h1>
+    <p>run a structured interview; trace minimum decision samples; distinguish documented design from operation and assurance; score without allowing unsupported confidence.</p>
+    <span class="dg-status"><i></i>Chapter 20 shell &middot; content pending</span>
+  </header>
+
+  <section class="dg-shell" role="status">
+    <div class="dg-shell-icon">20</div>
+    <div><h2>Structure is wired; the lesson is not released.</h2><p>This page preserves the approved syllabus plan and navigation. It intentionally contains no completion event, scored assessment, or credential claim. Those activate only after the full lesson passes content, interaction, evidence, accessibility, and utility-pilot review.</p></div>
+  </section>
+
+  <h2>What the learner will be able to do</h2>
+  <p>run a structured interview; trace minimum decision samples; distinguish documented design from operation and assurance; score without allowing unsupported confidence.</p>
+
+  <div class="dg-plan"><article class="dg-plan-card">
+  <span class="k">Section 1 of 3</span>
+  <h2>Frame and sample.</h2>
+  <p>Confirm scope, services, utility type, jurisdiction, decisions, systems, suppliers, interview seats, decision samples, and evidence requests.</p>
+  <span class="pending">Content development pending</span>
+</article><article class="dg-plan-card">
+  <span class="k">Section 2 of 3</span>
+  <h2>Score practice and proof separately.</h2>
+  <p>Record maturity from 0 to 5, evidence confidence from 0 to 4, consequence, urgency, applicability, competing views, and adjusted score.</p>
+  <span class="pending">Content development pending</span>
+</article><article class="dg-plan-card">
+  <span class="k">Section 3 of 3</span>
+  <h2>Calibrate and challenge.</h2>
+  <p>Use worked examples, assessor comparison, disagreement logs, sensitivity tests, utility overlays, and independent review to improve repeatability.</p>
+  <span class="pending">Content development pending</span>
+</article></div>
+
+  <h2>The utility deployment thread</h2>
+  <div class="dg-artifacts">
+    <article class="dg-artifact"><b>Riverbend utility case</b><p>compare self-ratings from operations, data, cyber, legal, and audit for the same overflow decision, then resolve differences through evidence rather than authority alone.</p></article>
+    <article class="dg-artifact"><b>Deployment Studio</b><p>assessment plan, interview guide, evidence request, 60-criterion workbook, decision samples, scoring record, disagreement log, and calibration test.</p></article>
+    <article class="dg-artifact"><b>Chapter output</b><p>evidence-backed baseline assessment.</p></article>
+  </div>
+
+  <section class="dg-gates"><h2>What must be added before release</h2><ul><li>Complete utility lesson narrative at Foundation, Practitioner, and Leader depth</li><li>Approved diagrams or simulations selected from the OWOS visual system</li><li>Varied knowledge checks with explanatory feedback and critical-gate handling</li><li>Citations, applicability boundaries, accessible interactions, and mobile visual review</li><li>Supabase completion rule and Knowledge Graph alignments verified against the released version</li></ul></section>
+
+  <nav class="dg-nav" aria-label="Chapter navigation"><a href="module-19-d12-evidence-assurance-and-continuous-improvement.html">&larr; Chapter 19</a><a class="home" href="masterclass-data-governance.html">All 25 chapters</a><a href="module-21-turn-findings-into-a-funded-roadmap.html">Chapter 21 &rarr;</a></nav>
+</main>
+<footer class="dg-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:20 &middot; Content status: pending</div></footer>
+<script src="../../../core/components/academy.js"></script>
+</body></html>
