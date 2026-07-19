@@ -3,7 +3,7 @@
 The Markdown list of every visual in `component-gallery.html`. Open the gallery to see them rendered
 live. Pick the one that fits the idea. Do not reuse the same shape across a chapter.
 
-**Last updated:** 2026-07-19 &middot; **v0.20.0**
+**Last updated:** 2026-07-19 &middot; **v0.21.0**
 
 ## Parts of a whole, and balance
 | Component | Kind | Use when |
@@ -23,6 +23,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Swimlane | Process | who does what, across the steps |
 | Timeline / roadmap | Process | milestones along a time axis |
 | Handoff simulator | Interactive process | step through fragmented and governed versions of a cross-system handoff |
+| Applicability gate | Interactive decision tree | run controlled source, scope, trigger, incorporation, reviewer, and evidence gates before recording an applicability conclusion |
 
 ## Trade-off and position
 | Component | Kind | Use when |
@@ -37,6 +38,8 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 |---|---|---|
 | Network / wire diagram | Diagram | things connected by lines (a graph, a SCADA network) |
 | Provenance network | Interactive diagram | step through entities, activities, agents, versions, and evidence relationships |
+| Utility data estate map | Interactive diagram | filter a connected physical, operational, enterprise, supplier, model, authority, and decision network by use |
+| Shared identity bridge | Interactive simulation | resolve exact and approved identifier mappings, calculate controlled match rate, and preserve conflicts in a steward queue |
 | Tree / WBS | Diagram | a breakdown or hierarchy |
 | RACI grid | Framework | who is Responsible / Accountable / Consulted / Informed |
 | Fishbone (Ishikawa) | Diagram | finding the root causes of a problem |

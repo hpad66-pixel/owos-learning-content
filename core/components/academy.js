@@ -1085,6 +1085,46 @@
     b.querySelector('[data-use]').addEventListener('change',paint);b.querySelectorAll('input[type="range"]').forEach(function(input){input.addEventListener('input',paint);});paint();
   };
 
+  R.applicability=function(el){var c=cfgOf(el),scenarios=c.scenarios||[],selected=0,gate=-1;
+    var tabs=scenarios.map(function(s,i){return '<button data-s="'+i+'"'+(i===0?' class="on"':'')+'>'+s.label+'</button>';}).join('');
+    var b=shell(el,'<div class="aptabs">'+tabs+'</div><div class="apcase" data-case></div><div class="apgates" data-gates></div><div class="apctrl"><button data-reset>Reset</button><button class="primary" data-run>Run next gate</button><span data-count></span></div><div class="apresult" data-result aria-live="polite"></div><div class="apboundary">'+(c.boundary||'This teaching tool structures an applicability review. It does not make a legal conclusion. Use the current controlled source, facts, authorized legal or regulatory reviewer, and retained evidence.')+'</div>');
+    function stateLabel(state){return state==='pass'?'supported':state==='fail'?'not supported':'review needed';}
+    function paint(){var s=scenarios[selected]||{gates:[]},g=s.gates||[];
+      b.querySelector('[data-case]').innerHTML='<b>'+s.authority+'</b><span>'+(s.facts||'')+'</span>';
+      b.querySelector('[data-gates]').innerHTML=g.map(function(x,i){var seen=i<=gate,active=i===gate;return '<article class="apgate '+(seen?(x.state||'review'):'pending')+(active?' active':'')+'"><i>'+(i+1)+'</i><div><b>'+x.label+'</b><span>'+(seen?x.detail:'Run the gate to examine this fact.')+'</span></div><em>'+(seen?stateLabel(x.state):'pending')+'</em></article>';}).join('');
+      var complete=gate>=g.length-1&&g.length;b.querySelector('[data-count]').textContent=Math.max(0,gate+1)+' / '+g.length;b.querySelector('[data-run]').disabled=complete;
+      var out=b.querySelector('[data-result]');if(complete){out.className='apresult '+(s.resultClass||'review');out.innerHTML='<b>'+s.result+'</b> '+s.basis;}else{out.className='apresult';out.textContent='Run every gate before recording an applicability decision.';}
+    }
+    b.querySelectorAll('[data-s]').forEach(function(btn){btn.addEventListener('click',function(){selected=+btn.dataset.s;gate=-1;b.querySelectorAll('[data-s]').forEach(function(x){x.classList.toggle('on',x===btn);});paint();});});
+    b.querySelector('[data-run]').addEventListener('click',function(){var g=(scenarios[selected]||{gates:[]}).gates||[];if(gate<g.length-1)gate++;paint();});
+    b.querySelector('[data-reset]').addEventListener('click',function(){gate=-1;paint();});paint();
+  };
+
+  R.estatemap=function(el){var c=cfgOf(el),nodes=c.nodes||[],edges=c.edges||[],views=c.views||[{label:'Whole estate',focus:[]}],selected=0;
+    var legend=(c.legend||[]).map(function(x){return '<span><i style="background:'+x.color+'"></i>'+x.label+'</span>';}).join('');
+    var tabs=views.map(function(v,i){return '<button data-v="'+i+'"'+(i===0?' class="on"':'')+'>'+v.label+'</button>';}).join('');
+    var b=shell(el,'<div class="emtabs">'+tabs+'</div><div class="emstage"><svg viewBox="0 0 780 390" role="img" aria-label="'+(c.ariaLabel||'Utility data estate map')+'" data-svg></svg></div><div class="emlegend">'+legend+'</div><div class="emnarr" data-narr aria-live="polite"></div>');
+    function color(kind){var found=(c.legend||[]).find(function(x){return x.kind===kind;});return found?found.color:'#0A78BA';}
+    function paint(){var view=views[selected]||{focus:[]},focus=view.focus||[],all=!focus.length;
+      var edgeHtml=edges.map(function(e){var a=nodes.find(function(n){return n.id===e.from;}),z=nodes.find(function(n){return n.id===e.to;});if(!a||!z)return '';var on=all||(focus.includes(e.from)&&focus.includes(e.to));return '<g class="emedge'+(on?' on':'')+'"><line x1="'+a.x+'" y1="'+a.y+'" x2="'+z.x+'" y2="'+z.y+'" marker-end="url(#em-arrow)"/><text x="'+((a.x+z.x)/2)+'" y="'+(((a.y+z.y)/2)-6)+'">'+(e.label||'')+'</text></g>';}).join('');
+      var nodeHtml=nodes.map(function(n){var on=all||focus.includes(n.id),w=n.w||136,h=n.h||58;return '<g class="emnode'+(on?' on':'')+'" transform="translate('+(n.x-w/2)+' '+(n.y-h/2)+')"><rect width="'+w+'" height="'+h+'" rx="12"/><circle cx="16" cy="16" r="6" fill="'+color(n.kind)+'"/><text class="main" x="'+(w/2)+'" y="'+(h/2-2)+'">'+n.label+'</text><text class="sub" x="'+(w/2)+'" y="'+(h/2+15)+'">'+(n.sub||'')+'</text></g>';}).join('');
+      b.querySelector('[data-svg]').innerHTML='<defs><marker id="em-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8595AB"/></marker></defs>'+edgeHtml+nodeHtml;
+      b.querySelector('[data-narr]').innerHTML='<b>'+view.label+'.</b> '+(view.body||'Every material system, file, service, interface, supplier, and manual step should connect to the decision it supports.');
+    }
+    b.querySelectorAll('[data-v]').forEach(function(btn){btn.addEventListener('click',function(){selected=+btn.dataset.v;b.querySelectorAll('[data-v]').forEach(function(x){x.classList.toggle('on',x===btn);});paint();});});paint();
+  };
+
+  R.identitybridge=function(el){var c=cfgOf(el),records=c.records||[],stage=0;
+    var b=shell(el,'<div class="ibcanonical"><span>Governed identity</span><b>'+(c.canonical||'Canonical asset identifier')+'</b><small>'+(c.canonicalDetail||'One controlled identity, not one replacement system')+'</small></div><div class="ibrecords" data-records></div><div class="ibctrl"><button data-reset>Reset</button><button class="primary" data-step>Run next control</button><span data-count></span></div><div class="ibmetrics"><article><b data-match>0%</b><span>controlled match rate</span></article><article><b data-ex>0</b><span>exceptions queued</span></article><article><b data-guess>0</b><span>guesses accepted</span></article></div><div class="ibnarr" data-narr aria-live="polite"></div>');
+    function status(r){if(stage===0)return 'raw';if(r.status==='exact')return 'matched';if(stage>=2&&r.status==='mapped')return 'matched';if(stage>=3&&(r.status==='conflict'||r.status==='nickname'))return 'exception';return 'pending';}
+    function paint(){var matched=0,exceptions=0;
+      b.querySelector('[data-records]').innerHTML=records.map(function(r){var s=status(r);if(s==='matched')matched++;if(s==='exception')exceptions++;return '<article class="ibrecord '+s+'"><div><span>'+r.system+'</span><b>'+r.id+'</b><small>'+r.detail+'</small></div><em>'+({'raw':'uncontrolled','pending':'waiting','matched':'linked','exception':'exception queue'})[s]+'</em></article>';}).join('');
+      b.querySelector('[data-match]').textContent=records.length?Math.round(matched/records.length*100)+'%':'0%';b.querySelector('[data-ex]').textContent=exceptions;b.querySelector('[data-guess]').textContent='0';b.querySelector('[data-count]').textContent=stage+' / 3';b.querySelector('[data-step]').disabled=stage>=3;
+      var notes=[c.rawNote||'The same real-world thing has several local identifiers. Similar text is evidence to examine, not permission to merge.',c.exactNote||'Exact governed identifiers can link automatically when source, format, and scope rules are satisfied.',c.mappedNote||'Approved crosswalks link legitimate local identifiers to the governed identity and preserve the source values.',c.exceptionNote||'Conflicts and nicknames go to a named steward with supporting evidence. No uncertain pair is silently forced into a match.'];b.querySelector('[data-narr]').innerHTML='<b>'+['Observe','Exact-match control','Approved mapping control','Exception control'][stage]+'.</b> '+notes[stage];
+    }
+    b.querySelector('[data-step]').addEventListener('click',function(){if(stage<3)stage++;paint();});b.querySelector('[data-reset]').addEventListener('click',function(){stage=0;paint();});paint();
+  };
+
   /* ---- boot ---- */
   function boot(){
     injectDroobi();

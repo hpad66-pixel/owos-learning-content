@@ -3,6 +3,27 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.21.0] - 2026-07-19
+### Added: Data Governance Chapters 03 through 05
+- Released Chapter 03, "Standards, law, and the applicability record," with an authority stack,
+  standards-to-jobs crosswalk, authority classification, legal applicability gate, jurisdiction-change
+  cycle, register builder, source-edition review, evidence gate, and completion event for `dga001:03`.
+- Released Chapter 04, "Map the utility data estate around decisions," with a filterable physical and
+  digital estate network, minimum utility-domain tree, governed interface simulation, decision-priority
+  matrix, weighted shortlist, estate-map builder, reconstruction method, and completion event for
+  `dga001:04`.
+- Released Chapter 05, "Shared identity and minimum governed records," with an evidence-based identity
+  bridge, controlled match-rate chart, duplicate-impact model, minimum-record stack and profiles,
+  identity-resolution cycle, two deployment builders, change test, and completion event for `dga001:05`.
+- Added reusable `applicability`, `estatemap`, and `identitybridge` Academy components, documented and
+  rendered in the shared component gallery.
+
+### Changed
+- Changed the Data Governance mixed release to six available lessons and 19 governed content-pending
+  destinations.
+- Bumped governed course metadata, root version, component catalog, build manifest, landing page, and
+  release event keys to 0.21.0.
+
 ## [0.20.0] - 2026-07-19
 ### Added: Data Governance Chapter 02
 - Released the complete utility deployment lesson, "The language of trustworthy utility data," using
