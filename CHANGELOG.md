@@ -3,6 +3,22 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.23.0] - 2026-07-19
+### Added: PM Chapter 16
+- Released Chapter 16, "The capital life cycle and the rules that shape it," covering the utility
+  capital project life cycle with stage gates, the regulatory landscape (Safe Drinking Water Act,
+  Lead and Copper Rule, PFAS, Clean Water Act NPDES and Section 404), and environmental permitting
+  as a schedule driver.
+- Added reusable `permitsim` component: tick the attributes of a job, see which approvals it triggers,
+  and watch whether the longest approval exceeds design and bid duration and therefore lands on the
+  critical path.
+- Added reusable `backplan` component: work backwards from a fixed compliance deadline through phase
+  durations to the latest responsible start date, with a red verdict when that date has already passed.
+
+### Fixed
+- Corrected the Chapter 16 life-cycle component config, which used the wrong key names for the
+  `process` renderer and silently rendered an empty body.
+
 ## [0.22.0] - 2026-07-19
 
 ### Added
