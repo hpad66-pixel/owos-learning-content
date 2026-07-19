@@ -233,6 +233,35 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .dashoverall.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.dashoverall.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.dashoverall.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
 .dashnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.dashnote b{color:var(--ink)}
 
+/* ---- tco: life-cycle cost, where the winner flips ---- */
+.tcogrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:640px){.tcogrid{grid-template-columns:1fr}}
+.tcocard{padding:13px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:13px}
+.tcocard.on{border-color:var(--brand);background:var(--brand-50);box-shadow:0 0 0 2px var(--brand-100)}
+.tcocard .tt{font-weight:800;color:var(--ink);font-size:14.5px;margin-bottom:7px}
+.tcocard .ln{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin:2px 0}
+.tcocard .ln b{font-family:var(--fm);color:var(--ink)}
+.tcobar{display:flex;height:13px;border-radius:7px;overflow:hidden;background:var(--surface-3);margin:10px 0 8px}
+.tcobar i{display:block;height:100%;transition:width .25s}
+.tcobar i.cap{background:var(--brand-800)}.tcobar i.om{background:#8FC7E8}
+.tcocard .tot{font-size:13.5px;color:var(--ink)}.tcocard .tot b{font-family:var(--fm);font-size:15px}
+.tcocard .win{font:700 10.5px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--green);min-height:14px;margin-top:3px}
+.tconote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- firmcap: installed versus firm capacity ---- */
+.fcchk{display:flex;margin:4px 0 12px;max-width:340px}
+.fcunits{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.fcunit{flex:1;min-width:104px;padding:10px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px}
+.fcunit .un{display:block;font-size:12.5px;font-weight:600;color:var(--ink)}
+.fcunit .uc{display:block;font:700 14px var(--fm);color:var(--brand);margin-top:2px}
+.fcunit.down{background:var(--red-50);border-color:#EAC7C0;opacity:.75}
+.fcunit.down .uc{color:var(--red);text-decoration:line-through}
+.fcunit .ud{display:inline-block;margin-top:3px;font:700 9.5px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.fcout{padding:12px 15px;border-radius:12px;font-size:14.5px}
+.fcout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.fcout.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.fcnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
 /* ---- controls: hierarchy of controls and residual risk ---- */
 .hzq{padding:11px 14px;background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;font-size:14px;color:var(--ink);font-weight:600;margin-bottom:14px}
 .ctlad{display:flex;flex-direction:column;gap:7px}

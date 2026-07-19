@@ -3,6 +3,17 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.26.0] - 2026-07-19
+### Added: PM Chapter 18
+- Released Chapter 18, "Asset management, digital delivery, and resilience," covering life-cycle cost
+  and best value procurement, the handover operations actually needs, GIS versus BIM versus SCADA,
+  and resilience through firm capacity and the One Water idea.
+- Added reusable `tco` component: two options with different capital and annual costs, and a slider for
+  the evaluation period. The winner flips at the crossover year, which is the whole life-cycle costing
+  argument made visible.
+- Added reusable `firmcap` component: installed capacity versus firm capacity. Take the largest unit out
+  of service and watch a comfortable-looking system fall short of peak day demand.
+
 ## [0.25.0] - 2026-07-19
 ### Added: PM Chapter 17
 - Released Chapter 17, "Safety, locates, and commissioning," covering the hierarchy of controls,

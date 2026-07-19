@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 18 &middot; Asset management, digital and resilience &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 18 of the Project Management masterclass. Asset management and handover to operations, digital delivery with GIS, BIM and SCADA, and resilience, sustainability and the One Water idea.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 18</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 18 &middot; The next thirty years</span>
+  <h1>Asset management, digital delivery, and <span>resilience</span></h1>
+  <p class="sub">Your project lasts two years. The asset lasts fifty. This chapter is about the difference: how the decisions you make during delivery determine what operations inherits, what it costs to run, and whether it still works on the worst day.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job, about to become an asset</p>
+      <p><b>Millpond Road is nearly complete.</b> In a few weeks it stops being a project and becomes 6,000 feet of main, two valves, and a pressure monitoring point that somebody has to operate, maintain, locate, and eventually replace. Meanwhile the utility is choosing pumps for the wellfield treatment job, and the low bid is not the cheap option.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Argue a decision on life-cycle cost instead of capital cost, with numbers</li>
+    <li><span class="bx"></span> Hand over an asset so operations can actually run it</li>
+    <li><span class="bx"></span> Say what GIS, BIM and SCADA each are for, and specify the data as a deliverable</li>
+    <li><span class="bx"></span> Tell installed capacity from firm capacity, and plan resilience against the right one</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 3</span>
+    <h2>Asset management and the handover to operations</h2>
+    <p><span class="term" data-term="Asset management" data-def="The practice of getting the required level of service from physical assets at the lowest total cost over their whole life, by deciding deliberately when to maintain, rehabilitate, or replace them.">Asset management</span> asks a question projects rarely ask: what will this cost to own? The tool for answering it is <span class="term" data-term="Life-cycle cost" data-def="The total cost of an asset across its whole life: the cost to build it plus the cost to run, maintain, and eventually replace it. Almost always dominated by the running costs, not the capital cost.">life-cycle cost</span>, and the reason it matters is that procurement rewards the capital number while the utility pays the ownership number. Two real pump options for the wellfield. Drag the evaluation period.</p>
+
+    <div data-ac="tco" data-title="The pump decision, over time" data-kind="Interactive &middot; simulation" data-cue="Start at 10 years, where the cheaper bid wins. Now drag toward 50, the life the utility will actually keep these pumps.">
+      <script type="application/json">
+      {"start":10,"minYears":5,"maxYears":50,
+       "a":{"name":"Option A: low bid","capital":1200000,"annual":180000},
+       "b":{"name":"Option B: high efficiency","capital":1650000,"annual":110000}}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>The crossover lands at about seven years, and the pumps will run for thirty. Over those thirty years Option A totals $6.6 million against Option B's $4.95 million, so the bid that looked $450,000 cheaper costs the utility about $1.65 million more to own, almost all of it in energy. This is not an exotic finding, it is the normal shape of pump, motor, and treatment decisions, and it is why <span class="term" data-term="Best value procurement" data-def="A procurement approach that scores bids on total value, including life-cycle and energy cost, rather than awarding automatically to the lowest capital price.">best value procurement</span> exists. If your evaluation criteria only count the capital number, you have guaranteed the expensive answer in advance, and no amount of good project management afterwards recovers it.</p>
+    </div>
+
+    <p>When the asset is finished, operations inherits it. What they receive determines what they can do with it for the next thirty years.</p>
+
+    <div data-ac="table" data-title="What operations actually needs at handover" data-kind="Interactive &middot; comparison table" data-cue="Click each item. Ask yourself honestly which of these your last project delivered on time.">
+      <script type="application/json">
+      {"headers":["What they need","Why it matters","What happens without it"],
+       "rows":[
+        {"name":"Record drawings","cells":["Where things actually ended up, not where they were designed","Crews dig blind in ten years"],
+         "detail":"Field conditions change alignments constantly. Drawings marked up during construction and delivered as record drawings are the only durable memory of what was really built. Without them the next project pays for exploratory excavation to find your pipe, and a locate ticket cannot mark what nobody recorded."},
+        {"name":"Asset data in the right format","cells":["Every asset with an identifier, material, size, and install date","The asset never enters the maintenance system"],
+         "detail":"An asset that is not in the computerized maintenance management system does not get inspected, does not get maintained, and does not appear in any renewal plan. It simply runs until it fails. Specify the data format in the contract, because retrofitting it later costs far more than collecting it during construction."},
+        {"name":"Operation and maintenance manuals","cells":["How to run it, service it, and what the spare parts are","Staff learn by trial on live infrastructure"],
+         "detail":"Generic manufacturer binders are not enough. Operations needs the as-installed configuration, the setpoints, the isolation procedure, and the parts list for what was actually put in, not for the catalogue model."},
+        {"name":"Training on the real equipment","cells":["The people who will run it, on the thing itself","Knowledge lives with the contractor, then leaves"],
+         "detail":"Training scheduled after the contractor demobilizes never happens properly. Put it before final completion, tie it to retainage, and include the night shift, who are the ones most likely to be alone with the asset when it misbehaves."},
+        {"name":"Warranty terms someone owns","cells":["What is covered, for how long, and who to call","Nobody claims, and the utility pays for warranty repairs"],
+         "detail":"Warranties expire quietly. Unless a named person holds the warranty register with dates in it, the first failure at month thirteen gets paid for out of the operating budget by staff who never knew a claim was possible."}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>Put life-cycle cost in the evaluation criteria before the bid goes out, not in the debrief afterwards. <b>If your procurement scores only capital cost, you have already chosen the expensive option and simply have not paid for it yet.</b> The second call is smaller and just as durable: make handover documents a deliverable with a date and money attached, because everything that is not a deliverable becomes optional the moment the schedule tightens.</p>
+    </div>
+
+    <div data-ac="mc" data-title="The evaluation criteria" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"You are writing the evaluation criteria for the pump procurement. What single change most protects the utility from the outcome in the simulation above?",
+       "options":[
+        ["Score bids on capital cost plus 30 years of energy and maintenance cost",1],
+        ["Require a longer warranty period from the manufacturer",0],
+        ["Add a technical interview to the evaluation",0],
+        ["Set a minimum efficiency requirement in the specification",0]
+       ],
+       "right":"Correct. Scoring on life-cycle cost directly aligns the award with what the utility actually pays. It is also defensible in a public procurement, because every bidder is told the formula in advance and the arithmetic is transparent. A minimum efficiency floor helps, but it only excludes the worst options rather than rewarding the best.",
+       "wrong":"Not the strongest. Warranties, interviews, and efficiency floors all help at the margins, but only life-cycle scoring changes what the award is actually optimizing for. If capital price is still the deciding number, the cheap-to-buy, expensive-to-run option keeps winning."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 3</span>
+    <h2>Digital delivery: GIS, BIM and SCADA</h2>
+    <p>Three systems come up constantly, they are frequently confused, and they answer genuinely different questions. Getting them straight matters because each one needs different data specified in your contract, and data not specified during delivery is data you will never have.</p>
+
+    <div data-ac="classify" data-title="Which system answers this?" data-kind="Quiz &middot; classify" data-cue="Ask what the question is really about: where something is, how it was built, or what it is doing right now.">
+      <script type="application/json">
+      {"buckets":["GIS: where things are","BIM: how it was built","SCADA: what it is doing now"],
+       "items":[
+        ["Which valves must close to isolate this main break?",0,"GIS. Spatial relationships across the network are exactly what a geographic information system is for."],
+        ["What is the current pressure at the Millpond monitoring point?",2,"SCADA. Live operational telemetry, updating continuously."],
+        ["What is the exact clearance between this pipe and the duct bank?",1,"BIM. A three dimensional model of the built work, used to find clashes before they are built."],
+        ["How many miles of cast iron main are still in service, by install decade?",0,"GIS. An inventory question about the network, answered from spatial asset data."],
+        ["Did pump 2 run overnight, and for how long?",2,"SCADA. Operational history from the control system."],
+        ["Will this new pump fit through the access hatch during replacement?",1,"BIM. A geometry question about the physical arrangement, best answered before it is built."]
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>A rough way to hold them apart. <span class="term" data-term="GIS" data-def="Geographic Information System: a map-based database of where assets are and how they connect. The utility's system of record for the network.">GIS (Geographic Information System)</span> is the map and the inventory, and it is where your asset data has to land for anyone to find it later. <span class="term" data-term="BIM" data-def="Building Information Modeling: a three dimensional model of the built work carrying data about each component. Used during design and construction to find clashes before they are built.">BIM (Building Information Modeling)</span> is the model, most valuable during design and construction, especially for finding clashes on a congested treatment plant site before a contractor finds them with an excavator. <span class="term" data-term="SCADA" data-def="Supervisory Control and Data Acquisition: the control system that monitors and operates infrastructure in real time, reporting pressures, flows, levels and alarms.">SCADA (Supervisory Control and Data Acquisition)</span> is the nervous system, telling operators what is happening right now. The project manager's job is not to run any of these. It is to make sure the contract requires data in the format each one needs, and that somebody checks it before final payment.</p>
+    </div>
+
+    <div class="lv f">
+      <p>One warning that belongs in this chapter. SCADA is an operational technology network, and connecting it carelessly to the business network or the internet creates real safety exposure, because this is equipment that moves water and doses chemicals. Water systems have been probed and occasionally reached. If your project touches SCADA, cybersecurity is not an information technology afterthought to handle at closeout, it is a design requirement, and the people who own that system should be in the room from the start.</p>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["Asset data can be collected after the project closes out, when there is more time.",false,"In principle yes, in practice almost never. Once the contractor demobilizes, collecting it means sending your own staff to rediscover what was already known. Specify it as a deliverable during construction."],
+        ["BIM is most valuable during design and construction, GIS across the whole asset life.",true,"A fair summary. The model earns its keep by preventing clashes before they are built; the geographic system carries the asset for decades afterwards."],
+        ["SCADA cybersecurity is an information technology issue rather than a project issue.",false,"Not when your project changes the control system. It is a design requirement with safety consequences, and it belongs in the project from the start."]
+       ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 3 ===================== -->
+  <div class="sec">
+    <span class="tag">3 / 3</span>
+    <h2>Resilience, sustainability, and One Water</h2>
+    <p><span class="term" data-term="Resilience" data-def="The ability of a system to keep delivering service through a disruption, and to recover quickly afterwards. Different from reliability, which is about how often things fail under normal conditions.">Resilience</span> is not reliability. Reliability asks how often things break; resilience asks whether service continues when something does. In water, the concept that carries most of this is the difference between the capacity you installed and the capacity you can count on. Set the demand, then take a unit out.</p>
+
+    <div data-ac="firmcap" data-title="Installed capacity versus firm capacity" data-kind="Interactive &middot; simulation" data-cue="Leave the box unticked and everything looks comfortable. Now tick it. That is the day you are actually planning for.">
+      <script type="application/json">
+      {"unit":"MGD","demand":18,"minDemand":6,"maxDemand":30,"step":1,
+       "outLabel":"Largest well out of service (maintenance, or a failure)",
+       "units":[
+        {"name":"Well 1","capacity":8},
+        {"name":"Well 2","capacity":6},
+        {"name":"Well 3","capacity":5},
+        {"name":"Well 4","capacity":3}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Installed capacity is 22 million gallons per day (MGD) against a peak day demand of 18, which reads as comfortable. Take the largest well out and firm capacity is 14, and you are 4 MGD short on the worst day of the year. This is the arithmetic behind a great deal of utility capital planning, and it is why a project that adds redundancy can be worth funding even though it serves no new customers and shows up on no growth projection. <b>Firm capacity is the honest number.</b> Installed capacity is the comfortable one.</p>
+    </div>
+
+    <p>Resilience planning generalizes the same move: assume the thing you depend on is unavailable, and see what remains.</p>
+
+    <div data-ac="method" data-title="How to build resilience into a project" data-kind="Method &middot; four moves">
+      <script type="application/json">
+      {"steps":[
+        ["Plan against firm capacity, never installed.","Assume the largest unit is out. If the system cannot serve peak demand in that state, you have found a project, whether or not anyone has written it down yet."],
+        ["Name the single points of failure.","One transmission main, one power feed, one operator who knows the plant. Redundancy costs money, so decide deliberately which single points you are accepting rather than discovering them during an event."],
+        ["Design for the hazards you actually have.","On the Florida coast that means storm surge, wind, extended power loss, and saltwater intrusion. Elevating a control panel is cheap during design and nearly impossible afterwards."],
+        ["Ask what this project does to the whole water cycle.","Drinking water, wastewater, stormwater and reuse are one system. A reuse main that reduces potable demand does more for firm capacity than a well, and it usually gets evaluated by a different department against a different budget."]
+      ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>That last step is the <b>One Water</b> idea, and it is the reason this platform is named after it. Utilities are organized into departments that manage drinking water, wastewater, stormwater and reuse separately, with separate budgets, separate plans and separate project lists. The water itself does not respect any of those boundaries. A stormwater project that recharges an aquifer is a water supply project. A reuse expansion is a wastewater project, a supply project, and a nutrient compliance project at the same time. The projects with the best returns in this industry usually sit across two departments, which is exactly why they are the hardest ones to get funded, and why somebody has to argue for them at the portfolio level. Chapter 19 is about that level.</p>
+    </div>
+
+    <div data-ac="mc" data-title="The redundancy argument" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"A council member asks why the utility should spend $14 million on a fifth well when the existing wells already meet demand. What is the strongest honest answer?",
+       "options":[
+        ["Existing wells meet demand only while all of them are running; with the largest out we are 4 MGD short on a peak day",1],
+        ["Demand is projected to grow, so we will need it eventually",0],
+        ["Redundancy is an industry best practice for water systems",0],
+        ["It reduces the risk of a boil water notice",0]
+       ],
+       "right":"Correct, because it is specific, quantified, and describes a condition that occurs routinely rather than hypothetically. Wells come out of service for maintenance every year. Naming the shortfall in MGD on a peak day turns an abstract argument about resilience into a number the council can weigh.",
+       "wrong":"Weaker than it could be. Growth, best practice, and general risk reduction are all true but vague, and vague arguments lose to concrete budget requests. The strong version is the specific shortfall: with the largest well out, firm capacity is 14 MGD against an 18 MGD peak day."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Asset management","Getting the required service from assets at the lowest total cost across their whole life."],
+        ["Life-cycle cost","Build cost plus run cost over the asset's life. Usually dominated by running it, not building it."],
+        ["Best value procurement","Scoring bids on total value including energy and maintenance, not just the capital price."],
+        ["Record drawings","What was actually built, not what was designed. The only durable memory of the real alignment."],
+        ["GIS","The map and inventory: where assets are and how they connect. The system of record for the network."],
+        ["BIM","A 3D model of the built work. Earns its keep by finding clashes before a contractor finds them."],
+        ["SCADA","The control system: live pressures, flows, levels and alarms. Operational technology, with real security exposure."],
+        ["Firm capacity","What you can deliver with the largest unit out of service. The honest number to plan against."],
+        ["One Water","Drinking water, wastewater, stormwater and reuse treated as one system, because the water is."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Think about a project your utility completed three or more years ago. Could someone today find its record drawings, its asset data in the maintenance system, and the name of whoever held the warranty?",
+       "a":"For most utilities the honest answer is partly, and the pattern in what survives is consistent. The things that survive are the things that were deliverables with money attached. The things that vanish are the ones that were nobody's job at the exact moment the project ran out of schedule: the asset data that was going to be entered later, the training that was going to be scheduled after startup, the warranty register nobody was named for. None of this is a competence problem. It is a structural one, because every one of these belongs to the phase where the project is ending, the pressure is at its highest, and the team is already assigned to the next job. Which means it has to be designed in at the beginning, as a deliverable with a date and retainage attached, or it does not happen. The thirty years of operating cost that follow are decided in the last three weeks of a project, by whoever thought to make the handover contractual."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>Decide on life-cycle cost, not capital cost.</b> The option that wins the bid opening frequently loses over the asset's life, and the utility pays the difference in energy for thirty years.</div></li>
+      <li><span class="n">2.</span><div><b>Make handover a deliverable.</b> Record drawings, asset data, manuals, training and the warranty register need dates, owners, and retainage attached, or they evaporate under end-of-project pressure.</div></li>
+      <li><span class="n">3.</span><div><b>GIS, BIM and SCADA answer different questions.</b> Where things are, how it was built, what it is doing now. Specify the data each one needs while the contractor is still on site.</div></li>
+      <li><span class="n">4.</span><div><b>Plan against firm capacity.</b> Installed capacity is the comfortable number. Firm capacity, with the largest unit out, is the one that decides whether service holds.</div></li>
+      <li><span class="n">5.</span><div><b>One Water means the boundaries are administrative, not physical.</b> The highest-return projects usually cross two departments, which is exactly why they struggle to get funded.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Every choice in this chapter is a trade between a cost you pay now and a cost somebody else pays later, and later is where utilities live. <b>Score life-cycle cost, contract the handover, and plan against firm capacity.</b> The project team leaves at final completion. Operations is still there in 2056, working with exactly what you left them.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-17-safety-locates-commissioning.html">&#8592; Chapter 17 &middot; Safety, locates and commissioning</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 18 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>
