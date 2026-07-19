@@ -3,6 +3,16 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.3.1] - 2026-07-18
+### Added
+- Native owos.ai deploy page for the course landing: `dist/site/course-project-management.html`
+  (course overview + curriculum), shell-wrapped and verified with the dark-hero and button guards.
+### Fixed
+- Removed em/en dashes from the course chrome to meet the writing standard.
+### Deployed
+- Published the course landing and Chapter 01 into the `2-brain` site (owos.ai) as
+  `course-project-management.html` and `lesson-pm-01-what-is-a-project.html`.
+
 ## [0.3.0] - 2026-07-18
 ### Added
 - Two ship-ready output formats for the PM course, in `apps/project-management/dist/`:
