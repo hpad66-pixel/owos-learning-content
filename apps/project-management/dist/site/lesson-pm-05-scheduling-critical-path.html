@@ -985,10 +985,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     var topo=tasks.slice().sort(function(a,b){return rank[a.id]-rank[b.id];});
     // layout: x by rank, y by row within rank
     var cols={};topo.forEach(function(t){(cols[rank[t.id]]=cols[rank[t.id]]||[]).push(t.id);});
-    var BW=114,BH=64,GX=48,GY=22,pos={},maxRow=0;
-    Object.keys(cols).forEach(function(cn){cols[cn].forEach(function(id,row){pos[id]={x:(+cn)*(BW+GX),y:row*(BH+GY)};if(row>maxRow)maxRow=row;});});
+    var BW=98,BH=70,GX=26,GY=18,pos={},maxRow=0;
+    Object.keys(cols).forEach(function(cn){cols[cn].forEach(function(id,row){pos[id]={x:(+cn)*(BW+GX),y:row*(BH+GY)+11};if(row>maxRow)maxRow=row;});});
     var maxCol=Math.max.apply(null,tasks.map(function(t){return rank[t.id];}));
-    var cw=(maxCol+1)*(BW+GX)-GX,ch=(maxRow+1)*(BH+GY)-GY+12;
+    var cw=(maxCol+1)*(BW+GX)-GX,ch=(maxRow+1)*(BH+GY)-GY+22;
     // build step list
     var steps=[];
     topo.forEach(function(t){steps.push({type:'F',id:t.id});});
@@ -1060,7 +1060,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       b.querySelector('[data-play]').innerHTML='&#10073;&#10073; Pause';
       timer=setInterval(function(){if(cur>=steps.length-1){stop();}else step();},1100);
     });
-    draw();
+    // scale the fixed-width network down to fit the page width, so nothing runs off the right edge
+    var stage=b.querySelector('.cpmstage');
+    function fit(){var avail=stage.clientWidth||canvas.parentNode.clientWidth||700;var sc=Math.min(1,avail/(cw+42));
+      if(sc>=0.999){canvas.style.transform='';stage.style.height='';}
+      else{canvas.style.transformOrigin='top left';canvas.style.transform='scale('+sc.toFixed(3)+')';stage.style.height=Math.ceil(ch*sc+6)+'px';}
+      stage.style.overflowX='hidden';}
+    var ft;window.addEventListener('resize',function(){clearTimeout(ft);ft=setTimeout(fit,150);});
+    draw();fit();
   };
 
   R.scurve=function(el){var c=cfgOf(el);var p=c.periods||[];

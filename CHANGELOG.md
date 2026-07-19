@@ -3,6 +3,13 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.10.1] - 2026-07-19
+### Fixed
+- The `cpmsim` critical-path diagram ran off the right edge of the page. It now scales the fixed-width
+  activity-on-node network to fit the card width (with room for the float badges) and re-fits on resize,
+  so the whole diagram is visible with nothing cut off. Tightened the node/gap sizing so the fit lands
+  at a readable ~76% rather than shrinking too far.
+
 ## [0.10.0] - 2026-07-19
 ### Added: a critical-path simulator + the "show it" principle
 - New library `cpmsim` renderer: an interactive activity-on-node simulation that DERIVES the critical
