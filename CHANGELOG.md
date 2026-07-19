@@ -3,6 +3,19 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.17.0] - 2026-07-19
+### Added: Chapter 09 + a contract-risk simulator
+- `contractrisk` : drag the final actual cost and watch who eats the overrun under Firm Fixed Price,
+  cost-plus/T&M, and GMP. Verified at 1200 actual (1000 target): FFP contractor -100, cost-plus +100,
+  GMP -50; at 900: FFP +200. Shows risk transfer as a live number.
+- Chapter 09 "Procurement, contracts and claims" built on the library (IFB/RFP/RFQ solicitation, NTP,
+  contract types and risk, submittals/retainage/pay apps/lien waivers, change orders vs claims,
+  liquidated damages, the dispute-resolution ladder).
+### Changed
+- Masterclass chrome: Chapter 09 now live; status note "Chapters 01 to 09 are live."
+### Deployed
+- Published Chapter 09 + course page to owos.ai; verified the contract-risk sim computes on the live site.
+
 ## [0.16.0] - 2026-07-19
 ### Added: Chapter 08 + an Earned Value simulator
 - `evm` : an interactive Earned Value chart. Drag schedule elapsed, work complete, and actual cost, and

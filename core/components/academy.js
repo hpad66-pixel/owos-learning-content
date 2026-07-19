@@ -685,6 +685,29 @@
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
   };
 
+  R.contractrisk=function(el){var c=cfgOf(el);var target=c.target||1000,fee=c.fee||100,ffp=c.ffp||Math.round(target*1.10),gmpCap=c.gmpCap||Math.round(target*1.15);
+    function m(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
+    var b=shell(el,'<p style="font-size:14px;color:var(--ink-2);margin:0 0 8px">Estimated cost <b style="color:var(--ink)">'+m(target)+'</b>. Fixed price '+m(ffp)+', GMP cap '+m(gmpCap)+', fee '+m(fee)+'. Now move the actual cost the job really came in at.</p>'+
+      '<div class="pvrow"><span class="nm">Final actual cost</span><input type="range" min="'+(c.min||Math.round(target*0.7))+'" max="'+(c.max||Math.round(target*1.5))+'" step="25" value="'+(c.start||Math.round(target*1.2))+'"><span class="v" data-a></span></div>'+
+      '<div class="crcards" data-cards></div><div class="crnote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var actual=+rng.value;b.querySelector('[data-a]').textContent=m(actual);
+      var types=[
+        {nm:'Firm Fixed Price',sub:'FFP: one price, no matter what',owner:ffp,cls:'contractor',who:'Contractor'},
+        {nm:'Cost-plus / T&M',sub:'owner pays cost + a fee',owner:actual+fee,cls:'owner',who:'Owner'},
+        {nm:'Guaranteed Max Price',sub:'GMP: owner pays cost + fee, capped',owner:Math.min(actual+fee,gmpCap),cls:'shared',who:'Shared'}
+      ];
+      b.querySelector('[data-cards]').innerHTML=types.map(function(t){var prof=t.owner-actual;
+        return '<div class="crcard"><div class="nm">'+t.nm+'</div><div class="sub2">'+t.sub+'</div>'+
+          '<div class="line"><span class="k">Owner pays</span><span class="v">'+m(t.owner)+'</span></div>'+
+          '<div class="line"><span class="k">Contractor keeps</span><span class="v prof '+(prof>=0?'pos':'neg')+'">'+(prof>=0?'+':'')+m(prof)+'</span></div>'+
+          '<div class="crexposed '+t.cls+'">'+t.who+' carries the risk</div></div>';}).join('');
+      var over=actual>target,note=b.querySelector('[data-note]');
+      if(actual>ffp)note.innerHTML='At <b>'+m(actual)+'</b> actual on a '+m(target)+' estimate, Fixed Price protects the owner (still '+m(ffp)+') while the contractor eats the '+m(actual-ffp)+' overrun. Cost-plus hands the whole overrun to the owner. GMP caps the owner at '+m(gmpCap)+' and the contractor covers the rest. <b>That risk transfer is exactly what you pay for in the price.</b>';
+      else note.innerHTML='At <b>'+m(actual)+'</b>, under the fixed price, the Fixed Price contractor pockets the '+m(ffp-actual)+' saving, cost-plus passes the low cost straight to the owner, and GMP shares it. Push the actual above '+m(ffp)+' and watch who starts losing money.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
   R.evm=function(el){var c=cfgOf(el);var bac=c.bac||1300;
     function m(k){return Math.abs(k)>=1000?'$'+(k/1000).toFixed(2)+'M':'$'+Math.round(k)+'k';}
     function row(k,label,sub,val,mn,mx,st){return '<div class="pvrow"><span class="nm">'+label+'<small style="display:block;font:11px var(--fm);color:var(--ink-3)">'+sub+'</small></span><input type="range" data-k="'+k+'" min="'+mn+'" max="'+mx+'" step="'+st+'" value="'+val+'"><span class="v" data-v="'+k+'"></span></div>';}
