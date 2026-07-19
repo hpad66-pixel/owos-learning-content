@@ -222,6 +222,34 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- pert: three-point estimate ---- */
+.pertrow{display:flex;align-items:center;gap:12px;margin:9px 0}.pertrow .nm{flex:none;width:150px;font-weight:600;color:var(--ink);font-size:14px}.pertrow .nm small{display:block;font:11px var(--fm);color:var(--ink-3);font-weight:400}
+.pertrow input{flex:1}.pertrow .v{flex:none;width:74px;text-align:right;font:700 13px var(--fm);color:var(--brand)}
+.pertsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:6px}
+.pertout{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.pertout .o{flex:1;min-width:110px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.pertout .o .k{font:9px var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}.pertout .o .val{font:800 18px var(--fm);color:var(--ink)}.pertout .o.hi .val{color:var(--brand)}
+
+/* ---- reslevel: resource histogram + leveling ---- */
+.rltoggle{display:inline-flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:4px;margin-bottom:12px}
+.rltoggle button{background:none;border:none;color:var(--ink-2);font:600 13px var(--f);padding:6px 14px;border-radius:8px;cursor:pointer}.rltoggle button.on{background:var(--brand);color:#fff}
+.rlwrap{overflow-x:auto}
+.rlbars{display:flex;gap:5px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:0 4px;position:relative;min-width:340px}
+.rlcap{position:absolute;left:4px;right:4px;border-top:2px dashed var(--red);z-index:2}.rlcap span{position:absolute;right:0;top:-16px;font:700 10px var(--fm);color:var(--red)}
+.rlcol{flex:1;display:flex;flex-direction:column-reverse;align-items:center;height:100%;gap:2px;min-width:20px}
+.rlseg{width:80%;border-radius:2px}.rlover{outline:2px solid var(--red);outline-offset:-1px}
+.rllabels{display:flex;gap:5px;padding:5px 4px 0;min-width:340px}.rllabels span{flex:1;text-align:center;font:9px var(--fm);color:var(--ink-3);min-width:20px}
+.rlnote{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink)}.rlnote.warn{background:#FBF3E2;border-color:#EAD9AE;color:var(--gold)}.rlnote.ok{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.rlnote b{color:inherit}
+
+/* ---- montecarlo: probabilistic finish ---- */
+.mcsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.mcctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.mcctrl button{border:1px solid var(--line-2);background:var(--surface);border-radius:9px;padding:8px 15px;font:600 13px var(--f);cursor:pointer;color:var(--ink-2)}.mcctrl button.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.mcctrl button.primary:hover{background:var(--brand-700)}.mcctrl button:disabled{opacity:.5;cursor:default}
+.mccount{font:600 12px var(--fm);color:var(--ink-3);margin-left:auto}
+.mcstats{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.mcstats .o{flex:1;min-width:120px;border-radius:12px;padding:10px 14px;border:1px solid var(--line);background:var(--surface-2)}
+.mcstats .o .k{font:9px var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}.mcstats .o .val{font:800 18px var(--fm);color:var(--ink)}
+.mcstats .o.det .val{color:var(--ink-3)}.mcstats .o.p50 .val{color:var(--brand)}.mcstats .o.p80 .val{color:var(--gold)}
+.mcout{margin-top:12px;padding:12px 15px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14.5px;color:var(--ink)}.mcout b{color:var(--brand-700)}.mcout .g{color:var(--gold);font-weight:700}
+
 /* ---- costcurve: cost of a change over the life cycle ---- */
 .ccbars{display:flex;gap:10px;align-items:flex-end;height:150px;border-bottom:2px solid var(--line-2);padding:0 6px}
 .ccbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;cursor:pointer}

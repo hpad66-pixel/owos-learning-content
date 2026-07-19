@@ -3,6 +3,21 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.12.0] - 2026-07-19
+### Added: Chapter 06 + three quantitative simulations
+- `pert` : three-point / PERT estimator, slide optimistic/most-likely/pessimistic and watch the
+  distribution and the expected value ((O + 4M + P) / 6). Verified O4 M6 P14 -> expected 7, sigma 1.7.
+- `reslevel` : resource histogram with a Before/After leveling toggle; over-allocated weeks are red,
+  leveling clears them at the cost of a later finish.
+- `montecarlo` : runs the schedule 1,000 times with sampled durations and builds the finish-date
+  distribution with plan / P50 / P80 markers. Verified: plan 32 wks < P50 36 < P80 38, ~9% hit the plan.
+- Chapter 06 "Advanced scheduling" built on the library (estimating methods, PERT, leveling, crashing vs
+  fast-tracking, critical chain, Monte Carlo). Working lens, Millpond thread, recap and leader's bottom line.
+### Changed
+- Masterclass chrome: Chapter 06 now live; status note "Chapters 01 to 06 are live." Rebuilt all six lessons.
+### Deployed
+- Published all six lessons + course page to owos.ai; verified each new sim computes on the live site.
+
 ## [0.11.1] - 2026-07-19
 ### Added
 - `apps/_course-template/` : a clone-me starter for any new course. Points at `core/` (no copying), with
