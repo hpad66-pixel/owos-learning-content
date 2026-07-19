@@ -233,6 +233,37 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .dashoverall.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.dashoverall.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.dashoverall.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
 .dashnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.dashnote b{color:var(--ink)}
 
+/* ---- controls: hierarchy of controls and residual risk ---- */
+.hzq{padding:11px 14px;background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;font-size:14px;color:var(--ink);font-weight:600;margin-bottom:14px}
+.ctlad{display:flex;flex-direction:column;gap:7px}
+.ctrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 13px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;cursor:pointer;font-family:inherit}
+.ctrow:hover{border-color:var(--brand);background:var(--brand-50)}
+.ctrow.on{border-color:var(--brand);background:var(--brand-50);box-shadow:0 0 0 2px var(--brand-100)}
+.ctrow .rk{flex:none;width:24px;height:24px;border-radius:7px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font:700 11.5px var(--fm)}
+.ctrow .cn{flex:1;min-width:0}
+.ctrow .cn b{display:block;color:var(--ink);font-size:14px}
+.ctrow .cn em{font-style:normal;font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.ctrow .cr{flex:none;font:700 13px var(--fm);color:var(--ink-3)}
+.ctbarwrap{display:flex;align-items:center;gap:12px;margin-top:14px}
+.ctbar{flex:1;height:14px;background:var(--surface-3);border-radius:8px;overflow:hidden}
+.ctbar i{display:block;height:100%;border-radius:8px;transition:width .3s}
+.ctbar i.g{background:var(--green)}.ctbar i.a{background:var(--gold)}.ctbar i.r{background:var(--red)}
+.ctval{flex:none;font:700 12px var(--fm);color:var(--ink)}
+.ctnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- clearance: disinfection and bacteriological clearance clock ---- */
+.clsteps{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.clrow{display:flex;align-items:center;gap:12px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:13.5px}
+.clrow:last-child{border-bottom:none}
+.clrow .cs{flex:1;color:var(--ink);font-weight:600}
+.clrow .cd{flex:none;font:700 12px var(--fm);color:var(--ink-2)}
+.clrow.bad{background:var(--red-50)}.clrow.bad .cs,.clrow.bad .cd{color:var(--red)}
+.clout{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px}
+.clout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.clout.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.clout.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.clnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
 /* ---- permitsim: which approvals your job triggers ---- */
 .psattrs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
 @media(max-width:640px){.psattrs{grid-template-columns:1fr}}

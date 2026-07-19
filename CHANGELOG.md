@@ -3,6 +3,20 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.25.0] - 2026-07-19
+### Added: PM Chapter 17
+- Released Chapter 17, "Safety, locates, and commissioning," covering the hierarchy of controls,
+  the one-call locate cycle and tolerance zone, right of way and agency coordination, and
+  commissioning, clearance, and the substantial versus final completion distinction.
+- Added reusable `controls` component: pick a rung of the hierarchy of controls for a stated hazard
+  and see residual risk, showing how little personal protective equipment actually removes.
+- Added reusable `clearance` component: step through disinfection and bacteriological clearance and
+  watch a single failed sample round cost four days rather than one, against a schedule that allowed two.
+
+### Fixed
+- Replaced a `twofig` usage in Chapter 17 that passed the wrong config shape (`twofig` requires
+  `left`/`right` objects containing SVG, not point lists) with an interactive `table`.
+
 ## [0.24.0] - 2026-07-19
 ### Added: PM Chapter 16
 - Released Chapter 16, "The capital life cycle and the rules that shape it," covering the utility

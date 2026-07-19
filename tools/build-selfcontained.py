@@ -41,6 +41,7 @@ LINK_MAP = {
     "module-14-executing-controlling.html": "lesson-pm-14-executing-controlling.html",
     "module-15-measurement-honest-status.html": "lesson-pm-15-measurement-honest-status.html",
     "module-16-capital-lifecycle-regulatory.html": "lesson-pm-16-capital-lifecycle-regulatory.html",
+    "module-17-safety-locates-commissioning.html": "lesson-pm-17-safety-locates-commissioning.html",
 }
 
 def build(src_path, out_path):

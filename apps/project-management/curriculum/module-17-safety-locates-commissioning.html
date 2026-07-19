@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 17 &middot; Safety, locates and commissioning &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 17 of the Project Management masterclass. Health and safety and the hierarchy of controls, utility locates and right of way coordination, and commissioning and acceptance of new water infrastructure.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass-project-management.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>PM</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 17</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 17 &middot; The work in the ground</span>
+  <h1>Safety, locates, and <span>commissioning</span></h1>
+  <p class="sub">This is the chapter where the project stops being a plan and becomes a hole in the road with people in it. Three things decide whether that goes well: how you control hazards, what you know about what is already buried there, and how carefully you prove the new asset works before you hand it over.</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The job, now in the ground</p>
+      <p><b>The Millpond Road water main replacement is under construction.</b> An eight foot deep open trench runs down a residential street with a school on it. There is a gas main somewhere near the alignment, and in six weeks the new main has to be disinfected, cleared, and put into service without a boil water notice.</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> Apply the hierarchy of controls instead of reaching for personal protective equipment first</li>
+    <li><span class="bx"></span> Run the one-call locate process and respect the tolerance zone</li>
+    <li><span class="bx"></span> Coordinate the agencies who control the ground you are working in</li>
+    <li><span class="bx"></span> Plan realistic commissioning time, and know what substantial completion really means</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 3</span>
+    <h2>Health and safety, and the hierarchy of controls</h2>
+    <p>Trenching is among the most dangerous work in our industry. A cubic yard of soil weighs about as much as a small car, and a collapse gives nobody time to move. The formal way to think about any hazard is the <span class="term" data-term="Hierarchy of controls" data-def="A ranked list of ways to control a hazard, strongest first: eliminate it, substitute something safer, engineer a barrier, change how people work, and only then rely on personal protective equipment. Higher controls work even when people make mistakes.">hierarchy of controls</span>, and the reason it is a hierarchy rather than a list is that the controls are wildly unequal. Take the Millpond trench and try each one.</p>
+
+    <div data-ac="controls" data-title="Controlling the trench hazard" data-kind="Interactive &middot; simulation" data-cue="Start at the bottom, where most projects start, and work up. Notice how little the last rung actually buys you.">
+      <script type="application/json">
+      {"hazard":"Hazard: an eight foot deep open trench on a residential street. A collapse buries a worker in seconds.",
+       "start":4,
+       "levels":[
+        {"name":"Eliminate the hazard","example":"Trenchless installation: pipe bursting or directional drilling, so nobody enters a trench at all","residual":5,
+         "note":"The only control that works when everything else fails, because there is no trench to collapse. It usually costs more per foot and it is usually still the right answer next to a school. Elimination is the control people skip because it changes the design, and changing the design feels like a bigger decision than buying more equipment."},
+        {"name":"Substitute something safer","example":"Open cut in short sections, backfilled the same day, instead of a long continuous trench","residual":25,
+         "note":"You have not removed the hazard, but you have shrunk how much of it exists and for how long. Exposure is a real variable: an open trench for two hours is a different risk from the same trench open for two weeks."},
+        {"name":"Engineering controls","example":"A trench box, shoring, or benching and sloping the walls to a safe angle","residual":35,
+         "note":"A physical barrier that protects the worker whether or not they are paying attention that morning. This is the workhorse of trench safety and it is legally required past five feet. It still depends on the box being used correctly and moved as the trench advances, which is where it fails in practice."},
+        {"name":"Administrative controls","example":"A competent person inspecting daily, a permit system, training, exclusion zones","residual":60,
+         "note":"Rules and procedures. Genuinely valuable, and completely dependent on people following them under pressure at four in the afternoon on a Friday. Any control whose effectiveness depends on human attention degrades exactly when the job gets stressful, which is when you need it most."},
+        {"name":"Personal protective equipment","example":"Hard hat, high visibility vest, steel toe boots","residual":85,
+         "note":"The last line, and the one most projects reach for first because it is visible, cheap, and easy to enforce. Be honest about what it does: a hard hat is worthless in a trench collapse. PPE protects against the consequences of small failures, not against the hazard itself, and a site where PPE is the main safety story is a site with an unmanaged hazard."}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Read the residual numbers from the bottom up and the shape of the problem appears. Moving from personal protective equipment to a trench box takes far more risk out than anything you can do inside the bottom two rungs, and eliminating the trench takes out almost all of it. Yet safety programs spend most of their energy on the bottom two, because those are the ones you can enforce with a clipboard. <b>Where the hazard is serious, spend the design decision, not the toolbox talk.</b></p>
+    </div>
+
+    <div data-ac="classify" data-title="Which rung is it?" data-kind="Quiz &middot; classify" data-cue="Ask what happens if a worker has a bad day. Higher controls still work; lower ones do not.">
+      <script type="application/json">
+      {"buckets":["Higher control (works anyway)","Lower control (needs people to comply)"],
+       "items":[
+        ["Directional drilling instead of open cut",0,"Elimination. No trench, no trench collapse, regardless of anyone's behavior."],
+        ["A daily toolbox talk about trench safety",1,"Administrative. Valuable, but it only works if people act on it under pressure."],
+        ["A trench box set in the excavation",0,"Engineering. A physical barrier that protects a worker who is not thinking about it."],
+        ["Requiring high visibility vests on site",1,"Personal protective equipment. The last line, and useless against a collapse."],
+        ["Backfilling each section the same day it is opened",0,"Substitution and exposure reduction. Less hazard exists, for less time."]
+       ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 3</span>
+    <h2>Locates, right of way, and the agencies who own the ground</h2>
+    <p>Before anyone breaks ground you have to know what is already down there, and you find out through the <span class="term" data-term="One-call system" data-def="A free service, reached in the United States by dialing 811, that notifies every utility owner in an area that you intend to dig. Each owner then marks their buried facilities on the ground. Calling is legally required before excavation.">one-call system</span>. In the United States you dial 811, and every utility owner in the area is notified to come out and mark their lines. The process has a rhythm, and each step exists because somebody once skipped it.</p>
+
+    <div data-ac="process" data-title="The one-call locate cycle" data-kind="Interactive &middot; the steps" data-cue="Click each step. Step 4 is the one that gets people killed, and it is the one crews most want to skip.">
+      <script type="application/json">
+      {"gate":false,
+       "phases":[
+        {"title":"File the ticket","sub":"before you dig","detail":"<b>File the ticket.</b> You notify the one-call center of where and when you intend to excavate. It is free and it is legally required. The ticket describes a specific area for a specific window, which matters: a ticket is not a permanent permission to dig anywhere on the job."},
+        {"title":"Wait the notice period","sub":"typically 2 working days","detail":"<b>Wait the notice period.</b> Utility owners get a defined window, commonly two working days, to respond. Working days is the trap. A ticket filed on a Friday afternoon before a holiday does not clear when the crew arrives Monday morning, and that is a schedule fact your look-ahead needs to reflect."},
+        {"title":"Read the marks","sub":"paint and flags by color","detail":"<b>Read the marks.</b> Locators mark facilities using standard colors: red for electric, yellow for gas and fuel, orange for communications, blue for potable water, green for sewer, purple for reclaimed water. Every crew member should know these without hesitating, because the color tells you what you are about to hit."},
+        {"title":"Respect the tolerance zone","sub":"hand dig near the mark","detail":"<b>Respect the tolerance zone.</b> The marks are approximate, so a buffer around each one (commonly 18 to 24 inches either side, but check your state law) must be excavated by hand or by vacuum, never with a machine bucket. This is the step crews skip when they are behind, and it is the step that produces gas strikes."},
+        {"title":"Pothole to verify","sub":"see it with your own eyes","detail":"<b>Pothole to verify.</b> Where the conflict really matters, expose the existing line by hand or vacuum before you design around it or excavate near it. Marks tell you roughly where something is horizontally. They tell you very little about depth, and depth is what your new main has to cross."},
+        {"title":"Keep the ticket alive","sub":"marks expire","detail":"<b>Keep the ticket alive.</b> Tickets and paint both expire, typically in a couple of weeks. On a long linear job like Millpond you are re-marking continuously, and an expired ticket means the crew is digging on information nobody has confirmed is still true."}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>The financial case for doing this properly is not subtle. A utility strike on a gas main means an evacuation, an emergency response, a repair you pay for, a regulatory report, and a stopped job. A serious strike can injure or kill someone. Against that, potholing a few crossings costs a crew a day. This is one of the rare places in project management where the safe choice and the cheap choice are the same choice, and people still get it wrong because the cost of potholing is visible today and the cost of the strike is only probable.</p>
+    </div>
+
+    <p>Locates tell you what is underground. A different set of people control whether you may occupy the ground at all. On a road job in a Florida city, several of them have a say at once.</p>
+
+    <div data-ac="table" data-title="Who controls the ground you are working in" data-kind="Interactive &middot; comparison table" data-cue="Click each one. Notice how many separate approvals sit on a single street.">
+      <script type="application/json">
+      {"headers":["Who","What they control","What they can do to you"],
+       "rows":[
+        {"name":"City or county","cells":["The local right of way, lane closures, work hours","Restrict your hours, or stop the work"],
+         "detail":"The right of way is the public land your pipe usually sits in. The local agency sets when you may work, how you must maintain traffic, and often how much of the street you may occupy at once. Night work restrictions near a residential street like Millpond are common, and they change your production rates."},
+        {"name":"State transportation department","cells":["State roads and highway crossings","Dictate crossing method and season"],
+         "detail":"If your alignment crosses a state road, a separate utility permit governs it, and the department will usually require a trenchless crossing rather than an open cut. That is both a cost and a schedule item, and it is often the single most constrained point on a linear project."},
+        {"name":"Railroad","cells":["Crossings of the track and its corridor","Take months, and charge for flagging"],
+         "detail":"Railroad crossing agreements are famously slow and largely non-negotiable, and they require railroad flagging personnel that you pay for. If a railroad crossing exists anywhere on your alignment, it belongs on the critical path from day one."},
+        {"name":"Other utility owners","cells":["Their own facilities in the same corridor","Force a redesign, or a relocation you fund"],
+         "detail":"Where your new main conflicts with an existing electric duct bank or gas main, somebody has to move, and agreeing who pays takes longer than the physical relocation. This is a coordination problem, not an engineering one, and it is best solved in design."},
+        {"name":"The people who live there","cells":["No formal authority at all","Escalate to the people who do"],
+         "detail":"Residents cannot deny you a permit, but they can generate the phone calls that change your allowed work hours and consume your leadership's attention. Chapter 12 covered this properly. On a street with a school, notification is not courtesy, it is risk management."}
+       ]}
+      </script>
+    </div>
+
+    <div data-ac="mc" data-title="The call in the trench" data-kind="Quiz &middot; multiple choice">
+      <script type="application/json">
+      {"q":"Your crew is excavating and reaches a point where a yellow gas mark crosses the trench line. The ticket is valid and the marks are fresh. They are running two days behind. What is the correct instruction?",
+       "options":[
+        ["Hand dig or vacuum within the tolerance zone to expose the line before machine work continues",1],
+        ["Continue with the machine but ask the operator to go slowly and carefully",0],
+        ["Continue, since the ticket is valid and the marks were placed by the gas utility",0],
+        ["Call the gas utility and wait for them to come out again before doing anything",0]
+       ],
+       "right":"Correct. Valid marks tell you a gas line is approximately there, which is exactly why the tolerance zone exists. Inside it, you expose the line by hand or vacuum. Being two days behind is not a reason to change this, and if schedule pressure is what is driving the question, that is a project management failure showing up as a safety decision.",
+       "wrong":"No. A valid ticket and fresh marks give you approximate horizontal position and almost no information about depth. Inside the tolerance zone the rule does not bend: hand dig or vacuum to expose the line. Careful machine work is still machine work, and calling the utility back is not required when the marks are already valid."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 3 ===================== -->
+  <div class="sec">
+    <span class="tag">3 / 3</span>
+    <h2>Commissioning and acceptance</h2>
+    <p>A pipe in the ground is not an asset. It becomes one when it has been pressure tested, disinfected, cleared by a laboratory, connected, and accepted. <span class="term" data-term="Commissioning" data-def="The process of proving that installed work actually performs as designed and is safe to put into service: testing, disinfection, laboratory clearance, startup, and handover to operations.">Commissioning</span> is where optimistic schedules go to die, because most of its duration is fixed by standards and biology rather than by effort. Run the Millpond clearance and see.</p>
+
+    <div data-ac="clearance" data-title="The disinfection and clearance clock" data-kind="Interactive &middot; simulation" data-cue="Set failures to zero first and compare the total against the two days the schedule allowed. Then fail one round and watch what a single bad sample really costs.">
+      <script type="application/json">
+      {"baseDays":6,"failDays":4,"planned":2,
+       "steps":[
+        {"name":"Pressure and leakage test the new main","days":1},
+        {"name":"Flush the line","days":1},
+        {"name":"Chlorinate and hold at required residual","days":1},
+        {"name":"Dechlorinate and flush to waste","days":1},
+        {"name":"First bacteriological sample to the laboratory","days":1},
+        {"name":"Second sample, 24 hours after the first, then results","days":1}
+       ],
+       "retry":[
+        {"name":"Re-flush and re-chlorinate","days":2},
+        {"name":"Dechlorinate, re-sample, await results","days":2}
+       ]}
+      </script>
+    </div>
+
+    <div class="lv f">
+      <p>Notice what the simulation refuses to let you do. Even with everything passing first time, the clearance takes six days, because the hold time and the requirement for two samples taken 24 hours apart are set by standard, not by how hard the crew works. There is no crashing available here, which makes commissioning genuinely different from the rest of the schedule: adding people does not help. Chapter 06 taught you to crash the critical path. This is the part you cannot crash, and the correct response is to plan honest duration for it at the start, not to discover it in the final week.</p>
+    </div>
+
+    <p>Two words get used loosely at the end of a job and mean very different things in a contract. Getting them wrong is expensive.</p>
+
+    <div data-ac="table" data-title="Substantial versus final completion" data-kind="Interactive &middot; comparison table" data-cue="Click each milestone. The gap between these two dates is where punch lists and record drawings quietly die.">
+      <script type="application/json">
+      {"headers":["Milestone","What it means","What it triggers"],
+       "rows":[
+        {"name":"Substantial completion","cells":["The work can be used for its intended purpose","Damages stop, warranties start"],
+         "detail":"The owner may take beneficial occupancy and actually use the asset. A punch list is issued: items remain, but none of them prevent use. Contractually this is the big one, because liquidated damages usually stop accruing here and warranty periods commonly start here. Granting it casually to be helpful gives away real leverage and real money."},
+        {"name":"Final completion","cells":["Every open item is closed and documented","Retainage is released"],
+         "detail":"Punch list closed, record drawings and operation manuals delivered, operations training done, final quantities reconciled, last payment due, contractor off the job. This is the date that determines what operations inherits, and it is the one nobody feels urgency about."},
+        {"name":"The gap between them","cells":["Weeks or months of fading attention","Where projects quietly rot"],
+         "detail":"Once the utility is using the asset and damages have stopped, the pressure to finish evaporates. The punch list, the record drawings, and the operations training all become somebody's low priority, the crew moves to the next job, and operations then lives with the result for thirty years. Managing this gap deliberately is the difference between a finished project and an abandoned one."}
+       ]}
+      </script>
+    </div>
+
+    <div data-ac="method" data-title="How to commission without a scramble" data-kind="Method &middot; five moves">
+      <script type="application/json">
+      {"steps":[
+        ["Put real commissioning duration in the baseline.","Not a two day bar. Testing, disinfection, hold time, two samples, and a realistic allowance for one failed round. If you plan for perfection you will report a delay for something entirely normal."],
+        ["Bring operations in before startup, not at it.","The people who will run this asset for thirty years should see it during construction. They catch access, isolation, and maintainability problems while changing them is still cheap."],
+        ["Walk the punch list with the contractor, not at them.","A jointly walked list gets closed. A list emailed after the fact gets disputed line by line while the crew demobilizes to the next job."],
+        ["Tie retainage to final completion and mean it.","Retainage is the only real leverage you have left after the asset is in service. Releasing it early to be reasonable is how record drawings never arrive."],
+        ["Hand over documents as a deliverable with a date.","Record drawings, manuals, asset data, and training are not paperwork, they are what makes the asset maintainable. Chapter 18 is about what happens to them next."]
+      ]}
+      </script>
+    </div>
+
+    <div class="lv l leadcall">
+      <p class="h">Leader's call</p>
+      <p>The pressure to put an asset into service before it has cleared is the most dangerous moment on a water project, and it will be presented to you reasonably, by tired people, with a good argument. <b>There is no version of this where you accept a partial clearance to save four days.</b> Say so out loud, early, and before anyone is standing in front of you at the end of a long week asking for an exception.</p>
+    </div>
+
+    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <script type="application/json">
+      {"items":[
+        ["Adding crew to commissioning shortens it.",false,"Mostly no. The long poles are hold time and two bacteriological samples taken 24 hours apart, both fixed by standard. More people cannot compress a laboratory result."],
+        ["Personal protective equipment protects a worker in a trench collapse.",false,"It does not. A hard hat and a vest do nothing against soil. Only elimination, substitution, or engineering controls address that hazard."],
+        ["At substantial completion, liquidated damages usually stop and warranties usually start.",true,"Correct, and that is exactly why the date matters contractually and why it should never be granted casually."],
+        ["A valid locate ticket means it is safe to use a machine right up to the mark.",false,"No. The tolerance zone around the mark must be hand dug or vacuum excavated. Marks are approximate, especially in depth."]
+       ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Hierarchy of controls","Eliminate, substitute, engineer, administer, then PPE. Ranked because they are wildly unequal."],
+        ["One-call (811)","Free, legally required notification before digging. Every utility owner comes out and marks their lines."],
+        ["Tolerance zone","The buffer either side of a mark that must be hand dug or vacuum excavated. Never machine dug."],
+        ["Potholing","Physically exposing a buried line to confirm its depth and position, because marks do not give you depth."],
+        ["Right of way","The public land your pipe occupies, controlled by whichever agency owns that road."],
+        ["Commissioning","Proving the asset works and is safe to use: testing, disinfection, clearance, startup, handover."],
+        ["Substantial completion","The asset can be used for its purpose. Damages usually stop and warranties usually start."],
+        ["Final completion","Punch list closed, documents delivered, retainage released, contractor off the job."]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"Think about the last time schedule pressure and a safety or quality rule came into conflict on a job you know. How was it resolved, and who actually made the call?",
+       "a":"The honest answer on most projects is that nobody made the call explicitly. The pressure was ambient rather than stated, nobody instructed anyone to skip anything, and a crew simply made a small decision at four in the afternoon that they would not have made at nine in the morning. That is what makes this category of risk hard: it does not arrive as a decision on your desk, it arrives as a gradual loosening that only becomes visible in hindsight or in an incident report. Which is why the useful thing a project manager does is not to intervene heroically in the moment, but to remove the pressure beforehand: honest durations for commissioning, potholing priced into the estimate, and a stated position on exceptions that everyone heard you say while the job was still calm."}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>The hierarchy of controls is a hierarchy for a reason.</b> Elimination and engineering controls work even when people have a bad day. Personal protective equipment is the last line, not the first move.</div></li>
+      <li><span class="n">2.</span><div><b>Call before you dig, and respect the tolerance zone.</b> Marks give you approximate horizontal position and almost nothing about depth. Inside the zone, hand dig or vacuum.</div></li>
+      <li><span class="n">3.</span><div><b>Several agencies control one street.</b> Local right of way, state roads, railroads, and other utility owners each hold something you need. Railroad crossings belong on the critical path from day one.</div></li>
+      <li><span class="n">4.</span><div><b>Commissioning cannot be crashed.</b> Hold times and 24 hour sample intervals are fixed by standard. Plan honest duration, including one failed round, or you will report a delay for something entirely normal.</div></li>
+      <li><span class="n">5.</span><div><b>Substantial completion is not final completion.</b> The gap between them is where punch lists, record drawings, and training quietly die. Retainage is your last piece of leverage, so use it.</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>Everything in this chapter is a place where the pressure runs one direction and the right answer runs the other. <b>Your job is to take the pressure off before the moment arrives:</b> price the potholing, schedule the real clearance time, design the trench out where you can, and make your position on exceptions known while everyone is calm. A project manager who only shows up at the moment of decision has already lost the argument.</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="module-16-capital-lifecycle-regulatory.html">&#8592; Chapter 16 &middot; Capital life cycle and regulatory</a>
+    <a class="btn" href="masterclass-project-management.html">Back to the masterclass &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; Project Management</span>
+    <span>Chapter 17 &middot; 2026-07-19</span>
+  </div>
+</footer>
+
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>
