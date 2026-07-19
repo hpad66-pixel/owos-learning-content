@@ -34,7 +34,7 @@ COURSE_TITLE = "Data Before AI: Data and Artificial Intelligence Governance for 
 COURSE_SOURCE = "masterclass-data-governance.html"
 COURSE_OUTPUT = "course-data-governance.html"
 RELEASED_CHAPTERS = {"00"}
-SHELL_VERSION = "0.14.0"
+SHELL_VERSION = "0.15.0"
 
 CORE_CSS = (ROOT / "core/components/academy.css").read_text(encoding="utf-8")
 CORE_JS = (ROOT / "core/components/academy.js").read_text(encoding="utf-8")

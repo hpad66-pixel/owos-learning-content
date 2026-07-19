@@ -3,7 +3,7 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
-## [0.14.0] - 2026-07-19
+## [0.15.0] - 2026-07-19
 ### Added: Data Governance Chapter 00
 - Released the complete interactive orientation lesson, "How to use the Master Class," with
   Foundation, Practitioner, and Leader lenses and the Riverbend wet-weather response case.
@@ -19,7 +19,9 @@ Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 ### Changed
 - Changed the Data Governance build from an all-placeholder shell to a mixed release: Chapter 00 is
   available and Chapters 01 through 24 retain governed content-pending destinations.
-- Bumped the governed course metadata, root version, manifest, and landing page to 0.14.0.
+- Bumped the governed course metadata, root version, manifest, and landing page to 0.15.0.
+
+## [0.14.0] - 2026-07-19
 
 ### Added: Chapter 07 + three cost/finance simulations
 - `estrange` : AACE estimate-accuracy range, slide design maturity (Class 5 to 1) and watch the low-high

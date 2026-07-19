@@ -3,7 +3,7 @@
 The Markdown list of every visual in `component-gallery.html`. Open the gallery to see them rendered
 live. Pick the one that fits the idea. Do not reuse the same shape across a chapter.
 
-**Last updated:** 2026-07-19 &middot; **v0.14.0**
+**Last updated:** 2026-07-19 &middot; **v0.15.0**
 
 ## Parts of a whole, and balance
 | Component | Kind | Use when |
