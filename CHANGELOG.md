@@ -3,6 +3,19 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.4.0] - 2026-07-18
+### Added
+- Chapter 02 (Delivery & life cycles), built with a fresh visual palette so it does not echo
+  Chapter 01: a predictive-vs-agile spectrum, a linear-vs-loop diagram, an interactive delivery-method
+  comparison table and recommender, plus five quiz types (classify, matching, flip cards, multiple
+  choice, true/false) and a reflection. Plain voice, no em dashes.
+- Native deploy page `dist/site/lesson-pm-02-delivery-life-cycles.html`.
+### Changed
+- Course chrome: Chapter 02 now live; Chapter 05 set back to "coming soon" until it is deployed
+  (we deploy in sequence).
+### Deployed
+- Published Chapter 02 and the updated course landing to the `2-brain` site (owos.ai).
+
 ## [0.3.1] - 2026-07-18
 ### Added
 - Native owos.ai deploy page for the course landing: `dist/site/course-project-management.html`

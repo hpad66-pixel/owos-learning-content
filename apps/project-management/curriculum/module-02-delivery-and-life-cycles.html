@@ -1,0 +1,370 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 02: Delivery &amp; Life Cycles &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 2 of the Project Management master class. How projects get delivered: predictive vs agile, and the delivery methods (DBB, DB, CMAR, Progressive DB, P3).">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="%230B7DC2"/><path d="M20 6C20 6 11 16 11 23C11 28 15 32 20 32C25 32 29 28 29 23C29 16 20 6 20 6Z" fill="none" stroke="%23FFFFFF" stroke-width="2"/><circle cx="20" cy="23" r="3.4" fill="%23F2C94C"/></svg>'>
+<style>
+  :root{
+    --bg:#F7F9FB;--surface:#FFFFFF;--surface-2:#EFF3F7;--surface-3:#E5EBF1;
+    --ink:#0F1728;--ink-2:#44546A;--ink-3:#8595AB;--line:#E4E9F0;--line-2:#CDD6E1;
+    --brand:#0A78BA;--brand-700:#08669F;--brand-800:#07547F;--brand-50:#EAF5FC;--brand-100:#D3EAF8;
+    --gold:#A97B0F;--green:#0E8A64;--green-50:#E7F6F0;--red:#D64545;--red-50:#FCEDED;
+    --f:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --fm:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+    --sh:0 1px 2px rgba(15,23,40,.06),0 1px 3px rgba(15,23,40,.04);
+    --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
+  h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
+  h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
+  h2{font-size:25px;margin:8px 0 12px}h3{font-size:19px;margin:30px 0 8px}
+  p{font-size:17px;color:var(--ink-2);margin:0 0 15px}strong{color:var(--ink)}
+  a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}em{font-style:italic;color:var(--ink)}
+  code{font-family:var(--fm);font-size:.85em;background:var(--surface-3);color:var(--ink);padding:1px 6px;border-radius:6px}
+  button{font-family:var(--f)}
+  .owos-nav{position:fixed;top:0;left:0;right:0;z-index:60;height:64px;background:rgba(255,255,255,.86);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;padding:0 24px}
+  .owos-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .owos-logo{width:34px;height:34px;border-radius:9px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+  .owos-wm{font-weight:800;font-size:15.5px;letter-spacing:-.015em;color:var(--ink)}.owos-wm b{color:var(--brand)}
+  .owos-pw{font-size:11px;color:var(--ink-3);margin-left:4px}.owos-pw em{font-style:normal;color:var(--gold);font-weight:600}
+  .crumb{margin-left:auto;font:600 12px var(--fm);letter-spacing:.06em;color:var(--ink-3)}.crumb a{color:var(--brand)}.crumb b{color:var(--brand)}
+  #rprog{position:fixed;top:64px;left:0;height:3px;background:var(--brand);width:0;z-index:61;transition:width .1s linear}
+  .wrap{max-width:820px;margin:0 auto;padding:30px 24px 40px}
+  .hpill{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-700);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:6px 14px;margin-bottom:16px}
+  .hpill .d{width:7px;height:7px;border-radius:50%;background:var(--green)}
+  .sub{color:var(--ink-2);font-size:18px;line-height:1.65;max-width:62ch}
+  .lens{display:inline-flex;gap:5px;margin:22px 0 0;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:4px}
+  .lens button{background:none;border:none;color:var(--ink-2);font:600 13px var(--f);padding:7px 13px;border-radius:8px;cursor:pointer}
+  .lens button.on{background:var(--brand);color:#fff}
+  .lenshint{font-family:var(--fm);font-size:12px;color:var(--ink-3);margin:10px 0 0}
+  .lv{display:none}body[data-lens="f"] .lv.f,body[data-lens="p"] .lv.p,body[data-lens="l"] .lv.l{display:block}
+  .sec{margin:48px 0 0}.sec .tag{font-family:var(--fm);font-size:11px;letter-spacing:.14em;color:var(--ink-3);float:right;margin-top:8px}
+  .term{border-bottom:1.5px dotted var(--brand);cursor:help;color:var(--ink);font-weight:600}
+  #tt{position:fixed;z-index:200;max-width:300px;background:var(--ink);color:#fff;font-size:13px;line-height:1.55;padding:11px 14px;border-radius:12px;box-shadow:var(--sh-lg);opacity:0;pointer-events:none;transition:opacity .12s;font-family:var(--f)}
+  #tt b{color:#9BE3F8;display:block;margin-bottom:3px}
+  .comp{background:var(--surface);border:1px solid var(--line);border-radius:18px;margin:22px 0;box-shadow:var(--sh-lg);overflow:hidden}
+  .comp>.hd{display:flex;align-items:center;gap:9px;padding:12px 18px;border-bottom:1px solid var(--line);font:600 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+  .comp>.hd .kind{margin-left:auto;color:var(--brand);background:var(--brand-50);border:1px solid var(--brand-100);border-radius:999px;padding:2px 9px;font-size:9.5px}
+  .comp>.bd{padding:18px}
+  .droocue{display:flex;gap:12px;align-items:flex-start;padding:14px 18px;background:var(--brand-50);border-top:1px solid var(--brand-100)}
+  .droocue .av{flex:none;width:38px;height:38px}.droocue .m{font-size:14.5px;color:var(--ink);line-height:1.55}.droocue .m b{color:var(--brand-700)}
+  .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:14px;padding:16px 18px;margin:20px 0;box-shadow:var(--sh)}
+  .card .h{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin:0 0 8px}.card p{margin:0;font-size:15.5px}
+  .goals{list-style:none;padding:0;margin:16px 0}.goals li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer;font-size:15.5px}
+  .goals .bx{flex:none;width:22px;height:22px;border:2px solid var(--line-2);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;transition:.15s}.goals li.on .bx{background:var(--green);border-color:var(--green)}
+  /* two figures: linear vs loop */
+  .twofig{display:flex;gap:14px;flex-wrap:wrap}.twofig .box{flex:1;min-width:200px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
+  .twofig .cap{font:600 11px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}.twofig .note{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+  /* spectrum */
+  .sptrack{position:relative;height:10px;background:linear-gradient(90deg,#0A78BA,#5B95C4,#9AA7B4);border-radius:20px;margin:8px 0 4px}
+  .splabels{display:flex;justify-content:space-between;font:600 12px var(--fm);color:var(--ink-2);margin-bottom:4px}
+  input[type=range]{width:100%;accent-color:var(--brand)}
+  .spout{margin-top:14px;padding:12px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink)}.spout b{color:var(--brand)}
+  /* comparison table */
+  .cmpwrap{overflow-x:auto}
+  .cmp{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
+  .cmp th{text-align:left;font:600 10px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:9px 10px;border-bottom:1px solid var(--line)}
+  .cmp td{padding:10px;border-bottom:1px solid var(--line);color:var(--ink-2)}.cmp tr:last-child td{border-bottom:none}
+  .cmp .m{color:var(--ink);font-weight:700;cursor:pointer}.cmp tr.on{background:var(--brand-50)}
+  .lvl{display:inline-block;font:700 10px var(--fm);padding:2px 8px;border-radius:999px}
+  .lvl.hi{background:var(--green-50);color:var(--green)}.lvl.me{background:#FBF3E2;color:var(--gold)}.lvl.lo{background:var(--red-50);color:var(--red)}
+  .cmpdetail{margin-top:12px;padding:11px 14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;font-size:14px;color:var(--ink);display:none}.cmpdetail.on{display:block}
+  /* recommender */
+  .recopts{display:flex;flex-wrap:wrap;gap:8px}
+  .recbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:10px;padding:9px 13px;font:600 13px var(--f);color:var(--ink-2);cursor:pointer}
+  .recbtn:hover{border-color:var(--brand);color:var(--brand)}.recbtn.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .recout{margin-top:14px;padding:13px 16px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:14.5px;display:none}.recout.on{display:block}.recout b{color:var(--brand)}
+  /* method box */
+  .method .stepn{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);align-items:flex-start}.method .stepn:last-child{border-bottom:none}
+  .method .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font:800 13px var(--fm);display:flex;align-items:center;justify-content:center}.method .tx{font-size:14.5px}.method .tx b{color:var(--ink)}
+  /* quizzes */
+  .sortitem{display:flex;align-items:center;gap:8px;padding:11px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}.sortitem:last-child{border-bottom:none}.sortitem .lab{flex:1;min-width:180px;font-weight:600;color:var(--ink);font-size:14.5px}.sortitem .why{flex-basis:100%;font-size:13.5px;color:var(--ink-2);margin-top:2px;display:none;line-height:1.5}.sortitem.done .why{display:block}
+  .sbtn{border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);border-radius:8px;padding:6px 11px;font:600 12px var(--f);cursor:pointer}.sbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.sbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.sbtn:disabled{cursor:default}
+  .score{font:600 12.5px var(--fm);color:var(--ink-3);margin-top:12px}
+  .flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+  .flip{perspective:900px;height:104px;cursor:pointer}.fin{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}.flip.on .fin{transform:rotateY(180deg)}
+  .ff,.fbk{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px}
+  .ff{background:var(--brand);color:#fff;font-weight:800;font-size:15px}.fbk{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);transform:rotateY(180deg);font-size:12px;line-height:1.4}.flip .hint{position:absolute;bottom:4px;right:7px;font:8px var(--fm);opacity:.7;color:#fff}
+  .match{display:flex;gap:14px}.mcol{flex:1;display:flex;flex-direction:column;gap:8px}
+  .mitem{border:1.5px solid var(--line-2);background:var(--surface);border-radius:10px;padding:9px 11px;font-size:13px;color:var(--ink-2);cursor:pointer;text-align:left}.mitem:hover{border-color:var(--brand)}.mitem.sel{border-color:var(--brand);background:var(--brand-50);color:var(--brand)}.mitem.done{border-color:#BFE0CE;background:var(--green-50);color:var(--green);cursor:default;font-weight:600}.mitem.bad{border-color:#EAC7C0;background:var(--red-50);color:var(--red)}
+  .mc .opt{display:block;width:100%;text-align:left;background:var(--surface-2);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:9px;cursor:pointer;font-size:14.5px;color:var(--ink-2);font-family:inherit}.mc .opt:hover{border-color:var(--brand)}.mc .opt.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green);font-weight:600}.mc .opt.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.mc .fb{margin-top:8px;font-size:14px;color:var(--ink-2);display:none}.mc .fb.on{display:block}
+  .tf{display:flex;flex-direction:column;gap:10px}.tfrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tfrow .s{flex:1;min-width:180px;font-size:14.5px;color:var(--ink-2)}
+  .tfbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:6px 13px;font:600 12.5px var(--f);cursor:pointer;color:var(--ink-2)}.tfbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.tfbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.tfbtn:disabled{cursor:default}
+  .fb2{margin-top:10px;font-size:14px;padding:9px 12px;border-radius:10px;display:none}.fb2.on{display:block}.fb2.ok{background:var(--green-50);color:var(--green)}.fb2.no{background:var(--red-50);color:var(--red)}
+  .check{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:var(--sh)}.check .q{font-size:17px;color:var(--ink);font-weight:700}.check details summary{cursor:pointer;color:var(--brand);font:600 13.5px var(--f);margin-top:8px}.check .a{margin-top:8px;font-size:14.5px;color:var(--ink-2);line-height:1.6}
+  .navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap}.navrow a{font:600 14px var(--f)}
+  .btn{background:var(--brand);color:#fff;border-radius:10px;padding:10px 18px;font-weight:700;font-size:14px;box-shadow:var(--sh)}.btn:hover{background:var(--brand-700);text-decoration:none}
+  .foot{background:var(--surface);border-top:1px solid var(--line);margin-top:30px}.foot .in{max-width:820px;margin:0 auto;padding:22px 24px;font:12.5px var(--fm);color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.foot a{color:var(--brand)}
+</style></head><body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="dbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FD3F6"/><stop offset=".55" stop-color="#3FA8E8"/><stop offset="1" stop-color="#1C79C0"/></linearGradient>
+  <linearGradient id="dlimb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA0DF"/><stop offset="1" stop-color="#1E76BC"/></linearGradient>
+  <symbol id="droobi" viewBox="460 130 500 700">
+    <path d="M662,632 C 656,700 654,760 656,802" stroke="url(#dlimb)" stroke-width="34" stroke-linecap="round" fill="none"/><path d="M738,632 C 744,700 746,760 744,802" stroke="url(#dlimb)" stroke-width="34" stroke-linecap="round" fill="none"/><ellipse cx="646" cy="806" rx="34" ry="16" fill="#1E76BC"/><ellipse cx="754" cy="806" rx="34" ry="16" fill="#1E76BC"/><path d="M548,486 C 512,560 496,690 500,768" stroke="url(#dlimb)" stroke-width="30" stroke-linecap="round" fill="none"/><ellipse cx="500" cy="772" rx="32" ry="17" fill="#2C86C4"/><path d="M852,486 C 900,540 920,556 936,544" stroke="url(#dlimb)" stroke-width="30" stroke-linecap="round" fill="none"/><circle cx="938" cy="540" r="23" fill="#2C86C4"/><path d="M700,150 C 660,320 525,412 525,472 A 175,175 0 1 0 875,472 C 875,412 740,320 700,150 Z" fill="url(#dbody)" stroke="#12608f" stroke-width="4"/><ellipse cx="632" cy="332" rx="30" ry="76" fill="#fff" opacity=".30"/><circle cx="782" cy="286" r="13" fill="#fff" opacity=".4"/><circle cx="700" cy="580" r="24" fill="#3FA8E8" stroke="#1C79C0" stroke-width="3"/><path d="M700,566 C700,566 690,578 690,585 A10,10 0 1 0 710,585 C710,578 700,566 700,566 Z" fill="#0d2136"/><path d="M596,398 Q642,380 686,400" stroke="#153049" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M714,400 Q758,380 804,398" stroke="#153049" stroke-width="10" fill="none" stroke-linecap="round"/><ellipse cx="646" cy="442" rx="35" ry="42" fill="#fff"/><circle cx="652" cy="446" r="22" fill="#2E6FA8"/><circle cx="654" cy="448" r="11" fill="#0f2233"/><circle cx="645" cy="438" r="6" fill="#fff"/><ellipse cx="754" cy="442" rx="35" ry="42" fill="#fff"/><circle cx="748" cy="446" r="22" fill="#2E6FA8"/><circle cx="746" cy="448" r="11" fill="#0f2233"/><circle cx="739" cy="438" r="6" fill="#fff"/><ellipse cx="606" cy="496" rx="22" ry="13" fill="#f39b8f" opacity=".28"/><ellipse cx="794" cy="496" rx="22" ry="13" fill="#f39b8f" opacity=".28"/><path d="M654,512 Q700,562 746,512 Q700,532 654,512 Z" fill="#0e2733"/><ellipse cx="700" cy="532" rx="21" ry="10" fill="#e07e72"/>
+  </symbol>
+</defs></svg>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="/">
+    <span class="owos-logo"><svg width="19" height="19" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 C16 3 8.5 12 8.5 18 A7.5 7.5 0 0 0 23.5 18 C23.5 12 16 3 16 3 Z" fill="none" stroke="#FFFFFF" stroke-width="2.4"/><circle cx="16" cy="18" r="3" fill="#F2C94C"/></svg></span>
+    <span class="owos-wm">One Water <b>Operating System</b></span><span class="owos-pw">Powered by <em>APAS.ai</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass-project-management.html">Master Class</a> / <b>Chapter 02</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap" id="top">
+  <span class="hpill"><span class="d"></span>Chapter 02 &middot; Part A &middot; Foundations</span>
+  <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+      <h1>How you <span>deliver</span> a project</h1>
+      <p class="sub">Two questions decide how a project runs. First, how much do you plan up front versus figure out as you go? Second, who designs it and who builds it, and how do you contract that? Get these right and everything downstream is easier.</p>
+    </div>
+    <svg viewBox="460 130 500 700" style="width:92px;height:120px;flex:none" aria-label="Droobi"><use href="#droobi"/></svg>
+  </div>
+  <div class="lens" role="tablist" aria-label="Depth">
+    <button data-l="f" class="on">Foundation</button><button data-l="p">Practitioner</button><button data-l="l">Leader</button>
+  </div>
+  <p class="lenshint">Pick your level above and the explanations change to match it. Hover any <span class="term" data-term="dotted term" data-def="Hover any dotted word for a plain-English definition.">dotted term</span>. This chapter has 2 sections.</p>
+  <p>By the end of this chapter you will be able to:</p>
+  <ul class="goals" id="goals">
+    <li><span class="bx">&#10003;</span><span>Choose between a predictive plan and an agile one, and know when a mix is smarter.</span></li>
+    <li><span class="bx">&#10003;</span><span>Explain the main delivery methods (DBB, DB, CMAR, Progressive DB, P3) in plain terms.</span></li>
+    <li><span class="bx">&#10003;</span><span>Recommend a delivery method that fits what a given project cares about most.</span></li>
+  </ul>
+
+  <!-- SECTION 1 -->
+  <div class="sec">
+    <span class="tag">Section 1 of 2</span>
+    <h2>Plan it all up front, or figure it out as you go?</h2>
+    <p>Every project sits somewhere between two styles. A <span class="term" data-term="predictive approach" data-def="Plan the whole project in detail up front, then build it in order. Also called waterfall. Best when the work is well understood.">predictive</span> approach means you plan the whole thing in detail first, then build it in order. It works when you have done the work before and know what to expect, like replacing a standard water main. An <span class="term" data-term="agile approach" data-def="Do a small piece, learn from it, adjust, and repeat. Best when there is a lot you cannot know up front.">agile</span> approach means you do a small piece, learn from it, adjust, and repeat. It works when there is a lot you cannot know yet, like a new smart-meter rollout where you are still learning what the software and the customers will do.</p>
+    <p>Most real utility work is a <span class="term" data-term="hybrid approach" data-def="A mix. Run the well-understood parts predictively and the uncertain parts in short cycles.">hybrid</span>: run the construction predictively, because pipe in the ground is well understood, but run the new technology or the public-outreach parts in short cycles, because those you have to learn as you go.</p>
+    <div class="lv f"><p>The simple rule: the more you already know about the work, the more you can plan up front. The more is unknown, the more you should work in small steps so a surprise costs you a week, not the whole budget.</p></div>
+    <div class="lv p"><p>Ask how much of the scope is genuinely new. If it is a repeat of past jobs, plan it fully and control to the plan. If a big chunk is unproven, carve that chunk out and run it in short cycles with checkpoints, while the rest stays predictive.</p></div>
+    <div class="lv l"><p>Forcing an agile, learn-as-you-go effort into a fixed lump-sum plan is how technology projects blow up. Forcing a well-understood pipe job into endless "iterations" just wastes time. Match the style to the certainty, and say which parts are which when you fund it.</p></div>
+
+    <p>The two styles even look different. Predictive is a straight line through phases. Agile is a loop you go around again and again.</p>
+    <!-- DIAGRAM: two contrasting shapes -->
+    <div class="comp"><div class="hd"><span>Predictive vs agile, at a glance</span><span class="kind">Diagram</span></div>
+      <div class="bd"><div class="twofig">
+        <div class="box"><div class="cap">Predictive (a line)</div>
+          <svg viewBox="0 0 220 70"><g><rect x="6" y="26" width="40" height="20" rx="5" fill="var(--brand-50)" stroke="var(--brand)"/><rect x="62" y="26" width="40" height="20" rx="5" fill="var(--brand-50)" stroke="var(--brand)"/><rect x="118" y="26" width="40" height="20" rx="5" fill="var(--brand-50)" stroke="var(--brand)"/><rect x="174" y="26" width="40" height="20" rx="5" fill="var(--brand-50)" stroke="var(--brand)"/></g><g stroke="var(--ink-3)"><line x1="46" y1="36" x2="62" y2="36"/><line x1="102" y1="36" x2="118" y2="36"/><line x1="158" y1="36" x2="174" y2="36"/></g><g font-size="8" fill="#0F1728" text-anchor="middle"><text x="26" y="40">Plan</text><text x="82" y="40">Design</text><text x="138" y="40">Build</text><text x="194" y="40">Done</text></g></svg>
+          <div class="note">Plan once, then move through in order.</div>
+        </div>
+        <div class="box"><div class="cap">Agile (a loop)</div>
+          <svg viewBox="0 0 160 90"><circle cx="80" cy="45" r="32" fill="none" stroke="var(--brand-100)" stroke-width="8"/><circle cx="80" cy="13" r="10" fill="var(--brand)"/><circle cx="112" cy="45" r="10" fill="var(--brand)"/><circle cx="80" cy="77" r="10" fill="var(--brand)"/><circle cx="48" cy="45" r="10" fill="var(--brand)"/><g font-size="7" fill="#fff" text-anchor="middle"><text x="80" y="16">Plan</text><text x="112" y="48">Do</text><text x="80" y="80">Check</text><text x="48" y="48">Adjust</text></g></svg>
+          <div class="note">Small steps, learn, go around again.</div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- SPECTRUM (interactive) -->
+    <div class="comp"><div class="hd"><span>Slide to fit the work</span><span class="kind">Spectrum &middot; interactive</span></div>
+      <div class="bd">
+        <div class="splabels"><span>Predictive</span><span>Hybrid</span><span>Agile</span></div>
+        <div class="sptrack"></div>
+        <input type="range" id="sp" min="0" max="100" value="15">
+        <div class="spout" id="spOut"></div>
+      </div>
+      <div class="droocue"><svg class="av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg><div class="m">Slide it from a routine main replacement toward a brand-new technology pilot, and watch the right style change.</div></div>
+    </div>
+
+    <!-- QUIZ: classify (3-way) -->
+    <div class="comp"><div class="hd"><span>Which style fits?</span><span class="kind">Quiz &middot; classify</span></div>
+      <div class="bd"><div id="sorter"></div><div class="score" id="sortScore">Nothing answered yet</div></div>
+      <div class="droocue"><svg class="av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg><div class="m">For each one, pick Predictive, Agile, or Hybrid. I will tell you why.</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="sec">
+    <span class="tag">Section 2 of 2</span>
+    <h2>Who designs it, who builds it: delivery methods</h2>
+    <p>Once you know the style, you decide how to contract the work. Here are the five you will meet most in water, in plain terms.</p>
+    <p><strong>Design-Bid-Build</strong> (<span class="term" data-term="DBB" data-def="Design-Bid-Build. Finish the design, put it out to bid, then the low bidder builds it. Traditional; you keep design control; low bid keeps price honest; but designer and builder are not a team.">DBB</span>): you finish the design, put it out to bid, and the low bidder builds it. Traditional. You keep full control of the design, and the low bid keeps the price honest. The downside is that the designer and the builder are not on the same team, so when the field does not match the drawings, you get change orders.</p>
+    <p><strong>Design-Build</strong> (<span class="term" data-term="DB" data-def="Design-Build. One company both designs and builds. Faster, one point of responsibility, but you give up some control of the design details.">DB</span>): one company both designs and builds. It is faster and there is a single point of responsibility. The trade-off is you give up some control over the design details.</p>
+    <p><strong>Construction Manager at Risk</strong> (<span class="term" data-term="CMAR" data-def="Construction Manager at Risk. You bring the builder in early to advise during design, then they commit to a guaranteed maximum price. Teamwork plus price certainty, and you keep your own designer.">CMAR</span>): you bring the builder in early, during design, to advise on cost and buildability, then they commit to a guaranteed maximum price. You get teamwork and price certainty while keeping your own designer.</p>
+    <p><strong>Progressive Design-Build</strong> (<span class="term" data-term="Progressive DB" data-def="Design-Build where you pick the team on qualifications first, then develop the design and the price together, step by step. Good when the scope is still fuzzy.">Progressive DB</span>): design-build, but you pick the team on qualifications first, then develop the design and the price together, step by step. Good when the scope is still fuzzy.</p>
+    <p><strong>Public-Private Partnership</strong> (<span class="term" data-term="P3" data-def="Public-Private Partnership. A private partner finances, builds, and often operates the asset for years, and you pay over time. For very large projects when you lack the capital up front.">P3</span>): a private partner finances, builds, and often operates the asset for years, and you pay over time. You use it for very large projects when you do not have the capital up front.</p>
+
+    <!-- COMPARISON TABLE (interactive) -->
+    <div class="comp"><div class="hd"><span>Compare them side by side</span><span class="kind">Chart &middot; comparison table</span></div>
+      <div class="bd"><div class="cmpwrap"><table class="cmp" id="cmp">
+        <thead><tr><th>Method</th><th>Your control of design</th><th>Speed</th><th>Price certainty early</th></tr></thead>
+        <tbody>
+          <tr data-m="DBB"><td class="m">DBB</td><td><span class="lvl hi">High</span></td><td><span class="lvl lo">Low</span></td><td><span class="lvl lo">Low</span></td></tr>
+          <tr data-m="DB"><td class="m">DB</td><td><span class="lvl lo">Low</span></td><td><span class="lvl hi">High</span></td><td><span class="lvl me">Medium</span></td></tr>
+          <tr data-m="CMAR"><td class="m">CMAR</td><td><span class="lvl hi">High</span></td><td><span class="lvl me">Medium</span></td><td><span class="lvl hi">High</span></td></tr>
+          <tr data-m="PDB"><td class="m">Progressive DB</td><td><span class="lvl me">Medium</span></td><td><span class="lvl me">Medium</span></td><td><span class="lvl hi">High</span></td></tr>
+          <tr data-m="P3"><td class="m">P3</td><td><span class="lvl lo">Low</span></td><td><span class="lvl lo">Low</span></td><td><span class="lvl hi">High</span></td></tr>
+        </tbody>
+      </table></div><div class="cmpdetail" id="cmpDetail"></div></div>
+      <div class="droocue"><svg class="av" viewBox="460 130 500 700" aria-hidden="true"><use href="#droobi"/></svg><div class="m">Tap a method name to see what it is best for. Notice the trade-offs: nothing is high on everything.</div></div>
+    </div>
+
+    <!-- RECOMMENDER (interactive framework) -->
+    <div class="comp"><div class="hd"><span>Which one should you use?</span><span class="kind">Framework &middot; recommender</span></div>
+      <div class="bd">
+        <p style="margin:0 0 10px;font-size:14.5px;color:var(--ink-2)">Pick what this project cares about most:</p>
+        <div class="recopts" id="rec">
+          <button class="recbtn" data-r="price">Lowest price, and I know the work well</button>
+          <button class="recbtn" data-r="speed">Speed and one company to answer for it</button>
+          <button class="recbtn" data-r="team">Teamwork and price certainty, keep my designer</button>
+          <button class="recbtn" data-r="fuzzy">The scope is still fuzzy</button>
+          <button class="recbtn" data-r="capital">Huge project, no capital up front</button>
+        </div>
+        <div class="recout" id="recOut"></div>
+      </div>
+    </div>
+
+    <!-- QUIZ: matching -->
+    <div class="comp"><div class="hd"><span>Match method to its strength</span><span class="kind">Quiz &middot; matching</span></div>
+      <div class="bd"><div class="match"><div class="mcol" id="mLeft"></div><div class="mcol" id="mRight"></div></div><div class="fb2" id="matchFb"></div></div></div>
+
+    <!-- QUIZ: flip cards for acronyms -->
+    <div class="comp"><div class="hd"><span>The acronyms, quickly</span><span class="kind">Quiz &middot; flip cards</span></div>
+      <div class="bd"><div class="flips" id="flips"></div></div></div>
+
+    <!-- QUIZ: multiple choice scenario -->
+    <div class="comp mc"><div class="hd"><span>Pick the best fit</span><span class="kind">Quiz &middot; multiple choice</span></div>
+      <div class="bd" id="mc">
+        <p style="font-weight:700;color:var(--ink);margin:0 0 12px">A council needs a new treatment plant fast, wants one company responsible for the whole thing, and is fine giving up some say on design details. Which method fits best?</p>
+        <button class="opt" data-c="1">Design-Build (DB)</button>
+        <button class="opt" data-c="0">Design-Bid-Build (DBB)</button>
+        <button class="opt" data-c="0">Public-Private Partnership (P3)</button>
+        <div class="fb" id="mcFb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOOSING: method + true/false + reflection -->
+  <div class="sec">
+    <h2>Choosing well</h2>
+    <div class="comp method"><div class="hd"><span>How to pick a delivery method</span><span class="kind">Method</span></div>
+      <div class="bd">
+        <div class="stepn"><span class="n">1</span><span class="tx"><b>Name what matters most</b> on this job: lowest price, speed, price certainty, design control, or no capital up front.</span></div>
+        <div class="stepn"><span class="n">2</span><span class="tx"><b>Check how well you know the scope.</b> Well understood points to DBB. Still fuzzy points to Progressive DB.</span></div>
+        <div class="stepn"><span class="n">3</span><span class="tx"><b>Check your own capacity.</b> No capital points to P3. Want a partner during design points to CMAR.</span></div>
+        <div class="stepn"><span class="n">4</span><span class="tx"><b>Confirm your state and rules allow it.</b> Not every method is permitted for every public agency; check first.</span></div>
+      </div>
+    </div>
+
+    <div class="comp"><div class="hd"><span>True or false</span><span class="kind">Quiz &middot; true / false</span></div>
+      <div class="bd"><div class="tf" id="tf"></div></div></div>
+
+    <div class="check"><div class="q">In your own words: your utility has a well-understood 2-mile pipe replacement and wants the lowest defensible price. Which delivery method, and why?</div>
+      <details><summary>Show the answer</summary><div class="a">Design-Bid-Build. The work is well understood, so a full design up front is safe, and competitive low bids give you the lowest defensible price. You accept that the designer and builder are separate, which is fine on a routine job with few surprises.</div></details></div>
+  </div>
+
+  <div class="card"><div class="h">What to remember</div>
+    <p>Predictive means plan it all up front. Agile means small steps, learn, repeat. Most real work is a hybrid.<br><br>
+    The more you already know, the more you can plan; the more is unknown, the smaller your steps should be.<br><br>
+    Delivery methods trade off control, speed, and price certainty. DBB gives control and low bids; DB gives speed and one point of responsibility; CMAR and Progressive DB give teamwork and price certainty; P3 covers a huge job when you lack the capital.<br><br>
+    Pick the method by what the project cares about most, how well you know the scope, and what your rules allow.</p>
+  </div>
+
+  <div class="navrow">
+    <a href="masterclass-project-management.html">&lsaquo; Back to the Master Class</a>
+    <a class="btn" href="masterclass-project-management.html">Next up: Chapter 03, Governance &amp; the PM plan &rarr;</a>
+  </div>
+</div>
+
+<footer class="foot"><div class="in">
+  <span>One Water OS Academy &middot; Chapter 02 &middot; Delivery and life cycles</span>
+  <span>Powered by <a href="https://apas.ai">APAS.ai</a></span>
+</div></footer>
+
+<div id="tt"></div>
+<script>
+(function(){
+  "use strict";
+  document.querySelectorAll('#goals li').forEach(function(li){li.onclick=function(){li.classList.toggle('on');};});
+
+  // SPECTRUM
+  var sp=document.getElementById('sp'),spOut=document.getElementById('spOut');
+  function spRender(){var v=+sp.value,t;
+    if(v<33)t='<b>Predictive.</b> This end fits work you know cold, like a routine main replacement. Plan it fully, then build to the plan.';
+    else if(v<67)t='<b>Hybrid.</b> The middle fits most real jobs: build the pipe predictively, but run the new technology or public outreach in short cycles.';
+    else t='<b>Agile.</b> This end fits work full of unknowns, like a brand-new smart-meter pilot. Take small steps, learn, and adjust before you commit big money.';
+    spOut.innerHTML=t;}
+  sp.addEventListener('input',spRender);spRender();
+
+  // QUIZ: classify (3-way)
+  var ITEMS=[
+    {lab:'Replace a standard 12-inch water main, same as last year',t:'pred',why:'You have done this many times, so plan it fully and build to the plan. Predictive.'},
+    {lab:'Pilot a brand-new leak-detection sensor you have never used',t:'agile',why:'Lots of unknowns. Try a little, learn, adjust. Agile.'},
+    {lab:'Build a treatment plant with a new digital control system',t:'hybrid',why:'The building is predictable, the software is not. Run each part its own way. Hybrid.'},
+    {lab:'Roll out smart meters citywide while learning what customers do',t:'hybrid',why:'The installs are routine, the customer and software side is new. Hybrid.'}
+  ];
+  var LBL={pred:'Predictive',agile:'Agile',hybrid:'Hybrid'};
+  var box=document.getElementById('sorter'),ans=0,cor=0;
+  ITEMS.forEach(function(it,i){var row=document.createElement('div');row.className='sortitem';
+    row.innerHTML='<span class="lab">'+it.lab+'</span>'+
+      '<button class="sbtn" data-i="'+i+'" data-a="pred">Predictive</button>'+
+      '<button class="sbtn" data-i="'+i+'" data-a="agile">Agile</button>'+
+      '<button class="sbtn" data-i="'+i+'" data-a="hybrid">Hybrid</button>'+
+      '<span class="why">'+it.why+'</span>';box.appendChild(row);});
+  box.addEventListener('click',function(e){var b=e.target.closest('.sbtn');if(!b||b.disabled)return;var i=+b.getAttribute('data-i'),a=b.getAttribute('data-a'),it=ITEMS[i],row=b.closest('.sortitem');if(row.classList.contains('done'))return;row.classList.add('done');ans++;row.querySelectorAll('.sbtn').forEach(function(x){x.disabled=true;});if(a===it.t){b.classList.add('right');cor++;}else{b.classList.add('wrong');row.querySelector('[data-a="'+it.t+'"]').classList.add('right');}document.getElementById('sortScore').innerHTML=ans+' of '+ITEMS.length+' answered, <b style="color:var(--green)">'+cor+' correct</b>';});
+
+  // COMPARISON TABLE
+  var CMP={DBB:'<b>DBB is best for</b> routine, well-understood jobs where the lowest defensible price matters and you want full control of the design.',
+    DB:'<b>DB is best for</b> when you need speed and one company responsible for the whole thing, and you can give up some design control.',
+    CMAR:'<b>CMAR is best for</b> complex jobs where you want the builder helping during design and a guaranteed price, while keeping your own designer.',
+    PDB:'<b>Progressive DB is best for</b> jobs where the scope is still fuzzy and you want to shape the design and price together before locking in.',
+    P3:'<b>P3 is best for</b> very large projects where you do not have the capital, so a partner finances, builds, and often operates it.'};
+  var cmp=document.getElementById('cmp'),cd=document.getElementById('cmpDetail');
+  cmp.addEventListener('click',function(e){var tr=e.target.closest('tr[data-m]');if(!tr)return;cmp.querySelectorAll('tr').forEach(function(x){x.classList.remove('on');});tr.classList.add('on');cd.classList.add('on');cd.innerHTML=CMP[tr.getAttribute('data-m')];});
+
+  // RECOMMENDER
+  var REC={price:['Design-Bid-Build (DBB)','You know the work and want the lowest defensible price, so a full design and competitive bids are the fit.'],
+    speed:['Design-Build (DB)','One company designs and builds, which is fastest and gives you a single point of responsibility.'],
+    team:['CMAR','You keep your designer, bring the builder in early, and lock a guaranteed maximum price. Teamwork plus certainty.'],
+    fuzzy:['Progressive Design-Build','You pick the team on qualifications, then shape the design and price together while the scope firms up.'],
+    capital:['Public-Private Partnership (P3)','A private partner finances and builds it and you pay over time, which is how you deliver a huge project without the capital up front.']};
+  var rec=document.getElementById('rec'),recOut=document.getElementById('recOut');
+  rec.addEventListener('click',function(e){var b=e.target.closest('.recbtn');if(!b)return;rec.querySelectorAll('.recbtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');var r=REC[b.getAttribute('data-r')];recOut.classList.add('on');recOut.innerHTML='Use <b>'+r[0]+'</b>. '+r[1];});
+
+  // QUIZ: matching
+  var PAIRS=[['DBB','Lowest price, you control the design'],['DB','Fastest, one company responsible'],['CMAR','Guaranteed price, keep your designer'],['P3','Private partner funds and operates it']];
+  var L=document.getElementById('mLeft'),R=document.getElementById('mRight'),msel=null,mdone=0;
+  var rr=PAIRS.map(function(p,i){return {t:p[1],k:i};});for(var mi=rr.length-1;mi>0;mi--){var mj=(mi*7+3)%(mi+1);var t2=rr[mi];rr[mi]=rr[mj];rr[mj]=t2;}
+  PAIRS.forEach(function(p,i){var b=document.createElement('button');b.className='mitem';b.textContent=p[0];b.setAttribute('data-k',i);b.setAttribute('data-side','L');L.appendChild(b);});
+  rr.forEach(function(r){var b=document.createElement('button');b.className='mitem';b.textContent=r.t;b.setAttribute('data-k',r.k);b.setAttribute('data-side','R');R.appendChild(b);});
+  var mClick=function(e){var b=e.target.closest('.mitem');if(!b||b.classList.contains('done'))return;
+    if(b.getAttribute('data-side')==='L'){L.querySelectorAll('.mitem').forEach(function(x){x.classList.remove('sel');});b.classList.add('sel');msel=b;return;}
+    if(!msel)return;
+    if(b.getAttribute('data-k')===msel.getAttribute('data-k')){b.classList.add('done');msel.classList.add('done');msel.classList.remove('sel');msel=null;mdone++;if(mdone===PAIRS.length){var f=document.getElementById('matchFb');f.className='fb2 on ok';f.textContent='All matched. That is the quick way to remember what each method is for.';}}
+    else{var a=msel,c=b;a.classList.add('bad');c.classList.add('bad');setTimeout(function(){a.classList.remove('bad','sel');c.classList.remove('bad');},550);msel=null;}};
+  L.addEventListener('click',mClick);R.addEventListener('click',mClick);
+
+  // FLIP CARDS
+  var CARDS=[['DBB','Design-Bid-Build: design, then bid, then build.'],['DB','Design-Build: one company designs and builds.'],['CMAR','Construction Manager at Risk: builder helps in design, then guarantees a price.'],['Progressive DB','Pick the team first, then develop design and price together.'],['P3','Public-Private Partnership: a partner finances, builds, and operates.'],['GMP','Guaranteed Maximum Price: the cap a builder commits to.']];
+  var fl=document.getElementById('flips');
+  CARDS.forEach(function(c){var d=document.createElement('div');d.className='flip';d.innerHTML='<div class="fin"><div class="ff">'+c[0]+'<span class="hint">flip</span></div><div class="fbk">'+c[1]+'</div></div>';d.onclick=function(){d.classList.toggle('on');};fl.appendChild(d);});
+
+  // MULTIPLE CHOICE
+  document.getElementById('mc').addEventListener('click',function(e){var o=e.target.closest('.opt');if(!o||document.querySelector('#mc .opt.right'))return;var fb=document.getElementById('mcFb');fb.classList.add('on');
+    if(o.getAttribute('data-c')==='1'){o.classList.add('right');fb.style.color='var(--green)';fb.innerHTML='Correct. Speed plus one point of responsibility, and willing to give up some design control, is exactly Design-Build.';}
+    else{o.classList.add('wrong');document.querySelector('#mc .opt[data-c="1"]').classList.add('right');fb.style.color='var(--red)';fb.innerHTML='Not quite. Design-Build is the fit here: it is the fastest and puts one company in charge of the whole thing.';}});
+
+  // TRUE / FALSE
+  var TF=[['A well-understood pipe replacement is a good fit for a predictive plan.',true,'True. You know the work, so plan it fully and build to the plan.'],['In Design-Build you keep full control over every design detail.',false,'False. That is DBB. In Design-Build you trade some design control for speed and one point of responsibility.'],['CMAR gives you a guaranteed maximum price while you keep your own designer.',true,'True. That is the whole point of CMAR.']];
+  var tfEl=document.getElementById('tf');
+  TF.forEach(function(r,i){var row=document.createElement('div');row.className='tfrow';row.innerHTML='<span class="s">'+r[0]+'</span><button class="tfbtn" data-i="'+i+'" data-v="true">True</button><button class="tfbtn" data-i="'+i+'" data-v="false">False</button><span id="tfx'+i+'" style="flex-basis:100%;font-size:12.5px;color:var(--ink-3);display:none"></span>';tfEl.appendChild(row);});
+  tfEl.addEventListener('click',function(e){var b=e.target.closest('.tfbtn');if(!b||b.disabled)return;var i=+b.getAttribute('data-i'),v=b.getAttribute('data-v')==='true',r=TF[i];tfEl.querySelectorAll('[data-i="'+i+'"]').forEach(function(x){x.disabled=true;});if(v===r[1])b.classList.add('right');else{b.classList.add('wrong');tfEl.querySelector('[data-i="'+i+'"][data-v="'+r[1]+'"]').classList.add('right');}var x=document.getElementById('tfx'+i);x.style.display='block';x.textContent=r[2];});
+
+  // tooltips
+  var tt=document.getElementById('tt');
+  function showTT(el){tt.innerHTML='<b>'+(el.getAttribute('data-term')||'')+'</b>'+el.getAttribute('data-def');var r=el.getBoundingClientRect();tt.style.opacity='1';var top=r.bottom+8,left=Math.min(Math.max(8,r.left),window.innerWidth-tt.offsetWidth-8);if(top+tt.offsetHeight>window.innerHeight-8)top=r.top-tt.offsetHeight-8;tt.style.top=top+'px';tt.style.left=left+'px';}
+  function hideTT(){tt.style.opacity='0';}
+  document.querySelectorAll('.term').forEach(function(el){el.tabIndex=0;el.addEventListener('mouseenter',function(){showTT(el);});el.addEventListener('mouseleave',hideTT);el.addEventListener('focus',function(){showTT(el);});el.addEventListener('blur',hideTT);});
+
+  document.querySelectorAll('.lens button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.lens button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');document.body.setAttribute('data-lens',b.getAttribute('data-l'));};});
+  document.body.setAttribute('data-lens','f');
+  var rp=document.getElementById('rprog');window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;rp.style.width=(h>0?window.scrollY/h*100:0)+'%';},{passive:true});
+})();
+</script>
+</body></html>
