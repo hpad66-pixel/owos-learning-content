@@ -189,6 +189,59 @@
     });
   };
 
+  R.calc=function(el){var c=cfgOf(el);
+    var ins=c.inputs||[
+      {id:'cost',label:'What it costs to build',sub:'up-front dollars',min:500,max:3000,step:50,value:1300,fmt:'money'},
+      {id:'ben',label:'What it saves each year',sub:'fewer breaks, less lost water',min:20,max:400,step:10,value:180,fmt:'moneyyr'},
+      {id:'life',label:'How long it lasts',sub:'years',min:10,max:75,step:5,value:50,fmt:'years'},
+      {id:'rate',label:'Discount rate',sub:'roughly, the cost of money',min:1,max:10,step:0.5,value:4,fmt:'pct'}
+    ];
+    var body=ins.map(function(i){return '<div class="calcrow"><span class="nm">'+i.label+(i.sub?'<small>'+i.sub+'</small>':'')+
+      '</span><span class="ip"><input type="range" data-id="'+i.id+'" min="'+i.min+'" max="'+i.max+'" step="'+i.step+'" value="'+i.value+'"><span class="rv" data-rv="'+i.id+'"></span></span></div>';}).join('');
+    body+='<div class="out"><div class="o"><div class="k">NPV (today’s dollars)</div><div class="val" data-npv>&nbsp;</div></div>'+
+      '<div class="o"><div class="k">Payback</div><div class="val" data-pb>&nbsp;</div></div>'+
+      '<div class="o"><div class="k">Benefit-cost ratio</div><div class="val" data-bcr>&nbsp;</div></div></div>'+
+      '<div class="chartrow"><div class="chartbox"><div class="cap">Your money over time (the curve)</div>'+
+      '<svg viewBox="0 0 300 150" data-curve style="width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)"></svg></div>'+
+      '<div class="chartbox"><div class="cap">Spend vs get back (the chart)</div><div class="bars2" data-bars></div></div></div>'+
+      '<div class="verdict" data-verdict></div>';
+    var b=shell(el,body);
+    function val(id){var el2=b.querySelector('input[data-id="'+id+'"]');return el2?+el2.value:0;}
+    function money(k){var v=k*1000;if(Math.abs(v)>=1e6)return '$'+(v/1e6).toFixed(2)+'M';return '$'+Math.round(v/1000)+'k';}
+    var fmt={money:money,moneyyr:function(v){return money(v)+'/yr';},years:function(v){return v+' years';},pct:function(v){return (+v).toFixed(1)+'%';}};
+    function recalc(){
+      ins.forEach(function(i){b.querySelector('[data-rv="'+i.id+'"]').textContent=(fmt[i.fmt]||String)(val(i.id));});
+      var cost=val('cost'),ben=val('ben'),life=val('life'),r=val('rate')/100;
+      var pvBen=r>0?ben*(1-Math.pow(1+r,-life))/r:ben*life;
+      var npv=pvBen-cost,bcr=pvBen/cost,pb=ben>0?cost/ben:Infinity;
+      b.querySelector('[data-npv]').innerHTML=(npv>=0?'+':'−')+money(Math.abs(npv));
+      b.querySelector('[data-pb]').textContent=isFinite(pb)?pb.toFixed(1)+' years':'never';
+      b.querySelector('[data-bcr]').textContent=isFinite(bcr)?bcr.toFixed(2):'n/a';
+      var v=b.querySelector('[data-verdict]');
+      if(npv>0){v.className='verdict go';v.innerHTML='Worth doing. Every dollar in gives back about $'+bcr.toFixed(2)+' over its life, and the curve crosses into positive around year '+(isFinite(pb)?Math.round(pb):'')+'.';}
+      else{v.className='verdict no';v.innerHTML='At these numbers it does not pay off. NPV is negative, so it costs more than it gives back. You would need a bigger yearly saving, a longer life, or the project waits.';}
+      // curve: discounted cumulative cash flow
+      var x0=8,x1=292,y0=12,y1=126,pts=[],minV=-cost,maxV=Math.max(0,npv);
+      for(var t=0;t<=life;t++){var cum=(r>0?ben*(1-Math.pow(1+r,-t))/r:ben*t)-cost;pts.push([t,cum]);if(cum<minV)minV=cum;if(cum>maxV)maxV=cum;}
+      var span=(maxV-minV)||1;
+      function X(t){return x0+t/life*(x1-x0);}function Y(vv){return y1-(vv-minV)/span*(y1-y0);}
+      var zeroY=Y(0),poly=pts.map(function(p){return X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1);}).join(' '),cross='';
+      if(pvBen>cost){for(var t2=1;t2<=life;t2++){var c0=(r>0?ben*(1-Math.pow(1+r,-(t2-1)))/r:ben*(t2-1))-cost,c1=(r>0?ben*(1-Math.pow(1+r,-t2))/r:ben*t2)-cost;
+        if(c0<0&&c1>=0){var tx=t2-1+(0-c0)/(c1-c0);cross='<circle cx="'+X(tx).toFixed(1)+'" cy="'+zeroY.toFixed(1)+'" r="4" fill="#0E8A64"/><text x="'+X(tx).toFixed(1)+'" y="'+(zeroY-7).toFixed(1)+'" text-anchor="middle" font-size="9" fill="#0E8A64">payback</text>';break;}}}
+      b.querySelector('[data-curve]').innerHTML=
+        '<line x1="'+x0+'" y1="'+zeroY.toFixed(1)+'" x2="'+x1+'" y2="'+zeroY.toFixed(1)+'" stroke="#CDD6E1" stroke-width="1" stroke-dasharray="3 3"/>'+
+        '<text x="'+x0+'" y="'+(zeroY-4).toFixed(1)+'" font-size="8" fill="#8595AB">break even</text>'+
+        '<polyline points="'+poly+'" fill="none" stroke="#0A78BA" stroke-width="2.2"/>'+cross+
+        '<text x="'+x0+'" y="148" font-size="8" fill="#8595AB">year 0</text>'+
+        '<text x="'+x1+'" y="148" text-anchor="end" font-size="8" fill="#8595AB">year '+life+'</text>';
+      var mx=Math.max(cost,pvBen)||1;
+      b.querySelector('[data-bars]').innerHTML=
+        '<div class="col"><span class="bv">'+money(cost)+'</span><div class="bar" style="height:'+(cost/mx*100)+'%;background:var(--ink-3)"></div><span class="bl">You spend</span></div>'+
+        '<div class="col"><span class="bv">'+money(pvBen)+'</span><div class="bar" style="height:'+(pvBen/mx*100)+'%;background:'+(pvBen>=cost?'var(--brand)':'var(--red)')+'"></div><span class="bl">You get back</span></div>';
+    }
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',recalc);});recalc();
+  };
+
   R.truefalse=function(el){var c=cfgOf(el);
     var b=shell(el,'<div class="tf">'+(c.items||[]).map(function(it,i){
       return '<div class="tfrow" data-a="'+(it[1]?1:0)+'"><span class="s">'+it[0]+'</span>'+
@@ -283,31 +336,36 @@
   };
 
   R.triangle=function(el){var c=cfgOf(el);var L=c.labels||['Scope','Time','Cost'];
-    var b=shell(el,'<div class="trirow"><div class="trisvg"><svg viewBox="0 0 260 200">'+
-      '<polygon points="130,24 236,180 24,180" fill="#EAF5FC" stroke="#0A78BA" stroke-width="2"/>'+
-      '<text x="130" y="16" text-anchor="middle" font-size="12" fill="#0F1728" font-weight="700">'+L[0]+'</text>'+
-      '<text x="240" y="196" text-anchor="end" font-size="12" fill="#0F1728" font-weight="700">'+L[1]+'</text>'+
-      '<text x="20" y="196" text-anchor="start" font-size="12" fill="#0F1728" font-weight="700">'+L[2]+'</text>'+
-      '<text x="130" y="130" text-anchor="middle" font-size="11" fill="#0A78BA" font-weight="700">Quality</text>'+
-      '<text x="130" y="146" text-anchor="middle" font-size="9" fill="#44546A">sits inside</text></svg></div>'+
-      '<div class="tricontrols">'+[0,1,2].map(function(i){return '<div class="ctl"><div class="nm">'+L[i]+
-        '<small>'+['how much work','how long','how much money'][i]+'</small></div><div class="step" data-k="'+i+'">'+
-        '<button data-d="-1">&#8722;</button><span class="v">3</span><button data-d="1">+</button></div></div>';}).join('')+
+    var subs=c.subs||['how much work','weeks you have','budget and crews'];
+    var NAMES=['Very low','Low','Medium','High','Very high'];var keys=['scope','time','cost'];
+    var b=shell(el,'<div class="trirow"><svg class="trisvg" viewBox="0 0 260 230" data-svg></svg>'+
+      '<div class="tricontrols">'+[0,1,2].map(function(i){return '<div class="ctl"><span class="nm">'+L[i]+
+        '<small>'+subs[i]+'</small></span><span class="step" data-k="'+i+'"><button data-d="-1">&#8722;</button>'+
+        '<span class="v" data-v="'+i+'">Medium</span><button data-d="1">+</button></span></div>';}).join('')+
       '<div class="qbadge" data-badge></div></div></div>');
-    var val=[3,3,3];var badge=b.querySelector('[data-badge]');
-    function upd(){
-      var slack=(val[1]-3)+(val[2]-3)-(val[0]-3);
-      var t,col,bg;
-      if(slack>=1){t='Comfortable. Time and money cover the scope.';col='#0E8A64';bg='#E7F6F0';}
-      else if(slack===0){t='Balanced. Every corner is pulling its weight.';col='#0A78BA';bg='#EAF5FC';}
-      else{t='Quality at risk. Scope is running ahead of time and money.';col='#D64545';bg='#FCEDED';}
-      badge.textContent=t;badge.style.color=col;badge.style.background=bg;
+    var tc=[2,2,2],CX=130,CY=118;
+    function vert(ang,v){var r=48+v*15;return [CX+r*Math.cos(ang),CY+r*Math.sin(ang)];}
+    function render(){
+      [0,1,2].forEach(function(i){b.querySelector('[data-v="'+i+'"]').textContent=NAMES[tc[i]];});
+      var q=Math.max(0,Math.min(100,100-(tc[0]-(tc[1]+tc[2])/2)*28));
+      var s=vert(-Math.PI/2,tc[0]),t=vert(Math.PI*0.833,tc[1]),cc=vert(Math.PI*0.167,tc[2]);
+      var qc=q>=75?'#0E8A64':q>=45?'#A97B0F':'#D64545',qr=10+q/100*24;
+      b.querySelector('[data-svg]').innerHTML=
+        '<polygon points="'+s[0]+','+s[1]+' '+cc[0]+','+cc[1]+' '+t[0]+','+t[1]+'" fill="rgba(10,120,186,.08)" stroke="#0A78BA" stroke-width="2.5" stroke-linejoin="round"/>'+
+        '<circle cx="'+CX+'" cy="'+CY+'" r="'+qr+'" fill="'+qc+'"/>'+
+        '<text x="'+CX+'" y="'+(CY+4)+'" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">'+Math.round(q)+'</text>'+
+        '<text x="'+s[0]+'" y="'+(s[1]-9)+'" text-anchor="middle" font-size="10" font-weight="600" fill="#0F1728">'+L[0]+'</text>'+
+        '<text x="'+(t[0]-4)+'" y="'+(t[1]+16)+'" text-anchor="middle" font-size="10" font-weight="600" fill="#0F1728">'+L[1]+'</text>'+
+        '<text x="'+(cc[0]+4)+'" y="'+(cc[1]+16)+'" text-anchor="middle" font-size="10" font-weight="600" fill="#0F1728">'+L[2]+'</text>'+
+        '<text x="'+CX+'" y="215" text-anchor="middle" font-size="9" fill="#8595AB">the dot is quality, 0 to 100</text>';
+      var badge=b.querySelector('[data-badge]');
+      badge.style.background=q>=75?'var(--green-50)':q>=45?'#FBF3E2':'var(--red-50)';badge.style.color=qc;
+      badge.innerHTML='Quality holding at <b>'+Math.round(q)+'%</b> ('+(q>=75?'in good shape':q>=45?'getting strained':'corners being cut')+')';
     }
-    b.querySelectorAll('.step').forEach(function(st){var k=+st.dataset.k,v=st.querySelector('.v');
+    b.querySelectorAll('.step').forEach(function(st){var k=+st.dataset.k;
       st.querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){
-        val[k]=Math.max(1,Math.min(5,val[k]+ +btn.dataset.d));v.textContent=val[k];upd();
-      });});
-    });upd();
+        tc[k]=Math.max(0,Math.min(4,tc[k]+ +btn.dataset.d));render();});});});
+    render();
   };
 
   R.process=function(el){var c=cfgOf(el);var ph=c.phases||[];

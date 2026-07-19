@@ -109,6 +109,23 @@ svg text{font-family:var(--fm)}
 input[type=range]{width:100%;accent-color:var(--brand)}
 .erow{display:flex;align-items:center;gap:12px;margin:12px 0}.erow input{flex:1}.erow .v{font:700 15px var(--fm);color:var(--brand);min-width:80px;text-align:right}
 
+/* ---- calculator (business case: NPV / payback / BCR + curve + bars) ---- */
+.calcrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;flex-wrap:wrap}
+.calcrow .nm{font-weight:600;color:var(--ink);font-size:14.5px;flex:1;min-width:170px}.calcrow .nm small{display:block;font:11px var(--fm);color:var(--ink-3);font-weight:400}
+.calcrow .ip{flex:1;max-width:260px;min-width:150px}.calcrow .ip input{width:100%}.calcrow .rv{display:block;text-align:right;font:600 13px var(--fm);color:var(--brand)}
+.out{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.out .o{flex:1;min-width:110px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.out .o .k{font:9px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.out .o .val{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.verdict{margin-top:12px;padding:11px 15px;border-radius:12px;font-weight:600;font-size:14.5px;line-height:1.5}
+.verdict.go{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.verdict.no{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.chartrow{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}.chartbox{flex:1;min-width:240px}
+.chartbox .cap{font:600 10px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.bars2{display:flex;gap:18px;align-items:flex-end;height:120px;border-bottom:2px solid var(--line-2);padding:0 10px}
+.bars2 .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bars2 .bar{width:70%;border-radius:5px 5px 0 0;transition:height .3s}
+.bars2 .bl{font:600 11px var(--fm);color:var(--ink-2);margin-top:5px}.bars2 .bv{font:700 11px var(--fm);color:var(--ink);margin-bottom:4px}
+
 /* ---- true / false ---- */
 .tf{display:flex;flex-direction:column;gap:10px}.tfrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tfrow .s{flex:1;min-width:180px;font-size:14.5px;color:var(--ink-2)}
 .tfbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:6px 13px;font:600 12.5px var(--f);cursor:pointer;color:var(--ink-2)}.tfbtn.right{background:var(--green-50);border-color:#BFE0CE;color:var(--green)}.tfbtn.wrong{background:var(--red-50);border-color:#EAC7C0;color:var(--red)}.tfbtn:disabled{cursor:default}

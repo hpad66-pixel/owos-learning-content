@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chapter 02 &middot; Delivery and life cycles &middot; One Water OS Academy</title>
-<meta name="description" content="Chapter 2 of the Project Management masterclass. How work gets delivered: predictive to adaptive life cycles, phase gates, and the four delivery methods (DBB, DB, CMAR, PDB), worked through one real lift station job.">
+<title>Chapter 03 &middot; Governance, integration and tailoring &middot; One Water OS Academy</title>
+<meta name="description" content="Chapter 3 of the Project Management masterclass. How the utility governs its projects (gates and the PMO), how the pieces knit together (the charter and the PM plan), and how to scale process to the size of the job.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,278 +205,239 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-wm">One Water <b>OS</b></span>
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
-  <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 02</b></span>
+  <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 03</b></span>
 </nav>
 <div id="rprog"></div>
 
 <div class="wrap">
 
-  <span class="hpill"><span class="d"></span> Chapter 02 &middot; Fundamentals</span>
-  <h1>How work gets <span>delivered</span>, and how it flows</h1>
-  <p class="sub">Two decisions shape almost everything else on a job: the <b>life cycle</b> you run the work through, and the <b>delivery method</b> you use to hire and organize the people who do it. This chapter walks both, in plain terms, using one real job the whole way.</p>
+  <span class="hpill"><span class="d"></span> Chapter 03 &middot; Fundamentals</span>
+  <h1>Governance, <span>integration</span> and tailoring</h1>
+  <p class="sub">A project does not run in a vacuum. The utility decides which projects happen and how they are watched (governance), the pieces have to knit into one plan (integration), and the amount of process has to fit the size of the job (tailoring). This chapter walks all three, on the Millpond Road program.</p>
 
   <div class="lens">
     <button class="on" data-lens="f">Full</button>
     <button data-lens="p">Plain</button>
     <button data-lens="l">Leader</button>
   </div>
-  <p class="lenshint">Full is the whole lesson. Plain trims to the core so you can move fast. Leader shows only the call you have to get right. Try the buttons, the page changes.</p>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
   <div class="casebox">
     <span class="pin">&#9873;</span>
     <div>
-      <p class="h">The job we will follow</p>
-      <p><b>Millpond Road lift station rebuild.</b> A 30-year-old sewage lift station is failing. The rebuild covers new pumps, a rehabbed wet well, a standby generator, site work, and new controls that must tie into the utility's existing system. The civil work is well understood. The controls tie-in is not. We will use this one job to make every choice in this chapter concrete.</p>
+      <p class="h">The program we will follow</p>
+      <p><b>The Millpond Road capital program.</b> The same corridor from Chapters 01 and 02, but now as a portfolio: a water main replacement, a lift station rebuild, and a handful of smaller jobs, all competing for one year's capital money. Governance decides which run, integration keeps each one coherent, and tailoring sets how heavy the process should be for each.</p>
     </div>
   </div>
 
   <h3>What you will be able to do</h3>
   <ul class="goals">
-    <li><span class="bx"></span> Tell a <b>predictive</b> life cycle from an <b>adaptive</b> one, and say when each fits</li>
-    <li><span class="bx"></span> Read a phase-gate flow and explain what a gate is for</li>
-    <li><span class="bx"></span> Name the four common delivery methods and what each trades off</li>
-    <li><span class="bx"></span> Choose a delivery method for a real utility job, inside the rules you actually work under</li>
+    <li><span class="bx"></span> Explain what project governance is and what a gate decision actually protects</li>
+    <li><span class="bx"></span> Tell the three kinds of Project Management Office apart and say when each fits</li>
+    <li><span class="bx"></span> Describe how a charter becomes a project management plan, and what integration means</li>
+    <li><span class="bx"></span> Scale the process to the size and risk of a job instead of running everything the same way</li>
   </ul>
 
   <!-- ===================== SECTION 1 ===================== -->
   <div class="sec">
-    <span class="tag">1 / 6</span>
-    <h2>Two words to get straight first</h2>
-    <p>People use these two words loosely on job sites, and it causes real confusion. A <span class="term" data-term="Life cycle" data-def="The set of phases a project moves through from start to finish, for example plan, design, build, start up, close out. It is the SHAPE of the work over time.">life cycle</span> is the shape of the work over time: the phases you move through from the first idea to the day you hand it over. A <span class="term" data-term="Delivery method" data-def="The contracting approach: how you hire and organize the designer and the builder, and who carries which risk. It is WHO does the work and under what contract.">delivery method</span> is different. It is how you hire and organize the people, who designs, who builds, and who carries the risk.</p>
+    <span class="tag">1 / 3</span>
+    <h2>Who decides: governance and the PMO</h2>
+    <p><span class="term" data-term="Governance" data-def="The rules and decision rights around projects: who approves them, who can stop them, and at which checkpoints. It is how an organization keeps its projects honest and aligned.">Governance</span> is the set of rules and decision rights around projects: who approves a project, who can stop it, and at which checkpoints. The everyday shape of it is the <span class="term" data-term="Gate" data-def="A go / no-go decision point between phases. The project only continues if it passes review. Also called a stage gate.">gate</span>: a go or no-go decision between phases, where a sponsor or committee confirms the work is still worth continuing before more money goes out the door.</p>
+
+    <div data-ac="twofig" data-title="Why gates exist" data-kind="Diagram &middot; contrast" data-cue="Without gates, a weak project keeps eating money because no one is asked to stop it. Gates give someone the job of saying no early.">
+      <script type="application/json">
+      {"left":{"cap":"No governance",
+        "svg":"<svg viewBox='0 0 240 120'><g font-family='JetBrains Mono' font-size='10'><rect x='6' y='46' width='52' height='30' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='32' y='65' text-anchor='middle' fill='#0F1728'>Idea</text><rect x='74' y='46' width='60' height='30' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='104' y='65' text-anchor='middle' fill='#0F1728'>Spend</text><rect x='150' y='46' width='84' height='30' rx='7' fill='#FCEDED' stroke='#EAC7C0'/><text x='192' y='65' text-anchor='middle' fill='#D64545'>Overrun</text><line x1='58' y1='61' x2='74' y2='61' stroke='#CDD6E1'/><line x1='134' y1='61' x2='150' y2='61' stroke='#CDD6E1'/></g></svg>",
+        "note":"No one is asked to stop it, so it runs until the money is gone."},
+       "right":{"cap":"Gate governance",
+        "svg":"<svg viewBox='0 0 240 120'><g font-family='JetBrains Mono' font-size='10'><rect x='6' y='46' width='46' height='30' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='29' y='65' text-anchor='middle' fill='#0F1728'>Plan</text><rect x='96' y='46' width='46' height='30' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='119' y='65' text-anchor='middle' fill='#0F1728'>Design</text><rect x='186' y='46' width='46' height='30' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='209' y='65' text-anchor='middle' fill='#0F1728'>Build</text><g fill='#A97B0F'><circle cx='74' cy='61' r='7'/><circle cx='164' cy='61' r='7'/></g><g fill='#fff' font-size='8' text-anchor='middle'><text x='74' y='64'>?</text><text x='164' y='64'>?</text></g></g></svg>",
+        "note":"Gold gates ask go or no-go before each expensive phase."}}
+      </script>
+    </div>
+
+    <p>The office that runs governance day to day is the <span class="term" data-term="PMO" data-def="Project Management Office. The team that supports or oversees projects: it sets standards, tracks the portfolio, and (depending on type) either advises, enforces, or directly runs the projects.">Project Management Office (PMO)</span>. Not every PMO does the same job. There are three common types, from lightest touch to heaviest.</p>
+
+    <div data-ac="table" data-title="Three kinds of PMO" data-kind="Interactive &middot; comparison table" data-cue="Click any type for how it would fit the Millpond Road program.">
+      <script type="application/json">
+      {"headers":["PMO type","Control","What it does","Best when"],
+       "rows":[
+        {"name":"Supportive","cells":[["lo","Low"],"Templates, training, lessons learned","teams are capable, you just want consistency"],
+         "detail":"On Millpond Road: a supportive PMO hands the main-replacement and lift-station teams shared templates, a risk-register format, and a place to log lessons, then gets out of the way. Good when your project managers are strong and you mostly want everyone speaking the same language."},
+        {"name":"Controlling","cells":[["me","Medium"],"Requires conformance to standards","you need consistency and compliance"],
+         "detail":"On Millpond Road: a controlling PMO says you may run your job, but you must use the gate reviews, the reporting format, and the risk process. Good when funding sources or regulators require you to prove a consistent, auditable process across the portfolio."},
+        {"name":"Directive","cells":[["hi","High"],"Runs the projects directly","projects are critical or teams are thin"],
+         "detail":"On Millpond Road: a directive PMO supplies the project managers and runs the jobs itself. Good when the projects are high-stakes or the utility does not have enough seasoned PMs to staff them, so the PMO owns delivery directly."}
+       ]}
+      </script>
+    </div>
 
     <div class="lv f">
-      <p>Here is the easy way to keep them apart. The life cycle is <em>the path the work walks</em>. The delivery method is <em>who you hire to walk it with you, and on what contract</em>. The Millpond lift station runs the same phases (the same life cycle) whether you hire one design-build firm or a designer and a contractor separately (two different delivery methods). The phases do not change. Who you sign contracts with does.</p>
+      <p>Most utilities land on supportive or controlling, and drift toward controlling as grant money and regulatory reporting grow, because those require you to prove a consistent process. Directive PMOs show up in large programs or where a utility deliberately centralizes delivery. There is no best type. There is a best fit for how capable your teams are and how much oversight your funding demands.</p>
     </div>
-
     <div class="lv l leadcall">
       <p class="h">Leader's call</p>
-      <p>Do not let anyone collapse these two into one decision. You pick <b>how the work flows</b> and, separately, <b>who you contract with to do it</b>. Getting one right does not save you if the other is wrong.</p>
+      <p>Match the PMO to your teams and your money. <b>Capable teams plus light oversight want supportive. Grant-funded, audited programs want controlling. Thin bench or high stakes wants directive.</b> Picking a heavier PMO than you need just adds drag.</p>
     </div>
 
-    <div data-ac="flip" data-title="Quick terms" data-kind="Quiz &middot; flip cards" data-cue="Tap each card. If a term is fuzzy, that is the one to reread above.">
+    <p>Governance also decides <em>which</em> projects run. Utilities split the capital list into two piles: work you have to do, and work you choose to do. Sort a few Millpond Road candidates.</p>
+
+    <div data-ac="classify" data-title="Must-do or scored?" data-kind="Quiz &middot; classify" data-cue="Must-do work (safety, compliance, failure) skips the scoring line. Everything else competes on value.">
       <script type="application/json">
-      {"cards":[
-        ["Life cycle","The phases the work moves through over time. The shape of the job from idea to handover."],
-        ["Delivery method","How you hire and organize the people, and who carries the risk. The contract shape."],
-        ["Phase","One stretch of the life cycle with a clear start and end, like design or construction."],
-        ["Gate","A go / no-go checkpoint between phases. You only pass if the work is ready."]
-      ]}
+      {"buckets":["Must-do","Scored and ranked"],
+       "items":[
+        ["A consent-order fix required by the regulator",0,"A regulator is requiring it, so it is must-do. It does not compete for a score, it just gets funded."],
+        ["A new administration building that would be nice to have",1,"Discretionary. It competes against other wants on a value score."],
+        ["Replacing a main that has broken three times this year",0,"Active failure risk to service and safety. Must-do, it jumps the line."],
+        ["A pilot to test smart meters for future savings",1,"Optional and speculative. It earns its place by scoring well against other options."],
+        ["A pump station that fails safety code",0,"A code and safety failure. Must-do, not a choice."]
+       ]}
       </script>
     </div>
   </div>
 
   <!-- ===================== SECTION 2 ===================== -->
   <div class="sec">
-    <span class="tag">2 / 6</span>
-    <h2>The spectrum: predictive to adaptive</h2>
-    <p>Life cycles are not two boxes. They are a slider. A <span class="term" data-term="Predictive" data-def="A life cycle where you plan scope, schedule, and budget in detail up front, then execute to that plan. Also called waterfall. Best when the work is well understood.">predictive</span> life cycle (you may hear it called waterfall) plans the whole job first, then builds to the plan. An <span class="term" data-term="Adaptive" data-def="A life cycle where you work in short cycles, review, and adjust. Also called agile or iterative. Best when the work is uncertain or likely to change.">adaptive</span> one (you may hear agile or iterative) works in short cycles and adjusts as it learns. Most real utility work sits somewhere between the two ends.</p>
+    <span class="tag">2 / 3</span>
+    <h2>Making the pieces one: integration and the PM plan</h2>
+    <p><span class="term" data-term="Integration" data-def="The work of making all the separate pieces of a project (scope, schedule, cost, risk, and the rest) fit together as one coherent whole, and keeping them coordinated when one of them changes.">Integration</span> is the least visible and most important part of the job. It is the work of making all the separate pieces (scope, schedule, cost, risk, procurement) fit together as one plan, and keeping them coordinated when one of them moves. A project starts with a <span class="term" data-term="Charter" data-def="The short document that authorizes a project. It names the goal, the sponsor, the budget authority, and the high-level scope. It is permission to begin, not the detailed plan.">charter</span> (permission to begin) and grows into a <span class="term" data-term="PM plan" data-def="The project management plan. The full how-to for the project: the subsidiary plans (scope, schedule, cost, quality, risk, procurement, stakeholder) plus the baselines you will measure against.">project management plan (PM plan)</span> (the full how-to).</p>
+
+    <div data-ac="method" data-title="From charter to PM plan" data-kind="Method &middot; four steps">
+      <script type="application/json">
+      {"steps":[
+        ["Start with the charter.","One page that names the goal, the sponsor, the budget authority, and the high-level scope. On Millpond Road, it says: replace the failing main, this sponsor, this not-to-exceed budget."],
+        ["Build out each subsidiary plan.","Scope, schedule, cost, quality, risk, procurement, and stakeholder. Each answers how you will handle its slice of the work."],
+        ["Set the baselines.","The approved scope, schedule, and cost you will measure actual progress against. Changes to these go through change control, not a quiet edit."],
+        ["Knit and keep it coherent.","Integration is ongoing. When a permit slips, you update the schedule, the cost forecast, and the risk register together, not one in isolation."]
+      ]}
+      </script>
+    </div>
+
+    <p>The PM plan is really a bundle of smaller plans. Match each subsidiary plan to the question it answers.</p>
+
+    <div data-ac="match" data-title="Match the plan to its job" data-kind="Quiz &middot; matching" data-cue="Tap a plan on the left, then what it covers on the right.">
+      <script type="application/json">
+      {"pairs":[
+        ["Scope plan","What is in, and what done means"],
+        ["Schedule plan","The order of work and the dates"],
+        ["Risk plan","How you handle threats and opportunities"],
+        ["Procurement plan","What you buy and how you contract it"],
+        ["Stakeholder plan","Who you keep informed and how"]
+      ]}
+      </script>
+    </div>
 
     <div class="lv f">
-      <p>Millpond is a good example of why the slider matters. The civil and mechanical work (the wet well, the pumps, the generator) is well understood, so that part wants a predictive plan. The controls tie-in to the existing system is full of unknowns you will only find once you open the panel, so that part wants shorter loops. One job, two speeds. Slide the marker below and read where different work lands.</p>
+      <p>Here is why integration is the hard part. Each subsidiary plan is easy to write on its own. The difficulty is that they are all connected. A change to scope moves the schedule and the cost. A new risk can force a procurement change. The integrator's job is to see the whole board, so a change in one place does not quietly break another. That is exactly the iron triangle from Chapter 01, now scaled up to the whole plan.</p>
     </div>
 
-    <div class="lv l leadcall">
-      <p class="h">Leader's call</p>
-      <p>Match the life cycle to how much you actually know. Forcing a fixed, plan-it-all-up-front approach onto the uncertain part of a job is how you buy a pile of change orders.</p>
-    </div>
-
-    <div data-ac="spectrum" data-title="Where does this work sit?" data-kind="Interactive &middot; spectrum" data-cue="Millpond's pumps and wet well sit near the left. Its controls tie-in sits near the right. Most jobs live in the middle.">
+    <div data-ac="mc" data-title="A judgment call" data-kind="Quiz &middot; multiple choice">
       <script type="application/json">
-      {"left":"Predictive (plan it all first)","right":"Adaptive (work in loops)","start":25,
-       "zones":[
-        {"max":33,"title":"Predictive fits","body":"The work is well understood and unlikely to change. Plan scope, schedule, and budget in detail, then build to the plan. At Millpond: the wet well rehab, the pumps, and the standby generator. You can draw these fully today."},
-        {"max":66,"title":"Hybrid fits","body":"Parts are known, parts are not. Plan the known scope firmly and run the uncertain parts in shorter loops. At Millpond: the whole job, taken together. Lock the civil work, keep the controls scope flexible."},
-        {"max":100,"title":"Adaptive fits","body":"The work is uncertain and will change as you learn. Work in short cycles, review often, and adjust. At Millpond: the controls tie-in to the existing system, where you will not know the real conditions until you are in the panel."}
-       ]}
+      {"q":"Midway through the Millpond Road main job, the city asks you to add two blocks of scope. What does good integration require you to do?",
+       "options":[
+        ["Update the schedule, cost, and risk together, and run it through change control",1],
+        ["Just tell the crew to add the two blocks and keep the same end date and budget",0],
+        ["Add the scope quietly so you do not alarm the sponsor",0],
+        ["Refuse all changes because the plan is baselined",0]
+       ],
+       "right":"Correct. A scope change ripples. Integration means updating the schedule, cost, and risk together and taking the change through change control so the baselines stay honest.",
+       "wrong":"Not quite. A scope change ripples into schedule, cost, and risk. Good integration updates them together and runs the change through change control, rather than absorbing it silently or refusing outright."}
       </script>
     </div>
   </div>
 
   <!-- ===================== SECTION 3 ===================== -->
   <div class="sec">
-    <span class="tag">3 / 6</span>
-    <h2>The two shapes, side by side</h2>
-    <p>Predictive work moves in a line through gates. Adaptive work moves in a loop that repeats. Seeing the two shapes next to each other makes the difference click.</p>
+    <span class="tag">3 / 3</span>
+    <h2>Right-sizing the process: tailoring</h2>
+    <p><span class="term" data-term="Tailoring" data-def="Adjusting how much process you run to fit the size, risk, and complexity of the job. A small, low-risk project gets light process; a large, risky one gets the full treatment.">Tailoring</span> means fitting the amount of process to the job. Running a valve-replacement the same way you run a treatment-plant expansion wastes everyone's time on the small job and under-serves the big one. Slide from a small job to a large one and see how the process should grow.</p>
 
-    <div data-ac="twofig" data-title="Line versus loop" data-kind="Diagram &middot; contrast" data-cue="A gate is a go / no-go door. You do not walk into the next phase until the work is ready and someone signs off.">
+    <div data-ac="spectrum" data-title="How much process does this job need?" data-kind="Interactive &middot; spectrum" data-cue="The Millpond Road valve swaps sit near the left. The lift station rebuild sits near the right. Tailoring is choosing the right weight, not always the heaviest.">
       <script type="application/json">
-      {"left":{"cap":"Predictive: a line through gates",
-        "svg":"<svg viewBox='0 0 240 120'><g font-family='JetBrains Mono' font-size='10'><rect x='6' y='40' width='46' height='34' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='29' y='61' text-anchor='middle' fill='#0F1728'>Plan</text><rect x='68' y='40' width='46' height='34' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='91' y='61' text-anchor='middle' fill='#0F1728'>Design</text><rect x='130' y='40' width='46' height='34' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='153' y='61' text-anchor='middle' fill='#0F1728'>Build</text><rect x='192' y='40' width='42' height='34' rx='7' fill='#EFF3F7' stroke='#CDD6E1'/><text x='213' y='61' text-anchor='middle' fill='#0F1728'>Close</text><g fill='#A97B0F'><circle cx='60' cy='57' r='6'/><circle cx='122' cy='57' r='6'/><circle cx='184' cy='57' r='6'/></g></g></svg>",
-        "note":"Gold dots are gates. One direction, gate to gate."},
-       "right":{"cap":"Adaptive: a loop that repeats",
-        "svg":"<svg viewBox='0 0 240 120'><g font-family='JetBrains Mono' font-size='10'><circle cx='120' cy='60' r='40' fill='none' stroke='#0A78BA' stroke-width='2'/><path d='M120 20 l7 8 l-14 0 z' fill='#0A78BA'/><text x='120' y='15' text-anchor='middle' fill='#0F1728'>Plan</text><text x='172' y='64' text-anchor='middle' fill='#0F1728'>Do</text><text x='120' y='112' text-anchor='middle' fill='#0F1728'>Check</text><text x='66' y='64' text-anchor='middle' fill='#0F1728'>Adjust</text></g></svg>",
-        "note":"Same short loop, over and over, learning each pass."}}
-      </script>
-    </div>
-
-    <p>Walk the predictive line on the Millpond job below. Watch how money and risk climb as you pass each gate, which is exactly why the gate before an expensive phase is worth taking seriously.</p>
-
-    <div data-ac="process" data-title="Walk Millpond through a predictive life cycle" data-kind="Interactive &middot; phase-gate" data-cue="Click each phase. The gate is where you confirm the work is ready before you spend the next, larger pile of money.">
-      <script type="application/json">
-      {"gate":true,"phases":[
-        {"title":"Plan","sub":"decide it is worth doing","detail":"<b>Plan.</b> Confirm the need, the budget, and the rough scope. At Millpond, this is where you agree the station is failing badly enough to rebuild rather than patch, and you set a not-to-exceed budget for the program."},
-        {"title":"Design","sub":"draw it fully","detail":"<b>Design.</b> Engineers finish the drawings and specs: pump sizing, wet well rehab, generator, controls. The gate after design asks a hard question, are the drawings complete enough to build from and to get a real price? For the uncertain controls scope, the honest answer may be not yet."},
-        {"title":"Build","sub":"construct it","detail":"<b>Build.</b> The contractor mobilizes, calls in Sunshine 811 locates, and constructs. This is the most expensive phase, which is why the gates before it matter. A gap you missed in design costs far more to fix once a crew is on site."},
-        {"title":"Start up","sub":"prove it works","detail":"<b>Start up.</b> Test the pumps, prove the generator transfers, confirm the new controls talk to the existing system, and run the station under real flow. You do not pass this gate until it performs, not just powers on."},
-        {"title":"Close out","sub":"hand it over","detail":"<b>Close out.</b> Record drawings, warranties, spare parts, and lessons learned. The job is done when Operations can own and run the station, not when the last pump is bolted down."}
-      ]}
-      </script>
-    </div>
-  </div>
-
-  <!-- ===================== SECTION 4 ===================== -->
-  <div class="sec">
-    <span class="tag">4 / 6</span>
-    <h2>Four ways to hire the work done</h2>
-    <p>Now the delivery method: how you actually contract for the design and the build. Four show up on almost every utility program. Read each name in full once, then the table lets you compare them.</p>
-    <p><span class="term" data-term="DBB" data-def="Design-Bid-Build: the owner hires a designer to complete the drawings, then bids the finished design to contractors, and the low bidder builds it. Three steps, separate contracts.">Design-Bid-Build (DBB)</span> is the traditional path: design it fully, bid it, build it, in three separate steps. <span class="term" data-term="DB" data-def="Design-Build: one firm holds a single contract for both design and construction, so there is one point of responsibility.">Design-Build (DB)</span> puts design and construction under one contract with one firm. <span class="term" data-term="CMAR" data-def="Construction Manager at Risk: the builder joins during design as an advisor, then commits to a Guaranteed Maximum Price and builds it. Two contracts, but early builder input.">Construction Manager at Risk (CMAR)</span> brings the builder in early to advise during design, then that builder commits to a price and constructs it. <span class="term" data-term="PDB" data-def="Progressive Design-Build: a design-build team is hired early on qualifications, the design and price are developed together and openly, then the team progresses into construction.">Progressive Design-Build (PDB)</span> is a design-build team hired early on qualifications, developing the design and price with you step by step.</p>
-    <p>One more term you will see in those contracts: a <span class="term" data-term="GMP" data-def="Guaranteed Maximum Price: a cap the builder commits to. Costs above it are the builder's problem; savings below it are usually shared or returned to the owner.">Guaranteed Maximum Price (GMP)</span> is a cap the builder promises not to exceed. It shows up in CMAR and PDB.</p>
-
-    <div data-ac="table" data-title="Compare the four" data-kind="Interactive &middot; comparison table" data-cue="Click any method name for how it would play out on the Millpond job.">
-      <script type="application/json">
-      {"headers":["Method","Owner control of design","Speed","Price certainty early","Builder input in design"],
-       "rows":[
-        {"name":"DBB","cells":[["hi","High"],["lo","Slow"],["lo","Late"],["lo","None"]],
-         "detail":"On Millpond: you would design the whole station, bid it, and give the job to the low bidder. You keep tight control of the design, but you do not get a real price until design is done, and the builder had no chance to make the controls tie-in more buildable. Fine if the scope were fully known, which here it is not."},
-        {"name":"DB","cells":[["me","Medium"],["hi","Fast"],["me","Medium"],["hi","High"]],
-         "detail":"On Millpond: one firm owns design and construction, so it moves fast with a single point of responsibility. You give up some control of the design details. Good when speed matters and scope is clear, less comfortable when a big part of the scope is still uncertain."},
-        {"name":"CMAR","cells":[["hi","High"],["me","Medium"],["me","Medium"],["hi","High"]],
-         "detail":"On Millpond: you keep your own designer for control, but bring the builder in early to advise on the controls tie-in and constructability, then the builder commits to a Guaranteed Maximum Price. A strong fit when you want design control and early builder insight on the tricky part."},
-        {"name":"PDB","cells":[["me","Medium"],["hi","Fast"],["hi","High"],["hi","High"]],
-         "detail":"On Millpond: a design-build team hired early on qualifications, developing the design and an open-book price with you as the controls scope firms up. You can walk away before construction if the price does not work. A strong fit for the uncertain, want-a-partner shape of this job."}
+      {"left":"Small, low-risk job","right":"Large, complex, high-risk job","start":20,
+       "zones":[
+        {"max":33,"title":"Light process","body":"A short charter, a simple task list, and one risk conversation are enough. At Millpond Road: swapping a handful of known valves. Full gate reviews and a 30-page plan would be pure overhead here."},
+        {"max":66,"title":"Moderate process","body":"A real schedule, a cost baseline, a risk register, and a couple of gate reviews. At Millpond Road: the water main replacement. Enough structure to stay in control, not so much that it drags."},
+        {"max":100,"title":"Full process","body":"Every subsidiary plan, formal gates, change control, and earned value tracking. At Millpond Road: the lift station rebuild with its uncertain controls tie-in. The stakes justify the full treatment."}
        ]}
       </script>
     </div>
 
-    <h3>The rules you actually work under</h3>
-    <p>Delivery choice is not a free pick. In Florida, how you buy design and how you buy construction are governed separately, and that shapes what is even on the table.</p>
-    <p>You hire your design engineer under the <span class="term" data-term="CCNA" data-def="Consultants' Competitive Negotiation Act, Florida Statute 287.055. It requires public agencies to select engineering, architecture, and surveying firms on qualifications first, then negotiate price. You cannot pick your design engineer by low bid.">Consultants' Competitive Negotiation Act (CCNA)</span>, which means you pick engineering firms on their qualifications first and negotiate the fee after, not on low bid. Construction, by contrast, usually falls under competitive bidding rules that lean toward awarding to a qualified low bidder. Using an alternative method like Design-Build or CMAR generally needs specific authority your agency has to hold, so confirm what your procurement office actually allows before you promise a method to anyone.</p>
-
-    <div class="lv f">
-      <p>This is why the same job gets delivered differently by two neighboring utilities. One has standing authority for Progressive Design-Build and uses it for anything with real unknowns. The next town over has to competitively bid construction and runs almost everything as Design-Bid-Build. Same pumps, same statutes, different delivery, because their procurement authority differs. Know yours before you design the approach.</p>
-    </div>
-
-    <div data-ac="estimate" data-title="Put a number on it" data-kind="Interactive &middot; estimate" data-cue="Schedule savings are real but not magic. They come from overlapping design and construction and skipping the separate bid period.">
+    <div data-ac="recommender" data-title="Try it on a job" data-kind="Interactive &middot; recommender" data-cue="Tailoring is a judgment call. Size, risk, and money all push the dial.">
       <script type="application/json">
-      {"q":"The Millpond job runs about 24 months start to finish as Design-Bid-Build. Design-Build overlaps design and construction and drops the separate bid step. Roughly how many months could that realistically save here?",
-       "min":0,"max":12,"step":1,"start":0,"answer":5,"tol":2,"unit":"months",
-       "solution":"On a job this size, trimming 4 to 6 months is a realistic Design-Build outcome, mostly from overlapping design and construction and removing the bid period. It is a range, not a promise. How much you actually save depends on how much design must finish before construction can safely start."}
-      </script>
-    </div>
-
-    <div data-ac="match" data-title="Match the method to its one-line idea" data-kind="Quiz &middot; matching" data-cue="Left is the method, right is what makes it different. Click one, then its partner.">
-      <script type="application/json">
-      {"pairs":[
-        ["DBB","Design fully, then bid it, then build it"],
-        ["DB","One firm, one contract, for design and build"],
-        ["CMAR","Your designer, plus a builder who commits to a max price"],
-        ["PDB","A design-build partner developing the price openly with you"]
-      ]}
-      </script>
-    </div>
-  </div>
-
-  <!-- ===================== SECTION 5 ===================== -->
-  <div class="sec">
-    <span class="tag">5 / 6</span>
-    <h2>Choosing well</h2>
-    <p>There is no single best method. There is a best fit for this job, inside your rules. Here is a simple way to reason it out, then a recommender you can play with.</p>
-
-    <div data-ac="method" data-title="How to pick a delivery method" data-kind="Method &middot; five steps">
-      <script type="application/json">
-      {"steps":[
-        ["Name your top driver.","Lowest price, fastest schedule, price certainty, or a tricky scope you need help figuring out? Pick the one that matters most on this job."],
-        ["Rate the scope clarity.","If you can draw it fully today, predictive plus Design-Bid-Build is fine. If it will move as you learn, like Millpond's controls, lean toward DB, CMAR, or PDB."],
-        ["Check your own capacity.","Do you have staff to manage a full design and a separate builder? If not, a single point of responsibility (DB or PDB) takes load off your team."],
-        ["Check the rules.","Confirm your procurement authority. CCNA governs how you hire the designer; competitive bidding and any alternative-delivery authority govern how you hire the builder."],
-        ["Match, do not default.","Pick the method whose trade-offs fit your top driver, and write down why. That one sentence is what protects the choice in the next budget meeting."]
-      ]}
-      </script>
-    </div>
-
-    <div data-ac="recommender" data-title="Try it on a situation" data-kind="Interactive &middot; recommender" data-cue="These are starting points, not rules. Your procurement authority and staffing can move the answer.">
-      <script type="application/json">
-      {"prompt":"Pick the situation closest to your job and see a sensible starting method.",
+      {"prompt":"Pick the job closest to yours and see how heavy the process should be.",
        "options":[
-        {"label":"Routine main replacement, known alignment, low bid required","name":"Design-Bid-Build (DBB)","why":"The work is well defined and the rules point to low bid. Design it fully, bid it, build it. You keep control and get competitive pricing."},
-        {"label":"Standard pump station, tight schedule, clear scope","name":"Design-Build (DB)","why":"Speed is the driver and the scope is clear. One firm owning design and build compresses the schedule and gives you a single point of responsibility."},
-        {"label":"Millpond: rebuild with a known civil scope but an uncertain controls tie-in","name":"CMAR or Progressive Design-Build","why":"You want design control and early builder input on the tricky controls scope, plus a price you can trust. CMAR keeps your designer and adds a builder who commits to a Guaranteed Maximum Price. Progressive Design-Build gives you a single team developing the price openly with an off-ramp before construction. Either beats forcing this job into low-bid Design-Bid-Build."},
-        {"label":"Treatment upgrade with real unknowns, want a partner and speed","name":"Progressive Design-Build (PDB)","why":"The scope will move as you learn. A design-build team developing an open-book price with you gives speed, partnership, and an off-ramp before construction if the price does not work."}
+        {"label":"Swap 6 known valves, low risk, small budget","name":"Light process","why":"A short charter, a task list, and one risk check. Do not run gate reviews and a full plan on a job this size, that is overhead with no payoff."},
+        {"label":"Replace a mile of main, moderate risk and budget","name":"Moderate process","why":"A real schedule and cost baseline, a risk register, and a gate or two. Enough to stay in control without drowning a routine job in paperwork."},
+        {"label":"Rebuild a lift station with an uncertain controls tie-in","name":"Full process","why":"Every subsidiary plan, formal gates, change control, and earned value. The uncertainty and stakes earn the full treatment."},
+        {"label":"A regulator-mandated fix on a tight legal deadline","name":"Full process, compliance-focused","why":"Even if small, the legal exposure raises the stakes. Run tight documentation and gate sign-offs so you can prove the deadline was met."}
        ]}
       </script>
     </div>
 
-    <h3>Check what stuck</h3>
-
-    <div data-ac="order" data-title="Put the choice in order" data-kind="Quiz &middot; ordering" data-cue="Nudge each row until the sequence matches how you should actually work the decision.">
+    <div data-ac="order" data-title="Tailor it in the right order" data-kind="Quiz &middot; ordering" data-cue="Nudge each row until the sequence matches how you would actually right-size a job.">
       <script type="application/json">
-      {"q":"Order the steps for choosing a delivery method, first to last.",
-       "items":["Name your top driver","Rate how clear the scope is","Check your own staff capacity","Check your procurement rules","Match the method and write down why"],
-       "ok":"That is the order. Driver first, rules before you commit, and always write down the why.",
-       "no":"Not yet. Start from what matters most (the driver), and leave writing down the why for last."}
-      </script>
-    </div>
-
-    <div data-ac="classify" data-title="Predictive or adaptive?" data-kind="Quiz &middot; classify" data-cue="Ask: is the scope known and stable, or will it change as we learn?">
-      <script type="application/json">
-      {"buckets":["Predictive","Adaptive"],
-       "items":[
-        ["Millpond's wet well rehab and new pumps",0,"The scope is known and stable, so plan it fully and build to the plan. Predictive."],
-        ["Millpond's controls tie-in to the existing system",1,"You will learn the real conditions only once you open the panel, so short loops fit. Adaptive."],
-        ["Repaint a set of known valves on a fixed list",0,"Well defined and unlikely to change. Predictive."],
-        ["Pilot a new leak sensor across a few zones before rollout",1,"You are learning as you go and will adjust. Adaptive."]
-       ]}
-      </script>
-    </div>
-
-    <div data-ac="mc" data-title="A judgment call" data-kind="Quiz &middot; multiple choice">
-      <script type="application/json">
-      {"q":"Millpond's civil scope is clear but the controls tie-in is uncertain. Your agency can use alternative delivery, and you want to keep your own designer while the builder commits to a price cap. Which fits best?",
-       "options":[["Design-Bid-Build (DBB)",0],["Construction Manager at Risk (CMAR)",1],["Low bid, no design",0],["Skip design and start building",0]],
-       "right":"Correct. CMAR keeps your designer for control, brings the builder in early to help with the uncertain controls work, and locks a Guaranteed Maximum Price. That matches Millpond well.",
-       "wrong":"Not the best fit. You want design control plus an early price commitment on an uncertain scope. That is what CMAR is built for."}
+      {"q":"Order the steps for tailoring the process to a job, first to last.",
+       "items":["Judge the size, risk, and complexity","Start from the full standard process","Cut what does not earn its place","Keep the controls the risk demands","Write down what you tailored and why"],
+       "ok":"That is the order. Judge the job, start from the full standard, trim deliberately, keep what the risk needs, and record the decision.",
+       "no":"Not yet. Start by judging the job, then trim from the full standard rather than building up from nothing, and record the why last."}
       </script>
     </div>
 
     <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
       <script type="application/json">
       {"items":[
-        ["Design-Build always costs less than Design-Bid-Build.",false,"Not always. Design-Build often saves time and can save money, but its value is speed and single responsibility, not a guaranteed lower price."],
-        ["Under CCNA, you can pick your design engineer by lowest fee.",false,"No. CCNA requires you to select engineering firms on qualifications first, then negotiate the fee. Low fee does not decide who gets hired."],
-        ["A predictive life cycle means you can never change the plan.",false,"You can change it, but through controlled change. Predictive means you plan up front and manage changes deliberately, not that change is banned."]
+        ["Tailoring means skipping process to go faster.",false,"No. Tailoring means fitting process to the job. A high-risk job may need more process, not less."],
+        ["A supportive PMO can require teams to follow its standards.",false,"That is a controlling PMO. A supportive PMO advises and equips; it does not enforce."],
+        ["A charter authorizes the project; the PM plan says how you will run it.",true,"Right. The charter is permission to begin. The PM plan is the detailed how."]
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== REVIEW ===================== -->
+  <div class="sec">
+    <h2>Lock it in</h2>
+    <p>Flip through the key terms from this chapter.</p>
+
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+      <script type="application/json">
+      {"cards":[
+        ["Governance","The rules and decision rights: who approves projects, who can stop them, and at which gates."],
+        ["Gate","A go / no-go decision between phases, before more money is spent."],
+        ["PMO","Project Management Office: supportive, controlling, or directive."],
+        ["Integration","Making all the pieces fit as one plan and keeping them coordinated when one moves."],
+        ["PM plan","The full how-to: subsidiary plans plus the baselines you measure against."],
+        ["Tailoring","Fitting the amount of process to the size, risk, and complexity of the job."]
       ]}
       </script>
     </div>
 
     <div data-ac="reflect">
       <script type="application/json">
-      {"q":"Think of a job on your desk right now. Which life cycle is it really running, and is the delivery method actually a fit for it, inside your procurement rules?",
-       "a":"A useful check: if the scope is still moving but you locked into a fully-designed, low-bid Design-Bid-Build contract, you will feel it as change orders and friction. If the scope is truly fixed but you paid for an early builder partner you did not need, you overspent on flexibility. And if the method you want needs procurement authority your agency does not hold, it does not matter how good the fit is. The place most delivery pain comes from is a mismatch between how uncertain the work is, how you contracted for it, and what your rules allow. Naming that mismatch early is half the fix."}
+      {"q":"Think about how your utility governs its capital work today. Is the PMO the right weight for your teams, and do you tailor the process by job, or run everything the same way?",
+       "a":"A useful check: if your strongest project managers spend their days filling out forms a supportive PMO would have made optional, your governance is heavier than your teams need. If small jobs and major programs run the exact same 30-page process, you are paying overhead on the small ones and probably under-planning the big ones. The goal is not maximum process or minimum process. It is the right process for each job, decided on purpose and written down so the next person understands why."}
       </script>
     </div>
   </div>
 
-  <!-- ===================== SECTION 6 ===================== -->
+  <!-- ===================== RECAP ===================== -->
   <div class="sec">
-    <span class="tag">6 / 6</span>
     <h2>What to carry out of this chapter</h2>
-    <p>If you remember five things, remember these.</p>
     <ul class="recap">
-      <li><span class="n">1.</span><div><b>Life cycle and delivery method are two different decisions.</b> One is how the work flows, the other is who you contract with. Decide them on purpose, not by habit.</div></li>
-      <li><span class="n">2.</span><div><b>Match the life cycle to how much you know.</b> Predictive for the parts you can draw today, adaptive loops for the parts you will only learn in the field. Most real jobs are a mix.</div></li>
-      <li><span class="n">3.</span><div><b>Gates exist to catch trouble before it gets expensive.</b> The gate before construction is the cheapest place to find the gap you missed.</div></li>
-      <li><span class="n">4.</span><div><b>Each delivery method trades something.</b> DBB gives control and low bid but slow, late pricing. DB gives speed. CMAR and PDB give early builder input and a price cap on uncertain work.</div></li>
-      <li><span class="n">5.</span><div><b>The rules bound the choice.</b> CCNA sets how you hire the designer; competitive bidding and your alternative-delivery authority set how you hire the builder. Check them before you promise a method.</div></li>
+      <li><span class="n">1.</span><div><b>Governance is decision rights.</b> Gates give someone the job of saying go or no-go before each expensive phase, so weak projects stop early.</div></li>
+      <li><span class="n">2.</span><div><b>Match the PMO to your teams and money.</b> Supportive advises, controlling enforces, directive runs the work. Heavier than you need is just drag.</div></li>
+      <li><span class="n">3.</span><div><b>Integration knits the pieces into one plan.</b> A charter authorizes; the PM plan (subsidiary plans plus baselines) is the how. When one piece moves, update the others together.</div></li>
+      <li><span class="n">4.</span><div><b>Tailor the process to the job.</b> Light for small and low-risk, full for large and uncertain. Start from the standard, trim deliberately, and write down why.</div></li>
     </ul>
 
     <div class="leadcall" style="background:var(--brand-800)">
       <p class="h">The leader's bottom line</p>
-      <p>Most delivery pain is a mismatch between how uncertain the work is, how you contracted for it, and what your rules allow. On Millpond, that points to <b>CMAR or Progressive Design-Build</b>: keep design control, get the builder in early on the risky controls tie-in, and lock a price you can defend.</p>
+      <p>Governance, integration, and tailoring are all one question: <b>how much structure does this work actually need to succeed, and who owns the decision?</b> Set that on purpose. Too little and projects drift; too much and good people spend their time feeding the process instead of building the job.</p>
     </div>
   </div>
 
   <div class="navrow">
-    <a href="lesson-pm-01-what-is-a-project.html">&#8592; Chapter 01 &middot; What a project is</a>
+    <a href="lesson-pm-02-delivery-life-cycles.html">&#8592; Chapter 02 &middot; Delivery and life cycles</a>
     <a class="btn" href="course-project-management.html">Back to the masterclass &#8594;</a>
   </div>
 
@@ -485,7 +446,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 <footer class="foot">
   <div class="in">
     <span>One Water OS Academy &middot; Project Management</span>
-    <span>Chapter 02 &middot; v0.6.0 &middot; 2026-07-18</span>
+    <span>Chapter 03 &middot; v0.7.0 &middot; 2026-07-18</span>
   </div>
 </footer>
 

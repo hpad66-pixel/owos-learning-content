@@ -3,6 +3,30 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.7.0] - 2026-07-18
+### Added: two library components
+- `calc` renderer: a reusable business-case calculator (NPV, payback, benefit-cost ratio) with a live
+  cash-flow curve and a spend-vs-return bar chart. Config sets the input ranges, labels, and defaults.
+- Upgraded the `triangle` renderer to the richer version: a stretching polygon with a live quality dot
+  (0 to 100) and a dynamic badge, instead of the simpler static triangle.
+### Changed: Chapter 01 migrated onto the library
+- "What a project is" rebuilt from hand-rolled markup to the shared library: the one-question test,
+  classify, the rich iron triangle, the phase-gate life cycle, the business-case calculator (verified
+  identical math: NPV +$2.57M, payback 7.2 years, BCR 2.97 at the defaults), and the mixed quizzes.
+- Threaded the Millpond Road job through it, wired the Full/Plain/Leader lens for real, defined NPV and
+  BCR on first use, added a closing recap and leader's bottom line.
+### Added: Chapter 03 (new)
+- "Governance, integration and tailoring" built fresh on the library: a why-gates contrast, a three-kinds
+  -of-PMO comparison table, must-do vs scored classification, the charter-to-PM-plan method, subsidiary-plan
+  matching, an integration judgment, a tailoring spectrum and recommender, an ordering quiz, and myths.
+  Working lens, Millpond program thread, recap and leader's bottom line.
+### Changed
+- Masterclass chrome: Chapter 03 now live; status note corrected to "Chapters 01 to 03 are live."
+- `build-selfcontained.py`: added the Chapter 03 link mapping.
+### Deployed
+- Rebuilt all three lessons and the course page self-contained and published to the `2-brain` site (owos.ai)
+  via the Cloudflare Pages deploy (git push alone does not publish).
+
 ## [0.6.0] - 2026-07-18
 ### Changed: Chapter 02 deepened (it felt thin as a survey)
 - Wired the Full / Plain / Leader lens for real. It had zero content variants and did nothing; now
