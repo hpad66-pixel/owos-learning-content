@@ -7,7 +7,7 @@
 <meta name="description" content="The complete 25-chapter utility Data and AI Governance curriculum structure, ready for governed lesson development.">
 <meta name="owos-course-id" content="owos-master-data-governance-001">
 <meta name="owos-course-store" content="dga001">
-<meta name="owos-release-state" content="structure-ready-content-pending">
+<meta name="owos-release-state" content="in-development">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -334,6 +334,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .twofig{display:flex;gap:14px;flex-wrap:wrap}.twofig .box{flex:1;min-width:200px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
 .twofig .cap{font:600 11px var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}.twofig .note{font-size:12.5px;color:var(--ink-3);margin-top:6px}
 
+/* ---- artifact tracker ---- */
+.at-summary{display:grid;grid-template-columns:minmax(150px,auto) 1fr;gap:16px;align-items:center;margin-bottom:14px}.at-summary b{display:block;font:800 18px var(--fm);color:var(--ink)}.at-summary span{font:600 11px var(--fm);color:var(--ink-3)}
+.at-meter{height:10px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;overflow:hidden}.at-meter i{display:block;height:100%;width:0;background:var(--green);border-radius:999px;transition:width .25s}
+.at-list{display:grid;gap:8px}.at-item{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.at-item b{font-size:14px;color:var(--ink)}.at-item p{font-size:12.5px;line-height:1.45;color:var(--ink-3);margin:3px 0 0}.at-state{min-width:112px;border:1px solid var(--line-2);border-radius:999px;padding:7px 10px;background:var(--surface-2);color:var(--ink-2);font:700 10px var(--fm);cursor:pointer}.at-state:hover{border-color:var(--brand);color:var(--brand)}
+.at-item[data-state="1"]{border-color:var(--brand-100);background:var(--brand-50)}.at-item[data-state="1"] .at-state{border-color:var(--brand);background:#fff;color:var(--brand)}.at-item[data-state="2"]{border-color:#ead89d;background:#fff9e8}.at-item[data-state="2"] .at-state{border-color:#c7a94c;background:#fff;color:#795809}.at-item[data-state="3"]{border-color:#bfe0d4;background:var(--green-50)}.at-item[data-state="3"] .at-state{border-color:var(--green);background:#fff;color:var(--green)}
+.at-reset{margin-top:12px}
+@media(max-width:620px){.at-summary{grid-template-columns:1fr}.at-item{grid-template-columns:1fr}.at-state{width:100%}}
+
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
@@ -351,6 +359,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .dg-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 30px}.dg-flow div{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12px;font-weight:700;color:var(--ink);text-align:center}.dg-flow div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;z-index:2;color:var(--brand);transform:translateY(-50%);background:var(--bg);padding:0 3px}
 .dg-lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.dg-lens{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--brand)}.dg-lens:nth-child(2){border-top-color:var(--green)}.dg-lens:nth-child(3){border-top-color:var(--gold)}.dg-lens h3{margin:0 0 5px;font-size:1rem}.dg-lens p{margin:0;font-size:.88rem;line-height:1.55}
 .dg-part{margin:24px 0}.dg-part-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;background:#0b3f63;color:#fff;border-radius:14px 14px 0 0;padding:13px 16px}.dg-part-head b{font:700 11px var(--fm);letter-spacing:.1em;color:#9bddff}.dg-part-head span{font-weight:800}.dg-part-head small{margin-left:auto;color:#cce4f2}.dg-list{border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 14px 14px;overflow:hidden}.dg-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:16px;align-items:start;border-bottom:1px solid var(--line);text-decoration:none}.dg-row:last-child{border-bottom:0}.dg-row:hover{background:var(--brand-50);text-decoration:none}.dg-num{width:42px;height:42px;border-radius:11px;background:var(--brand-50);border:1px solid var(--brand-100);display:grid;place-items:center;color:var(--brand-700);font:800 13px var(--fm)}.dg-row h3{margin:0 0 5px;font-size:1rem}.dg-sections{font-size:.79rem;color:var(--ink-3);line-height:1.5}.dg-pill{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.dg-row.released{background:linear-gradient(90deg,#eef8f5,#fff)}.dg-row.released .dg-num{background:#dff3ec;border-color:#9fd2bf;color:#086b50}.dg-row.released .dg-pill{color:#086b50;background:#eaf8f3;border-color:#9fd2bf}
 .dg-shell{border:1px solid #ead89d;background:linear-gradient(120deg,#fff9e8,#fff);border-radius:16px;padding:20px;margin:18px 0 26px;display:flex;gap:14px}.dg-shell-icon{width:40px;height:40px;flex:none;border-radius:12px;background:#f2c94c;display:grid;place-items:center;color:#493800;font-weight:900}.dg-shell h2{font-size:1.05rem;margin:0 0 4px}.dg-shell p{margin:0;font-size:.91rem}
 .dg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 28px}.dg-plan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.dg-plan-card .k{font:700 10px var(--fm);letter-spacing:.08em;color:var(--brand);text-transform:uppercase}.dg-plan-card h2{font-size:1.12rem;margin:7px 0}.dg-plan-card p{font-size:.9rem;margin:0}.dg-plan-card .pending{display:inline-block;margin-top:14px;font:700 9px var(--fm);text-transform:uppercase;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;border-radius:999px;padding:4px 8px}
 .dg-artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.dg-artifact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.dg-artifact b{display:block;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.dg-artifact p{font-size:.88rem;margin:0}
@@ -361,7 +370,7 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:520px){.owos-nav{padding:0 12px}.owos-brand{gap:6px;min-width:0}.owos-wm{font-size:13px}.owos-pw{display:none}.crumb{font-size:9px;line-height:1.35;text-align:right;max-width:100px}.wrap{padding-left:16px;padding-right:16px}.dg-hero{padding:26px 20px;border-radius:20px}.dg-hero h1{font-size:2.15rem}.dg-hero p{font-size:1rem}.dg-status{border-radius:14px;font-size:9px}.dg-stat{padding:14px 12px}.dg-stat b{font-size:1.35rem}.dg-row{padding:14px 12px;gap:10px}.dg-sections{overflow-wrap:anywhere}.dg-shell{padding:16px;flex-direction:column}.dg-shell-icon{width:36px;height:36px}}
 </style>
 </head>
-<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-release-state="structure-ready-content-pending">
+<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-release-state="in-development">
 <nav class="owos-nav">
   <a class="owos-brand" href="course-data-governance.html"><span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span><span class="owos-wm">One Water <b>OS</b></span><span class="owos-pw">Academy &middot; <em>Data Governance</em></span></a>
   <span class="crumb"><a href="course-data-governance.html">Master Class</a> / <b>Curriculum</b></span>
@@ -372,17 +381,17 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="dg-eyebrow">OWOS Academy &middot; Utility Master Class</div>
     <h1>Data Before AI</h1>
     <p>Build the governance layer that makes utility data trustworthy enough for operations, regulation, capital decisions, analytics, artificial intelligence, and digital twins.</p>
-    <span class="dg-status"><i></i>Structure ready &middot; lesson development pending</span>
+    <span class="dg-status"><i></i>Chapter 00 available &middot; 24 chapters in development</span>
   </header>
 
   <div class="dg-stats" aria-label="Course structure">
     <div class="dg-stat"><b>25</b><span>Chapters 00 to 24</span></div>
     <div class="dg-stat"><b>75</b><span>Planned sections</span></div>
     <div class="dg-stat"><b>12</b><span>Governance domains</span></div>
-    <div class="dg-stat"><b>0</b><span>Lessons released</span></div>
+    <div class="dg-stat"><b>1</b><span>Lesson released</span></div>
   </div>
 
-  <aside class="dg-note"><strong>This is the governed course shell.</strong><p>Every destination, title, section, utility outcome, studio, and output is wired for review. The lesson bodies, interactions, checks, and completion events remain disabled until each chapter passes the OWOS release gates.</p></aside>
+  <aside class="dg-note"><strong>The course is now releasing chapter by chapter.</strong><p>Chapter 00 is a complete orientation lesson with an interactive Deployment Studio and completion event. The other 24 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
 
   <h2>One source, one delivery path</h2>
   <div class="dg-flow" aria-label="Course delivery path"><div>onewater-os curriculum</div><div>Validated native build</div><div>OWOS.ai Learn</div><div>Supabase learner records</div><div>Knowledge Graph alignment</div></div>
@@ -399,10 +408,10 @@ html,body{max-width:100%;overflow-x:hidden}
     <p>Open any chapter to review its exact three-section plan, learner outcome, Riverbend utility case, deployment studio, and required output.</p>
     <section class="dg-part">
 <div class="dg-part-head"><b>ORIENTATION</b><span>Learn it, build it, prove it</span><small>1 chapter</small></div>
-<div class="dg-list"><a class="dg-row" href="lesson-dg-00-how-to-use-the-master-class.html" data-chapter="00" data-release-state="content-pending">
+<div class="dg-list"><a class="dg-row released" href="lesson-dg-00-how-to-use-the-master-class.html" data-chapter="00" data-release-state="released">
   <span class="dg-num">00</span>
   <span><h3>How to use the Master Class</h3><span class="dg-sections">The promise and the boundaries. &middot; Choose your material decision. &middot; Set up the Launch Pack.</span></span>
-  <span class="dg-pill">Shell ready</span>
+  <span class="dg-pill">Available now</span>
 </a></div>
 </section><section class="dg-part">
 <div class="dg-part-head"><b>PART A</b><span>Why data must be ready before AI</span><small>3 chapters</small></div>
@@ -523,7 +532,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="dg-list"><div class="dg-row"><span class="dg-num">CP</span><span><h3>Prove the operating model on one material decision</h3><span class="dg-sections">Decision chain &middot; evidence &middot; 90-day launch &middot; funded roadmap &middot; assurance boundary</span></span><span class="dg-pill">Design ready</span></div></div>
   </section>
 </main>
-<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Structure version 0.13.0</div></footer>
+<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Course build 0.14.0</div></footer>
 <script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
@@ -911,6 +920,24 @@ html,body{max-width:100%;overflow-x:hidden}
     shell(el,'<div class="method">'+(c.steps||[]).map(function(s,i){
       return '<div class="stepn"><div class="n">'+(i+1)+'</div><div class="tx"><b>'+s[0]+'</b> '+(s[1]||'')+'</div></div>';
     }).join('')+'</div>');
+  };
+
+  R.artifacttracker=function(el){var c=cfgOf(el);var items=c.items||[];
+    var states=c.states||['Not started','Draft','Evidence noted','Reviewed'];
+    var storageKey='owos:artifacttracker:'+(c.key||location.pathname);
+    var saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};}catch(e){saved={};}
+    var b=shell(el,'<div class="at-summary"><div><b data-count></b><span data-note></span></div><div class="at-meter" aria-hidden="true"><i data-meter></i></div></div><div class="at-list">'+
+      items.map(function(it,i){return '<article class="at-item" data-id="'+(it.id||i)+'"><div><b>'+it.label+'</b><p>'+(it.detail||'')+'</p></div><button type="button" class="at-state" aria-live="polite"></button></article>';}).join('')+
+      '</div><button type="button" class="btn at-reset" data-reset>Reset this tracker</button>');
+    function value(row){var id=row.dataset.id,v=Number(saved[id]);return Number.isFinite(v)?Math.max(0,Math.min(states.length-1,v)):0;}
+    function paint(row){var v=value(row),btn=row.querySelector('.at-state');row.dataset.state=String(v);btn.textContent=states[v];btn.setAttribute('aria-label',row.querySelector('b').textContent+': '+states[v]+'. Select to move to the next status.');}
+    function report(){var reviewed=0,active=0;[].forEach.call(b.querySelectorAll('.at-item'),function(row){var v=value(row);if(v>0)active++;if(v===states.length-1)reviewed++;});
+      b.querySelector('[data-count]').textContent=reviewed+' of '+items.length+' reviewed';
+      b.querySelector('[data-note]').textContent=active+' started';b.querySelector('[data-meter]').style.width=(items.length?reviewed/items.length*100:0)+'%';
+      try{localStorage.setItem(storageKey,JSON.stringify(saved));}catch(e){}
+    }
+    b.querySelectorAll('.at-item').forEach(function(row){paint(row);row.querySelector('.at-state').addEventListener('click',function(){var id=row.dataset.id;saved[id]=(value(row)+1)%states.length;paint(row);report();});});
+    b.querySelector('[data-reset]').addEventListener('click',function(){saved={};b.querySelectorAll('.at-item').forEach(paint);report();});report();
   };
 
   R.twofig=function(el){var c=cfgOf(el);function box(o){return '<div class="box"><div class="cap">'+o.cap+'</div>'+o.svg+'<div class="note">'+o.note+'</div></div>';}

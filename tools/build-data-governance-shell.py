@@ -33,6 +33,8 @@ STORE_KEY = "dga001"
 COURSE_TITLE = "Data Before AI: Data and Artificial Intelligence Governance for Utilities"
 COURSE_SOURCE = "masterclass-data-governance.html"
 COURSE_OUTPUT = "course-data-governance.html"
+RELEASED_CHAPTERS = {"00"}
+SHELL_VERSION = "0.14.0"
 
 CORE_CSS = (ROOT / "core/components/academy.css").read_text(encoding="utf-8")
 CORE_JS = (ROOT / "core/components/academy.js").read_text(encoding="utf-8")
@@ -150,7 +152,7 @@ def logo() -> str:
     return """<span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>"""
 
 
-def head(title: str, description: str) -> str:
+def head(title: str, description: str, release_state: str = "structure-ready-content-pending") -> str:
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -160,7 +162,7 @@ def head(title: str, description: str) -> str:
 <meta name="description" content="{html.escape(description, quote=True)}">
 <meta name="owos-course-id" content="{COURSE_ID}">
 <meta name="owos-course-store" content="{STORE_KEY}">
-<meta name="owos-release-state" content="structure-ready-content-pending">
+<meta name="owos-release-state" content="{html.escape(release_state, quote=True)}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -184,6 +186,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .dg-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 30px}.dg-flow div{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12px;font-weight:700;color:var(--ink);text-align:center}.dg-flow div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;z-index:2;color:var(--brand);transform:translateY(-50%);background:var(--bg);padding:0 3px}
 .dg-lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.dg-lens{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--brand)}.dg-lens:nth-child(2){border-top-color:var(--green)}.dg-lens:nth-child(3){border-top-color:var(--gold)}.dg-lens h3{margin:0 0 5px;font-size:1rem}.dg-lens p{margin:0;font-size:.88rem;line-height:1.55}
 .dg-part{margin:24px 0}.dg-part-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;background:#0b3f63;color:#fff;border-radius:14px 14px 0 0;padding:13px 16px}.dg-part-head b{font:700 11px var(--fm);letter-spacing:.1em;color:#9bddff}.dg-part-head span{font-weight:800}.dg-part-head small{margin-left:auto;color:#cce4f2}.dg-list{border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 14px 14px;overflow:hidden}.dg-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:16px;align-items:start;border-bottom:1px solid var(--line);text-decoration:none}.dg-row:last-child{border-bottom:0}.dg-row:hover{background:var(--brand-50);text-decoration:none}.dg-num{width:42px;height:42px;border-radius:11px;background:var(--brand-50);border:1px solid var(--brand-100);display:grid;place-items:center;color:var(--brand-700);font:800 13px var(--fm)}.dg-row h3{margin:0 0 5px;font-size:1rem}.dg-sections{font-size:.79rem;color:var(--ink-3);line-height:1.5}.dg-pill{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.dg-row.released{background:linear-gradient(90deg,#eef8f5,#fff)}.dg-row.released .dg-num{background:#dff3ec;border-color:#9fd2bf;color:#086b50}.dg-row.released .dg-pill{color:#086b50;background:#eaf8f3;border-color:#9fd2bf}
 .dg-shell{border:1px solid #ead89d;background:linear-gradient(120deg,#fff9e8,#fff);border-radius:16px;padding:20px;margin:18px 0 26px;display:flex;gap:14px}.dg-shell-icon{width:40px;height:40px;flex:none;border-radius:12px;background:#f2c94c;display:grid;place-items:center;color:#493800;font-weight:900}.dg-shell h2{font-size:1.05rem;margin:0 0 4px}.dg-shell p{margin:0;font-size:.91rem}
 .dg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 28px}.dg-plan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.dg-plan-card .k{font:700 10px var(--fm);letter-spacing:.08em;color:var(--brand);text-transform:uppercase}.dg-plan-card h2{font-size:1.12rem;margin:7px 0}.dg-plan-card p{font-size:.9rem;margin:0}.dg-plan-card .pending{display:inline-block;margin-top:14px;font:700 9px var(--fm);text-transform:uppercase;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;border-radius:999px;padding:4px 8px}
 .dg-artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.dg-artifact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.dg-artifact b{display:block;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.dg-artifact p{font-size:.88rem;margin:0}
@@ -213,18 +216,22 @@ def landing(chapters: list[Chapter]) -> str:
         rows = []
         for chapter in items:
             section_titles = " &middot; ".join(html.escape(s.title) for s in chapter.sections)
-            rows.append(f"""<a class="dg-row" href="{chapter.source_name}" data-chapter="{chapter.number}" data-release-state="content-pending">
+            released = chapter.number in RELEASED_CHAPTERS
+            release_state = "released" if released else "content-pending"
+            release_label = "Available now" if released else "Shell ready"
+            release_class = " released" if released else ""
+            rows.append(f"""<a class="dg-row{release_class}" href="{chapter.source_name}" data-chapter="{chapter.number}" data-release-state="{release_state}">
   <span class="dg-num">{chapter.number}</span>
   <span><h3>{html.escape(chapter.title)}</h3><span class="dg-sections">{section_titles}</span></span>
-  <span class="dg-pill">Shell ready</span>
+  <span class="dg-pill">{release_label}</span>
 </a>""")
         curriculum.append(f"""<section class="dg-part">
 <div class="dg-part-head"><b>{html.escape(code)}</b><span>{html.escape(title)}</span><small>{len(items)} chapter{'s' if len(items) != 1 else ''}</small></div>
 <div class="dg-list">{''.join(rows)}</div>
 </section>""")
     description = "The complete 25-chapter utility Data and AI Governance curriculum structure, ready for governed lesson development."
-    return f"""{head('Data Before AI', description)}
-<body data-course-id="{COURSE_ID}" data-course-store="{STORE_KEY}" data-release-state="structure-ready-content-pending">
+    return f"""{head('Data Before AI', description, 'in-development')}
+<body data-course-id="{COURSE_ID}" data-course-store="{STORE_KEY}" data-release-state="in-development">
 {nav(COURSE_SOURCE, 'Curriculum')}
 <div id="rprog"></div>
 <main class="wrap">
@@ -232,17 +239,17 @@ def landing(chapters: list[Chapter]) -> str:
     <div class="dg-eyebrow">OWOS Academy &middot; Utility Master Class</div>
     <h1>Data Before AI</h1>
     <p>Build the governance layer that makes utility data trustworthy enough for operations, regulation, capital decisions, analytics, artificial intelligence, and digital twins.</p>
-    <span class="dg-status"><i></i>Structure ready &middot; lesson development pending</span>
+    <span class="dg-status"><i></i>Chapter 00 available &middot; 24 chapters in development</span>
   </header>
 
   <div class="dg-stats" aria-label="Course structure">
     <div class="dg-stat"><b>25</b><span>Chapters 00 to 24</span></div>
     <div class="dg-stat"><b>75</b><span>Planned sections</span></div>
     <div class="dg-stat"><b>12</b><span>Governance domains</span></div>
-    <div class="dg-stat"><b>0</b><span>Lessons released</span></div>
+    <div class="dg-stat"><b>{len(RELEASED_CHAPTERS)}</b><span>Lesson released</span></div>
   </div>
 
-  <aside class="dg-note"><strong>This is the governed course shell.</strong><p>Every destination, title, section, utility outcome, studio, and output is wired for review. The lesson bodies, interactions, checks, and completion events remain disabled until each chapter passes the OWOS release gates.</p></aside>
+  <aside class="dg-note"><strong>The course is now releasing chapter by chapter.</strong><p>Chapter 00 is a complete orientation lesson with an interactive Deployment Studio and completion event. The other 24 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
 
   <h2>One source, one delivery path</h2>
   <div class="dg-flow" aria-label="Course delivery path"><div>onewater-os curriculum</div><div>Validated native build</div><div>OWOS.ai Learn</div><div>Supabase learner records</div><div>Knowledge Graph alignment</div></div>
@@ -265,7 +272,7 @@ def landing(chapters: list[Chapter]) -> str:
     <div class="dg-list"><div class="dg-row"><span class="dg-num">CP</span><span><h3>Prove the operating model on one material decision</h3><span class="dg-sections">Decision chain &middot; evidence &middot; 90-day launch &middot; funded roadmap &middot; assurance boundary</span></span><span class="dg-pill">Design ready</span></div></div>
   </section>
 </main>
-<footer class="dg-footer"><div class="wrap">Course ID: {COURSE_ID} &middot; Store: {STORE_KEY} &middot; Native OWOS HTML &middot; Structure version 0.13.0</div></footer>
+<footer class="dg-footer"><div class="wrap">Course ID: {COURSE_ID} &middot; Store: {STORE_KEY} &middot; Native OWOS HTML &middot; Course build {SHELL_VERSION}</div></footer>
 <script src="../../../core/components/academy.js"></script>
 </body></html>"""
 
@@ -351,7 +358,9 @@ def expected_files(chapters: list[Chapter]) -> dict[pathlib.Path, str]:
     link_map = {COURSE_SOURCE: COURSE_OUTPUT}
     link_map.update({chapter.source_name: chapter.output_name for chapter in chapters})
     source_pages = {CURRICULUM / COURSE_SOURCE: landing(chapters)}
-    source_pages.update({CURRICULUM / chapter.source_name: lesson(chapter, chapters) for chapter in chapters})
+    for chapter in chapters:
+        path = CURRICULUM / chapter.source_name
+        source_pages[path] = path.read_text(encoding="utf-8") if chapter.number in RELEASED_CHAPTERS else lesson(chapter, chapters)
     files = dict(source_pages)
     for path, page in source_pages.items():
         output_name = link_map[path.name]
@@ -364,8 +373,8 @@ def expected_files(chapters: list[Chapter]) -> dict[pathlib.Path, str]:
         "slug": "data-before-ai-governance",
         "title": COURSE_TITLE,
         "source_format": "native_html",
-        "release_state": "structure_ready_content_pending",
-        "available_modules": 0,
+        "release_state": "in_development",
+        "available_modules": len(RELEASED_CHAPTERS),
         "module_count": len(chapters),
         "section_count": sum(len(c.sections) for c in chapters),
         "guided_minutes_estimate": 2700,
@@ -380,7 +389,7 @@ def expected_files(chapters: list[Chapter]) -> dict[pathlib.Path, str]:
                 "part_title": chapter.part_title,
                 "source": chapter.source_name,
                 "output": chapter.output_name,
-                "release_state": "content_pending",
+                "release_state": "released" if chapter.number in RELEASED_CHAPTERS else "content_pending",
                 "sections": [section.title for section in chapter.sections],
             }
             for chapter in chapters

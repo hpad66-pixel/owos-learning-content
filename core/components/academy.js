@@ -386,6 +386,24 @@
     }).join('')+'</div>');
   };
 
+  R.artifacttracker=function(el){var c=cfgOf(el);var items=c.items||[];
+    var states=c.states||['Not started','Draft','Evidence noted','Reviewed'];
+    var storageKey='owos:artifacttracker:'+(c.key||location.pathname);
+    var saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};}catch(e){saved={};}
+    var b=shell(el,'<div class="at-summary"><div><b data-count></b><span data-note></span></div><div class="at-meter" aria-hidden="true"><i data-meter></i></div></div><div class="at-list">'+
+      items.map(function(it,i){return '<article class="at-item" data-id="'+(it.id||i)+'"><div><b>'+it.label+'</b><p>'+(it.detail||'')+'</p></div><button type="button" class="at-state" aria-live="polite"></button></article>';}).join('')+
+      '</div><button type="button" class="btn at-reset" data-reset>Reset this tracker</button>');
+    function value(row){var id=row.dataset.id,v=Number(saved[id]);return Number.isFinite(v)?Math.max(0,Math.min(states.length-1,v)):0;}
+    function paint(row){var v=value(row),btn=row.querySelector('.at-state');row.dataset.state=String(v);btn.textContent=states[v];btn.setAttribute('aria-label',row.querySelector('b').textContent+': '+states[v]+'. Select to move to the next status.');}
+    function report(){var reviewed=0,active=0;[].forEach.call(b.querySelectorAll('.at-item'),function(row){var v=value(row);if(v>0)active++;if(v===states.length-1)reviewed++;});
+      b.querySelector('[data-count]').textContent=reviewed+' of '+items.length+' reviewed';
+      b.querySelector('[data-note]').textContent=active+' started';b.querySelector('[data-meter]').style.width=(items.length?reviewed/items.length*100:0)+'%';
+      try{localStorage.setItem(storageKey,JSON.stringify(saved));}catch(e){}
+    }
+    b.querySelectorAll('.at-item').forEach(function(row){paint(row);row.querySelector('.at-state').addEventListener('click',function(){var id=row.dataset.id;saved[id]=(value(row)+1)%states.length;paint(row);report();});});
+    b.querySelector('[data-reset]').addEventListener('click',function(){saved={};b.querySelectorAll('.at-item').forEach(paint);report();});report();
+  };
+
   R.twofig=function(el){var c=cfgOf(el);function box(o){return '<div class="box"><div class="cap">'+o.cap+'</div>'+o.svg+'<div class="note">'+o.note+'</div></div>';}
     shell(el,'<div class="twofig">'+box(c.left)+box(c.right)+'</div>');
   };
