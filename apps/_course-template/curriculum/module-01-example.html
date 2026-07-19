@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- STARTER MODULE. Copy this file per chapter and fill it in. It already links the shared
+     library (academy.css + academy.js) from core/, so every component renders and stays
+     consistent with every other OWOS course. Read core/standards/WRITING-STANDARD.md first. -->
+<title>Chapter 01 &middot; [Chapter title] &middot; One Water OS Academy</title>
+<meta name="description" content="[One-line description of this chapter for search and previews.]">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- the shared library. relative path from apps/<course>/curriculum/ up to core/ -->
+<link rel="stylesheet" href="../../../core/components/academy.css">
+</head>
+<body>
+
+<nav class="owos-nav">
+  <a class="owos-brand" href="masterclass.html">
+    <span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span>
+    <span class="owos-wm">One Water <b>OS</b></span>
+    <span class="owos-pw">Academy &middot; <em>[Course]</em></span>
+  </a>
+  <span class="crumb"><a href="masterclass.html">Masterclass</a> / <b>Ch 01</b></span>
+</nav>
+<div id="rprog"></div>
+
+<div class="wrap">
+
+  <span class="hpill"><span class="d"></span> Chapter 01 &middot; [Part or track]</span>
+  <h1>[The chapter <span>headline</span>]</h1>
+  <p class="sub">[One or two sentences that say what this chapter is about and why it matters, in the plain voice from WRITING-STANDARD.md. No em dashes, no AI cliches.]</p>
+
+  <div class="lens">
+    <button class="on" data-lens="f">Full</button>
+    <button data-lens="p">Plain</button>
+    <button data-lens="l">Leader</button>
+  </div>
+  <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+
+  <!-- Running case: carry ONE real example through the whole chapter (and course). -->
+  <div class="casebox">
+    <span class="pin">&#9873;</span>
+    <div>
+      <p class="h">The example we will follow</p>
+      <p><b>[Name your running example.]</b> [One real situation from the reader's world that every component in this chapter will use, so ideas stay concrete.]</p>
+    </div>
+  </div>
+
+  <h3>What you will be able to do</h3>
+  <ul class="goals">
+    <li><span class="bx"></span> [Outcome one]</li>
+    <li><span class="bx"></span> [Outcome two]</li>
+    <li><span class="bx"></span> [Outcome three]</li>
+  </ul>
+
+  <!-- ===================== SECTION 1 ===================== -->
+  <div class="sec">
+    <span class="tag">1 / 2</span>
+    <h2>[Section one heading]</h2>
+    <p>[Teach the idea plainly. Define the first acronym in full, like <span class="term" data-term="WBS" data-def="Work Breakdown Structure: define every acronym and new term inline with a hover definition like this one.">Work Breakdown Structure (WBS)</span>, and give every term a dotted tooltip.]</p>
+
+    <!-- A COMPONENT. Run the Selection Prompt in VISUAL-ARSENAL.md to pick the right one.
+         This is a spectrum; swap data-ac for table / triangle / process / tree / gantt / etc. -->
+    <div data-ac="spectrum" data-title="[Component title]" data-kind="Interactive &middot; spectrum" data-cue="[Droobi's one-line nudge telling the reader what to try.]">
+      <script type="application/json">
+      {"left":"[Left end]","right":"[Right end]","start":30,
+       "zones":[
+        {"max":33,"title":"[Zone A]","body":"[What this end means, with your running example.]"},
+        {"max":66,"title":"[Zone B]","body":"[The middle case.]"},
+        {"max":100,"title":"[Zone C]","body":"[The other end.]"}
+       ]}
+      </script>
+    </div>
+
+    <!-- SIMULATE, do not just describe. If the idea is a process or calculation, show it running.
+         This is a business-case calculator; see COMPONENTS.md for pv / costcurve / ripple / etc. -->
+    <div data-ac="calc" data-title="[Run the numbers]" data-kind="Calculator &middot; curve &middot; chart" data-cue="[Tell the reader what to slide and what to watch.]">
+      <script type="application/json">
+      {"inputs":[
+        {"id":"cost","label":"What it costs to build","sub":"up-front dollars","min":500,"max":3000,"step":50,"value":1300,"fmt":"money"},
+        {"id":"ben","label":"What it saves each year","sub":"the yearly benefit","min":20,"max":400,"step":10,"value":180,"fmt":"moneyyr"},
+        {"id":"life","label":"How long it lasts","sub":"years","min":10,"max":75,"step":5,"value":50,"fmt":"years"},
+        {"id":"rate","label":"Discount rate","sub":"the cost of money","min":1,"max":10,"step":0.5,"value":4,"fmt":"pct"}
+      ]}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 2 ===================== -->
+  <div class="sec">
+    <span class="tag">2 / 2</span>
+    <h2>[Section two heading]</h2>
+    <p>[Teach the second idea.]</p>
+
+    <!-- Mix quiz types. See QUIZ-TYPES.md. At least 3 different kinds per chapter, never the same twice in a row. -->
+    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning.">
+      <script type="application/json">
+      {"cards":[
+        ["[Term one]","[Its plain-English meaning.]"],
+        ["[Term two]","[Its plain-English meaning.]"],
+        ["[Term three]","[Its plain-English meaning.]"]
+      ]}
+      </script>
+    </div>
+
+    <div data-ac="classify" data-title="[Sort these]" data-kind="Quiz &middot; classify" data-cue="[The rule the reader should use to sort.]">
+      <script type="application/json">
+      {"buckets":["[Bucket A]","[Bucket B]"],
+       "items":[
+        ["[Item]",0,"[Why it belongs in bucket A.]"],
+        ["[Item]",1,"[Why it belongs in bucket B.]"]
+       ]}
+      </script>
+    </div>
+
+    <div data-ac="reflect">
+      <script type="application/json">
+      {"q":"[An open reflection question about the reader's own work.]",
+       "a":"[A full, plain-English way to think about it. This reveals when they click.]"}
+      </script>
+    </div>
+  </div>
+
+  <!-- ===================== RECAP ===================== -->
+  <div class="sec">
+    <h2>What to carry out of this chapter</h2>
+    <ul class="recap">
+      <li><span class="n">1.</span><div><b>[Takeaway one.]</b> [One sentence.]</div></li>
+      <li><span class="n">2.</span><div><b>[Takeaway two.]</b> [One sentence.]</div></li>
+      <li><span class="n">3.</span><div><b>[Takeaway three.]</b> [One sentence.]</div></li>
+    </ul>
+
+    <div class="leadcall" style="background:var(--brand-800)">
+      <p class="h">The leader's bottom line</p>
+      <p>[The single most important thing a decision-maker should take away.]</p>
+    </div>
+  </div>
+
+  <div class="navrow">
+    <a href="masterclass.html">&#8592; Back to the masterclass</a>
+    <a class="btn" href="module-02-example.html">Next: Chapter 02 &#8594;</a>
+  </div>
+
+</div>
+
+<footer class="foot">
+  <div class="in">
+    <span>One Water OS Academy &middot; [Course]</span>
+    <span>Chapter 01 &middot; v0.1.0</span>
+  </div>
+</footer>
+
+<!-- the shared library. renders every data-ac component above. -->
+<script src="../../../core/components/academy.js"></script>
+</body>
+</html>

@@ -3,6 +3,12 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.11.1] - 2026-07-19
+### Added
+- `apps/_course-template/` : a clone-me starter for any new course. Points at `core/` (no copying), with
+  a working example module wired to the library, a syllabus template, and a README with the 4-step start.
+  Verified the example renders from its apps/ location (spectrum, calculator, flip, classify, reflection).
+
 ## [0.11.0] - 2026-07-19
 ### Added: six new simulations (one+ per chapter), applying the "show it" rule across the course
 - `pv` (Ch01): present-value mini-sim, slide years/rate and watch a future dollar shrink to today's value.
