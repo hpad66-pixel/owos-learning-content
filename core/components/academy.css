@@ -177,6 +177,27 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .step{display:flex;align-items:center;gap:6px}.step button{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);border-radius:7px;font-size:15px;font-weight:700;color:var(--ink-2);cursor:pointer;line-height:1}.step button:hover{border-color:var(--brand);color:var(--brand)}.step .v{font:600 13px var(--fm);width:78px;text-align:center;color:var(--ink)}
 .qbadge{margin-top:12px;font:600 13px var(--f);padding:9px 13px;border-radius:10px;text-align:center}
 
+/* ---- gantt + critical path ---- */
+.gantt{overflow-x:auto}
+.ginner{min-width:460px}
+.grow{display:flex;align-items:center;gap:10px;padding:4px 0;cursor:pointer;border-radius:8px}
+.grow:hover{background:var(--surface-2)}.grow.on{background:var(--brand-50)}
+.gname{flex:none;width:158px;font-weight:600;color:var(--ink);font-size:12.5px}
+.gtrack{flex:1;position:relative;height:20px;background:var(--surface-2);border-radius:6px}
+.gbar{position:absolute;top:3px;height:14px;border-radius:4px;background:var(--brand)}
+.gbar.crit{background:var(--gold)}
+.gslack{position:absolute;top:8px;height:4px;border-radius:2px;background:var(--line-2)}
+.gaxis{display:flex;justify-content:space-between;font:9px var(--fm);color:var(--ink-3);margin:6px 0 0 168px}
+.glegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:10px;flex-wrap:wrap}
+.glegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
+.gsum{font:600 13px var(--fm);color:var(--ink);margin-top:10px}.gsum b{color:var(--gold)}
+.gdetail{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink-2);display:none}.gdetail.on{display:block}.gdetail b{color:var(--ink)}.gdetail .crit{color:var(--gold);font-weight:700}
+
+/* ---- S-curve (cost-loaded schedule) ---- */
+.scurve svg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
+.sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
+
 /* ---- tree / work breakdown structure ---- */
 .tree{font-size:14.5px}
 .tkids{list-style:none;margin:0;padding:0 0 0 22px}.tkids.root{padding-left:0}

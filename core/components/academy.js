@@ -417,6 +417,63 @@
       td.className='tdetail on';td.innerHTML=d;});});
   };
 
+  R.gantt=function(el){var c=cfgOf(el);var tasks=c.tasks||[];
+    var by={};tasks.forEach(function(t){by[t.id]=t;});
+    function deps(t){return (t.deps||[]).map(function(d){return typeof d==='object'?{id:d.to||d.id,lag:d.lag||0}:{id:d,lag:0};});}
+    var ES={},EF={},LS={},LF={};
+    tasks.forEach(function(t){ES[t.id]=0;EF[t.id]=t.dur;});
+    for(var i=0;i<tasks.length+1;i++){tasks.forEach(function(t){var es=0;deps(t).forEach(function(d){es=Math.max(es,EF[d.id]+d.lag);});ES[t.id]=es;EF[t.id]=es+t.dur;});}
+    var proj=0;tasks.forEach(function(t){proj=Math.max(proj,EF[t.id]);});
+    var succ={};tasks.forEach(function(t){succ[t.id]=[];});
+    tasks.forEach(function(t){deps(t).forEach(function(d){succ[d.id].push({id:t.id,lag:d.lag});});});
+    tasks.forEach(function(t){LF[t.id]=proj;LS[t.id]=proj-t.dur;});
+    for(var j=0;j<tasks.length+1;j++){tasks.forEach(function(t){var lf=succ[t.id].length?Infinity:proj;succ[t.id].forEach(function(s){lf=Math.min(lf,LS[s.id]-s.lag);});LF[t.id]=lf;LS[t.id]=lf-t.dur;});}
+    var unit=c.unit||'weeks';
+    function pct(v){return (v/proj*100);}
+    var rows=tasks.map(function(t){
+      var fl=Math.round((LS[t.id]-ES[t.id])*100)/100,crit=fl<=0.001;
+      var bar='<div class="gbar'+(crit?' crit':'')+'" style="left:'+pct(ES[t.id]).toFixed(1)+'%;width:'+pct(t.dur).toFixed(1)+'%"></div>';
+      var slack=fl>0?'<div class="gslack" style="left:'+pct(EF[t.id]).toFixed(1)+'%;width:'+pct(fl).toFixed(1)+'%"></div>':'';
+      return '<div class="grow" data-id="'+t.id+'"><span class="gname">'+t.name+'</span><span class="gtrack">'+bar+slack+'</span></div>';
+    }).join('');
+    var b=shell(el,'<div class="gantt"><div class="ginner">'+rows+
+      '<div class="gaxis"><span>0</span><span>'+Math.round(proj/2)+' '+unit+'</span><span>'+proj+' '+unit+'</span></div></div></div>'+
+      '<div class="glegend"><span><span class="sw" style="background:var(--gold)"></span>on the critical path (zero float)</span>'+
+      '<span><span class="sw" style="background:var(--brand)"></span>has float</span>'+
+      '<span><span class="sw" style="background:var(--line-2)"></span>slack</span></div>'+
+      '<div class="gsum">Project finishes in <b>'+proj+' '+unit+'</b>. The gold bars are the critical path: slip any one and the whole job slips.</div>'+
+      '<div class="gdetail" data-gd></div>');
+    var gd=b.querySelector('[data-gd]');
+    b.querySelectorAll('.grow').forEach(function(r){r.addEventListener('click',function(){
+      var t=by[r.dataset.id],fl=Math.round((LS[t.id]-ES[t.id])*100)/100,crit=fl<=0.001;
+      b.querySelectorAll('.grow').forEach(function(x){x.classList.remove('on');});r.classList.add('on');
+      gd.className='gdetail on';
+      gd.innerHTML='<b>'+t.name+'.</b> Starts week '+ES[t.id]+', finishes week '+EF[t.id]+'. Float: <b>'+fl+' '+unit+'</b>. '+
+        (crit?'<span class="crit">On the critical path.</span> It has no slack, so any delay here pushes the finish date.':'It has '+fl+' '+unit+' of slack, so a small delay here will not move the finish date.')+
+        (t.note?' '+t.note:'');
+    });});
+  };
+
+  R.scurve=function(el){var c=cfgOf(el);var p=c.periods||[];
+    var W=320,H=170,x0=30,x1=308,y0=14,y1=140;
+    var cum=[],run=0;p.forEach(function(d){run+=d.spend;cum.push(run);});
+    var total=run||1,maxSp=Math.max.apply(null,p.map(function(d){return d.spend;}))||1;
+    function X(i){return x0+(p.length<=1?0:i/(p.length-1)*(x1-x0));}
+    function Yc(v){return y1-v/total*(y1-y0);}
+    var bars=p.map(function(d,i){var bw=(x1-x0)/p.length*0.6,bx=x0+(i+0.5)/p.length*(x1-x0)-bw/2,bh=d.spend/maxSp*(y1-y0)*0.55;
+      return '<rect x="'+bx.toFixed(1)+'" y="'+(y1-bh).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" fill="#D3EAF8" rx="2"/>';}).join('');
+    var line=cum.map(function(v,i){return X(i).toFixed(1)+','+Yc(v).toFixed(1);}).join(' ');
+    var dots=cum.map(function(v,i){return '<circle cx="'+X(i).toFixed(1)+'" cy="'+Yc(v).toFixed(1)+'" r="2.6" fill="#0A78BA"/>';}).join('');
+    var labels=p.map(function(d,i){return '<text x="'+X(i).toFixed(1)+'" y="'+(H-4)+'" text-anchor="middle" font-size="8" fill="#8595AB">'+d.label+'</text>';}).join('');
+    var b=shell(el,'<div class="scurve"><svg viewBox="0 0 '+W+' '+H+'">'+
+      '<line x1="'+x0+'" y1="'+y1+'" x2="'+x1+'" y2="'+y1+'" stroke="#CDD6E1"/>'+
+      '<line x1="'+x0+'" y1="'+y0+'" x2="'+x0+'" y2="'+y1+'" stroke="#CDD6E1"/>'+
+      bars+'<polyline points="'+line+'" fill="none" stroke="#0A78BA" stroke-width="2.4"/>'+dots+labels+
+      '<text x="'+x0+'" y="'+(y0-3)+'" font-size="8" fill="#8595AB">'+(c.totalLabel||('total '+total))+'</text></svg></div>'+
+      '<div class="sclegend"><span><span class="sw" style="background:#D3EAF8"></span>spend each period</span>'+
+      '<span><span class="sw" style="background:var(--brand)"></span>cumulative (the S-curve)</span></div>');
+  };
+
   /* ---- boot ---- */
   function boot(){
     injectDroobi();

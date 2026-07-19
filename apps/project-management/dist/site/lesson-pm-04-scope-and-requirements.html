@@ -189,6 +189,27 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .step{display:flex;align-items:center;gap:6px}.step button{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);border-radius:7px;font-size:15px;font-weight:700;color:var(--ink-2);cursor:pointer;line-height:1}.step button:hover{border-color:var(--brand);color:var(--brand)}.step .v{font:600 13px var(--fm);width:78px;text-align:center;color:var(--ink)}
 .qbadge{margin-top:12px;font:600 13px var(--f);padding:9px 13px;border-radius:10px;text-align:center}
 
+/* ---- gantt + critical path ---- */
+.gantt{overflow-x:auto}
+.ginner{min-width:460px}
+.grow{display:flex;align-items:center;gap:10px;padding:4px 0;cursor:pointer;border-radius:8px}
+.grow:hover{background:var(--surface-2)}.grow.on{background:var(--brand-50)}
+.gname{flex:none;width:158px;font-weight:600;color:var(--ink);font-size:12.5px}
+.gtrack{flex:1;position:relative;height:20px;background:var(--surface-2);border-radius:6px}
+.gbar{position:absolute;top:3px;height:14px;border-radius:4px;background:var(--brand)}
+.gbar.crit{background:var(--gold)}
+.gslack{position:absolute;top:8px;height:4px;border-radius:2px;background:var(--line-2)}
+.gaxis{display:flex;justify-content:space-between;font:9px var(--fm);color:var(--ink-3);margin:6px 0 0 168px}
+.glegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:10px;flex-wrap:wrap}
+.glegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
+.gsum{font:600 13px var(--fm);color:var(--ink);margin-top:10px}.gsum b{color:var(--gold)}
+.gdetail{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink-2);display:none}.gdetail.on{display:block}.gdetail b{color:var(--ink)}.gdetail .crit{color:var(--gold);font-weight:700}
+
+/* ---- S-curve (cost-loaded schedule) ---- */
+.scurve svg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
+.sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
+
 /* ---- tree / work breakdown structure ---- */
 .tree{font-size:14.5px}
 .tkids{list-style:none;margin:0;padding:0 0 0 22px}.tkids.root{padding-left:0}
@@ -874,6 +895,63 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       var d=decodeURIComponent(r.getAttribute('data-d')||'');if(!d)return;
       b.querySelectorAll('.trow').forEach(function(x){x.classList.remove('on');});r.classList.add('on');
       td.className='tdetail on';td.innerHTML=d;});});
+  };
+
+  R.gantt=function(el){var c=cfgOf(el);var tasks=c.tasks||[];
+    var by={};tasks.forEach(function(t){by[t.id]=t;});
+    function deps(t){return (t.deps||[]).map(function(d){return typeof d==='object'?{id:d.to||d.id,lag:d.lag||0}:{id:d,lag:0};});}
+    var ES={},EF={},LS={},LF={};
+    tasks.forEach(function(t){ES[t.id]=0;EF[t.id]=t.dur;});
+    for(var i=0;i<tasks.length+1;i++){tasks.forEach(function(t){var es=0;deps(t).forEach(function(d){es=Math.max(es,EF[d.id]+d.lag);});ES[t.id]=es;EF[t.id]=es+t.dur;});}
+    var proj=0;tasks.forEach(function(t){proj=Math.max(proj,EF[t.id]);});
+    var succ={};tasks.forEach(function(t){succ[t.id]=[];});
+    tasks.forEach(function(t){deps(t).forEach(function(d){succ[d.id].push({id:t.id,lag:d.lag});});});
+    tasks.forEach(function(t){LF[t.id]=proj;LS[t.id]=proj-t.dur;});
+    for(var j=0;j<tasks.length+1;j++){tasks.forEach(function(t){var lf=succ[t.id].length?Infinity:proj;succ[t.id].forEach(function(s){lf=Math.min(lf,LS[s.id]-s.lag);});LF[t.id]=lf;LS[t.id]=lf-t.dur;});}
+    var unit=c.unit||'weeks';
+    function pct(v){return (v/proj*100);}
+    var rows=tasks.map(function(t){
+      var fl=Math.round((LS[t.id]-ES[t.id])*100)/100,crit=fl<=0.001;
+      var bar='<div class="gbar'+(crit?' crit':'')+'" style="left:'+pct(ES[t.id]).toFixed(1)+'%;width:'+pct(t.dur).toFixed(1)+'%"></div>';
+      var slack=fl>0?'<div class="gslack" style="left:'+pct(EF[t.id]).toFixed(1)+'%;width:'+pct(fl).toFixed(1)+'%"></div>':'';
+      return '<div class="grow" data-id="'+t.id+'"><span class="gname">'+t.name+'</span><span class="gtrack">'+bar+slack+'</span></div>';
+    }).join('');
+    var b=shell(el,'<div class="gantt"><div class="ginner">'+rows+
+      '<div class="gaxis"><span>0</span><span>'+Math.round(proj/2)+' '+unit+'</span><span>'+proj+' '+unit+'</span></div></div></div>'+
+      '<div class="glegend"><span><span class="sw" style="background:var(--gold)"></span>on the critical path (zero float)</span>'+
+      '<span><span class="sw" style="background:var(--brand)"></span>has float</span>'+
+      '<span><span class="sw" style="background:var(--line-2)"></span>slack</span></div>'+
+      '<div class="gsum">Project finishes in <b>'+proj+' '+unit+'</b>. The gold bars are the critical path: slip any one and the whole job slips.</div>'+
+      '<div class="gdetail" data-gd></div>');
+    var gd=b.querySelector('[data-gd]');
+    b.querySelectorAll('.grow').forEach(function(r){r.addEventListener('click',function(){
+      var t=by[r.dataset.id],fl=Math.round((LS[t.id]-ES[t.id])*100)/100,crit=fl<=0.001;
+      b.querySelectorAll('.grow').forEach(function(x){x.classList.remove('on');});r.classList.add('on');
+      gd.className='gdetail on';
+      gd.innerHTML='<b>'+t.name+'.</b> Starts week '+ES[t.id]+', finishes week '+EF[t.id]+'. Float: <b>'+fl+' '+unit+'</b>. '+
+        (crit?'<span class="crit">On the critical path.</span> It has no slack, so any delay here pushes the finish date.':'It has '+fl+' '+unit+' of slack, so a small delay here will not move the finish date.')+
+        (t.note?' '+t.note:'');
+    });});
+  };
+
+  R.scurve=function(el){var c=cfgOf(el);var p=c.periods||[];
+    var W=320,H=170,x0=30,x1=308,y0=14,y1=140;
+    var cum=[],run=0;p.forEach(function(d){run+=d.spend;cum.push(run);});
+    var total=run||1,maxSp=Math.max.apply(null,p.map(function(d){return d.spend;}))||1;
+    function X(i){return x0+(p.length<=1?0:i/(p.length-1)*(x1-x0));}
+    function Yc(v){return y1-v/total*(y1-y0);}
+    var bars=p.map(function(d,i){var bw=(x1-x0)/p.length*0.6,bx=x0+(i+0.5)/p.length*(x1-x0)-bw/2,bh=d.spend/maxSp*(y1-y0)*0.55;
+      return '<rect x="'+bx.toFixed(1)+'" y="'+(y1-bh).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" fill="#D3EAF8" rx="2"/>';}).join('');
+    var line=cum.map(function(v,i){return X(i).toFixed(1)+','+Yc(v).toFixed(1);}).join(' ');
+    var dots=cum.map(function(v,i){return '<circle cx="'+X(i).toFixed(1)+'" cy="'+Yc(v).toFixed(1)+'" r="2.6" fill="#0A78BA"/>';}).join('');
+    var labels=p.map(function(d,i){return '<text x="'+X(i).toFixed(1)+'" y="'+(H-4)+'" text-anchor="middle" font-size="8" fill="#8595AB">'+d.label+'</text>';}).join('');
+    var b=shell(el,'<div class="scurve"><svg viewBox="0 0 '+W+' '+H+'">'+
+      '<line x1="'+x0+'" y1="'+y1+'" x2="'+x1+'" y2="'+y1+'" stroke="#CDD6E1"/>'+
+      '<line x1="'+x0+'" y1="'+y0+'" x2="'+x0+'" y2="'+y1+'" stroke="#CDD6E1"/>'+
+      bars+'<polyline points="'+line+'" fill="none" stroke="#0A78BA" stroke-width="2.4"/>'+dots+labels+
+      '<text x="'+x0+'" y="'+(y0-3)+'" font-size="8" fill="#8595AB">'+(c.totalLabel||('total '+total))+'</text></svg></div>'+
+      '<div class="sclegend"><span><span class="sw" style="background:#D3EAF8"></span>spend each period</span>'+
+      '<span><span class="sw" style="background:var(--brand)"></span>cumulative (the S-curve)</span></div>');
   };
 
   /* ---- boot ---- */

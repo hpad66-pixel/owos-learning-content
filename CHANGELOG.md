@@ -3,6 +3,24 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.9.0] - 2026-07-18
+### Added: Chapter 05 + two scheduling components
+- New library `gantt` renderer: an interactive Gantt that runs a real Critical Path Method engine
+  (forward and backward pass, float), highlights the critical path in gold, shows slack, and gives
+  per-activity dates and float on click. Verified: the Millpond schedule computes to a 30-week
+  critical path through survey, long-lead procurement, pipe, tie-ins, test, and closeout, with the
+  permit correctly showing 5 weeks of float.
+- New library `scurve` renderer: a cost-loaded cash-flow S-curve (period bars plus cumulative line).
+- Chapter 05 "Scheduling and the Critical Path" built on the library: the Gantt, dependency-type
+  classification, lag and lead, the CPM method, a zero-float slip estimate, a crash-the-critical-path
+  judgment, and the S-curve. Working lens, Millpond thread, recap and leader's bottom line.
+### Changed
+- Masterclass chrome: Chapter 05 now live; status note "Chapters 01 to 05 are live." Rebuilt all five
+  lessons + course page self-contained.
+### Deployed
+- Published all five lessons + the course page to owos.ai and verified each renders on the live,
+  authenticated site.
+
 ## [0.8.0] - 2026-07-18
 ### Added: Chapter 04 + a WBS tree component
 - New library `tree` renderer: an interactive Work Breakdown Structure (expand/collapse branches, click
