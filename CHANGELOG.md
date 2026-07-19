@@ -3,6 +3,27 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.5.0] - 2026-07-18
+### Added: the shared component library (the real fix)
+- `core/components/academy.css` and `core/components/academy.js`: one place that holds every
+  polished component and quiz. A module now writes small declarative markup
+  (`<div data-ac="spectrum">` with a JSON config) and the library renders the identical, gallery-grade
+  component. Fix a component once, every module updates. Renderers: flip, match, mc, multi, classify,
+  estimate, truefalse, order, reflect, spectrum, table, recommender, decide, triangle, process, method,
+  twofig, plus tooltips, lens, reading progress, goals, and the Droobi cue.
+- `tools/build-selfcontained.py`: inlines the library into one distributable HTML file (escapes any
+  `</script>` so the inline script parses), rewrites nav links to deployed names, and asserts no dashes.
+### Changed: Chapter 02 rebuilt on the library (this was the "shittiest version" complaint)
+- Every diagram and quiz is now the real library component, not a hand-rolled version. Twelve components:
+  flip cards, a predictive-to-adaptive spectrum, a line-versus-loop contrast, an interactive phase-gate,
+  a delivery-method comparison table, matching, a five-step method, a recommender, and classify /
+  multiple-choice / true-false / reflection quizzes.
+- Every acronym is spelled out on first use (DBB, DB, CMAR, PDB, GMP) with a hover definition.
+- Exactly one tooltip element, zero native `title` attributes. The "two tooltips" bug is gone.
+- Verified live in the browser: all 12 components render and interact correctly.
+### Deployed
+- Rebuilt the self-contained Chapter 02 and published it to the `2-brain` site (owos.ai).
+
 ## [0.4.1] - 2026-07-18
 ### Changed (standards, per Hardeep's direction)
 - Added hard rules: spell out every acronym in full on first use (short form in parentheses); every
