@@ -237,6 +237,17 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- dashboard: honest RAG status ---- */
+.dashrow{display:flex;align-items:center;gap:12px;margin:10px 0}
+.dashrow .nm{flex:1;min-width:150px;font-weight:600;color:var(--ink);font-size:14px}.dashrow .nm b{font-family:var(--fm);color:var(--brand);font-weight:700}
+.dashrow input{flex:1;min-width:90px}
+.dashrow .rag{flex:none;width:76px;text-align:center;font:700 10.5px var(--fm);padding:4px 0;border-radius:7px}
+.rag.g{background:var(--green-50);color:var(--green)}.rag.a{background:#FBF3E2;color:var(--gold)}.rag.r{background:var(--red-50);color:var(--red)}
+.dashoverall{margin-top:14px;padding:14px 16px;border-radius:14px;text-align:center}
+.dashoverall .k{font:9px var(--fm);letter-spacing:.08em;text-transform:uppercase;opacity:.85}.dashoverall .v{font:800 22px var(--f);margin-top:2px}
+.dashoverall.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.dashoverall.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.dashoverall.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.dashnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.dashnote b{color:var(--ink)}
+
 /* ---- coq: cost of quality curve ---- */
 .coqsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
 .coqleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.coqleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
@@ -490,17 +501,17 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="dg-eyebrow">OWOS Academy &middot; Utility Master Class</div>
     <h1>Data Before AI</h1>
     <p>Build the governance layer that makes utility data trustworthy enough for operations, regulation, capital decisions, analytics, artificial intelligence, and digital twins.</p>
-    <span class="dg-status"><i></i>Chapters 00 to 05 available &middot; 19 chapters in development</span>
+    <span class="dg-status"><i></i>Chapters 00 to 08 available &middot; 16 chapters in development</span>
   </header>
 
   <div class="dg-stats" aria-label="Course structure">
     <div class="dg-stat"><b>25</b><span>Chapters 00 to 24</span></div>
     <div class="dg-stat"><b>75</b><span>Planned sections</span></div>
     <div class="dg-stat"><b>12</b><span>Governance domains</span></div>
-    <div class="dg-stat"><b>6</b><span>Lessons released</span></div>
+    <div class="dg-stat"><b>9</b><span>Lessons released</span></div>
   </div>
 
-  <aside class="dg-note"><strong>The course is releasing chapter by chapter.</strong><p>Chapters 00 to 02 establish the governed Launch Pack, executive case, controlled utility language, provenance, quality-by-use rule, and first data product. Chapter 03 builds the authority register and legal applicability gate. Chapter 04 maps the physical and digital utility data estate around material decisions. Chapter 05 establishes shared identity and minimum reconstructable records. The other 19 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
+  <aside class="dg-note"><strong>The course is releasing chapter by chapter.</strong><p>Chapters 00 to 02 establish the governed Launch Pack, executive case, controlled utility language, provenance, quality-by-use rule, and first data product. Chapter 03 builds the authority register and legal applicability gate. Chapter 04 maps the utility data estate, Chapter 05 establishes shared identity and minimum records, Chapter 06 traces a material decision from source to outcome, Chapter 07 builds roles, forums, and the operating rhythm, and Chapter 08 delivers the D01 scope, value, risk, decision-rights, and funded-roadmap package. The other 16 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
 
   <h2>One source, one delivery path</h2>
   <div class="dg-flow" aria-label="Course delivery path"><div>onewater-os curriculum</div><div>Validated native build</div><div>OWOS.ai Learn</div><div>Supabase learner records</div><div>Knowledge Graph alignment</div></div>
@@ -547,21 +558,21 @@ html,body{max-width:100%;overflow-x:hidden}
   <span class="dg-num">05</span>
   <span><h3>Shared identity and minimum governed records</h3><span class="dg-sections">Name the same thing the same way. &middot; Define minimum records. &middot; Reconcile without replacing every system.</span></span>
   <span class="dg-pill">Available now</span>
-</a><a class="dg-row" href="lesson-dg-06-trace-one-material-decision-from-source-to-outcome.html" data-chapter="06" data-release-state="content-pending">
+</a><a class="dg-row released" href="lesson-dg-06-trace-one-material-decision-from-source-to-outcome.html" data-chapter="06" data-release-state="released">
   <span class="dg-num">06</span>
   <span><h3>Trace one material decision from source to outcome</h3><span class="dg-sections">Trace backward. &middot; Trace forward. &middot; Govern every handoff.</span></span>
-  <span class="dg-pill">Shell ready</span>
-</a><a class="dg-row" href="lesson-dg-07-roles-stewardship-forums-and-the-operating-rhythm.html" data-chapter="07" data-release-state="content-pending">
+  <span class="dg-pill">Available now</span>
+</a><a class="dg-row released" href="lesson-dg-07-roles-stewardship-forums-and-the-operating-rhythm.html" data-chapter="07" data-release-state="released">
   <span class="dg-num">07</span>
   <span><h3>Roles, stewardship, forums, and the operating rhythm</h3><span class="dg-sections">Put accountability in the right seats. &middot; Design forums and escalation. &middot; Run governance through normal work.</span></span>
-  <span class="dg-pill">Shell ready</span>
+  <span class="dg-pill">Available now</span>
 </a></div>
 </section><section class="dg-part">
 <div class="dg-part-head"><b>PART C</b><span>Operate the twelve governance domains</span><small>12 chapters</small></div>
-<div class="dg-list"><a class="dg-row" href="lesson-dg-08-d01-strategy-value-and-decision-rights.html" data-chapter="08" data-release-state="content-pending">
+<div class="dg-list"><a class="dg-row released" href="lesson-dg-08-d01-strategy-value-and-decision-rights.html" data-chapter="08" data-release-state="released">
   <span class="dg-num">08</span>
   <span><h3>D01: Strategy, value, and decision rights</h3><span class="dg-sections">Set scope and principles. &middot; Tie governance to utility value and risk. &middot; Fund and govern the roadmap.</span></span>
-  <span class="dg-pill">Shell ready</span>
+  <span class="dg-pill">Available now</span>
 </a><a class="dg-row" href="lesson-dg-09-d02-accountability-and-stewardship.html" data-chapter="09" data-release-state="content-pending">
   <span class="dg-num">09</span>
   <span><h3>D02: Accountability and stewardship</h3><span class="dg-sections">Name owners and stewards for critical domains and products. &middot; Resolve cross-functional decisions. &middot; Control conflicting and third-party duties.</span></span>
@@ -641,7 +652,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="dg-list"><div class="dg-row"><span class="dg-num">CP</span><span><h3>Prove the operating model on one material decision</h3><span class="dg-sections">Decision chain &middot; evidence &middot; 90-day launch &middot; funded roadmap &middot; assurance boundary</span></span><span class="dg-pill">Design ready</span></div></div>
   </section>
 </main>
-<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Course build 0.21.0</div></footer>
+<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Course build 0.23.0</div></footer>
 <script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
@@ -1386,6 +1397,25 @@ html,body{max-width:100%;overflow-x:hidden}
       var pv=amt/Math.pow(1+r,y);b.querySelector('[data-pvv]').textContent=m0(pv);b.querySelector('[data-pvbar]').style.height=Math.max(2,pv/amt*100)+'%';
       b.querySelector('[data-out]').innerHTML=m0(amt)+' promised '+y+' years out is worth about <b>'+m0(pv)+'</b> today at '+(r*100).toFixed(1)+'%. That is why future savings are discounted: a dollar later is worth less than a dollar now. The formula is PV = FV / (1 + r) raised to the number of years.';}
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
+  };
+
+  R.dashboard=function(el){var c=cfgOf(el);var metrics=c.metrics||[];
+    function rag(m,v){return m.dir==='low'?(v<=m.amber?'g':(v<=m.red?'a':'r')):(v>=m.amber?'g':(v>=m.red?'a':'r'));}
+    function fmt(m,v){return m.fmt==='int'?String(v):(+v).toFixed(2);}
+    var b=shell(el,metrics.map(function(m){return '<div class="dashrow"><span class="nm">'+m.label+' <b data-v="'+m.key+'"></b></span><input type="range" data-k="'+m.key+'" min="'+m.min+'" max="'+m.max+'" step="'+m.step+'" value="'+m.value+'"><span class="rag" data-rag="'+m.key+'"></span></div>';}).join('')+
+      '<div class="dashoverall" data-overall><div class="k">Honest overall status</div><div class="v" data-ov></div></div><div class="dashnote" data-note></div>');
+    var labels={g:'On track',a:'Watch',r:'At risk'},words={g:'GREEN',a:'AMBER',r:'RED'};
+    function upd(){var worst='g';
+      metrics.forEach(function(m){var v=+b.querySelector('input[data-k="'+m.key+'"]').value,r=rag(m,v);
+        b.querySelector('[data-v="'+m.key+'"]').textContent=fmt(m,v);
+        var chip=b.querySelector('[data-rag="'+m.key+'"]');chip.className='rag '+r;chip.textContent=labels[r];
+        if(r==='r')worst='r';else if(r==='a'&&worst!=='r')worst='a';});
+      var ov=b.querySelector('[data-overall]');ov.className='dashoverall '+worst;b.querySelector('[data-ov]').textContent=words[worst];
+      var note=b.querySelector('[data-note]');
+      if(worst==='r')note.innerHTML='Honest status is <b>red</b>, because at least one measure is at risk. It does not matter that others are green: a status a board can act on takes the <b>worst</b> light, not the average. Reporting green here is the watermelon, green on the outside and red at the core.';
+      else if(worst==='a')note.innerHTML='<b>Amber.</b> Something needs watching. Name it, say what you are doing about it, and do not let it drift to red unremarked.';
+      else note.innerHTML='<b>Green, and genuinely so:</b> every measure is on track. Green should mean this, not "no bad news has reached me yet."';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
   };
 
   R.coq=function(el){var c=cfgOf(el);var failBase=c.failBase||400,K=c.K||100,max=c.max||300,unit=c.unit||'k';

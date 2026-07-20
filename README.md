@@ -23,7 +23,7 @@ apps/                     one folder per application. Each reuses core/.
     curriculum/           syllabus, the course "chrome", and the chapters
     playbook/             the utilities PM field playbook (HTML + PDF)
     starter-kit/          a plain-file project scaffold you copy to run a real job
-  data-ai-governance/     the Data Before AI Master Class (Chapters 00 and 01 released)
+  data-ai-governance/     the Data Before AI Master Class (Chapters 00 through 08 released)
     curriculum/           syllabus, landing page, released lessons, and governed chapter shells
     dist/site/            self-contained OWOS.ai build outputs
     course.yaml           machine-readable course and controlled-method record

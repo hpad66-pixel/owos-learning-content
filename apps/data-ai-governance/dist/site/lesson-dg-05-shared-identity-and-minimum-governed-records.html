@@ -230,6 +230,17 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .sclegend{display:flex;gap:16px;font:600 11px var(--fm);color:var(--ink-2);margin-top:8px;flex-wrap:wrap}
 .sclegend .sw{display:inline-block;width:14px;height:10px;border-radius:3px;vertical-align:middle;margin-right:5px}
 
+/* ---- dashboard: honest RAG status ---- */
+.dashrow{display:flex;align-items:center;gap:12px;margin:10px 0}
+.dashrow .nm{flex:1;min-width:150px;font-weight:600;color:var(--ink);font-size:14px}.dashrow .nm b{font-family:var(--fm);color:var(--brand);font-weight:700}
+.dashrow input{flex:1;min-width:90px}
+.dashrow .rag{flex:none;width:76px;text-align:center;font:700 10.5px var(--fm);padding:4px 0;border-radius:7px}
+.rag.g{background:var(--green-50);color:var(--green)}.rag.a{background:#FBF3E2;color:var(--gold)}.rag.r{background:var(--red-50);color:var(--red)}
+.dashoverall{margin-top:14px;padding:14px 16px;border-radius:14px;text-align:center}
+.dashoverall .k{font:9px var(--fm);letter-spacing:.08em;text-transform:uppercase;opacity:.85}.dashoverall .v{font:800 22px var(--f);margin-top:2px}
+.dashoverall.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.dashoverall.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.dashoverall.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.dashnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.dashnote b{color:var(--ink)}
+
 /* ---- coq: cost of quality curve ---- */
 .coqsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
 .coqleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.coqleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
@@ -1343,6 +1354,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       var pv=amt/Math.pow(1+r,y);b.querySelector('[data-pvv]').textContent=m0(pv);b.querySelector('[data-pvbar]').style.height=Math.max(2,pv/amt*100)+'%';
       b.querySelector('[data-out]').innerHTML=m0(amt)+' promised '+y+' years out is worth about <b>'+m0(pv)+'</b> today at '+(r*100).toFixed(1)+'%. That is why future savings are discounted: a dollar later is worth less than a dollar now. The formula is PV = FV / (1 + r) raised to the number of years.';}
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
+  };
+
+  R.dashboard=function(el){var c=cfgOf(el);var metrics=c.metrics||[];
+    function rag(m,v){return m.dir==='low'?(v<=m.amber?'g':(v<=m.red?'a':'r')):(v>=m.amber?'g':(v>=m.red?'a':'r'));}
+    function fmt(m,v){return m.fmt==='int'?String(v):(+v).toFixed(2);}
+    var b=shell(el,metrics.map(function(m){return '<div class="dashrow"><span class="nm">'+m.label+' <b data-v="'+m.key+'"></b></span><input type="range" data-k="'+m.key+'" min="'+m.min+'" max="'+m.max+'" step="'+m.step+'" value="'+m.value+'"><span class="rag" data-rag="'+m.key+'"></span></div>';}).join('')+
+      '<div class="dashoverall" data-overall><div class="k">Honest overall status</div><div class="v" data-ov></div></div><div class="dashnote" data-note></div>');
+    var labels={g:'On track',a:'Watch',r:'At risk'},words={g:'GREEN',a:'AMBER',r:'RED'};
+    function upd(){var worst='g';
+      metrics.forEach(function(m){var v=+b.querySelector('input[data-k="'+m.key+'"]').value,r=rag(m,v);
+        b.querySelector('[data-v="'+m.key+'"]').textContent=fmt(m,v);
+        var chip=b.querySelector('[data-rag="'+m.key+'"]');chip.className='rag '+r;chip.textContent=labels[r];
+        if(r==='r')worst='r';else if(r==='a'&&worst!=='r')worst='a';});
+      var ov=b.querySelector('[data-overall]');ov.className='dashoverall '+worst;b.querySelector('[data-ov]').textContent=words[worst];
+      var note=b.querySelector('[data-note]');
+      if(worst==='r')note.innerHTML='Honest status is <b>red</b>, because at least one measure is at risk. It does not matter that others are green: a status a board can act on takes the <b>worst</b> light, not the average. Reporting green here is the watermelon, green on the outside and red at the core.';
+      else if(worst==='a')note.innerHTML='<b>Amber.</b> Something needs watching. Name it, say what you are doing about it, and do not let it drift to red unremarked.';
+      else note.innerHTML='<b>Green, and genuinely so:</b> every measure is on track. Green should mean this, not "no bad news has reached me yet."';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
   };
 
   R.coq=function(el){var c=cfgOf(el);var failBase=c.failBase||400,K=c.K||100,max=c.max||300,unit=c.unit||'k';
