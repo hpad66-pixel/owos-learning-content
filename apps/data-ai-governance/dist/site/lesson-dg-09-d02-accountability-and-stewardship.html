@@ -3,15 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chapter 09: D02: Accountability and stewardship &middot; One Water OS Academy</title>
-<meta name="description" content="Chapter 09 shell for D02: Accountability and stewardship in the OWOS utility Data and AI Governance Master Class.">
+<title>Chapter 09: Accountability and Stewardship | One Water OS Academy</title>
+<meta name="description" content="Build accountable data ownership, operational stewardship, decision forums, separation of duties, and supplier responsibility for a utility data product.">
 <meta name="owos-course-id" content="owos-master-data-governance-001">
 <meta name="owos-course-store" content="dga001">
-<meta name="owos-release-state" content="structure-ready-content-pending">
+<meta name="owos-learning-object" content="dga001:09">
+<meta name="owos-release-state" content="released">
+<meta name="owos-operating-standard" content="2.0.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.css)
@@ -248,6 +250,123 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .dashoverall.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.dashoverall.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.dashoverall.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
 .dashnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.dashnote b{color:var(--ink)}
 
+/* ---- program: benefit realization is gated by the slowest component ---- */
+.pgbars{margin-top:14px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.pgrow{display:flex;align-items:center;gap:10px;padding:9px 13px;border-bottom:1px solid var(--line)}
+.pgrow:last-child{border-bottom:none}
+.pgrow .pn{flex:none;width:150px;font-size:13px;font-weight:600;color:var(--ink)}
+@media(max-width:560px){.pgrow .pn{width:96px;font-size:12px}}
+.pgrow .pt{flex:1;height:14px;background:var(--surface-3);border-radius:7px;overflow:hidden}
+.pgrow .pt i{display:block;height:100%;background:#8FC7E8;border-radius:7px;transition:width .25s}
+.pgrow .pt i.drv{background:var(--gold)}
+.pgrow .pt i.ben{background:var(--brand-800)}
+.pgrow .pm{flex:none;width:30px;text-align:right;font:700 12px var(--fm);color:var(--ink-2)}
+.pgrow.ben{background:var(--brand-50)}.pgrow.ben .pn{color:var(--brand-800);font-weight:800}
+.pgout{margin-top:12px;padding:12px 15px;border-radius:12px;background:var(--brand-50);border:1px solid var(--brand-100);font-size:14.5px;color:var(--ink)}
+.pgnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- examsim: timed-style practice question runner ---- */
+.exhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font:700 11px var(--fm);letter-spacing:.06em;text-transform:uppercase}
+.exhead .exq{color:var(--ink-3)}.exhead .exsc{color:var(--brand)}
+.exopts{display:flex;flex-direction:column;gap:7px}
+.exdone{display:none}
+.exdone.on{display:block;margin-top:12px;padding:13px 16px;border-radius:12px;font-size:14.5px}
+.exdone.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.exdone.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.exdone.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+
+/* ---- tco: life-cycle cost, where the winner flips ---- */
+.tcogrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:640px){.tcogrid{grid-template-columns:1fr}}
+.tcocard{padding:13px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:13px}
+.tcocard.on{border-color:var(--brand);background:var(--brand-50);box-shadow:0 0 0 2px var(--brand-100)}
+.tcocard .tt{font-weight:800;color:var(--ink);font-size:14.5px;margin-bottom:7px}
+.tcocard .ln{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin:2px 0}
+.tcocard .ln b{font-family:var(--fm);color:var(--ink)}
+.tcobar{display:flex;height:13px;border-radius:7px;overflow:hidden;background:var(--surface-3);margin:10px 0 8px}
+.tcobar i{display:block;height:100%;transition:width .25s}
+.tcobar i.cap{background:var(--brand-800)}.tcobar i.om{background:#8FC7E8}
+.tcocard .tot{font-size:13.5px;color:var(--ink)}.tcocard .tot b{font-family:var(--fm);font-size:15px}
+.tcocard .win{font:700 10.5px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--green);min-height:14px;margin-top:3px}
+.tconote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- firmcap: installed versus firm capacity ---- */
+.fcchk{display:flex;margin:4px 0 12px;max-width:340px}
+.fcunits{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.fcunit{flex:1;min-width:104px;padding:10px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px}
+.fcunit .un{display:block;font-size:12.5px;font-weight:600;color:var(--ink)}
+.fcunit .uc{display:block;font:700 14px var(--fm);color:var(--brand);margin-top:2px}
+.fcunit.down{background:var(--red-50);border-color:#EAC7C0;opacity:.75}
+.fcunit.down .uc{color:var(--red);text-decoration:line-through}
+.fcunit .ud{display:inline-block;margin-top:3px;font:700 9.5px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.fcout{padding:12px 15px;border-radius:12px;font-size:14.5px}
+.fcout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.fcout.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.fcnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- controls: hierarchy of controls and residual risk ---- */
+.hzq{padding:11px 14px;background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;font-size:14px;color:var(--ink);font-weight:600;margin-bottom:14px}
+.ctlad{display:flex;flex-direction:column;gap:7px}
+.ctrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 13px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;cursor:pointer;font-family:inherit}
+.ctrow:hover{border-color:var(--brand);background:var(--brand-50)}
+.ctrow.on{border-color:var(--brand);background:var(--brand-50);box-shadow:0 0 0 2px var(--brand-100)}
+.ctrow .rk{flex:none;width:24px;height:24px;border-radius:7px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font:700 11.5px var(--fm)}
+.ctrow .cn{flex:1;min-width:0}
+.ctrow .cn b{display:block;color:var(--ink);font-size:14px}
+.ctrow .cn em{font-style:normal;font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.ctrow .cr{flex:none;font:700 13px var(--fm);color:var(--ink-3)}
+.ctbarwrap{display:flex;align-items:center;gap:12px;margin-top:14px}
+.ctbar{flex:1;height:14px;background:var(--surface-3);border-radius:8px;overflow:hidden}
+.ctbar i{display:block;height:100%;border-radius:8px;transition:width .3s}
+.ctbar i.g{background:var(--green)}.ctbar i.a{background:var(--gold)}.ctbar i.r{background:var(--red)}
+.ctval{flex:none;font:700 12px var(--fm);color:var(--ink)}
+.ctnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- clearance: disinfection and bacteriological clearance clock ---- */
+.clsteps{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.clrow{display:flex;align-items:center;gap:12px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:13.5px}
+.clrow:last-child{border-bottom:none}
+.clrow .cs{flex:1;color:var(--ink);font-weight:600}
+.clrow .cd{flex:none;font:700 12px var(--fm);color:var(--ink-2)}
+.clrow.bad{background:var(--red-50)}.clrow.bad .cs,.clrow.bad .cd{color:var(--red)}
+.clout{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px}
+.clout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.clout.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.clout.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.clnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- permitsim: which approvals your job triggers ---- */
+.psattrs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+@media(max-width:640px){.psattrs{grid-template-columns:1fr}}
+.pschk{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;cursor:pointer;font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.4}
+.pschk:hover{border-color:var(--brand);background:var(--brand-50)}
+.pschk input{margin-top:2px;flex:none;accent-color:var(--brand)}
+.pslist{margin:4px 0 0}
+.psrow{display:flex;align-items:center;gap:10px;margin:9px 0 0}
+.psrow .pn{flex:1;min-width:130px;font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.3}
+.psrow .pn em{display:block;font-style:normal;font:600 10.5px var(--fm);color:var(--ink-3);letter-spacing:.04em}
+.psrow .pbar{flex:1.4;min-width:70px;height:12px;background:var(--surface-3);border-radius:7px;overflow:hidden}
+.psrow .pbar i{display:block;height:100%;background:var(--brand);border-radius:7px;transition:width .25s}
+.psrow.drives .pbar i{background:var(--gold)}
+.psrow .pw{flex:none;width:52px;text-align:right;font:700 12.5px var(--fm);color:var(--ink)}
+.psrow.drives .pw{color:var(--gold)}
+.psdesc{margin:4px 0 8px;padding-left:2px;font-size:13px;color:var(--ink-2);line-height:1.5}
+.psout{margin-top:14px;padding:12px 15px;border-radius:12px;font-size:14.5px}
+.psout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.psout.r{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.psout b{color:inherit}
+.psnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- backplan: work backwards from a compliance deadline ---- */
+.bpbar{display:flex;height:34px;border-radius:10px;overflow:hidden;margin:16px 0 0;border:1px solid var(--line)}
+.bpseg{display:flex;align-items:center;justify-content:center;font:700 11.5px var(--fm);color:#fff;min-width:0;overflow:hidden}
+.bpseg.s0{background:var(--brand-800)}.bpseg.s1{background:var(--brand)}.bpseg.s2{background:#4CA3D8}.bpseg.s3{background:#8FC7E8;color:var(--ink)}
+.bpout{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px}
+.bpout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.bpout.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.bpout.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.bpnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
 /* ---- coq: cost of quality curve ---- */
 .coqsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
 .coqleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.coqleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
@@ -466,81 +585,146 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
 </style>
 <style>
-html,body{max-width:100%;overflow-x:hidden}
-.dg-hero{margin:28px 0 24px;padding:32px;border-radius:24px;background:linear-gradient(135deg,#083a5c,#0a78ba 62%,#15937a);color:#fff;box-shadow:0 20px 60px rgba(8,58,92,.2);overflow:hidden;position:relative}
-.dg-hero:after{content:"";position:absolute;width:280px;height:280px;border:54px solid rgba(255,255,255,.08);border-radius:50%;right:-105px;top:-110px}
-.dg-hero h1{color:#fff;max-width:19ch;margin:.45rem 0 .8rem;font-size:clamp(2.15rem,5vw,4rem)}
-.dg-hero p{color:#e8f5fb;max-width:68ch;font-size:1.08rem;margin:0}
-.dg-eyebrow{font:700 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#bfeaff}
-.dg-status{display:inline-flex;align-items:center;gap:8px;max-width:100%;margin-top:18px;padding:7px 12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);border-radius:999px;font:700 11px var(--fm);line-height:1.45;letter-spacing:.04em;text-transform:uppercase;color:#fff;white-space:normal}
-.dg-status i{width:8px;height:8px;border-radius:50%;background:#f2c94c}
-.dg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 28px}.dg-stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--sh)}.dg-stat b{display:block;color:var(--ink);font-size:1.55rem}.dg-stat span{font:600 10px var(--fm);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
-.dg-note{border:1px solid #ead89d;background:#fff9e8;border-radius:16px;padding:18px 20px;margin:20px 0}.dg-note strong{color:#795809}.dg-note p{margin:4px 0 0}
-.dg-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 30px}.dg-flow div{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12px;font-weight:700;color:var(--ink);text-align:center}.dg-flow div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;z-index:2;color:var(--brand);transform:translateY(-50%);background:var(--bg);padding:0 3px}
-.dg-lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.dg-lens{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--brand)}.dg-lens:nth-child(2){border-top-color:var(--green)}.dg-lens:nth-child(3){border-top-color:var(--gold)}.dg-lens h3{margin:0 0 5px;font-size:1rem}.dg-lens p{margin:0;font-size:.88rem;line-height:1.55}
-.dg-part{margin:24px 0}.dg-part-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;background:#0b3f63;color:#fff;border-radius:14px 14px 0 0;padding:13px 16px}.dg-part-head b{font:700 11px var(--fm);letter-spacing:.1em;color:#9bddff}.dg-part-head span{font-weight:800}.dg-part-head small{margin-left:auto;color:#cce4f2}.dg-list{border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 14px 14px;overflow:hidden}.dg-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:16px;align-items:start;border-bottom:1px solid var(--line);text-decoration:none}.dg-row:last-child{border-bottom:0}.dg-row:hover{background:var(--brand-50);text-decoration:none}.dg-num{width:42px;height:42px;border-radius:11px;background:var(--brand-50);border:1px solid var(--brand-100);display:grid;place-items:center;color:var(--brand-700);font:800 13px var(--fm)}.dg-row h3{margin:0 0 5px;font-size:1rem}.dg-sections{font-size:.79rem;color:var(--ink-3);line-height:1.5}.dg-pill{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;padding:5px 9px;border-radius:999px;white-space:nowrap}
-.dg-row.released{background:linear-gradient(90deg,#eef8f5,#fff)}.dg-row.released .dg-num{background:#dff3ec;border-color:#9fd2bf;color:#086b50}.dg-row.released .dg-pill{color:#086b50;background:#eaf8f3;border-color:#9fd2bf}
-.dg-shell{border:1px solid #ead89d;background:linear-gradient(120deg,#fff9e8,#fff);border-radius:16px;padding:20px;margin:18px 0 26px;display:flex;gap:14px}.dg-shell-icon{width:40px;height:40px;flex:none;border-radius:12px;background:#f2c94c;display:grid;place-items:center;color:#493800;font-weight:900}.dg-shell h2{font-size:1.05rem;margin:0 0 4px}.dg-shell p{margin:0;font-size:.91rem}
-.dg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 28px}.dg-plan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.dg-plan-card .k{font:700 10px var(--fm);letter-spacing:.08em;color:var(--brand);text-transform:uppercase}.dg-plan-card h2{font-size:1.12rem;margin:7px 0}.dg-plan-card p{font-size:.9rem;margin:0}.dg-plan-card .pending{display:inline-block;margin-top:14px;font:700 9px var(--fm);text-transform:uppercase;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;border-radius:999px;padding:4px 8px}
-.dg-artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.dg-artifact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.dg-artifact b{display:block;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.dg-artifact p{font-size:.88rem;margin:0}
-.dg-gates{background:#eef8f5;border:1px solid #bfe0d4;border-radius:16px;padding:18px;margin:24px 0}.dg-gates h2{font-size:1.1rem;margin:0 0 9px}.dg-gates ul{margin:0;padding-left:20px}.dg-gates li{margin:5px 0;font-size:.88rem}
-.dg-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:30px 0}.dg-nav a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:700;font-size:.83rem}.dg-nav a:last-child{text-align:right}.dg-nav .home{text-align:center;background:var(--brand);color:#fff;border-color:var(--brand)}
-.dg-footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 38px;color:var(--ink-3);font:500 11px var(--fm)}
-@media(max-width:760px){.dg-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dg-flow{grid-template-columns:1fr}.dg-flow div:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}.dg-lenses,.dg-plan,.dg-artifacts{grid-template-columns:1fr}.dg-row{grid-template-columns:42px minmax(0,1fr)}.dg-pill{grid-column:2}.dg-nav{grid-template-columns:1fr}.dg-nav a,.dg-nav a:last-child{text-align:center}}
-@media(max-width:520px){.owos-nav{padding:0 12px}.owos-brand{gap:6px;min-width:0}.owos-wm{font-size:13px}.owos-pw{display:none}.crumb{font-size:9px;line-height:1.35;text-align:right;max-width:100px}.wrap{padding-left:16px;padding-right:16px}.dg-hero{padding:26px 20px;border-radius:20px}.dg-hero h1{font-size:2.15rem}.dg-hero p{font-size:1rem}.dg-status{border-radius:14px;font-size:9px}.dg-stat{padding:14px 12px}.dg-stat b{font-size:1.35rem}.dg-row{padding:14px 12px;gap:10px}.dg-sections{overflow-wrap:anywhere}.dg-shell{padding:16px;flex-direction:column}.dg-shell-icon{width:36px;height:36px}}
+:root{--dg-navy:#082b43;--dg-blue:#087fbe;--dg-aqua:#1b9dc3;--dg-green:#148364;--dg-gold:#a87812;--dg-red:#bd453f;--dg-paper:#f4f8fa;--dg-line:#d6e2e8;--dg-ink:#10263a;--dg-muted:#5b6e7e}
+html,body{max-width:100%;overflow-x:hidden}.wrap{max-width:1120px}.dg09-progress{position:fixed;z-index:70;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,#13a4ca,#41caa4);transition:width .1s linear}
+.dg09-nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--dg-line)}.dg09-nav .inner{max-width:1440px;margin:auto;padding:12px 22px;display:flex;align-items:center;gap:14px}.dg09-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--dg-ink);font-weight:800}.dg09-drop{width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#087fbe,#15a5cf);color:#fff;display:grid;place-items:center;font:800 12px Inter}.dg09-crumb{font:600 10px "JetBrains Mono";color:var(--dg-muted)}.dg09-actions{margin-left:auto;display:flex;gap:8px}.dg09-btn{border:1px solid #bfd4de;background:#fff;color:#16506d;border-radius:10px;padding:9px 12px;font-weight:700;font-size:12px;cursor:pointer}.dg09-btn.primary{background:var(--dg-blue);border-color:var(--dg-blue);color:#fff}
+.dg09-hero{margin:28px 0 18px;padding:clamp(28px,5vw,56px);border-radius:28px;background:linear-gradient(125deg,#06293f 0%,#075c87 58%,#078fc2 100%);color:#fff;overflow:hidden;position:relative;box-shadow:0 24px 65px rgba(8,43,67,.2)}.dg09-hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-180px;bottom:-260px;box-shadow:0 0 0 58px rgba(255,255,255,.04),0 0 0 116px rgba(255,255,255,.03)}.dg09-hero>*{position:relative;z-index:1}.dg09-kicker{font:700 10px "JetBrains Mono";letter-spacing:.14em;text-transform:uppercase;color:#aee8f7}.dg09-hero h1{color:#fff;font-size:clamp(38px,6vw,74px);line-height:.98;letter-spacing:-.055em;max-width:850px;margin:13px 0 18px}.dg09-hero .promise{color:#ddf2f9;max-width:780px;font-size:clamp(16px,2vw,20px);margin:0}.dg09-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.dg09-meta span{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.09);border-radius:999px;padding:7px 11px;font:600 10px "JetBrains Mono";color:#fff}.dg09-hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.dg09-hero-actions button{border:1px solid rgba(255,255,255,.32);background:#fff;color:#0a577f;border-radius:11px;padding:11px 15px;font-weight:800;cursor:pointer}.dg09-hero-actions button.secondary{background:rgba(255,255,255,.1);color:#fff}
+.dg09-status{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 32px}.dg09-status article{background:#fff;border:1px solid var(--dg-line);border-radius:14px;padding:15px;box-shadow:0 8px 24px rgba(16,38,58,.05)}.dg09-status b{display:block;font-size:14px}.dg09-status span{display:flex;gap:7px;align-items:center;color:var(--dg-muted);font-size:11px;margin-top:4px}.dg09-status i{width:8px;height:8px;border-radius:50%;background:#c3cfd5}.dg09-status article.done i{background:#1e9a77}.dg09-status article.done{border-color:#b8ddcf;background:#f1faf7}
+.dg09-section{margin:52px 0}.dg09-section .tag{font:700 10px "JetBrains Mono";color:var(--dg-blue);letter-spacing:.13em;text-transform:uppercase}.dg09-section>h2{font-size:clamp(28px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:8px 0 14px}.dg09-lede{max-width:800px;font-size:18px;color:var(--dg-muted)}.dg09-case{display:grid;grid-template-columns:1fr .72fr;gap:14px;margin:24px 0}.dg09-story,.dg09-call{border-radius:20px;padding:24px}.dg09-story{background:#fff;border:1px solid var(--dg-line)}.dg09-story h3,.dg09-call h3{margin:0 0 9px}.dg09-story p{color:var(--dg-muted)}.dg09-call{background:#072b42;color:#fff}.dg09-call p{color:#d7eaf2}.dg09-call b{color:#9ce0f4}
+.dg09-decision{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.dg09-decision button{appearance:none;text-align:left;border:1px solid var(--dg-line);background:#fff;border-radius:15px;padding:17px;cursor:pointer;color:var(--dg-ink);font:600 13px/1.45 Inter}.dg09-decision button:hover,.dg09-decision button:focus-visible{border-color:var(--dg-blue);outline:3px solid rgba(8,127,190,.13)}.dg09-decision button.on{background:#eaf7fc;border-color:var(--dg-blue)}.dg09-feedback{display:none;border-radius:13px;padding:14px 16px;background:#eef7fa;border:1px solid #c5e0ea;color:#164b64;font-size:14px}.dg09-feedback.show{display:block}
+.dg09-model{background:#fff;border:1px solid var(--dg-line);border-radius:22px;padding:22px;margin:24px 0;overflow:hidden}.dg09-model-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:18px}.dg09-model-head h3{margin:0}.dg09-model-head span{font:600 10px "JetBrains Mono";color:var(--dg-muted)}.dg09-chain{display:grid;grid-template-columns:1fr 34px 1.2fr 34px 1fr;align-items:stretch;gap:5px}.dg09-node{border:1px solid #cbdce4;border-radius:15px;padding:16px;background:#f7fbfc}.dg09-node.center{background:linear-gradient(145deg,#e5f5fb,#eefaf6);border-color:#abd7e5}.dg09-node b{display:block}.dg09-node small{display:block;color:var(--dg-muted);margin-top:6px}.dg09-arrow{display:grid;place-items:center;font-size:22px;color:var(--dg-blue);font-weight:800}.dg09-role-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.dg09-role{border-radius:11px;padding:11px;background:#082f49;color:#fff;font-size:11px;text-align:center}.dg09-role b{display:block;color:#fff}.dg09-role span{color:#b9dbe9;font-size:9px}
+.dg09-ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:20px 0}.dg09-ladder article{border:1px solid var(--dg-line);background:#fff;border-radius:15px;padding:17px}.dg09-ladder b{display:block}.dg09-ladder span{font-size:12px;color:var(--dg-muted)}.dg09-ladder article:first-child{border-top:4px solid var(--dg-gold)}.dg09-ladder article:nth-child(2){border-top:4px solid var(--dg-blue)}.dg09-ladder article:nth-child(3){border-top:4px solid var(--dg-green)}.dg09-ladder article:nth-child(4){border-top:4px solid #7055a6}.dg09-ladder article:nth-child(5){border-top:4px solid var(--dg-red)}
+.dg09-sim{background:#fff;border:1px solid var(--dg-line);border-radius:22px;overflow:hidden;margin:24px 0;box-shadow:0 14px 35px rgba(16,38,58,.07)}.dg09-sim-head{padding:15px 19px;border-bottom:1px solid var(--dg-line);display:flex;justify-content:space-between;gap:12px}.dg09-sim-head b{font-size:14px}.dg09-sim-head span{font:600 9px "JetBrains Mono";color:var(--dg-blue);text-transform:uppercase}.dg09-sim-body{padding:20px}.dg09-sim-grid{display:grid;grid-template-columns:240px 1fr;gap:18px}.dg09-role-buttons{display:grid;gap:7px}.dg09-role-buttons button{border:1px solid var(--dg-line);background:#f7fafb;border-radius:10px;padding:10px;text-align:left;font-weight:700;color:var(--dg-ink);cursor:pointer}.dg09-role-buttons button.on{background:var(--dg-blue);border-color:var(--dg-blue);color:#fff}.dg09-role-detail{border-radius:16px;background:#edf6f9;padding:20px}.dg09-role-detail h3{margin:0 0 7px}.dg09-role-detail p{color:var(--dg-muted)}.dg09-authority{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.dg09-authority div{background:#fff;border:1px solid var(--dg-line);border-radius:10px;padding:10px}.dg09-authority b{font-size:10px;text-transform:uppercase;color:var(--dg-blue)}.dg09-authority span{display:block;font-size:11px;color:var(--dg-muted);margin-top:4px}
+.dg09-forum{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:22px 0}.dg09-forum article{position:relative;border:1px solid var(--dg-line);background:#fff;border-radius:14px;padding:15px}.dg09-forum article:not(:last-child):after{content:"\203A";position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--dg-blue);color:#fff;z-index:2}.dg09-forum b{display:block;font-size:12px}.dg09-forum span{font-size:10.5px;color:var(--dg-muted)}
+.dg09-pack{display:grid;grid-template-columns:1fr .82fr;gap:14px;margin:24px 0}.dg09-form,.dg09-preview{background:#fff;border:1px solid var(--dg-line);border-radius:20px;padding:22px}.dg09-form label{display:block;font-size:12px;font-weight:700;margin:12px 0}.dg09-form input,.dg09-form textarea{display:block;width:100%;margin-top:6px;border:1px solid #c5d6de;border-radius:10px;padding:11px 12px;font:14px Inter;color:var(--dg-ink);background:#fbfdfe}.dg09-form textarea{min-height:82px;resize:vertical}.dg09-form input:focus,.dg09-form textarea:focus{outline:3px solid rgba(8,127,190,.13);border-color:var(--dg-blue)}.dg09-form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.dg09-preview{background:#092f48;color:#fff}.dg09-preview h3{color:#fff;margin-top:0}.dg09-preview pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.65 "JetBrains Mono";color:#d7ebf3;margin:0}.dg09-preview .empty{font-family:Inter;color:#a8c7d5}.dg09-note{font-size:11px;color:var(--dg-muted);margin-top:10px}
+.dg09-check{background:#fff;border:1px solid var(--dg-line);border-radius:20px;padding:22px;margin:24px 0}.dg09-question{padding:17px 0;border-bottom:1px solid var(--dg-line)}.dg09-question:last-of-type{border-bottom:0}.dg09-question b{display:block;margin-bottom:9px}.dg09-question label{display:block;padding:7px 9px;border-radius:8px;cursor:pointer;font-size:13px}.dg09-question label:hover{background:#f1f7f9}.dg09-question input{margin-right:8px}.dg09-score{display:none;margin-top:14px;padding:13px;border-radius:11px}.dg09-score.show{display:block}.dg09-score.pass{background:#e9f8f2;color:#096849}.dg09-score.retry{background:#fff5df;color:#715407}
+.dg09-evidence{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}.dg09-evidence label{border:1px solid var(--dg-line);background:#fff;border-radius:13px;padding:13px;font-size:11px;cursor:pointer}.dg09-evidence input{display:block;margin-bottom:8px}.dg09-boundary{background:#fff8e7;border:1px solid #ead59e;border-radius:17px;padding:18px;color:#675322;font-size:12px}.dg09-complete{background:linear-gradient(135deg,#e8f7fb,#eefaf5);border:1px solid #b7dce5;border-radius:22px;padding:24px;margin:28px 0}.dg09-complete h3{margin:0 0 7px}.dg09-complete p{color:var(--dg-muted)}.dg09-complete button:disabled{opacity:.45;cursor:not-allowed}.dg09-result{display:block;margin-top:10px;font-size:12px;color:#17634e}
+.dg09-graph{position:fixed;z-index:100;right:0;top:0;height:100%;width:min(520px,100%);background:#f5fafc;border-left:1px solid var(--dg-line);box-shadow:-24px 0 70px rgba(6,34,53,.24);transform:translateX(104%);transition:transform .28s ease;display:flex;flex-direction:column}.dg09-graph.open{transform:translateX(0)}.dg09-graph-head{padding:18px;border-bottom:1px solid var(--dg-line);background:#082f49;color:#fff;display:flex;align-items:center;gap:12px}.dg09-graph-head b{color:#fff}.dg09-graph-head button{margin-left:auto;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;width:34px;height:34px;border-radius:10px;cursor:pointer}.dg09-graph-body{padding:20px;overflow:auto}.dg09-graph-map{position:relative;min-height:370px;border-radius:19px;background:#fff;border:1px solid var(--dg-line);overflow:hidden}.dg09-graph-map:before,.dg09-graph-map:after{content:"";position:absolute;inset:50% 8%;height:1px;background:#b8d9e5;transform:rotate(18deg)}.dg09-graph-map:after{transform:rotate(-22deg)}.graph-node{position:absolute;border:1px solid #abd3e1;background:#e8f6fb;color:#0b5476;border-radius:999px;padding:9px 12px;font:700 10px "JetBrains Mono";box-shadow:0 7px 16px rgba(16,38,58,.08)}.graph-node.core{left:50%;top:50%;transform:translate(-50%,-50%);background:#087fbe;color:#fff;border-color:#087fbe;padding:14px}.graph-node.n1{left:7%;top:13%}.graph-node.n2{right:6%;top:18%}.graph-node.n3{left:10%;bottom:18%}.graph-node.n4{right:7%;bottom:12%}.graph-node.n5{left:40%;top:8%;background:#fff6de;border-color:#dfc376;color:#72550a}.dg09-graph-body h3{margin:18px 0 6px}.dg09-graph-body p{font-size:13px;color:var(--dg-muted)}.dg09-chips{display:flex;flex-wrap:wrap;gap:7px}.dg09-chips span{border:1px solid var(--dg-line);background:#fff;border-radius:999px;padding:6px 9px;font-size:10px}.dg09-scrim{position:fixed;z-index:90;inset:0;background:rgba(5,28,44,.42);display:none}.dg09-scrim.open{display:block}
+.dg09-bottom-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;margin:38px 0}.dg09-bottom-nav a{border:1px solid var(--dg-line);background:#fff;border-radius:12px;padding:12px 14px;font-size:12px;font-weight:800;text-decoration:none}.dg09-bottom-nav a:last-child{text-align:right}.dg09-bottom-nav .home{background:var(--dg-blue);border-color:var(--dg-blue);color:#fff}.dg09-footer{border-top:1px solid var(--dg-line);padding:24px;color:var(--dg-muted);font:10px "JetBrains Mono";text-align:center}
+@media(max-width:880px){.dg09-status{grid-template-columns:1fr 1fr}.dg09-case,.dg09-pack{grid-template-columns:1fr}.dg09-decision{grid-template-columns:1fr}.dg09-chain{grid-template-columns:1fr}.dg09-arrow{transform:rotate(90deg)}.dg09-role-row,.dg09-ladder,.dg09-forum,.dg09-evidence{grid-template-columns:1fr 1fr}.dg09-forum article:after{display:none}.dg09-sim-grid{grid-template-columns:1fr}.dg09-role-buttons{grid-template-columns:1fr 1fr 1fr}.dg09-authority{grid-template-columns:1fr}}
+@media(max-width:600px){.dg09-nav .inner{padding:9px 12px}.dg09-crumb{display:none}.dg09-actions .dg09-btn:not(.primary){display:none}.wrap{padding-left:14px;padding-right:14px}.dg09-hero{margin-top:15px;border-radius:20px;padding:28px 21px}.dg09-hero h1{font-size:42px}.dg09-status,.dg09-role-row,.dg09-ladder,.dg09-forum,.dg09-evidence,.dg09-role-buttons{grid-template-columns:1fr}.dg09-model{padding:16px}.dg09-bottom-nav{grid-template-columns:1fr}.dg09-bottom-nav a,.dg09-bottom-nav a:last-child{text-align:center}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
-<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-module="09" data-release-state="content-pending">
-<nav class="owos-nav">
-  <a class="owos-brand" href="course-data-governance.html"><span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span><span class="owos-wm">One Water <b>OS</b></span><span class="owos-pw">Academy &middot; <em>Data Governance</em></span></a>
-  <span class="crumb"><a href="course-data-governance.html">Master Class</a> / <b>Chapter 09</b></span>
-</nav>
-<div id="rprog"></div>
-<main class="wrap">
-  <header class="dg-hero">
-    <div class="dg-eyebrow">PART C &middot; Operate the twelve governance domains &middot; Core domain</div>
-    <h1>D02: Accountability and stewardship</h1>
-    <p>write role profiles; test whether a named owner has real authority; identify segregation-of-duty failures; assign shared supplier responsibility.</p>
-    <span class="dg-status"><i></i>Chapter 09 shell &middot; content pending</span>
-  </header>
+<body data-lens="f">
+<div class="dg09-progress" id="readingProgress"></div>
+<nav class="dg09-nav"><div class="inner"><a class="dg09-brand" href="course-data-governance.html"><span class="dg09-drop">OW</span><span>One Water OS Academy</span></a><span class="dg09-crumb">Data Before AI / Chapter 09</span><div class="dg09-actions"><button class="dg09-btn" type="button" id="openGraphTop">Open lesson graph</button><a class="dg09-btn primary" href="course-data-governance.html">All chapters</a></div></div></nav>
 
-  <section class="dg-shell" role="status">
-    <div class="dg-shell-icon">09</div>
-    <div><h2>Structure is wired; the lesson is not released.</h2><p>This page preserves the approved syllabus plan and navigation. It intentionally contains no completion event, scored assessment, or credential claim. Those activate only after the full lesson passes content, interaction, evidence, accessibility, and utility-pilot review.</p></div>
+<main class="wrap">
+  <section class="dg09-hero">
+    <div class="dg09-kicker">Golden hybrid lesson 01 | Domain D02</div>
+    <h1>Accountability that survives the handoff.</h1>
+    <p class="promise">Turn a list of names into an operating system for ownership, stewardship, decisions, conflicting duties, and supplier accountability.</p>
+    <div class="dg09-meta"><span>45 minutes</span><span>Applied Master Class</span><span>5 controlled criteria</span><span>Work product included</span></div>
+    <div class="dg09-hero-actions"><button type="button" id="startLesson">Start with Riverbend</button><button class="secondary" type="button" id="openGraphHero">Explore the lesson graph</button></div>
   </section>
 
-  <h2>What the learner will be able to do</h2>
-  <p>write role profiles; test whether a named owner has real authority; identify segregation-of-duty failures; assign shared supplier responsibility.</p>
-
-  <div class="dg-plan"><article class="dg-plan-card">
-  <span class="k">Section 1 of 3</span>
-  <h2>Name owners and stewards for critical domains and products.</h2>
-  <p>Give each role authority, time, competence, measures, and escalation.</p>
-  <span class="pending">Content development pending</span>
-</article><article class="dg-plan-card">
-  <span class="k">Section 2 of 3</span>
-  <h2>Resolve cross-functional decisions.</h2>
-  <p>Design working forums for operations, security, privacy, legal, records, analytics, procurement, and assurance.</p>
-  <span class="pending">Content development pending</span>
-</article><article class="dg-plan-card">
-  <span class="k">Section 3 of 3</span>
-  <h2>Control conflicting and third-party duties.</h2>
-  <p>Separate creation, approval, release, change, and assurance while preserving enforceable supplier responsibility.</p>
-  <span class="pending">Content development pending</span>
-</article></div>
-
-  <h2>The utility deployment thread</h2>
-  <div class="dg-artifacts">
-    <article class="dg-artifact"><b>Riverbend utility case</b><p>a lead-service-line inventory depends on GIS, customer records, inspections, contractors, and regulatory reporting, but no person owns the joined product.</p></article>
-    <article class="dg-artifact"><b>Deployment Studio</b><p>ownership matrix, steward objectives, forum terms, privileged-role review, and supplier responsibility matrix.</p></article>
-    <article class="dg-artifact"><b>Chapter output</b><p>ownership and stewardship operating pack.</p></article>
+  <div class="dg09-status" aria-label="Lesson requirements">
+    <article id="statusDecision"><b>1. Make the decision</b><span><i></i>Riverbend opening case</span></article>
+    <article id="statusSimulation"><b>2. Test the authority</b><span><i></i>Role simulation</span></article>
+    <article id="statusWork"><b>3. Build the pack</b><span><i></i>Saved work product</span></article>
+    <article id="statusCheck"><b>4. Pass the check</b><span><i></i>Three deterministic questions</span></article>
   </div>
 
-  <section class="dg-gates"><h2>What must be added before release</h2><ul><li>Complete utility lesson narrative at Foundation, Practitioner, and Leader depth</li><li>Approved diagrams or simulations selected from the OWOS visual system</li><li>Varied knowledge checks with explanatory feedback and critical-gate handling</li><li>Citations, applicability boundaries, accessible interactions, and mobile visual review</li><li>Supabase completion rule and Knowledge Graph alignments verified against the released version</li></ul></section>
+  <section class="dg09-section" id="riverbend">
+    <span class="tag">The utility situation</span>
+    <h2>Everyone contributed. Nobody owned the joined truth.</h2>
+    <p class="dg09-lede">Riverbend must submit its lead-service-line inventory. The geographic information system, customer system, inspections, contractor files, and regulatory reporting database all contain part of the answer.</p>
+    <div class="dg09-case"><article class="dg09-story"><h3>The deadline is Friday</h3><p>Engineering owns the map. Customer service owns the account record. A contractor completed field inspections. Information technology operates the integration. Regulatory affairs must sign the submission. Each team can explain its own file, but no named person can approve the joined data product, resolve conflicts, or accept the risk of an unknown classification.</p><p>The problem is not cooperation. The problem is the absence of accountable authority across the handoffs.</p></article><aside class="dg09-call"><h3>Your first call</h3><p>Riverbend discovers 1,200 service lines with conflicting classifications. The reporting deadline is four days away. <b>Who has authority to decide how those records are treated?</b></p></aside></div>
+    <div class="dg09-decision" id="openingDecision">
+      <button type="button" data-answer="committee">Send every conflict to a committee and wait for consensus.</button>
+      <button type="button" data-answer="owner">Use the approved rule. The accountable data-product owner accepts or escalates exceptions with steward evidence.</button>
+      <button type="button" data-answer="system">Let the source system with the newest timestamp decide automatically.</button>
+    </div>
+    <div class="dg09-feedback" id="openingFeedback" role="status" aria-live="polite"></div>
 
-  <nav class="dg-nav" aria-label="Chapter navigation"><a href="lesson-dg-08-d01-strategy-value-and-decision-rights.html">&larr; Chapter 08</a><a class="home" href="course-data-governance.html">All 25 chapters</a><a href="lesson-dg-10-d03-metadata-catalog-and-semantics.html">Chapter 10 &rarr;</a></nav>
+    <div class="dg09-model" aria-label="Riverbend accountability model">
+      <div class="dg09-model-head"><div><span class="tag">Relationship map</span><h3>One product, several systems, explicit accountability</h3></div><span>Concept graph: D02</span></div>
+      <div class="dg09-chain"><div class="dg09-node"><b>Source evidence</b><small>GIS, customer records, inspections, contractor submissions</small></div><div class="dg09-arrow">→</div><div class="dg09-node center"><b>Lead-service-line inventory</b><small>One governed data product with purpose, rules, quality state, owner, steward, and version</small></div><div class="dg09-arrow">→</div><div class="dg09-node"><b>Material decisions</b><small>Regulatory filing, customer notice, replacement planning, field verification</small></div></div>
+      <div class="dg09-role-row"><div class="dg09-role"><b>Owner</b><span>accepts accountability</span></div><div class="dg09-role"><b>Steward</b><span>maintains meaning and rules</span></div><div class="dg09-role"><b>Custodian</b><span>operates the system</span></div><div class="dg09-role"><b>Forum</b><span>resolves cross-functional issues</span></div><div class="dg09-role"><b>Assurance</b><span>tests without owning</span></div></div>
+    </div>
+  </section>
+
+  <section class="dg09-section">
+    <span class="tag">Section 1 | D02.1 and D02.2</span>
+    <h2>Name the authority, not merely the person.</h2>
+    <p class="dg09-lede">A name in a catalog is useful only when the role has a defined purpose, authority, time, competence, measures, and escalation route.</p>
+    <div class="dg09-ladder">
+      <article><b>Accountable owner</b><span>Approves purpose, use, risk acceptance, service level, and material exceptions.</span></article>
+      <article><b>Operational steward</b><span>Maintains definitions, rules, metadata, issue resolution, and consumer communication.</span></article>
+      <article><b>Technical custodian</b><span>Operates platforms, access, backup, integration, and technical controls.</span></article>
+      <article><b>Data consumer</b><span>Uses the product only for approved decisions and reports defects or misuse.</span></article>
+      <article><b>Independent assurance</b><span>Tests design and operation without becoming responsible for management's control.</span></article>
+    </div>
+
+    <div class="dg09-sim" id="authoritySimulation"><div class="dg09-sim-head"><b>Who can make which decision?</b><span>Interactive authority simulator</span></div><div class="dg09-sim-body"><div class="dg09-sim-grid"><div class="dg09-role-buttons" id="roleButtons"></div><div class="dg09-role-detail" id="roleDetail" aria-live="polite"></div></div></div></div>
+
+    <div data-ac="classify" data-title="Authority or support?" data-kind="Practice | immediate feedback" data-cue="The owner, steward, and custodian work together, but their authorities are not interchangeable."><script type="application/json">{"buckets":["Owner","Steward","Custodian"],"items":[["Accept the residual risk of filing with a documented limitation",0,"The accountable owner accepts or escalates risk within an approved delegation."],["Maintain the classification rule and issue log",1,"The steward keeps meaning, rules, issues, and consumer communication operational."],["Restore the integration service after a failed deployment",2,"The custodian operates the technical environment under approved controls."],["Approve a new use of the joined inventory",0,"A material purpose change requires accountable approval and any required cross-functional advice."],["Investigate recurring mismatches and propose a rule change",1,"The steward investigates the operating issue and prepares evidence for an authorized decision."]}</script></div>
+  </section>
+
+  <section class="dg09-section">
+    <span class="tag">Section 2 | D02.3</span>
+    <h2>Build a forum that makes decisions.</h2>
+    <p class="dg09-lede">A governance forum is not a standing meeting with slides. It is a controlled route for decisions that cross operations, engineering, security, privacy, legal, records, procurement, analytics, and suppliers.</p>
+    <div class="dg09-forum"><article><b>Issue arrives</b><span>Named decision, consequence, deadline, and evidence owner</span></article><article><b>Triage</b><span>Authority, materiality, affected rights, systems, and obligations</span></article><article><b>Advice</b><span>Required operational, technical, legal, security, and records views</span></article><article><b>Decision</b><span>Named decision owner, rationale, limits, dissent, and residual risk</span></article><article><b>Follow-through</b><span>Action, due date, evidence, communication, retest, and closure</span></article></div>
+
+    <div data-ac="process" data-title="Run the Riverbend decision forum" data-kind="Decision process | evidence gates" data-cue="The forum prepares and records the decision. It does not erase the authority of the accountable owner."><script type="application/json">{"gate":true,"phases":[{"title":"Frame","sub":"Decision required","detail":"State whether Riverbend will file the 1,200 conflicts as unknown, defer them, or apply an approved classification rule. Name the consequence and deadline."},{"title":"Assemble","sub":"Required perspectives","detail":"Bring regulatory, engineering, customer, field, information technology, privacy, records, procurement, and contractor evidence into one review."},{"title":"Challenge","sub":"Limits and dissent","detail":"Test source fitness, rule authority, customer effects, legal duties, supplier evidence, uncertainty, and the safe fallback."},{"title":"Decide","sub":"Named authority","detail":"The accountable product owner decides within delegation or escalates. Record rationale, dissent, limitations, residual risk, and expiry."},{"title":"Close","sub":"Evidence retained","detail":"Assign correction, customer or regulator communication, supplier action, retest, version change, and closure verification."}]}</script></div>
+
+    <div class="lv f card"><p class="h">Foundation view</p><p>Ask one question: who can say yes, no, not yet, or escalate for this data product?</p></div>
+    <div class="lv p card"><p class="h">Practitioner view</p><p>Make authority executable through role profiles, thresholds, decision logs, issue workflows, and evidence that survives staff changes.</p></div>
+    <div class="lv l leadcall"><p class="h">Leader view</p><p>Fund stewardship as operating capacity. A title without time, competence, measures, and escalation authority is not a control.</p></div>
+  </section>
+
+  <section class="dg09-section">
+    <span class="tag">Section 3 | D02.4 and D02.5</span>
+    <h2>Separate conflicting duties and keep suppliers accountable.</h2>
+    <p class="dg09-lede">The same person or supplier should not quietly create, approve, release, change, and assure a consequential data product. Efficient handoffs still require independent challenge where the risk demands it.</p>
+
+    <div data-ac="multi" data-title="Spot the conflicts" data-kind="Knowledge check | select all that apply" data-cue="Look for a role that can create the evidence and approve its own work without an independent check."><script type="application/json">{"q":"Which Riverbend arrangements require a segregation-of-duties review?","options":[["The contractor uploads inspection results and certifies its own completeness for payment.",true],["The steward investigates a mismatch and proposes a correction for owner approval.",false],["The integration administrator changes matching logic and promotes it directly to production.",true],["Independent assurance tests a control and management owns the remediation.",false],["The model owner approves the model's use and independently signs the assurance conclusion.",true]],"ok":"Correct. Creation, promotion, payment evidence, use approval, and independent assurance need separation appropriate to the consequence.","no":"Review who creates the record, who approves it, who releases the change, and who provides independent assurance. One role should not control incompatible steps."}</script></div>
+
+    <div data-ac="table" data-title="Shared responsibility does not mean shared ambiguity" data-kind="Supplier responsibility map" data-cue="The utility remains accountable for the public-service decision even when a supplier performs part of the work."><script type="application/json">{"cols":["Responsibility","Utility","Supplier","Minimum proof"],"rows":[["Approved purpose and risk","Accountable","Advises","Owner approval, use limits, risk record"],["Field capture","Defines and monitors","Performs","Procedure, training, identity, timestamp, quality flag"],["Data correction","Approves rule and exception","Proposes or performs","Ticket, before and after values, approver, reason"],["System operation","Oversees service and access","Operates contracted controls","Access logs, service results, incidents, recovery test"],["Independent assurance","Commissions and responds","Supplies evidence","Scope, sample, findings, limitations, corrective action"]]}</script></div>
+  </section>
+
+  <section class="dg09-section" id="studio">
+    <span class="tag">Deployment Studio</span>
+    <h2>Build the ownership and stewardship operating pack.</h2>
+    <p class="dg09-lede">The work product below is saved only in this browser until you deliberately download it. Do not enter protected, security-sensitive, customer, employee, or confidential supplier information.</p>
+    <div class="dg09-pack"><form class="dg09-form" id="packForm"><h3>Riverbend operating pack</h3>
+      <label>Critical data product<input id="packProduct" required placeholder="Lead-service-line inventory"></label>
+      <label>Accountable owner and authority<textarea id="packOwner" required placeholder="Director of Engineering. Approves purpose, classification rules, material exceptions, regulatory use, and residual risk within the approved charter."></textarea></label>
+      <label>Operational steward and capacity<textarea id="packSteward" required placeholder="Asset Data Steward. Maintains definitions, rules, issues, consumer notice, measures, escalation, and review cadence with assigned time and training."></textarea></label>
+      <label>Cross-functional decision forum<textarea id="packForum" required placeholder="Monthly operating forum plus urgent four-hour route for regulatory, safety, privacy, or customer-impact decisions. Decision owner, advice, dissent, rationale, action, and closure are recorded."></textarea></label>
+      <label>Conflicting-duty controls<textarea id="packConflict" required placeholder="Field creator cannot approve payment evidence. Integration developer cannot promote the same change. Assurance cannot own remediation."></textarea></label>
+      <label>Supplier responsibilities<textarea id="packSupplier" required placeholder="Contractor captures evidence under the approved procedure, corrects defects under ticket, retains audit evidence, reports incidents, and supports utility acceptance and assurance."></textarea></label>
+      <label>Escalation and measures<textarea id="packEscalation" required placeholder="Escalate unresolved material conflicts within four hours. Measure ownership coverage, issue age, decision time, exception expiry, supplier defects, and verified closure."></textarea></label>
+      <div class="dg09-form-actions"><button class="dg09-btn primary" type="submit">Save operating pack</button><button class="dg09-btn" type="button" id="downloadPack">Download text copy</button></div><p class="dg09-note" id="packMessage" role="status" aria-live="polite">Complete all fields before saving.</p>
+    </form><aside class="dg09-preview"><h3>Live governed preview</h3><pre id="packPreview"><span class="empty">Your operating pack will assemble here as you write.</span></pre></aside></div>
+  </section>
+
+  <section class="dg09-section">
+    <span class="tag">Mastery check</span>
+    <h2>Can the accountability system operate without its designer?</h2>
+    <div class="dg09-check" id="masteryCheck">
+      <div class="dg09-question" data-correct="b"><b>1. What makes a data owner accountable rather than ceremonial?</b><label><input type="radio" name="q1" value="a">The owner appears in the catalog.</label><label><input type="radio" name="q1" value="b">The owner has defined decisions, authority, measures, escalation, and retained evidence.</label><label><input type="radio" name="q1" value="c">The owner attends every technical meeting.</label></div>
+      <div class="dg09-question" data-correct="c"><b>2. What is the forum's proper role?</b><label><input type="radio" name="q2" value="a">Replace the accountable owner through consensus.</label><label><input type="radio" name="q2" value="b">Approve every routine quality correction.</label><label><input type="radio" name="q2" value="c">Resolve cross-functional issues, prepare required advice, and preserve the named decision authority.</label></div>
+      <div class="dg09-question" data-correct="a"><b>3. Which supplier statement is strongest?</b><label><input type="radio" name="q3" value="a">The contract names utility and supplier duties, evidence, thresholds, incidents, correction, assurance, and exit obligations.</label><label><input type="radio" name="q3" value="b">The supplier is responsible for all data quality.</label><label><input type="radio" name="q3" value="c">The utility is responsible for everything, so supplier controls are unnecessary.</label></div>
+      <button class="dg09-btn primary" type="button" id="checkAnswers">Check my answers</button><div class="dg09-score" id="quizResult" role="status" aria-live="polite"></div>
+    </div>
+
+    <h3>Evidence readiness</h3><p>Select an item only when your saved operating pack points to the actual utility-approved evidence.</p>
+    <div class="dg09-evidence" id="evidenceTracker"><label><input type="checkbox" value="D02.1">D02.1 owner and steward evidence</label><label><input type="checkbox" value="D02.2">D02.2 authority and capacity evidence</label><label><input type="checkbox" value="D02.3">D02.3 forum and decision evidence</label><label><input type="checkbox" value="D02.4">D02.4 conflicting-duty evidence</label><label><input type="checkbox" value="D02.5">D02.5 supplier evidence</label></div>
+
+    <div class="dg09-boundary"><b>Evidence boundary.</b> This lesson teaches how to build and evaluate accountability and stewardship. The Riverbend facts, timeframes, roles, and decisions are instructional. Completing the lesson does not establish legal compliance, regulatory approval, certification, or independent assurance. Apply current law, contracts, governance authority, labor obligations, professional judgment, and utility-specific evidence.</div>
+    <div class="dg09-complete"><h3>Record Chapter 09 completion</h3><p id="completionRequirements">Complete the opening decision, authority simulation, saved operating pack, and mastery check first.</p><button class="dg09-btn primary" type="button" id="completeChapter" disabled>Mark Chapter 09 complete</button><span class="dg09-result" id="completionResult" role="status" aria-live="polite"></span></div>
+  </section>
+
+  <section class="dg09-boundary"><b>Provenance and control.</b> This lesson implements domain D02 and criteria D02.1 through D02.5 of <i>Data Ready Before AI Ready</i>, Version 2.3, controlled commit <code>825e4661a6dbdfe6628148eb005c86cfb10b8515</code>. The primary controlled anchors are International Organization for Standardization and International Electrotechnical Commission 38505-1 and 38505-2, DAMA-DMBOK2 Revised, National Institute of Standards and Technology Special Publication 800-53 Revision 5 and Special Publication 800-161 Revision 1, and EDM Council Cloud Data Management Capabilities Version 1.1. Course <code>owos-master-data-governance-001</code>. Learning object <code>dga001:09</code>. OWOS Course Operating Standard <code>2.0.0</code>.</section>
+  <nav class="dg09-bottom-nav" aria-label="Chapter navigation"><a href="lesson-dg-08-d01-strategy-value-and-decision-rights.html">&larr; Chapter 08</a><a class="home" href="course-data-governance.html">All 25 chapters</a><a href="lesson-dg-10-d03-metadata-catalog-and-semantics.html">Chapter 10 &rarr;</a></nav>
 </main>
-<footer class="dg-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:09 &middot; Content status: pending</div></footer>
+
+<div class="dg09-scrim" id="graphScrim"></div><aside class="dg09-graph" id="lessonGraph" aria-hidden="true" aria-label="Chapter 09 Knowledge Graph"><div class="dg09-graph-head"><b>Chapter 09 Knowledge Graph</b><button type="button" id="closeGraph" aria-label="Close lesson graph">X</button></div><div class="dg09-graph-body"><div class="dg09-graph-map" aria-label="Accountability concept relationships"><span class="graph-node core">Accountability</span><span class="graph-node n1">Data owner</span><span class="graph-node n2">Stewardship</span><span class="graph-node n3">Decision forum</span><span class="graph-node n4">Supplier duties</span><span class="graph-node n5">Separation of duties</span></div><h3>What this chapter connects</h3><p>The accountable owner authorizes purpose and risk. The steward operates meaning, rules, issues, and communication. The forum resolves cross-functional questions while preserving authority. Separation of duties protects consequential decisions. Supplier duties keep outsourced work enforceable.</p><h3>Competencies</h3><div class="dg09-chips"><span>Establish data accountability</span><span>Operate stewardship</span><span>Resolve cross-functional decisions</span><span>Separate conflicting duties</span><span>Govern supplier responsibility</span></div><h3>Controlled criteria</h3><div class="dg09-chips"><span>D02.1</span><span>D02.2</span><span>D02.3</span><span>D02.4</span><span>D02.5</span></div></div></aside>
+
+<footer class="dg09-footer">owos-master-data-governance-001 | dga001:09 | Course build 0.24.0 | Golden hybrid lesson</footer>
 <script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
@@ -576,6 +760,14 @@ html,body{max-width:100%;overflow-x:hidden}
     el.innerHTML=h;
     return el.querySelector('.bd');
   }
+  // Randomize answer order so learners cannot pattern-match on position.
+  // Authors write the correct answer wherever it reads best; the learner never sees a fixed slot.
+  function shuffled(list){
+    var a=(list||[]).slice();
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}
+    return a;
+  }
+
   function cfgOf(el){
     var s=el.querySelector('script[type="application/json"]');
     if(!s)return {};
@@ -670,7 +862,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
   R.mc=function(el){var c=cfgOf(el);var b=shell(el,
     '<p class="acq">'+(c.q||'')+'</p>'+
-    (c.options||[]).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
+    shuffled(c.options).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
     '<div class="ac-fb" data-fb></div>');
     var fb=b.querySelector('[data-fb]'),done=false;
     b.querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){
@@ -683,7 +875,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
   R.multi=function(el){var c=cfgOf(el);var b=shell(el,
     '<p class="acq">'+(c.q||'')+'</p>'+
-    (c.options||[]).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
+    shuffled(c.options).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
     '<button class="btn" data-check style="margin-top:6px">Check</button><div class="ac-fb" data-fb></div>');
     var fb=b.querySelector('[data-fb]'),done=false;
     b.querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){if(!done)o.classList.toggle('sel');});});
@@ -1287,6 +1479,186 @@ html,body{max-width:100%;overflow-x:hidden}
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
   };
 
+  R.program=function(el){var c=cfgOf(el);var ps=c.projects||[],mx=c.maxMonths||36;
+    var b=shell(el,ps.map(function(p,i){return '<div class="pvrow"><span class="nm">'+p.name+'</span><input type="range" data-i="'+i+'" min="'+(p.min||6)+'" max="'+mx+'" step="1" value="'+p.months+'"><span class="v" data-v="'+i+'"></span></div>';}).join('')+
+      '<div class="pgbars" data-bars></div><div class="pgout" data-out></div><div class="pgnote" data-note></div>');
+    function upd(){var vals=ps.map(function(p,i){return +b.querySelector('input[data-i="'+i+'"]').value;});
+      var last=Math.max.apply(null,vals),driver=ps[vals.indexOf(last)];
+      ps.forEach(function(p,i){b.querySelector('[data-v="'+i+'"]').textContent=vals[i]+' mo';});
+      b.querySelector('[data-bars]').innerHTML=ps.map(function(p,i){var drives=vals[i]===last;
+        return '<div class="pgrow"><span class="pn">'+p.name+'</span><span class="pt"><i class="'+(drives?'drv':'')+'" style="width:'+(vals[i]/mx*100)+'%"></i></span><span class="pm">'+vals[i]+'</span></div>';}).join('')+
+        '<div class="pgrow ben"><span class="pn">'+(c.benefitName||'Benefit realized')+'</span><span class="pt"><i class="ben" style="width:'+(last/mx*100)+'%"></i></span><span class="pm">'+last+'</span></div>';
+      b.querySelector('[data-out]').innerHTML='<b>'+(c.benefit||'The benefit')+'</b> arrives in month <b>'+last+'</b>, set by <b>'+driver.name+'</b>.';
+      var early=vals.filter(function(v){return v<last;}).length;
+      b.querySelector('[data-note]').innerHTML=early>0
+        ? 'Notice what finishing early buys you: nothing. '+early+' of these '+(early===1?'project is':'projects are')+' done before month '+last+', and the benefit still waits for <b>'+driver.name+'</b>. Money spent accelerating anything except the driver is money spent for no earlier benefit. <b>A program manages the benefit, not the projects,</b> which is why a program manager pushes on the slowest component and leaves the others alone.'
+        : 'Everything lands in the same month, so every project is a driver and there is no slack anywhere in the program. That is efficient and extremely fragile: any one slip moves the benefit.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
+  };
+
+  R.examsim=function(el){var c=cfgOf(el);var qs=c.questions||[],i=0,score=0,answered=false;
+    var b=shell(el,'<div class="exhead"><span class="exq" data-pos></span><span class="exsc" data-score></span></div>'+
+      '<p class="acq" data-q></p><div class="exopts" data-opts></div><div class="ac-fb" data-fb></div>'+
+      '<button class="btn" data-next style="margin-top:10px;display:none">Next question</button>'+
+      '<div class="exdone" data-done></div>');
+    var qEl=b.querySelector('[data-q]'),opts=b.querySelector('[data-opts]'),fb=b.querySelector('[data-fb]'),
+        nx=b.querySelector('[data-next]'),done=b.querySelector('[data-done]');
+    function render(){answered=false;var q=qs[i];
+      b.querySelector('[data-pos]').textContent='Question '+(i+1)+' of '+qs.length;
+      b.querySelector('[data-score]').textContent=score+' correct';
+      qEl.innerHTML=q.q;fb.className='ac-fb';fb.innerHTML='';nx.style.display='none';
+      var shown=q._shown||(q._shown=shuffled(q.options));
+      opts.innerHTML=shown.map(function(o,j){return '<button class="opt" data-j="'+j+'">'+o[0]+'</button>';}).join('');
+      opts.querySelectorAll('.opt').forEach(function(btn){btn.addEventListener('click',function(){
+        if(answered)return;answered=true;var j=+btn.dataset.j,right=!!shown[j][1];
+        opts.querySelectorAll('.opt').forEach(function(x,k){if(shown[k][1])x.classList.add('right');});
+        if(!right)btn.classList.add('wrong');else score++;
+        b.querySelector('[data-score]').textContent=score+' correct';
+        fb.className='ac-fb on '+(right?'ok':'no');
+        fb.innerHTML=(right?'<b>Correct.</b> ':'<b>Not this one.</b> ')+(q.why||'');
+        if(i<qs.length-1)nx.style.display='inline-block';else finish();});});}
+    function finish(){var pct=Math.round(score/qs.length*100);
+      done.className='exdone on '+(pct>=80?'g':(pct>=60?'a':'r'));
+      done.innerHTML='<b>'+score+' of '+qs.length+' ('+pct+'%).</b> '+
+        (pct>=80?'That is the range you want to be sitting in before you book the exam. Keep going on full-length timed sets rather than short ones, because the real challenge is concentration over four hours, not any single question.'
+        :(pct>=60?'Passing territory on a good day, not on a bad one. Work out whether your misses cluster in one domain, because a pattern is much faster to fix than a scatter.'
+        :'Not ready yet, and that is useful to know now rather than on exam day. Go back to the chapters behind your misses rather than doing more questions: more practice on shaky foundations mostly teaches you to be confidently wrong.'));}
+    nx.addEventListener('click',function(){if(i<qs.length-1){i++;render();}});
+    render();
+  };
+
+  R.tco=function(el){var c=cfgOf(el);var A=c.a||{},B=c.b||{},mn=c.minYears||5,mx=c.maxYears||50;
+    function money(v){return v>=1000000?('$'+(v/1000000).toFixed(2)+'M'):('$'+Math.round(v/1000)+'k');}
+    var b=shell(el,'<div class="pvrow"><span class="nm">Evaluate over</span><input type="range" min="'+mn+'" max="'+mx+'" step="1" value="'+(c.start||10)+'"><span class="v" data-y></span></div>'+
+      '<div class="tcogrid">'+[A,B].map(function(o,i){
+        return '<div class="tcocard" data-c="'+i+'"><div class="tt">'+o.name+'</div>'+
+          '<div class="ln"><span>Build it</span><b>'+money(o.capital)+'</b></div>'+
+          '<div class="ln"><span>Run it, each year</span><b>'+money(o.annual)+'</b></div>'+
+          '<div class="tcobar"><i class="cap" data-cap="'+i+'"></i><i class="om" data-om="'+i+'"></i></div>'+
+          '<div class="tot" data-t="'+i+'"></div><div class="win" data-w="'+i+'"></div></div>';}).join('')+'</div>'+
+      '<div class="tconote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var y=+rng.value;b.querySelector('[data-y]').textContent=y+' years';
+      var tA=A.capital+A.annual*y,tB=B.capital+B.annual*y,mxT=Math.max(tA,tB);
+      [[0,A,tA],[1,B,tB]].forEach(function(p){var i=p[0],o=p[1],t=p[2];
+        b.querySelector('[data-cap="'+i+'"]').style.width=(o.capital/mxT*100)+'%';
+        b.querySelector('[data-om="'+i+'"]').style.width=(o.annual*y/mxT*100)+'%';
+        b.querySelector('[data-t="'+i+'"]').innerHTML='Total <b>'+money(t)+'</b>';});
+      var aWins=tA<tB;
+      b.querySelector('[data-w="0"]').textContent=aWins?'Cheaper':'';
+      b.querySelector('[data-w="1"]').textContent=aWins?'':'Cheaper';
+      b.querySelectorAll('.tcocard').forEach(function(x,i){x.classList.toggle('on',(i===0)===aWins);});
+      var flip=Math.ceil((A.capital-B.capital)/(B.annual-A.annual));
+      var note=b.querySelector('[data-note]');
+      if(y<flip)note.innerHTML='At '+y+' years, <b>'+A.name+'</b> is cheaper, and this is the number that wins a bid opening. Keep dragging.';
+      else note.innerHTML='At '+y+' years, <b>'+B.name+'</b> is cheaper. The two options cross at about <b>'+flip+' years</b>, and the asset will be in the ground for far longer than that. This is the whole argument for life-cycle costing: the option that wins on capital cost loses on ownership cost, and the utility lives with the ownership cost.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.firmcap=function(el){var c=cfgOf(el);var units=c.units||[];
+    function u(v){return v+' '+(c.unit||'MGD');}
+    var b=shell(el,'<div class="pvrow"><span class="nm">Peak day demand</span><input type="range" data-k="d" min="'+(c.minDemand||0)+'" max="'+(c.maxDemand||30)+'" step="'+(c.step||1)+'" value="'+(c.demand||18)+'"><span class="v" data-dv></span></div>'+
+      '<label class="pschk fcchk"><input type="checkbox" data-k="out"><span>'+(c.outLabel||'Largest unit out of service')+'</span></label>'+
+      '<div class="fcunits" data-units></div><div class="fcout" data-out></div><div class="fcnote" data-note></div>');
+    var big=units.reduce(function(m,x){return x.capacity>m.capacity?x:m;},units[0]||{capacity:0});
+    function upd(){var d=+b.querySelector('input[data-k="d"]').value,out=b.querySelector('input[data-k="out"]').checked;
+      b.querySelector('[data-dv]').textContent=u(d);
+      var avail=units.filter(function(x){return !(out&&x===big);});
+      var total=units.reduce(function(s,x){return s+x.capacity;},0);
+      var firm=avail.reduce(function(s,x){return s+x.capacity;},0);
+      b.querySelector('[data-units]').innerHTML=units.map(function(x){var down=out&&x===big;
+        return '<div class="fcunit'+(down?' down':'')+'"><span class="un">'+x.name+'</span><span class="uc">'+u(x.capacity)+'</span>'+(down?'<span class="ud">out</span>':'')+'</div>';}).join('');
+      var ok=firm>=d,o=b.querySelector('[data-out]');
+      o.className='fcout '+(ok?'g':'r');
+      o.innerHTML='Installed capacity <b>'+u(total)+'</b>. '+(out?'Firm capacity <b>'+u(firm)+'</b>. ':'')+'Demand <b>'+u(d)+'</b>. '+(ok?'You can meet it.':'<b>You cannot meet it.</b>');
+      b.querySelector('[data-note]').innerHTML=out
+        ? (ok?'With your largest unit down you still cover demand. That is what <b>firm capacity</b> means, and it is the only capacity number worth planning against, because units go out of service for maintenance whether or not it is convenient.'
+             :'This is the failure that matters. Installed capacity of '+u(total)+' looks comfortable against '+u(d)+', but with the largest unit out you are short. <b>Never size a system on installed capacity.</b> Size it on firm capacity, which is what you have on the day something is down, and something is always eventually down.')
+        : 'Everything is running, so installed capacity is what you have and the numbers look fine. Now tick the box. The question a utility actually has to answer is not "can we meet demand today," it is "can we meet demand on the worst day with the biggest unit out."';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);x.addEventListener('change',upd);});upd();
+  };
+
+  R.controls=function(el){var c=cfgOf(el);var lv=c.levels||[];
+    var b=shell(el,'<div class="hzq">'+(c.hazard||'')+'</div><div class="ctlad">'+lv.map(function(x,i){
+        return '<button class="ctrow" data-i="'+i+'"><span class="rk">'+(i+1)+'</span><span class="cn"><b>'+x.name+'</b><em>'+(x.example||'')+'</em></span><span class="cr" data-r="'+i+'">'+x.residual+'</span></button>';}).join('')+'</div>'+
+      '<div class="ctbarwrap"><div class="ctbar"><i data-bar></i></div><span class="ctval" data-val></span></div><div class="ctnote" data-note></div>');
+    var note=b.querySelector('[data-note]'),bar=b.querySelector('[data-bar]'),val=b.querySelector('[data-val]');
+    function pick(i){var x=lv[i];
+      b.querySelectorAll('.ctrow').forEach(function(y){y.classList.remove('on');});
+      b.querySelectorAll('.ctrow')[i].classList.add('on');
+      bar.style.width=x.residual+'%';
+      bar.className=x.residual<=20?'g':(x.residual<=55?'a':'r');
+      val.textContent=x.residual+' of 100 risk remaining';
+      note.innerHTML='<b>'+x.name+'.</b> '+(x.note||'');}
+    b.querySelectorAll('.ctrow').forEach(function(y){y.addEventListener('click',function(){pick(+y.dataset.i);});});
+    pick(c.start!=null?c.start:lv.length-1);
+  };
+
+  R.clearance=function(el){var c=cfgOf(el);var base=c.baseDays||6,perFail=c.failDays||4,planned=c.planned||2;
+    var b=shell(el,'<div class="pvrow"><span class="nm">Sample rounds that fail</span><input type="range" min="0" max="3" step="1" value="0"><span class="v" data-n></span></div>'+
+      '<div class="clsteps" data-steps></div><div class="clout" data-out></div><div class="clnote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var f=+rng.value,total=base+f*perFail;
+      b.querySelector('[data-n]').textContent=f===0?'none':(f+(f===1?' round':' rounds'));
+      var steps=[];
+      (c.steps||[]).forEach(function(s){steps.push({n:s.name,d:s.days,bad:false});});
+      for(var i=0;i<f;i++){(c.retry||[]).forEach(function(s){steps.push({n:s.name+' (retry '+(i+1)+')',d:s.days,bad:true});});}
+      b.querySelector('[data-steps]').innerHTML=steps.map(function(s){
+        return '<div class="clrow'+(s.bad?' bad':'')+'"><span class="cs">'+s.n+'</span><span class="cd">'+s.d+(s.d===1?' day':' days')+'</span></div>';}).join('');
+      var out=b.querySelector('[data-out]');
+      out.className='clout '+(total<=planned+2?'g':(total<=planned+6?'a':'r'));
+      out.innerHTML='<b>'+total+' days</b> from final weld to water in service. The bar chart on the schedule said <b>'+planned+' days</b>.';
+      b.querySelector('[data-note]').innerHTML=f===0
+        ? 'Even with everything passing first time, clearance takes <b>'+base+' days</b>, not the '+planned+' the schedule allowed. The hold time and the two samples taken 24 hours apart are fixed by the standard, and no amount of pressure changes them. This is why commissioning slips even on a job that built cleanly.'
+        : 'One failed sample round does not cost you one day, it costs <b>'+perFail+'</b>, because you go back and repeat the whole flush, chlorinate, hold, and dechlorinate cycle before you can sample again. At '+f+(f===1?' failed round':' failed rounds')+' you are <b>'+(total-planned)+' days</b> past the plan, and this is the point in a project where people start being asked to put water in service before it has cleared.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.permitsim=function(el){var c=cfgOf(el);var attrs=c.attrs||[],permits=c.permits||[],dw=c.designWeeks||26;
+    var b=shell(el,'<div class="psattrs">'+attrs.map(function(a,i){return '<label class="pschk"><input type="checkbox" data-k="'+a.key+'"'+(a.on?' checked':'')+'><span>'+a.label+'</span></label>';}).join('')+'</div>'+
+      '<div class="pslist" data-list></div><div class="psout" data-out></div><div class="psnote" data-note></div>');
+    var maxw=permits.reduce(function(m,p){return Math.max(m,p.weeks);},1);
+    function upd(){var on={};b.querySelectorAll('input').forEach(function(x){on[x.dataset.k]=x.checked;});
+      var act=permits.filter(function(p){var n=p.needs||[];if(!n.length)return true;return n.every(function(k){return on[k];});});
+      act.sort(function(x,y){return y.weeks-x.weeks;});
+      b.querySelector('[data-list]').innerHTML=act.length?act.map(function(p,i){
+        return '<div class="psrow'+(i===0?' drives':'')+'"><span class="pn">'+p.name+'<em>'+p.agency+'</em></span><span class="pbar"><i style="width:'+Math.round(p.weeks/maxw*100)+'%"></i></span><span class="pw">'+p.weeks+' wk</span></div>'+
+          (p.note?'<div class="psdesc">'+p.note+'</div>':'');}).join(''):'<div class="psdesc">No approvals triggered by these answers. That is rare on a utility job, and worth double checking.</div>';
+      var lead=act.length?act[0]:null;
+      var out=b.querySelector('[data-out]'),note=b.querySelector('[data-note]');
+      if(!lead){out.className='psout';out.innerHTML='';note.innerHTML='';return;}
+      var drives=lead.weeks>dw;
+      out.className='psout '+(drives?'r':'g');
+      out.innerHTML='Longest approval: <b>'+lead.weeks+' weeks</b> for the '+lead.name+'. Design and bid take about '+dw+' weeks.';
+      note.innerHTML=drives
+        ? 'At <b>'+lead.weeks+' weeks</b>, this approval is longer than the '+dw+' weeks of design and bid, so <b>permitting is on the critical path</b>. Nothing you do to speed up design will move the finish date. The only useful moves are starting the application earlier, filing while design is still at 60 percent, or changing the alignment so the approval is not triggered at all.'
+        : 'The longest approval, <b>'+lead.weeks+' weeks</b>, fits inside the '+dw+' weeks of design and bid, so permitting rides along in parallel and does not drive the finish. Keep it that way by starting the application early. Approvals only become the critical path when you file them late.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('change',upd);});upd();
+  };
+
+  R.backplan=function(el){var c=cfgOf(el);var phases=c.phases||[];
+    function pd(s){var p=String(s).split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+    var dl=pd(c.deadline),today=pd(c.today);
+    var MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    function fm(d){return MN[d.getMonth()]+' '+d.getFullYear();}
+    var b=shell(el,phases.map(function(p){return '<div class="pvrow"><span class="nm">'+p.label+'</span><input type="range" data-k="'+p.key+'" min="'+p.min+'" max="'+p.max+'" step="1" value="'+p.months+'"><span class="v" data-v="'+p.key+'"></span></div>';}).join('')+
+      '<div class="bpbar" data-bar></div><div class="bpout" data-out></div><div class="bpnote" data-note></div>');
+    function upd(){var tot=0,vals={};
+      phases.forEach(function(p){var v=+b.querySelector('input[data-k="'+p.key+'"]').value;vals[p.key]=v;tot+=v;
+        b.querySelector('[data-v="'+p.key+'"]').textContent=v+' mo';});
+      b.querySelector('[data-bar]').innerHTML=phases.map(function(p,i){
+        return '<span class="bpseg s'+(i%4)+'" style="flex:'+vals[p.key]+'" data-lab="'+p.label+', '+vals[p.key]+' months">'+vals[p.key]+'</span>';}).join('');
+      var start=new Date(dl.getFullYear(),dl.getMonth()-tot,dl.getDate());
+      var slack=(start.getFullYear()-today.getFullYear())*12+(start.getMonth()-today.getMonth());
+      var out=b.querySelector('[data-out]'),note=b.querySelector('[data-note]');
+      out.className='bpout '+(slack<0?'r':(slack<=6?'a':'g'));
+      out.innerHTML='<b>'+tot+' months</b> of work to deliver. To hit '+fm(dl)+', you must start by <b>'+fm(start)+'</b>.';
+      if(slack<0)note.innerHTML='Today is '+fm(today)+'. That start date has <b>already passed by '+Math.abs(slack)+' months</b>. The deadline is not a planning target any more, it is a compliance problem, and the honest move is to say so now and ask for the compression money or the extension. Hoping the phases shrink is not a plan.';
+      else if(slack<=6)note.innerHTML='Today is '+fm(today)+', which leaves <b>'+slack+' months</b> of cushion. That is thin for a capital job. One long permit or one failed bid opening eats it. Start the front end now.';
+      else note.innerHTML='Today is '+fm(today)+', so you have <b>'+slack+' months</b> before the latest responsible start. Real room, but the point of a back plan is that it only stays real if you check it. Drag any phase longer and watch the cushion disappear.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
+  };
+
   R.dashboard=function(el){var c=cfgOf(el);var metrics=c.metrics||[];
     function rag(m,v){return m.dir==='low'?(v<=m.amber?'g':(v<=m.red?'a':'r')):(v>=m.amber?'g':(v>=m.red?'a':'r'));}
     function fmt(m,v){return m.fmt==='int'?String(v):(+v).toFixed(2);}
@@ -1703,4 +2075,37 @@ html,body{max-width:100%;overflow-x:hidden}
 })();
 
 </script>
-</body></html>
+<script>
+(function(){
+  'use strict';
+  var storageKey='owos:dga001:09:hybrid:v1';
+  var state={decision:false,simulation:false,work:false,check:false};
+  try{state=Object.assign(state,JSON.parse(localStorage.getItem(storageKey)||'{}'));}catch(error){}
+  var roleData={
+    owner:{label:'Accountable owner',purpose:'Owns the product purpose, value, acceptable use, service level, material exception, and residual risk within delegated authority.',decides:'Purpose, new use, material rule, exception, risk acceptance, release for consequential use.',proves:'Role letter, catalog ownership, approval, decision log, service and risk measures.'},
+    steward:{label:'Operational steward',purpose:'Keeps definitions, metadata, quality rules, issue resolution, consumer communication, and escalation working every day.',decides:'Routine issue disposition within rule, proposed correction, metadata change, escalation and consumer notice.',proves:'Role profile, assigned capacity, training, objectives, issue log, rule results and closure evidence.'},
+    custodian:{label:'Technical custodian',purpose:'Operates systems, integration, identity, access, backup, recovery, logging, deployment, and technical safeguards.',decides:'Technical operation within approved architecture, change, access, incident, and recovery procedures.',proves:'Access logs, change records, deployment evidence, recovery tests, service results and incidents.'},
+    forum:{label:'Cross-functional forum',purpose:'Frames and resolves decisions requiring several professional authorities while preserving the accountable decision owner.',decides:'Recommendation, required advice, escalation route, action coordination, dissent and closure conditions.',proves:'Terms of reference, agenda, evidence pack, decision log, actions, dissent, due dates and closure.'},
+    assurance:{label:'Independent assurance',purpose:'Challenges control design and tests operation without owning management decisions or remediation.',decides:'Review scope, method, sample, finding, limitation and assurance conclusion under its mandate.',proves:'Approved plan, evidence sample, work papers, findings, limitations, report and closure validation.'}
+  };
+  function save(){localStorage.setItem(storageKey,JSON.stringify(state));paintStatus();}
+  function paintStatus(){['Decision','Simulation','Work','Check'].forEach(function(name){var key=name.toLowerCase(),el=document.getElementById('status'+name);if(el)el.classList.toggle('done',!!state[key]);});var complete=state.decision&&state.simulation&&state.work&&state.check,button=document.getElementById('completeChapter');button.disabled=!complete;document.getElementById('completionRequirements').textContent=complete?'All four requirements are complete. You can now record the chapter.':'Complete the opening decision, authority simulation, saved operating pack, and mastery check first.';}
+  function event(type,key){return fetch('/api/learn/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001',module:9,eventType:type,idempotencyKey:'course:dga001:9:'+key+':v0.24.0',page:location.pathname})}).catch(function(){});}
+  document.getElementById('startLesson').addEventListener('click',function(){document.getElementById('riverbend').scrollIntoView({behavior:'smooth'});event('started','started');});
+  document.querySelectorAll('#openingDecision button').forEach(function(button){button.addEventListener('click',function(){document.querySelectorAll('#openingDecision button').forEach(function(b){b.classList.remove('on');});button.classList.add('on');var answer=button.dataset.answer,feedback=document.getElementById('openingFeedback');feedback.classList.add('show');feedback.innerHTML=answer==='owner'?'<b>Strong decision.</b> The approved rule does the routine work. The owner holds accountable authority for material exceptions and escalation. The steward supplies definitions, quality state, and issue evidence.':answer==='committee'?'<b>Consensus is not accountability.</b> The forum can assemble advice and resolve cross-functional issues, but the approved decision authority must remain named.':'<b>Recency is not authority.</b> A timestamp does not prove correctness, approved purpose, or fitness for the regulatory decision.';state.decision=true;save();event('progressed','opening-decision');});});
+  var roleButtons=document.getElementById('roleButtons'),roleDetail=document.getElementById('roleDetail');Object.keys(roleData).forEach(function(key,index){var button=document.createElement('button');button.type='button';button.textContent=roleData[key].label;button.dataset.role=key;button.addEventListener('click',function(){selectRole(key);state.simulation=true;save();event('progressed','authority-simulation');});roleButtons.appendChild(button);if(index===0)selectRole(key);});
+  function selectRole(key){roleButtons.querySelectorAll('button').forEach(function(button){button.classList.toggle('on',button.dataset.role===key);});var role=roleData[key];roleDetail.innerHTML='<h3>'+role.label+'</h3><p>'+role.purpose+'</p><div class="dg09-authority"><div><b>Decides</b><span>'+role.decides+'</span></div><div><b>Must prove</b><span>'+role.proves+'</span></div><div><b>Must not become</b><span>'+ (key==='assurance'?'The owner of remediation or accepted risk.':key==='forum'?'An unnamed substitute for accountable authority.':'A title without time, competence, measures, and escalation.') +'</span></div></div>';}
+  var fields=['Product','Owner','Steward','Forum','Conflict','Supplier','Escalation'];function packText(){return 'OWOS D02 OWNERSHIP AND STEWARDSHIP OPERATING PACK\n\n'+fields.map(function(field){var value=document.getElementById('pack'+field).value.trim();return field.toUpperCase()+'\n'+(value||'[Complete this field]');}).join('\n\n')+'\n\nEVIDENCE BOUNDARY\nThis instructional pack requires approval, current authority, applicable law and contract review, utility-specific evidence, and independent challenge where required.';}
+  function updatePreview(){document.getElementById('packPreview').textContent=packText();}fields.forEach(function(field){var input=document.getElementById('pack'+field);input.addEventListener('input',updatePreview);});
+  try{var savedPack=JSON.parse(localStorage.getItem(storageKey+':pack')||'null');if(savedPack)fields.forEach(function(field){document.getElementById('pack'+field).value=savedPack[field]||'';});}catch(error){}updatePreview();
+  document.getElementById('packForm').addEventListener('submit',function(e){e.preventDefault();var pack={},valid=true;fields.forEach(function(field){var value=document.getElementById('pack'+field).value.trim();pack[field]=value;if(!value)valid=false;});var message=document.getElementById('packMessage');if(!valid){message.textContent='Complete every field so the operating pack can stand on its own.';return;}localStorage.setItem(storageKey+':pack',JSON.stringify(pack));state.work=true;save();message.textContent='Operating pack saved in this browser. Download a copy for your governed utility repository.';event('progressed','operating-pack');});
+  document.getElementById('downloadPack').addEventListener('click',function(){var blob=new Blob([packText()],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='owos-d02-ownership-stewardship-operating-pack.txt';a.click();URL.revokeObjectURL(url);});
+  document.getElementById('checkAnswers').addEventListener('click',function(){var questions=document.querySelectorAll('.dg09-question'),score=0,answered=0;questions.forEach(function(question){var selected=question.querySelector('input:checked');if(selected){answered++;if(selected.value===question.dataset.correct)score++;}});var result=document.getElementById('quizResult');result.classList.add('show');if(answered<questions.length){result.className='dg09-score show retry';result.textContent='Answer all three questions before checking mastery.';return;}if(score===3){result.className='dg09-score show pass';result.innerHTML='<b>3 of 3.</b> You distinguished accountable ownership, forum authority, and enforceable supplier responsibility.';state.check=true;save();event('progressed','mastery-check');}else{result.className='dg09-score show retry';result.innerHTML='<b>'+score+' of 3.</b> Review the explanations above. Mastery requires all three answers because each one protects a different accountability failure.';state.check=false;save();}});
+  var evidenceKey=storageKey+':evidence';try{var checked=JSON.parse(localStorage.getItem(evidenceKey)||'[]');document.querySelectorAll('#evidenceTracker input').forEach(function(input){input.checked=checked.indexOf(input.value)>=0;});}catch(error){}document.querySelectorAll('#evidenceTracker input').forEach(function(input){input.addEventListener('change',function(){localStorage.setItem(evidenceKey,JSON.stringify(Array.from(document.querySelectorAll('#evidenceTracker input:checked')).map(function(item){return item.value;})));});});
+  document.getElementById('completeChapter').addEventListener('click',async function(){var button=this,result=document.getElementById('completionResult');button.disabled=true;result.textContent='Recording your governed completion evidence...';try{var enrollment=await fetch('/api/learn/enrollments',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001'})});if(!enrollment.ok)throw new Error(enrollment.status===401?'Sign in to record progress.':'Enrollment could not be opened.');var response=await fetch('/api/learn/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({course:'dga001',module:9,eventType:'completed',idempotencyKey:'course:dga001:9:complete:v0.24.0',page:location.pathname})});if(!response.ok)throw new Error(response.status===401?'Sign in to record progress.':'Completion could not be recorded.');result.textContent='Chapter 09 is complete. Your OWOS Learn progress is saved.';button.textContent='Chapter 09 complete';}catch(error){result.textContent=error.message+' Your browser work remains saved.';button.disabled=false;}});
+  var graph=document.getElementById('lessonGraph'),scrim=document.getElementById('graphScrim');function openGraph(){graph.classList.add('open');scrim.classList.add('open');graph.setAttribute('aria-hidden','false');document.getElementById('closeGraph').focus();}function closeGraph(){graph.classList.remove('open');scrim.classList.remove('open');graph.setAttribute('aria-hidden','true');}['openGraphTop','openGraphHero'].forEach(function(id){document.getElementById(id).addEventListener('click',openGraph);});document.getElementById('closeGraph').addEventListener('click',closeGraph);scrim.addEventListener('click',closeGraph);document.addEventListener('keydown',function(event){if(event.key==='Escape')closeGraph();});
+  window.addEventListener('scroll',function(){var root=document.documentElement,max=root.scrollHeight-root.clientHeight;document.getElementById('readingProgress').style.width=(max?root.scrollTop/max*100:0)+'%';});paintStatus();
+})();
+</script>
+</body>
+</html>

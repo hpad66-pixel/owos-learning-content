@@ -6,7 +6,7 @@ course_family: master_class
 source_format: native_html
 status: published
 visibility: public
-course_version: 0.23.0
+course_version: 0.24.0
 release_date: 2026-07-19
 content_owner: Hardeep Anand
 organization: One Water Operating System
@@ -32,6 +32,21 @@ method:
   domain_count: 12
   figure_count: 21
   qaqc_finding_count: 30
+
+operating_model:
+  standard: core/standards/COURSE-OPERATING-STANDARD.md
+  pattern: hybrid_governed_experiential
+  learner_experience_reference: apps/project-management
+  governance_reference: apps/data-ai-governance
+  golden_lesson: "09"
+  golden_lesson_title: "D02: Accountability and Stewardship"
+  lesson_contract_elements: 11
+  release_gates:
+    - accuracy
+    - learning_design
+    - utility_practice
+    - technical_quality
+    - release_control
 
 structure:
   parts: 6
@@ -90,7 +105,7 @@ source_files:
 
 delivery:
   shell_status: chapter_release_in_progress
-  available_chapters: 9
+  available_chapters: 10
   released_chapters:
     - "00"
     - "01"
@@ -101,6 +116,7 @@ delivery:
     - "06"
     - "07"
     - "08"
+    - "09"
   landing_source: curriculum/masterclass-data-governance.html
   landing_output: dist/site/course-data-governance.html
   runtime_manifest: dist/course-manifest.json
@@ -124,3 +140,4 @@ delivery:
     - "06"
     - "07"
     - "08"
+    - "09"

@@ -22,6 +22,21 @@ The central rule is simple:
 No runtime copy, database record, or generated package silently becomes the curriculum source of
 truth.
 
+## Approved hybrid operating model
+
+The [OWOS Course Operating Standard](../core/standards/COURSE-OPERATING-STANDARD.md) is the governing
+course-production contract. It combines Project Delivery's human teaching, utility scenarios,
+purposeful interactions, simulations, and applied decisions with Data Before AI's controlled sources,
+method versions, machine-readable course records, release states, checksums, and evidence boundaries.
+
+Hardeep Soul governs authoring quality when Hardeep's knowledge is used. One Water OS owns delivery,
+identity, the in-lesson Knowledge Graph, learner state, competency evidence, and credentials. Supabase
+stores transactional learner evidence. The Knowledge Graph stores meaning and relationships.
+
+Data Before AI Chapter 09, D02: Accountability and Stewardship, is the first golden hybrid lesson.
+After its five release gates pass, it becomes the implementation benchmark for Chapters 10 through 24.
+Existing released lessons are retrofitted only where they fail the approved standard.
+
 ## The complete system
 
 ```mermaid

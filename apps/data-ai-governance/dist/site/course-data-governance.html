@@ -248,6 +248,123 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .dashoverall.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}.dashoverall.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}.dashoverall.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
 .dashnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}.dashnote b{color:var(--ink)}
 
+/* ---- program: benefit realization is gated by the slowest component ---- */
+.pgbars{margin-top:14px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.pgrow{display:flex;align-items:center;gap:10px;padding:9px 13px;border-bottom:1px solid var(--line)}
+.pgrow:last-child{border-bottom:none}
+.pgrow .pn{flex:none;width:150px;font-size:13px;font-weight:600;color:var(--ink)}
+@media(max-width:560px){.pgrow .pn{width:96px;font-size:12px}}
+.pgrow .pt{flex:1;height:14px;background:var(--surface-3);border-radius:7px;overflow:hidden}
+.pgrow .pt i{display:block;height:100%;background:#8FC7E8;border-radius:7px;transition:width .25s}
+.pgrow .pt i.drv{background:var(--gold)}
+.pgrow .pt i.ben{background:var(--brand-800)}
+.pgrow .pm{flex:none;width:30px;text-align:right;font:700 12px var(--fm);color:var(--ink-2)}
+.pgrow.ben{background:var(--brand-50)}.pgrow.ben .pn{color:var(--brand-800);font-weight:800}
+.pgout{margin-top:12px;padding:12px 15px;border-radius:12px;background:var(--brand-50);border:1px solid var(--brand-100);font-size:14.5px;color:var(--ink)}
+.pgnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- examsim: timed-style practice question runner ---- */
+.exhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font:700 11px var(--fm);letter-spacing:.06em;text-transform:uppercase}
+.exhead .exq{color:var(--ink-3)}.exhead .exsc{color:var(--brand)}
+.exopts{display:flex;flex-direction:column;gap:7px}
+.exdone{display:none}
+.exdone.on{display:block;margin-top:12px;padding:13px 16px;border-radius:12px;font-size:14.5px}
+.exdone.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.exdone.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.exdone.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+
+/* ---- tco: life-cycle cost, where the winner flips ---- */
+.tcogrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:640px){.tcogrid{grid-template-columns:1fr}}
+.tcocard{padding:13px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:13px}
+.tcocard.on{border-color:var(--brand);background:var(--brand-50);box-shadow:0 0 0 2px var(--brand-100)}
+.tcocard .tt{font-weight:800;color:var(--ink);font-size:14.5px;margin-bottom:7px}
+.tcocard .ln{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin:2px 0}
+.tcocard .ln b{font-family:var(--fm);color:var(--ink)}
+.tcobar{display:flex;height:13px;border-radius:7px;overflow:hidden;background:var(--surface-3);margin:10px 0 8px}
+.tcobar i{display:block;height:100%;transition:width .25s}
+.tcobar i.cap{background:var(--brand-800)}.tcobar i.om{background:#8FC7E8}
+.tcocard .tot{font-size:13.5px;color:var(--ink)}.tcocard .tot b{font-family:var(--fm);font-size:15px}
+.tcocard .win{font:700 10.5px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--green);min-height:14px;margin-top:3px}
+.tconote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- firmcap: installed versus firm capacity ---- */
+.fcchk{display:flex;margin:4px 0 12px;max-width:340px}
+.fcunits{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.fcunit{flex:1;min-width:104px;padding:10px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px}
+.fcunit .un{display:block;font-size:12.5px;font-weight:600;color:var(--ink)}
+.fcunit .uc{display:block;font:700 14px var(--fm);color:var(--brand);margin-top:2px}
+.fcunit.down{background:var(--red-50);border-color:#EAC7C0;opacity:.75}
+.fcunit.down .uc{color:var(--red);text-decoration:line-through}
+.fcunit .ud{display:inline-block;margin-top:3px;font:700 9.5px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.fcout{padding:12px 15px;border-radius:12px;font-size:14.5px}
+.fcout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.fcout.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.fcnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- controls: hierarchy of controls and residual risk ---- */
+.hzq{padding:11px 14px;background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;font-size:14px;color:var(--ink);font-weight:600;margin-bottom:14px}
+.ctlad{display:flex;flex-direction:column;gap:7px}
+.ctrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 13px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;cursor:pointer;font-family:inherit}
+.ctrow:hover{border-color:var(--brand);background:var(--brand-50)}
+.ctrow.on{border-color:var(--brand);background:var(--brand-50);box-shadow:0 0 0 2px var(--brand-100)}
+.ctrow .rk{flex:none;width:24px;height:24px;border-radius:7px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font:700 11.5px var(--fm)}
+.ctrow .cn{flex:1;min-width:0}
+.ctrow .cn b{display:block;color:var(--ink);font-size:14px}
+.ctrow .cn em{font-style:normal;font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.ctrow .cr{flex:none;font:700 13px var(--fm);color:var(--ink-3)}
+.ctbarwrap{display:flex;align-items:center;gap:12px;margin-top:14px}
+.ctbar{flex:1;height:14px;background:var(--surface-3);border-radius:8px;overflow:hidden}
+.ctbar i{display:block;height:100%;border-radius:8px;transition:width .3s}
+.ctbar i.g{background:var(--green)}.ctbar i.a{background:var(--gold)}.ctbar i.r{background:var(--red)}
+.ctval{flex:none;font:700 12px var(--fm);color:var(--ink)}
+.ctnote{margin-top:12px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- clearance: disinfection and bacteriological clearance clock ---- */
+.clsteps{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.clrow{display:flex;align-items:center;gap:12px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:13.5px}
+.clrow:last-child{border-bottom:none}
+.clrow .cs{flex:1;color:var(--ink);font-weight:600}
+.clrow .cd{flex:none;font:700 12px var(--fm);color:var(--ink-2)}
+.clrow.bad{background:var(--red-50)}.clrow.bad .cs,.clrow.bad .cd{color:var(--red)}
+.clout{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px}
+.clout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.clout.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.clout.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.clnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- permitsim: which approvals your job triggers ---- */
+.psattrs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+@media(max-width:640px){.psattrs{grid-template-columns:1fr}}
+.pschk{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;cursor:pointer;font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.4}
+.pschk:hover{border-color:var(--brand);background:var(--brand-50)}
+.pschk input{margin-top:2px;flex:none;accent-color:var(--brand)}
+.pslist{margin:4px 0 0}
+.psrow{display:flex;align-items:center;gap:10px;margin:9px 0 0}
+.psrow .pn{flex:1;min-width:130px;font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.3}
+.psrow .pn em{display:block;font-style:normal;font:600 10.5px var(--fm);color:var(--ink-3);letter-spacing:.04em}
+.psrow .pbar{flex:1.4;min-width:70px;height:12px;background:var(--surface-3);border-radius:7px;overflow:hidden}
+.psrow .pbar i{display:block;height:100%;background:var(--brand);border-radius:7px;transition:width .25s}
+.psrow.drives .pbar i{background:var(--gold)}
+.psrow .pw{flex:none;width:52px;text-align:right;font:700 12.5px var(--fm);color:var(--ink)}
+.psrow.drives .pw{color:var(--gold)}
+.psdesc{margin:4px 0 8px;padding-left:2px;font-size:13px;color:var(--ink-2);line-height:1.5}
+.psout{margin-top:14px;padding:12px 15px;border-radius:12px;font-size:14.5px}
+.psout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.psout.r{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.psout b{color:inherit}
+.psnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
+/* ---- backplan: work backwards from a compliance deadline ---- */
+.bpbar{display:flex;height:34px;border-radius:10px;overflow:hidden;margin:16px 0 0;border:1px solid var(--line)}
+.bpseg{display:flex;align-items:center;justify-content:center;font:700 11.5px var(--fm);color:#fff;min-width:0;overflow:hidden}
+.bpseg.s0{background:var(--brand-800)}.bpseg.s1{background:var(--brand)}.bpseg.s2{background:#4CA3D8}.bpseg.s3{background:#8FC7E8;color:var(--ink)}
+.bpout{margin-top:12px;padding:12px 15px;border-radius:12px;font-size:14.5px}
+.bpout.g{background:var(--green-50);color:var(--green);border:1px solid #BFE0CE}
+.bpout.a{background:#FBF3E2;color:var(--gold);border:1px solid #EAD9AE}
+.bpout.r{background:var(--red-50);color:var(--red);border:1px solid #EAC7C0}
+.bpnote{margin-top:10px;padding:11px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink)}
+
 /* ---- coq: cost of quality curve ---- */
 .coqsvg{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);margin-top:8px}
 .coqleg{display:flex;gap:14px;font:600 10.5px var(--fm);margin-top:8px;flex-wrap:wrap;color:var(--ink-2)}.coqleg .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
@@ -501,17 +618,17 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="dg-eyebrow">OWOS Academy &middot; Utility Master Class</div>
     <h1>Data Before AI</h1>
     <p>Build the governance layer that makes utility data trustworthy enough for operations, regulation, capital decisions, analytics, artificial intelligence, and digital twins.</p>
-    <span class="dg-status"><i></i>Chapters 00 to 08 available &middot; 16 chapters in development</span>
+    <span class="dg-status"><i></i>Chapters 00 to 09 available &middot; 15 chapters in development</span>
   </header>
 
   <div class="dg-stats" aria-label="Course structure">
     <div class="dg-stat"><b>25</b><span>Chapters 00 to 24</span></div>
     <div class="dg-stat"><b>75</b><span>Planned sections</span></div>
     <div class="dg-stat"><b>12</b><span>Governance domains</span></div>
-    <div class="dg-stat"><b>9</b><span>Lessons released</span></div>
+    <div class="dg-stat"><b>10</b><span>Lessons released</span></div>
   </div>
 
-  <aside class="dg-note"><strong>The course is releasing chapter by chapter.</strong><p>Chapters 00 to 02 establish the governed Launch Pack, executive case, controlled utility language, provenance, quality-by-use rule, and first data product. Chapter 03 builds the authority register and legal applicability gate. Chapter 04 maps the utility data estate, Chapter 05 establishes shared identity and minimum records, Chapter 06 traces a material decision from source to outcome, Chapter 07 builds roles, forums, and the operating rhythm, and Chapter 08 delivers the D01 scope, value, risk, decision-rights, and funded-roadmap package. The other 16 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
+  <aside class="dg-note"><strong>The course is releasing chapter by chapter.</strong><p>Chapters 00 to 02 establish the governed Launch Pack, executive case, controlled utility language, provenance, quality-by-use rule, and first data product. Chapter 03 builds the authority register and legal applicability gate. Chapter 04 maps the utility data estate, Chapter 05 establishes shared identity and minimum records, Chapter 06 traces a material decision from source to outcome, Chapter 07 builds roles, forums, and the operating rhythm, Chapter 08 delivers the D01 scope, value, risk, decision-rights, and funded-roadmap package, and Chapter 09 delivers the D02 ownership and stewardship operating pack as the first golden hybrid lesson. The other 15 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
 
   <h2>One source, one delivery path</h2>
   <div class="dg-flow" aria-label="Course delivery path"><div>onewater-os curriculum</div><div>Validated native build</div><div>OWOS.ai Learn</div><div>Supabase learner records</div><div>Knowledge Graph alignment</div></div>
@@ -573,10 +690,10 @@ html,body{max-width:100%;overflow-x:hidden}
   <span class="dg-num">08</span>
   <span><h3>D01: Strategy, value, and decision rights</h3><span class="dg-sections">Set scope and principles. &middot; Tie governance to utility value and risk. &middot; Fund and govern the roadmap.</span></span>
   <span class="dg-pill">Available now</span>
-</a><a class="dg-row" href="lesson-dg-09-d02-accountability-and-stewardship.html" data-chapter="09" data-release-state="content-pending">
+</a><a class="dg-row released" href="lesson-dg-09-d02-accountability-and-stewardship.html" data-chapter="09" data-release-state="released">
   <span class="dg-num">09</span>
   <span><h3>D02: Accountability and stewardship</h3><span class="dg-sections">Name owners and stewards for critical domains and products. &middot; Resolve cross-functional decisions. &middot; Control conflicting and third-party duties.</span></span>
-  <span class="dg-pill">Shell ready</span>
+  <span class="dg-pill">Available now</span>
 </a><a class="dg-row" href="lesson-dg-10-d03-metadata-catalog-and-semantics.html" data-chapter="10" data-release-state="content-pending">
   <span class="dg-num">10</span>
   <span><h3>D03: Metadata, catalog, and semantics</h3><span class="dg-sections">Inventory what exists and why it matters. &middot; Govern shared meaning. &middot; Keep metadata current through change.</span></span>
@@ -652,7 +769,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="dg-list"><div class="dg-row"><span class="dg-num">CP</span><span><h3>Prove the operating model on one material decision</h3><span class="dg-sections">Decision chain &middot; evidence &middot; 90-day launch &middot; funded roadmap &middot; assurance boundary</span></span><span class="dg-pill">Design ready</span></div></div>
   </section>
 </main>
-<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Course build 0.23.0</div></footer>
+<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Course build 0.24.0</div></footer>
 <script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
@@ -688,6 +805,14 @@ html,body{max-width:100%;overflow-x:hidden}
     el.innerHTML=h;
     return el.querySelector('.bd');
   }
+  // Randomize answer order so learners cannot pattern-match on position.
+  // Authors write the correct answer wherever it reads best; the learner never sees a fixed slot.
+  function shuffled(list){
+    var a=(list||[]).slice();
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}
+    return a;
+  }
+
   function cfgOf(el){
     var s=el.querySelector('script[type="application/json"]');
     if(!s)return {};
@@ -782,7 +907,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
   R.mc=function(el){var c=cfgOf(el);var b=shell(el,
     '<p class="acq">'+(c.q||'')+'</p>'+
-    (c.options||[]).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
+    shuffled(c.options).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
     '<div class="ac-fb" data-fb></div>');
     var fb=b.querySelector('[data-fb]'),done=false;
     b.querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){
@@ -795,7 +920,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
   R.multi=function(el){var c=cfgOf(el);var b=shell(el,
     '<p class="acq">'+(c.q||'')+'</p>'+
-    (c.options||[]).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
+    shuffled(c.options).map(function(o,i){return '<button class="opt" data-i="'+i+'" data-c="'+(o[1]?1:0)+'">'+o[0]+'</button>';}).join('')+
     '<button class="btn" data-check style="margin-top:6px">Check</button><div class="ac-fb" data-fb></div>');
     var fb=b.querySelector('[data-fb]'),done=false;
     b.querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){if(!done)o.classList.toggle('sel');});});
@@ -1397,6 +1522,186 @@ html,body{max-width:100%;overflow-x:hidden}
       var pv=amt/Math.pow(1+r,y);b.querySelector('[data-pvv]').textContent=m0(pv);b.querySelector('[data-pvbar]').style.height=Math.max(2,pv/amt*100)+'%';
       b.querySelector('[data-out]').innerHTML=m0(amt)+' promised '+y+' years out is worth about <b>'+m0(pv)+'</b> today at '+(r*100).toFixed(1)+'%. That is why future savings are discounted: a dollar later is worth less than a dollar now. The formula is PV = FV / (1 + r) raised to the number of years.';}
     yr.addEventListener('input',upd);rr.addEventListener('input',upd);upd();
+  };
+
+  R.program=function(el){var c=cfgOf(el);var ps=c.projects||[],mx=c.maxMonths||36;
+    var b=shell(el,ps.map(function(p,i){return '<div class="pvrow"><span class="nm">'+p.name+'</span><input type="range" data-i="'+i+'" min="'+(p.min||6)+'" max="'+mx+'" step="1" value="'+p.months+'"><span class="v" data-v="'+i+'"></span></div>';}).join('')+
+      '<div class="pgbars" data-bars></div><div class="pgout" data-out></div><div class="pgnote" data-note></div>');
+    function upd(){var vals=ps.map(function(p,i){return +b.querySelector('input[data-i="'+i+'"]').value;});
+      var last=Math.max.apply(null,vals),driver=ps[vals.indexOf(last)];
+      ps.forEach(function(p,i){b.querySelector('[data-v="'+i+'"]').textContent=vals[i]+' mo';});
+      b.querySelector('[data-bars]').innerHTML=ps.map(function(p,i){var drives=vals[i]===last;
+        return '<div class="pgrow"><span class="pn">'+p.name+'</span><span class="pt"><i class="'+(drives?'drv':'')+'" style="width:'+(vals[i]/mx*100)+'%"></i></span><span class="pm">'+vals[i]+'</span></div>';}).join('')+
+        '<div class="pgrow ben"><span class="pn">'+(c.benefitName||'Benefit realized')+'</span><span class="pt"><i class="ben" style="width:'+(last/mx*100)+'%"></i></span><span class="pm">'+last+'</span></div>';
+      b.querySelector('[data-out]').innerHTML='<b>'+(c.benefit||'The benefit')+'</b> arrives in month <b>'+last+'</b>, set by <b>'+driver.name+'</b>.';
+      var early=vals.filter(function(v){return v<last;}).length;
+      b.querySelector('[data-note]').innerHTML=early>0
+        ? 'Notice what finishing early buys you: nothing. '+early+' of these '+(early===1?'project is':'projects are')+' done before month '+last+', and the benefit still waits for <b>'+driver.name+'</b>. Money spent accelerating anything except the driver is money spent for no earlier benefit. <b>A program manages the benefit, not the projects,</b> which is why a program manager pushes on the slowest component and leaves the others alone.'
+        : 'Everything lands in the same month, so every project is a driver and there is no slack anywhere in the program. That is efficient and extremely fragile: any one slip moves the benefit.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
+  };
+
+  R.examsim=function(el){var c=cfgOf(el);var qs=c.questions||[],i=0,score=0,answered=false;
+    var b=shell(el,'<div class="exhead"><span class="exq" data-pos></span><span class="exsc" data-score></span></div>'+
+      '<p class="acq" data-q></p><div class="exopts" data-opts></div><div class="ac-fb" data-fb></div>'+
+      '<button class="btn" data-next style="margin-top:10px;display:none">Next question</button>'+
+      '<div class="exdone" data-done></div>');
+    var qEl=b.querySelector('[data-q]'),opts=b.querySelector('[data-opts]'),fb=b.querySelector('[data-fb]'),
+        nx=b.querySelector('[data-next]'),done=b.querySelector('[data-done]');
+    function render(){answered=false;var q=qs[i];
+      b.querySelector('[data-pos]').textContent='Question '+(i+1)+' of '+qs.length;
+      b.querySelector('[data-score]').textContent=score+' correct';
+      qEl.innerHTML=q.q;fb.className='ac-fb';fb.innerHTML='';nx.style.display='none';
+      var shown=q._shown||(q._shown=shuffled(q.options));
+      opts.innerHTML=shown.map(function(o,j){return '<button class="opt" data-j="'+j+'">'+o[0]+'</button>';}).join('');
+      opts.querySelectorAll('.opt').forEach(function(btn){btn.addEventListener('click',function(){
+        if(answered)return;answered=true;var j=+btn.dataset.j,right=!!shown[j][1];
+        opts.querySelectorAll('.opt').forEach(function(x,k){if(shown[k][1])x.classList.add('right');});
+        if(!right)btn.classList.add('wrong');else score++;
+        b.querySelector('[data-score]').textContent=score+' correct';
+        fb.className='ac-fb on '+(right?'ok':'no');
+        fb.innerHTML=(right?'<b>Correct.</b> ':'<b>Not this one.</b> ')+(q.why||'');
+        if(i<qs.length-1)nx.style.display='inline-block';else finish();});});}
+    function finish(){var pct=Math.round(score/qs.length*100);
+      done.className='exdone on '+(pct>=80?'g':(pct>=60?'a':'r'));
+      done.innerHTML='<b>'+score+' of '+qs.length+' ('+pct+'%).</b> '+
+        (pct>=80?'That is the range you want to be sitting in before you book the exam. Keep going on full-length timed sets rather than short ones, because the real challenge is concentration over four hours, not any single question.'
+        :(pct>=60?'Passing territory on a good day, not on a bad one. Work out whether your misses cluster in one domain, because a pattern is much faster to fix than a scatter.'
+        :'Not ready yet, and that is useful to know now rather than on exam day. Go back to the chapters behind your misses rather than doing more questions: more practice on shaky foundations mostly teaches you to be confidently wrong.'));}
+    nx.addEventListener('click',function(){if(i<qs.length-1){i++;render();}});
+    render();
+  };
+
+  R.tco=function(el){var c=cfgOf(el);var A=c.a||{},B=c.b||{},mn=c.minYears||5,mx=c.maxYears||50;
+    function money(v){return v>=1000000?('$'+(v/1000000).toFixed(2)+'M'):('$'+Math.round(v/1000)+'k');}
+    var b=shell(el,'<div class="pvrow"><span class="nm">Evaluate over</span><input type="range" min="'+mn+'" max="'+mx+'" step="1" value="'+(c.start||10)+'"><span class="v" data-y></span></div>'+
+      '<div class="tcogrid">'+[A,B].map(function(o,i){
+        return '<div class="tcocard" data-c="'+i+'"><div class="tt">'+o.name+'</div>'+
+          '<div class="ln"><span>Build it</span><b>'+money(o.capital)+'</b></div>'+
+          '<div class="ln"><span>Run it, each year</span><b>'+money(o.annual)+'</b></div>'+
+          '<div class="tcobar"><i class="cap" data-cap="'+i+'"></i><i class="om" data-om="'+i+'"></i></div>'+
+          '<div class="tot" data-t="'+i+'"></div><div class="win" data-w="'+i+'"></div></div>';}).join('')+'</div>'+
+      '<div class="tconote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var y=+rng.value;b.querySelector('[data-y]').textContent=y+' years';
+      var tA=A.capital+A.annual*y,tB=B.capital+B.annual*y,mxT=Math.max(tA,tB);
+      [[0,A,tA],[1,B,tB]].forEach(function(p){var i=p[0],o=p[1],t=p[2];
+        b.querySelector('[data-cap="'+i+'"]').style.width=(o.capital/mxT*100)+'%';
+        b.querySelector('[data-om="'+i+'"]').style.width=(o.annual*y/mxT*100)+'%';
+        b.querySelector('[data-t="'+i+'"]').innerHTML='Total <b>'+money(t)+'</b>';});
+      var aWins=tA<tB;
+      b.querySelector('[data-w="0"]').textContent=aWins?'Cheaper':'';
+      b.querySelector('[data-w="1"]').textContent=aWins?'':'Cheaper';
+      b.querySelectorAll('.tcocard').forEach(function(x,i){x.classList.toggle('on',(i===0)===aWins);});
+      var flip=Math.ceil((A.capital-B.capital)/(B.annual-A.annual));
+      var note=b.querySelector('[data-note]');
+      if(y<flip)note.innerHTML='At '+y+' years, <b>'+A.name+'</b> is cheaper, and this is the number that wins a bid opening. Keep dragging.';
+      else note.innerHTML='At '+y+' years, <b>'+B.name+'</b> is cheaper. The two options cross at about <b>'+flip+' years</b>, and the asset will be in the ground for far longer than that. This is the whole argument for life-cycle costing: the option that wins on capital cost loses on ownership cost, and the utility lives with the ownership cost.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.firmcap=function(el){var c=cfgOf(el);var units=c.units||[];
+    function u(v){return v+' '+(c.unit||'MGD');}
+    var b=shell(el,'<div class="pvrow"><span class="nm">Peak day demand</span><input type="range" data-k="d" min="'+(c.minDemand||0)+'" max="'+(c.maxDemand||30)+'" step="'+(c.step||1)+'" value="'+(c.demand||18)+'"><span class="v" data-dv></span></div>'+
+      '<label class="pschk fcchk"><input type="checkbox" data-k="out"><span>'+(c.outLabel||'Largest unit out of service')+'</span></label>'+
+      '<div class="fcunits" data-units></div><div class="fcout" data-out></div><div class="fcnote" data-note></div>');
+    var big=units.reduce(function(m,x){return x.capacity>m.capacity?x:m;},units[0]||{capacity:0});
+    function upd(){var d=+b.querySelector('input[data-k="d"]').value,out=b.querySelector('input[data-k="out"]').checked;
+      b.querySelector('[data-dv]').textContent=u(d);
+      var avail=units.filter(function(x){return !(out&&x===big);});
+      var total=units.reduce(function(s,x){return s+x.capacity;},0);
+      var firm=avail.reduce(function(s,x){return s+x.capacity;},0);
+      b.querySelector('[data-units]').innerHTML=units.map(function(x){var down=out&&x===big;
+        return '<div class="fcunit'+(down?' down':'')+'"><span class="un">'+x.name+'</span><span class="uc">'+u(x.capacity)+'</span>'+(down?'<span class="ud">out</span>':'')+'</div>';}).join('');
+      var ok=firm>=d,o=b.querySelector('[data-out]');
+      o.className='fcout '+(ok?'g':'r');
+      o.innerHTML='Installed capacity <b>'+u(total)+'</b>. '+(out?'Firm capacity <b>'+u(firm)+'</b>. ':'')+'Demand <b>'+u(d)+'</b>. '+(ok?'You can meet it.':'<b>You cannot meet it.</b>');
+      b.querySelector('[data-note]').innerHTML=out
+        ? (ok?'With your largest unit down you still cover demand. That is what <b>firm capacity</b> means, and it is the only capacity number worth planning against, because units go out of service for maintenance whether or not it is convenient.'
+             :'This is the failure that matters. Installed capacity of '+u(total)+' looks comfortable against '+u(d)+', but with the largest unit out you are short. <b>Never size a system on installed capacity.</b> Size it on firm capacity, which is what you have on the day something is down, and something is always eventually down.')
+        : 'Everything is running, so installed capacity is what you have and the numbers look fine. Now tick the box. The question a utility actually has to answer is not "can we meet demand today," it is "can we meet demand on the worst day with the biggest unit out."';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);x.addEventListener('change',upd);});upd();
+  };
+
+  R.controls=function(el){var c=cfgOf(el);var lv=c.levels||[];
+    var b=shell(el,'<div class="hzq">'+(c.hazard||'')+'</div><div class="ctlad">'+lv.map(function(x,i){
+        return '<button class="ctrow" data-i="'+i+'"><span class="rk">'+(i+1)+'</span><span class="cn"><b>'+x.name+'</b><em>'+(x.example||'')+'</em></span><span class="cr" data-r="'+i+'">'+x.residual+'</span></button>';}).join('')+'</div>'+
+      '<div class="ctbarwrap"><div class="ctbar"><i data-bar></i></div><span class="ctval" data-val></span></div><div class="ctnote" data-note></div>');
+    var note=b.querySelector('[data-note]'),bar=b.querySelector('[data-bar]'),val=b.querySelector('[data-val]');
+    function pick(i){var x=lv[i];
+      b.querySelectorAll('.ctrow').forEach(function(y){y.classList.remove('on');});
+      b.querySelectorAll('.ctrow')[i].classList.add('on');
+      bar.style.width=x.residual+'%';
+      bar.className=x.residual<=20?'g':(x.residual<=55?'a':'r');
+      val.textContent=x.residual+' of 100 risk remaining';
+      note.innerHTML='<b>'+x.name+'.</b> '+(x.note||'');}
+    b.querySelectorAll('.ctrow').forEach(function(y){y.addEventListener('click',function(){pick(+y.dataset.i);});});
+    pick(c.start!=null?c.start:lv.length-1);
+  };
+
+  R.clearance=function(el){var c=cfgOf(el);var base=c.baseDays||6,perFail=c.failDays||4,planned=c.planned||2;
+    var b=shell(el,'<div class="pvrow"><span class="nm">Sample rounds that fail</span><input type="range" min="0" max="3" step="1" value="0"><span class="v" data-n></span></div>'+
+      '<div class="clsteps" data-steps></div><div class="clout" data-out></div><div class="clnote" data-note></div>');
+    var rng=b.querySelector('input');
+    function upd(){var f=+rng.value,total=base+f*perFail;
+      b.querySelector('[data-n]').textContent=f===0?'none':(f+(f===1?' round':' rounds'));
+      var steps=[];
+      (c.steps||[]).forEach(function(s){steps.push({n:s.name,d:s.days,bad:false});});
+      for(var i=0;i<f;i++){(c.retry||[]).forEach(function(s){steps.push({n:s.name+' (retry '+(i+1)+')',d:s.days,bad:true});});}
+      b.querySelector('[data-steps]').innerHTML=steps.map(function(s){
+        return '<div class="clrow'+(s.bad?' bad':'')+'"><span class="cs">'+s.n+'</span><span class="cd">'+s.d+(s.d===1?' day':' days')+'</span></div>';}).join('');
+      var out=b.querySelector('[data-out]');
+      out.className='clout '+(total<=planned+2?'g':(total<=planned+6?'a':'r'));
+      out.innerHTML='<b>'+total+' days</b> from final weld to water in service. The bar chart on the schedule said <b>'+planned+' days</b>.';
+      b.querySelector('[data-note]').innerHTML=f===0
+        ? 'Even with everything passing first time, clearance takes <b>'+base+' days</b>, not the '+planned+' the schedule allowed. The hold time and the two samples taken 24 hours apart are fixed by the standard, and no amount of pressure changes them. This is why commissioning slips even on a job that built cleanly.'
+        : 'One failed sample round does not cost you one day, it costs <b>'+perFail+'</b>, because you go back and repeat the whole flush, chlorinate, hold, and dechlorinate cycle before you can sample again. At '+f+(f===1?' failed round':' failed rounds')+' you are <b>'+(total-planned)+' days</b> past the plan, and this is the point in a project where people start being asked to put water in service before it has cleared.';}
+    rng.addEventListener('input',upd);upd();
+  };
+
+  R.permitsim=function(el){var c=cfgOf(el);var attrs=c.attrs||[],permits=c.permits||[],dw=c.designWeeks||26;
+    var b=shell(el,'<div class="psattrs">'+attrs.map(function(a,i){return '<label class="pschk"><input type="checkbox" data-k="'+a.key+'"'+(a.on?' checked':'')+'><span>'+a.label+'</span></label>';}).join('')+'</div>'+
+      '<div class="pslist" data-list></div><div class="psout" data-out></div><div class="psnote" data-note></div>');
+    var maxw=permits.reduce(function(m,p){return Math.max(m,p.weeks);},1);
+    function upd(){var on={};b.querySelectorAll('input').forEach(function(x){on[x.dataset.k]=x.checked;});
+      var act=permits.filter(function(p){var n=p.needs||[];if(!n.length)return true;return n.every(function(k){return on[k];});});
+      act.sort(function(x,y){return y.weeks-x.weeks;});
+      b.querySelector('[data-list]').innerHTML=act.length?act.map(function(p,i){
+        return '<div class="psrow'+(i===0?' drives':'')+'"><span class="pn">'+p.name+'<em>'+p.agency+'</em></span><span class="pbar"><i style="width:'+Math.round(p.weeks/maxw*100)+'%"></i></span><span class="pw">'+p.weeks+' wk</span></div>'+
+          (p.note?'<div class="psdesc">'+p.note+'</div>':'');}).join(''):'<div class="psdesc">No approvals triggered by these answers. That is rare on a utility job, and worth double checking.</div>';
+      var lead=act.length?act[0]:null;
+      var out=b.querySelector('[data-out]'),note=b.querySelector('[data-note]');
+      if(!lead){out.className='psout';out.innerHTML='';note.innerHTML='';return;}
+      var drives=lead.weeks>dw;
+      out.className='psout '+(drives?'r':'g');
+      out.innerHTML='Longest approval: <b>'+lead.weeks+' weeks</b> for the '+lead.name+'. Design and bid take about '+dw+' weeks.';
+      note.innerHTML=drives
+        ? 'At <b>'+lead.weeks+' weeks</b>, this approval is longer than the '+dw+' weeks of design and bid, so <b>permitting is on the critical path</b>. Nothing you do to speed up design will move the finish date. The only useful moves are starting the application earlier, filing while design is still at 60 percent, or changing the alignment so the approval is not triggered at all.'
+        : 'The longest approval, <b>'+lead.weeks+' weeks</b>, fits inside the '+dw+' weeks of design and bid, so permitting rides along in parallel and does not drive the finish. Keep it that way by starting the application early. Approvals only become the critical path when you file them late.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('change',upd);});upd();
+  };
+
+  R.backplan=function(el){var c=cfgOf(el);var phases=c.phases||[];
+    function pd(s){var p=String(s).split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+    var dl=pd(c.deadline),today=pd(c.today);
+    var MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    function fm(d){return MN[d.getMonth()]+' '+d.getFullYear();}
+    var b=shell(el,phases.map(function(p){return '<div class="pvrow"><span class="nm">'+p.label+'</span><input type="range" data-k="'+p.key+'" min="'+p.min+'" max="'+p.max+'" step="1" value="'+p.months+'"><span class="v" data-v="'+p.key+'"></span></div>';}).join('')+
+      '<div class="bpbar" data-bar></div><div class="bpout" data-out></div><div class="bpnote" data-note></div>');
+    function upd(){var tot=0,vals={};
+      phases.forEach(function(p){var v=+b.querySelector('input[data-k="'+p.key+'"]').value;vals[p.key]=v;tot+=v;
+        b.querySelector('[data-v="'+p.key+'"]').textContent=v+' mo';});
+      b.querySelector('[data-bar]').innerHTML=phases.map(function(p,i){
+        return '<span class="bpseg s'+(i%4)+'" style="flex:'+vals[p.key]+'" data-lab="'+p.label+', '+vals[p.key]+' months">'+vals[p.key]+'</span>';}).join('');
+      var start=new Date(dl.getFullYear(),dl.getMonth()-tot,dl.getDate());
+      var slack=(start.getFullYear()-today.getFullYear())*12+(start.getMonth()-today.getMonth());
+      var out=b.querySelector('[data-out]'),note=b.querySelector('[data-note]');
+      out.className='bpout '+(slack<0?'r':(slack<=6?'a':'g'));
+      out.innerHTML='<b>'+tot+' months</b> of work to deliver. To hit '+fm(dl)+', you must start by <b>'+fm(start)+'</b>.';
+      if(slack<0)note.innerHTML='Today is '+fm(today)+'. That start date has <b>already passed by '+Math.abs(slack)+' months</b>. The deadline is not a planning target any more, it is a compliance problem, and the honest move is to say so now and ask for the compression money or the extension. Hoping the phases shrink is not a plan.';
+      else if(slack<=6)note.innerHTML='Today is '+fm(today)+', which leaves <b>'+slack+' months</b> of cushion. That is thin for a capital job. One long permit or one failed bid opening eats it. Start the front end now.';
+      else note.innerHTML='Today is '+fm(today)+', so you have <b>'+slack+' months</b> before the latest responsible start. Real room, but the point of a back plan is that it only stays real if you check it. Drag any phase longer and watch the cushion disappear.';}
+    b.querySelectorAll('input').forEach(function(x){x.addEventListener('input',upd);});upd();
   };
 
   R.dashboard=function(el){var c=cfgOf(el);var metrics=c.metrics||[];
