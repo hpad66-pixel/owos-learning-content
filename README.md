@@ -1,12 +1,16 @@
-# One Water OS
+# OWOS Learning Content
 
-The single home for all One Water OS technical content and apps, by APAS.ai. Taught by Droobi.
+The governed source and build repository for One Water Operating System learning products, by APAS.ai. Taught by Droobi.
 
 **Version:** 0.18.0 &middot; **Last updated:** 2026-07-19
 
-This is a **monorepo**. The reusable foundation lives in `core/` and is shared by every app in
-`apps/`. Build the wheel once in `core/`, reuse it everywhere. That is how we keep the branding,
-the voice, and the approach consistent across every application.
+This is the learning-content monorepo. The reusable foundation lives in `core/` and is shared by
+every course application in `apps/`. Build the wheel once in `core/`, then reuse it across the
+learning portfolio. That keeps the branding, voice, assessments, and delivery approach consistent.
+
+This repository does not run the production OWOS platform. The production web application, APIs,
+authentication, Supabase migrations, and Cloudflare runtime live in
+`hpad66-pixel/onewater-os-platform`.
 
 ---
 
@@ -29,12 +33,12 @@ apps/                     one folder per application. Each reuses core/.
     course.yaml           machine-readable course and controlled-method record
 docs/
   OWOS-COURSE-TO-LEARN-ARCHITECTURE.md  canonical source-to-runtime ownership and release map
-  ( living-graph/ , fable-agent/ , one-water-os/ ... come next )
+  ( additional governed learning products come next )
 README.md  CHANGELOG.md  VERSION
 ```
 
-## How to add a new app (so you never reinvent the wheel)
-1. Make a folder under `apps/` (for example `apps/living-graph/`).
+## How to add a new learning product
+1. Make a folder under `apps/` using the course or learning-product slug.
 2. Copy `core/components/module-template.html` as your starting page.
 3. Point at the foundation in `core/`: the brand in `core/brand/`, the rules in `core/standards/`,
    and the palettes in `core/components/`.
