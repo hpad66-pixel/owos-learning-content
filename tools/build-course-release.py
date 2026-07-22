@@ -15,6 +15,8 @@ from pathlib import Path
 
 import yaml
 
+from course_quality import CourseQualityError, validate_lesson
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -58,6 +60,7 @@ def build(course_dir: Path) -> dict:
     available = int(required(delivery.get("available_chapters"), "delivery.available_chapters"))
     chapters = int(required(structure.get("chapters"), "structure.chapters"))
     released = [str(value).zfill(2) for value in required(delivery.get("released_chapters"), "delivery.released_chapters")]
+    quality_contract = required(record.get("quality_contract"), "quality_contract")
 
     if not landing.is_file():
         raise SystemExit(f"landing output does not exist: {landing.relative_to(ROOT)}")
@@ -67,6 +70,19 @@ def build(course_dir: Path) -> dict:
         raise SystemExit("available_chapters cannot exceed structure.chapters")
     if len(lessons) != chapters:
         raise SystemExit(f"expected {chapters} built lessons, found {len(lessons)}")
+
+    released_lessons = [path for path in lessons if any(f"-{chapter}-" in path.name for chapter in released)]
+    if len(released_lessons) != len(released):
+        raise SystemExit(
+            f"expected {len(released)} released lesson files, found {len(released_lessons)}"
+        )
+    quality_results = []
+    if quality_contract.get("enforce_on_release") is not True:
+        raise SystemExit("quality_contract.enforce_on_release must be true")
+    try:
+        quality_results = [validate_lesson(path, quality_contract) for path in released_lessons]
+    except CourseQualityError as error:
+        raise SystemExit(f"course quality gate failed: {error}") from error
 
     files = [relative_file(landing), *(relative_file(path) for path in lessons)]
     for entry in files:
@@ -100,6 +116,16 @@ def build(course_dir: Path) -> dict:
             "released_chapters": released,
             "runtime_store_key": required(delivery.get("runtime_store_key"), "delivery.runtime_store_key"),
             "runtime_canonical": required(delivery.get("runtime_canonical"), "delivery.runtime_canonical"),
+            "quality_contract": {
+                "version": int(required(quality_contract.get("version"), "quality_contract.version")),
+                "released_lessons_validated": len(quality_results),
+                "minimum_purposeful_interactions": int(
+                    required(
+                        quality_contract.get("minimum_purposeful_interactions"),
+                        "quality_contract.minimum_purposeful_interactions",
+                    )
+                ),
+            },
         },
         "source": {
             "repository": repository,

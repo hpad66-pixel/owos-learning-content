@@ -36,6 +36,8 @@ require(
         "Data Before AI supplies the production benchmark",
         "Required lesson journey",
         "Course production gates",
+        "Machine-enforced release gate",
+        "quality_contract.enforce_on_release: true",
         "Data Before AI Chapter 09",
     ],
     "course operating standard",
@@ -43,9 +45,11 @@ require(
 require(
     course,
     [
-        "course_version: 0.25.0",
+        "course_version: 0.25.1",
         "golden_lesson: \"09\"",
         "lesson_contract_elements: 11",
+        "quality_contract:",
+        "enforce_on_release: true",
         "- \"09\"",
     ],
     "Data Before AI course record",
@@ -67,7 +71,7 @@ require(
         'id="masteryCheck"',
         'id="completeChapter" disabled',
         "criteria D02.1 through D02.5",
-        "v0.25.0",
+        "v0.25.1",
     ],
     "golden lesson source",
 )
@@ -97,9 +101,12 @@ for path, text in ((STANDARD, standard), (SOURCE, source)):
 
 if release.get("contract") != "owos-course-release/1.0":
     raise AssertionError("release manifest contract is not governed")
-if release.get("course", {}).get("version") != "0.25.0":
-    raise AssertionError("release manifest does not identify course version 0.25.0")
+if release.get("course", {}).get("version") != "0.25.1":
+    raise AssertionError("release manifest does not identify course version 0.25.1")
+quality = release.get("course", {}).get("quality_contract", {})
+if quality.get("version") != 1 or quality.get("released_lessons_validated") != 10:
+    raise AssertionError("release manifest does not prove the machine-enforced quality gate")
 if len(release.get("files", [])) != 26:
     raise AssertionError("release manifest must contain the landing page and 25 lessons")
 
-print("OWOS Course Operating Standard QA passed: standard 2.0.0, golden lesson 09, release 0.25.0.")
+print("OWOS Course Operating Standard QA passed: standard 2.0.0, golden lesson 09, release 0.25.1.")

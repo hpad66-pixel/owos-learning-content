@@ -90,6 +90,24 @@ Every lesson passes five visible gates:
 
 No lesson may claim release, mastery, certification, or assurance before the relevant gate passes.
 
+## Machine-enforced release gate
+
+The course record must declare `quality_contract.enforce_on_release: true`. The release builder
+validates every chapter listed in `released_chapters` before it creates a manifest. A release is
+blocked when any released lesson has:
+
+- fewer than two purposeful interactions;
+- malformed interactive-component JSON or an invalid table or deterministic multi-select shape;
+- an `undefined` sentinel that could reach the learner interface;
+- no mobile viewport or responsive layout rule;
+- no reduced-motion behavior;
+- no accessible live-feedback region; or
+- no keyboard-operable learner control.
+
+This gate is a minimum technical floor. It does not replace the qualified utility-practice review,
+source review, learning-design judgment, contrast inspection, or learner pilot. Future course
+templates must carry the contract by default. A course cannot opt out when it is released.
+
 ## Golden lesson
 
 Data Before AI Chapter 09, **D02: Accountability and Stewardship**, is the first golden hybrid lesson.
@@ -139,5 +157,6 @@ is not a governed release.
 - [ ] Supabase event identifiers are stable and idempotent.
 - [ ] Dark backgrounds use light text and pass contrast review.
 - [ ] Keyboard, touch, mobile, and reduced-motion behavior pass.
+- [ ] The machine-enforced quality contract passes for every released lesson.
 - [ ] No prohibited punctuation or generic artificial-intelligence phrasing appears.
 - [ ] The release manifest, intake receipt, review state, and deployment state are visible.
