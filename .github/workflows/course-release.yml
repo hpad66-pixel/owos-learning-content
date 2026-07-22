@@ -1,0 +1,50 @@
+name: Release governed course to OWOS
+
+on:
+  workflow_dispatch:
+    inputs:
+      course:
+        description: Course folder under apps
+        required: true
+        type: choice
+        options:
+          - project-management
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install manifest dependency
+        run: python3 -m pip install PyYAML==6.0.2
+      - name: Build and verify release manifest
+        run: |
+          python3 tools/build-course-release.py "${{ inputs.course }}"
+          python3 tools/build-course-release.py "${{ inputs.course }}" --check
+          git diff --check
+      - name: Preserve release manifest as workflow evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: owos-course-release-${{ inputs.course }}-${{ github.sha }}
+          path: apps/${{ inputs.course }}/dist/release-manifest.json
+          if-no-files-found: error
+      - name: Request reviewed OWOS intake
+        env:
+          GH_TOKEN: ${{ secrets.OWOS_PLATFORM_DISPATCH_TOKEN }}
+          COURSE: ${{ inputs.course }}
+        run: |
+          test -n "$GH_TOKEN" || { echo "OWOS_PLATFORM_DISPATCH_TOKEN is not configured"; exit 1; }
+          manifest="apps/${COURSE}/dist/release-manifest.json"
+          release_id="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["release_id"])' "$manifest")"
+          gh api --method POST "repos/hpad66-pixel/onewater-os-platform/dispatches" \
+            -f event_type=owos_course_release \
+            -f client_payload[release_id]="$release_id" \
+            -f client_payload[source_repository]="hpad66-pixel/owos-learning-content" \
+            -f client_payload[source_ref]="${GITHUB_SHA}" \
+            -f client_payload[course]="$COURSE"

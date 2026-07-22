@@ -4,12 +4,12 @@ Build a self-contained module page for deployment.
 
 Takes a curriculum module that links ../../../core/components/academy.css and
 academy.js, and produces ONE HTML file with the library inlined, so it renders
-identically anywhere (owos.ai / 2-brain, an external LMS, an artifact) with no
+identically anywhere (owos.ai, an external LMS, or an artifact) with no
 path or shell-cascade surprises.
 
 Usage:
   python3 tools/build-selfcontained.py SOURCE.html OUTPUT.html
-It also rewrites in-course nav links to their deployed 2-brain filenames.
+It also rewrites in-course navigation links to their deployed OWOS filenames.
 """
 import re, sys, pathlib
 
@@ -22,7 +22,7 @@ JS   = (ROOT / "core/components/academy.js").read_text(encoding="utf-8")
 JS  = re.sub(r'</(script)', r'<\\/\1', JS, flags=re.I)
 CSS = re.sub(r'</(style)',  r'<\\/\1', CSS, flags=re.I)
 
-# curriculum filename -> deployed 2-brain filename
+# curriculum filename -> deployed OWOS filename
 LINK_MAP = {
     "masterclass-project-management.html": "course-project-management.html",
     "module-01-what-is-a-project.html":    "lesson-pm-01-what-is-a-project.html",

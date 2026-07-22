@@ -1,0 +1,93 @@
+schema_version: 1
+course_id: owos-master-project-delivery-001
+slug: utility-project-delivery
+title: "Utility Project Delivery: From Scope to Service"
+course_family: master_class
+source_format: native_html
+status: published
+visibility: public
+course_version: 1.0.0
+release_date: 2026-07-22
+content_owner: Hardeep Anand
+organization: One Water Operating System
+platform: APAS.ai
+
+provenance:
+  repository: hpad66-pixel/owos-learning-content
+  ref: main
+  content_baseline_commit: 808c82fa1fff2c7f46703fe0955c0a3d546ae0f3
+  content_baseline_reason: Chapters 19 through 21 completed the 21-chapter course
+  standards:
+    - core/standards/WRITING-STANDARD.md
+    - core/standards/VISUAL-ARSENAL.md
+    - core/components/component-gallery.html
+    - core/components/quiz-gallery.html
+    - core/components/module-template.html
+
+structure:
+  parts: 8
+  chapters: 21
+  sections: 60
+  capstone: required
+  chapter_range: "01-21"
+
+primary_roles:
+  - utility-manager
+  - capital-program-manager
+  - chief-operator
+  - maintenance-supervisor
+  - emerging-leader
+
+assessment:
+  chapter_checks: included
+  final_assessment: not_configured
+  deterministic_scoring: required_before_release
+
+credential:
+  status: proposed
+  name: Utility Project Delivery Master Class
+  type: course_completion
+  certification_claim: false
+  pmp_or_capm_claim: false
+
+source_files:
+  syllabus: curriculum/SYLLABUS.md
+  landing: curriculum/masterclass-project-management.html
+  architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
+
+delivery:
+  release_state: released
+  available_chapters: 21
+  released_chapters:
+    - "01"
+    - "02"
+    - "03"
+    - "04"
+    - "05"
+    - "06"
+    - "07"
+    - "08"
+    - "09"
+    - "10"
+    - "11"
+    - "12"
+    - "13"
+    - "14"
+    - "15"
+    - "16"
+    - "17"
+    - "18"
+    - "19"
+    - "20"
+    - "21"
+  landing_output: dist/site/course-project-management.html
+  runtime_manifest: dist/release-manifest.json
+  chapter_output_pattern: dist/site/lesson-pm-{chapter}-{slug}.html
+  runtime_repository: hpad66-pixel/onewater-os-platform
+  runtime_path: site
+  runtime_store_key: upd001
+  runtime_canonical: /course-project-management
+  learner_records: supabase
+  semantic_alignment: owos_knowledge_graph
+  edge_delivery: cloudflare_pages_and_worker
+  completion_events_enabled: true

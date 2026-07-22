@@ -13,8 +13,10 @@ it uses the same nav, footer, and breadcrumbs as every other lesson on owos.ai. 
 - Note: the shell applies fonts with `!important`, so each page includes a small guard so our mono
   labels stay mono. That guard is baked into the built file.
 
-**Wiring into owos.ai:** the clean way is a git submodule of `onewater-os` inside `2-brain`, so the
-site build serves these pages and they never drift. A copy-on-publish script also works.
+**Wiring into owos.ai:** generate `course-manifest.json`, then use the governed course-release
+workflow. The OWOS platform checks out the exact source commit, verifies every checksum, copies the
+runtime files, rebuilds its catalog, and opens a review pull request. Direct runtime edits are not a
+release process.
 
 ## `scorm/` — SCORM 1.2 packages
 Each chapter as a SCORM 1.2 zip for uploading to any third-party LMS (Canvas, Moodle, TalentLMS,

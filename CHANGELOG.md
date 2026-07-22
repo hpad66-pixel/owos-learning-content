@@ -3,6 +3,20 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.28.0] - 2026-07-22
+### Added: governed Project Delivery release contract
+- Added `apps/project-management/course.yaml` as the machine-readable authority for the 21-chapter,
+  60-section Master Class.
+- Added a checksum manifest covering the course landing and all 21 native OWOS lessons.
+- Added a GitHub workflow that builds and verifies the manifest, preserves it as release evidence,
+  and requests a reviewed intake pull request in `hpad66-pixel/onewater-os-platform`.
+
+### Fixed
+- Reconciled course availability at 21 of 21 chapters.
+- Restored sequential next-chapter navigation from Chapter 02 through Chapter 20 in the curriculum
+  source, then regenerated the affected runtime files.
+- Replaced retired repository names in the course deployment instructions.
+
 ## [0.27.0] - 2026-07-19
 ### Added: PM Chapters 19, 20 and 21 (course complete)
 - Released Chapter 19, "Program and portfolio management": project versus program versus portfolio,
