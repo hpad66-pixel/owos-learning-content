@@ -1242,10 +1242,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');

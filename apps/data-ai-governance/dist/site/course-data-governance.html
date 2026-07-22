@@ -769,7 +769,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="dg-list"><div class="dg-row"><span class="dg-num">CP</span><span><h3>Prove the operating model on one material decision</h3><span class="dg-sections">Decision chain &middot; evidence &middot; 90-day launch &middot; funded roadmap &middot; assurance boundary</span></span><span class="dg-pill">Design ready</span></div></div>
   </section>
 </main>
-<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Course build 0.24.0</div></footer>
+<footer class="dg-footer"><div class="wrap">Course ID: owos-master-data-governance-001 &middot; Store: dga001 &middot; Native OWOS HTML &middot; Course build 0.25.0</div></footer>
 <script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
@@ -1078,10 +1078,14 @@ html,body{max-width:100%;overflow-x:hidden}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
