@@ -7,12 +7,17 @@ quizzes with nothing to copy.
 ## Start a new course in 4 steps
 
 1. **Copy this folder** to `apps/<your-course-slug>/` (for example `apps/living-graph/`).
-2. **Fill in `SYLLABUS.md`** with your parts, chapters, and sections.
+2. **Fill in `course.yaml` and `SYLLABUS.md`** with stable IDs, provenance, release state, parts,
+   chapters, and sections.
 3. **Build each chapter** by copying `curriculum/module-01-example.html`, renaming it, and filling in
    the placeholders. It already links `../../../core/components/academy.css` and `academy.js`, so every
    `data-ac` component renders. Preview by opening the file over a local server rooted at the repo.
 4. **Deploy** with the repo's `tools/build-selfcontained.py`, which inlines the library into one
    self-contained HTML file per lesson for owos.ai or any LMS.
+
+Before release, run `python3 tools/build-course-release.py <your-course-slug>`. The command verifies
+the course record and built files and creates `dist/release-manifest.json`. The GitHub course-release
+workflow sends the exact source commit to OWOS, where a separate workflow opens a review pull request.
 
 ## The rules (all in core/)
 - `core/standards/WRITING-STANDARD.md` — voice, structure, and the two big rules: assemble from the

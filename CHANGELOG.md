@@ -10,6 +10,10 @@ Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 - Added a checksum manifest covering the course landing and all 21 native OWOS lessons.
 - Added a GitHub workflow that builds and verifies the manifest, preserves it as release evidence,
   and requests a reviewed intake pull request in `hpad66-pixel/onewater-os-platform`.
+- Added the same release manifest contract to Data Before AI without replacing its controlled
+  research-method provenance.
+- Added `course.yaml` to the reusable course template so every future course starts with the same
+  ownership, provenance, release, runtime, and assessment boundaries.
 
 ### Fixed
 - Reconciled course availability at 21 of 21 chapters.

@@ -1,0 +1,63 @@
+schema_version: 1
+course_id: replace-with-stable-course-id
+slug: replace-with-course-slug
+title: Replace with governed course title
+course_family: focused_course
+source_format: native_html
+status: in_development
+visibility: private_preview
+course_version: 0.1.0
+release_date: 2026-01-01
+content_owner: Replace with accountable owner
+organization: One Water Operating System
+platform: APAS.ai
+
+provenance:
+  repository: hpad66-pixel/owos-learning-content
+  ref: main
+  content_baseline_commit: replace-with-full-git-commit
+  content_baseline_reason: Replace with the release decision
+
+structure:
+  parts: 1
+  chapters: 1
+  sections: 3
+  capstone: not_required
+  chapter_range: "01-01"
+
+primary_roles:
+  - utility-manager
+
+assessment:
+  chapter_checks: included
+  final_assessment: not_configured
+  deterministic_scoring: required_before_release
+
+credential:
+  status: not_configured
+  name: Replace with credential name when approved
+  type: course_completion
+  certification_claim: false
+
+source_files:
+  syllabus: curriculum/SYLLABUS.md
+  landing: curriculum/course.html
+  architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
+
+delivery:
+  release_state: in_development
+  available_chapters: 1
+  released_chapters:
+    - "01"
+  landing_output: dist/site/course-replace-me.html
+  runtime_manifest: dist/release-manifest.json
+  chapter_output_pattern: dist/site/lesson-replace-me-{chapter}-{slug}.html
+  runtime_repository: hpad66-pixel/onewater-os-platform
+  runtime_path: site
+  runtime_store_key: replace-me
+  runtime_canonical: /course-replace-me
+  learner_records: supabase
+  semantic_alignment: owos_knowledge_graph
+  edge_delivery: cloudflare_pages_and_worker
+  completion_events_enabled: false
+
