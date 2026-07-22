@@ -4,9 +4,9 @@ Built, ship-ready versions of this course, produced from the source in `../curri
 is the single truth; these are the two formats we ship. Rebuild them whenever the source changes.
 
 ## `site/` — native owos.ai pages
-Each chapter as a page that links the shared site shell (`/owos-brand.css` and `/owos-shell.js`), so
-it uses the same nav, footer, and breadcrumbs as every other lesson on owos.ai. Drop these into the
-`2-brain` site (for example as `site/lesson-pm-01-what-is-a-project.html`).
+Each chapter is a page that links the shared site shell (`/owos-brand.css` and `/owos-shell.js`), so
+it uses the same navigation, footer, and breadcrumbs as every other lesson on owos.ai. The governed
+intake places these files in `onewater-os-platform/site/`.
 
 - Verified: the shared shell injects its nav and footer, the branding matches, and the interactive
   widgets all work.

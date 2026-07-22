@@ -4,7 +4,7 @@
 **Canonical repository:** `hpad66-pixel/owos-learning-content`
 **Applies to:** every OWOS course, Master Class, lesson, quiz, assessment, and credential  
 **Status:** governed implementation contract  
-**Version:** 1.1  
+**Version:** 1.1
 **Last updated:** 2026-07-22
 
 ## Purpose
