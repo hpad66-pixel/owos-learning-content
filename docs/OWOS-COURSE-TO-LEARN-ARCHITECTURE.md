@@ -4,7 +4,7 @@
 **Canonical repository:** `hpad66-pixel/owos-learning-content`
 **Applies to:** every OWOS course, Master Class, lesson, quiz, assessment, and credential  
 **Status:** governed implementation contract  
-**Version:** 1.1
+**Version:** 1.2
 **Last updated:** 2026-07-22
 
 ## Purpose
@@ -34,8 +34,10 @@ identity, the in-lesson Knowledge Graph, learner state, competency evidence, and
 stores transactional learner evidence. The Knowledge Graph stores meaning and relationships.
 
 Data Before AI Chapter 09, D02: Accountability and Stewardship, is the first golden hybrid lesson.
-After its five release gates pass, it becomes the implementation benchmark for Chapters 10 through 24.
-Existing released lessons are retrofitted only where they fail the approved standard.
+It passed the release gates and established the machine-enforced Course Quality Contract used for all
+future course builds. Data Before AI release `0.25.1` is live in OWOS. At that release, the quality
+gate validated 31 released lessons across Data Before AI and Project Delivery. Existing released
+lessons are improved when evidence identifies a gap in the approved standard.
 
 ## The complete system
 
@@ -46,11 +48,13 @@ flowchart LR
         SYL["Course syllabus and course.yaml"]
         CORE["Core standards, brand, components, quizzes, and template"]
         LESSONS["Native HTML course and lesson sources"]
+        QUALITY["Mandatory Course Quality Contract"]
         DIST["Validated self-contained build outputs"]
         METHOD --> SYL
         SYL --> LESSONS
         CORE --> LESSONS
-        LESSONS --> DIST
+        LESSONS --> QUALITY
+        QUALITY --> DIST
     end
 
     subgraph OPERATE["Publish and operate in hpad66-pixel/onewater-os-platform"]
@@ -187,9 +191,10 @@ KV as their authority.
 flowchart TD
     A["Lock course promise, audience, utility outcomes, and source boundary"] --> B["Approve syllabus and stable IDs"]
     B --> C["Generate or author native landing and lesson pages from the shared core"]
-    C --> D["Validate links, accessibility, visuals, quizzes, evidence language, and mobile layout"]
-    D --> E["Build self-contained distribution files in owos-learning-content"]
-    E --> F["Commit source and output together on a review branch"]
+    C --> D["Run the fail-closed Course Quality Contract"]
+    D --> E["Validate links, accessibility, visuals, quizzes, evidence language, and mobile layout"]
+    E --> E2["Build self-contained distribution files in owos-learning-content"]
+    E2 --> F["Commit source and output together on a review branch"]
     F --> G["Generate the checksum release manifest"]
     G --> H["Dispatch a reviewed intake pull request to onewater-os-platform"]
     H --> I["Register the immutable course version and learning objects in Supabase"]
@@ -203,6 +208,10 @@ flowchart TD
 
 A course is not labeled published merely because its pages exist. The release owner confirms:
 
+- `tools/course_quality.py` passes for every released lesson;
+- there is no undefined output or malformed component, table, or multi-select data;
+- every released lesson includes at least two purposeful learner interactions;
+- responsive behavior, reduced-motion support, accessible live feedback, and keyboard controls pass;
 - the source method and citations are pinned;
 - the syllabus, section count, stable IDs, and runtime registry agree;
 - every released lesson meets the writing, visual, quiz, and accessibility standards;
@@ -233,9 +242,9 @@ The first implementation of this architecture is the Data Before AI Master Class
 | Guided effort | 45-hour planning estimate pending pilot |
 | Credential | Proposed completion credential only; not certification or assurance |
 
-The course shell exposes all 25 chapter destinations while lesson development is pending. That is a
-structural release, not a content release. `available_modules` stays zero until a lesson passes its
-acceptance gate.
+The course shell exposes all 25 chapter destinations. Chapters 00 through 09 are released in version
+`0.25.1`; Chapters 10 through 24 remain clearly labeled as pending. A chapter cannot increment the
+available module count until it passes the Course Quality Contract and the full release gates.
 
 ## Catalog preservation rule
 
@@ -273,4 +282,6 @@ A new course is fully wired when a reviewer can start from its `course.yaml`, re
 lesson files, find the same stable IDs in the Learn catalog and Supabase migration, follow its Knowledge
 Graph relationships, use the authenticated OWOS.ai experience, and trace the production page back to a
 reviewed Git commit. That trace is the architecture's proof that OWOS has one curriculum truth and one
-operating path.
+operating path. The release is not complete unless the machine quality gate also passes every released
+lesson and the platform retains the exact checksum manifest, source commit, immutable version, and
+intake receipt.
