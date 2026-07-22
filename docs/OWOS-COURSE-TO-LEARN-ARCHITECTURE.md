@@ -4,8 +4,8 @@
 **Canonical repository:** `hpad66-pixel/owos-learning-content`
 **Applies to:** every OWOS course, Master Class, lesson, quiz, assessment, and credential  
 **Status:** governed implementation contract  
-**Version:** 1.0  
-**Last updated:** 2026-07-19
+**Version:** 1.1  
+**Last updated:** 2026-07-22
 
 ## Purpose
 
@@ -15,7 +15,7 @@ information belongs, how it moves, and which system is authoritative.
 
 The central rule is simple:
 
-> `onewater-os` owns what OWOS teaches. `2-brain` operates how OWOS.ai delivers and connects it.
+> `owos-learning-content` owns what OWOS teaches. `onewater-os-platform` operates how OWOS.ai delivers and connects it.
 > Supabase records learner and release state. The Knowledge Graph records meaning and relationships.
 > Cloudflare serves and protects the experience.
 
@@ -56,7 +56,7 @@ flowchart LR
         KV["KV: session, rate-limit, and transitional compatibility data"]
     end
 
-    DIST -->|"controlled copy-on-publish"| SITE
+    DIST -->|"checksum-verified intake pull request"| SITE
     SYL -->|"stable IDs and release metadata"| CATALOG
     CATALOG -->|"graph build"| GRAPH
     SITE --> PAGES
@@ -79,11 +79,11 @@ flowchart LR
 
 | Information or artifact | System of record | Runtime or derived copy | Rule |
 | --- | --- | --- | --- |
-| Course promise, syllabus, chapter sequence, examples, and assessment design | `onewater-os/apps/<course>/` | OWOS Learn registry and pages | Change the source first, then rebuild |
-| Writing, visual, quiz, component, and brand rules | `onewater-os/core/` | Inlined into deployed HTML | Reuse the core; do not fork visual behavior per course |
+| Course promise, syllabus, chapter sequence, examples, and assessment design | `owos-learning-content/apps/<course>/` | OWOS Learn registry and pages | Change the source first, then rebuild |
+| Writing, visual, quiz, component, and brand rules | `owos-learning-content/core/` | Inlined into deployed HTML | Reuse the core; do not fork visual behavior per course |
 | Stable course and chapter identifiers | `course.yaml` and governed source files | Knowledge Graph, Supabase, Worker registry | IDs survive title and URL changes |
-| Deployable native HTML | `onewater-os/apps/<course>/dist/site/` | `2-brain/site/` | Runtime copy must be reproducible from source |
-| Learn catalog card and graph relationships | `2-brain/wiki/courses/` | `2-brain/site/learn.json` and public graph | Build from the graph node; do not hand-edit `learn.json` |
+| Deployable native HTML | `owos-learning-content/apps/<course>/dist/site/` | `onewater-os-platform/site/` | Runtime copy must be reproducible from source |
+| Learn catalog card and graph relationships | `onewater-os-platform/wiki/courses/` | `onewater-os-platform/site/learn.json` and public graph | Build from the graph node; do not hand-edit `learn.json` |
 | Course versions, module structure, learner enrollment, progress, attempts, evidence, and credentials | Supabase | Worker API responses | Server-side writes only; Row Level Security remains enabled |
 | Concepts, roles, competencies, sources, contributors, and semantic links | OWOS Knowledge Graph | Public graph projection and Learn links | Course nodes link to concepts; they do not duplicate the curriculum |
 | Web delivery, authentication gateway, caching, and rate limiting | Cloudflare Pages and Worker | Browser experience | No Supabase service key or GraphDB credential reaches the browser |
@@ -173,10 +173,10 @@ flowchart TD
     A["Lock course promise, audience, utility outcomes, and source boundary"] --> B["Approve syllabus and stable IDs"]
     B --> C["Generate or author native landing and lesson pages from the shared core"]
     C --> D["Validate links, accessibility, visuals, quizzes, evidence language, and mobile layout"]
-    D --> E["Build self-contained distribution files in one-water-os"]
+    D --> E["Build self-contained distribution files in owos-learning-content"]
     E --> F["Commit source and output together on a review branch"]
-    F --> G["Copy approved output into 2-brain/site"]
-    G --> H["Update course graph node, Learn registry source, and optional package manifest"]
+    F --> G["Generate the checksum release manifest"]
+    G --> H["Dispatch a reviewed intake pull request to onewater-os-platform"]
     H --> I["Register the immutable course version and learning objects in Supabase"]
     I --> J["Build and test Learn, graph, Worker, and LMS contracts"]
     J --> K["Review preview deployment"]
@@ -212,9 +212,9 @@ The first implementation of this architecture is the Data Before AI Master Class
 | Canonical title | Data Before AI: Data and Artificial Intelligence Governance for Utilities |
 | Structure | 25 chapters, numbered 00 through 24; 75 sections; applied capstone |
 | Primary format | Native OWOS HTML |
-| Curriculum authority | `apps/data-ai-governance/` in `onewater-os` |
+| Curriculum authority | `apps/data-ai-governance/` in `owos-learning-content` |
 | Runtime landing | `/course-data-governance` on OWOS.ai |
-| Catalog and graph node | `wiki/courses/course-data-before-ai-governance.md` in `2-brain` |
+| Catalog and graph node | `wiki/courses/course-data-before-ai-governance.md` in `onewater-os-platform` |
 | Guided effort | 45-hour planning estimate pending pilot |
 | Credential | Proposed completion credential only; not certification or assurance |
 
@@ -231,11 +231,11 @@ program requires its exact course ID, an owner decision, and a migration or arch
 
 ## Change and version control
 
-1. Make curriculum changes in `onewater-os` on a review branch.
+1. Make curriculum changes in `owos-learning-content` on a review branch.
 2. Update `course.yaml`, `VERSION`, and `CHANGELOG.md` when the governed contract or build changes.
 3. Regenerate outputs; do not patch distribution files by hand.
 4. Commit source and reproducible output together.
-5. In `2-brain`, register the source repository, source ref, checksum, and immutable course version.
+5. Dispatch the checksum manifest to `onewater-os-platform`, which verifies the exact source ref and opens an intake pull request.
 6. Use a second review branch for runtime copies, catalog metadata, migrations, and Worker changes.
 7. Merge and deploy only after both sides pass their tests and the release owner approves the preview.
 8. Record the production verification. If production differs from the approved commit, stop and repair
