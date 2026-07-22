@@ -1,7 +1,7 @@
 # OWOS Course-to-Learn Architecture
 
 **Document owner:** One Water Operating System  
-**Canonical repository:** `hpad66-pixel/onewater-os`  
+**Canonical repository:** `hpad66-pixel/owos-learning-content`
 **Applies to:** every OWOS course, Master Class, lesson, quiz, assessment, and credential  
 **Status:** governed implementation contract  
 **Version:** 1.0  
@@ -26,7 +26,7 @@ truth.
 
 ```mermaid
 flowchart LR
-    subgraph AUTHOR["Author and govern in hpad66-pixel/onewater-os"]
+    subgraph AUTHOR["Author and govern in hpad66-pixel/owos-learning-content"]
         METHOD["Controlled method and source evidence"]
         SYL["Course syllabus and course.yaml"]
         CORE["Core standards, brand, components, quizzes, and template"]
@@ -38,7 +38,7 @@ flowchart LR
         LESSONS --> DIST
     end
 
-    subgraph OPERATE["Publish and operate in hpad66-pixel/2-brain"]
+    subgraph OPERATE["Publish and operate in hpad66-pixel/onewater-os-platform"]
         CATALOG["Course Knowledge Graph node and Learn registry"]
         SITE["OWOS.ai course and lesson pages"]
         WORKER["Cloudflare Worker authentication and LMS API"]
@@ -106,7 +106,7 @@ assets for portability, but the inlined copy remains derived.
 
 ## Repository responsibilities
 
-### `hpad66-pixel/onewater-os`: canonical curriculum
+### `hpad66-pixel/owos-learning-content`: canonical curriculum
 
 This monorepo contains the governed teaching source. Each application folder owns its syllabus,
 machine-readable course record, native lesson sources, and reproducible distribution build. Git history
@@ -127,7 +127,7 @@ apps/data-ai-governance/
     lesson-dg-00-*.html through lesson-dg-24-*.html
 ```
 
-### `hpad66-pixel/2-brain`: OWOS.ai operating repository
+### `hpad66-pixel/onewater-os-platform`: OWOS.ai operating repository
 
 This repository owns the Learn catalog, public Knowledge Graph projection, Cloudflare Worker, and
 deployed site copy. It receives validated course outputs and connects their stable identifiers to the
