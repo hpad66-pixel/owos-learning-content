@@ -131,6 +131,10 @@ For every proposed graphic, record:
 
 Reject a graphic when it is decorative, repeats the heading, uses generic stock imagery, creates visual noise, or has no conclusion the learner can explain. A module does not pass by placing icons around existing prose.
 
+### 12. Publish the quality-control result
+
+After each built module, complete the scored report in `core/templates/MODULE-QA-REPORT.md`. Show what passed, what was inspected, what remains untested, and what must change. Keep automated checks separate from manual and practitioner reviews. A score is a summary, not permission to release.
+
 ## Required diversity contract
 
 The default minimum for each full module is:

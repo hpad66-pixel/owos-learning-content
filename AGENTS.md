@@ -14,4 +14,6 @@ Every major learning component must include visible instructor explanation in pl
 
 Use explanatory graphics where they reveal a concept, method, framework, relationship, sequence, or consequence. Graphics must have an instructional job, visible interpretation, accessible meaning, mobile behavior, and a reduced-motion equivalent when animated. Decorative imagery does not satisfy the course visual requirement.
 
+After every built module, create a scored quality-control report from `core/templates/MODULE-QA-REPORT.md`. The report must show the score, evidence, missing work, automated checks, manual reviews, and hard-gate status. Do not call a module production ready because its numeric score is high.
+
 Never treat a runtime copy in `onewater-os-platform` as the curriculum source. Never release a course without the mandatory Course Quality Contract and explicit approval.

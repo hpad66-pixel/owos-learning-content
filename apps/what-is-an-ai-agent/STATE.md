@@ -40,6 +40,8 @@ Golden lesson built, working review pending
 - Added the instructor-explanation and recording-script contract to the repository instructions, course skill, course standards, design brief template, instructor guide, and automated checks.
 - Added a six-part handoff packet anatomy and an interactive failure-propagation cause map to Module 4.
 - Added the purposeful explanatory-graphics contract to the shared course instructions, operating standard, design system, Visual Arsenal, module brief template, component catalog, gallery, scripts, and automated checks.
+- Added a scored module quality-control contract with hard gates for every future course module.
+- Scored Module 4 version `0.5.0` at 86 out of 100 as a conditional working pass and recorded every open production and release gate.
 
 ## New sources
 
@@ -57,7 +59,8 @@ Golden lesson built, working review pending
 - Separate approval of the built lesson as the production benchmark
 - Production of remaining learner-facing modules after golden-lesson approval
 - Course production and release
+- Completion of the Module 4 required revisions recorded in `qa/module-04-quality-control-report.md`
 
 ## Next action
 
-Review Module 4 version `0.5.0`, including the expanded instructor teaching, six-part handoff packet graphic, interactive failure-propagation chain, and recording scripts. Record wording or visual revisions, complete practitioner and mobile review, and then decide whether the built lesson becomes the production benchmark for the remaining modules.
+Review Module 4 version `0.5.0` and `qa/module-04-quality-control-report.md`. Complete the required revisions and blocked gates, then decide whether the lesson becomes the production benchmark for the remaining modules.

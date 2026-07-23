@@ -11,6 +11,7 @@ Material approvals are recorded here so chat history is never the only evidence.
 | 2026-07-22 | Build Module 4 as the golden lesson | Module 4, The Handoff | Approved for learner-facing production | Hardeep Anand | Build and validate the complete HTML lesson. Course release and use as the benchmark for bulk production remain separate gates. |
 | 2026-07-22 | Require instructor explanation and recording scripts | All course modules and future OWOS lessons | Approved implementation standard | Hardeep Anand | Every major component needs visible plain-English teaching. Every module needs a recording script and every course needs an overview script. This does not approve course release. |
 | 2026-07-22 | Require purposeful explanatory graphics | All course modules and future OWOS lessons | Approved implementation standard | Hardeep Anand | Use graphics to explain concepts, methods, frameworks, relationships, and consequences. Decorative graphics do not satisfy the standard. This does not approve course release. |
+| 2026-07-22 | Require a scored quality-control report after every module | All course modules and future OWOS lessons | Approved implementation standard | Hardeep Anand | Show the score, evidence, missing work, automated checks, manual reviews, and hard gates. A high score cannot override a blocked gate. |
 
 Required future approvals:
 

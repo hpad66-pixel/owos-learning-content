@@ -87,6 +87,12 @@ compatibility export for legacy systems and is not the OWOS authoring format.
 
 ## Course production gates
 
+### Module quality-control report
+
+After every module build or material revision, complete `core/templates/MODULE-QA-REPORT.md`. Score the module out of 100 across instructor teaching, learning design, explanatory graphics, interactions, utility credibility, assessment, work product, accuracy and evidence, accessibility and responsive behavior, and platform integration.
+
+The report also records the five production gates, automated evidence, manual reviews, missing work, and required revisions. The numeric score never overrides a blocked accuracy, utility-practitioner, technical and accessibility, or release gate. A module may receive a conditional working pass while remaining blocked from production or release.
+
 Every lesson passes five visible gates:
 
 1. **Accuracy:** claims, sources, method version, scope, and limitations are correct.
