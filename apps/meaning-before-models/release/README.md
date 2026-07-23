@@ -4,6 +4,8 @@
 
 Status: rendered QA and live-review replacement in progress on 2026-07-23
 
+Content baseline: `fddf2f842903756589e94fbdd5f40c3a67850032`
+
 This release replaces the rejected 0.8.0 rendered experience. It introduces eighteen distinct
 lesson narratives and card compositions, working question-and-answer cards, meaningful visual and
 process outputs, corrected assessment logic, and browser-operated desktop and phone QA for every
