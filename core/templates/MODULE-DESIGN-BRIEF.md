@@ -40,6 +40,8 @@
 | Purposeful interaction 1 | |
 | Purposeful interaction 2 | |
 | Visual types, minimum four | |
+| Visual pacing plan and any prose exception | |
+| Original editorial illustration, when appropriate | |
 | Quiz sequence, minimum three types | |
 | Role-sensitive treatment | |
 | Professional work product | |
@@ -54,6 +56,13 @@
 | Major component | What the learner sees | What the learner does | What to notice | Utility meaning | Debrief needed |
 | --- | --- | --- | --- | --- | --- |
 | | | | | | |
+
+## Visual pacing review
+
+- Longest run of consecutive full prose blocks:
+- Visual, interaction, worked example, or callout used to break each dense section:
+- Any uninterrupted prose exception and reason:
+- Editorial illustration reading guide and learner conclusion, when used:
 
 ## Explanatory graphic plan
 

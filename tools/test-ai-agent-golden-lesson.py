@@ -23,6 +23,18 @@ for phrase in (
     "Deterministic knowledge checks",
     "Source map and instructional boundary",
     "Module 4 Knowledge Graph",
+    "One outfall, four records, one accountable decision",
+    'id="nextStep"',
+    'id="pauseSteps"',
+    'id="resetSteps"',
+    'id="reviewContract"',
+    'id="contractScore"',
+    'id="graphActiveRole"',
+    'data-graph-node="provenance"',
+    "AG-009",
+    "AG-016 and AG-017",
+    "AG-018 and AG-019",
+    "AG-020 and AG-021",
     "prefers-reduced-motion:reduce",
     'aria-live="polite"',
     'id="completeLesson" disabled',
@@ -52,6 +64,9 @@ for phrase in (
     'id="causeChain"',
     'data-packet-mode="complete"',
     'data-packet-mode="missing"',
+    "function scoreContract()",
+    "function paintGraphStep(step,i)",
+    'aria-label="Advance one handoff"',
 ):
     require(phrase)
 if "undefined" in text.lower():

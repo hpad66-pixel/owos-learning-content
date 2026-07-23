@@ -4,7 +4,7 @@ Updated: 2026-07-22
 
 ## Current phase
 
-Golden lesson built, working review pending
+Golden lesson version 0.6.0 technically revised, external review pending
 
 ## Completed
 
@@ -42,6 +42,10 @@ Golden lesson built, working review pending
 - Added the purposeful explanatory-graphics contract to the shared course instructions, operating standard, design system, Visual Arsenal, module brief template, component catalog, gallery, scripts, and automated checks.
 - Added a scored module quality-control contract with hard gates for every future course module.
 - Scored Module 4 version `0.5.0` at 86 out of 100 as a conditional working pass and recorded every open production and release gate.
+- Completed every repository-verifiable Module 4 revision: explicit Back, Step, Play, Pause, and Reset controls; active-role Knowledge Graph; five-part contract scoring; claim-level source map; static accessibility review; practitioner, novice, and live-integration review packets.
+- Added an original editorial outfall evidence scene with accessible description and a visible reading guide.
+- Added the permanent visual-pacing standard to the design system, operating standard, writing standard, Visual Arsenal, module brief, QA template, instructor guide, and course instructions.
+- Corrected the ten-category QA weights to total 100 points and rescored Module 4 version `0.6.0` at 91 out of 100 as a conditional working pass.
 
 ## New sources
 
@@ -59,8 +63,9 @@ Golden lesson built, working review pending
 - Separate approval of the built lesson as the production benchmark
 - Production of remaining learner-facing modules after golden-lesson approval
 - Course production and release
-- Completion of the Module 4 required revisions recorded in `qa/module-04-quality-control-report.md`
+- Real-browser and real-device accessibility review of Module 4
+- Authenticated API and Supabase integration verification for Module 4
 
 ## Next action
 
-Review Module 4 version `0.5.0` and `qa/module-04-quality-control-report.md`. Complete the required revisions and blocked gates, then decide whether the lesson becomes the production benchmark for the remaining modules.
+Review Module 4 version `0.6.0` and `qa/module-04-quality-control-report.md`. Run the practitioner, novice-learner, real-device, and authenticated-runtime reviews, then decide whether the lesson becomes the production benchmark for the remaining modules.

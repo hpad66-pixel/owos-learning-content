@@ -31,3 +31,5 @@ Do not place an unexplained visual, animation, simulation, assessment, or builde
 Maintain `curriculum/scripts/COURSE-OVERVIEW-VIDEO-SCRIPT.md` and one recording script for each of the eight modules. Visual directions must be separate from spoken words.
 
 Use the Visual Arsenal to add explanatory graphics where a concept, method, framework, relationship, or consequence needs a picture. Every graphic needs plain-English reading guidance, a learner conclusion, accessible text, and a mobile layout. Do not use decorative stock graphics or repeated icon grids.
+
+Plan visual pacing before HTML production. Do not leave more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the design brief records the reason. Use original editorial illustrations when a utility setting, physical asset, record conflict, or accountable decision can be taught as a scene.

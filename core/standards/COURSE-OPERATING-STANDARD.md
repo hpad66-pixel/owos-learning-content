@@ -67,6 +67,8 @@ Every module must include a complete recording script. Every course must include
 
 Explanatory graphics are required when the teaching idea has a meaningful visual shape. Each graphic must clarify a concept, method, framework, relationship, sequence, comparison, or cause. The lesson must explain how to read it and what conclusion it supports. Decorative stock art and repeated icon tiles do not count toward visual quality.
 
+Long lessons also require a visual pacing plan. Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the module brief records why uninterrupted prose is necessary. An original editorial illustration may break visual monotony only when it teaches a utility setting, asset, record relationship, or accountable decision and includes accessible reading guidance.
+
 Page scroll is not completion. A lesson declares its requirements in the course record and records
 completion only when the required evidence exists.
 

@@ -40,11 +40,12 @@ Should one general agent handle the entire task, should a fixed workflow route i
 | --- | --- |
 | Narrative | Multi-voice orchestration room |
 | Mental model | Work plus context plus evidence plus authority must cross every handoff |
-| Visuals | Handoff packet anatomy, failure-propagation cause map, swimlane, provenance network, shared-state ledger, status heat grid, permission ladder, evidence funnel |
+| Visuals | Original outfall evidence scene, handoff packet anatomy, failure-propagation cause map, swimlane, responsive lesson graph, shared-state ledger, status heat grid, permission ladder, evidence funnel |
+| Visual pacing | No more than two consecutive full prose blocks. The evidence scene, teaching callouts, packet graphic, cause map, simulator, funnel, laboratory, authority console, contract builder, and checks create purposeful breaks. |
 | Interaction 1 | Orchestration playback with Back, Step, Play, Pause, and Reset |
 | Interaction 2 | Broken-handoff diagnosis and repair |
 | Interaction 3 | Permission and approval console |
-| Quiz mix | Multi-select, ordering, multiple choice, reflection |
+| Quiz mix | Multi-select, ordering, multiple choice, reflection, and deterministic contract application check |
 | Work product | Orchestration and Handoff Contract |
 | Capstone | Name roles, shared state, handoffs, evidence, and human approval |
 | Graph | Side drawer follows the active agent, source, event, control, role, and competency |
@@ -85,5 +86,6 @@ Hardeep review of the working learner-facing lesson, practitioner review of the 
 | Repairing a broken handoff | Cause and effect | Handoff repair laboratory | Diagnose a failure, select a repair, and rerun the transfer | Deterministic repair check |
 | What must cross a handoff | Parts and relationship | Layered handoff packet anatomy | Trace six required layers from the current role to the receiving role | Explain the packet in plain English |
 | Why one missing source travels | Cause and effect | Interactive failure-propagation chain | Compare a complete packet with a missing locator and follow the downstream effect | Explain the repair point |
+| Why four plausible records do not equal one defensible decision | Setting, relationship, and consequence | Original editorial illustration | Follow one physical outfall through four records, a governed evidence desk, and a human decision | State why disagreement must remain visible |
 
-The handoff packet, cause chain, swimlane, provenance network, heat grid, permission ladder, and evidence funnel are deliberately different visual shapes. Motion teaches sequence and the effect of missing context. Reduced-motion mode presents the same states through direct stepping and visible text changes.
+The evidence scene, handoff packet, cause chain, swimlane, responsive graph, heat grid, permission ladder, and evidence funnel are deliberately different visual shapes. Motion teaches sequence and the effect of missing context. Reduced-motion mode presents the same states through direct stepping and visible text changes.

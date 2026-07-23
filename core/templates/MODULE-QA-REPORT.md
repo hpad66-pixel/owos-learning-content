@@ -25,16 +25,16 @@ The numeric score summarizes quality. It never overrides a failed hard gate.
 
 | Area | Weight | Score | Evidence checked | Missing or required revision |
 | --- | ---: | ---: | --- | --- |
-| Plain-English instructor teaching | 15 | 0 | | |
-| Learning design and sequence | 15 | 0 | | |
-| Explanatory graphics and visual reasoning | 15 | 0 | | |
-| Interactions and simulations | 15 | 0 | | |
+| Plain-English instructor teaching | 12 | 0 | | |
+| Learning design and sequence | 12 | 0 | | |
+| Explanatory graphics and visual reasoning | 12 | 0 | | |
+| Interactions and simulations | 12 | 0 | | |
 | Utility relevance and practitioner credibility | 10 | 0 | | |
 | Assessments and feedback | 10 | 0 | | |
 | Professional work product | 5 | 0 | | |
 | Accuracy, evidence, and citations | 10 | 0 | | |
 | Accessibility, responsive behavior, and reduced motion | 10 | 0 | | |
-| Platform integration and release controls | 5 | 0 | | |
+| Platform integration and release controls | 7 | 0 | | |
 | **Total** | **100** | **0** | | |
 
 ## Hard gates
@@ -58,6 +58,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Deterministic assessment | | |
 | Instructor explanation coverage | | |
 | Graphic teaching coverage | | |
+| Visual pacing and editorial illustration | | |
 | Prohibited language and punctuation | | |
 | Repository scan and formatting | | |
 
@@ -68,6 +69,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 - [ ] Keyboard-only walkthrough
 - [ ] Screen-reader walkthrough
 - [ ] Reduced-motion walkthrough
+- [ ] Dense-text and visual-pacing walkthrough
 - [ ] Utility-practitioner review
 - [ ] Novice-learner comprehension pilot
 - [ ] Live learner-event and enrollment verification

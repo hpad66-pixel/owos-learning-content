@@ -81,6 +81,8 @@ the visual that fits its shape (a three-legged stool for sustainability, a fishb
 - **Never** default to the iron triangle or a cash-flow curve out of habit. That is what makes modules
   feel cheesy and identical. The variety is where the flair, clarity, and uniqueness come from.
 - If an idea has no natural visual, keep it as plain text plus a quiz. Do not force a picture.
+- Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout. Record the reason for any necessary exception.
+- Use original editorial illustrations for utility settings, physical assets, conflicting records, or decision paths when a scene teaches the idea better than prose. Add accessible text, a reading guide, and the conclusion the learner should reach.
 
 ## Quick before-you-publish check
 - Search the file for "—". There should be zero.

@@ -64,6 +64,7 @@ Before authoring HTML, complete `core/templates/MODULE-DESIGN-BRIEF.md`. The fin
 - at least three quiz types, with no type repeated consecutively;
 - the professional work product and same-page Knowledge Graph behavior;
 - the animation purpose and reduced-motion equivalent;
+- the visual pacing plan, including where dense prose is interrupted by a meaningful illustration, interaction, diagram, or worked example;
 - the mobile transformation; and
 - the design elements intentionally not repeated from adjacent modules.
 
@@ -131,6 +132,12 @@ For every proposed graphic, record:
 
 Reject a graphic when it is decorative, repeats the heading, uses generic stock imagery, creates visual noise, or has no conclusion the learner can explain. A module does not pass by placing icons around existing prose.
 
+### 11A. Control visual pacing
+
+Long lessons must give the learner useful visual rest without adding empty decoration. Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout. Each break must either explain the idea, make a relationship visible, let the learner act, or help the learner interpret a result. If a section genuinely needs uninterrupted prose, record the reason in the module design brief.
+
+Use original editorial illustrations when a real utility situation has a visible setting, actors, records, assets, or decision path. The illustration must include accessible text, a plain-English reading guide, and one conclusion the learner can state. Generic stock photography, abstract technology imagery, and decorative icon rows do not satisfy this rule.
+
 ### 12. Publish the quality-control result
 
 After each built module, complete the scored report in `core/templates/MODULE-QA-REPORT.md`. Show what passed, what was inspected, what remains untested, and what must change. Keep automated checks separate from manual and practitioner reviews. A score is a summary, not permission to release.
@@ -147,6 +154,7 @@ The default minimum for each full module is:
 - one professional work product;
 - one same-page Knowledge Graph experience;
 - one explicit evidence boundary; and
+- one documented visual pacing plan that prevents long runs of undifferentiated prose; and
 - one deterministic completion rule.
 
 These numbers are a floor, not a formula. A short lesson may request a documented exception. A long lesson may need more. Meeting the count with irrelevant components fails the standard.
