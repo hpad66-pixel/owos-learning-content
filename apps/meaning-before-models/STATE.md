@@ -4,7 +4,7 @@ Updated: 2026-07-23
 
 ## Current phase
 
-Version 0.7.0 live-review release preparation
+Version 0.7.0 live review deployed
 
 ## Approved
 
@@ -47,6 +47,32 @@ The OWOS platform registration branch
 course-release, contrast, and formatting checks and was pushed to GitHub at commit
 `8a0fa5b4e3443b5ea1e7b3751b47c48b547a9c31`.
 
+## Live deployment evidence
+
+- Learning-content release commit:
+  `4b13fe2d1e4d3082fbbaa8af0f715897a8e6f436`
+- Release ID: `owos-course-semantic-data-ai-001-v0.7.0`
+- Runtime files verified and imported: 24
+- OWOS platform registration pull request: `hpad66-pixel/onewater-os-platform#31`
+- OWOS platform registration merge:
+  `7fc5768fcaaf9d6053f51e3264f27b99851b578c`
+- Checksum-verified runtime intake pull request: `hpad66-pixel/onewater-os-platform#32`
+- Production platform merge:
+  `eeea8727d5fe20f4d6018abc105f6bd8de33ff78`
+- Cloudflare deployment:
+  `https://754844ee.owos-3n1.pages.dev`
+- Production course route:
+  `https://owos.ai/course-meaning-before-models`
+- Production registry verification: eighteen available modules, exact source commit and release ID,
+  credential status `not_configured`
+- Production access boundary: authenticated live review
+
+The repository-dispatch secrets were not configured in either GitHub repository. The supported
+manual intake path checked out the exact source commit, rebuilt and verified the manifest, ran the
+same importer and platform tests, and opened the reviewed runtime intake pull request. Cloudflare
+Git auto-deploy was not active, so the exact merged `site/` directory was deployed through the
+existing authenticated Cloudflare Pages project.
+
 The course test validates all eighteen lessons against the full-module contract, including:
 
 - actual lesson, brief, recording script, and scored QA report;
@@ -82,7 +108,9 @@ override a blocked hard gate.
 
 ## Next action
 
-Merge the validated OWOS platform registration, merge the exact learning-content release, dispatch
-the governed course intake, merge the generated intake pull request, and verify the Cloudflare
-production URL. Continue staged human review after deployment. Do not publish approved domain claims
-to the shared graph or issue a credential until those separate approvals are recorded.
+Continue staged human, practitioner, accessibility, device, authenticated-runtime, and capstone
+review against the deployed live-review course. Correct findings in governed source and release a
+new version. Configure the two cross-repository GitHub secrets and Git-connected Cloudflare
+deployment so future releases do not require the manual intake and direct Pages fallback. Do not
+publish approved domain claims to the shared graph or issue a credential until those separate
+approvals are recorded.
