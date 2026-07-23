@@ -4,7 +4,7 @@ Updated: 2026-07-22
 
 ## Current phase
 
-Research intake
+Research assessment and proposed blueprint
 
 ## Completed
 
@@ -14,6 +14,11 @@ Research intake
 - Connected the workspace to the approved Hardeep Soul and OWOS course standards through durable Codex instructions.
 - Added conversational intake folders and automatic workspace inventory controls.
 - Connected the course to the approved Course Design System, Visual Arsenal, component catalog, quiz catalog, module design brief, and course diversity matrix.
+- Preserved Hardeep's foundational course direction in the conversation log and author-input record.
+- Extracted and reviewed all 11 pages of McKinsey's `What is an AI agent?`.
+- Added page-addressable notes, 14 governed claims, source permissions, and utility safety boundaries.
+- Added OpenAI, Anthropic, and NIST primary guidance to the source register.
+- Prepared an eight-module syllabus and course design matrix for review.
 
 ## New sources
 
@@ -21,15 +26,13 @@ Research intake
 
 ## Not yet complete
 
-- Complete PDF extraction with page coverage
-- Source permission decision
-- Claim and citation review
-- Hardeep's dictated utility direction
-- Curriculum blueprint
-- Module design fingerprints and course-wide diversity review
+- Hardeep approval of the proposed title, promise, sequence, golden lesson, utility scenarios, and capstone
+- Additional primary research on retrieval, secure tool use, evaluation, observability, and operational-technology boundaries
+- Utility-practitioner review of application scenarios
+- Individual module design briefs after blueprint approval
 - Golden lesson
 - Course production and release
 
 ## Next action
 
-Use Wispr Flow directly in this Codex course task to explain what Hardeep wants learners to understand and how the subject connects to utilities. Then say, “Continue this course.” Codex will preserve the direction, inspect all new material, and prepare the research assessment.
+Review `RESEARCH-ASSESSMENT.md`, `SYLLABUS.md`, and the proposed course design matrix. Approve or revise the working title, eight-module sequence, Module 4 golden lesson, utility scenarios, and capstone. Then authorize the remaining primary research and golden-lesson design brief.

@@ -2,16 +2,19 @@
 
 ## Working title
 
-What Is an AI Agent? A Utility Leader's Guide to Agentic Systems
+Meet the Agent: How AI Gets Work Done in Water Utilities
+
+Subtitle: A foundational course on agents, agentic systems, orchestration, handoffs, and human control
 
 ## Course purpose
 
-Help utility leaders understand what an AI agent is, what it is not, where agentic systems can create value, and which authority, data, evidence, security, and human-accountability boundaries must exist before deployment.
+Help water, wastewater, and stormwater professionals see how an AI agent works, distinguish it from chatbots, retrieval, and fixed automation, understand how agents coordinate and hand work to people, and recognize where bounded agentic applications may create utility value.
 
 ## Intended learners
 
 - Utility executives and managers
 - Operators and operational leaders
+- Water-quality, regulatory, maintenance, stormwater, and capital-program professionals
 - Data and technology leaders
 - Consultants and vendors serving utilities
 - Emerging leaders who need practical AI fluency
@@ -20,6 +23,14 @@ Help utility leaders understand what an AI agent is, what it is not, where agent
 
 The course must connect AI agents to real utility work through Hardeep's dictated direction, practical examples, operating judgment, and explicit distinctions between automation, assistance, recommendation, and autonomous action.
 
+## Proposed learner promise
+
+By the end, you will be able to watch an agentic task unfold, name what each part is doing, identify where control changes hands, separate a real agent from ordinary automation or chat, and sketch one bounded utility use case with sources, tools, guardrails, evaluation, and human authority.
+
+## Proposed golden lesson
+
+Module 4, `The Handoff: One Utility Task, Five Specialized Agents`, is the proposed golden lesson. It can demonstrate orchestration, streaming events, specialized agent roles, shared state, failure recovery, critic review, provenance, guardrails, and human approval in one consequential stormwater evidence scenario.
+
 ## Current boundary
 
-This brief is a working frame. Research, claims, learning outcomes, module structure, examples, and the golden lesson require Hardeep's review before they are locked.
+This brief and proposed title are ready for Hardeep's review. Research assessment is complete for the first source, but the curriculum, utility examples, title, and golden lesson are not locked.
