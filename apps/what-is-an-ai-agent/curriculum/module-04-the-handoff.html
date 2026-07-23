@@ -28,8 +28,9 @@
 .roomfoot{grid-template-columns:repeat(5,auto) 1fr auto}.contract-score{margin-top:16px;border:1px solid var(--line);border-radius:18px;padding:18px;background:#f8fbfc}.contract-score-head{display:flex;align-items:center;gap:14px}.score-ring{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;border:6px solid #dfeaf0;background:#fff;color:var(--ink);font-weight:800}.criteria{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0}.criterion{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff;font-size:10px}.criterion.pass{border-color:#a9d7c5;background:var(--green50);color:var(--green)}.criterion.revise{border-color:#e7d293;background:var(--gold50);color:#705612}.graph-active{border:1px solid #bedce8;border-radius:16px;padding:15px;margin-bottom:14px;background:#fff}.graph-active h3{margin:5px 0}.graph-active-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.graph-active-grid div{background:var(--surface2);border-radius:9px;padding:9px;font-size:10px}.graph-active-grid b{display:block;color:var(--brand)}.graph-route{margin-top:9px;color:var(--ink);font:700 10px var(--mono)}.gnode{transition:.2s}.gnode.focus{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 0 0 7px rgba(14,138,100,.14)}.source-table{width:100%;border-collapse:collapse;margin-top:16px}.source-table th,.source-table td{padding:11px;border:1px solid var(--line);vertical-align:top;text-align:left}.source-table th{background:var(--surface2);color:var(--ink)}.source-note{display:inline-block;margin-top:8px;color:var(--brand2);font:700 9px var(--mono)}.evidence-scene{background:#fff;border:1px solid var(--line);border-radius:23px;overflow:hidden;box-shadow:var(--shadow);margin:28px 0}.evidence-scene svg{display:block;width:100%;height:auto;background:#eaf5f8}.evidence-scene figcaption{padding:14px 18px;color:var(--ink2);font-size:12px}
 @media(max-width:640px){.roomfoot{grid-template-columns:repeat(5,auto);overflow:auto}.roomfoot .track,.roomfoot .steptext{display:none}.criteria{grid-template-columns:1fr 1fr}.source-table{display:block;overflow-x:auto}}
 </style>
+<link rel="stylesheet" href="masterclass.css">
 </head>
-<body data-lens="foundation">
+<body data-module="04" data-lens="foundation">
 <div class="progress" id="readingProgress"></div>
 <nav class="nav"><div class="wrap navin"><a class="brand" href="course-what-is-an-ai-agent.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meet the Agent / Module 04</span><div class="navactions"><button class="btn" id="openGraphTop">Lesson graph</button><a class="btn primary all" href="course-what-is-an-ai-agent.html">All modules</a></div></div></nav>
 
@@ -249,5 +250,6 @@ document.getElementById("completeLesson").onclick=async function(){var result=do
 window.addEventListener("scroll",function(){var root=document.documentElement,max=root.scrollHeight-root.clientHeight;document.getElementById("readingProgress").style.width=(max?root.scrollTop/max*100:0)+"%";});paintStatus();
 })();
 </script>
+<script src="masterclass.js"></script>
 </body>
 </html>

@@ -52,9 +52,44 @@ for filename in pages.values():
         raise AssertionError(f"master-class landing page is not connected to {filename}")
 
 runtime = (CURRICULUM / "masterclass.js").read_text(encoding="utf-8")
-for phrase in ("data-quiz", "data-match", "data-stepper", "data-lab", "data-artifact", "data-open-graph", "localStorage"):
+for phrase in (
+    "data-quiz",
+    "data-match",
+    "data-stepper",
+    "data-lab",
+    "data-artifact",
+    "data-open-graph",
+    "localStorage",
+    "instructorNotes",
+    "teachingExpansion",
+    "lesson-tool-rail",
+    "How to read this graphic",
+    "Before you interact",
+    "Build something you can use",
+):
     if phrase not in runtime:
         raise AssertionError(f"master-class runtime is missing {phrase}")
+for number in pages:
+    key = f'"{number:02d}":'
+    if key not in runtime:
+        raise AssertionError(f"master-class runtime is missing the Module {number} instructor layer")
+if "—" in runtime or "–" in runtime:
+    raise AssertionError("master-class instructor runtime contains a prohibited dash")
+
+styles = (CURRICULUM / "masterclass.css").read_text(encoding="utf-8")
+for phrase in (
+    ".instructor-dialogue",
+    ".visual-break",
+    ".concept-flow",
+    ".lesson-tool-rail",
+    ".dark p",
+    ".preview pre",
+    "@media(max-width:760px)",
+):
+    if phrase not in styles:
+        raise AssertionError(f"master-class design system is missing {phrase}")
+if ".dark h2" not in styles or "color:#fff" not in styles:
+    raise AssertionError("dark teaching surfaces do not explicitly enforce light text")
 
 expected_scores = {
     1: 91,

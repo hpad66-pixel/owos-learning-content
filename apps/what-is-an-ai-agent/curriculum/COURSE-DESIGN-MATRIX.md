@@ -1,6 +1,6 @@
 # What Is an AI Agent Course Design Matrix
 
-This implemented matrix records how the eight learner-facing modules avoid repeating the same opening, visuals, interactions, quizzes, and work products. It is binding for version 0.8.0 and future revisions.
+This implemented matrix records how the eight learner-facing modules avoid repeating the same opening, visuals, interactions, quizzes, and work products. It is binding for version 0.9.0 and future revisions.
 
 | Module | Opening pattern | Narrative architecture | Dominant visual | Supporting visuals | Purposeful interactions | Quiz sequence | Work product | Graph experience | Mobile transformation | Repetition risk |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -16,3 +16,14 @@ This implemented matrix records how the eight learner-facing modules avoid repea
 ## Governing rule
 
 Use Chapter 09 as a capability benchmark, not a layout. Every approved module receives its own completed design brief based on `core/templates/MODULE-DESIGN-BRIEF.md` before lesson HTML is produced.
+
+Every row also inherits the version 1.1 reading contract:
+
+- conversational instructor teaching before the learner acts;
+- a module-specific four-stage explanatory graphic;
+- a reading guide before every major visual;
+- an operating guide before every simulation;
+- an explanation of how the work product will be used;
+- explicit light typography on dark surfaces;
+- a right-side Graph, Community, and Course rail on desktop; and
+- the same tools in a mobile bottom dock, with the full community below the lesson.

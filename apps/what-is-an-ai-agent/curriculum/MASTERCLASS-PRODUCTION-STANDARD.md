@@ -1,6 +1,6 @@
 # AI Agent Master Class Production Standard
 
-Version: 1.0
+Version: 1.1
 
 This standard captures the complete learner-facing quality contract established through Module 4 and applied to Modules 1 through 8. It supplements the shared OWOS Course Operating Standard, Course Design System, Visual Arsenal, Writing Standard, component catalog, quiz catalog, and module QA template.
 
@@ -26,6 +26,47 @@ Every full module must include:
 16. Claim-level evidence identifiers and a visible instructional boundary.
 17. A module recording script and an updated course-overview script.
 18. A scored module QA report with separate automated, manual, practitioner, integration, benchmark, and release gates.
+
+## Instructor-led reading contract
+
+Every module must feel like an instructor is present even when no video has been recorded.
+
+- Introduce the utility situation in complete, conversational paragraphs.
+- Explain the distinction or mechanism before asking the learner to use it.
+- Place a visible reading guide before every explanatory graphic.
+- Place a visible operating guide before every simulation or interactive control.
+- Debrief the result in plain English and connect it to a utility decision.
+- Explain the professional work product as a tool for real work, not as a course form.
+- Define technical terms in ordinary language at the point where they first appear.
+- Use bullets only for scannable details after the idea has been taught in prose.
+
+Every module also carries an instructor bridge with four elements:
+
+1. Two or more paragraphs that connect the lesson concepts.
+2. A module-specific operating sequence with four visible stages.
+3. A sentence the learner should be able to explain in their own words.
+4. A direct connection to the professional work product.
+
+The learner-facing HTML, shared runtime, and recording script must tell the same story.
+
+## Lesson tools and community placement
+
+Graph and community controls must not consume a full-width band at the top of a lesson.
+
+- Desktop lessons use a compact right-side tool rail.
+- Mobile lessons use a bottom dock that stays clear of lesson controls.
+- The graph opens in a same-page drawer or dialog and returns focus to the trigger that opened it.
+- The complete learning community remains after the teaching content.
+- The side or bottom control scrolls the learner to that community without navigating away.
+- The course link remains available from the same tool group.
+
+This placement is shared across OWOS master classes. A course may change the labels, but not the behavior.
+
+## Contrast and typography gate
+
+Light reading surfaces use dark text. Dark blue or brand-gradient surfaces explicitly set headings, paragraphs, labels, captions, and control text to white or a tested light color. Inherited text color is not accepted on dark surfaces.
+
+The module must use the OWOS type family, a readable line length, calm heading weights, and enough spacing to distinguish teaching, practice, assessment, and work-product sections. A visual theme does not pass when typography is technically visible but tiring to read.
 
 ## Visual pacing
 
