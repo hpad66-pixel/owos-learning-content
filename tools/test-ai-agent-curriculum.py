@@ -11,6 +11,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 COURSE = ROOT / "apps/what-is-an-ai-agent"
 BRIEFS = COURSE / "curriculum/design-briefs"
+SCRIPTS = COURSE / "curriculum/scripts"
 
 
 def require(path: Path, phrases: list[str]) -> None:
@@ -37,6 +38,25 @@ expected_briefs = {
 
 for filename, phrases in expected_briefs.items():
     require(BRIEFS / filename, phrases)
+
+expected_scripts = {
+    "module-01-before-the-agent-video-script.md": ["AI terms field card", "Spoken words"],
+    "module-02-inside-the-agent-loop-video-script.md": ["agent-loop trace", "Spoken words"],
+    "module-03-agent-anatomy-video-script.md": ["dependency and readiness map", "Spoken words"],
+    "module-04-the-handoff-video-script.md": ["orchestration and handoff contract", "Spoken words"],
+    "module-05-agent-agentic-or-automated-video-script.md": ["autonomy and consequence decision record", "Spoken words"],
+    "module-06-guardrails-video-script.md": ["guardrail and human-authority plan", "Spoken words"],
+    "module-07-utility-applications-video-script.md": ["utility opportunity portfolio", "Spoken words"],
+    "module-08-design-your-agent-video-script.md": ["90-Day Pilot Brief", "Spoken words"],
+}
+
+for filename, phrases in expected_scripts.items():
+    require(SCRIPTS / filename, phrases)
+
+require(
+    SCRIPTS / "COURSE-OVERVIEW-VIDEO-SCRIPT.md",
+    ["Lesson 1: Before the Agent", "Lesson 8: Design Your First Utility Agent", "Spoken words"],
+)
 
 require(
     COURSE / "SYLLABUS.md",

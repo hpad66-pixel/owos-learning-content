@@ -59,6 +59,12 @@ satisfy the interaction requirement. Reduced-motion behavior is mandatory.
 
 ## Lesson completion
 
+### Instructor explanation and recording package
+
+The learner-facing page must stand on its own when no video is available. Every major visual, animation, simulation, assessment, and work-product interface must include one or two visible instructor paragraphs. The paragraphs explain what the learner is seeing, what action to take, what to notice, why it matters in utility work, and what the result means. Add a debrief when a change or consequence needs interpretation. Tooltips define terms but never replace instruction.
+
+Every module must include a complete recording script. Every course must include one overview script that explains all modules in order. Visual directions are separate from spoken words. A curriculum change that affects the lesson sequence requires an overview-script update.
+
 Page scroll is not completion. A lesson declares its requirements in the course record and records
 completion only when the required evidence exists.
 

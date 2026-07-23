@@ -9,6 +9,7 @@ Material approvals are recorded here so chat history is never the only evidence.
 | 2026-07-22 | Use eight-module structure as the curriculum frame | Proposed syllabus | Approved for design development | Hardeep Anand | Proceed to module design briefs and remaining source research. Golden lesson and release still require separate approval. |
 | 2026-07-22 | Build the complete governed curriculum package | Eight module briefs, assessments, capstone, instructor guidance, tooltips, and work products | Approved | Hardeep Anand | Complete the curriculum source package. This does not approve learner-facing lesson production or public release. |
 | 2026-07-22 | Build Module 4 as the golden lesson | Module 4, The Handoff | Approved for learner-facing production | Hardeep Anand | Build and validate the complete HTML lesson. Course release and use as the benchmark for bulk production remain separate gates. |
+| 2026-07-22 | Require instructor explanation and recording scripts | All course modules and future OWOS lessons | Approved implementation standard | Hardeep Anand | Every major component needs visible plain-English teaching. Every module needs a recording script and every course needs an overview script. This does not approve course release. |
 
 Required future approvals:
 

@@ -59,6 +59,8 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Require every animation to teach change, cause, consequence, sequence, dependency, or reveal. Preserve meaning under reduced motion.
 - Compare adjacent modules and change repeated opening patterns, dominant visuals, interaction pairs, quiz sequences, and work-product formats unless repetition is instructionally necessary.
 - Keep the Knowledge Graph on the lesson page in a responsive panel or drawer. Closing it returns focus to the course.
+- Teach every major visual, animation, simulation, assessment, and work-product interface in the lesson itself. Add one or two plain-English instructor paragraphs that explain what the learner is seeing, what action to take, what to notice, why it matters in utility work, and what the result means. A tooltip never replaces this teaching.
+- Maintain one recording script for every module and one course overview script. Separate spoken words from visual directions. Update both the module script and overview script when curriculum content or sequence changes.
 
 ## Apply Hardeep Soul
 

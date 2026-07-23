@@ -10,4 +10,6 @@ Apply Hardeep Soul, the OWOS Course Operating Standard, Course Design System, Vi
 
 Every module needs a reviewed design brief and the course needs a design matrix. Chapter 09 is a capability benchmark, not a reusable page layout. Visuals, simulations, quizzes, work products, and animation must follow the learning problem and remain deliberately varied across adjacent modules.
 
+Every major learning component must include visible instructor explanation in plain English. Every module must have a recording script, and every course must maintain an overview script that explains the lesson sequence.
+
 Never treat a runtime copy in `onewater-os-platform` as the curriculum source. Never release a course without the mandatory Course Quality Contract and explicit approval.

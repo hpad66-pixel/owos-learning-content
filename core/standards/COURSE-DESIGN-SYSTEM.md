@@ -100,6 +100,22 @@ Every substantive lesson should create or improve a professional artifact such a
 
 Validation includes factual and citation review, utility-practice review, deterministic scoring, malformed-data checks, desktop and mobile rendering, keyboard and touch operation, screen-reader labels, reduced-motion behavior, contrast, typography, same-page graph behavior, persistence, completion evidence, and comparison against adjacent lessons for repetition.
 
+### 9. Teach the interface in the interface
+
+A learner must never meet an unexplained animation, simulation, diagram, assessment, or builder. Before each major component, include one or two instructor paragraphs that answer five questions:
+
+1. What am I seeing?
+2. What should I do?
+3. What should I notice?
+4. Why does this matter in utility work?
+5. What does the result mean?
+
+Add a short debrief after a mechanism when the meaning of the change may not be obvious. Tooltips define terms, but they do not carry the lesson.
+
+### 10. Prepare the instructor recording package
+
+Every module must have a spoken-language recording script before production is complete. Every course must maintain one overview script that explains all lessons in order. Scripts must separate visual directions from spoken words, explain technical terms in ordinary language, include a utility example, name the learner action and work product, and close with a transition to the next lesson.
+
 ## Required diversity contract
 
 The default minimum for each full module is:

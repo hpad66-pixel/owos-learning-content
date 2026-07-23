@@ -14,6 +14,14 @@ Assume the learner knows utility work and is new to agent terminology. Respect e
 6. Connect the lesson to one capstone field.
 7. Close with one practical action.
 
+## Instructor explanation contract
+
+The page must teach even when no video is present. Before every major visual, animation, simulation, assessment, or builder, explain in one or two paragraphs what the learner is seeing, what action to take, what to notice, why it matters in utility work, and what the result means.
+
+When the component shows a change, failure, or consequence, add a short debrief after it. Do not make the learner infer the lesson from movement, color, or controls. A tooltip may remind the learner what a term means, but it cannot carry the only explanation.
+
+Each module also has a recording script under `curriculum/scripts/`. The script supports the lesson but does not replace the written instructor explanation.
+
 ## Common misconceptions
 
 | Misconception | Plain-English correction |

@@ -49,6 +49,26 @@
 | Mobile transformation | |
 | Persistence and learner events | |
 
+## Instructor explanation plan
+
+| Major component | What the learner sees | What the learner does | What to notice | Utility meaning | Debrief needed |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+
+## Recording script
+
+| Field | Decision |
+| --- | --- |
+| Script path | |
+| Intended recording length | |
+| Spoken opening | |
+| Utility example | |
+| Visual directions | |
+| Learner action and work product | |
+| Transition to next lesson | |
+
 ## Diversity check
 
 - Adjacent module reviewed:

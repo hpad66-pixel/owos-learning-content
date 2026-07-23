@@ -36,3 +36,7 @@ Spell out the term at first use, followed by the acronym in parentheses. Later u
 ## Reading test
 
 A learner must be able to understand the page with every tooltip closed. A tooltip is successful when it answers a quick reminder without interrupting the lesson.
+
+## Component teaching rule
+
+Every major diagram, animation, simulation, assessment set, and work-product interface needs visible instructor explanation outside the tooltip system. The explanation tells the learner what the component is, how to use it, what to watch, why it matters in utility work, and how to interpret the result.

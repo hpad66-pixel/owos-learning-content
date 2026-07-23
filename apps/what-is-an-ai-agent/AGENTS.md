@@ -25,3 +25,7 @@ Treat the PDF already in `research/originals/` as private research with permissi
 The next milestone is a research assessment, not a generated course. Extract the complete source, preserve locators, separate facts from author direction, and propose a curriculum blueprint for Hardeep's review.
 
 Before building any lesson, create its module design brief and update the course design matrix. Use Chapter 09 as the completeness benchmark while giving this course its own narrative structures, visuals, simulations, quizzes, animations, and professional work products.
+
+Do not place an unexplained visual, animation, simulation, assessment, or builder in a learner-facing lesson. Add instructor paragraphs that tell the learner what the component shows, how to use it, what to watch, why it matters in utility work, and how to interpret the result.
+
+Maintain `curriculum/scripts/COURSE-OVERVIEW-VIDEO-SCRIPT.md` and one recording script for each of the eight modules. Visual directions must be separate from spoken words.

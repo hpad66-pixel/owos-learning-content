@@ -51,6 +51,8 @@ require(
         "Machine-enforced release gate",
         "quality_contract.enforce_on_release: true",
         "Data Before AI Chapter 09",
+        "Instructor explanation and recording package",
+        "Every module must include a complete recording script",
     ],
     "course operating standard",
 )

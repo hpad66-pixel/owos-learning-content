@@ -35,6 +35,9 @@ Golden lesson built, working review pending
 - Added persistent browser state, OWOS event identifiers, enrollment and completion calls, accessible live feedback, reduced-motion behavior, and mobile transformations.
 - Added a dedicated machine check for the AI-agent golden lesson.
 - Completed the first desktop rendering and accessibility-tree inspection.
+- Added visible instructor explanation before or after every major Module 4 learning component.
+- Added recording scripts for all eight modules and a complete course overview script.
+- Added the instructor-explanation and recording-script contract to the repository instructions, course skill, course standards, design brief template, instructor guide, and automated checks.
 
 ## New sources
 
@@ -47,6 +50,7 @@ Golden lesson built, working review pending
 - Utility-practitioner review of application scenarios
 - Practitioner review of the Module 4 stormwater evidence scenario
 - Hardeep working review of the built Module 4 lesson
+- Hardeep review and natural-language revision of the recording scripts before recording
 - Mobile device rendering review and interaction pilot
 - Separate approval of the built lesson as the production benchmark
 - Production of remaining learner-facing modules after golden-lesson approval
@@ -54,4 +58,4 @@ Golden lesson built, working review pending
 
 ## Next action
 
-Review `curriculum/module-04-the-handoff.html` as a working lesson. Record required revisions, complete practitioner and mobile review, and then decide whether the built lesson becomes the production benchmark for the remaining modules.
+Review the expanded instructor teaching in `curriculum/module-04-the-handoff.html` and the scripts in `curriculum/scripts/`. Record wording revisions, complete practitioner and mobile review, and then decide whether the built lesson becomes the production benchmark for the remaining modules.

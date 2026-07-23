@@ -38,6 +38,17 @@ if text.count("data-correct") < 8:
     raise AssertionError("golden lesson needs deterministic answer keys")
 if text.count('class="panel"') < 4:
     raise AssertionError("golden lesson needs at least four visual or interactive panels")
+if text.count("data-instructor-explanation") < 8:
+    raise AssertionError("golden lesson must teach every major component with visible instructor explanation")
+for phrase in (
+    "How to read the simulation",
+    "Before you read the funnel",
+    "How to use the laboratory",
+    "How to set authority",
+    "Why this work product matters",
+    "What these checks measure",
+):
+    require(phrase)
 if "undefined" in text.lower():
     raise AssertionError("golden lesson contains an undefined sentinel")
 if "—" in text or "–" in text:

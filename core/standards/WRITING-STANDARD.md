@@ -23,6 +23,14 @@ its own sake.
 7. **Tooltips.** Every new term AND every acronym gets a hover definition (a dotted `.term` span with a
    `data-def`). Use exactly ONE tooltip element per page (`#tt`). Do NOT also put `title` attributes on
    anything, because the browser then shows a second, duplicate tooltip. One tooltip, never two.
+8. **Teach every component.** Before every major visual, animation, simulation, quiz set, or work-product
+   interface, add one or two instructor paragraphs in plain English. Explain what the learner is seeing,
+   what action to take, what to notice, why it matters in utility work, and what the result means. Add a
+   short debrief after the component when the learner must interpret a change or consequence. A tooltip
+   supports this explanation but never replaces it.
+9. **Write the recording script.** Every module needs a complete instructor recording script, and every
+   course needs one overview script that explains all lessons in order. Put visual directions in brackets
+   and keep them separate from the words the instructor will speak.
 
 ## Voice
 - Write like you're talking to one person. Use "you" and contractions ("you're", "it's", "that's").
