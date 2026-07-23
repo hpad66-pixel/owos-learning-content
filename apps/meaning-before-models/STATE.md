@@ -4,7 +4,7 @@ Updated: 2026-07-23
 
 ## Current phase
 
-Version 0.7.0 live review deployed
+Version 0.9.0 rendered-QA remediation candidate
 
 ## Approved
 
@@ -92,13 +92,32 @@ for live review with completion events, credentials, certification claims, and o
 disabled. It still requires module-by-module human inspection and review. A high QA score cannot
 override a blocked hard gate.
 
+## Version 0.9.0 rendered-component remediation, 2026-07-23
+
+Hardeep rejected the 0.8.0 live-review build after direct use exposed nonfunctional flip cards,
+dark visual slabs, repetitive lesson composition, and weak instructional graphics. The release had
+passed repository-shape checks while failing the learner's rendered experience. That is a release
+gate failure, not a styling preference.
+
+Version 0.9.0 rebuilds all eighteen lessons around eighteen named narrative experiences, eighteen
+card compositions, manually authored utility-specific question and answer sets, meaningful visual
+outputs, corrected assessment logic, keyboard-operable cards, reduced-motion states, and visible
+process feedback. A real-browser suite now operates every required component in desktop and phone
+views and records a source-bound receipt. Release packaging refuses a missing, failed, or stale
+receipt.
+
+The 0.9.0 candidate may replace the rejected live-review runtime after all automated checks pass.
+Credentials, certification, graph publication, authoritative completion, and operational authority
+remain disabled. Independent factual, practitioner, novice, screen-reader, and physical-device
+reviews remain human gates.
+
 ## Remaining hard gates
 
 - Hardeep working review of the complete sequence and representative lessons
 - Independent RDF, RDFS, SPARQL, OWL, SHACL, semantic architecture, and AI-context review
 - Real water, wastewater, stormwater, data, cybersecurity, and operations practitioner review
 - Novice-learner comprehension pilots
-- Successful rendered browser learner-path regression for every module
+- Independent screen-reader and physical touch-device review
 - Desktop, tablet, phone, keyboard, screen-reader, contrast, zoom, touch, and reduced-motion reviews
 - Authenticated learner-event and enrollment validation
 - Capstone scoring review

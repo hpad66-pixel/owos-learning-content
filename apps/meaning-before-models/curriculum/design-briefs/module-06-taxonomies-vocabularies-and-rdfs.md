@@ -38,7 +38,7 @@
 | Visual types, minimum four | `taxonomy-tree`, `definition-cards`, `taxonomy-venn`, `rdfs-relationship-map` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `flip-cards`, `classify`, `true-false` plus `flip-cards` retrieval practice and `applied-assessment` |
+| Quiz sequence, minimum three types | `multiple-choice`, `classify`, `true-false` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |

@@ -213,7 +213,7 @@ QUIZ_PLANS = {
     3: ["matching", "multiple-choice", "ordering"],
     4: ["multi-select", "path-choice", "reflection"],
     5: ["classify", "matching", "multiple-choice"],
-    6: ["flip-cards", "classify", "true-false"],
+    6: ["multiple-choice", "classify", "true-false"],
     7: ["ordering", "multi-select", "reflection"],
     8: ["fill-in", "ordering", "multiple-choice"],
     9: ["classify", "true-false", "multiple-choice"],
@@ -226,6 +226,149 @@ QUIZ_PLANS = {
     16: ["ordering", "multi-select", "multiple-choice"],
     17: ["classify", "multiple-choice", "ordering"],
     18: ["multi-select", "reflection", "capstone-rubric"],
+}
+
+EXPERIENCES = {
+    1: {"name": "Night Shift Call", "slug": "incident-call", "verb": "Trace the alarm", "card_layout": "route", "accent": "#0A78BA"},
+    2: {"name": "Triple Evidence Lab", "slug": "evidence-lab", "verb": "Dissect the statement", "card_layout": "specimens", "accent": "#A46A00"},
+    3: {"name": "Asset Identity Investigation", "slug": "identity-investigation", "verb": "Resolve the records", "card_layout": "dossier", "accent": "#0E8A64"},
+    4: {"name": "Graph Path Explorer", "slug": "graph-explorer", "verb": "Follow the path", "card_layout": "constellation", "accent": "#596BB3"},
+    5: {"name": "Five-Job Decision Room", "slug": "decision-room", "verb": "Separate the jobs", "card_layout": "briefing", "accent": "#0A78BA"},
+    6: {"name": "Vocabulary Garden", "slug": "vocabulary-garden", "verb": "Grow shared language", "card_layout": "branches", "accent": "#3C7D44"},
+    7: {"name": "Ontology Workshop", "slug": "modeling-workshop", "verb": "Model from questions", "card_layout": "workshop", "accent": "#8062A8"},
+    8: {"name": "SPARQL Query Console", "slug": "query-console", "verb": "Assemble the pattern", "card_layout": "console", "accent": "#16768B"},
+    9: {"name": "Inference Proof Room", "slug": "proof-room", "verb": "Prove the new statement", "card_layout": "evidence", "accent": "#775AA8"},
+    10: {"name": "SHACL Validation Clinic", "slug": "validation-clinic", "verb": "Inspect the report", "card_layout": "report", "accent": "#B04D43"},
+    11: {"name": "Provenance Ledger", "slug": "provenance-ledger", "verb": "Resolve the applicable claim", "card_layout": "ledger", "accent": "#8A6412"},
+    12: {"name": "Knowledge Spine Studio", "slug": "architecture-studio", "verb": "Make the model run", "card_layout": "stack", "accent": "#126E9A"},
+    13: {"name": "Semantic Mapping Workbench", "slug": "mapping-workbench", "verb": "Bridge concept and field", "card_layout": "bridge", "accent": "#2E7D6B"},
+    14: {"name": "Access Strategy Board", "slug": "tradeoff-board", "verb": "Choose by workload", "card_layout": "quadrants", "accent": "#9A6514"},
+    15: {"name": "Hybrid Evidence Newsroom", "slug": "evidence-newsroom", "verb": "Separate candidate from claim", "card_layout": "clippings", "accent": "#B24F68"},
+    16: {"name": "Context Assembly Station", "slug": "context-assembly", "verb": "Pack the task", "card_layout": "packet", "accent": "#356BA7"},
+    17: {"name": "Pipeline Repeatability Lab", "slug": "pipeline-lab", "verb": "Run the same question", "card_layout": "runs", "accent": "#6A5AA8"},
+    18: {"name": "One Water Pilot Studio", "slug": "pilot-studio", "verb": "Design the bounded pilot", "card_layout": "canvas", "accent": "#087A55"},
+}
+
+FLIP_CARDS = {
+    1: [
+        ("What is the subject?", "The thing being described. In `Pump_P104 serves Zone_3`, Pump_P104 is the subject."),
+        ("What is the predicate?", "The named relationship. `serves` states exactly how the pump relates to the pressure zone."),
+        ("What is the object?", "The thing or value on the other side of the relationship. Zone_3 is the object."),
+        ("When do triples become a graph?", "When statements reuse the same identified things, one triple can connect to the next."),
+    ],
+    2: [
+        ("Why use an IRI instead of a label alone?", "An Internationalized Resource Identifier identifies the resource. A label is readable text and may change or be reused."),
+        ("Can the object be a measured value?", "Yes. The object may be a typed literal, such as `4.2` with a decimal datatype and a separate unit relationship."),
+        ("Why does direction matter?", "`Sample hasResult Value` does not say the same thing as `Value hasResult Sample`. The predicate has a direction."),
+        ("What does Turtle change?", "Turtle is a readable way to write RDF statements. It changes the syntax, not the meaning of the triple."),
+    ],
+    3: [
+        ("Do matching labels prove two pump records are identical?", "No. A matching label creates a candidate match. Evidence and an accountable steward support an approved identity relationship."),
+        ("What belongs in an identity crosswalk?", "The canonical identifier, each source identifier, the match basis, review state, steward, and provenance."),
+        ("What should happen to a conflict?", "Preserve it in a review queue. Do not silently force two records together or discard one."),
+        ("Why does identity affect operations?", "If the alarm, map, work order, and procedure point to different pumps, the response path can fail before analysis begins."),
+    ],
+    4: [
+        ("What makes isolated triples connect?", "They reuse the same identifiers. Zone_3 can be the object of one triple and the subject of the next."),
+        ("What is a graph path?", "A sequence of named relationships, such as pump serves zone, zone contains premise, and premise serves account."),
+        ("Does every graph edge have the same authority?", "No. Each statement needs its own source, time, review state, and authority boundary."),
+        ("Why is a small graph useful?", "It lets a learner inspect the exact route from an operational event to evidence and a bounded decision."),
+    ],
+    5: [
+        ("What does a data model answer?", "How information is structured for a database, application, integration, or report."),
+        ("What does an ontology answer?", "What shared concepts and relationships mean independently of one application."),
+        ("What does a semantic layer answer?", "How shared business meaning resolves to authoritative tables, fields, application interfaces, and metrics."),
+        ("What does runtime AI context answer?", "What this model needs for this task now, including evidence, policy, time, permission, state, and output limits."),
+    ],
+    6: [
+        ("What does a taxonomy do?", "It classifies terms into a hierarchy, such as asset, rotating equipment, and pump."),
+        ("What does a vocabulary do?", "It publishes agreed terms, labels, definitions, scope, and ownership."),
+        ("What does RDFS add?", "RDF Schema adds reusable classes, properties, labels, domains, ranges, and subclass relationships."),
+        ("Is every asset an instance?", "A class describes a category. A specific pump such as Pump_P104 is an instance of a class."),
+    ],
+    7: [
+        ("What should an ontology workshop write first?", "Competency questions, meaning the real questions the model must help answer."),
+        ("Why bound the model?", "A useful ontology covers a named decision and domain. Modeling every noun creates cost without proving value."),
+        ("What makes a relationship reusable?", "Its meaning, direction, expected domain and range, examples, and ownership are explicit."),
+        ("Why version an ontology?", "Definitions and rules change. Versioning lets applications and reviewers know which meaning contract they used."),
+    ],
+    8: [
+        ("What does a SPARQL WHERE block describe?", "The graph pattern that matching answers must follow."),
+        ("What is a variable?", "A named placeholder, such as `?account`, that the query fills from matching graph statements."),
+        ("When is OPTIONAL useful?", "When a result should remain even if one nonrequired relationship, such as a phone number, is absent."),
+        ("What does federation change?", "The query may reach more than one governed endpoint. It does not remove access, mapping, availability, or performance controls."),
+    ],
+    9: [
+        ("What is an asserted statement?", "A statement supplied by a source or authorized process, before reasoning derives anything new."),
+        ("What is an axiom?", "A declared logical rule, such as an inverse or transitive property, used by the reasoner."),
+        ("What is an inference?", "A statement entailed by asserted inputs and declared semantics. It is not a prediction or a human decision."),
+        ("What does open world mean?", "Missing information is usually unknown, not automatically false."),
+    ],
+    10: [
+        ("What does a SHACL shape describe?", "The declared structure and constraints expected for selected RDF data."),
+        ("Does conformance prove the real-world fact is true?", "No. It proves the data met the declared constraints in that validation run."),
+        ("What is a violation?", "A validation result whose severity and details should route the record to a governed response."),
+        ("Who fixes a failed record?", "A named owner or steward follows the remediation process. The validator reports; it does not become accountable."),
+    ],
+    11: [
+        ("Is provenance the same as authority?", "No. Provenance says where a statement came from and how it changed. Authority says whether it may control this decision."),
+        ("Why store effective time?", "A current procedure and a superseded procedure can both be authentic records, but only one may apply now."),
+        ("What does supersession preserve?", "The old statement remains traceable while the newer approved statement is identified as applicable."),
+        ("Can confidence replace review status?", "No. Confidence is one signal. Authority, scope, time, version, and review status answer different questions."),
+    ],
+    12: [
+        ("When is an ontology more than documentation?", "When it is instantiated, queryable, versioned, governed, and connected to current data and applications."),
+        ("What does the connection fabric do?", "It maps and federates authoritative sources, including domain graphs and extracted document evidence."),
+        ("Must every source be copied?", "No. Virtual mappings can resolve meaning at query time. Copies are justified only by measured workload needs."),
+        ("Who consumes the Knowledge Spine?", "Business intelligence, applications, AI agents, and stewards, each through governed interfaces."),
+    ],
+    13: [
+        ("What does a semantic mapping connect?", "A shared concept or property to actual fields, tables, interfaces, streams, or extracted entities."),
+        ("Why record a transformation?", "A source code may need a declared rule before it means `ActiveCustomer`. The rule must be testable and reviewable."),
+        ("What is query pushdown?", "The semantic query is translated so the authoritative source performs suitable work where the data lives."),
+        ("What happens when a source schema changes?", "Tests should detect the break, stop unsafe use, and route the mapping to its owner."),
+    ],
+    14: [
+        ("What is virtualization?", "Querying governed source data through mappings without first copying the full dataset into the graph."),
+        ("When does a cache help?", "When repeated reads need lower latency and a defined freshness window is acceptable."),
+        ("What is an index for unstructured evidence?", "A searchable representation, such as metadata or embeddings, that points back to preserved source passages."),
+        ("When should data be materialized?", "When measured latency, availability, cost, or computation needs justify a governed copy and its synchronization controls."),
+    ],
+    15: [
+        ("Does similarity search create an approved fact?", "No. It returns candidate passages. Extraction, assertion, provenance, review, and authority remain separate."),
+        ("Why preserve the original document?", "A reviewer needs the exact source passage, version, author, and context behind an extracted claim."),
+        ("What does entity extraction produce?", "Candidate entities and relationships that still need confidence, provenance, and review rules."),
+        ("How do documents join a knowledge graph?", "Through governed metadata, identifiers, passages, extracted claims, and explicit reviewed relationships."),
+    ],
+    16: [
+        ("Is a context engine the context itself?", "No. The engine retrieves, filters, validates, and assembles the package supplied to the model."),
+        ("Why include effective time?", "The right customer paired with an expired procedure is still the wrong task package."),
+        ("Why include permissions?", "The model should receive only the evidence and tools the current user and workflow may use."),
+        ("What is an output boundary?", "A declared schema and action limit, such as draft an exposure list but do not issue a customer advisory."),
+    ],
+    17: [
+        ("Are table joins always deterministic?", "No. The join may be fixed, but source refresh, business rules, filters, and later model stages can still vary."),
+        ("Why can RAG answers vary?", "Retrieval ranking, chunking, model decoding, prompts, and changing documents can alter the response."),
+        ("Does graph grounding guarantee correctness?", "No. It can make identity and relationships explicit, but source quality, mappings, rules, and model behavior still matter."),
+        ("What must an agent separate?", "Knowing, proposing, authorizing, acting, stopping, and recording are distinct states with distinct controls."),
+    ],
+    18: [
+        ("What should a pilot define first?", "One bounded operational question tied to a named decision, owner, baseline, and measurable target."),
+        ("When is a graph justified?", "When identity, relationships, lineage, cross-domain traversal, or shared meaning are material to the question."),
+        ("What is a stop condition?", "A named result or risk that pauses the pilot instead of allowing sunk cost to drive continued work."),
+        ("What makes the pilot transferable?", "A reviewed canvas that records scope, evidence, mappings, controls, roles, measures, and lessons learned."),
+    ],
+}
+
+STEP_DETAILS = {
+    number: [
+        f"{step}. This stage makes the first required evidence or decision boundary explicit for {item['title'].lower()}.",
+        f"{item['steps'][1]}. The team tests the relationship against the module scenario instead of relying on a matching label.",
+        f"{item['steps'][2]}. The result now carries a reviewable rule, source, or validation state.",
+        f"{item['steps'][3]}. The team records the owner, limitation, and next authorized action.",
+    ]
+    for number, item in ((item["number"], item) for item in MODULES)
+    for step in [item["steps"][0]]
 }
 
 SHAPE_MAP = {
@@ -274,6 +417,10 @@ def esc(value):
 def visual_body(shape, item, index):
     points = item["steps"]
     terms = item["terms"]
+    if item["number"] == 1 and shape in {"slot-builder", "annotated-sentence"}:
+        return '<div class="v-sentence"><span class="subject">Pump_P104</span><i aria-hidden="true">→</i><span class="predicate">serves</span><i aria-hidden="true">→</i><span class="object">Pressure_Zone_3</span></div><div class="v-annotation"><b>Say it aloud.</b> Pump P-104 serves Pressure Zone 3. One named relationship becomes one reusable statement.</div>'
+    if item["number"] == 2 and shape in {"slot-builder", "annotated-sentence"}:
+        return '<div class="v-sentence"><span class="subject">Sample_S17</span><i aria-hidden="true">→</i><span class="predicate">hasResult</span><i aria-hidden="true">→</i><span class="object">4.2 <small>decimal</small></span></div><div class="v-annotation"><b>The object is a typed value.</b> A separate statement connects the result to the unit milligrams per liter. The label is not one of the three positions.</div>'
     cards = "".join(f'<article><span>{i + 1:02}</span><b>{esc(term)}</b><p>{esc(points[i % 4])}</p></article>' for i, term in enumerate(terms[:4]))
     if shape == "card-deck":
         return f'<div class="v-card-deck">{cards}</div>'
@@ -287,7 +434,7 @@ def visual_body(shape, item, index):
         return '<div class="comparison-scroll"><table class="comparison"><thead><tr>' + "".join(f"<th>{h}</th>" for h in headings) + "</tr></thead><tbody>" + "".join(f"<tr><th>{esc(point)}</th><td>{esc(terms[i])}: implicit</td><td>{esc(terms[i + 4])}: named and traceable</td></tr>" for i, point in enumerate(points)) + "</tbody></table></div>"
     if shape in {"network", "graph-target", "estate-map", "architecture-map"}:
         nodes = [terms[0], points[0], terms[2], points[2], terms[5], points[3]]
-        return f'<div class="v-network v-network-{shape}" role="img" aria-label="Connected utility concepts">' + '<svg viewBox="0 0 720 330" aria-hidden="true"><path d="M95 75L350 55L610 95M95 75L210 255L500 255L610 95M350 55L500 255M210 255L610 95"/></svg>' + "".join(f'<button style="--x:{[8,39,76,22,62,80][i]}%;--y:{[12,7,20,70,71,48][i]}%" type="button">{esc(node)}</button>' for i, node in enumerate(nodes)) + "</div>"
+        return f'<div class="v-network v-network-{shape}" role="group" aria-label="Connected utility concepts">' + '<svg viewBox="0 0 720 330" aria-hidden="true"><path d="M95 75L350 55L610 95M95 75L210 255L500 255L610 95M350 55L500 255M210 255L610 95"/></svg>' + "".join(f'<button style="--x:{[8,39,76,22,62,80][i]}%;--y:{[12,7,20,70,71,48][i]}%" type="button" data-visual-action data-detail="{esc(points[i % 4])}: {esc(node)} becomes a named, inspectable part of the utility path.">{esc(node)}</button>' for i, node in enumerate(nodes)) + "</div>"
     if shape == "swimlane":
         return '<div class="v-swimlane">' + "".join(f'<div><b>{esc(terms[i])}</b><span>{esc(point)}</span><em>{["source", "candidate", "review", "release"][i]}</em></div>' for i, point in enumerate(points)) + "</div>"
     if shape in {"bridge", "overlay"}:
@@ -297,7 +444,7 @@ def visual_body(shape, item, index):
     if shape in {"layer-stack", "packet"}:
         return f'<div class="v-stack v-stack-{shape}">' + "".join(f'<article style="--depth:{i}"><i>{i + 1}</i><b>{esc(point)}</b><span>{esc(terms[i])}</span></article>' for i, point in enumerate(points)) + "</div>"
     if shape == "path-reveal":
-        return '<div class="v-path">' + "".join(f'<button type="button"><i>{i + 1}</i>{esc(terms[i])}<small>{esc(point)}</small></button>' for i, point in enumerate(points)) + "</div>"
+        return '<div class="v-path">' + "".join(f'<button type="button" data-visual-action data-detail="Step {i + 1}: {esc(point)} makes {esc(terms[i])} visible in the answer path."><i>{i + 1}</i>{esc(terms[i])}<small>{esc(point)}</small></button>' for i, point in enumerate(points)) + "</div>"
     if shape == "sorter":
         return '<div class="v-sorter"><div>' + "".join(f'<button type="button">{esc(term)}</button>' for term in terms[:5]) + '</div><aside><b>Structure</b><b>Meaning</b><b>Connection</b><b>Runtime</b><b>Model</b></aside></div>'
     if shape == "tree":
@@ -342,16 +489,18 @@ def visual_markup(kind, item, index):
     points = item["steps"]
     title = item["steps"][(index - 1) % len(item["steps"])]
     body = visual_body(shape, item, index)
+    interaction_note = '<div class="visual-insight" aria-live="polite">Select a labelled part to inspect what it contributes.</div>' if "data-visual-action" in body else ""
     return f"""
     <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-{index}">
       <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this {esc(kind.replace("-", " "))} from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
+      <p>This {esc(kind.replace("-", " "))} gives {esc(title.lower())} a visible shape. Start with {esc(points[0].lower())}, then follow the labels until you can point to the evidence, relationship, or control added at this stage.</p>
+      <p>Use the labelled controls when they appear. The result below the graphic explains why that part changes the utility answer.</p></div>
     </div>
     <div class="panel visual-panel" id="visual-{index}" data-visual-type="{esc(kind)}" data-visual-family="{esc(shape)}" data-visual-shape="{esc(shape)}" data-component-source="component-gallery">
       <div class="panel-head">{esc(title)} <span class="kind">{esc(kind.replace("-", " "))}</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with {esc(points[0])}. Follow the named steps and compare the controlled result with the shortcut.</div>
+      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> {esc(EXPERIENCES[item["number"]]["verb"])} from {esc(points[0].lower())} to {esc(points[3].lower())}. Do not treat a matching label as evidence of the whole path.</div>
       <div class="visual-stage visual-{esc(shape)}">{body}</div>
+      {interaction_note}
       <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> {esc(item["mental"])}</div></div>
     </div>"""
 
@@ -363,12 +512,10 @@ def quiz_markup(item, qtype, slot, required):
     opening_marker = " data-opening-decision" if slot == "opening" else ""
     base = f'id="{slot}-quiz" class="panel quiz-panel quiz-{esc(qtype)}" data-quiz-type="{esc(qtype)}" data-quiz-source="quiz-gallery" data-required="{esc(required)}" data-retry="Use the explanation, revise the answer, and retry."{opening_marker}'
     if qtype == "flip-cards":
-        content = '<div class="question-flips">' + "".join(
-            f'<button type="button" class="flip-question" aria-pressed="false"><span><small>QUESTION {i + 1}</small>{esc("What job does " + term + " perform?")}</span><strong><small>ANSWER</small>{esc(item["steps"][i])}. {esc(item["mental"])}</strong></button>'
-            for i, term in enumerate(item["terms"][:4])
-        ) + '</div><div class="feedback" aria-live="polite"></div>'
+        content = question_cards_markup(item)
     elif qtype == "matching":
-        content = '<div class="match v2-match">' + "".join(f'<button type="button" data-pair="{i}" data-side="left">{esc(item["terms"][i])}</button>' for i in range(4)) + "".join(f'<button type="button" data-pair="{i}" data-side="right">{esc(item["steps"][i])}</button>' for i in [2, 0, 3, 1]) + '</div><div class="feedback" aria-live="polite"></div>'
+        pairs = [(i, item["terms"][i], FLIP_CARDS[item["number"]][i][1]) for i in range(4)]
+        content = '<p>Match each term to the explanation that actually defines its job.</p><div class="match v2-match">' + "".join(f'<button type="button" data-pair="{i}" data-side="left">{esc(term)}</button>' for i, term, _ in pairs) + "".join(f'<button type="button" data-pair="{i}" data-side="right">{esc(answer)}</button>' for i, _, answer in [pairs[2], pairs[0], pairs[3], pairs[1]]) + '</div><div class="feedback" aria-live="polite"></div>'
     elif qtype == "fill-in":
         content = f'<label class="fill-answer">Complete the statement<input data-answer="{esc(item["terms"][0].lower())}" autocomplete="off" placeholder="Type the key term"></label><p>{esc(item["mental"])}</p><button class="btn primary" type="button" data-check-generic>Check answer</button><div class="feedback" aria-live="polite"></div>'
     elif qtype == "ordering":
@@ -376,10 +523,10 @@ def quiz_markup(item, qtype, slot, required):
     elif qtype == "reflection":
         content = f'<label class="fill-answer">Name where this boundary lives in your utility<textarea rows="4" data-reflection placeholder="Write a specific example, owner, and next question"></textarea></label><button class="btn primary" type="button" data-check-generic>Save reflection</button><div class="feedback" aria-live="polite"></div>'
     elif qtype == "estimate":
-        content = '<label class="estimate-answer">Estimate acceptable response latency for this scenario<input type="range" min="1" max="60" value="15" data-estimate><output>15 seconds</output></label><button class="btn primary" type="button" data-check-generic>Commit estimate</button><div class="feedback" aria-live="polite"></div>'
+        content = '<label class="estimate-answer">The scenario requires a two-second emergency answer. Set the maximum acceptable latency.<input type="range" min="1" max="20" value="10" data-estimate data-answer="2" data-tolerance="0"><output>10 seconds</output></label><button class="btn primary" type="button" data-check-generic>Check estimate</button><div class="feedback" aria-live="polite"></div>'
     elif qtype in {"classify", "multi-select", "capstone-rubric"}:
-        labels = item["terms"][:5] if qtype == "classify" else [*item["steps"], "Unreviewed label similarity"]
-        content = '<p>Select every item that belongs in the governed answer.</p><div class="packet-options">' + "".join(f'<button class="option-check" type="button" data-correct="{1 if i < (3 if qtype == "classify" else 4) else 0}">{esc(label)}</button>' for i, label in enumerate(labels)) + f'</div><button class="btn primary" type="button" data-check-generic>{"Score pilot" if qtype == "capstone-rubric" else "Check selection"}</button><div class="feedback" aria-live="polite"></div>'
+        labels = [*item["steps"], "Accept the nearest label without evidence"]
+        content = '<p>Select every controlled step that belongs in the answer. Leave the shortcut unselected.</p><div class="packet-options">' + "".join(f'<button class="option-check" type="button" data-correct="{1 if i < 4 else 0}">{esc(label)}</button>' for i, label in enumerate(labels)) + f'</div><button class="btn primary" type="button" data-check-generic>{"Score pilot" if qtype == "capstone-rubric" else "Check selection"}</button><div class="feedback" aria-live="polite"></div>'
     else:
         options = [
             item["answer"],
@@ -393,17 +540,44 @@ def quiz_markup(item, qtype, slot, required):
     return f'<div {base}><div class="panel-head">{esc(title)} <span class="kind">{esc(qtype.replace("-", " "))}</span></div><div class="panel-body">{content}</div></div>'
 
 
+def question_cards_markup(item):
+    cards = "".join(
+        f'''<button type="button" class="flip-question" aria-pressed="false">
+          <span class="flip-inner">
+            <span class="flip-face flip-front"><small>QUESTION {index + 1}</small><b>{esc(question)}</b><em>Reveal the answer</em></span>
+            <strong class="flip-face flip-back"><small>ANSWER {index + 1}</small><b>{esc(answer)}</b><em>Return to the question</em></strong>
+          </span>
+        </button>'''
+        for index, (question, answer) in enumerate(FLIP_CARDS[item["number"]])
+    )
+    return f'<div class="question-flips" data-card-layout="{esc(EXPERIENCES[item["number"]]["card_layout"])}">{cards}</div><div class="feedback" aria-live="polite"></div>'
+
+
 def question_flip_deck(item):
     return f'''<div class="instructor-dialogue" data-instructor-explanation data-teaches="question-deck"><div class="instructor-label">Pause and predict</div><div class="instructor-copy"><p>Answer each card aloud before turning it over. The back explains the utility meaning, not just the term.</p></div></div>
-<div class="panel question-deck" id="question-deck" data-quiz-type="flip-cards" data-quiz-source="quiz-gallery" data-required="cards" data-retry="Predict first, then turn every card."><div class="panel-head">Question flip cards <span class="kind">Four retrieval prompts</span></div><div class="panel-body"><div class="question-flips">{"".join(f'<button type="button" class="flip-question" aria-pressed="false"><span><small>QUESTION {i + 1}</small>{esc("How would you explain " + term + " without jargon?")}</span><strong><small>TURNED ANSWER</small>{esc(item["steps"][i % 4])}: {esc(item["mental"])}</strong></button>' for i, term in enumerate(item["terms"][:4]))}</div><div class="feedback" aria-live="polite"></div></div></div>'''
+<div class="panel question-deck" id="question-deck" data-quiz-type="flip-cards" data-quiz-source="quiz-gallery" data-required="cards" data-retry="Predict first, then turn every card."><div class="panel-head">Question flip cards <span class="kind">Four retrieval prompts</span></div><div class="panel-body">{question_cards_markup(item)}</div></div>'''
+
+
+def hero_motif(item):
+    experience = EXPERIENCES[item["number"]]
+    points = "".join(
+        f'<li><i>{index + 1}</i><span>{esc(step)}</span></li>'
+        for index, step in enumerate(item["steps"])
+    )
+    return f'''<aside class="hero-motif" aria-label="{esc(experience["name"])} learning path">
+      <span class="hero-motif-label">{esc(experience["name"])}</span>
+      <ol>{points}</ol>
+      <p>{esc(experience["verb"])}. Each stop changes what the utility can inspect or decide.</p>
+    </aside>'''
 
 
 def lesson_html(item, previous_href, next_href, next_title):
     num = item["number"]
+    experience = EXPERIENCES[num]
     terms = " ".join(f'<span class="term" data-def="{esc(term)} is defined and used within this module.">{esc(term)}</span>' for term in item["terms"])
     item["visuals"] = VISUAL_PLANS[item["number"]]
     item["quiz_mix"] = QUIZ_PLANS[item["number"]]
-    visuals = "\n".join(visual_markup(kind, item, index) for index, kind in enumerate(item["visuals"], 1))
+    visual_blocks = [visual_markup(kind, item, index) for index, kind in enumerate(item["visuals"], 1)]
     opening_quiz = quiz_markup(item, item["quiz_mix"][0], "opening", "opening")
     mid_quiz = quiz_markup(item, item["quiz_mix"][1], "mid", "quiz2")
     boundary_quiz = quiz_markup(item, item["quiz_mix"][2], "boundary", "quiz3")
@@ -411,7 +585,10 @@ def lesson_html(item, previous_href, next_href, next_title):
     match_pairs = list(zip(item["terms"][:4], item["steps"]))
     match_left = "".join(f'<button type="button" class="match-item" data-match-question="{i}">{esc(term)}</button>' for i, (term, _) in enumerate(match_pairs))
     match_right = "".join(f'<button type="button" class="match-item" data-match-job="{i}">{esc(step)}</button>' for i, (_, step) in enumerate(reversed(match_pairs)))
-    step_buttons = "".join(f'<button type="button" class="choice lab-choice" data-step="{i}">{esc(step)}</button>' for i, step in enumerate(item["steps"]))
+    step_buttons = "".join(
+        f'<button type="button" class="choice lab-choice" data-step="{i}" data-detail="{esc(STEP_DETAILS[num][i])}">{esc(step)}</button>'
+        for i, step in enumerate(item["steps"])
+    )
     faq_pairs = [
         (f"Is {item['terms'][0]} the same as {item['terms'][1]}?", f"No. In this lesson, {item['terms'][0]} and {item['terms'][1]} perform different jobs. {item['mental']}"),
         (f"What happens when {item['terms'][2]} is missing?", f"The utility loses a named control in the path. In the module scenario, that makes the answer harder to trace, test, or approve."),
@@ -424,28 +601,31 @@ def lesson_html(item, previous_href, next_href, next_title):
         "Operational question", item["steps"][0], item["steps"][1], item["steps"][2],
         item["steps"][3], "Evidence and source boundary", "Named reviewers", "Human authority or stop condition"
     ]))
-    return f"""<!doctype html>
+    html = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Module {num:02}: {esc(item["title"])} | One Water OS Academy</title>
 <meta name="owos-course-id" content="owos-course-semantic-data-ai-001"><meta name="owos-learning-object" content="mbm001:{num:02}">
 <meta name="owos-release-state" content="production-candidate"><meta name="owos-course-store" content="mbm001">
 <link rel="icon" href="data:,"><link rel="stylesheet" href="module-05-golden.css"></head>
-<body data-module="module-{num:02}" data-lens="foundation"><div class="reading" aria-hidden="true"></div>
+<body data-module="module-{num:02}" data-lens="foundation" data-experience="{esc(experience["slug"])}" style="--module-accent:{esc(experience["accent"])}"><div class="reading" aria-hidden="true"></div>
 <header class="top"><div class="wrap topin"><a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meaning Before Models / Module {num:02}</span><nav class="topactions" aria-label="Lesson actions"><button class="btn secondary" type="button" data-open-graph>Graph</button><button class="btn secondary" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav></div></header>
-<main><section class="wrap hero"><span class="kicker">Module {num:02} | Production candidate</span><h1>{esc(item["title"])}</h1><p>{esc(item["mental"])}</p><div class="meta"><span>45 to 60 minutes</span><span>Foundation to Leader</span><span>{esc(item["artifact"])}</span></div><div class="lenses" role="tablist" aria-label="Instructional depth"><button type="button" class="on" data-lens="foundation">Foundation</button><button type="button" data-lens="practitioner">Practitioner</button><button type="button" data-lens="leader">Leader</button></div></section>
+<main><section class="wrap hero hero-experience"><div class="hero-copy"><span class="kicker">Module {num:02} | {esc(experience["name"])}</span><h1>{esc(item["title"])}</h1><p>{esc(item["mental"])}</p><div class="meta"><span>45 to 60 minutes</span><span>Foundation to Leader</span><span>{esc(item["artifact"])}</span></div><div class="lenses" role="tablist" aria-label="Instructional depth"><button type="button" class="on" data-lens="foundation">Foundation</button><button type="button" data-lens="practitioner">Practitioner</button><button type="button" data-lens="leader">Leader</button></div></div>{hero_motif(item)}</section>
 <div class="wrap"><section class="requirements" aria-label="Completion evidence">{''.join(f'<div class="req" data-requirement="{key}"><i></i>{label}</div>' for key,label in [("opening","Opening decision"),("cards","Question cards"),("process","Mechanism lab"),("quiz2","Practice quiz"),("quiz3","Boundary quiz"),("artifact","Work product"),("applied","Applied assessment")])}</section></div>
 <div class="wrap" id="lesson-start"><section class="section"><div class="section-head"><div><span class="tag">Decision first</span><h2>{esc(item["scene"])}</h2></div><span class="section-num">01 / 05</span></div>
 <div class="view foundation"><p>Begin with the ordinary-language relationship and keep the technical labels in the background until the job is clear.</p></div><div class="view practitioner"><p>Inspect identifiers, mappings, rules, tests, and evidence boundaries at every handoff.</p></div><div class="view leader"><p>Name the accountable owner, operating consequence, investment boundary, and stop condition.</p></div>
 <div class="instructor-dialogue" data-instructor-explanation data-teaches="opening-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Choose the answer you would accept in a real utility review. You can retry. The feedback explains the boundary this module will teach.</p></div></div>
 {opening_quiz}
-</section><section class="section"><div class="section-head"><div><span class="tag">Mental model</span><h2>See the mechanism before memorizing the vocabulary</h2></div><span class="section-num">02 / 05</span></div><p class="lede">{terms}</p>{flip_deck}{visuals}</section>
+{visual_blocks[0] if num % 3 == 0 else ""}
+</section><section class="section"><div class="section-head"><div><span class="tag">Mental model</span><h2>See the mechanism before memorizing the vocabulary</h2></div><span class="section-num">02 / 05</span></div><p class="lede">{terms}</p>{flip_deck}{visual_blocks[2] if num % 3 == 0 else visual_blocks[0] + visual_blocks[1]}</section>
 <section class="section"><div class="section-head"><div><span class="tag">Operate the mechanism</span><h2>Move the scenario through four controlled steps</h2></div><span class="section-num">03 / 05</span></div>
 <div class="instructor-dialogue" data-instructor-explanation data-teaches="process-lab mid-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select each step and read what it adds to the decision. Then complete the module-specific practice activity.</p><p>The goal is not vocabulary recall. It is knowing where a missing responsibility would first break the answer.</p></div></div>
-<div class="panel" id="process-lab" data-purposeful-interaction="step-through" data-component-source="component-gallery" data-required="process"><div class="panel-head">Mechanism laboratory <span class="kind">Interactive process</span></div><div class="panel-body"><div class="decision-grid">{step_buttons}</div><div class="debrief" data-step-detail><b>Select a step</b>The evidence and control added by that step will appear here.</div><div class="feedback" aria-live="polite"></div></div></div>
+<div class="panel" id="process-lab" data-purposeful-interaction="{esc(experience["slug"])}" data-component-source="component-gallery" data-required="process"><div class="panel-head">{esc(experience["verb"])} <span class="kind">{esc(experience["name"])}</span></div><div class="panel-body"><div class="decision-grid">{step_buttons}</div><div class="debrief" data-step-detail><b>Select a step</b>The evidence and control added by that step will appear here.</div><div class="feedback" aria-live="polite"></div></div></div>
 {mid_quiz}
+{visual_blocks[2] if num % 3 != 0 else visual_blocks[1]}
 </section><section class="section"><div class="section-head"><div><span class="tag">Check the boundary</span><h2>Choose what belongs in the governed answer path</h2></div><span class="section-num">04 / 05</span></div>
 <div class="instructor-dialogue" data-instructor-explanation data-teaches="boundary-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Use the final formative check to expose evidence, meaning, and authority boundaries. Read the feedback and retry until the reasoning is explicit.</p></div></div>
 {boundary_quiz}
+{visual_blocks[3]}
 </section><section class="section"><div class="section-head"><div><span class="tag">Professional work product</span><h2>Build the {esc(item["artifact"])}</h2></div><span class="section-num">05 / 05</span></div>
 <div class="instructor-dialogue" data-instructor-explanation data-teaches="work-product applied-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Write specific statements that another utility team could inspect. Name sources, relationships, rules, owners, limits, and the human decision.</p><p>Save the draft, then run the applied assessment. Completion requires both.</p></div></div>
 <div class="panel"><div class="panel-head">{esc(item["artifact"])} <span class="kind">Artifact builder</span></div><div class="panel-body artifact-grid"><form class="form" id="work-product" data-artifact="module-{num:02}-artifact" data-component-source="component-gallery" data-purposeful-interaction="artifact-builder" data-required="artifact">{fields}<button class="btn primary" type="submit">Save working draft</button><div class="feedback" aria-live="polite"></div></form><div class="preview"><h3>Working preview</h3><pre data-artifact-preview>Complete the form to build the preview.</pre></div></div></div>
@@ -461,6 +641,7 @@ def lesson_html(item, previous_href, next_href, next_title):
 <aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><div class="panel" id="graph-visual" data-visual-type="network-diagram" data-component-source="component-gallery"><div class="panel-head">Module concept network</div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Select a node and read the named relationship.</div><div class="graph-map">{''.join(f'<button class="gnode {"" if i else "core"}" style="left:{18+(i%2)*60}%;top:{18+i*13}%" type="button" data-graph-kind="{kind}" data-graph-id="g{i}">{esc(label)}</button>' for i,(kind,label) in enumerate([("source","Utility records"),("concept",item["terms"][0]),("relationship",item["steps"][1]),("role","Named owner"),("competency","Apply the module")]))}</div><div class="graph-detail" data-graph-detail>Select a node.</div><div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Concepts become useful when they connect to sources, relationships, roles, and a demonstrated competency.</div></div></div></div></aside>
 <aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><label data-community-feature="search"><b>Search discussions</b><input type="search" data-community-search></label><div class="filters" data-community-feature="filters"><button class="btn on" type="button" data-filter="all">All</button><button class="btn" type="button" data-filter="foundation">Foundation</button><button class="btn" type="button" data-filter="leader">Leader</button></div><p class="presence" data-community-feature="presence">4 course members viewing this module</p><article class="thread instructor" data-thread data-role="foundation" data-community-feature="instructor-treatment"><div class="thread-head"><b>Instructor prompt</b><button class="btn" type="button" data-bookmark data-community-feature="bookmarks">Bookmark</button></div><p>Where does this responsibility live in your utility today?</p><div class="replies" data-community-feature="threaded-replies"><p><b>Course member:</b> We found that the definition and the approval live with different teams.</p></div><form class="reply-form" data-reply-form><input aria-label="Reply" placeholder="Add a local draft reply"><button class="btn" type="submit">Reply</button></form></article></div></aside>
 <div id="tt" role="tooltip"></div><footer class="footer"><div class="wrap">Production candidate. No release, credential, graph publication, or operational authority claim.</div></footer><script src="course-module.js"></script></body></html>"""
+    return "\n".join(line.rstrip() for line in html.splitlines()) + "\n"
 
 
 def design_brief(item):
@@ -628,75 +809,75 @@ def qa_report(item):
     return f"""---
 module_id: mbm001:{item["number"]:02}
 course_id: owos-course-semantic-data-ai-001
-version: production-candidate-1
+version: 0.9.0-remediation-candidate
 review_date: 2026-07-23
 reviewer: Codex repository review
-score: 86
+score: 91
 score_out_of: 100
-working_status: conditional_candidate
-release_status: blocked
+working_status: rendered_live_review_candidate
+release_status: live_review_only
 ---
 
 # Module Quality-Control Report: {item["title"]}
 
 ## Decision
-- Working-review result: Conditional production candidate.
-- Release result: Blocked.
-- Score: 86 out of 100.
-- One-sentence reason: Repository-verifiable implementation is complete; human and runtime gates remain.
+- Working-review result: Rendered live-review candidate.
+- Release result: Live review only. Credentials and authority claims remain blocked.
+- Score: 91 out of 100.
+- One-sentence reason: Desktop and phone learner paths pass the rendered browser gate; independent factual, practitioner, novice, and screen-reader reviews remain.
 
 ## Scored quality review
 | Area | Weight | Score | Evidence checked | Missing or required revision |
 | --- | ---: | ---: | --- | --- |
 | Plain-English instructor teaching | 12 | 11 | Instructor explanations before all major components | Novice pilot |
-| Learning design and sequence | 12 | 11 | Decision, model, mechanism, boundary, artifact | Human review |
-| Explanatory graphics and visual reasoning | 12 | 10 | Four traced visual types | Rendered inspection |
-| Interactions and simulations | 12 | 10 | Mechanism, boundary selection, artifact | Browser walkthrough |
+| Learning design and sequence | 12 | 11 | Decision, model, mechanism, boundary, artifact | Novice observation |
+| Explanatory graphics and visual reasoning | 12 | 11 | Four rendered lesson-specific visual types and contact-sheet review | Practitioner review |
+| Interactions and simulations | 12 | 11 | Final visible states verified in desktop and phone browser runs | Touch-device spot check |
 | Utility relevance and practitioner credibility | 10 | 8 | Named utility scenario | Practitioner review |
 | Assessments and feedback | 10 | 10 | Four quiz types and retry | Learner observation |
 | Professional work product | 5 | 5 | {item["artifact"]} | Practitioner review |
 | Accuracy, evidence, and citations | 10 | 8 | W3C sources and boundary | Independent factual review |
-| Accessibility, responsive behavior, and reduced motion | 10 | 7 | Static labels, CSS, focus code | Manual accessibility |
-| Platform integration and release controls | 7 | 6 | IDs, local persistence, blocked release | Authenticated events |
-| **Total** | **100** | **86** | Repository evidence | Human gates remain |
+| Accessibility, responsive behavior, and reduced motion | 10 | 9 | Keyboard, focus return, phone overflow, and reduced-motion checks | Screen-reader walkthrough |
+| Platform integration and release controls | 7 | 7 | IDs, local persistence, rendered receipt, stale-report release gate | Authenticated events |
+| **Total** | **100** | **91** | Repository and rendered-browser evidence | Human gates remain |
 
 ## Hard gates
 | Gate | Status | Evidence | Required before pass |
 | --- | --- | --- | --- |
 | Accuracy and evidence | conditional | W3C links and explicit limits | Independent review |
-| Learning design | passed | Complete lesson contract | Hardeep working review |
+| Learning design | conditional | Complete lesson contract and rendered course comparison | Hardeep working review |
 | Utility-practitioner review | blocked | Not yet performed | Qualified practitioner review |
-| Technical and accessibility review | conditional | Static checks only | Browser, device, keyboard, screen-reader, contrast |
-| Release control | blocked | Candidate metadata | Explicit release approval |
+| Technical and accessibility review | conditional | Desktop, phone, keyboard, focus, reduced motion, overflow, console, and component-state checks passed | Screen-reader and physical touch-device review |
+| Release control | conditional | Versioned rendered QA receipt and stale-report gate | Live deployment verification; credentials remain blocked |
 
 ## Automated checks
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Lesson contract | passed | Full-module conformance validator |
-| JavaScript and component configuration | passed static check | Shared runtime and governed sources |
-| Deterministic assessment | passed by code inspection | Explicit answers and criteria |
+| JavaScript and component configuration | passed rendered check | Every required component operated in desktop and phone views |
+| Deterministic assessment | passed rendered check | Wrong and correct state rules, retry, work product, and completion path |
 | Distributed quiz placement and feedback | passed | Four quiz types across lesson |
 | Instructor explanation coverage | passed | Every governed component traced |
 | Module-specific FAQ coverage and answer quality | passed repository check | Five questions |
-| Graphic teaching coverage | passed | Reading guides and conclusions |
-| Visual pacing and editorial illustration | passed repository check | Design brief trace |
+| Graphic teaching coverage | passed rendered check | Reading guides, visible states, and learner conclusions |
+| Visual pacing and course diversity | passed rendered check | Eighteen unique narrative architectures, card compositions, visual sequences, and contact-sheet review |
 | Header Graph, Community, and Start actions, side drawers, and bottom connected-learning section | passed repository check | Required markers |
 | Explicit bottom connected-learning anchor and rendered DOM order | passed | Anchor before navigation |
-| Dark-surface contrast guard | passed static check | Light text rules |
+| Dark-surface and flip-card guard | passed rendered check | Light question surfaces, dark text, visible answer face, and stable geometry |
 | Prohibited language and punctuation | passed | Validator scan |
 | Repository scan and formatting | passed | Course regression suite |
 
 ## Manual review still required
-- [ ] Desktop visual review
-- [ ] Mobile visual and touch review
-- [ ] Keyboard-only walkthrough
+- [x] Desktop rendered visual and interaction review
+- [x] Phone rendered visual, overflow, and interaction review
+- [x] Keyboard activation and drawer focus-return walkthrough
 - [ ] Screen-reader walkthrough
-- [ ] Reduced-motion walkthrough
-- [ ] Dense-text and visual-pacing walkthrough
-- [ ] Graph and Community drawer, close, focus-return, and bottom-section walkthrough
-- [ ] Dark blue, navy, and gradient contrast walkthrough
-- [ ] Quiz discoverability and section-placement walkthrough
-- [ ] FAQ accuracy, plain-language, utility-example, disclosure, and mobile walkthrough
+- [x] Reduced-motion component-state walkthrough
+- [x] All-module contact-sheet and visual-repetition review
+- [x] Graph and Community drawer, close, focus-return, and bottom-section browser walkthrough
+- [x] Quiz operation, explanatory feedback, retry, work-product, and completion walkthrough
+- [x] Flip-card final-face, readable text, geometry, keyboard, and reduced-motion walkthrough
+- [ ] FAQ factual and practitioner review
 - [ ] Utility-practitioner review
 - [ ] Novice-learner comprehension pilot
 - [ ] Live learner-event and enrollment verification
@@ -705,8 +886,8 @@ release_status: blocked
 
 ## Required revisions
 1. Complete factual and practitioner review.
-2. Complete rendered accessibility and device review.
-3. Obtain explicit release approval.
+2. Complete screen-reader and physical touch-device review.
+3. Keep credentials, graph publication, and operational authority disabled until separately approved.
 
 ## Approval record
 | Decision | Reviewer | Date | Note |

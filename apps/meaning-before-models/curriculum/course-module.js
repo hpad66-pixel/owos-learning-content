@@ -73,7 +73,7 @@
   processButtons.forEach((button, index) => button.addEventListener("click", () => {
     selectedSteps.add(index);
     button.classList.add("selected");
-    process.querySelector("[data-step-detail]").innerHTML = `<b>Step ${index + 1}: ${button.textContent}</b>This step makes evidence, meaning, control, or ownership inspectable.`;
+    process.querySelector("[data-step-detail]").innerHTML = `<b>Step ${index + 1}: ${button.textContent}</b>${button.dataset.detail}`;
     feedback(process, `${selectedSteps.size} of ${processButtons.length} steps inspected.`, true);
     if (selectedSteps.size === processButtons.length) mark("process");
   }));
@@ -138,15 +138,19 @@
       } else if (type === "reflection") {
         good = quiz.querySelector("[data-reflection]").value.trim().length >= 30;
       } else if (type === "estimate") {
-        good = true;
+        const input = quiz.querySelector("[data-estimate]");
+        good = Math.abs(Number(input.value) - Number(input.dataset.answer)) <= Number(input.dataset.tolerance || 0);
       }
       feedback(quiz, good ? "Correct. The answer is explicit enough to inspect and govern." : `${quiz.dataset.retry} Try again.`, good);
       if (good) mark(quiz.dataset.required);
     });
   });
 
-  document.querySelectorAll(".visual-panel button").forEach(button => button.addEventListener("click", () => {
-    button.classList.toggle("active");
+  document.querySelectorAll("[data-visual-action]").forEach(button => button.addEventListener("click", () => {
+    const panel = button.closest(".visual-panel");
+    panel.querySelectorAll("[data-visual-action]").forEach(item => item.classList.toggle("active", item === button));
+    const result = panel.querySelector(".visual-insight");
+    if (result) result.textContent = button.dataset.detail;
   }));
 
   const form = document.querySelector("#work-product");

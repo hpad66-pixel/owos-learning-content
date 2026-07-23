@@ -1,8 +1,21 @@
 # Release
 
+## Version 0.9.0 remediation candidate
+
+Status: rendered QA and live-review replacement in progress on 2026-07-23
+
+This release replaces the rejected 0.8.0 rendered experience. It introduces eighteen distinct
+lesson narratives and card compositions, working question-and-answer cards, meaningful visual and
+process outputs, corrected assessment logic, and browser-operated desktop and phone QA for every
+module. Its release manifest must carry a current passing rendered-browser receipt bound to the
+exact lesson HTML, CSS, and JavaScript.
+
+The existing 0.8.0 deployment remains historical evidence only and must not be treated as an
+accepted design benchmark.
+
 ## Version 0.8.0 live review
 
-Status: deployed for authenticated review on 2026-07-23
+Status: deployed on 2026-07-23 and rejected after rendered learner review
 
 | Evidence | Value |
 | --- | --- |

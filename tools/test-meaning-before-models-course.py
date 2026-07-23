@@ -38,6 +38,8 @@ records[5] = {
 results = []
 experience_fingerprints = []
 all_lesson_visual_types = set()
+experience_names = []
+card_layouts = []
 for number in range(1, 19):
     record = records[number]
     result = validate_module(
@@ -56,6 +58,14 @@ for number in range(1, 19):
     quiz_sequence = tuple(
         node["data-quiz-type"] for node in soup.select("[data-quiz-type][data-required]")
     )
+    experience = soup.body.get("data-experience", "")
+    card_layout = soup.select_one(".question-flips[data-card-layout]")
+    if not experience:
+        raise AssertionError(f"module {number:02} needs a named narrative architecture")
+    if not card_layout:
+        raise AssertionError(f"module {number:02} needs a named card composition")
+    experience_names.append(experience)
+    card_layouts.append(card_layout["data-card-layout"])
     if len(set(visual_shapes)) != len(visual_shapes):
         raise AssertionError(f"module {number:02} repeats a structural visual shape: {visual_shapes}")
     if len(set(inner_signatures)) != len(inner_signatures):
@@ -64,6 +74,12 @@ for number in range(1, 19):
         )
     if len(soup.select('#question-deck .flip-question, #opening-quiz .flip-question')) < 4:
         raise AssertionError(f"module {number:02} needs four working question flip cards")
+    answers = [
+        node.get_text(" ", strip=True)
+        for node in soup.select("#question-deck .flip-back, #opening-quiz .flip-back")
+    ]
+    if len(answers) != 4 or len(set(answers)) != 4 or any(len(answer) < 45 for answer in answers):
+        raise AssertionError(f"module {number:02} has missing, repeated, or shallow flip-card answers")
     all_lesson_visual_types.update(visual_types)
     experience_fingerprints.append((number, visual_types, visual_shapes, quiz_sequence))
     runtime_name = record["lesson"].name.replace("module-", "lesson-meaning-before-models-")
@@ -83,11 +99,17 @@ for number in range(1, 19):
         node["data-quiz-type"]
         for node in runtime_soup.select("[data-quiz-type][data-required]")
     )
+    runtime_experience = runtime_soup.body.get("data-experience", "")
+    runtime_card_layout = runtime_soup.select_one(".question-flips[data-card-layout]")
     if (runtime_visual_types, runtime_visual_shapes, runtime_quiz_sequence) != (
         visual_types, visual_shapes, quiz_sequence
     ):
         raise AssertionError(
             f"module {number:02} packaged runtime is stale relative to curriculum source"
+        )
+    if runtime_experience != experience or not runtime_card_layout or runtime_card_layout["data-card-layout"] != card_layout["data-card-layout"]:
+        raise AssertionError(
+            f"module {number:02} packaged experience fingerprint is stale"
         )
     ids = [node["id"] for node in soup.select("[id]")]
     if len(ids) != len(set(ids)):
@@ -114,6 +136,10 @@ if len(all_lesson_visual_types) < 55:
     raise AssertionError(
         f"course-wide visual arsenal is too narrow: {len(all_lesson_visual_types)} visual types"
     )
+if len(set(experience_names)) != 18:
+    raise AssertionError(f"every lesson needs a unique narrative architecture: {experience_names}")
+if len(set(card_layouts)) != 18:
+    raise AssertionError(f"every lesson needs a unique question-card composition: {card_layouts}")
 dominant_visuals = [fingerprint[1][0] for fingerprint in experience_fingerprints]
 if len(set(dominant_visuals)) != 18:
     raise AssertionError(f"every lesson needs a distinct dominant visual: {dominant_visuals}")

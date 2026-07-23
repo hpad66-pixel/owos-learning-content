@@ -51,6 +51,66 @@ def relative_file(path: Path) -> dict:
     }
 
 
+def rendered_source_digest(course_dir: Path) -> str:
+    curriculum = course_dir / "curriculum"
+    files = [
+        *sorted(curriculum.glob("module-*.html")),
+        curriculum / "module-05-golden.css",
+        curriculum / "course-module.js",
+    ]
+    missing = [path for path in files if not path.is_file()]
+    if missing:
+        raise SystemExit(
+            "rendered browser QA source set is incomplete: "
+            + ", ".join(path.relative_to(ROOT).as_posix() for path in missing)
+        )
+    digest = hashlib.sha256()
+    for path in files:
+        digest.update(path.name.encode("utf-8"))
+        digest.update(path.read_bytes())
+    return digest.hexdigest()
+
+
+def validate_rendered_browser_qa(course_dir: Path, quality_contract: dict, chapters: int) -> dict | None:
+    if quality_contract.get("require_rendered_browser_qa") is not True:
+        return None
+    report_value = Path(
+        required(
+            quality_contract.get("rendered_browser_report"),
+            "quality_contract.rendered_browser_report",
+        )
+    )
+    report_path = report_value if report_value.is_absolute() else course_dir / report_value
+    if not report_path.is_file():
+        raise SystemExit(
+            f"rendered browser QA report does not exist: {report_path.relative_to(ROOT)}"
+        )
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    expected_digest = rendered_source_digest(course_dir)
+    if report.get("schema") != "owos-rendered-course-qa/v1":
+        raise SystemExit("rendered browser QA report uses an unsupported schema")
+    if report.get("passed") is not True:
+        raise SystemExit("rendered browser QA report did not pass")
+    if int(report.get("lessons", 0)) != chapters:
+        raise SystemExit(
+            f"rendered browser QA inspected {report.get('lessons')} lessons, expected {chapters}"
+        )
+    if int(report.get("renderedViews", 0)) < chapters * 2:
+        raise SystemExit("rendered browser QA must inspect desktop and phone views for every lesson")
+    if report.get("sourceDigest") != expected_digest:
+        raise SystemExit("rendered browser QA report is stale relative to the course source")
+    if report.get("courseErrors") or report.get("failures"):
+        raise SystemExit("rendered browser QA report contains unresolved failures")
+    return {
+        "schema": report["schema"],
+        "report_path": report_path.relative_to(ROOT).as_posix(),
+        "report_sha256": sha256(report_path),
+        "source_digest": expected_digest,
+        "lessons": chapters,
+        "rendered_views": int(report["renderedViews"]),
+    }
+
+
 def build(course_dir: Path) -> dict:
     record_path = course_dir / "course.yaml"
     record = yaml.safe_load(record_path.read_text(encoding="utf-8")) or {}
@@ -89,6 +149,9 @@ def build(course_dir: Path) -> dict:
         quality_results = [validate_lesson(path, quality_contract) for path in released_lessons]
     except CourseQualityError as error:
         raise SystemExit(f"course quality gate failed: {error}") from error
+    rendered_browser_qa = validate_rendered_browser_qa(
+        course_dir, quality_contract, chapters
+    )
 
     runtime_assets = sorted(
         path for path in site_dir.iterdir()
@@ -112,6 +175,18 @@ def build(course_dir: Path) -> dict:
     slug = required(record.get("slug"), "slug")
     course_id = required(record.get("course_id"), "course_id")
     release_id = f"{course_id}-v{version}"
+    quality_manifest = {
+        "version": int(required(quality_contract.get("version"), "quality_contract.version")),
+        "released_lessons_validated": len(quality_results),
+        "minimum_purposeful_interactions": int(
+            required(
+                quality_contract.get("minimum_purposeful_interactions"),
+                "quality_contract.minimum_purposeful_interactions",
+            )
+        ),
+    }
+    if rendered_browser_qa is not None:
+        quality_manifest["rendered_browser_qa"] = rendered_browser_qa
 
     return {
         "schema_version": 1,
@@ -130,16 +205,7 @@ def build(course_dir: Path) -> dict:
             "released_chapters": released,
             "runtime_store_key": required(delivery.get("runtime_store_key"), "delivery.runtime_store_key"),
             "runtime_canonical": required(delivery.get("runtime_canonical"), "delivery.runtime_canonical"),
-            "quality_contract": {
-                "version": int(required(quality_contract.get("version"), "quality_contract.version")),
-                "released_lessons_validated": len(quality_results),
-                "minimum_purposeful_interactions": int(
-                    required(
-                        quality_contract.get("minimum_purposeful_interactions"),
-                        "quality_contract.minimum_purposeful_interactions",
-                    )
-                ),
-            },
+            "quality_contract": quality_manifest,
         },
         "source": {
             "repository": repository,

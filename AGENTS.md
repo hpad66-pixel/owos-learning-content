@@ -23,4 +23,9 @@ high numeric score is never a substitute. Do not report full-module conformance 
 passes against the actual lesson. Report every unperformed browser, device, accessibility,
 practitioner, learner, factual, and release review as unresolved.
 
+For courses whose `quality_contract` requires rendered browser QA, the release builder must reject a
+missing, failed, or stale `qa/rendered-browser-report.json`. The browser run must verify final visible
+states and full learner paths for every lesson on desktop and phone. Review all-module contact sheets
+before release so metadata-only variety cannot pass as a distinct learner experience.
+
 Never treat a runtime copy in `onewater-os-platform` as the curriculum source. Never release a course without the mandatory Course Quality Contract and explicit approval.

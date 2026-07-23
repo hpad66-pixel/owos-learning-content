@@ -19,4 +19,6 @@
 | Credential claim | pending | | |
 | Course live-review deployment | approved | 2026-07-23 | Direct instruction from Hardeep Anand: “Go ahead and publish and make it live on my website!” Publish the complete eighteen-module course for live review. Keep credentials, certification claims, authoritative completion, and operational authority disabled while separate human gates continue. |
 | Complete visual-variety remediation | approved | 2026-07-23 | Hardeep directed Codex to fix every lesson, use two or three or more lesson-appropriate graphics, vary quizzes, add question flip cards, update permanent instructions, and publish the corrected course. |
+| Version 0.8.0 rendered experience | rejected | 2026-07-23 | Direct review found broken components, unreadable dark surfaces, weak graphics, failed flip cards, and repetitive lesson composition. Repository-only QA was insufficient. |
+| Version 0.9.0 rendered-component remediation | in production | 2026-07-23 | Direct instruction to fix the complete course, perform module-by-module QA/QC, harden future instructions, and republish the corrected public live-review build. |
 | Final credential-bearing course release | pending | | |
