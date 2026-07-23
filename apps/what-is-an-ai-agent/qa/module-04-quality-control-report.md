@@ -105,3 +105,7 @@ The numeric score summarizes quality. It does not override a failed hard gate. T
 | Working-review acceptance | pending | | Score and open gates are ready for review |
 | Production benchmark | pending | | Requires explicit approval after hard-gate work |
 | Release | pending | | Course remains private and unreleased |
+
+## Version 0.9.2 FAQ review
+
+Passed mechanically: four Module 4 questions, direct plain-English answers, utility examples, visual module map, semantic disclosure controls, and Community escalation are connected. Authenticated desktop, mobile, keyboard, and novice-learner review remain required.

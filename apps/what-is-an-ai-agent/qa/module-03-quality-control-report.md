@@ -27,3 +27,7 @@ Module 3 scores 92 out of 100 as a conditional working pass. The twelve-part ana
 | **Total** | **100** | **92** | **Conditional pass** |
 
 Hard gates: learning design passed for working review. Evidence expansion, practitioner, accessibility, runtime, benchmark, and release gates remain open.
+
+## Version 0.9.2 FAQ review
+
+Passed mechanically: four Module 3 questions, direct plain-English answers, utility examples, visual module map, semantic disclosure controls, and Community escalation are connected. Authenticated desktop, mobile, keyboard, and novice-learner review remain required.

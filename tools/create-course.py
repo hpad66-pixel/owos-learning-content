@@ -164,6 +164,8 @@ Before drafting, read `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yam
 Create a module design brief before each lesson and maintain the course design matrix. Chapter 09 is a capability benchmark, not a page template. Every module must select its visual, interaction, quiz, animation, and work-product mix from the learning problem and must be checked against adjacent modules for repetition.
 
 Use compact Graph and Community buttons in the lesson header. Each opens a white responsive drawer, and the complete connected-learning section remains at the bottom. Floating cards and hanging rails are prohibited. Dark blue, navy, and gradient surfaces always use tested light text.
+
+End every module with a module-specific FAQ before the evidence boundary and bottom connected-learning section. Anticipate novice questions, answer them directly in plain English, use a utility example, and add a diagram, comparison, or worked sequence when it improves understanding.
 """,
     )
     write_once(

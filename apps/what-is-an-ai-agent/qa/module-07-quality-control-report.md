@@ -27,3 +27,7 @@ Module 7 scores 91 out of 100 as a conditional working pass. The original utilit
 | **Total** | **100** | **91** | **Conditional pass** |
 
 Hard gates: learning design passed for working review. Use-case practitioner, device, assistive-technology, runtime, benchmark, and release reviews remain open.
+
+## Version 0.9.2 FAQ review
+
+Passed mechanically: four Module 7 questions, direct plain-English answers, utility examples, visual module map, semantic disclosure controls, and Community escalation are connected. Authenticated desktop, mobile, keyboard, and novice-learner review remain required.

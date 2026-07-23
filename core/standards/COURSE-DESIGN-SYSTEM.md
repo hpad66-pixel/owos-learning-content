@@ -152,6 +152,21 @@ Do not hide every quiz at the bottom of a long module. Place a short, clearly la
 
 The lesson route and section headings must make assessments visible. The learner should understand what is being checked, why it matters, and what to revisit after an incorrect response.
 
+### 12B. Close with the questions learners are likely to ask
+
+Every module ends with a module-specific FAQ before the evidence boundary and bottom connected-learning section. Build the questions from the actual learning objectives, novice review, technical terms, operating consequences, and common category errors in that lesson.
+
+Each answer must:
+
+1. use conversational plain English;
+2. answer the question directly before adding detail;
+3. connect the answer to a water, wastewater, or stormwater example;
+4. include a diagram, comparison, or worked sequence when the relationship is easier to see than to describe;
+5. use semantic, keyboard-operable disclosure controls; and
+6. direct unanswered questions to the course Community without treating community discussion as verified instruction.
+
+Do not copy one generic FAQ across a course. The FAQ is part of the module's designed learning experience and must appear in its design brief and QA report.
+
 ## Required diversity contract
 
 The default minimum for each full module is:

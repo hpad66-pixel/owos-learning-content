@@ -1,6 +1,6 @@
 # AI Agent Master Class Production Standard
 
-Version: 1.2
+Version: 1.3
 
 This standard captures the complete learner-facing quality contract established through Module 4 and applied to Modules 1 through 8. It implements the shared OWOS Course Production Contract for this Master Class and supplements the Course Operating Standard, Course Design System, Visual Arsenal, Writing Standard, component catalog, quiz catalog, and module QA template.
 
@@ -26,6 +26,7 @@ Every full module must include:
 16. Claim-level evidence identifiers and a visible instructional boundary.
 17. A module recording script and an updated course-overview script.
 18. A scored module QA report with separate automated, manual, practitioner, integration, benchmark, and release gates.
+19. A module-specific FAQ before the evidence boundary that answers likely novice questions in plain English and uses utility examples, explanatory diagrams, comparisons, or worked sequences where useful.
 
 ## Instructor-led reading contract
 
@@ -61,6 +62,20 @@ Graph and community controls must not consume a full-width band at the top of a 
 - Floating cards, hanging rails, and fixed side controls are prohibited.
 
 This placement is shared across OWOS master classes. A course may change the labels, but not the behavior.
+
+## Learner FAQ
+
+Every module closes its teaching content with questions learners are likely to ask after completing that specific lesson.
+
+- Answer the question directly before adding detail.
+- Use conversational plain English and define technical terms.
+- Ground each answer in a water, wastewater, or stormwater example.
+- Add a small explanatory diagram, comparison, or worked sequence when the relationship is easier to see than to describe.
+- Use accessible disclosure controls that work with keyboard, touch, and small screens.
+- Place the FAQ before the evidence boundary, completion controls, bottom Graph and Community section, and previous or next navigation.
+- Send questions not covered by the FAQ to the Community. Do not present an unverified community response as course instruction.
+
+Do not copy a generic FAQ across modules. The questions must reflect the module's actual concepts, decisions, and likely misunderstandings.
 
 ## Contrast and typography gate
 

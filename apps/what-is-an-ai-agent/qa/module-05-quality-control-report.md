@@ -27,3 +27,7 @@ Module 5 scores 91 out of 100 as a conditional working pass. The autonomy spectr
 | **Total** | **100** | **91** | **Conditional pass** |
 
 Hard gates: learning design passed for working review. Practitioner, device, assistive-technology, runtime, benchmark, and release reviews remain open.
+
+## Version 0.9.2 FAQ review
+
+Passed mechanically: four Module 5 questions, direct plain-English answers, utility examples, visual module map, semantic disclosure controls, and Community escalation are connected. Authenticated desktop, mobile, keyboard, and novice-learner review remain required.

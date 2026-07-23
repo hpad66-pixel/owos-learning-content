@@ -54,7 +54,8 @@ Every released lesson contains these eleven elements in a coherent experience:
 8. An applied exercise that produces a usable work product.
 9. Knowledge checks with immediate explanatory feedback.
 10. A source map, evidence boundary, and honest release status.
-11. A completion rule, recap, and connection to the next lesson.
+11. A module-specific FAQ that anticipates novice questions and answers them in plain English with utility examples and visual explanation where useful.
+12. A completion rule, recap, and connection to the next lesson.
 
 Animations must teach a relationship, consequence, sequence, or change. Decorative motion does not
 satisfy the interaction requirement. Reduced-motion behavior is mandatory.
@@ -72,6 +73,8 @@ Explanatory graphics are required when the teaching idea has a meaningful visual
 Long lessons also require a visual pacing plan. Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the module brief records why uninterrupted prose is necessary. An original editorial illustration may break visual monotony only when it teaches a utility setting, asset, record relationship, or accountable decision and includes accessible reading guidance.
 
 Distribute quizzes and checks throughout the lesson. Place each check immediately after the idea or mechanism it evaluates. Use at least three different quiz types in a full module, provide immediate explanatory feedback and retry, and finish with an applied check connected to the professional work product. Do not rely on reflection alone for deterministic completion.
+
+End every module with an FAQ before the source boundary and bottom connected-learning section. Questions must come from the actual lesson's likely misunderstandings. Answers must be complete, conversational, and grounded in a utility example. Use an explanatory diagram, comparison, or worked sequence when prose alone leaves the relationship unclear. The FAQ supports proactive learning but does not replace the lesson's instructor explanation.
 
 Page scroll is not completion. A lesson declares its requirements in the course record and records
 completion only when the required evidence exists.

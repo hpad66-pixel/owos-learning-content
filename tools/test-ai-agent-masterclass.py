@@ -62,16 +62,26 @@ for phrase in (
     "localStorage",
     "instructorNotes",
     "teachingExpansion",
+    "faqNotes",
+    "faqExpansion",
+    "Questions learners usually ask",
+    "How to use this section",
     "How to read this graphic",
     "Before you interact",
     "Build something you can use",
 ):
     if phrase not in runtime:
         raise AssertionError(f"master-class runtime is missing {phrase}")
+faq_runtime = runtime.split("var faqNotes=", 1)[1]
 for number in pages:
     key = f'"{number:02d}":'
     if key not in runtime:
         raise AssertionError(f"master-class runtime is missing the Module {number} instructor layer")
+    start = faq_runtime.index(key)
+    next_key = f'"{number + 1:02d}":' if number < 8 else "};\nfunction faqExpansion"
+    end = faq_runtime.index(next_key, start)
+    if faq_runtime[start:end].count('["') < 4:
+        raise AssertionError(f"master-class runtime needs at least four module-specific FAQs for Module {number}")
 if "—" in runtime or "–" in runtime:
     raise AssertionError("master-class instructor runtime contains a prohibited dash")
 
@@ -80,6 +90,9 @@ for phrase in (
     ".instructor-dialogue",
     ".visual-break",
     ".concept-flow",
+    ".module-faq",
+    ".faq-map",
+    ".faq-item",
     ".dark p",
     ".preview pre",
     "@media(max-width:760px)",
@@ -108,6 +121,8 @@ for number, score in expected_scores.items():
     content = report.read_text(encoding="utf-8")
     if f"score: {score}" not in content or f"**{score}**" not in content:
         raise AssertionError(f"Module {number} QA report does not record score {score}")
+    if "Version 0.9.2 FAQ review" not in content:
+        raise AssertionError(f"Module {number} QA report does not review the module-specific FAQ")
     if score < 90:
         raise AssertionError(f"Module {number} is below the master-class threshold")
 

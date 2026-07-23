@@ -4,7 +4,7 @@ Updated: 2026-07-23
 
 ## Current phase
 
-Version 0.9.1 UI consolidation and production-contract validation
+Version 0.9.2 bottom connected-learning correction and learner FAQ release
 
 ## Completed
 
@@ -60,6 +60,10 @@ Version 0.9.1 UI consolidation and production-contract validation
 - Added the binding `COURSE-PRODUCTION-CONTRACT.md` so every future course inherits the complete accumulated syllabus, teaching, visual, assessment, navigation, accessibility, QA, repository, and release standard.
 - Added machine checks that verify the contract is wired into course creation, the course skill, module design briefs, and QA reports.
 - Added a shared runtime contrast guard so low-contrast text on dark blue, navy, and gradient surfaces is corrected and remains testable as pages change.
+- Corrected the shared course runtime so the complete Graph and Community workspace mounts inside `main`, immediately before bottom course navigation, rather than inside the first generic header wrapper.
+- Added four distinct, module-specific learner FAQs to each of Modules 1 through 8.
+- Added a visual module map, plain-English answers, utility examples, accessible disclosure behavior, and a Community path to every module FAQ.
+- Added the FAQ requirement to the syllabus, production contract, operating standard, design system, writing standard, course skill, course creator, module brief, QA template, course instructions, and automated release tests.
 
 ## New sources
 
@@ -82,4 +86,4 @@ Version 0.9.1 UI consolidation and production-contract validation
 
 ## Next action
 
-Validate version 0.9.1 on desktop and mobile, then continue practitioner, novice-learner, assistive-technology, and authenticated-runtime reviews. Keep credentials disabled until separately approved.
+Validate version 0.9.2 on desktop and mobile, then continue practitioner, novice-learner, assistive-technology, and authenticated-runtime reviews. Keep credentials disabled until separately approved.

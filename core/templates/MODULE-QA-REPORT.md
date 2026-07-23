@@ -58,6 +58,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Deterministic assessment | | |
 | Distributed quiz placement and feedback | | |
 | Instructor explanation coverage | | |
+| Module-specific FAQ coverage and answer quality | | |
 | Graphic teaching coverage | | |
 | Visual pacing and editorial illustration | | |
 | Header tools, side drawers, and bottom connected-learning section | | |
@@ -76,6 +77,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 - [ ] Graph and Community drawer, close, focus-return, and bottom-section walkthrough
 - [ ] Dark blue, navy, and gradient contrast walkthrough
 - [ ] Quiz discoverability and section-placement walkthrough
+- [ ] FAQ accuracy, plain-language, utility-example, disclosure, and mobile walkthrough
 - [ ] Utility-practitioner review
 - [ ] Novice-learner comprehension pilot
 - [ ] Live learner-event and enrollment verification

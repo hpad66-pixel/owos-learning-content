@@ -51,6 +51,7 @@
 | Header Graph and Community buttons | |
 | Bottom connected-learning section | |
 | Drawer focus return and mobile behavior | |
+| Module-specific FAQ location and disclosure behavior | |
 | Animation and teaching purpose | |
 | Reduced-motion equivalent | |
 | Mobile transformation | |
@@ -74,6 +75,15 @@
 
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
+| | | | | | |
+
+## Learner FAQ plan
+
+| Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
+| | | | | | |
+| | | | | | |
 | | | | | | |
 | | | | | | |
 | | | | | | |

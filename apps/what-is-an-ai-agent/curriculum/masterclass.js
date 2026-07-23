@@ -92,6 +92,67 @@ activity:"Use the adversarial review as a constructive challenge. Try to break t
 artifact:"The final brief should be ready for a cross-functional review. Write it for operations, information technology, security, legal, procurement, and the business owner. Each reader should see the decision they own and the evidence they need."
 }
 };
+var faqNotes={
+"01":[
+["Is every chatbot an AI agent?","No. A chatbot is an interface for conversation. It may only generate an answer. An agent has a goal, approved sources or tools, task state, bounded choices, stop conditions, and a named human owner. For example, a chatbot may explain work-order priority. A maintenance agent may assemble approved work orders, identify missing evidence, prepare a recommendation, and stop for a supervisor."],
+["Where does retrieval fit?","Retrieval finds relevant information from an approved source and brings it into the answer. Retrieval does not automatically create agency. It becomes one part of an agent when the system can use the retrieved evidence inside a controlled sequence of decisions and actions."],
+["Why not use an agent for every task?","Extra agency adds cost, failure paths, evaluation work, and control obligations. A fixed billing rule or scheduled report may be safer and cheaper as ordinary automation. Use an agent only when the work truly needs bounded choice between steps."],
+["What should I ask a vendor during a demonstration?","Ask the vendor to show the sources, tools, memory, permissions, stop conditions, evaluation results, and human approval point. Then ask what happens when a record is missing or a tool fails. The failure demonstration often tells you more than the polished answer."]
+],
+"02":[
+["Does an agent loop run forever?","It should not. A governed loop has a completion condition, retry limit, cost limit, time limit, and escalation path. If a connector fails three times, for example, the system records the failure and hands the task to a named person instead of retrying without end."],
+["What is task state in simple English?","Task state is the agent's working record of where the job stands. It includes the goal, completed steps, evidence used, open questions, attempts, and current owner. It is similar to a shift log that lets the next person understand what already happened."],
+["How is observation different from evaluation?","Observation records what happened. Evaluation decides whether that result is acceptable. A tool may return ten inspection records. The observation is that the records arrived. The evaluation checks whether the correct assets, dates, and required fields are present."],
+["When should the loop stop for a person?","Stop when evidence is missing, identity is uncertain, authority is insufficient, a prohibited condition appears, the retry or cost limit is reached, or the consequence requires professional judgment. The handoff should include the evidence and the reason for stopping."]
+],
+"03":[
+["Is the language model the brain of the whole agent?","The model helps interpret and generate language, but it is only one component. Sources, tools, state, permissions, evaluations, guardrails, and people determine whether the work is dependable. A clear answer from the model cannot repair a missing asset identity or an unauthorized action."],
+["What happens when one component is weak?","The failure often appears somewhere else. Weak source identity can create a confident comparison between the wrong assets. Weak state can cause repeated work. Weak evaluation can allow an unsupported recommendation to pass. The anatomy map helps you trace the visible problem back to the missing responsibility."],
+["Do all agents need memory?","They need enough task state to complete the approved job and support review. That does not mean unlimited personal memory. A short research task may only need evidence, decisions, and open questions for one session. Retention should match the business purpose and privacy rule."],
+["Who owns the agent's final result?","A named human role owns the professional decision. The agent may collect, compare, draft, or recommend within its boundary. The utility still assigns accountability for review, approval, record change, external communication, and operational action."]
+],
+"04":[
+["Why is a handoff more than sending a message?","A useful handoff transfers the goal, evidence, limitations, status, authority, and next owner. Sending only a conclusion forces the receiver to guess how it was reached. In a stormwater review, the receiver needs the exact record locators and open conflicts, not only the sentence that the site appears compliant."],
+["Can two agents share the same broad instruction?","They can share the overall goal, but each role needs a specific responsibility, input, output, permission, and acceptance test. Without those boundaries, both agents may repeat work or assume the other one checked the evidence."],
+["What should happen when the receiver rejects a handoff?","The receiver should record a clear rejection reason, identify what is missing, return the packet to a named role, and preserve the history. Rejection is a governed outcome. It should not disappear into a new chat or silent retry."],
+["Where does the human enter the sequence?","The human enters wherever judgment, authority, or consequence requires it. The person may approve the plan, resolve a source conflict, accept a limitation, authorize a record change, or stop the work. The handoff contract should make each point visible before the system runs."]
+],
+"05":[
+["What is the difference between an agent and agentic work?","An agent is a bounded system that pursues a goal and selects among approved next steps. Agentic describes how much of a larger process uses that kind of goal-directed choice. A permitting process may contain one research agent while the rest remains fixed workflow and human review."],
+["Is more autonomy a sign of a better system?","No. More autonomy means more discretion and more control obligations. The better system is the simplest one that completes the job safely and produces the required evidence. A deterministic calculation should remain deterministic."],
+["Can a workflow call an AI model without becoming an agent?","Yes. A fixed workflow may send text to a model, receive a classification, and follow a predetermined route. It becomes more agent-like when it maintains state and chooses among tools or next steps in pursuit of a goal."],
+["How should a utility document the choice?","Record the job, variability, evidence, consequence, alternatives, chosen architecture, human owner, and reasons. Also state what new evidence would cause the team to simplify, expand, or stop the design."]
+],
+"06":[
+["Is a warning message a guardrail?","Not by itself. A guardrail must change what the system can do or what happens next. Read-only permission, an approved-source list, a retry limit, a blocked action, and a required human approval are controls. A warning that everyone can ignore is guidance."],
+["Why are several guardrail layers needed?","Different controls address different failure paths. Identity controls who acts. Evidence controls what may support the work. Permission controls available actions. Evaluation checks the result. Monitoring detects unusual behavior. Escalation reaches a person when the system should stop."],
+["What does least authority mean for a first pilot?","Give the system only the permissions required for the test. If it only needs to read records and draft a recommendation, do not allow it to change the customer record. A narrow permission boundary reduces the consequence of an error."],
+["How do we know a guardrail works?","Test it with failure cases. Use a missing source, conflicting identity, prohibited request, unavailable tool, exhausted retry limit, or excessive cost. The expected result should be observable: block, pause, record, and escalate to the correct owner."]
+],
+"07":[
+["What makes a good first utility use case?","Look for a narrow job with measurable value, approved records, a clear owner, historical examples, manageable consequence, and a result a person can review. Reading and recommending is usually easier to govern than writing or operating."],
+["Should the highest-value idea go first?","Not always. High value with poor evidence or severe consequence may be a bad first pilot. Compare value with readiness, review effort, cost, consequence, and the simpler alternatives."],
+["How should we count human review effort?","Measure the whole job. Include time spent checking, correcting, explaining, and resolving exceptions. If the agent saves ten minutes of drafting but adds twenty minutes of review, the process did not improve."],
+["Which ideas should be rejected?","Reject or defer ideas with no accountable owner, inaccessible or unreliable evidence, unacceptable consequence, no practical evaluation set, or permissions that exceed the pilot's purpose. A clear no is useful portfolio management."]
+],
+"08":[
+["How narrow should a ninety-day pilot be?","Choose one job, one user group, named sources, bounded tools, explicit prohibited actions, and measurable outcomes. A pilot that tries to transform the whole utility cannot tell you which part worked."],
+["What does success look like?","Success means the pilot produced enough evidence for a decision. The decision may be continue, revise, simplify, improve the data first, or stop. Keeping the agent is not the only successful outcome."],
+["Do we need production data for the first test?","Start with approved historical or synthetic cases when possible. They let the team test expected results, failures, prohibited outcomes, cost, latency, and review effort without giving the pilot live authority."],
+["Who should review the final canvas?","Include the operating owner, information technology, cybersecurity, data stewardship, legal or privacy, procurement when relevant, and the people who will review the output. Each group should see its decision, evidence, and stop condition."]
+]
+};
+function faqExpansion(){
+  var entries=faqNotes[moduleId],note=instructorNotes[moduleId];
+  if(!entries||!note||document.querySelector("[data-module-faq]"))return;
+  var main=document.querySelector("main"),anchor=main&&main.querySelector(".source,.complete,.footnav");
+  if(!main||!anchor)return;
+  var section=document.createElement("section");
+  section.className="section module-faq";
+  section.setAttribute("data-module-faq",moduleId);
+  section.innerHTML='<span class="tag">Questions learners usually ask</span><h2>Before you leave this module, clear up the questions that often remain.</h2><div class="instructor-dialogue"><span class="voice">How to use this section</span><div><p>Open the questions that match what you are still trying to understand. Each answer uses the operating sequence below and connects the idea to a utility example.</p><p>If your question is not here, use the Community button at the top. Your question can help the next learner and gives the instructor a clear signal about what needs more explanation.</p></div></div><figure class="faq-map" aria-labelledby="faqMapTitle'+moduleId+'"><figcaption id="faqMapTitle'+moduleId+'">A quick map of the module</figcaption><div class="concept-flow">'+note.steps.map(function(step,index){return '<article class="concept-step"><span class="number">'+(index+1)+'</span><b>'+step[0]+'</b><small>'+step[1]+'</small></article>';}).join("")+'</div><p>Read from left to right. The questions below explain where learners commonly lose the connection between these steps.</p></figure><div class="faq-list">'+entries.map(function(entry,index){return '<details class="faq-item"><summary><span>'+(index+1)+'</span>'+entry[0]+'</summary><div class="faq-answer"><p>'+entry[1]+'</p></div></details>';}).join("")+'</div>';
+  main.insertBefore(section,anchor);
+}
 function teachingExpansion(){
   var note=instructorNotes[moduleId];
   if(!note)return;
@@ -115,6 +176,7 @@ function teachingExpansion(){
   }
 }
 teachingExpansion();
+faqExpansion();
 function persist(){localStorage.setItem(key,JSON.stringify(saved));updateCompletion();}
 function mark(id){saved[id]=true;persist();}
 function updateCompletion(){var required=[].slice.call(document.querySelectorAll("[data-required]")),done=required.filter(function(el){return el.classList.contains("done")||saved[el.dataset.required];}).length,button=document.querySelector("[data-complete]"),status=document.querySelector("[data-completion-status]");if(button)button.disabled=done<required.length;if(status)status.textContent=done+" of "+required.length+" required learning activities complete.";required.forEach(function(el){if(saved[el.dataset.required])el.classList.add("done");});}

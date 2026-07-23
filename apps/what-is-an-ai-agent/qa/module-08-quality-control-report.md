@@ -27,3 +27,7 @@ Module 8 scores 93 out of 100 as a conditional working pass. The original Utilit
 | **Total** | **100** | **93** | **Conditional pass** |
 
 Hard gates: learning design passed for working review. Capstone practitioner, novice, device, runtime, benchmark, credential, and release reviews remain open.
+
+## Version 0.9.2 FAQ review
+
+Passed mechanically: four Module 8 questions, direct plain-English answers, utility examples, visual module map, semantic disclosure controls, and Community escalation are connected. Authenticated desktop, mobile, keyboard, and novice-learner review remain required.

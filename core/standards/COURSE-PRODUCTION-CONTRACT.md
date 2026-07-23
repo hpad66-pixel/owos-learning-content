@@ -83,6 +83,8 @@ A short lesson may request a documented exception. Counts never excuse irrelevan
 - The Graph must open the current course or lesson context without navigating away.
 - The Community must support search, filters, bookmarks, threaded replies, member presence, and distinct instructor treatment.
 - Previous, next, all modules, progress, and completion behavior must remain predictable across the course.
+- End every module with a visible FAQ before the evidence boundary and bottom connected-learning section. Questions must anticipate the module's likely novice misunderstandings. Answers must teach in conversational plain English and use a utility example, diagram, comparison, or worked sequence when that improves understanding.
+- FAQ controls must use semantic disclosure behavior, work with keyboard and touch, and remain readable on mobile. A generic FAQ repeated across modules is not acceptable.
 
 ## 7. Visual and accessibility contract
 
@@ -117,7 +119,7 @@ After every material module revision:
 
 1. Complete `core/templates/MODULE-QA-REPORT.md`.
 2. Score instructor teaching, learning design, graphics, interaction, utility credibility, assessment, work product, evidence, accessibility, and platform integration.
-3. Run mechanical tests for lesson structure, JavaScript, undefined values, deterministic assessment, distributed quizzes, instructor explanation, visual pacing, contrast, responsive behavior, reduced motion, and prohibited language.
+3. Run mechanical tests for lesson structure, JavaScript, undefined values, deterministic assessment, distributed quizzes, instructor explanation, module-specific FAQ coverage, visual pacing, contrast, responsive behavior, reduced motion, and prohibited language.
 4. Perform desktop, mobile, keyboard, screen-reader, reduced-motion, novice-learner, and utility-practitioner reviews.
 5. Keep accuracy, learning design, utility practice, technical quality, and release control as hard gates.
 
@@ -132,6 +134,7 @@ A course is complete only when:
 - all modules form a coherent sequence without unnecessary repetition;
 - the live runtime matches the governed source release;
 - Graph and Community work on the same page and remain available at the bottom;
+- every module includes a module-specific, plain-English FAQ with useful examples and visual explanation where appropriate;
 - contrast and responsive behavior pass on representative devices;
 - Hardeep has approved the release scope; and
 - GitHub and production deployment identify the same version and source commit.

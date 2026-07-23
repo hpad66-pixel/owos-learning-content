@@ -27,3 +27,7 @@ Module 1 scores 91 out of 100 as a conditional working pass. The capability ladd
 | **Total** | **100** | **91** | **Conditional pass** |
 
 Hard gates: learning design passed for working review. Accuracy, practitioner, accessibility, integration, benchmark, and release remain conditional or blocked.
+
+## Version 0.9.2 FAQ review
+
+Passed mechanically: four Module 1 questions, direct plain-English answers, utility examples, visual module map, semantic disclosure controls, and Community escalation are connected. Authenticated desktop, mobile, keyboard, and novice-learner review remain required.

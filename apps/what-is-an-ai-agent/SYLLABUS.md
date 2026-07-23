@@ -207,6 +207,20 @@ After the course, learners are encouraged to:
 
 Completion requires the assigned simulations, explanatory knowledge checks, progressive capstone sections, final Utility Agent Canvas, pilot brief, and learner explanation of why the proposed system should or should not be agentic.
 
+## Module FAQ standard
+
+Every module ends with a module-specific FAQ before the evidence boundary and bottom Graph and Community section. Questions anticipate what a utility professional who is new to the topic is likely to ask after completing that lesson.
+
+Each answer must:
+
+1. answer the question directly in conversational plain English;
+2. connect the explanation to a water, wastewater, or stormwater example;
+3. define any technical term used in the answer;
+4. include a diagram, comparison, or worked sequence when it makes the relationship easier to understand; and
+5. direct questions not covered to the course Community without treating unverified discussion as course evidence.
+
+The FAQ must be different for every module and must work with keyboard, touch, and mobile layouts.
+
 ## Approval needed
 
 - Working title and learner promise

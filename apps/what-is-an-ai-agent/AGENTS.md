@@ -39,4 +39,6 @@ Distribute at least three varied quiz types across each full module. Put each ch
 
 Keep the reading surface uncluttered. Use compact Graph and Community buttons in the lesson header. Each opens in a white responsive side drawer and returns the learner to the same place when closed. Keep the complete Graph and Community section at the bottom. Floating cards, hanging rails, and persistent bottom docks are prohibited.
 
+End every module with a module-specific FAQ before the evidence boundary and bottom connected-learning section. Anticipate likely novice questions, answer them directly in conversational plain English, ground them in utility examples, and add diagrams, comparisons, or worked sequences where they improve understanding.
+
 Dark blue, navy, and gradient surfaces must use white or tested light text. Black or dark gray text on a dark surface blocks release.

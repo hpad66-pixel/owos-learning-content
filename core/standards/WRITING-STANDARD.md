@@ -31,6 +31,10 @@ its own sake.
 9. **Write the recording script.** Every module needs a complete instructor recording script, and every
    course needs one overview script that explains all lessons in order. Put visual directions in brackets
    and keep them separate from the words the instructor will speak.
+10. **Anticipate learner questions.** End every module with a module-specific FAQ. Answer likely novice
+   questions directly in conversational plain English, use a concrete utility example, and add a diagram,
+   comparison, or worked sequence when it makes the relationship easier to understand. Do not reuse a
+   generic FAQ across modules.
 
 ## Voice
 - Write like you're talking to one person. Use "you" and contractions ("you're", "it's", "that's").
@@ -45,6 +49,7 @@ its own sake.
 - Droobi guides, in the same plain voice.
 - Hover definitions on every new term.
 - "Try it yourself" checks at the end, with full plain-English answers.
+- A module-specific FAQ near the bottom, before sources and connected learning.
 - A short takeaway in plain sentences.
 
 ## Learning components every module should draw from
