@@ -13,7 +13,8 @@ Give the user one conversational workspace. Never make the user operate internal
 2. Read, in order:
    - the course `AGENTS.md`, `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yaml`, and `SYLLABUS.md`;
    - `../../../hardeep-soul/SOUL.md` and `../../../hardeep-soul/authoring/AUTHORING_STANDARD.md`;
-   - `../../core/standards/COURSE-OPERATING-STANDARD.md` and `../../core/standards/WRITING-STANDARD.md`, resolving paths from the course directory.
+   - `../../core/standards/COURSE-OPERATING-STANDARD.md`, `../../core/standards/COURSE-DESIGN-SYSTEM.md`, `../../core/standards/VISUAL-ARSENAL.md`, and `../../core/standards/WRITING-STANDARD.md`;
+   - `../../core/components/COMPONENTS.md`, `../../core/components/QUIZ-TYPES.md`, and the rendered component and quiz galleries, resolving paths from the course directory.
 3. Treat the current user message as course input. Preserve the user's substantive wording in a dated file under `conversations/` unless it is already recorded.
 4. Run the internal workspace scan. Do not ask the user to run it:
 
@@ -45,6 +46,19 @@ Follow the current phase in `STATE.md`:
 6. Release: commit source and reproducible output, push a reviewed GitHub change, and intake the exact release into OWOS only after approval.
 
 Never skip from research to bulk lesson generation. Never publish because a file was added.
+
+## Design every module as its own learning experience
+
+- Treat Chapter 09 as a capability benchmark, never as a page template.
+- Complete `core/templates/MODULE-DESIGN-BRIEF.md` before lesson HTML.
+- Maintain a course-level design matrix from `core/templates/COURSE-DESIGN-MATRIX.md`.
+- Run the Visual Arsenal Selection Prompt against the actual teaching ideas.
+- Use at least four relevant visual types, two purposeful interactions, and three varied quiz types for a full module unless a documented exception is approved.
+- Select narrative structure, simulations, graphics, animation, and work products from the learning problem. Do not create variety through colors alone.
+- Copy governed components from the galleries. When the needed mechanism is missing, add an accessible, responsive, tested shared component before using it.
+- Require every animation to teach change, cause, consequence, sequence, dependency, or reveal. Preserve meaning under reduced motion.
+- Compare adjacent modules and change repeated opening patterns, dominant visuals, interaction pairs, quiz sequences, and work-product formats unless repetition is instructionally necessary.
+- Keep the Knowledge Graph on the lesson page in a responsive panel or drawer. Closing it returns focus to the course.
 
 ## Apply Hardeep Soul
 

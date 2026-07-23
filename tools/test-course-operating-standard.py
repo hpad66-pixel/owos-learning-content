@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 STANDARD = ROOT / "core/standards/COURSE-OPERATING-STANDARD.md"
+DESIGN_STANDARD = ROOT / "core/standards/COURSE-DESIGN-SYSTEM.md"
 COURSE = ROOT / "apps/data-ai-governance/course.yaml"
 SOURCE = ROOT / "apps/data-ai-governance/curriculum/module-09-d02-accountability-and-stewardship.html"
 DIST = ROOT / "apps/data-ai-governance/dist/site/lesson-dg-09-d02-accountability-and-stewardship.html"
@@ -23,12 +24,23 @@ def require(text: str, phrases: list[str], label: str) -> None:
 
 
 standard = STANDARD.read_text(encoding="utf-8")
+design_standard = DESIGN_STANDARD.read_text(encoding="utf-8")
 course = COURSE.read_text(encoding="utf-8")
 source = SOURCE.read_text(encoding="utf-8")
 dist = DIST.read_text(encoding="utf-8")
 release = json.loads(RELEASE.read_text(encoding="utf-8"))
 academy = ACADEMY.read_text(encoding="utf-8")
 
+require(
+    design_standard,
+    [
+        "The golden lesson is a capability benchmark. It is not a visual mold.",
+        "Create a module design fingerprint",
+        "Check diversity across the course",
+        "Make animation instructional",
+    ],
+    "course design system",
+)
 require(
     standard,
     [
@@ -95,7 +107,7 @@ require(
     "golden lesson distribution build",
 )
 
-for path, text in ((STANDARD, standard), (SOURCE, source)):
+for path, text in ((STANDARD, standard), (DESIGN_STANDARD, design_standard), (SOURCE, source)):
     if "—" in text or "–" in text:
         raise AssertionError(f"prohibited dash found in {path}")
 

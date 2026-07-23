@@ -14,8 +14,14 @@ Before drafting, read:
 6. `/Users/apas/dev/hardeep-soul/SOUL.md`
 7. `/Users/apas/dev/hardeep-soul/authoring/AUTHORING_STANDARD.md`
 8. `/Users/apas/dev/owos-learning-content/core/standards/COURSE-OPERATING-STANDARD.md`
-9. `/Users/apas/dev/owos-learning-content/core/standards/WRITING-STANDARD.md`
+9. `/Users/apas/dev/owos-learning-content/core/standards/COURSE-DESIGN-SYSTEM.md`
+10. `/Users/apas/dev/owos-learning-content/core/standards/VISUAL-ARSENAL.md`
+11. `/Users/apas/dev/owos-learning-content/core/standards/WRITING-STANDARD.md`
+12. `/Users/apas/dev/owos-learning-content/core/components/COMPONENTS.md`
+13. `/Users/apas/dev/owos-learning-content/core/components/QUIZ-TYPES.md`
 
 Treat the PDF already in `research/originals/` as private research with permission pending. Do not publish its text or claims until permission and evidence boundaries are reviewed.
 
 The next milestone is a research assessment, not a generated course. Extract the complete source, preserve locators, separate facts from author direction, and propose a curriculum blueprint for Hardeep's review.
+
+Before building any lesson, create its module design brief and update the course design matrix. Use Chapter 09 as the completeness benchmark while giving this course its own narrative structures, visuals, simulations, quizzes, animations, and professional work products.

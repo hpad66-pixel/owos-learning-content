@@ -13,6 +13,7 @@ Research intake
 - Preserved the first PDF with a SHA-256 checksum.
 - Connected the workspace to the approved Hardeep Soul and OWOS course standards through durable Codex instructions.
 - Added conversational intake folders and automatic workspace inventory controls.
+- Connected the course to the approved Course Design System, Visual Arsenal, component catalog, quiz catalog, module design brief, and course diversity matrix.
 
 ## New sources
 
@@ -25,6 +26,7 @@ Research intake
 - Claim and citation review
 - Hardeep's dictated utility direction
 - Curriculum blueprint
+- Module design fingerprints and course-wide diversity review
 - Golden lesson
 - Course production and release
 

@@ -4,7 +4,7 @@
 **Canonical repository:** `hpad66-pixel/owos-learning-content`
 **Applies to:** every OWOS course, Master Class, lesson, quiz, assessment, and credential  
 **Status:** governed implementation contract  
-**Version:** 1.2
+**Version:** 1.3
 **Last updated:** 2026-07-22
 
 ## Purpose
@@ -28,6 +28,12 @@ The [OWOS Course Operating Standard](../core/standards/COURSE-OPERATING-STANDARD
 course-production contract. It combines Project Delivery's human teaching, utility scenarios,
 purposeful interactions, simulations, and applied decisions with Data Before AI's controlled sources,
 method versions, machine-readable course records, release states, checksums, and evidence boundaries.
+
+The [OWOS Course Design System](../core/standards/COURSE-DESIGN-SYSTEM.md) converts that hybrid decision
+into module-level instructions. It requires a design fingerprint for each module, a course-wide
+diversity matrix, concept-driven visual selection, varied simulations and quizzes, instructional
+animation, professional work products, and comparison against adjacent modules. Chapter 09 is the
+capability benchmark, not a reusable layout.
 
 Hardeep Soul governs authoring quality when Hardeep's knowledge is used. One Water OS owns delivery,
 identity, the in-lesson Knowledge Graph, learner state, competency evidence, and credentials. Supabase
@@ -113,11 +119,15 @@ flowchart LR
 Every course uses the same foundation. The five files below determine how authors assemble modules,
 quizzes, and branded learning pages:
 
-1. `core/standards/WRITING-STANDARD.md` defines voice, lesson depth, evidence, checks, and acceptance.
-2. `core/standards/VISUAL-ARSENAL.md` defines how to choose diagrams, simulations, and interactions.
-3. `core/components/component-gallery.html` is the reference catalog for learning components.
-4. `core/components/quiz-gallery.html` is the reference catalog for quiz patterns and feedback.
-5. `core/components/module-template.html` provides the required page structure and OWOS chrome.
+1. `core/standards/COURSE-OPERATING-STANDARD.md` defines the hybrid model and release gates.
+2. `core/standards/COURSE-DESIGN-SYSTEM.md` defines module fingerprints, diversity, and design readiness.
+3. `core/standards/WRITING-STANDARD.md` defines voice, lesson depth, evidence, checks, and acceptance.
+4. `core/standards/VISUAL-ARSENAL.md` defines how to choose diagrams, simulations, and interactions.
+5. `core/components/COMPONENTS.md` and `component-gallery.html` define governed learning components.
+6. `core/components/QUIZ-TYPES.md` and `quiz-gallery.html` define quiz patterns and feedback.
+7. `core/templates/MODULE-DESIGN-BRIEF.md` records each module's unique design fingerprint.
+8. `core/templates/COURSE-DESIGN-MATRIX.md` prevents repetition across adjacent modules.
+9. `core/components/module-template.html` provides required structure without prescribing one visual layout.
 
 `core/components/academy.css` and `core/components/academy.js` are the shared implementation library.
 `core/brand/` contains the governed identity, Droobi assets, and brand rules. A build may inline these
