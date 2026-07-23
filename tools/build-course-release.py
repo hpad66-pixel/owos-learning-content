@@ -41,7 +41,13 @@ def relative_file(path: Path) -> dict:
         "runtime_path": f"site/{path.name}",
         "sha256": sha256(path),
         "bytes": path.stat().st_size,
-        "role": "course_landing" if path.name.startswith("course-") else "lesson",
+        "role": (
+            "course_landing"
+            if path.name.startswith("course-")
+            else "lesson"
+            if path.name.startswith("lesson-")
+            else "runtime_asset"
+        ),
     }
 
 
@@ -84,7 +90,15 @@ def build(course_dir: Path) -> dict:
     except CourseQualityError as error:
         raise SystemExit(f"course quality gate failed: {error}") from error
 
-    files = [relative_file(landing), *(relative_file(path) for path in lessons)]
+    runtime_assets = sorted(
+        path for path in site_dir.iterdir()
+        if path.is_file() and path != landing and path not in lessons
+    )
+    files = [
+        relative_file(landing),
+        *(relative_file(path) for path in lessons),
+        *(relative_file(path) for path in runtime_assets),
+    ]
     for entry in files:
         text = (ROOT / entry["source_path"]).read_text(encoding="utf-8")
         if "—" in text or "–" in text:

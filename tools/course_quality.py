@@ -52,7 +52,14 @@ def validate_lesson(path: Path, contract: dict) -> dict:
     """Validate one built lesson and return auditable quality metrics."""
 
     text = path.read_text(encoding="utf-8")
-    lowered = text.lower()
+    effective = text
+    for href in re.findall(r'<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"', text, re.I):
+        if href.startswith(("http://", "https://", "/")):
+            continue
+        stylesheet = (path.parent / href).resolve()
+        if stylesheet.is_file():
+            effective += "\n" + stylesheet.read_text(encoding="utf-8")
+    lowered = effective.lower()
     minimum = int(contract.get("minimum_purposeful_interactions", 2))
 
     if re.search(r"\bundefined\b", text, re.I):
@@ -88,6 +95,39 @@ def validate_lesson(path: Path, contract: dict) -> dict:
             validate_multi(path, config)
         components.append(kind)
 
+    legacy_component_count = len(components)
+
+    # The current OWOS master-class runtime uses semantic HTML data contracts instead of the
+    # legacy JSON component wrapper. Count only controls with deterministic answer, completion,
+    # or artifact contracts so visual decoration cannot satisfy the quality gate.
+    native_components = []
+    native_rules = {
+        "quiz": r"\bdata-quiz=",
+        "matching": r"\bdata-match=",
+        "simulation": r"\bdata-stepper=",
+        "lab": r"\bdata-lab=",
+        "work_product": r"\bdata-artifact=",
+        "custom_quiz": r'class="[^"]*\bquiz\b[^"]*"',
+        "custom_simulation": r'id="playSteps"',
+        "custom_lab": r'id="runRepair"',
+        "custom_work_product": r'id="contractForm"',
+    }
+    for kind, pattern in native_rules.items():
+        if re.search(pattern, text, re.I):
+            native_components.append(kind)
+    if native_components:
+        modern_contract = any(
+            marker in text
+            for marker in ("data-quiz=", "data-match=", "data-stepper=", "data-lab=", "data-artifact=")
+        )
+        if legacy_component_count == 0 and modern_contract and "data-required=" not in text:
+            fail(path, "native interactions need completion evidence through data-required")
+        if "data-quiz=" in text and "data-correct=" not in text:
+            fail(path, "native quizzes need deterministic data-correct answers")
+        if "data-match=" in text and "data-answer=" not in text:
+            fail(path, "native matching needs deterministic data-answer values")
+        components.extend(native_components)
+
     purposeful = [kind for kind in components if kind != "reflect"]
     if len(purposeful) < minimum:
         fail(path, f"needs at least {minimum} purposeful interactions; found {len(purposeful)}")
@@ -102,4 +142,3 @@ def validate_lesson(path: Path, contract: dict) -> dict:
         "keyboard_controls": True,
         "undefined_sentinel": False,
     }
-

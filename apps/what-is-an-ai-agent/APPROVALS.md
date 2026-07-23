@@ -14,6 +14,7 @@ Material approvals are recorded here so chat history is never the only evidence.
 | 2026-07-22 | Require a scored quality-control report after every module | All course modules and future OWOS lessons | Approved implementation standard | Hardeep Anand | Show the score, evidence, missing work, automated checks, manual reviews, and hard gates. A high score cannot override a blocked gate. |
 | 2026-07-22 | Complete Module 4 technical revisions and add meaningful visual pacing | Module 4 and future OWOS lessons | Approved implementation standard | Hardeep Anand | Complete the identified technical gaps and add graphics or illustrations that break text monotony by teaching the idea. This does not approve the golden benchmark or public release. |
 | 2026-07-22 | Distribute quizzes and build Modules 1 through 8 | Complete AI Agent Master Class source course | Approved for complete draft production and repository commit | Hardeep Anand | Build chronologically without pausing for further draft approvals. Every module must meet or exceed the Module 4 working benchmark. Credential, runtime intake, deployment, and release remain separate gates. |
+| 2026-07-22 | Publish the complete course on the live OWOS site | Eight-module AI Agent Master Class live review | Approved for production runtime intake and Cloudflare deployment | Hardeep Anand | Publish for authenticated review. Keep credentials, certification claims, and scored production assessment disabled until their separate gates pass. |
 
 Required future approvals:
 

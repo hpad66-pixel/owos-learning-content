@@ -52,6 +52,7 @@ Complete eight-module master-class candidate built, external review pending
 - Added `curriculum/MASTERCLASS-PRODUCTION-STANDARD.md` so the complete Module 4 capability and distributed-assessment requirements govern future course work.
 - Added individual QA reports for all eight modules and `qa/masterclass-scorecard.md`.
 - Recorded a rounded master-class working score of 92 out of 100. Every module meets or exceeds the former Module 4 working benchmark.
+- Approved and prepared version 0.8.1 as an authenticated live-review release for OWOS. Credential and certification claims remain disabled.
 - Added a complete master-class regression test covering chronology, quiz distribution, graphics, artifacts, graphs, persistence, and completion contracts.
 
 ## New sources
