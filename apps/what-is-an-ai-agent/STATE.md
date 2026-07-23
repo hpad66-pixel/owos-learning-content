@@ -4,7 +4,7 @@ Updated: 2026-07-22
 
 ## Current phase
 
-Curriculum package complete, golden lesson pending approval
+Golden lesson built, working review pending
 
 ## Completed
 
@@ -29,6 +29,12 @@ Curriculum package complete, golden lesson pending approval
 - Completed the progressive Utility Agent Canvas and 90-Day Pilot Brief.
 - Expanded research to include agent identity, authorization, excessive agency, evaluation, and water operational-technology boundaries.
 - Prepared Module 4, `The Handoff`, as the golden-lesson candidate.
+- Received approval to produce Module 4 as the learner-facing golden-lesson candidate.
+- Built the complete responsive Module 4 HTML experience.
+- Added the six-role orchestration room, step-controlled swimlane, shared-state ledger, evidence funnel, broken-handoff repair lab, permission console, work-product builder, varied deterministic assessments, completion evidence, and same-page Knowledge Graph.
+- Added persistent browser state, OWOS event identifiers, enrollment and completion calls, accessible live feedback, reduced-motion behavior, and mobile transformations.
+- Added a dedicated machine check for the AI-agent golden lesson.
+- Completed the first desktop rendering and accessibility-tree inspection.
 
 ## New sources
 
@@ -39,13 +45,13 @@ Curriculum package complete, golden lesson pending approval
 - Final working-title decision
 - Additional primary research on retrieval, secure tool use, evaluation, observability, and operational-technology boundaries
 - Utility-practitioner review of application scenarios
-- Separate approval of Module 4 as the golden lesson benchmark
 - Practitioner review of the Module 4 stormwater evidence scenario
-- Golden-lesson HTML production and visual QA
+- Hardeep working review of the built Module 4 lesson
+- Mobile device rendering review and interaction pilot
+- Separate approval of the built lesson as the production benchmark
 - Production of remaining learner-facing modules after golden-lesson approval
-- Golden lesson
 - Course production and release
 
 ## Next action
 
-Review `curriculum/design-briefs/module-04-the-handoff.md` and approve or revise it as the golden-lesson production benchmark. Also decide whether to keep the working title `Meet the Agent: How AI Gets Work Done in Water Utilities`.
+Review `curriculum/module-04-the-handoff.html` as a working lesson. Record required revisions, complete practitioner and mobile review, and then decide whether the built lesson becomes the production benchmark for the remaining modules.

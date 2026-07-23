@@ -28,7 +28,7 @@ expected_briefs = {
     "module-01-before-the-agent.md": ["Progressive comparison", "AI Terms Field Card"],
     "module-02-inside-the-agent-loop.md": ["Event-stream inspector", "Agent Loop Trace"],
     "module-03-agent-anatomy.md": ["Interactive anatomy experience", "Tooltip behavior"],
-    "module-04-the-handoff.md": ["golden-lesson candidate", "Broken-handoff diagnosis"],
+    "module-04-the-handoff.md": ["approved for golden-lesson production", "Broken-handoff diagnosis"],
     "module-05-agent-agentic-or-automated.md": ["autonomy spectrum", "Simplest-solution recommender"],
     "module-06-guardrails.md": ["excessive agency", "Operational-technology boundary"],
     "module-07-utility-applications.md": ["Utility opportunity portfolio review", "one idea rejected"],
@@ -56,11 +56,11 @@ require(COURSE / "work-products/90-DAY-PILOT-BRIEF.md", ["Days 1 through 30", "S
 require(COURSE / "research/EVIDENCE-BOUNDARIES.md", ["Utility safety boundary", "operational technology"])
 
 record = yaml.safe_load((COURSE / "course.yaml").read_text(encoding="utf-8"))
-if record["status"] != "blueprint_approved":
-    raise AssertionError("course must remain blueprint approved until the golden lesson passes")
+if record["status"] != "golden_candidate_built":
+    raise AssertionError("course must disclose that the golden lesson is built but not approved as the production benchmark")
 if record["structure"]["chapters"] != 8:
     raise AssertionError("course record must declare eight modules")
-if record["delivery"]["release_state"] != "curriculum_complete_golden_lesson_pending":
-    raise AssertionError("release state must disclose that the golden lesson is pending")
+if record["delivery"]["release_state"] != "golden_lesson_built_pending_review":
+    raise AssertionError("release state must disclose that the built golden lesson is pending review")
 
 print("AI agent curriculum QA passed: eight module briefs, assessments, capstone, glossary, instruction, and safety boundaries are connected.")

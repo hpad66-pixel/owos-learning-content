@@ -1,6 +1,6 @@
 # Module 4 Golden-Lesson Design Brief: The Handoff
 
-Status: golden-lesson candidate for Hardeep approval
+Status: approved for golden-lesson production by Hardeep Anand on 2026-07-22
 
 ## Consequential situation
 
@@ -69,6 +69,19 @@ Should one general agent handle the entire task, should a fixed workflow route i
 
 Architecture decision, full handoff playback, one repaired failure, permission plan, critic check, knowledge check, and saved handoff contract.
 
-## Approval still required
+## Production review still required
 
-Hardeep approval of this brief as the golden-lesson production benchmark and practitioner review of the stormwater scenario.
+Hardeep review of the working learner-facing lesson, practitioner review of the stormwater scenario, and separate approval before this lesson becomes the production benchmark for the remaining modules.
+
+## Visual selection record
+
+| Teaching idea | Shape | Selected visual | Learner action | Check type |
+| --- | --- | --- | --- | --- |
+| Work moving among specialists | Process and responsibility | Interactive swimlane | Step, play, pause, and inspect each handoff | Put in order |
+| Shared context and evidence | Relationship and hidden dependency | Provenance network | Select a claim and trace its source, transformation, reviewer, and authority | Multi-select |
+| Handoff health | Status across roles | Status heat grid | Compare complete, missing, stale, and unauthorized handoffs | Classification |
+| Action authority | Position and consequence | Permission ladder | Set read, recommend, draft, write, and execute limits | Multiple choice |
+| Many records becoming a review packet | Filtering and narrowing | Evidence funnel | Inspect which records survive evidence gates | Reflection |
+| Repairing a broken handoff | Cause and effect | Handoff repair laboratory | Diagnose a failure, select a repair, and rerun the transfer | Deterministic repair check |
+
+The swimlane, provenance network, heat grid, permission ladder, and evidence funnel are deliberately different visual shapes. Motion teaches sequence and the effect of missing context. Reduced-motion mode presents the same states through direct stepping and visible text changes.
