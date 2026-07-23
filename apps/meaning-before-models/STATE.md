@@ -4,7 +4,26 @@ Updated: 2026-07-23
 
 ## Current phase
 
-Version 0.9.0 rendered-QA remediation candidate
+Version 0.9.0 public live review deployed
+
+## Version 0.9.0 deployment evidence
+
+- Learning-content pull request: `hpad66-pixel/owos-learning-content#8`
+- Learning-content merge: `c7f8b6bc1c519dcc71de2b7c4d4c169c38c81758`
+- Release ID: `owos-course-semantic-data-ai-001-v0.9.0`
+- Rendered QA: 18 lessons, 36 desktop and phone views, zero failures
+- Runtime files: 24 checksum-verified files
+- Platform intake pull request: `hpad66-pixel/onewater-os-platform#35`
+- Platform intake merge: `d6c100ce22cf9098b3f3ab6db73178dafb7a7ba4`
+- Public-asset correction pull request: `hpad66-pixel/onewater-os-platform#36`
+- Final production platform merge: `c061988d4fd3c9337b8227312a08db0c09d354c8`
+- Cloudflare deployment: `https://78247e29.owos-3n1.pages.dev`
+- Public course route: `https://owos.ai/course-meaning-before-models`
+- Public access verification: landing and all eighteen canonical lessons return unauthenticated 200
+- Live component verification: representative foundation, architecture, validation, and capstone
+  lessons passed card, process, visual-control, overflow, and console checks
+- Credentials, certification, graph publication, authoritative completion, and operational
+  authority: disabled or not configured
 
 ## Approved
 
