@@ -1,16 +1,34 @@
 # Release
 
-## Version 0.9.0 remediation candidate
+## Version 0.9.0 public live review
 
-Status: rendered QA and live-review replacement in progress on 2026-07-23
+Status: deployed for unauthenticated public live review on 2026-07-23
 
 Content baseline: `fddf2f842903756589e94fbdd5f40c3a67850032`
+
+| Evidence | Value |
+| --- | --- |
+| Release ID | `owos-course-semantic-data-ai-001-v0.9.0` |
+| Learning source merge | `c7f8b6bc1c519dcc71de2b7c4d4c169c38c81758` |
+| Runtime platform merge | `c061988d4fd3c9337b8227312a08db0c09d354c8` |
+| Runtime files | 24 checksum-verified files |
+| Rendered browser QA | 18 lessons, 36 views, zero failures |
+| Course landing | `https://owos.ai/course-meaning-before-models` |
+| Cloudflare deployment | `https://78247e29.owos-3n1.pages.dev` |
+| Access | Unauthenticated public live review |
+| Available modules | 18 |
+| Completion events | Disabled |
+| Credential | Not configured |
 
 This release replaces the rejected 0.8.0 rendered experience. It introduces eighteen distinct
 lesson narratives and card compositions, working question-and-answer cards, meaningful visual and
 process outputs, corrected assessment logic, and browser-operated desktop and phone QA for every
 module. Its release manifest must carry a current passing rendered-browser receipt bound to the
 exact lesson HTML, CSS, and JavaScript.
+
+The production registry identifies the exact source merge, release ID, all eighteen available
+modules, and disabled credential state. The landing, all eighteen canonical lesson routes, required
+public asset, and representative live component paths passed unauthenticated production checks.
 
 The existing 0.8.0 deployment remains historical evidence only and must not be treated as an
 accepted design benchmark.
