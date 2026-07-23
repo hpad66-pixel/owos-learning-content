@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Bound the question | relationship or process | `editorial-illustration` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Run the Graph Fit Test | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Design controls and evidence | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Plan ninety-day measures and stop conditions | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Bound the question | relationship or process | `graph-fit-decision-tree` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Run the Graph Fit Test | relationship or process | `pilot-canvas` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Design controls and evidence | relationship or process | `ninety-day-roadmap` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Plan ninety-day measures and stop conditions | relationship or process | `value-risk-matrix` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `editorial-illustration`, `network-diagram`, `raci-grid`, `interactive-process` |
+| Visual types, minimum four | `graph-fit-decision-tree`, `pilot-canvas`, `ninety-day-roadmap`, `value-risk-matrix` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `multi-select`, `reflection`, `capstone-rubric` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Bound the question | editorial-illustration | Shared component gallery | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Run the Graph Fit Test | network-diagram | Shared component gallery | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Design controls and evidence | raci-grid | Shared component gallery | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Plan ninety-day measures and stop conditions | interactive-process | Shared component gallery | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Bound the question | graph-fit-decision-tree | Shared component gallery | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Run the Graph Fit Test | pilot-canvas | Shared component gallery | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Design controls and evidence | ninety-day-roadmap | Shared component gallery | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Plan ninety-day measures and stop conditions | value-risk-matrix | Shared component gallery | A useful pilot connects graph fit, identity, relationships, evidence, mappings, validation, context, access, agent controls, ownership, and measures around one decision. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

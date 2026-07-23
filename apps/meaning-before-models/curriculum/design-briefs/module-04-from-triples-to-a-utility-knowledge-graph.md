@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Load source statements | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Resolve shared nodes | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Connect paths | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Ask a cross-domain question | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Load source statements | relationship or process | `utility-estate-map` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Resolve shared nodes | relationship or process | `relationship-network` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Connect paths | relationship or process | `source-group-stack` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Ask a cross-domain question | relationship or process | `path-reveal` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `network-diagram`, `interactive-process`, `packet-anatomy`, `comparison-table` |
+| Visual types, minimum four | `utility-estate-map`, `relationship-network`, `source-group-stack`, `path-reveal` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `multi-select`, `path-choice`, `reflection` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Load source statements | network-diagram | Shared component gallery | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Resolve shared nodes | interactive-process | Shared component gallery | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Connect paths | packet-anatomy | Shared component gallery | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Ask a cross-domain question | comparison-table | Shared component gallery | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Load source statements | utility-estate-map | Shared component gallery | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Resolve shared nodes | relationship-network | Shared component gallery | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Connect paths | source-group-stack | Shared component gallery | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Ask a cross-domain question | path-reveal | Shared component gallery | A knowledge graph grows when explicit statements reuse the same identified things and preserve evidence. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

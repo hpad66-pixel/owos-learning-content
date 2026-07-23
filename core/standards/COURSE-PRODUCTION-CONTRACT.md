@@ -40,7 +40,7 @@ Every full lesson must provide:
 
 1. A consequential utility situation and an initial learner decision.
 2. Plain-English instructor teaching that stands on its own without video.
-3. One clear mental model and at least four relevant visual types.
+3. One clear mental model and at least four relevant visual types. At least three must be lesson-specific explanatory graphics with genuinely different natural shapes.
 4. At least two purposeful interactions or simulations.
 5. Foundation, Practitioner, and Leader perspectives when roles change the decision.
 6. At least three different quiz types, distributed beside the ideas they assess.
@@ -65,12 +65,16 @@ A short lesson may request a documented exception. Counts never excuse irrelevan
 ## 5. Graphics, interaction, and pacing
 
 - Select graphics through the Visual Arsenal according to the natural shape of the idea.
+- A renamed component does not count as a new visual. Every counted graphic must declare and render a structural shape or family that matches the teaching idea.
+- Every full lesson must use at least three different explanatory shapes. Four are preferred. Adjacent lessons must not reuse the same dominant shape or the same ordered visual sequence.
+- Use question flip cards when prediction, misconception repair, terminology, or retrieval practice benefits from them. The front asks a real question. The back teaches the answer and utility consequence. A decorative card grid does not count.
 - Graphics must explain a concept, method, framework, relationship, sequence, comparison, quantity, location, or cause.
 - Every graphic needs accessible text, a plain-English reading guide, a learner conclusion, and a mobile transformation.
 - Animation must reveal change, cause, consequence, sequence, dependency, or hidden structure.
 - Every animation needs a reduced-motion equivalent that preserves the meaning.
 - Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout.
 - Do not repeat adjacent modules' opening pattern, dominant visual, interaction pair, quiz sequence, and work-product format without an instructional reason.
+- Course QA must compare rendered DOM fingerprints, visual-shape sequences, and quiz sequences across lessons. Different labels on the same markup are repetition and fail the diversity gate.
 - Decorative stock art, generic technology imagery, repeated icon grids, and motion without a teaching purpose do not count.
 
 ## 6. Course navigation and connected learning

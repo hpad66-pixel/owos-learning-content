@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Inspect assertions | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Apply one axiom | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Trace the entailment | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Preserve unknowns | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Inspect assertions | relationship or process | `owl-proof-trace` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Apply one axiom | relationship or process | `open-world-decision-tree` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Trace the entailment | relationship or process | `assertion-inference-comparison` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Preserve unknowns | relationship or process | `consistency-heat-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `network-diagram`, `interactive-process`, `failure-propagation-chain`, `comparison-table` |
+| Visual types, minimum four | `owl-proof-trace`, `open-world-decision-tree`, `assertion-inference-comparison`, `consistency-heat-grid` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `classify`, `true-false`, `multiple-choice` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Inspect assertions | network-diagram | Shared component gallery | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Apply one axiom | interactive-process | Shared component gallery | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Trace the entailment | failure-propagation-chain | Shared component gallery | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Preserve unknowns | comparison-table | Shared component gallery | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Inspect assertions | owl-proof-trace | Shared component gallery | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Apply one axiom | open-world-decision-tree | Shared component gallery | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Trace the entailment | assertion-inference-comparison | Shared component gallery | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Preserve unknowns | consistency-heat-grid | Shared component gallery | Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

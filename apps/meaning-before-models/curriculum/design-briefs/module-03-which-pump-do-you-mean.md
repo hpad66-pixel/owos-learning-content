@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Collect identifiers | relationship or process | `editorial-illustration` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Compare evidence | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Approve or reject | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Preserve conflicts | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Collect identifiers | relationship or process | `source-system-swimlane` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Compare evidence | relationship or process | `identity-bridge` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Approve or reject | relationship or process | `identity-failure-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Preserve conflicts | relationship or process | `conflict-heat-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Identity is an approved relationship supported by evidence, not a text-match shortcut. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `editorial-illustration`, `comparison-table`, `failure-propagation-chain`, `raci-grid` |
+| Visual types, minimum four | `source-system-swimlane`, `identity-bridge`, `identity-failure-chain`, `conflict-heat-grid` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `matching`, `multiple-choice`, `ordering` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Collect identifiers | editorial-illustration | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Compare evidence | comparison-table | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Approve or reject | failure-propagation-chain | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Preserve conflicts | raci-grid | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Collect identifiers | source-system-swimlane | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Compare evidence | identity-bridge | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Approve or reject | identity-failure-chain | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Preserve conflicts | conflict-heat-grid | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

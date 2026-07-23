@@ -36,6 +36,8 @@ records[5] = {
 }
 
 results = []
+experience_fingerprints = []
+all_lesson_visual_types = set()
 for number in range(1, 19):
     record = records[number]
     result = validate_module(
@@ -43,6 +45,27 @@ for number in range(1, 19):
     )
     results.append(result)
     soup = BeautifulSoup(record["lesson"].read_text(encoding="utf-8"), "html.parser")
+    lesson_visuals = soup.select('[id^="visual-"][data-visual-type]')
+    visual_types = tuple(node["data-visual-type"] for node in lesson_visuals)
+    visual_shapes = tuple(node["data-visual-shape"] for node in lesson_visuals)
+    inner_signatures = []
+    for node in lesson_visuals:
+        stage = node.select_one(".visual-stage")
+        root = next((child for child in stage.children if getattr(child, "name", None)), None)
+        inner_signatures.append((root.name, tuple(root.get("class", []))))
+    quiz_sequence = tuple(
+        node["data-quiz-type"] for node in soup.select("[data-quiz-type][data-required]")
+    )
+    if len(set(visual_shapes)) != len(visual_shapes):
+        raise AssertionError(f"module {number:02} repeats a structural visual shape: {visual_shapes}")
+    if len(set(inner_signatures)) != len(inner_signatures):
+        raise AssertionError(
+            f"module {number:02} relabels the same inner visual structure: {inner_signatures}"
+        )
+    if len(soup.select('#question-deck .flip-question, #opening-quiz .flip-question')) < 4:
+        raise AssertionError(f"module {number:02} needs four working question flip cards")
+    all_lesson_visual_types.update(visual_types)
+    experience_fingerprints.append((number, visual_types, visual_shapes, quiz_sequence))
     ids = [node["id"] for node in soup.select("[id]")]
     if len(ids) != len(set(ids)):
         raise AssertionError(f"module {number:02} has duplicate HTML ids")
@@ -64,6 +87,22 @@ if any(len(item["visual_types"]) < 4 for item in results):
     raise AssertionError("every module needs four visual types")
 if any(len(item["quiz_types"]) < 3 for item in results):
     raise AssertionError("every module needs three quiz types")
+if len(all_lesson_visual_types) < 55:
+    raise AssertionError(
+        f"course-wide visual arsenal is too narrow: {len(all_lesson_visual_types)} visual types"
+    )
+dominant_visuals = [fingerprint[1][0] for fingerprint in experience_fingerprints]
+if len(set(dominant_visuals)) != 18:
+    raise AssertionError(f"every lesson needs a distinct dominant visual: {dominant_visuals}")
+for left, right in zip(experience_fingerprints, experience_fingerprints[1:]):
+    if left[1] == right[1] or left[2] == right[2]:
+        raise AssertionError(
+            f"adjacent modules {left[0]:02} and {right[0]:02} repeat a visual sequence"
+        )
+    if left[3] == right[3]:
+        raise AssertionError(
+            f"adjacent modules {left[0]:02} and {right[0]:02} repeat a quiz sequence"
+        )
 
 landing = COURSE / "curriculum/course-meaning-before-models.html"
 landing_text = landing.read_text(encoding="utf-8")

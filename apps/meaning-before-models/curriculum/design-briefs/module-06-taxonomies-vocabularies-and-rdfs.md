@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Collect terms | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Define categories | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Test the hierarchy | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Publish ownership | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Collect terms | relationship or process | `taxonomy-tree` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Define categories | relationship or process | `definition-cards` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Test the hierarchy | relationship or process | `taxonomy-venn` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Publish ownership | relationship or process | `rdfs-relationship-map` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `comparison-table`, `network-diagram`, `failure-propagation-chain`, `raci-grid` |
+| Visual types, minimum four | `taxonomy-tree`, `definition-cards`, `taxonomy-venn`, `rdfs-relationship-map` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `flip-cards`, `classify`, `true-false` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Collect terms | comparison-table | Shared component gallery | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Define categories | network-diagram | Shared component gallery | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Test the hierarchy | failure-propagation-chain | Shared component gallery | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Publish ownership | raci-grid | Shared component gallery | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Collect terms | taxonomy-tree | Shared component gallery | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Define categories | definition-cards | Shared component gallery | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Test the hierarchy | taxonomy-venn | Shared component gallery | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Publish ownership | rdfs-relationship-map | Shared component gallery | A taxonomy classifies terms. RDF Schema adds reusable classes, properties, labels, domains, ranges, and hierarchies. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

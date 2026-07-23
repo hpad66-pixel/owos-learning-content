@@ -18,4 +18,5 @@
 | Graph publication | pending | | |
 | Credential claim | pending | | |
 | Course live-review deployment | approved | 2026-07-23 | Direct instruction from Hardeep Anand: “Go ahead and publish and make it live on my website!” Publish the complete eighteen-module course for live review. Keep credentials, certification claims, authoritative completion, and operational authority disabled while separate human gates continue. |
+| Complete visual-variety remediation | approved | 2026-07-23 | Hardeep directed Codex to fix every lesson, use two or three or more lesson-appropriate graphics, vary quizzes, add question flip cards, update permanent instructions, and publish the corrected course. |
 | Final credential-bearing course release | pending | | |

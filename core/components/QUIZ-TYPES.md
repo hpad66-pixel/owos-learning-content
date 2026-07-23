@@ -30,4 +30,13 @@ Also: spell out every acronym in full the first time it appears, and give every 
   judgment calls fit multiple choice or reflection, and numbers fit estimate.
 
 To reuse one, copy its block from `quiz-gallery.html` (both the markup and its piece of the script).
+
+### Question flip-card rule
+
+Use a flip card for prediction and retrieval, not decoration. The front must pose a complete
+question. The learner predicts before turning it. The back gives the answer, a plain-English
+explanation, and a utility consequence or example. A row of term labels that merely reveals
+definitions does not satisfy this rule. When a full lesson introduces four or more important terms
+or misconceptions, include at least four question flip cards unless the design brief explains why
+another retrieval method teaches the material better.
 The `module-template.html` already includes the common ones ready to fill in.

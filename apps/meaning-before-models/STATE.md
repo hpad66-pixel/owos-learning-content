@@ -114,3 +114,25 @@ new version. Configure the two cross-repository GitHub secrets and Git-connected
 deployment so future releases do not require the manual intake and direct Pages fallback. Do not
 publish approved domain claims to the shared graph or issue a credential until those separate
 approvals are recorded.
+
+## Visual-variety remediation, 2026-07-23
+
+Hardeep rejected the repeated lesson appearance and instructed a complete course rebuild plus a
+permanent prevention mechanism. The root cause was a weak implementation gate: the generator reused
+one dominant lesson body and one quiz sequence, while QA counted renamed `data-visual-type` labels
+instead of rendered structures.
+
+Version 0.8.0 replaces that system across all eighteen lessons:
+
+- four lesson-specific explanatory graphics per lesson, selected from the approved visual blueprint;
+- at least four question-and-answer flip cards per lesson;
+- the approved module-specific quiz sequence plus an applied work-product assessment;
+- explicit visual family and structural-shape fingerprints;
+- course-wide checks for inner visual structure, unique dominant visuals, adjacent visual sequences,
+  adjacent quiz sequences, and a minimum of fifty-five lesson-specific visual types; and
+- permanent updates to the production contract, design system, Visual Arsenal, quiz rules, templates,
+  course-continuation skill, repository agent instructions, and future-course scaffold.
+
+Repository QA passes. Version 0.8.0 is authorized for corrected live-review publication by the
+standing course publication instruction. Credentials, certification, graph publication, and
+operational authority remain disabled.

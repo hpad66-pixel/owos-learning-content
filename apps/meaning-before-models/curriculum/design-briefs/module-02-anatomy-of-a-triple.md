@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Identify resources | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Choose a directed property | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Type the literal | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Review the serialization | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Identify resources | relationship or process | `annotated-triple` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Choose a directed property | relationship or process | `triple-method` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Type the literal | relationship or process | `resource-literal-comparison` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Review the serialization | relationship or process | `triple-network` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | A triple has three positions, but each position has a different job and only the object may be a literal value. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `comparison-table`, `packet-anatomy`, `interactive-process`, `network-diagram` |
+| Visual types, minimum four | `annotated-triple`, `triple-method`, `resource-literal-comparison`, `triple-network` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `classify`, `fill-in`, `true-false` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Identify resources | comparison-table | Shared component gallery | A triple has three positions, but each position has a different job and only the object may be a literal value. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Choose a directed property | packet-anatomy | Shared component gallery | A triple has three positions, but each position has a different job and only the object may be a literal value. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Type the literal | interactive-process | Shared component gallery | A triple has three positions, but each position has a different job and only the object may be a literal value. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Review the serialization | network-diagram | Shared component gallery | A triple has three positions, but each position has a different job and only the object may be a literal value. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Identify resources | annotated-triple | Shared component gallery | A triple has three positions, but each position has a different job and only the object may be a literal value. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Choose a directed property | triple-method | Shared component gallery | A triple has three positions, but each position has a different job and only the object may be a literal value. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Type the literal | resource-literal-comparison | Shared component gallery | A triple has three positions, but each position has a different job and only the object may be a literal value. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Review the serialization | triple-network | Shared component gallery | A triple has three positions, but each position has a different job and only the object may be a literal value. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

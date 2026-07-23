@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Identify the statement type | relationship or process | `editorial-illustration` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Attach provenance | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Resolve effective time | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Select applicable authority | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Identify the statement type | relationship or process | `provenance-network` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Attach provenance | relationship or process | `authority-ladder` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Resolve effective time | relationship or process | `effective-time-timeline` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Select applicable authority | relationship or process | `claim-conflict-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `editorial-illustration`, `comparison-table`, `interactive-process`, `raci-grid` |
+| Visual types, minimum four | `provenance-network`, `authority-ladder`, `effective-time-timeline`, `claim-conflict-table` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `classify`, `timeline-choice`, `multiple-choice` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Identify the statement type | editorial-illustration | Shared component gallery | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Attach provenance | comparison-table | Shared component gallery | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Resolve effective time | interactive-process | Shared component gallery | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Select applicable authority | raci-grid | Shared component gallery | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Identify the statement type | provenance-network | Shared component gallery | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Attach provenance | authority-ladder | Shared component gallery | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Resolve effective time | effective-time-timeline | Shared component gallery | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Select applicable authority | claim-conflict-table | Shared component gallery | Source, authority, time, version, and supersession are separate controls that let conflicting statements be preserved and resolved. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

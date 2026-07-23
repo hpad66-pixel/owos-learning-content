@@ -2,7 +2,7 @@
 
 Use this matrix to prevent a course from becoming a sequence of visually renamed copies.
 
-| Module | Opening pattern | Narrative architecture | Dominant visual | Supporting visuals | Purposeful interactions | Quiz sequence | Work product | Graph experience | Mobile transformation | Repetition risk |
+| Module | Opening pattern | Narrative architecture | Dominant visual | Ordered visual-shape fingerprint | Supporting visuals | Purposeful interactions | Quiz sequence | Work product | Graph experience | Mobile transformation | Repetition risk |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | | | | | |
 

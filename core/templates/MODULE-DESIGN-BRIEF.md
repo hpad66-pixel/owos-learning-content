@@ -27,6 +27,9 @@
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
 | | | | | | |
+
+For every selected visual, record its intended `data-visual-family`, `data-visual-shape`, and inner
+structure. A changed label, icon, color, or heading does not create a distinct visual.
 | | | | | | |
 | | | | | | |
 | | | | | | |
@@ -107,6 +110,9 @@
 - Adjacent module reviewed:
 - Opening pattern intentionally different:
 - Dominant visual intentionally different:
+- Ordered visual-shape sequence differs from both adjacent modules:
+- Structural fingerprint checked after rendering:
+- Question flip-card front asks a complete question and back teaches the utility consequence:
 - Interaction pair intentionally different:
 - Quiz sequence intentionally different:
 - Work-product format intentionally different:

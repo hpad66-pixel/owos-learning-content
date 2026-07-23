@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| State the workload | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Score constraints | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Choose an access pattern | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Record recovery and review | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| State the workload | relationship or process | `access-decision-tree` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Score constraints | relationship or process | `access-comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Choose an access pattern | relationship or process | `latency-cost-curve` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Record recovery and review | relationship or process | `hybrid-architecture-map` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `comparison-table`, `interactive-process`, `failure-propagation-chain`, `raci-grid` |
+| Visual types, minimum four | `access-decision-tree`, `access-comparison-table`, `latency-cost-curve`, `hybrid-architecture-map` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `classify`, `estimate`, `multi-select` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| State the workload | comparison-table | Shared component gallery | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Score constraints | interactive-process | Shared component gallery | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Choose an access pattern | failure-propagation-chain | Shared component gallery | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Record recovery and review | raci-grid | Shared component gallery | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| State the workload | access-decision-tree | Shared component gallery | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Score constraints | access-comparison-table | Shared component gallery | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Choose an access pattern | latency-cost-curve | Shared component gallery | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Record recovery and review | hybrid-architecture-map | Shared component gallery | Move less data first, then cache, index, or materialize only where measured requirements justify another governed copy. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |
