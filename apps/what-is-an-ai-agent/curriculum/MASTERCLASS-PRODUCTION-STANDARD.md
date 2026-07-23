@@ -54,7 +54,7 @@ The learner-facing HTML, shared runtime, and recording script must tell the same
 
 Graph and community controls must not consume a full-width band at the top of a lesson.
 
-- Desktop lessons use compact Graph and Community buttons in the lesson header.
+- Desktop lessons use compact Graph, Community, and Start actions in the lesson header. Start moves directly to the beginning of the lesson.
 - Mobile lessons keep those compact buttons in the header without creating a persistent bottom dock.
 - Graph and Community each open in a white same-page drawer or dialog and return focus to the trigger that opened them.
 - The complete learning community remains after the teaching content.

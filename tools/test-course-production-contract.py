@@ -31,7 +31,7 @@ require(
         "Instructor voice and explanation",
         "Graphics, interaction, and pacing",
         "Course navigation and connected learning",
-        "compact Graph and Community actions",
+        "compact Graph, Community, and Start actions",
         "white, right-side drawers",
         "complete graph and community section at the bottom",
         "#owos-course-community",
@@ -44,9 +44,9 @@ require(
 )
 require(OPERATING, ["COURSE-PRODUCTION-CONTRACT.md"])
 require(DESIGN, ["COURSE-PRODUCTION-CONTRACT.md"])
-require(SKILL, ["COURSE-PRODUCTION-CONTRACT.md", "floating card or hanging rail", "module-specific FAQ", "contrast guard"])
-require(CREATOR, ["Course Production Contract", "#owos-course-community", "Floating cards and hanging rails are prohibited", "module-specific FAQ"])
-require(BRIEF, ["Header Graph and Community buttons", "#owos-course-community", "Learner FAQ plan", "Dark-surface contrast plan"])
-require(QA, ["Header tools, side drawers", "Explicit bottom connected-learning anchor", "Module-specific FAQ coverage", "Dark-surface contrast guard"])
+require(SKILL, ["COURSE-PRODUCTION-CONTRACT.md", "floating cards or hanging rails", "module-specific FAQ", "contrast guard"])
+require(CREATOR, ["Course Production Contract", "#owos-course-community", "Graph, Community, and Start", "Floating cards and hanging rails are prohibited", "module-specific FAQ"])
+require(BRIEF, ["Header Graph, Community, and Start actions", "#owos-course-community", "Learner FAQ plan", "Dark-surface contrast plan"])
+require(QA, ["Header Graph, Community, and Start actions", "Explicit bottom connected-learning anchor", "Module-specific FAQ coverage", "Dark-surface contrast guard"])
 
 print("OWOS Course Production Contract QA passed.")

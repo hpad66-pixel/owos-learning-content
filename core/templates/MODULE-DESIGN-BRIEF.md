@@ -48,7 +48,7 @@
 | Role-sensitive treatment | |
 | Professional work product | |
 | Same-page Knowledge Graph behavior | |
-| Header Graph and Community buttons | |
+| Header Graph, Community, and Start actions | |
 | Bottom connected-learning section | |
 | Explicit bottom `#owos-course-community` anchor before navigation | |
 | Drawer focus return and mobile behavior | |

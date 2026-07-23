@@ -49,10 +49,19 @@ for number, filename in pages.items():
     bottom_navigation = text.find('class="footnav"')
     if anchor < 0 or bottom_navigation < 0 or anchor > bottom_navigation:
         raise AssertionError(f"{filename} must place the explicit connected-learning anchor before bottom navigation")
+    header_end = text.find("</header>") if "</header>" in text else text.find("</nav>")
+    header = text[:header_end]
+    for action in ('data-open-graph', 'data-open-community', 'href="#start"'):
+        if action not in header:
+            raise AssertionError(f"{filename} must keep Graph, Community, and Start visible in the lesson header")
 
 landing = (CURRICULUM / "course-what-is-an-ai-agent.html").read_text(encoding="utf-8")
 if landing.find('id="owos-course-community"') < 0 or landing.find('id="owos-course-community"') > landing.find('class="footnav"'):
     raise AssertionError("master-class landing page must place the explicit connected-learning anchor before bottom navigation")
+landing_header = landing[:landing.find("</header>")]
+for action in ('data-open-graph', 'data-open-community', '>Start</a>'):
+    if action not in landing_header:
+        raise AssertionError("master-class landing page must keep Graph, Community, and Start visible in the header")
 for filename in pages.values():
     if filename not in landing:
         raise AssertionError(f"master-class landing page is not connected to {filename}")

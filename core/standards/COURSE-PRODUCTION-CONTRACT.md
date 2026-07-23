@@ -76,7 +76,7 @@ A short lesson may request a documented exception. Counts never excuse irrelevan
 ## 6. Course navigation and connected learning
 
 - Keep the main lesson reading surface calm and uncluttered.
-- Place compact Graph and Community actions in the lesson header. Do not use floating cards, hanging rails, or a persistent bottom dock.
+- Place compact Graph, Community, and Start actions in the lesson header. Start moves directly to the beginning of the lesson. Do not use floating cards, hanging rails, or a persistent bottom dock.
 - Open the Graph and Community in white, right-side drawers on larger screens and full-screen drawers on small screens.
 - Closing a drawer must return focus and the learner to the same place in the course.
 - Keep the complete graph and community section at the bottom of the lesson for discovery, context, and extended use.

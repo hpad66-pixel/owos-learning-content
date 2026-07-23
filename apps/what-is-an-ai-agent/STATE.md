@@ -4,7 +4,7 @@ Updated: 2026-07-23
 
 ## Current phase
 
-Version 0.9.3 explicit bottom-anchor release
+Version 0.9.4 three-action course header release
 
 ## Completed
 
@@ -66,6 +66,8 @@ Version 0.9.3 explicit bottom-anchor release
 - Added the FAQ requirement to the syllabus, production contract, operating standard, design system, writing standard, course skill, course creator, module brief, QA template, course instructions, and automated release tests.
 - Added an explicit bottom `#owos-course-community` anchor to the course landing page and all eight modules so cached or future runtime code cannot place the complete cards inside the header or hero.
 - Added source and runtime tests that verify the anchor appears inside the lesson content before bottom navigation and remains invisible until populated.
+- Added Graph, Community, and Start directly to the source header of the course landing page and all eight modules so the complete three-action set is visible before runtime enhancement.
+- Added a release test that blocks any lesson or landing page that omits Graph, Community, or Start from its header.
 
 ## New sources
 
