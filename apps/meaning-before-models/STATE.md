@@ -142,3 +142,26 @@ detected stale `dist/site` files. Future releases must run
 `python3 tools/build-meaning-before-models-release.py` before the generic manifest builder, and the
 course regression test now compares source and packaged visual shapes, quiz sequences, JavaScript,
 and CSS.
+
+## Version 0.8.0 live deployment evidence
+
+- Learning-content source and package commit:
+  `8f87aecbcf5afb145d69e4acf117d08a3ff34a9c`
+- Learning-content pull requests:
+  `hpad66-pixel/owos-learning-content#5` and `#6`
+- Release ID: `owos-course-semantic-data-ai-001-v0.8.0`
+- Runtime files: 24 checksum-verified files
+- OWOS platform intake pull request:
+  `hpad66-pixel/onewater-os-platform#33`
+- Production platform merge:
+  `b53337183f64fd9999fa7d6d56826f8b998e5199`
+- Cloudflare deployment:
+  `https://b2ee424d.owos-3n1.pages.dev`
+- Production course route:
+  `https://owos.ai/course-meaning-before-models`
+- Production registry verification:
+  exact release ID and source commit on both deployment and primary domains
+- Access boundary:
+  authenticated live review; unauthenticated course requests redirect to sign-in
+- Credentials, certification, graph publication, completion events, and operational authority:
+  disabled or not configured
