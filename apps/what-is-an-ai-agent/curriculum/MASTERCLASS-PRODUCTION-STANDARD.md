@@ -1,8 +1,8 @@
 # AI Agent Master Class Production Standard
 
-Version: 1.1
+Version: 1.2
 
-This standard captures the complete learner-facing quality contract established through Module 4 and applied to Modules 1 through 8. It supplements the shared OWOS Course Operating Standard, Course Design System, Visual Arsenal, Writing Standard, component catalog, quiz catalog, and module QA template.
+This standard captures the complete learner-facing quality contract established through Module 4 and applied to Modules 1 through 8. It implements the shared OWOS Course Production Contract for this Master Class and supplements the Course Operating Standard, Course Design System, Visual Arsenal, Writing Standard, component catalog, quiz catalog, and module QA template.
 
 ## Required module architecture
 
@@ -53,18 +53,18 @@ The learner-facing HTML, shared runtime, and recording script must tell the same
 
 Graph and community controls must not consume a full-width band at the top of a lesson.
 
-- Desktop lessons use a compact right-side tool rail.
-- Mobile lessons use a bottom dock that stays clear of lesson controls.
-- The graph opens in a same-page drawer or dialog and returns focus to the trigger that opened it.
+- Desktop lessons use compact Graph and Community buttons in the lesson header.
+- Mobile lessons keep those compact buttons in the header without creating a persistent bottom dock.
+- Graph and Community each open in a white same-page drawer or dialog and return focus to the trigger that opened them.
 - The complete learning community remains after the teaching content.
-- The side or bottom control scrolls the learner to that community without navigating away.
-- The course link remains available from the same tool group.
+- Closing the Community drawer returns the complete community to its original location at the bottom.
+- Floating cards, hanging rails, and fixed side controls are prohibited.
 
 This placement is shared across OWOS master classes. A course may change the labels, but not the behavior.
 
 ## Contrast and typography gate
 
-Light reading surfaces use dark text. Dark blue or brand-gradient surfaces explicitly set headings, paragraphs, labels, captions, and control text to white or a tested light color. Inherited text color is not accepted on dark surfaces.
+Light reading surfaces use dark text. Dark blue or brand-gradient surfaces explicitly set headings, paragraphs, labels, captions, and control text to white or a tested light color. Inherited text color is not accepted on dark surfaces. The shared runtime contrast guard checks dynamic content, and manual desktop and mobile inspection remains required.
 
 The module must use the OWOS type family, a readable line length, calm heading weights, and enough spacing to distinguish teaching, practice, assessment, and work-product sections. A visual theme does not pass when typography is technically visible but tiring to read.
 

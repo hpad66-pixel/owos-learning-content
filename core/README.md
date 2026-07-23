@@ -6,6 +6,8 @@ The reusable foundation. Build it once here, and every app in `apps/` uses it. C
 - **`brand/`** the Clearwater brand: `owos-brand.css`, Droobi, logos, `BRAND-GUIDELINES.md`.
 - **`standards/`** how we write and build: `WRITING-STANDARD.md` (voice + component + quiz rules) and
   `VISUAL-ARSENAL.md` (the ~35 visual types plus the Selection Prompt). The approved
+  `COURSE-PRODUCTION-CONTRACT.md` is the single, non-optional release floor for syllabus,
+  instruction, graphics, interactions, navigation, accessibility, QA, provenance, and deployment.
   `COURSE-OPERATING-STANDARD.md` combines the Project Delivery learner experience with Data Before
   AI governance and defines the required production and release gates for every OWOS course.
 - **`components/`** the building blocks: `component-gallery.html` (visuals) and `quiz-gallery.html`

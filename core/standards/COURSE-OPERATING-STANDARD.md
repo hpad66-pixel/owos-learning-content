@@ -8,6 +8,8 @@ approved: 2026-07-22
 
 # OWOS Course Operating Standard
 
+`COURSE-PRODUCTION-CONTRACT.md` is the binding completeness and release contract. Read it first. This operating standard explains the systems and gates behind that contract.
+
 ## Decision
 
 Every OWOS course combines the strongest parts of the existing Master Classes:

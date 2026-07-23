@@ -1,10 +1,10 @@
 # Course State
 
-Updated: 2026-07-22
+Updated: 2026-07-23
 
 ## Current phase
 
-Complete eight-module master-class candidate built, external review pending
+Version 0.9.1 UI consolidation and production-contract validation
 
 ## Completed
 
@@ -54,6 +54,12 @@ Complete eight-module master-class candidate built, external review pending
 - Recorded a rounded master-class working score of 92 out of 100. Every module meets or exceeds the former Module 4 working benchmark.
 - Approved and prepared version 0.8.1 as an authenticated live-review release for OWOS. Credential and certification claims remain disabled.
 - Added a complete master-class regression test covering chronology, quiz distribution, graphics, artifacts, graphs, persistence, and completion contracts.
+- Released version 0.9.0 to the OWOS production runtime for authenticated live review.
+- Removed the course-specific hanging lesson tool rail.
+- Adopted compact header Graph and Community actions with same-page responsive drawers and the complete connected-learning section retained at the bottom.
+- Added the binding `COURSE-PRODUCTION-CONTRACT.md` so every future course inherits the complete accumulated syllabus, teaching, visual, assessment, navigation, accessibility, QA, repository, and release standard.
+- Added machine checks that verify the contract is wired into course creation, the course skill, module design briefs, and QA reports.
+- Added a shared runtime contrast guard so low-contrast text on dark blue, navy, and gradient surfaces is corrected and remains testable as pages change.
 
 ## New sources
 
@@ -70,10 +76,10 @@ Complete eight-module master-class candidate built, external review pending
 - Mobile device rendering review and interaction pilot
 - Separate approval of the built lesson as the production benchmark
 - Real learner and practitioner review of Modules 1 through 8
-- Runtime packaging, platform intake, and course release
 - Real-browser and real-device accessibility review of Module 4
 - Authenticated API and Supabase integration verification for Module 4
+- Credential and certification approval
 
 ## Next action
 
-Review the eight learner-facing modules in chronological order and the scores in `qa/masterclass-scorecard.md`. Record content revisions, then run practitioner, novice-learner, device, assistive-technology, and authenticated-runtime reviews before any release decision.
+Validate version 0.9.1 on desktop and mobile, then continue practitioner, novice-learner, assistive-technology, and authenticated-runtime reviews. Keep credentials disabled until separately approved.

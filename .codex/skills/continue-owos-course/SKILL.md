@@ -13,7 +13,7 @@ Give the user one conversational workspace. Never make the user operate internal
 2. Read, in order:
    - the course `AGENTS.md`, `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yaml`, and `SYLLABUS.md`;
    - `../../../hardeep-soul/SOUL.md` and `../../../hardeep-soul/authoring/AUTHORING_STANDARD.md`;
-   - `../../core/standards/COURSE-OPERATING-STANDARD.md`, `../../core/standards/COURSE-DESIGN-SYSTEM.md`, `../../core/standards/VISUAL-ARSENAL.md`, and `../../core/standards/WRITING-STANDARD.md`;
+   - `../../core/standards/COURSE-PRODUCTION-CONTRACT.md`, `../../core/standards/COURSE-OPERATING-STANDARD.md`, `../../core/standards/COURSE-DESIGN-SYSTEM.md`, `../../core/standards/VISUAL-ARSENAL.md`, and `../../core/standards/WRITING-STANDARD.md`;
    - `../../core/components/COMPONENTS.md`, `../../core/components/QUIZ-TYPES.md`, and the rendered component and quiz galleries, resolving paths from the course directory.
 3. Treat the current user message as course input. Preserve the user's substantive wording in a dated file under `conversations/` unless it is already recorded.
 4. Run the internal workspace scan. Do not ask the user to run it:
@@ -60,6 +60,8 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Require every animation to teach change, cause, consequence, sequence, dependency, or reveal. Preserve meaning under reduced motion.
 - Compare adjacent modules and change repeated opening patterns, dominant visuals, interaction pairs, quiz sequences, and work-product formats unless repetition is instructionally necessary.
 - Keep the Knowledge Graph on the lesson page in a responsive panel or drawer. Closing it returns focus to the course.
+- Use compact Graph and Community buttons in the lesson header. Open each in a white side drawer, never a floating card or hanging rail. Keep the complete connected-learning section at the bottom of the lesson as well.
+- Treat dark text on a dark blue, navy, or gradient surface as a release blocker. Run the shared contrast guard and complete desktop and mobile contrast review.
 - Teach every major visual, animation, simulation, assessment, and work-product interface in the lesson itself. Add one or two plain-English instructor paragraphs that explain what the learner is seeing, what action to take, what to notice, why it matters in utility work, and what the result means. A tooltip never replaces this teaching.
 - Maintain one recording script for every module and one course overview script. Separate spoken words from visual directions. Update both the module script and overview script when curriculum content or sequence changes.
 - Use explanatory graphics when a concept, method, framework, relationship, or cause chain has a visual shape. Select the graphic through the Visual Arsenal, explain how to read it, and state what it proves or clarifies. Do not add decorative stock art, repeated icon tiles, or graphics that merely restate a heading.

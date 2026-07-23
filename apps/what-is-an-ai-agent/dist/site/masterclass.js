@@ -114,13 +114,6 @@ function teachingExpansion(){
     var guide=document.createElement("div");guide.className="instructor-dialogue";guide.innerHTML='<span class="voice">Build something you can use</span><div><p>'+note.artifact+'</p><p>Use specific names, evidence, owners, and limits. You are not completing a form for the course. You are drafting a professional work product that can support a real conversation.</p></div>';artifact.insertAdjacentElement("beforebegin",guide);
   }
 }
-if(!document.querySelector(".lesson-tool-rail")){
-  var rail=document.createElement("nav");
-  rail.className="lesson-tool-rail";
-  rail.setAttribute("aria-label","Lesson tools");
-  rail.innerHTML='<button type="button" data-open-graph>Graph</button><a href="#owos-course-community">Community</a><a href="course-what-is-an-ai-agent.html">Course</a>';
-  document.body.appendChild(rail);
-}
 teachingExpansion();
 function persist(){localStorage.setItem(key,JSON.stringify(saved));updateCompletion();}
 function mark(id){saved[id]=true;persist();}

@@ -13,12 +13,13 @@ Before drafting, read:
 5. `SYLLABUS.md`
 6. `/Users/apas/dev/hardeep-soul/SOUL.md`
 7. `/Users/apas/dev/hardeep-soul/authoring/AUTHORING_STANDARD.md`
-8. `/Users/apas/dev/owos-learning-content/core/standards/COURSE-OPERATING-STANDARD.md`
-9. `/Users/apas/dev/owos-learning-content/core/standards/COURSE-DESIGN-SYSTEM.md`
-10. `/Users/apas/dev/owos-learning-content/core/standards/VISUAL-ARSENAL.md`
-11. `/Users/apas/dev/owos-learning-content/core/standards/WRITING-STANDARD.md`
-12. `/Users/apas/dev/owos-learning-content/core/components/COMPONENTS.md`
-13. `/Users/apas/dev/owos-learning-content/core/components/QUIZ-TYPES.md`
+8. `/Users/apas/dev/owos-learning-content/core/standards/COURSE-PRODUCTION-CONTRACT.md`
+9. `/Users/apas/dev/owos-learning-content/core/standards/COURSE-OPERATING-STANDARD.md`
+10. `/Users/apas/dev/owos-learning-content/core/standards/COURSE-DESIGN-SYSTEM.md`
+11. `/Users/apas/dev/owos-learning-content/core/standards/VISUAL-ARSENAL.md`
+12. `/Users/apas/dev/owos-learning-content/core/standards/WRITING-STANDARD.md`
+13. `/Users/apas/dev/owos-learning-content/core/components/COMPONENTS.md`
+14. `/Users/apas/dev/owos-learning-content/core/components/QUIZ-TYPES.md`
 
 Treat the PDF already in `research/originals/` as private research with permission pending. Do not publish its text or claims until permission and evidence boundaries are reviewed.
 
@@ -35,3 +36,7 @@ Use the Visual Arsenal to add explanatory graphics where a concept, method, fram
 Plan visual pacing before HTML production. Do not leave more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the design brief records the reason. Use original editorial illustrations when a utility setting, physical asset, record conflict, or accountable decision can be taught as a scene.
 
 Distribute at least three varied quiz types across each full module. Put each check directly after the idea or mechanism it measures, show immediate explanatory feedback, allow retry, and include a final deterministic application check connected to the module work product.
+
+Keep the reading surface uncluttered. Use compact Graph and Community buttons in the lesson header. Each opens in a white responsive side drawer and returns the learner to the same place when closed. Keep the complete Graph and Community section at the bottom. Floating cards, hanging rails, and persistent bottom docks are prohibited.
+
+Dark blue, navy, and gradient surfaces must use white or tested light text. Black or dark gray text on a dark surface blocks release.

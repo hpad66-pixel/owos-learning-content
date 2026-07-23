@@ -60,6 +60,8 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Instructor explanation coverage | | |
 | Graphic teaching coverage | | |
 | Visual pacing and editorial illustration | | |
+| Header tools, side drawers, and bottom connected-learning section | | |
+| Dark-surface contrast guard | | |
 | Prohibited language and punctuation | | |
 | Repository scan and formatting | | |
 
@@ -71,6 +73,8 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 - [ ] Screen-reader walkthrough
 - [ ] Reduced-motion walkthrough
 - [ ] Dense-text and visual-pacing walkthrough
+- [ ] Graph and Community drawer, close, focus-return, and bottom-section walkthrough
+- [ ] Dark blue, navy, and gradient contrast walkthrough
 - [ ] Quiz discoverability and section-placement walkthrough
 - [ ] Utility-practitioner review
 - [ ] Novice-learner comprehension pilot

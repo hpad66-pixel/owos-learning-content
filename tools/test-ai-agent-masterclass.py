@@ -62,7 +62,6 @@ for phrase in (
     "localStorage",
     "instructorNotes",
     "teachingExpansion",
-    "lesson-tool-rail",
     "How to read this graphic",
     "Before you interact",
     "Build something you can use",
@@ -81,7 +80,6 @@ for phrase in (
     ".instructor-dialogue",
     ".visual-break",
     ".concept-flow",
-    ".lesson-tool-rail",
     ".dark p",
     ".preview pre",
     "@media(max-width:760px)",
@@ -90,6 +88,8 @@ for phrase in (
         raise AssertionError(f"master-class design system is missing {phrase}")
 if ".dark h2" not in styles or "color:#fff" not in styles:
     raise AssertionError("dark teaching surfaces do not explicitly enforce light text")
+if "lesson-tool-rail" in runtime or ".lesson-tool-rail" in styles:
+    raise AssertionError("the removed hanging lesson tool rail returned")
 
 expected_scores = {
     1: 91,

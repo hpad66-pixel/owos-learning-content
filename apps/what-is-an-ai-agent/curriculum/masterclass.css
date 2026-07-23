@@ -7,7 +7,7 @@
 /* 2026-07 instructional redesign: calm reading surfaces, explicit teaching, and side tools. */
 body{font-size:17px;line-height:1.72;background:#f5f8fa;color:#3b4d60}
 main.wrap{max-width:1240px}
-.topactions [data-open-graph],.hero [data-open-graph],#openGraphTop,#openGraphHero{display:none}
+.hero [data-open-graph],#openGraphHero{display:none}
 .hero{background:radial-gradient(circle at 88% 12%,rgba(119,220,238,.28),transparent 30%),linear-gradient(135deg,#07334d 0%,#075f89 58%,#0b86b3 100%)}
 .hero,.hero p,.hero .meta span{color:#fff}
 .hero p{color:#eaf8fc}
@@ -50,9 +50,6 @@ main.wrap{max-width:1240px}
 .instructor-dialogue .voice{font:750 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#0879b7}
 .takeaway{margin:24px 0;padding:22px 24px;border-radius:18px;background:#fff7de;border:1px solid #ead294;color:#473811}
 .takeaway b{display:block;color:#473811;margin-bottom:5px}
-.lesson-tool-rail{position:fixed;z-index:88;right:18px;top:42%;display:grid;gap:7px;width:94px;padding:8px;border:1px solid #c9dce7;border-radius:18px;background:#fff;box-shadow:0 14px 38px rgba(5,47,73,.18)}
-.lesson-tool-rail a,.lesson-tool-rail button{display:grid;place-items:center;min-height:44px;padding:8px 5px;border:0;border-radius:11px;background:#edf7fc;color:#07547f;text-decoration:none;font:750 11px/1.2 var(--font)}
-.lesson-tool-rail a:hover,.lesson-tool-rail button:hover,.lesson-tool-rail a:focus-visible,.lesson-tool-rail button:focus-visible{background:#0879b7;color:#fff;outline:3px solid rgba(8,121,183,.18)}
 @media(max-width:900px){.concept-flow{grid-template-columns:1fr 1fr}.concept-step:nth-child(2):after{display:none}}
-@media(max-width:760px){body{padding-bottom:78px}.section{margin:52px auto}.lesson-tool-rail{top:auto;right:50%;bottom:12px;transform:translateX(50%);display:flex;width:auto;max-width:calc(100% - 24px);padding:6px 8px;border-radius:15px}.lesson-tool-rail a,.lesson-tool-rail button{min-width:96px;min-height:40px;padding:7px 10px}.artifact{display:block}.preview{min-height:220px}}
+@media(max-width:760px){.section{margin:52px auto}.artifact{display:block}.preview{min-height:220px}}
 @media(max-width:560px){body{font-size:16px}.concept-flow{grid-template-columns:1fr}.concept-step:after{display:none}.instructor-dialogue{grid-template-columns:1fr}.hero h1{font-size:40px}.topin{height:60px}.brand{font-size:14px}}

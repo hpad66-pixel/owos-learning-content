@@ -48,6 +48,9 @@
 | Role-sensitive treatment | |
 | Professional work product | |
 | Same-page Knowledge Graph behavior | |
+| Header Graph and Community buttons | |
+| Bottom connected-learning section | |
+| Drawer focus return and mobile behavior | |
 | Animation and teaching purpose | |
 | Reduced-motion equivalent | |
 | Mobile transformation | |
@@ -65,6 +68,7 @@
 - Visual, interaction, worked example, or callout used to break each dense section:
 - Any uninterrupted prose exception and reason:
 - Editorial illustration reading guide and learner conclusion, when used:
+- Dark-surface contrast plan:
 
 ## Explanatory graphic plan
 

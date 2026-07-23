@@ -8,6 +8,8 @@ effective: 2026-07-22
 
 # OWOS Course Design System
 
+`COURSE-PRODUCTION-CONTRACT.md` is the binding course-wide contract. This design system explains how to meet its learner-experience requirements without making every lesson look the same.
+
 ## Purpose
 
 This is the durable design instruction for every future OWOS course, module, chapter, and lesson. It connects the approved hybrid course model to the visual arsenal, interaction library, quiz library, animation rules, Hardeep Soul, quality contract, and release process.
@@ -28,16 +30,17 @@ The golden lesson is a capability benchmark. It is not a visual mold. Future les
 
 Read these files before designing a module:
 
-1. `core/standards/COURSE-OPERATING-STANDARD.md`
-2. `core/standards/COURSE-DESIGN-SYSTEM.md`
-3. `core/standards/VISUAL-ARSENAL.md`
-4. `core/standards/WRITING-STANDARD.md`
-5. `core/components/COMPONENTS.md`
-6. `core/components/QUIZ-TYPES.md`
-7. `core/components/component-gallery.html`
-8. `core/components/quiz-gallery.html`
-9. `core/components/module-template.html`
-10. `core/brand/BRAND-GUIDELINES.md`
+1. `core/standards/COURSE-PRODUCTION-CONTRACT.md`
+2. `core/standards/COURSE-OPERATING-STANDARD.md`
+3. `core/standards/COURSE-DESIGN-SYSTEM.md`
+4. `core/standards/VISUAL-ARSENAL.md`
+5. `core/standards/WRITING-STANDARD.md`
+6. `core/components/COMPONENTS.md`
+7. `core/components/QUIZ-TYPES.md`
+8. `core/components/component-gallery.html`
+9. `core/components/quiz-gallery.html`
+10. `core/components/module-template.html`
+11. `core/brand/BRAND-GUIDELINES.md`
 
 When Hardeep's knowledge is used, also read `hardeep-soul/SOUL.md` and `hardeep-soul/authoring/AUTHORING_STANDARD.md` from the canonical sibling repository.
 

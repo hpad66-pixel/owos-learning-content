@@ -6,7 +6,7 @@ When a user asks to continue, update, research, build, revise, validate, or rele
 
 The user works conversationally. Do not require the user to run Python, Git, extraction, build, or validation commands. Run internal tools yourself and report their results in plain English.
 
-Apply Hardeep Soul, the OWOS Course Operating Standard, Course Design System, Visual Arsenal, writing standard, component and quiz catalogs, provenance, evidence boundaries, module state, approval gates, and Course Quality Contract automatically.
+Apply Hardeep Soul, the OWOS Course Production Contract, Course Operating Standard, Course Design System, Visual Arsenal, writing standard, component and quiz catalogs, provenance, evidence boundaries, module state, approval gates, and Course Quality Contract automatically. Read `core/standards/COURSE-PRODUCTION-CONTRACT.md` first; it is the non-optional release floor for every course.
 
 Every module needs a reviewed design brief and the course needs a design matrix. Chapter 09 is a capability benchmark, not a reusable page layout. Visuals, simulations, quizzes, work products, and animation must follow the learning problem and remain deliberately varied across adjacent modules.
 
