@@ -9,6 +9,10 @@
 - Multi-agent specialization and handoff patterns
 - Need for layered guardrails, access control, evaluation, and human oversight
 - Retrieval-augmented generation as a possible agent capability rather than an agent by itself
+- Least-functionality, least-privilege, human-approval, and rate-limit controls for excessive agency
+- Outcome-based agent evaluation using several grading and review methods
+- Water-sector operational technology as a distinct high-consequence environment
+- Emerging standards work on agent identity, authorization, auditing, and non-repudiation
 
 ## What the evidence does not support
 
@@ -19,6 +23,8 @@
 - Accuracy of McKinsey's economic figures without review of the underlying studies
 - Transfer of enterprise examples or productivity results to utilities
 - Reproduction rights for McKinsey text, branding, or exhibits
+- A claim that the emerging NIST agent identity initiative is a completed technical standard
+- A claim that general information-technology guardrails are sufficient for operational technology
 
 ## Licensing and permitted use
 

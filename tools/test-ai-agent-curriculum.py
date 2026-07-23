@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""Acceptance checks for the foundational utility AI-agent curriculum."""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+import yaml
+
+
+ROOT = Path(__file__).resolve().parents[1]
+COURSE = ROOT / "apps/what-is-an-ai-agent"
+BRIEFS = COURSE / "curriculum/design-briefs"
+
+
+def require(path: Path, phrases: list[str]) -> None:
+    if not path.exists():
+        raise AssertionError(f"missing curriculum artifact: {path}")
+    text = path.read_text(encoding="utf-8")
+    for phrase in phrases:
+        if phrase not in text:
+            raise AssertionError(f"{path} is missing: {phrase}")
+    if "—" in text or "–" in text:
+        raise AssertionError(f"prohibited dash found in {path}")
+
+
+expected_briefs = {
+    "module-01-before-the-agent.md": ["Progressive comparison", "AI Terms Field Card"],
+    "module-02-inside-the-agent-loop.md": ["Event-stream inspector", "Agent Loop Trace"],
+    "module-03-agent-anatomy.md": ["Interactive anatomy experience", "Tooltip behavior"],
+    "module-04-the-handoff.md": ["golden-lesson candidate", "Broken-handoff diagnosis"],
+    "module-05-agent-agentic-or-automated.md": ["autonomy spectrum", "Simplest-solution recommender"],
+    "module-06-guardrails.md": ["excessive agency", "Operational-technology boundary"],
+    "module-07-utility-applications.md": ["Utility opportunity portfolio review", "one idea rejected"],
+    "module-08-design-your-agent.md": ["Utility Agent Canvas", "Adversarial review"],
+}
+
+for filename, phrases in expected_briefs.items():
+    require(BRIEFS / filename, phrases)
+
+require(
+    COURSE / "SYLLABUS.md",
+    [
+        "The twelve learning dimensions",
+        "Agent anatomy, explained simply",
+        "Thirty-day application challenge",
+        "Capstone completion standard",
+    ],
+)
+require(COURSE / "curriculum/GLOSSARY.md", ["Agentic system", "Prompt injection", "Streaming"])
+require(COURSE / "curriculum/ASSESSMENT-BLUEPRINT.md", ["Deterministic scoring", "Credential boundary"])
+require(COURSE / "curriculum/INSTRUCTOR-GUIDE.md", ["Common misconceptions", "Role lenses"])
+require(COURSE / "curriculum/TOOLTIP-AND-PLAIN-LANGUAGE-STANDARD.md", ["one tooltip element", "Reading test"])
+require(COURSE / "work-products/UTILITY-AGENT-CANVAS.md", ["Simplest suitable architecture", "Operational-technology boundary"])
+require(COURSE / "work-products/90-DAY-PILOT-BRIEF.md", ["Days 1 through 30", "Stop conditions"])
+require(COURSE / "research/EVIDENCE-BOUNDARIES.md", ["Utility safety boundary", "operational technology"])
+
+record = yaml.safe_load((COURSE / "course.yaml").read_text(encoding="utf-8"))
+if record["status"] != "blueprint_approved":
+    raise AssertionError("course must remain blueprint approved until the golden lesson passes")
+if record["structure"]["chapters"] != 8:
+    raise AssertionError("course record must declare eight modules")
+if record["delivery"]["release_state"] != "curriculum_complete_golden_lesson_pending":
+    raise AssertionError("release state must disclose that the golden lesson is pending")
+
+print("AI agent curriculum QA passed: eight module briefs, assessments, capstone, glossary, instruction, and safety boundaries are connected.")

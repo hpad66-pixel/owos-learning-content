@@ -4,7 +4,7 @@ Updated: 2026-07-22
 
 ## Current phase
 
-Approved curriculum blueprint and module design
+Curriculum package complete, golden lesson pending approval
 
 ## Completed
 
@@ -24,6 +24,11 @@ Approved curriculum blueprint and module design
 - Added course-wide plain-English and accessible tooltip requirements.
 - Added the foundational glossary and detailed interactive agent-anatomy design brief.
 - Updated the course record to version `0.2.0` with eight modules and an approved-blueprint status.
+- Completed design briefs for all eight modules.
+- Completed the deterministic assessment blueprint, instructor guide, tooltip and plain-language standard, and curriculum package map.
+- Completed the progressive Utility Agent Canvas and 90-Day Pilot Brief.
+- Expanded research to include agent identity, authorization, excessive agency, evaluation, and water operational-technology boundaries.
+- Prepared Module 4, `The Handoff`, as the golden-lesson candidate.
 
 ## New sources
 
@@ -34,11 +39,13 @@ Approved curriculum blueprint and module design
 - Final working-title decision
 - Additional primary research on retrieval, secure tool use, evaluation, observability, and operational-technology boundaries
 - Utility-practitioner review of application scenarios
-- Remaining module design briefs
 - Separate approval of Module 4 as the golden lesson benchmark
+- Practitioner review of the Module 4 stormwater evidence scenario
+- Golden-lesson HTML production and visual QA
+- Production of remaining learner-facing modules after golden-lesson approval
 - Golden lesson
 - Course production and release
 
 ## Next action
 
-Review the Module 3 agent-anatomy design brief and make the final working-title decision. Then complete the remaining primary research and prepare Module 4's golden-lesson design brief for approval.
+Review `curriculum/design-briefs/module-04-the-handoff.md` and approve or revise it as the golden-lesson production benchmark. Also decide whether to keep the working title `Meet the Agent: How AI Gets Work Done in Water Utilities`.
