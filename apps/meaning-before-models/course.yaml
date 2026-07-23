@@ -6,7 +6,7 @@ course_family: master_class
 source_format: native_html
 status: in_development
 visibility: public
-course_version: 0.8.0
+course_version: 0.9.0
 release_date: 2026-07-23
 content_owner: "Hardeep Anand"
 organization: One Water Operating System
@@ -16,12 +16,14 @@ quality_contract:
   version: 1
   enforce_on_release: true
   minimum_purposeful_interactions: 2
+  require_rendered_browser_qa: true
+  rendered_browser_report: qa/rendered-browser-report.json
 
 provenance:
   repository: hpad66-pixel/owos-learning-content
   ref: main
-  content_baseline_commit: 387ebd8
-  content_baseline_reason: Full eighteen-module production candidate before live-review packaging
+  content_baseline_commit: fddf2f842903756589e94fbdd5f40c3a67850032
+  content_baseline_reason: Rendered component and lesson-variety remediation across all eighteen modules
 
 structure:
   parts: 5

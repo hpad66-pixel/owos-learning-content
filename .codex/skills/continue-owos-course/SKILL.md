@@ -72,6 +72,15 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Use explanatory graphics when a concept, method, framework, relationship, or cause chain has a visual shape. Select the graphic through the Visual Arsenal, explain how to read it, and state what it proves or clarifies. Do not add decorative stock art, repeated icon tiles, or graphics that merely restate a heading.
 - Plan visual pacing before HTML production. Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the module brief records why uninterrupted prose is necessary. Use an original editorial illustration when a utility setting, physical asset, record conflict, or accountable decision can be taught as a scene. Give it accessible text, a reading guide, and a learner conclusion.
 - Complete `core/templates/MODULE-QA-REPORT.md` after every built module. Record a score out of 100, the evidence checked, missing work, automated results, manual reviews, and five hard gates. A numeric score never overrides a blocked accuracy, practitioner, accessibility, technical, or release gate. Store the course report under `apps/<course>/qa/` and show it to Hardeep after each module.
+- For every multi-module candidate, run a real browser through every lesson on desktop and phone,
+  operate the required cards, simulations, quizzes, drawers, work products, and completion path, then
+  write `qa/rendered-browser-report.json` using schema `owos-rendered-course-qa/v1`. Verify the final
+  answer or result is visible after animation. Never treat a changed class, declared data attribute,
+  screenshot-free static check, or successful file build as proof that a component works.
+- Generate an all-module contact sheet or equivalent comparison from the rendered screenshots.
+  Inspect it for cloned hero geometry, repeated component order, dark slabs, clipping, weak graphics,
+  and color-only variety. Keep the report failed until every module has a lesson-specific narrative
+  architecture, visual fingerprint, quiz sequence, and readable component state.
 - Run the full implementation gate against every completed full module:
 
   ```bash

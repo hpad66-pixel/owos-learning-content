@@ -63,6 +63,8 @@ quality_contract:
   version: 1
   enforce_on_release: true
   minimum_purposeful_interactions: 2
+  require_rendered_browser_qa: true
+  rendered_browser_report: qa/rendered-browser-report.json
 
 provenance:
   repository: hpad66-pixel/owos-learning-content
@@ -158,6 +160,9 @@ def scaffold(args: argparse.Namespace) -> Path:
   "minimum_visual_types": 4,
   "minimum_distinct_visual_shapes": 3,
   "minimum_question_flip_cards": 4,
+  "require_experience_fingerprint": true,
+  "require_structured_flip_cards": true,
+  "minimum_flip_answer_chars": 45,
   "minimum_purposeful_interactions": 2,
   "minimum_quiz_types": 3,
   "minimum_faq_questions": 5,

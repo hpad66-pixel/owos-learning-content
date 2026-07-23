@@ -105,6 +105,12 @@ Every substantive lesson should create or improve a professional artifact such a
 
 Validation includes factual and citation review, utility-practice review, deterministic scoring, malformed-data checks, desktop and mobile rendering, keyboard and touch operation, screen-reader labels, reduced-motion behavior, contrast, typography, same-page graph behavior, persistence, completion evidence, and comparison against adjacent lessons for repetition.
 
+Rendered validation must inspect what the learner actually sees after interaction. A flip-card test
+waits for the answer face and verifies its readable text and geometry. A simulation test verifies the
+changed value or explanation, not merely an active class. A quiz test submits a wrong answer, checks
+the explanation and retry path, then submits the correct answer. A course diversity test compares the
+rendered composition of every module together, not only its declared visual-type metadata.
+
 ### 9. Teach the interface in the interface
 
 A learner must never meet an unexplained animation, simulation, diagram, assessment, or builder. Before each major component, include one or two instructor paragraphs that answer five questions:

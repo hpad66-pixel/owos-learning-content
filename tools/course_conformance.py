@@ -18,6 +18,9 @@ DEFAULT_CONTRACT = {
     "minimum_quiz_types": 3,
     "minimum_faq_questions": 5,
     "minimum_defined_terms": 5,
+    "require_experience_fingerprint": False,
+    "require_structured_flip_cards": False,
+    "minimum_flip_answer_chars": 0,
     "approved_component_sources": ["component-gallery", "shared-component-library"],
     "approved_quiz_sources": ["quiz-gallery", "applied-assessment-contract"],
     "visual_catalog_terms": {},
@@ -130,6 +133,12 @@ def validate_module(
             errors.append(f"lesson needs stable metadata: {name}")
     if len(soup.find_all("main")) != 1 or len(soup.find_all("h1")) != 1:
         errors.append("lesson needs exactly one main landmark and one h1")
+    if contract.get("require_experience_fingerprint"):
+        body = soup.find("body")
+        if not body or not body.get("data-experience"):
+            errors.append("lesson needs a named data-experience narrative architecture")
+        if not soup.select_one(".question-flips[data-card-layout]"):
+            errors.append("lesson needs a named question-card composition")
 
     header = soup.find("header") or soup.find("nav")
     if not header:
@@ -243,6 +252,29 @@ def validate_module(
         errors.append(
             f"lesson needs {minimum_flip_cards} question flip cards; found {len(flip_cards)}"
         )
+    if contract.get("require_structured_flip_cards"):
+        answers = []
+        minimum_answer_chars = int(contract.get("minimum_flip_answer_chars", 0))
+        for index, card in enumerate(flip_cards, start=1):
+            front = card.select_one(".flip-inner .flip-front")
+            back = card.select_one(".flip-inner .flip-back")
+            if not front or not back:
+                errors.append(
+                    f"flip card {index} needs governed inner, question-face, and answer-face structure"
+                )
+                continue
+            if card.get("aria-pressed") not in {"false", "true"}:
+                errors.append(f"flip card {index} needs an aria-pressed state")
+            if len(front.get_text(" ", strip=True)) < 20:
+                errors.append(f"flip card {index} question is too short to teach")
+            answer = back.get_text(" ", strip=True)
+            if len(answer) < minimum_answer_chars:
+                errors.append(
+                    f"flip card {index} answer needs at least {minimum_answer_chars} characters"
+                )
+            answers.append(answer)
+        if len(answers) != len(set(answers)):
+            errors.append("flip-card answers must be module-specific, not repeated filler")
     for left, right in zip(quiz_types, quiz_types[1:]):
         if left and left == right:
             errors.append(f"quiz type repeats consecutively: {left}")

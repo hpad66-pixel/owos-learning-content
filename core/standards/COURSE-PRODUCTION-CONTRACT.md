@@ -130,6 +130,18 @@ After every material module revision:
 
 A high score cannot override a blocked gate. A release identifies the exact source commit, manifest, checksums, runtime intake, deployment, and approval.
 
+When `quality_contract.require_rendered_browser_qa` is true, release also requires a current
+`owos-rendered-course-qa/v1` receipt whose source digest matches the lesson HTML, visual system, and
+interaction runtime. The receipt must cover desktop and phone views for every lesson, verify final
+learner-visible component states after animation, operate required quizzes and work products, check
+keyboard and reduced-motion behavior, and record zero unresolved failures. Counting classes, data
+attributes, files, or declared component names is not rendered quality assurance.
+
+Before a multi-module course is released, create and inspect course-level contact sheets or an
+equivalent all-module visual comparison. A module-by-module screenshot pass must block repeated hero
+composition, dark visual slabs, clipped text, stale runtime assets, and variety created only through
+color changes.
+
 Before creating or checking the checksum manifest, run the course-specific runtime packaging command.
 The release gate must compare lesson visual-shape sequences, quiz sequences, interaction runtime, and
 visual-system assets between curriculum source and packaged `dist/site`. A new manifest that merely
