@@ -50,6 +50,7 @@
 | Same-page Knowledge Graph behavior | |
 | Header Graph and Community buttons | |
 | Bottom connected-learning section | |
+| Explicit bottom `#owos-course-community` anchor before navigation | |
 | Drawer focus return and mobile behavior | |
 | Module-specific FAQ location and disclosure behavior | |
 | Animation and teaching purpose | |

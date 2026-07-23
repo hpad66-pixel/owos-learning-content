@@ -18,3 +18,9 @@ Date: 2026-07-23
 - Keep compact Graph and Community header buttons and responsive side drawers.
 - Add four distinct FAQs to each AI Agent module, with a visual module map, direct answers, utility examples, semantic disclosure controls, and a path to Community.
 - Bind the FAQ requirement into syllabus preparation, module design, writing, QA, course scaffolding, automated testing, and release controls.
+
+## Rendered-layout correction
+
+Hardeep reviewed the live module again and confirmed the full connected-learning cards were still appearing from the top. The rendered result is the acceptance test.
+
+The permanent correction is to reserve the bottom mount in the source HTML of the course landing page and all eight modules. The shared runtime may fill or temporarily move that explicit mount into the Community drawer, but it may not infer the mount from a generic wrapper.

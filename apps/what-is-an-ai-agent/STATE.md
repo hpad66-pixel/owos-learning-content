@@ -4,7 +4,7 @@ Updated: 2026-07-23
 
 ## Current phase
 
-Version 0.9.2 bottom connected-learning correction and learner FAQ release
+Version 0.9.3 explicit bottom-anchor release
 
 ## Completed
 
@@ -64,6 +64,8 @@ Version 0.9.2 bottom connected-learning correction and learner FAQ release
 - Added four distinct, module-specific learner FAQs to each of Modules 1 through 8.
 - Added a visual module map, plain-English answers, utility examples, accessible disclosure behavior, and a Community path to every module FAQ.
 - Added the FAQ requirement to the syllabus, production contract, operating standard, design system, writing standard, course skill, course creator, module brief, QA template, course instructions, and automated release tests.
+- Added an explicit bottom `#owos-course-community` anchor to the course landing page and all eight modules so cached or future runtime code cannot place the complete cards inside the header or hero.
+- Added source and runtime tests that verify the anchor appears inside the lesson content before bottom navigation and remains invisible until populated.
 
 ## New sources
 
@@ -86,4 +88,4 @@ Version 0.9.2 bottom connected-learning correction and learner FAQ release
 
 ## Next action
 
-Validate version 0.9.2 on desktop and mobile, then continue practitioner, novice-learner, assistive-technology, and authenticated-runtime reviews. Keep credentials disabled until separately approved.
+Validate version 0.9.3 on authenticated desktop and mobile, then continue practitioner, novice-learner, assistive-technology, and runtime reviews. Keep credentials disabled until separately approved.

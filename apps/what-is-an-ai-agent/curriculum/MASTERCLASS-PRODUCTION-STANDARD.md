@@ -58,6 +58,7 @@ Graph and community controls must not consume a full-width band at the top of a 
 - Mobile lessons keep those compact buttons in the header without creating a persistent bottom dock.
 - Graph and Community each open in a white same-page drawer or dialog and return focus to the trigger that opened them.
 - The complete learning community remains after the teaching content.
+- Every landing page and module reserves `#owos-course-community` inside `main`, immediately before bottom navigation. This anchor is part of the source HTML and is not inferred from a generic wrapper.
 - Closing the Community drawer returns the complete community to its original location at the bottom.
 - Floating cards, hanging rails, and fixed side controls are prohibited.
 

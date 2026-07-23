@@ -62,6 +62,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Graphic teaching coverage | | |
 | Visual pacing and editorial illustration | | |
 | Header tools, side drawers, and bottom connected-learning section | | |
+| Explicit bottom connected-learning anchor and rendered DOM order | | |
 | Dark-surface contrast guard | | |
 | Prohibited language and punctuation | | |
 | Repository scan and formatting | | |

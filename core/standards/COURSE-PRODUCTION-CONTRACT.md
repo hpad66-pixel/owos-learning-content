@@ -80,6 +80,7 @@ A short lesson may request a documented exception. Counts never excuse irrelevan
 - Open the Graph and Community in white, right-side drawers on larger screens and full-screen drawers on small screens.
 - Closing a drawer must return focus and the learner to the same place in the course.
 - Keep the complete graph and community section at the bottom of the lesson for discovery, context, and extended use.
+- Every course and lesson HTML file must reserve an explicit `#owos-course-community` anchor inside `main`, immediately before bottom course navigation. Runtime code must never choose a generic `.wrap` as the connected-learning mount.
 - The Graph must open the current course or lesson context without navigating away.
 - The Community must support search, filters, bookmarks, threaded replies, member presence, and distinct instructor treatment.
 - Previous, next, all modules, progress, and completion behavior must remain predictable across the course.

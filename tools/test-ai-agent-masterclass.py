@@ -45,8 +45,14 @@ for number, filename in pages.items():
         raise AssertionError(f"{filename} contains a prohibited dash")
     if re.search(r">\s*undefined\s*<", text, re.I):
         raise AssertionError(f"{filename} contains a learner-visible invalid sentinel")
+    anchor = text.find('id="owos-course-community"')
+    bottom_navigation = text.find('class="footnav"')
+    if anchor < 0 or bottom_navigation < 0 or anchor > bottom_navigation:
+        raise AssertionError(f"{filename} must place the explicit connected-learning anchor before bottom navigation")
 
 landing = (CURRICULUM / "course-what-is-an-ai-agent.html").read_text(encoding="utf-8")
+if landing.find('id="owos-course-community"') < 0 or landing.find('id="owos-course-community"') > landing.find('class="footnav"'):
+    raise AssertionError("master-class landing page must place the explicit connected-learning anchor before bottom navigation")
 for filename in pages.values():
     if filename not in landing:
         raise AssertionError(f"master-class landing page is not connected to {filename}")
@@ -103,6 +109,8 @@ if ".dark h2" not in styles or "color:#fff" not in styles:
     raise AssertionError("dark teaching surfaces do not explicitly enforce light text")
 if "lesson-tool-rail" in runtime or ".lesson-tool-rail" in styles:
     raise AssertionError("the removed hanging lesson tool rail returned")
+if "#owos-course-community:empty{display:none}" not in styles:
+    raise AssertionError("the explicit bottom connected-learning anchor must stay invisible until the runtime fills it")
 
 expected_scores = {
     1: 91,
