@@ -4,7 +4,7 @@ Updated: 2026-07-22
 
 ## Current phase
 
-Research assessment and proposed blueprint
+Approved curriculum blueprint and module design
 
 ## Completed
 
@@ -19,6 +19,11 @@ Research assessment and proposed blueprint
 - Added page-addressable notes, 14 governed claims, source permissions, and utility safety boundaries.
 - Added OpenAI, Anthropic, and NIST primary guidance to the source register.
 - Prepared an eight-module syllabus and course design matrix for review.
+- Received approval to incorporate the complete twelve-dimension novice-learning framework.
+- Added the progressive Utility Agent Canvas and 90-Day Pilot Brief across all eight modules.
+- Added course-wide plain-English and accessible tooltip requirements.
+- Added the foundational glossary and detailed interactive agent-anatomy design brief.
+- Updated the course record to version `0.2.0` with eight modules and an approved-blueprint status.
 
 ## New sources
 
@@ -26,13 +31,14 @@ Research assessment and proposed blueprint
 
 ## Not yet complete
 
-- Hardeep approval of the proposed title, promise, sequence, golden lesson, utility scenarios, and capstone
+- Final working-title decision
 - Additional primary research on retrieval, secure tool use, evaluation, observability, and operational-technology boundaries
 - Utility-practitioner review of application scenarios
-- Individual module design briefs after blueprint approval
+- Remaining module design briefs
+- Separate approval of Module 4 as the golden lesson benchmark
 - Golden lesson
 - Course production and release
 
 ## Next action
 
-Review `RESEARCH-ASSESSMENT.md`, `SYLLABUS.md`, and the proposed course design matrix. Approve or revise the working title, eight-module sequence, Module 4 golden lesson, utility scenarios, and capstone. Then authorize the remaining primary research and golden-lesson design brief.
+Review the Module 3 agent-anatomy design brief and make the final working-title decision. Then complete the remaining primary research and prepare Module 4's golden-lesson design brief for approval.
