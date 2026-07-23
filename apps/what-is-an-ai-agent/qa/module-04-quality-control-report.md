@@ -4,7 +4,7 @@ course_id: owos-course-ai-agents-001
 version: 0.6.0
 review_date: 2026-07-22
 reviewer: Codex working review
-score: 91
+score: 92
 score_out_of: 100
 working_status: conditional_pass
 release_status: blocked
@@ -16,7 +16,7 @@ release_status: blocked
 
 - Working-review result: Conditional pass
 - Release result: Blocked
-- Score: 91 out of 100
+- Score: 92 out of 100
 - One-sentence reason: All repository-verifiable technical revisions are complete, including the new visual scene, explicit playback controls, responsive lesson graph, scored application check, claim-level source map, accessibility record, and reviewer packets. Real practitioner, learner, device, and live-runtime evidence still cannot be manufactured.
 
 The numeric score summarizes quality. It does not override a failed hard gate. The scoring weights were corrected in version 0.6.0 so the ten areas total exactly 100 points.
@@ -30,12 +30,12 @@ The numeric score summarizes quality. It does not override a failed hard gate. T
 | Explanatory graphics and visual reasoning | 12 | 12 | Original outfall evidence scene, packet anatomy, failure chain, swimlane, ledger, funnel, heat grid, authority ladder, and responsive lesson graph | Complete real-device visual review |
 | Interactions and simulations | 12 | 12 | Architecture choice, packet comparison, Back, Step, Play, Pause, Reset, role selection, repair laboratory, permission console, contract builder, assessments, and graph drawer | Complete real-browser state-transition review |
 | Utility relevance and practitioner credibility | 10 | 8 | Harbor County stormwater evidence scenario, utility records, role boundaries, and professional contract | Qualified stormwater or regulatory practitioner review |
-| Assessments and feedback | 10 | 9 | Deterministic multi-select, ordering, multiple choice, reflection, retries, plus a five-criterion scored contract | Verify mastery-event recording in the authenticated runtime |
+| Assessments and feedback | 10 | 10 | Deterministic multi-select, ordering, multiple choice, reflection, retries, plus a five-criterion scored contract, now distributed where each concept is taught | Verify mastery-event recording in the authenticated runtime |
 | Professional work product | 5 | 5 | Orchestration and Handoff Contract with preview, persistence, download, and deterministic scoring | No material working-candidate gap |
 | Accuracy, evidence, and citations | 10 | 9 | Controlled claims AG-009, AG-015 through AG-021, exact source register identifiers, public links, limitations, and scenario boundary | Independent final source review; private McKinsey reuse boundary remains restricted |
 | Accessibility, responsive behavior, and reduced motion | 10 | 8 | Semantic controls, explicit labels, live regions, SVG title and description, visible reading guide, responsive rules, focus return, reduced motion, and static accessibility report | Keyboard, screen-reader, contrast, zoom, touch, and real-device review |
 | Platform integration and release controls | 7 | 4 | Stable identifiers, versioned browser persistence, enrollment endpoint, learner-event endpoint, honest error feedback, and live-integration checklist | Authenticated API and Supabase verification, manifest, intake, and release approval |
-| **Total** | **100** | **91** | **All repository-verifiable revisions complete** | **External and runtime gates remain open** |
+| **Total** | **100** | **92** | **All repository-verifiable revisions complete** | **External and runtime gates remain open** |
 
 ## Hard gates
 

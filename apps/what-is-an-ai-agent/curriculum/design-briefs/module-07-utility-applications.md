@@ -1,6 +1,6 @@
 # Module 7 Design Brief: Where Utilities May Become Agentic
 
-Status: curriculum build
+Status: learner-facing master-class candidate built
 
 ## Learning job
 

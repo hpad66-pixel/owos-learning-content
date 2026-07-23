@@ -1,6 +1,6 @@
 # Module 6 Design Brief: Guardrails Are Part of the Design
 
-Status: curriculum build
+Status: learner-facing master-class candidate built
 
 ## Learning job
 

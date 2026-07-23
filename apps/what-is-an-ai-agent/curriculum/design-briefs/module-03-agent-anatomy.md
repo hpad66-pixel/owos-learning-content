@@ -1,6 +1,6 @@
 # Module 3 Design Brief: What an Agent Needs to Work
 
-Status: approved curriculum direction, design draft for review
+Status: learner-facing master-class candidate built
 
 ## Identity
 

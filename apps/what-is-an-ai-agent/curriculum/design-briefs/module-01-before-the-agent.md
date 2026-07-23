@@ -1,6 +1,6 @@
 # Module 1 Design Brief: Before the Agent
 
-Status: curriculum build
+Status: learner-facing master-class candidate built
 
 ## Learning job
 

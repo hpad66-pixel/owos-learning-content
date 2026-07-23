@@ -1,6 +1,6 @@
 # Module 8 Design Brief: Design Your First Utility Agent
 
-Status: curriculum build
+Status: learner-facing master-class candidate built
 
 ## Learning job
 

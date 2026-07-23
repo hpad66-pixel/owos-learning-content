@@ -56,6 +56,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Lesson contract | | |
 | JavaScript and component configuration | | |
 | Deterministic assessment | | |
+| Distributed quiz placement and feedback | | |
 | Instructor explanation coverage | | |
 | Graphic teaching coverage | | |
 | Visual pacing and editorial illustration | | |
@@ -70,6 +71,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 - [ ] Screen-reader walkthrough
 - [ ] Reduced-motion walkthrough
 - [ ] Dense-text and visual-pacing walkthrough
+- [ ] Quiz discoverability and section-placement walkthrough
 - [ ] Utility-practitioner review
 - [ ] Novice-learner comprehension pilot
 - [ ] Live learner-event and enrollment verification

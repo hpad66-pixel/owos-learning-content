@@ -1,6 +1,6 @@
 # Module 2 Design Brief: Inside the Agent Loop
 
-Status: curriculum build
+Status: learner-facing master-class candidate built
 
 ## Learning job
 

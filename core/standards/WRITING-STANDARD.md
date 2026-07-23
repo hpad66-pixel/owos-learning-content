@@ -83,6 +83,7 @@ the visual that fits its shape (a three-legged stool for sustainability, a fishb
 - If an idea has no natural visual, keep it as plain text plus a quiz. Do not force a picture.
 - Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout. Record the reason for any necessary exception.
 - Use original editorial illustrations for utility settings, physical assets, conflicting records, or decision paths when a scene teaches the idea better than prose. Add accessible text, a reading guide, and the conclusion the learner should reach.
+- Distribute at least three different quiz types through a full module. Place each check after the idea it measures, label the check clearly, explain incorrect responses, allow retry, and connect the final applied assessment to the professional work product.
 
 ## Quick before-you-publish check
 - Search the file for "—". There should be zero.

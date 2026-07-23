@@ -54,6 +54,7 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Maintain a course-level design matrix from `core/templates/COURSE-DESIGN-MATRIX.md`.
 - Run the Visual Arsenal Selection Prompt against the actual teaching ideas.
 - Use at least four relevant visual types, two purposeful interactions, and three varied quiz types for a full module unless a documented exception is approved.
+- Distribute those quiz types across the lesson at the point of instruction. Label them clearly, provide immediate explanatory feedback and retry, and require one final applied check tied to the professional work product. Never hide the entire assessment experience at the bottom.
 - Select narrative structure, simulations, graphics, animation, and work products from the learning problem. Do not create variety through colors alone.
 - Copy governed components from the galleries. When the needed mechanism is missing, add an accessible, responsive, tested shared component before using it.
 - Require every animation to teach change, cause, consequence, sequence, dependency, or reveal. Preserve meaning under reduced motion.

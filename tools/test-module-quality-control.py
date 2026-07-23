@@ -36,10 +36,10 @@ require(
 report = require(
     REPORT,
     [
-        "score: 91",
+        "score: 92",
         "working_status: conditional_pass",
         "release_status: blocked",
-        "91 out of 100",
+        "92 out of 100",
         "Utility-practitioner review",
         "Technical and accessibility review",
         "Required remaining work",
@@ -50,7 +50,7 @@ require(STANDARD, ["Module quality-control report", "numeric score never overrid
 
 require(SKILL, ["Plan visual pacing", "original editorial illustration"])
 
-if report.count("| **Total** | **100** | **91**") != 1:
-    raise AssertionError("Module 4 QA report must disclose exactly one 91 out of 100 total")
+if report.count("| **Total** | **100** | **92**") != 1:
+    raise AssertionError("Module 4 QA report must disclose exactly one 92 out of 100 total")
 
 print("Module quality-control QA passed: scored report, hard gates, evidence, and unresolved work are visible.")

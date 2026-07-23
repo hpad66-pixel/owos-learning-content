@@ -43,6 +43,8 @@
 | Visual pacing plan and any prose exception | |
 | Original editorial illustration, when appropriate | |
 | Quiz sequence, minimum three types | |
+| Distributed assessment locations | |
+| Final applied work-product check | |
 | Role-sensitive treatment | |
 | Professional work product | |
 | Same-page Knowledge Graph behavior | |

@@ -4,7 +4,7 @@ Updated: 2026-07-22
 
 ## Current phase
 
-Golden lesson version 0.6.0 technically revised, external review pending
+Complete eight-module master-class candidate built, external review pending
 
 ## Completed
 
@@ -46,6 +46,13 @@ Golden lesson version 0.6.0 technically revised, external review pending
 - Added an original editorial outfall evidence scene with accessible description and a visible reading guide.
 - Added the permanent visual-pacing standard to the design system, operating standard, writing standard, Visual Arsenal, module brief, QA template, instructor guide, and course instructions.
 - Corrected the ten-category QA weights to total 100 points and rescored Module 4 version `0.6.0` at 91 out of 100 as a conditional working pass.
+- Distributed Module 4 knowledge checks throughout the lesson and raised its working score to 92.
+- Built learner-facing Modules 1 through 8 in chronological order and connected them through a dedicated master-class landing page.
+- Added distinct explanatory graphics, purposeful interactions, at least three distributed quiz types, professional work products, same-page Knowledge Graph drawers, persistence, responsive behavior, and completion evidence to every module.
+- Added `curriculum/MASTERCLASS-PRODUCTION-STANDARD.md` so the complete Module 4 capability and distributed-assessment requirements govern future course work.
+- Added individual QA reports for all eight modules and `qa/masterclass-scorecard.md`.
+- Recorded a rounded master-class working score of 92 out of 100. Every module meets or exceeds the former Module 4 working benchmark.
+- Added a complete master-class regression test covering chronology, quiz distribution, graphics, artifacts, graphs, persistence, and completion contracts.
 
 ## New sources
 
@@ -61,11 +68,11 @@ Golden lesson version 0.6.0 technically revised, external review pending
 - Hardeep review and natural-language revision of the recording scripts before recording
 - Mobile device rendering review and interaction pilot
 - Separate approval of the built lesson as the production benchmark
-- Production of remaining learner-facing modules after golden-lesson approval
-- Course production and release
+- Real learner and practitioner review of Modules 1 through 8
+- Runtime packaging, platform intake, and course release
 - Real-browser and real-device accessibility review of Module 4
 - Authenticated API and Supabase integration verification for Module 4
 
 ## Next action
 
-Review Module 4 version `0.6.0` and `qa/module-04-quality-control-report.md`. Run the practitioner, novice-learner, real-device, and authenticated-runtime reviews, then decide whether the lesson becomes the production benchmark for the remaining modules.
+Review the eight learner-facing modules in chronological order and the scores in `qa/masterclass-scorecard.md`. Record content revisions, then run practitioner, novice-learner, device, assistive-technology, and authenticated-runtime reviews before any release decision.

@@ -1,6 +1,6 @@
 # What Is an AI Agent Course Design Matrix
 
-This proposed matrix prevents future modules from repeating the same opening, visuals, interactions, quizzes, and work products. It becomes binding only after the blueprint is approved.
+This implemented matrix records how the eight learner-facing modules avoid repeating the same opening, visuals, interactions, quizzes, and work products. It is binding for version 0.8.0 and future revisions.
 
 | Module | Opening pattern | Narrative architecture | Dominant visual | Supporting visuals | Purposeful interactions | Quiz sequence | Work product | Graph experience | Mobile transformation | Repetition risk |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

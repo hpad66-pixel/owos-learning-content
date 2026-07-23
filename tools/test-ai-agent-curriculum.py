@@ -76,11 +76,15 @@ require(COURSE / "work-products/90-DAY-PILOT-BRIEF.md", ["Days 1 through 30", "S
 require(COURSE / "research/EVIDENCE-BOUNDARIES.md", ["Utility safety boundary", "operational technology"])
 
 record = yaml.safe_load((COURSE / "course.yaml").read_text(encoding="utf-8"))
-if record["status"] != "golden_candidate_built":
-    raise AssertionError("course must disclose that the golden lesson is built but not approved as the production benchmark")
+if record["status"] != "masterclass_candidate_built":
+    raise AssertionError("course must disclose that the complete master-class candidate is built but not released")
+if record["course_family"] != "master_class":
+    raise AssertionError("course record must classify the course as a master class")
 if record["structure"]["chapters"] != 8:
     raise AssertionError("course record must declare eight modules")
-if record["delivery"]["release_state"] != "golden_lesson_built_pending_review":
-    raise AssertionError("release state must disclose that the built golden lesson is pending review")
+if record["delivery"]["release_state"] != "masterclass_candidate_built_pending_review":
+    raise AssertionError("release state must disclose that the complete source master class is pending review")
+if record["delivery"]["available_chapters"] != 8:
+    raise AssertionError("all eight source modules must be available for private review")
 
 print("AI agent curriculum QA passed: eight module briefs, assessments, capstone, glossary, instruction, and safety boundaries are connected.")

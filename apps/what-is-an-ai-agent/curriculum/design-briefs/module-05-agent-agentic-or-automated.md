@@ -1,6 +1,6 @@
 # Module 5 Design Brief: Agent, Agentic, or Automated?
 
-Status: curriculum build
+Status: learner-facing master-class candidate built
 
 ## Learning job
 

@@ -1,8 +1,8 @@
 # Meet the Agent: How AI Gets Work Done in Water Utilities
 
-Status: proposed blueprint for Hardeep's review
+Status: complete eight-module master-class candidate, version 0.8.0
 
-Estimated learning time: 2 hours 15 minutes plus capstone refinement
+Estimated learning time: about 3 hours plus capstone refinement
 Level: foundation with practitioner and leader lenses
 
 ## Course promise

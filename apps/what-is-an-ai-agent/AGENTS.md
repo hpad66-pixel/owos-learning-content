@@ -33,3 +33,5 @@ Maintain `curriculum/scripts/COURSE-OVERVIEW-VIDEO-SCRIPT.md` and one recording 
 Use the Visual Arsenal to add explanatory graphics where a concept, method, framework, relationship, or consequence needs a picture. Every graphic needs plain-English reading guidance, a learner conclusion, accessible text, and a mobile layout. Do not use decorative stock graphics or repeated icon grids.
 
 Plan visual pacing before HTML production. Do not leave more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the design brief records the reason. Use original editorial illustrations when a utility setting, physical asset, record conflict, or accountable decision can be taught as a scene.
+
+Distribute at least three varied quiz types across each full module. Put each check directly after the idea or mechanism it measures, show immediate explanatory feedback, allow retry, and include a final deterministic application check connected to the module work product.

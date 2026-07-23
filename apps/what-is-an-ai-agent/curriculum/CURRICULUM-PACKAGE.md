@@ -7,6 +7,7 @@ Status: complete curriculum source, ready for golden-lesson production review
 - `SYLLABUS.md`: course promise, outcomes, eight modules, twelve learning dimensions, capstone progression, safety boundary, and completion standard
 - `GLOSSARY.md`: plain-English term definitions for teaching and accessible tooltips
 - `COURSE-DESIGN-MATRIX.md`: cross-module visual, interaction, quiz, work-product, graph, and mobile diversity controls
+- `MASTERCLASS-PRODUCTION-STANDARD.md`: complete learner-facing contract applied to Modules 1 through 8
 - `design-briefs/`: one instructional contract for each of the eight modules
 - `ASSESSMENT-BLUEPRINT.md`: deterministic checks, explanations, evidence, capstone, and completion rules
 - `INSTRUCTOR-GUIDE.md`: facilitation, role lenses, discussion, review, and misconception handling

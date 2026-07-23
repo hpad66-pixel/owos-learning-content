@@ -20,6 +20,8 @@ The page must teach even when no video is present. Before every major visual, an
 
 Protect visual pacing. After no more than two consecutive full prose blocks, provide a meaningful diagram, illustration, interaction, worked example, comparison, or instructor callout unless the module brief explains why the prose must remain uninterrupted. Treat an illustration as instruction: explain how to read it and what conclusion it supports.
 
+Place knowledge checks where the learning happens. Do not save every quiz for the bottom. Explain what each check measures, provide useful feedback after every attempt, allow retry, vary the quiz type, and finish with an applied assessment connected to the learner's professional work product.
+
 When the component shows a change, failure, or consequence, add a short debrief after it. Do not make the learner infer the lesson from movement, color, or controls. A tooltip may remind the learner what a term means, but it cannot carry the only explanation.
 
 Each module also has a recording script under `curriculum/scripts/`. The script supports the lesson but does not replace the written instructor explanation.

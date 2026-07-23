@@ -69,6 +69,8 @@ Explanatory graphics are required when the teaching idea has a meaningful visual
 
 Long lessons also require a visual pacing plan. Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the module brief records why uninterrupted prose is necessary. An original editorial illustration may break visual monotony only when it teaches a utility setting, asset, record relationship, or accountable decision and includes accessible reading guidance.
 
+Distribute quizzes and checks throughout the lesson. Place each check immediately after the idea or mechanism it evaluates. Use at least three different quiz types in a full module, provide immediate explanatory feedback and retry, and finish with an applied check connected to the professional work product. Do not rely on reflection alone for deterministic completion.
+
 Page scroll is not completion. A lesson declares its requirements in the course record and records
 completion only when the required evidence exists.
 

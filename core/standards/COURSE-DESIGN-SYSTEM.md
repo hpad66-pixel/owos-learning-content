@@ -62,6 +62,7 @@ Before authoring HTML, complete `core/templates/MODULE-DESIGN-BRIEF.md`. The fin
 - at least four varied visual types, unless a documented exception is approved;
 - at least two purposeful interactions that reveal cause, consequence, sequence, or trade-off;
 - at least three quiz types, with no type repeated consecutively;
+- assessments distributed at the point of instruction instead of collected in one end-of-module block;
 - the professional work product and same-page Knowledge Graph behavior;
 - the animation purpose and reduced-motion equivalent;
 - the visual pacing plan, including where dense prose is interrupted by a meaningful illustration, interaction, diagram, or worked example;
@@ -141,6 +142,12 @@ Use original editorial illustrations when a real utility situation has a visible
 ### 12. Publish the quality-control result
 
 After each built module, complete the scored report in `core/templates/MODULE-QA-REPORT.md`. Show what passed, what was inspected, what remains untested, and what must change. Keep automated checks separate from manual and practitioner reviews. A score is a summary, not permission to release.
+
+### 12A. Distribute assessment throughout the lesson
+
+Do not hide every quiz at the bottom of a long module. Place a short, clearly labelled knowledge check after the concept, visual, simulation, or decision it measures. Full modules require at least three different quiz types, immediate explanatory feedback, unlimited review and retry, and one final applied check tied to the professional work product. Reflection may deepen learning, but it cannot satisfy deterministic completion by itself.
+
+The lesson route and section headings must make assessments visible. The learner should understand what is being checked, why it matters, and what to revisit after an incorrect response.
 
 ## Required diversity contract
 
