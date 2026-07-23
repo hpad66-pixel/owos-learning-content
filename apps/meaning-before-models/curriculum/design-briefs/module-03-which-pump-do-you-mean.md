@@ -1,0 +1,116 @@
+# OWOS Module Design Brief: Which Pump Do You Mean?
+
+## Identity
+| Field | Decision |
+| --- | --- |
+| Course and module ID | `owos-course-semantic-data-ai-001`, `mbm001:03` |
+| Working title | Which Pump Do You Mean? |
+| Learner roles | Utility staff, practitioners, and leaders |
+| Competencies | Explain and apply the module mental model |
+| Controlled sources | W3C RDF, RDFS, SPARQL, OWL, and SHACL standards as applicable |
+| Evidence boundary | Instructional utility scenario; independent factual and practitioner review required |
+
+## Learning job
+| Question | Answer |
+| --- | --- |
+| What consequential situation opens the lesson? | Pump P-104 appears under five identifiers across Supervisory Control and Data Acquisition, Geographic Information System, work management, drawings, and operator language. |
+| What must the learner decide before teaching begins? | Is a matching label enough to declare two records the same asset? |
+| What professional consequence makes this matter? | An implicit or unowned boundary can produce an indefensible utility answer. |
+| What should the learner be able to do afterward? | Identity is an approved relationship supported by evidence, not a text-match shortcut. |
+| What usable work product will the learner create? | Identity Crosswalk and Conflict Queue |
+| What evidence is required for completion? | Opening, mechanism lab, matching, boundary check, saved artifact, and applied assessment |
+
+## Concept-to-experience plan
+| Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
+| --- | --- | --- | --- | --- | --- |
+| Collect identifiers | relationship or process | `editorial-illustration` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Compare evidence | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Approve or reject | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Preserve conflicts | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+
+## Module design fingerprint
+| Element | Selection |
+| --- | --- |
+| Narrative architecture | Pump P-104 appears under five identifiers across Supervisory Control and Data Acquisition, Geographic Information System, work management, drawings, and operator language. |
+| Mental model | Identity is an approved relationship supported by evidence, not a text-match shortcut. |
+| Purposeful interaction 1 | Four-step mechanism laboratory |
+| Purposeful interaction 2 | Governed artifact builder |
+| Visual types, minimum four | `editorial-illustration`, `comparison-table`, `failure-propagation-chain`, `raci-grid` |
+| Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
+| Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
+| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
+| Final applied work-product check | Deterministic eight-field artifact review |
+| Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
+| Professional work product | Identity Crosswalk and Conflict Queue |
+| Same-page Knowledge Graph behavior | `network-diagram` with source, concept, relationship, role, and competency nodes |
+| Header Graph, Community, and Start actions | Required compact header controls |
+| Bottom connected-learning section | Graph and Community cards before navigation |
+| Explicit bottom `#owos-course-community` anchor before navigation | Required |
+| Drawer focus return and mobile behavior | Focus return and full-width mobile drawers |
+| Module-specific FAQ location and disclosure behavior | Five questions before evidence boundary |
+| Animation and teaching purpose | Step selection reveals controlled sequence |
+| Reduced-motion equivalent | Every state is available by direct selection |
+| Mobile transformation | Grids stack and wide comparisons scroll |
+| Persistence and learner events | Local draft and completion cache; production events disabled |
+
+## Instructor explanation plan
+| Major component | What the learner sees | What the learner does | What to notice | Utility meaning | Debrief needed |
+| --- | --- | --- | --- | --- | --- |
+| Opening decision | Utility scenario | Choose and retry | Explicit evidence boundary | Decisions need reviewable meaning | Yes |
+| Visual set | Four visual shapes | Read and compare | Different controls perform different jobs | Architecture follows the question | Yes |
+| Mechanism lab | Four steps | Select all steps | Each step adds evidence or control | Missing steps propagate failure | Yes |
+| Work product | Eight fields | Save and evaluate | Specificity and authority | Artifact supports cross-team review | Yes |
+
+## Visual pacing review
+- Longest run of consecutive full prose blocks: two.
+- Visual, interaction, worked example, or callout used to break each dense section: yes.
+- Any uninterrupted prose exception and reason: none.
+- Editorial illustration reading guide and learner conclusion, when used: required.
+- Dark-surface contrast plan: explicit white or light text.
+
+## Explanatory graphic plan
+| Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
+| --- | --- | --- | --- | --- | --- |
+| Collect identifiers | editorial-illustration | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Compare evidence | comparison-table | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Approve or reject | failure-propagation-chain | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Preserve conflicts | raci-grid | Shared component gallery | Identity is an approved relationship supported by evidence, not a text-match shortcut. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+
+## Learner FAQ plan
+| Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |
+| --- | --- | --- | --- | --- | --- |
+| How does canonical identity apply? | New term | It performs one named job in the module mental model. | Pump P-104 appears under five identifiers across Supervisory Control and Data Acquisition, Geographic Information System, work management, drawings, and operator language. | Selected module visuals | Instructional scenario |
+| How does source identifier apply? | New term | It performs one named job in the module mental model. | Pump P-104 appears under five identifiers across Supervisory Control and Data Acquisition, Geographic Information System, work management, drawings, and operator language. | Selected module visuals | Instructional scenario |
+| How does exact match apply? | New term | It performs one named job in the module mental model. | Pump P-104 appears under five identifiers across Supervisory Control and Data Acquisition, Geographic Information System, work management, drawings, and operator language. | Selected module visuals | Instructional scenario |
+| How does crosswalk apply? | New term | It performs one named job in the module mental model. | Pump P-104 appears under five identifiers across Supervisory Control and Data Acquisition, Geographic Information System, work management, drawings, and operator language. | Selected module visuals | Instructional scenario |
+| How does equivalence apply? | New term | It performs one named job in the module mental model. | Pump P-104 appears under five identifiers across Supervisory Control and Data Acquisition, Geographic Information System, work management, drawings, and operator language. | Selected module visuals | Instructional scenario |
+
+## Recording script
+| Field | Decision |
+| --- | --- |
+| Script path | `curriculum/scripts/module-03-which-pump-do-you-mean-video-script.md` |
+| Intended recording length | 25 to 35 minutes |
+| Spoken opening | Pump P-104 appears under five identifiers across Supervisory Control and Data Acquisition, Geographic Information System, work management, drawings, and operator language. |
+| Utility example | Module scenario and work product |
+| Visual directions | Follow the four selected visual patterns |
+| Learner action and work product | Complete Identity Crosswalk and Conflict Queue |
+| Transition to next lesson | Continue through the approved course sequence |
+
+## Diversity check
+- Adjacent module reviewed: yes.
+- Opening pattern intentionally different: scenario and decision are module-specific.
+- Dominant visual intentionally different: selected from the course design matrix.
+- Interaction pair intentionally different: content and mechanism follow this module.
+- Quiz sequence intentionally different: content and placement are module-specific.
+- Work-product format intentionally different: Identity Crosswalk and Conflict Queue.
+- Any justified repetition: shared Graph, Community, accessibility, and completion controls.
+
+## Approval
+| Gate | Status | Reviewer | Date | Note |
+| --- | --- | --- | --- | --- |
+| Evidence and claims | conditional | Codex repository review | 2026-07-23 | Independent review required |
+| Learning design | production candidate | Hardeep direction | 2026-07-23 | Full course production authorized |
+| Utility practice | pending | | | Practitioner review required |
+| Golden lesson benchmark, when applicable | working benchmark | Hardeep direction | 2026-07-23 | Module 05 capability level applied |
+| Release | blocked | | | Separate approval required |

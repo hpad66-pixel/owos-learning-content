@@ -138,6 +138,7 @@ def scaffold(args: argparse.Namespace) -> Path:
         "assets",
         "work-products",
         "release",
+        "qa",
     ]:
         (course_dir / relative).mkdir(parents=True, exist_ok=True)
 
@@ -150,6 +151,21 @@ def scaffold(args: argparse.Namespace) -> Path:
             destination = course_dir / "research" / "originals" / source.name
             if source != destination and not destination.exists():
                 shutil.move(str(source), str(destination))
+
+    write_once(
+        course_dir / ".course/full-module-contract.json",
+        """{
+  "minimum_visual_types": 4,
+  "minimum_purposeful_interactions": 2,
+  "minimum_quiz_types": 3,
+  "minimum_faq_questions": 5,
+  "minimum_defined_terms": 5,
+  "approved_component_sources": ["component-gallery", "shared-component-library"],
+  "approved_quiz_sources": ["quiz-gallery", "applied-assessment-contract"],
+  "visual_catalog_terms": {},
+  "required_community_features": ["search", "filters", "bookmarks", "threaded-replies", "presence", "instructor-treatment"]
+}""",
+    )
 
     write_once(
         course_dir / "AGENTS.md",
@@ -166,6 +182,10 @@ Create a module design brief before each lesson and maintain the course design m
 Use compact Graph, Community, and Start actions in the lesson header. Graph and Community each open a white responsive drawer. Start moves to the beginning of the lesson. Reserve an explicit `#owos-course-community` anchor inside `main`, immediately before bottom navigation, for the complete connected-learning section. Floating cards and hanging rails are prohibited. Dark blue, navy, and gradient surfaces always use tested light text.
 
 End every module with a module-specific FAQ before the evidence boundary and bottom connected-learning section. Anticipate novice questions, answer them directly in plain English, use a utility example, and add a diagram, comparison, or worked sequence when it improves understanding.
+
+Before reporting that a full module passes, run `tools/course_conformance.py` against the lesson,
+module brief, recording script, scored QA report, and `.course/full-module-contract.json`. The
+minimum release-floor checker is not proof of full Course Production Contract compliance.
 """,
     )
     write_once(
