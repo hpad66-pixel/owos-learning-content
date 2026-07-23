@@ -57,6 +57,15 @@ MODULES = [
         "Utility Mini-Graph",
         ["node", "edge", "path", "dataset", "named graph", "source group", "graph pattern", "visualization"],
         ["network-diagram", "interactive-process", "packet-anatomy", "comparison-table"]),
+    module(5, "five-layers-of-meaning", "Five Layers of Meaning",
+        "At 2:10 a.m., a pressure event affects Zone 3. The team has tables, dashboards, documents, policies, and an AI assistant, but each artifact performs a different meaning job.",
+        "Which layer tells the AI what evidence, policy, permission, time, and action boundary apply right now?",
+        "The runtime AI context package.",
+        "Structure, shared meaning, enterprise connection, runtime context, and model behavior are five different jobs that must be deliberately connected.",
+        ["Separate the five jobs", "Classify each artifact", "Assemble runtime context", "Trace authority and failure"],
+        "Five-Layer Meaning Map and AI Context Contract",
+        ["data model", "ontology", "semantic layer", "context engine", "AI context", "policy", "runtime state", "authority"],
+        ["five-job-comparison", "context-assembly-flow", "artifact-sorter", "customer-exposure-map"]),
     module(6, "taxonomies-vocabularies-and-rdfs", "Taxonomies, Vocabularies, and RDFS",
         "Four utility teams use the word asset for equipment, facilities, pipes, documents, and financial records.",
         "What should the team establish before connecting all five uses?",
@@ -177,59 +186,228 @@ MODULES = [
 ]
 
 
+VISUAL_PLANS = {
+    1: ["question-cards", "triple-builder", "triple-network", "standards-layer-stack"],
+    2: ["annotated-triple", "triple-method", "resource-literal-comparison", "triple-network"],
+    3: ["source-system-swimlane", "identity-bridge", "identity-failure-chain", "conflict-heat-grid"],
+    4: ["utility-estate-map", "relationship-network", "source-group-stack", "path-reveal"],
+    5: ["five-job-comparison", "context-assembly-flow", "artifact-sorter", "customer-exposure-map"],
+    6: ["taxonomy-tree", "definition-cards", "taxonomy-venn", "rdfs-relationship-map"],
+    7: ["ontology-lifecycle", "competency-question-funnel", "modeling-canvas", "version-timeline"],
+    8: ["query-path-overlay", "sparql-clause-stepper", "sparql-result-table", "federation-map"],
+    9: ["owl-proof-trace", "open-world-decision-tree", "assertion-inference-comparison", "consistency-heat-grid"],
+    10: ["shape-anatomy", "validation-report", "severity-matrix", "remediation-swimlane"],
+    11: ["provenance-network", "authority-ladder", "effective-time-timeline", "claim-conflict-table"],
+    12: ["knowledge-spine-stack", "source-consumption-map", "governance-loop", "paper-runtime-slider"],
+    13: ["semantic-mapping-bridge", "source-schema-view", "graph-target-view", "mapping-failure-chain"],
+    14: ["access-decision-tree", "access-comparison-table", "latency-cost-curve", "hybrid-architecture-map"],
+    15: ["evidence-spectrum", "hybrid-retrieval-flow", "document-graph-bridge", "retrieval-loss-comparison"],
+    16: ["context-assembly-flow", "context-packet-anatomy", "permission-gate", "missing-context-failure-chain"],
+    17: ["four-pipeline-comparison", "response-variation-lab", "agent-state-machine", "repeatability-matrix"],
+    18: ["graph-fit-decision-tree", "pilot-canvas", "ninety-day-roadmap", "value-risk-matrix"],
+}
+
+QUIZ_PLANS = {
+    1: ["classify", "matching", "multiple-choice"],
+    2: ["classify", "fill-in", "true-false"],
+    3: ["matching", "multiple-choice", "ordering"],
+    4: ["multi-select", "path-choice", "reflection"],
+    5: ["classify", "matching", "multiple-choice"],
+    6: ["flip-cards", "classify", "true-false"],
+    7: ["ordering", "multi-select", "reflection"],
+    8: ["fill-in", "ordering", "multiple-choice"],
+    9: ["classify", "true-false", "multiple-choice"],
+    10: ["matching", "multi-select", "ordering"],
+    11: ["classify", "timeline-choice", "multiple-choice"],
+    12: ["matching", "ordering", "reflection"],
+    13: ["matching", "fill-in", "multiple-choice"],
+    14: ["classify", "estimate", "multi-select"],
+    15: ["matching", "multiple-choice", "ordering"],
+    16: ["ordering", "multi-select", "multiple-choice"],
+    17: ["classify", "multiple-choice", "ordering"],
+    18: ["multi-select", "reflection", "capstone-rubric"],
+}
+
+SHAPE_MAP = {
+    "question-cards": "card-deck", "definition-cards": "card-deck",
+    "triple-builder": "slot-builder", "annotated-triple": "annotated-sentence",
+    "triple-method": "method-steps", "sparql-clause-stepper": "method-steps",
+    "resource-literal-comparison": "comparison-table", "five-job-comparison": "comparison-table",
+    "assertion-inference-comparison": "comparison-table", "access-comparison-table": "comparison-table",
+    "retrieval-loss-comparison": "comparison-table", "four-pipeline-comparison": "comparison-table",
+    "claim-conflict-table": "comparison-table", "sparql-result-table": "result-table",
+    "triple-network": "network", "relationship-network": "network",
+    "rdfs-relationship-map": "network", "provenance-network": "network",
+    "customer-exposure-map": "network", "federation-map": "network",
+    "utility-estate-map": "estate-map", "source-consumption-map": "estate-map",
+    "source-system-swimlane": "swimlane", "remediation-swimlane": "swimlane",
+    "identity-bridge": "bridge", "semantic-mapping-bridge": "bridge",
+    "document-graph-bridge": "bridge", "query-path-overlay": "overlay",
+    "identity-failure-chain": "failure-chain", "mapping-failure-chain": "failure-chain",
+    "missing-context-failure-chain": "failure-chain",
+    "conflict-heat-grid": "heat-grid", "consistency-heat-grid": "heat-grid",
+    "severity-matrix": "matrix", "repeatability-matrix": "matrix", "value-risk-matrix": "matrix",
+    "source-group-stack": "layer-stack", "standards-layer-stack": "layer-stack",
+    "knowledge-spine-stack": "layer-stack", "context-packet-anatomy": "packet",
+    "path-reveal": "path-reveal", "artifact-sorter": "sorter",
+    "taxonomy-tree": "tree", "taxonomy-venn": "venn",
+    "ontology-lifecycle": "cycle", "governance-loop": "cycle",
+    "competency-question-funnel": "funnel", "modeling-canvas": "canvas",
+    "pilot-canvas": "canvas", "version-timeline": "timeline",
+    "effective-time-timeline": "timeline", "ninety-day-roadmap": "roadmap",
+    "owl-proof-trace": "proof-trace", "open-world-decision-tree": "decision-tree",
+    "access-decision-tree": "decision-tree", "graph-fit-decision-tree": "decision-tree",
+    "shape-anatomy": "anatomy", "validation-report": "report",
+    "authority-ladder": "ladder", "paper-runtime-slider": "before-after",
+    "source-schema-view": "schema", "graph-target-view": "graph-target",
+    "latency-cost-curve": "curve", "hybrid-architecture-map": "architecture-map",
+    "evidence-spectrum": "spectrum", "hybrid-retrieval-flow": "retrieval-flow",
+    "context-assembly-flow": "assembly-flow", "permission-gate": "gate",
+    "response-variation-lab": "response-lab", "agent-state-machine": "state-machine",
+}
+
+
 def esc(value):
     return html.escape(str(value), quote=True)
 
 
-def visual_markup(kind, item, index):
-    title = item["steps"][index % len(item["steps"])]
+def visual_body(shape, item, index):
     points = item["steps"]
-    if kind == "comparison-table":
-        body = '<div class="comparison-scroll"><table class="comparison"><thead><tr><th>Question</th><th>Weak treatment</th><th>Governed treatment</th></tr></thead><tbody>' + "".join(
-            f"<tr><th>{esc(point)}</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr>" for point in points
-        ) + "</tbody></table></div>"
-    elif kind in {"interactive-process", "failure-propagation-chain"}:
-        body = '<div class="process-flow">' + "".join(
-            f'<div class="flowbox"><b>{i + 1}</b><span>{esc(point)}</span></div>{"" if i == len(points)-1 else "<span class=flowarrow>→</span>"}'
-            for i, point in enumerate(points)
-        ) + "</div>"
-    elif kind == "raci-grid":
-        body = '<div class="comparison-scroll"><table class="comparison"><thead><tr><th>Decision</th><th>Accountable</th><th>Responsible</th></tr></thead><tbody>' + "".join(
-            f"<tr><th>{esc(point)}</th><td>Named utility owner</td><td>Assigned steward or practitioner</td></tr>" for point in points
-        ) + "</tbody></table></div>"
-    elif kind == "packet-anatomy":
-        body = '<div class="packet-core">' + "".join(
-            f'<div class="packet-layer"><i>{i + 1:02}</i><div><b>{esc(point)}</b><span>Required evidence, control, and owner</span></div><em>trace</em></div>'
-            for i, point in enumerate(points)
-        ) + "</div>"
-    elif kind == "network-diagram":
-        body = '<div class="graph-map inline-map">' + "".join(
-            f'<button type="button" class="gnode {"" if i else "core"}" style="left:{18 + (i % 2) * 58}%;top:{20 + i * 20}%" data-inline-node="{i}">{esc(point)}</button>'
-            for i, point in enumerate(points)
-        ) + '<svg viewBox="0 0 520 360" aria-hidden="true"><g stroke="#B9D3E1" stroke-width="2"><line x1="95" y1="72" x2="395" y2="144"/><line x1="395" y1="144" x2="95" y2="216"/><line x1="95" y1="216" x2="395" y2="288"/></g></svg></div>'
-    else:
-        body = f'<div class="scene"><div class="scene-card"><span class="tag">Utility scene</span><h3>{esc(item["scene"])}</h3><p>{esc(item["mental"])}</p></div><div class="scene-legend">' + "".join(
-            f'<div class="legend-row"><i style="background:{color}"></i><div><b>{esc(point)}</b><span>Follow this evidence into the next controlled step.</span></div></div>'
-            for point, color in zip(points, ["#062B43", "#0A78BA", "#0E8A64", "#A97B0F"])
-        ) + "</div></div>"
+    terms = item["terms"]
+    cards = "".join(f'<article><span>{i + 1:02}</span><b>{esc(term)}</b><p>{esc(points[i % 4])}</p></article>' for i, term in enumerate(terms[:4]))
+    if shape == "card-deck":
+        return f'<div class="v-card-deck">{cards}</div>'
+    if shape in {"slot-builder", "annotated-sentence"}:
+        return f'<div class="v-sentence"><span class="subject">{esc(terms[2 if item["number"] == 1 else 0])}</span><i>→</i><span class="predicate">{esc(terms[3 if item["number"] == 1 else 2])}</span><i>→</i><span class="object">{esc(terms[4 if item["number"] == 1 else 1])}</span></div><div class="v-annotation"><b>Direction matters.</b> Read left to right, then ask whether the object is another identified thing or a typed value.</div>'
+    if shape in {"method-steps", "failure-chain", "assembly-flow", "retrieval-flow"}:
+        connector = "breaks" if shape == "failure-chain" else "then"
+        return f'<div class="v-flow v-flow-{shape}">' + "".join(f'<article><i>{i + 1}</i><b>{esc(point)}</b><small>{connector}: {esc(terms[i])}</small></article>' for i, point in enumerate(points)) + "</div>"
+    if shape in {"comparison-table", "result-table"}:
+        headings = ("Utility question", "Shortcut", "Governed result") if shape == "comparison-table" else ("Result", "Evidence path", "Status")
+        return '<div class="comparison-scroll"><table class="comparison"><thead><tr>' + "".join(f"<th>{h}</th>" for h in headings) + "</tr></thead><tbody>" + "".join(f"<tr><th>{esc(point)}</th><td>{esc(terms[i])}: implicit</td><td>{esc(terms[i + 4])}: named and traceable</td></tr>" for i, point in enumerate(points)) + "</tbody></table></div>"
+    if shape in {"network", "graph-target", "estate-map", "architecture-map"}:
+        nodes = [terms[0], points[0], terms[2], points[2], terms[5], points[3]]
+        return f'<div class="v-network v-network-{shape}" role="img" aria-label="Connected utility concepts">' + '<svg viewBox="0 0 720 330" aria-hidden="true"><path d="M95 75L350 55L610 95M95 75L210 255L500 255L610 95M350 55L500 255M210 255L610 95"/></svg>' + "".join(f'<button style="--x:{[8,39,76,22,62,80][i]}%;--y:{[12,7,20,70,71,48][i]}%" type="button">{esc(node)}</button>' for i, node in enumerate(nodes)) + "</div>"
+    if shape == "swimlane":
+        return '<div class="v-swimlane">' + "".join(f'<div><b>{esc(terms[i])}</b><span>{esc(point)}</span><em>{["source", "candidate", "review", "release"][i]}</em></div>' for i, point in enumerate(points)) + "</div>"
+    if shape in {"bridge", "overlay"}:
+        return f'<div class="v-bridge v-bridge-{shape}"><section><span>Source</span><b>{esc(terms[0])}</b><p>{esc(points[0])}</p></section><div class="bridge-deck"><i></i><i></i><b>{esc(terms[3])}</b></div><section><span>Meaning</span><b>{esc(terms[4])}</b><p>{esc(points[3])}</p></section></div>'
+    if shape in {"heat-grid", "matrix"}:
+        return f'<div class="v-matrix v-matrix-{shape}">' + "".join(f'<div class="level-{(row + col) % 4}"><b>{esc(terms[row])}</b><span>{esc(["low", "review", "high", "stop"][(row + col) % 4])}</span></div>' for row in range(4) for col in range(3)) + "</div>"
+    if shape in {"layer-stack", "packet"}:
+        return f'<div class="v-stack v-stack-{shape}">' + "".join(f'<article style="--depth:{i}"><i>{i + 1}</i><b>{esc(point)}</b><span>{esc(terms[i])}</span></article>' for i, point in enumerate(points)) + "</div>"
+    if shape == "path-reveal":
+        return '<div class="v-path">' + "".join(f'<button type="button"><i>{i + 1}</i>{esc(terms[i])}<small>{esc(point)}</small></button>' for i, point in enumerate(points)) + "</div>"
+    if shape == "sorter":
+        return '<div class="v-sorter"><div>' + "".join(f'<button type="button">{esc(term)}</button>' for term in terms[:5]) + '</div><aside><b>Structure</b><b>Meaning</b><b>Connection</b><b>Runtime</b><b>Model</b></aside></div>'
+    if shape == "tree":
+        return f'<div class="v-tree"><b>{esc(terms[0])}</b><div><span>{esc(terms[2])}</span><span>{esc(terms[3])}</span></div><div><i>{esc(terms[4])}</i><i>{esc(terms[5])}</i><i>{esc(terms[6])}</i><i>{esc(terms[7])}</i></div></div>'
+    if shape == "venn":
+        return f'<div class="v-venn"><span>{esc(terms[0])}</span><span>{esc(terms[1])}</span><b>shared<br>meaning</b></div>'
+    if shape == "cycle":
+        return '<div class="v-cycle">' + "".join(f'<article style="--turn:{i * 90}deg"><i>{i + 1}</i><b>{esc(point)}</b></article>' for i, point in enumerate(points)) + '<strong>review<br>and improve</strong></div>'
+    if shape == "funnel":
+        return '<div class="v-funnel">' + "".join(f'<div style="--width:{100 - i * 18}%"><b>{esc(point)}</b><span>{esc(terms[i])}</span></div>' for i, point in enumerate(points)) + "</div>"
+    if shape in {"canvas", "schema"}:
+        return f'<div class="v-canvas v-canvas-{shape}">' + "".join(f'<article><small>{esc(terms[i])}</small><b>{esc(point)}</b><p>Owner • evidence • acceptance test</p></article>' for i, point in enumerate(points)) + "</div>"
+    if shape in {"timeline", "roadmap"}:
+        return f'<div class="v-timeline v-timeline-{shape}">' + "".join(f'<article><i>{[0, 30, 60, 90][i]}</i><b>{esc(point)}</b><span>{esc(terms[i])}</span></article>' for i, point in enumerate(points)) + "</div>"
+    if shape == "proof-trace":
+        return '<div class="v-proof">' + "".join(f'<article><span>{["ASSERT", "ASSERT", "AXIOM", "INFER"][i]}</span><b>{esc(point)}</b><small>{esc(terms[i])}</small></article>' for i, point in enumerate(points)) + "</div>"
+    if shape == "decision-tree":
+        return f'<div class="v-decision"><b>{esc(item["question"])}</b><div><article><span>YES</span>{esc(points[1])}</article><article><span>NO</span>{esc(points[0])}</article></div><footer>{esc(points[3])}</footer></div>'
+    if shape == "anatomy":
+        return '<div class="v-anatomy">' + "".join(f'<article style="--ring:{i}"><b>{esc(terms[i])}</b><span>{esc(point)}</span></article>' for i, point in enumerate(points)) + '<strong>target<br>record</strong></div>'
+    if shape == "report":
+        return '<div class="v-report"><header><b>' + esc(item["artifact"]) + '</b><span>validation run</span></header>' + "".join(f'<article class="{["pass", "warn", "fail", "info"][i]}"><i>{["✓", "!", "×", "i"][i]}</i><div><b>{esc(point)}</b><span>{esc(terms[i])}</span></div></article>' for i, point in enumerate(points)) + "</div>"
+    if shape == "ladder":
+        return '<div class="v-ladder">' + "".join(f'<article style="--step:{i}"><b>{esc(terms[i])}</b><span>{esc(point)}</span></article>' for i, point in enumerate(points)) + "</div>"
+    if shape == "before-after":
+        return f'<div class="v-before-after"><section><span>FILE</span><b>Ontology on paper</b><p>{esc(points[0])}</p></section><i>→</i><section><span>RUNNING</span><b>Queryable spine</b><p>{esc(points[3])}</p></section></div>'
+    if shape == "curve":
+        return '<div class="v-curve"><svg viewBox="0 0 700 280" role="img" aria-label="Latency and cost tradeoff curve"><path d="M45 230C170 220 210 155 340 145S520 55 650 40"/><path class="second" d="M45 45C180 70 230 140 360 160S530 215 650 225"/></svg><span>Freshness</span><span>Cost</span><b>Measured workload, not fashion</b></div>'
+    if shape == "spectrum":
+        return '<div class="v-spectrum"><span>raw passage</span><span>retrieved candidate</span><span>extracted claim</span><span>reviewed assertion</span><span>authorized decision</span></div>'
+    if shape == "gate":
+        return f'<div class="v-gate"><section><b>{esc(terms[4])}</b><p>{esc(points[1])}</p></section><div><i></i><strong>PERMISSION<br>CHECK</strong></div><section><b>{esc(terms[6])}</b><p>{esc(points[3])}</p></section></div>'
+    if shape == "response-lab":
+        return '<div class="v-responses">' + "".join(f'<article><span>RUN {i + 1}</span><b>{esc(["same evidence", "different ranking", "changed wording"][i])}</b><p>{esc(points[i])}</p></article>' for i in range(3)) + "</div>"
+    if shape == "state-machine":
+        return '<div class="v-states">' + "".join(f'<article><i>{i + 1}</i><b>{esc(state)}</b><span>{esc(points[i % 4])}</span></article>' for i, state in enumerate(["Know", "Propose", "Authorize", "Act", "Stop", "Record"])) + "</div>"
+    return f'<div class="v-card-deck">{cards}</div>'
+
+
+def visual_markup(kind, item, index):
+    shape = SHAPE_MAP[kind]
+    points = item["steps"]
+    title = item["steps"][(index - 1) % len(item["steps"])]
+    body = visual_body(shape, item, index)
     return f"""
     <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-{index}">
       <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
       <p>Read this {esc(kind.replace("-", " "))} from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
       <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
     </div>
-    <div class="panel" id="visual-{index}" data-visual-type="{esc(kind)}" data-component-source="component-gallery">
+    <div class="panel visual-panel" id="visual-{index}" data-visual-type="{esc(kind)}" data-visual-family="{esc(shape)}" data-visual-shape="{esc(shape)}" data-component-source="component-gallery">
       <div class="panel-head">{esc(title)} <span class="kind">{esc(kind.replace("-", " "))}</span></div>
       <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with {esc(points[0])}. Follow the named steps and compare the controlled result with the shortcut.</div>
-      {body}
+      <div class="visual-stage visual-{esc(shape)}">{body}</div>
       <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> {esc(item["mental"])}</div></div>
     </div>"""
+
+
+def quiz_markup(item, qtype, slot, required):
+    term_index = {"opening": 0, "mid": 2, "boundary": 4}.get(slot, 0)
+    question = item["question"] if slot == "opening" else f"Apply {item['terms'][term_index]} to the utility scenario."
+    title = {"opening": "Opening decision", "mid": "Practice the mechanism", "boundary": "Check the boundary"}.get(slot, "Knowledge check")
+    opening_marker = " data-opening-decision" if slot == "opening" else ""
+    base = f'id="{slot}-quiz" class="panel quiz-panel quiz-{esc(qtype)}" data-quiz-type="{esc(qtype)}" data-quiz-source="quiz-gallery" data-required="{esc(required)}" data-retry="Use the explanation, revise the answer, and retry."{opening_marker}'
+    if qtype == "flip-cards":
+        content = '<div class="question-flips">' + "".join(
+            f'<button type="button" class="flip-question" aria-pressed="false"><span><small>QUESTION {i + 1}</small>{esc("What job does " + term + " perform?")}</span><strong><small>ANSWER</small>{esc(item["steps"][i])}. {esc(item["mental"])}</strong></button>'
+            for i, term in enumerate(item["terms"][:4])
+        ) + '</div><div class="feedback" aria-live="polite"></div>'
+    elif qtype == "matching":
+        content = '<div class="match v2-match">' + "".join(f'<button type="button" data-pair="{i}" data-side="left">{esc(item["terms"][i])}</button>' for i in range(4)) + "".join(f'<button type="button" data-pair="{i}" data-side="right">{esc(item["steps"][i])}</button>' for i in [2, 0, 3, 1]) + '</div><div class="feedback" aria-live="polite"></div>'
+    elif qtype == "fill-in":
+        content = f'<label class="fill-answer">Complete the statement<input data-answer="{esc(item["terms"][0].lower())}" autocomplete="off" placeholder="Type the key term"></label><p>{esc(item["mental"])}</p><button class="btn primary" type="button" data-check-generic>Check answer</button><div class="feedback" aria-live="polite"></div>'
+    elif qtype == "ordering":
+        content = '<p>Put the four responsibilities in the governed order.</p><div class="order-list">' + "".join(f'<button type="button" data-order="{i}"><i>{i + 1}</i>{esc(item["steps"][i])}</button>' for i in [2, 0, 3, 1]) + '</div><button class="btn primary" type="button" data-check-generic>Check order</button><div class="feedback" aria-live="polite"></div>'
+    elif qtype == "reflection":
+        content = f'<label class="fill-answer">Name where this boundary lives in your utility<textarea rows="4" data-reflection placeholder="Write a specific example, owner, and next question"></textarea></label><button class="btn primary" type="button" data-check-generic>Save reflection</button><div class="feedback" aria-live="polite"></div>'
+    elif qtype == "estimate":
+        content = '<label class="estimate-answer">Estimate acceptable response latency for this scenario<input type="range" min="1" max="60" value="15" data-estimate><output>15 seconds</output></label><button class="btn primary" type="button" data-check-generic>Commit estimate</button><div class="feedback" aria-live="polite"></div>'
+    elif qtype in {"classify", "multi-select", "capstone-rubric"}:
+        labels = item["terms"][:5] if qtype == "classify" else [*item["steps"], "Unreviewed label similarity"]
+        content = '<p>Select every item that belongs in the governed answer.</p><div class="packet-options">' + "".join(f'<button class="option-check" type="button" data-correct="{1 if i < (3 if qtype == "classify" else 4) else 0}">{esc(label)}</button>' for i, label in enumerate(labels)) + f'</div><button class="btn primary" type="button" data-check-generic>{"Score pilot" if qtype == "capstone-rubric" else "Check selection"}</button><div class="feedback" aria-live="polite"></div>'
+    else:
+        options = [
+            item["answer"],
+            "Use the closest matching label without governed review.",
+            "Let the model infer the authority and effective time.",
+            "Copy every source into a new platform before defining the question.",
+        ]
+        if qtype == "true-false":
+            options = [item["answer"], "The opposite statement is always true."]
+        content = f'<h3>{esc(question)}</h3><div class="decision-grid">' + "".join(f'<button class="choice" type="button" data-correct="{1 if i == 0 else 0}">{esc(option)}</button>' for i, option in enumerate(options)) + '</div><button class="btn primary" type="button" data-check-generic>Check answer</button><div class="feedback" aria-live="polite"></div>'
+    return f'<div {base}><div class="panel-head">{esc(title)} <span class="kind">{esc(qtype.replace("-", " "))}</span></div><div class="panel-body">{content}</div></div>'
+
+
+def question_flip_deck(item):
+    return f'''<div class="instructor-dialogue" data-instructor-explanation data-teaches="question-deck"><div class="instructor-label">Pause and predict</div><div class="instructor-copy"><p>Answer each card aloud before turning it over. The back explains the utility meaning, not just the term.</p></div></div>
+<div class="panel question-deck" id="question-deck" data-quiz-type="flip-cards" data-quiz-source="quiz-gallery" data-required="cards" data-retry="Predict first, then turn every card."><div class="panel-head">Question flip cards <span class="kind">Four retrieval prompts</span></div><div class="panel-body"><div class="question-flips">{"".join(f'<button type="button" class="flip-question" aria-pressed="false"><span><small>QUESTION {i + 1}</small>{esc("How would you explain " + term + " without jargon?")}</span><strong><small>TURNED ANSWER</small>{esc(item["steps"][i % 4])}: {esc(item["mental"])}</strong></button>' for i, term in enumerate(item["terms"][:4]))}</div><div class="feedback" aria-live="polite"></div></div></div>'''
 
 
 def lesson_html(item, previous_href, next_href, next_title):
     num = item["number"]
     terms = " ".join(f'<span class="term" data-def="{esc(term)} is defined and used within this module.">{esc(term)}</span>' for term in item["terms"])
+    item["visuals"] = VISUAL_PLANS[item["number"]]
+    item["quiz_mix"] = QUIZ_PLANS[item["number"]]
     visuals = "\n".join(visual_markup(kind, item, index) for index, kind in enumerate(item["visuals"], 1))
+    opening_quiz = quiz_markup(item, item["quiz_mix"][0], "opening", "opening")
+    mid_quiz = quiz_markup(item, item["quiz_mix"][1], "mid", "quiz2")
+    boundary_quiz = quiz_markup(item, item["quiz_mix"][2], "boundary", "quiz3")
+    flip_deck = "" if item["quiz_mix"][0] == "flip-cards" else question_flip_deck(item)
     match_pairs = list(zip(item["terms"][:4], item["steps"]))
     match_left = "".join(f'<button type="button" class="match-item" data-match-question="{i}">{esc(term)}</button>' for i, (term, _) in enumerate(match_pairs))
     match_right = "".join(f'<button type="button" class="match-item" data-match-job="{i}">{esc(step)}</button>' for i, (_, step) in enumerate(reversed(match_pairs)))
@@ -255,19 +433,19 @@ def lesson_html(item, previous_href, next_href, next_title):
 <body data-module="module-{num:02}" data-lens="foundation"><div class="reading" aria-hidden="true"></div>
 <header class="top"><div class="wrap topin"><a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meaning Before Models / Module {num:02}</span><nav class="topactions" aria-label="Lesson actions"><button class="btn secondary" type="button" data-open-graph>Graph</button><button class="btn secondary" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav></div></header>
 <main><section class="wrap hero"><span class="kicker">Module {num:02} | Production candidate</span><h1>{esc(item["title"])}</h1><p>{esc(item["mental"])}</p><div class="meta"><span>45 to 60 minutes</span><span>Foundation to Leader</span><span>{esc(item["artifact"])}</span></div><div class="lenses" role="tablist" aria-label="Instructional depth"><button type="button" class="on" data-lens="foundation">Foundation</button><button type="button" data-lens="practitioner">Practitioner</button><button type="button" data-lens="leader">Leader</button></div></section>
-<div class="wrap"><section class="requirements" aria-label="Completion evidence">{''.join(f'<div class="req" data-requirement="{key}"><i></i>{label}</div>' for key,label in [("opening","Opening decision"),("process","Mechanism lab"),("matching","Concept match"),("multi","Boundary check"),("artifact","Work product"),("applied","Applied assessment")])}</section></div>
+<div class="wrap"><section class="requirements" aria-label="Completion evidence">{''.join(f'<div class="req" data-requirement="{key}"><i></i>{label}</div>' for key,label in [("opening","Opening decision"),("cards","Question cards"),("process","Mechanism lab"),("quiz2","Practice quiz"),("quiz3","Boundary quiz"),("artifact","Work product"),("applied","Applied assessment")])}</section></div>
 <div class="wrap" id="lesson-start"><section class="section"><div class="section-head"><div><span class="tag">Decision first</span><h2>{esc(item["scene"])}</h2></div><span class="section-num">01 / 05</span></div>
 <div class="view foundation"><p>Begin with the ordinary-language relationship and keep the technical labels in the background until the job is clear.</p></div><div class="view practitioner"><p>Inspect identifiers, mappings, rules, tests, and evidence boundaries at every handoff.</p></div><div class="view leader"><p>Name the accountable owner, operating consequence, investment boundary, and stop condition.</p></div>
 <div class="instructor-dialogue" data-instructor-explanation data-teaches="opening-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Choose the answer you would accept in a real utility review. You can retry. The feedback explains the boundary this module will teach.</p></div></div>
-<div class="panel" id="opening-quiz" data-opening-decision data-quiz-type="multiple-choice" data-quiz-source="quiz-gallery" data-required="opening" data-retry="Return to the scenario and choose the statement that is explicit, governed, and reviewable."><div class="panel-head">Opening decision <span class="kind">Multiple choice</span></div><div class="panel-body"><h3>{esc(item["question"])}</h3><div class="decision-grid"><button class="choice" type="button" data-correct="1">{esc(item["answer"])}</button><button class="choice" type="button" data-correct="0">Use the closest matching label without review.</button><button class="choice" type="button" data-correct="0">Let the newest application define the meaning for everyone.</button><button class="choice" type="button" data-correct="0">Ask the language model to choose what the term probably means.</button></div><button class="btn primary" type="button" data-check-quiz>Check decision</button><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Mental model</span><h2>See the mechanism before memorizing the vocabulary</h2></div><span class="section-num">02 / 05</span></div><p class="lede">{terms}</p>{visuals}</section>
+{opening_quiz}
+</section><section class="section"><div class="section-head"><div><span class="tag">Mental model</span><h2>See the mechanism before memorizing the vocabulary</h2></div><span class="section-num">02 / 05</span></div><p class="lede">{terms}</p>{flip_deck}{visuals}</section>
 <section class="section"><div class="section-head"><div><span class="tag">Operate the mechanism</span><h2>Move the scenario through four controlled steps</h2></div><span class="section-num">03 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="process-lab concept-match"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select each step and read what it adds to the decision. Then match the module terms to the jobs they perform.</p><p>The goal is not vocabulary recall. It is knowing where a missing responsibility would first break the answer.</p></div></div>
+<div class="instructor-dialogue" data-instructor-explanation data-teaches="process-lab mid-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select each step and read what it adds to the decision. Then complete the module-specific practice activity.</p><p>The goal is not vocabulary recall. It is knowing where a missing responsibility would first break the answer.</p></div></div>
 <div class="panel" id="process-lab" data-purposeful-interaction="step-through" data-component-source="component-gallery" data-required="process"><div class="panel-head">Mechanism laboratory <span class="kind">Interactive process</span></div><div class="panel-body"><div class="decision-grid">{step_buttons}</div><div class="debrief" data-step-detail><b>Select a step</b>The evidence and control added by that step will appear here.</div><div class="feedback" aria-live="polite"></div></div></div>
-<div class="panel" id="concept-match" data-quiz-type="matching" data-quiz-source="quiz-gallery" data-required="matching" data-retry="Match each term to the job it performs in this module."><div class="panel-head">Match terms to jobs <span class="kind">Matching</span></div><div class="panel-body"><div class="match"><div class="mcol" data-match-left>{match_left}</div><div class="mcol" data-match-right>{match_right}</div></div><div class="feedback" aria-live="polite"></div></div></div>
+{mid_quiz}
 </section><section class="section"><div class="section-head"><div><span class="tag">Check the boundary</span><h2>Choose what belongs in the governed answer path</h2></div><span class="section-num">04 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="boundary-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select the three items that make the result reviewable. Reject shortcuts that hide evidence or authority.</p></div></div>
-<div class="panel" id="boundary-check" data-quiz-type="multi-select" data-quiz-source="quiz-gallery" data-purposeful-interaction="boundary-selection" data-required="multi" data-retry="Include named evidence, an explicit rule or relationship, and an accountable reviewer."><div class="panel-head">Boundary check <span class="kind">Multi-select</span></div><div class="panel-body"><div class="packet-options"><button class="option-check" type="button" data-correct="1">Named source records and identifiers</button><button class="option-check" type="button" data-correct="1">Explicit relationship, rule, mapping, or constraint</button><button class="option-check" type="button" data-correct="1">Named owner, reviewer, and authority boundary</button><button class="option-check" type="button" data-correct="0">Unreviewed label similarity</button><button class="option-check" type="button" data-correct="0">Permission for a model to act without approval</button></div><button class="btn primary" type="button" data-check-multi>Validate selection</button><div class="feedback" aria-live="polite"></div></div></div>
+<div class="instructor-dialogue" data-instructor-explanation data-teaches="boundary-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Use the final formative check to expose evidence, meaning, and authority boundaries. Read the feedback and retry until the reasoning is explicit.</p></div></div>
+{boundary_quiz}
 </section><section class="section"><div class="section-head"><div><span class="tag">Professional work product</span><h2>Build the {esc(item["artifact"])}</h2></div><span class="section-num">05 / 05</span></div>
 <div class="instructor-dialogue" data-instructor-explanation data-teaches="work-product applied-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Write specific statements that another utility team could inspect. Name sources, relationships, rules, owners, limits, and the human decision.</p><p>Save the draft, then run the applied assessment. Completion requires both.</p></div></div>
 <div class="panel"><div class="panel-head">{esc(item["artifact"])} <span class="kind">Artifact builder</span></div><div class="panel-body artifact-grid"><form class="form" id="work-product" data-artifact="module-{num:02}-artifact" data-component-source="component-gallery" data-purposeful-interaction="artifact-builder" data-required="artifact">{fields}<button class="btn primary" type="submit">Save working draft</button><div class="feedback" aria-live="polite"></div></form><div class="preview"><h3>Working preview</h3><pre data-artifact-preview>Complete the form to build the preview.</pre></div></div></div>
@@ -325,7 +503,7 @@ def design_brief(item):
 | Visual types, minimum four | {visuals} |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | {", ".join(f"`{quiz}`" for quiz in item["quiz_mix"])} plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -546,6 +724,8 @@ def main():
     titles[5] = "Five Layers of Meaning"
     for item in MODULES:
         number = item["number"]
+        item["visuals"] = VISUAL_PLANS[number]
+        item["quiz_mix"] = QUIZ_PLANS[number]
         previous = pages.get(number - 1, "course-meaning-before-models.html")
         next_page = pages.get(number + 1, "course-meaning-before-models.html")
         next_title = titles.get(number + 1, "Course home")
@@ -553,8 +733,9 @@ def main():
         (CURRICULUM / "design-briefs" / f"{stem}.md").write_text(design_brief(item), encoding="utf-8")
         (CURRICULUM / "scripts" / f"{stem}-video-script.md").write_text(recording_script(item), encoding="utf-8")
         (CURRICULUM / pages[number]).write_text(lesson_html(item, previous, next_page, next_title), encoding="utf-8")
-        (COURSE / "qa" / f"{stem}-quality-control-report.md").write_text(qa_report(item), encoding="utf-8")
-    print(f"Built {len(MODULES)} module candidates around the preserved Module 05 benchmark.")
+        qa_name = "module-05-quality-control-report.md" if number == 5 else f"{stem}-quality-control-report.md"
+        (COURSE / "qa" / qa_name).write_text(qa_report(item), encoding="utf-8")
+    print(f"Built {len(MODULES)} visually differentiated module candidates.")
 
 
 if __name__ == "__main__":

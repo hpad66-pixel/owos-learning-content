@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Select a target | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Apply constraints | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Read the report | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Route remediation | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Select a target | relationship or process | `shape-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Apply constraints | relationship or process | `validation-report` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Read the report | relationship or process | `severity-matrix` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Route remediation | relationship or process | `remediation-swimlane` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `packet-anatomy`, `interactive-process`, `failure-propagation-chain`, `raci-grid` |
+| Visual types, minimum four | `shape-anatomy`, `validation-report`, `severity-matrix`, `remediation-swimlane` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `matching`, `multi-select`, `ordering` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Select a target | packet-anatomy | Shared component gallery | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Apply constraints | interactive-process | Shared component gallery | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Read the report | failure-propagation-chain | Shared component gallery | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Route remediation | raci-grid | Shared component gallery | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Select a target | shape-anatomy | Shared component gallery | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Apply constraints | validation-report | Shared component gallery | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Read the report | severity-matrix | Shared component gallery | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Route remediation | remediation-swimlane | Shared component gallery | Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

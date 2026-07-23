@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Inspect source structure | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Map concept and property | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Test transformation | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Monitor source change | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Inspect source structure | relationship or process | `semantic-mapping-bridge` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Map concept and property | relationship or process | `source-schema-view` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Test transformation | relationship or process | `graph-target-view` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Monitor source change | relationship or process | `mapping-failure-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `comparison-table`, `interactive-process`, `failure-propagation-chain`, `packet-anatomy` |
+| Visual types, minimum four | `semantic-mapping-bridge`, `source-schema-view`, `graph-target-view`, `mapping-failure-chain` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `matching`, `fill-in`, `multiple-choice` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Inspect source structure | comparison-table | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Map concept and property | interactive-process | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Test transformation | failure-propagation-chain | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Monitor source change | packet-anatomy | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Inspect source structure | semantic-mapping-bridge | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Map concept and property | source-schema-view | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Test transformation | graph-target-view | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Monitor source change | mapping-failure-chain | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

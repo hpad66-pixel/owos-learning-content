@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Identify fixed stages | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Expose variable stages | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Assemble evidence | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Authorize, act, or stop | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Identify fixed stages | relationship or process | `four-pipeline-comparison` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Expose variable stages | relationship or process | `response-variation-lab` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Assemble evidence | relationship or process | `agent-state-machine` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Authorize, act, or stop | relationship or process | `repeatability-matrix` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `comparison-table`, `interactive-process`, `failure-propagation-chain`, `raci-grid` |
+| Visual types, minimum four | `four-pipeline-comparison`, `response-variation-lab`, `agent-state-machine`, `repeatability-matrix` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `classify`, `multiple-choice`, `ordering` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Identify fixed stages | comparison-table | Shared component gallery | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Expose variable stages | interactive-process | Shared component gallery | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Assemble evidence | failure-propagation-chain | Shared component gallery | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Authorize, act, or stop | raci-grid | Shared component gallery | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Identify fixed stages | four-pipeline-comparison | Shared component gallery | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Expose variable stages | response-variation-lab | Shared component gallery | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Assemble evidence | agent-state-machine | Shared component gallery | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Authorize, act, or stop | repeatability-matrix | Shared component gallery | Compare complete pipelines stage by stage, then separate knowing, proposing, authorizing, acting, stopping, and recording. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

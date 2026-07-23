@@ -8,7 +8,7 @@ The user works conversationally. Do not require the user to run Python, Git, ext
 
 Apply Hardeep Soul, the OWOS Course Production Contract, Course Operating Standard, Course Design System, Visual Arsenal, writing standard, component and quiz catalogs, provenance, evidence boundaries, module state, approval gates, and Course Quality Contract automatically. Read `core/standards/COURSE-PRODUCTION-CONTRACT.md` first; it is the non-optional release floor for every course.
 
-Every module needs a reviewed design brief and the course needs a design matrix. Chapter 09 is a capability benchmark, not a reusable page layout. Visuals, simulations, quizzes, work products, and animation must follow the learning problem and remain deliberately varied across adjacent modules.
+Every module needs a reviewed design brief and the course needs a design matrix. Chapter 09 is a capability benchmark, not a reusable page layout. Visuals, simulations, quizzes, work products, and animation must follow the learning problem and remain deliberately varied across adjacent modules. Count visual variety by rendered structure and structural fingerprint, never by a renamed label, color, icon, or heading. Full lessons normally need four visual types with at least three different structures and question flip cards for terminology or misconception retrieval.
 
 Every major learning component must include visible instructor explanation in plain English. Every module must have a recording script, and every course must maintain an overview script that explains the lesson sequence.
 

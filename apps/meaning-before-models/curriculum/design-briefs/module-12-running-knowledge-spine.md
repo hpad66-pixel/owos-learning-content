@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Release the ontology core | relationship or process | `editorial-illustration` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Instantiate the semantic platform | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Connect sources | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Serve governed consumers | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Release the ontology core | relationship or process | `knowledge-spine-stack` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Instantiate the semantic platform | relationship or process | `source-consumption-map` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Connect sources | relationship or process | `governance-loop` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Serve governed consumers | relationship or process | `paper-runtime-slider` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `editorial-illustration`, `packet-anatomy`, `interactive-process`, `network-diagram` |
+| Visual types, minimum four | `knowledge-spine-stack`, `source-consumption-map`, `governance-loop`, `paper-runtime-slider` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `matching`, `ordering`, `reflection` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Release the ontology core | editorial-illustration | Shared component gallery | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Instantiate the semantic platform | packet-anatomy | Shared component gallery | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Connect sources | interactive-process | Shared component gallery | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Serve governed consumers | network-diagram | Shared component gallery | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Release the ontology core | knowledge-spine-stack | Shared component gallery | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Instantiate the semantic platform | source-consumption-map | Shared component gallery | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Connect sources | governance-loop | Shared component gallery | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Serve governed consumers | paper-runtime-slider | Shared component gallery | A Knowledge Spine combines a governed ontology core, semantic platform, connection fabric, and consumption plane. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

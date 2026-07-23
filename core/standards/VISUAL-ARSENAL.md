@@ -111,6 +111,8 @@ done. When the needed interactive does not exist, build it into the shared libra
 
 ## The rule of variety
 - Every module: use **at least 4 different visual types**, and no type more than once unless it truly earns it.
+- At least three counted visuals must have different rendered structures. Record `data-visual-family` and `data-visual-shape` on the final component. Names, colors, icons, and headings do not establish diversity.
+- Across a course, run a structural fingerprint comparison. Adjacent modules may not share the same dominant structure or ordered visual-shape sequence.
 - If a section is just text and a quiz, ask "what is the shape of this idea?" and reach for the arsenal.
 - Never default to the iron triangle or a curve because it is easy. Pick what fits.
 - Do not allow more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout. Document any necessary exception.
@@ -139,6 +141,7 @@ For EACH idea, do the following:
 
 Hard rules:
 - Do NOT reuse the same visual type twice in one module unless it genuinely fits better than anything else.
+- Do NOT rename a card grid, horizontal process, or generic network to make it appear new. If the natural shape is new, build and govern the new shape in the component catalog.
 - Do NOT default to the iron triangle or a cash-flow curve out of habit. Choose from the whole arsenal.
 - Aim for at least 4 different visual types across the module.
 - Mark the visual pacing breaks and confirm that no long run of text remains unexplained.

@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Resolve task identity | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Retrieve governed evidence | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Apply policy and permission | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Assemble and validate the package | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Resolve task identity | relationship or process | `context-assembly-flow` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Retrieve governed evidence | relationship or process | `context-packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Apply policy and permission | relationship or process | `permission-gate` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Assemble and validate the package | relationship or process | `missing-context-failure-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `packet-anatomy`, `interactive-process`, `failure-propagation-chain`, `comparison-table` |
+| Visual types, minimum four | `context-assembly-flow`, `context-packet-anatomy`, `permission-gate`, `missing-context-failure-chain` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `ordering`, `multi-select`, `multiple-choice` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Resolve task identity | packet-anatomy | Shared component gallery | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Retrieve governed evidence | interactive-process | Shared component gallery | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Apply policy and permission | failure-propagation-chain | Shared component gallery | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Assemble and validate the package | comparison-table | Shared component gallery | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Resolve task identity | context-assembly-flow | Shared component gallery | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Retrieve governed evidence | context-packet-anatomy | Shared component gallery | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Apply policy and permission | permission-gate | Shared component gallery | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Assemble and validate the package | missing-context-failure-chain | Shared component gallery | Runtime AI context is a bounded package of intent, entities, evidence, definitions, policy, time, permissions, state, conflicts, tools, and output limits. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

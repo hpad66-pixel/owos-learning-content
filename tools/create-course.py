@@ -156,6 +156,8 @@ def scaffold(args: argparse.Namespace) -> Path:
         course_dir / ".course/full-module-contract.json",
         """{
   "minimum_visual_types": 4,
+  "minimum_distinct_visual_shapes": 3,
+  "minimum_question_flip_cards": 4,
   "minimum_purposeful_interactions": 2,
   "minimum_quiz_types": 3,
   "minimum_faq_questions": 5,
@@ -163,6 +165,8 @@ def scaffold(args: argparse.Namespace) -> Path:
   "approved_component_sources": ["component-gallery", "shared-component-library"],
   "approved_quiz_sources": ["quiz-gallery", "applied-assessment-contract"],
   "visual_catalog_terms": {},
+  "allow_lesson_specific_visual_types": true,
+  "lesson_specific_visual_catalog_term": "Lesson-specific explanatory graphic",
   "required_community_features": ["search", "filters", "bookmarks", "threaded-replies", "presence", "instructor-treatment"]
 }""",
     )

@@ -3,7 +3,15 @@
 The Markdown list of every visual in `component-gallery.html`. Open the gallery to see them rendered
 live. Pick the one that fits the idea. Do not reuse the same shape across a chapter.
 
-**Last updated:** 2026-07-23 &middot; **v0.23.0**
+**Last updated:** 2026-07-23 &middot; **v0.24.0**
+
+## Lesson-specific explanatory graphic
+
+A governed visual may be purpose-built for one lesson when the Visual Arsenal shows that an existing
+component is the wrong natural shape. It must declare `data-visual-type`, `data-visual-family`, and
+`data-visual-shape`; provide a reading guide and learner conclusion; transform on mobile; preserve
+meaning with reduced motion; and pass structural-diversity checks. Renaming a shared layout does not
+create a new visual.
 
 ## Parts of a whole, and balance
 | Component | Kind | Use when |

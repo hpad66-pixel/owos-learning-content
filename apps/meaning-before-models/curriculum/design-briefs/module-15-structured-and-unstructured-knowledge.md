@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Preserve the original | relationship or process | `editorial-illustration` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Find relevant passages | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Extract candidate entities and claims | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Link, review, and approve | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Preserve the original | relationship or process | `evidence-spectrum` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Find relevant passages | relationship or process | `hybrid-retrieval-flow` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Extract candidate entities and claims | relationship or process | `document-graph-bridge` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Link, review, and approve | relationship or process | `retrieval-loss-comparison` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `editorial-illustration`, `comparison-table`, `network-diagram`, `packet-anatomy` |
+| Visual types, minimum four | `evidence-spectrum`, `hybrid-retrieval-flow`, `document-graph-bridge`, `retrieval-loss-comparison` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `matching`, `multiple-choice`, `ordering` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Preserve the original | editorial-illustration | Shared component gallery | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Find relevant passages | comparison-table | Shared component gallery | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Extract candidate entities and claims | network-diagram | Shared component gallery | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Link, review, and approve | packet-anatomy | Shared component gallery | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Preserve the original | evidence-spectrum | Shared component gallery | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Find relevant passages | hybrid-retrieval-flow | Shared component gallery | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Extract candidate entities and claims | document-graph-bridge | Shared component gallery | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Link, review, and approve | retrieval-loss-comparison | Shared component gallery | Structured and unstructured evidence become useful through different combinations of metadata, search, embeddings, extraction, explicit relationships, and approval. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

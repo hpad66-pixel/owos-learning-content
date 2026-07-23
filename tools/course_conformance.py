@@ -159,6 +159,18 @@ def validate_module(
         errors.append(
             f"lesson needs {contract['minimum_visual_types']} visual types; found {unique_visuals}"
         )
+    governed_visuals = [item for item in visuals if item.get("id", "").startswith("visual-")]
+    governed_shapes = {
+        item.get("data-visual-shape", "").strip()
+        for item in governed_visuals
+        if item.get("data-visual-shape", "").strip()
+    }
+    minimum_shapes = int(contract.get("minimum_distinct_visual_shapes", 0))
+    if minimum_shapes and len(governed_shapes) < minimum_shapes:
+        errors.append(
+            f"lesson needs {minimum_shapes} structurally distinct visual shapes; "
+            f"found {sorted(governed_shapes)}"
+        )
     approved_sources = set(contract["approved_component_sources"])
     for visual in visuals:
         visual_id = visual.get("id")
@@ -167,6 +179,11 @@ def validate_module(
             continue
         if visual.get("data-component-source") not in approved_sources:
             errors.append(f"{visual_id} does not identify an approved component source")
+        if visual_id.startswith("visual-"):
+            if not visual.get("data-visual-family"):
+                errors.append(f"{visual_id} needs a governed visual family")
+            if not visual.get("data-visual-shape"):
+                errors.append(f"{visual_id} needs a structural visual-shape fingerprint")
         if not visual.select_one("[data-reading-guide]"):
             errors.append(f"{visual_id} needs a visible reading guide")
         if not visual.select_one("[data-learner-conclusion]"):
@@ -186,10 +203,10 @@ def validate_module(
     visual_catalog_terms = contract.get("visual_catalog_terms", {})
     for visual_type in unique_visuals:
         catalog_term = visual_catalog_terms.get(visual_type)
+        if not catalog_term and contract.get("allow_lesson_specific_visual_types"):
+            catalog_term = contract.get("lesson_specific_visual_catalog_term")
         if not catalog_term:
-            errors.append(
-                f"visual type has no shared catalog trace in the course contract: {visual_type}"
-            )
+            errors.append(f"visual type has no shared catalog trace: {visual_type}")
         elif (
             catalog_term.lower() not in catalog_text
             or catalog_term.lower() not in gallery_text
@@ -219,6 +236,12 @@ def validate_module(
     if len(unique_quizzes) < int(contract["minimum_quiz_types"]):
         errors.append(
             f"lesson needs {contract['minimum_quiz_types']} quiz types; found {unique_quizzes}"
+        )
+    flip_cards = soup.select('[data-quiz-type="flip-cards"] .flip-question')
+    minimum_flip_cards = int(contract.get("minimum_question_flip_cards", 0))
+    if len(flip_cards) < minimum_flip_cards:
+        errors.append(
+            f"lesson needs {minimum_flip_cards} question flip cards; found {len(flip_cards)}"
         )
     for left, right in zip(quiz_types, quiz_types[1:]):
         if left and left == right:

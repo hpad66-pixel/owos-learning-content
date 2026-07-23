@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| State the question | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Choose variables | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Assemble triple patterns | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Inspect evidence | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| State the question | relationship or process | `query-path-overlay` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Choose variables | relationship or process | `sparql-clause-stepper` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Assemble triple patterns | relationship or process | `sparql-result-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Inspect evidence | relationship or process | `federation-map` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `network-diagram`, `interactive-process`, `comparison-table`, `packet-anatomy` |
+| Visual types, minimum four | `query-path-overlay`, `sparql-clause-stepper`, `sparql-result-table`, `federation-map` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `fill-in`, `ordering`, `multiple-choice` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| State the question | network-diagram | Shared component gallery | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Choose variables | interactive-process | Shared component gallery | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Assemble triple patterns | comparison-table | Shared component gallery | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Inspect evidence | packet-anatomy | Shared component gallery | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| State the question | query-path-overlay | Shared component gallery | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Choose variables | sparql-clause-stepper | Shared component gallery | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Assemble triple patterns | sparql-result-table | Shared component gallery | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Inspect evidence | federation-map | Shared component gallery | SPARQL turns a utility question into variables and triple patterns, then adds filters, optional data, federation, or paths only when needed. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

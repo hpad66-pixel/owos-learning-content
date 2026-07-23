@@ -62,7 +62,7 @@ Before authoring HTML, complete `core/templates/MODULE-DESIGN-BRIEF.md`. The fin
 
 - the opening situation and first learner decision;
 - the narrative structure and mental model;
-- at least four varied visual types, unless a documented exception is approved;
+- at least four varied visual types, unless a documented exception is approved, with at least three different rendered structures rather than relabeled copies;
 - at least two purposeful interactions that reveal cause, consequence, sequence, or trade-off;
 - at least three quiz types, with no type repeated consecutively;
 - assessments distributed at the point of instruction instead of collected in one end-of-module block;
@@ -74,7 +74,7 @@ Before authoring HTML, complete `core/templates/MODULE-DESIGN-BRIEF.md`. The fin
 
 ### 4. Check diversity across the course
 
-Update `core/templates/COURSE-DESIGN-MATRIX.md` as modules are planned. Adjacent modules must not use the same opening pattern, dominant visual, interaction pair, quiz sequence, and work-product format.
+Update `core/templates/COURSE-DESIGN-MATRIX.md` as modules are planned. Adjacent modules must not use the same opening pattern, dominant visual, ordered visual-shape sequence, interaction pair, quiz sequence, and work-product format. Compare structural fingerprints after rendering. A different component name, color, icon, or heading on the same underlying layout is still repetition.
 
 A different title or color does not make a different learning experience. The learner action and teaching structure must change.
 
@@ -172,6 +172,8 @@ Do not copy one generic FAQ across a course. The FAQ is part of the module's des
 The default minimum for each full module is:
 
 - four different visual types;
+- at least three different rendered visual structures with explicit `data-visual-family` and `data-visual-shape` fingerprints;
+- prediction-and-answer flip cards when the lesson contains terminology, misconceptions, or retrieval practice that benefits from them;
 - two purposeful interactions or simulations;
 - three different quiz types;
 - one consequential opening decision;
@@ -207,7 +209,7 @@ A future lesson should be equally complete while using the components and struct
 
 ## Failure conditions
 
-A module fails design review when it clones Chapter 09 or the prior module, relies on prose where a mechanism should be simulated, uses decorative visuals, repeats one interaction shape, repeats quizzes consecutively, uses meaningless animation, offers an unstructured work product, navigates away for graph access, fails mobile transformation, claims completion from scrolling, or creates variety only through colors and icons.
+A module fails design review when it clones Chapter 09 or the prior module, relies on prose where a mechanism should be simulated, uses decorative visuals, repeats one interaction shape, repeats quizzes consecutively, uses meaningless animation, offers an unstructured work product, navigates away for graph access, fails mobile transformation, claims completion from scrolling, creates variety only through colors and icons, or relabels an unchanged DOM structure as a new graphic.
 
 ## Definition of design readiness
 

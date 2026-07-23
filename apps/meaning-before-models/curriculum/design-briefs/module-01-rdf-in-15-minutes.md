@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Name the subject | relationship or process | `editorial-illustration` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Choose the relationship | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Name the object | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Connect the next triple | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Name the subject | relationship or process | `question-cards` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Choose the relationship | relationship or process | `triple-builder` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Name the object | relationship or process | `triple-network` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Connect the next triple | relationship or process | `standards-layer-stack` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `editorial-illustration`, `network-diagram`, `comparison-table`, `interactive-process` |
+| Visual types, minimum four | `question-cards`, `triple-builder`, `triple-network`, `standards-layer-stack` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `classify`, `matching`, `multiple-choice` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Name the subject | editorial-illustration | Shared component gallery | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Choose the relationship | network-diagram | Shared component gallery | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Name the object | comparison-table | Shared component gallery | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Connect the next triple | interactive-process | Shared component gallery | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Name the subject | question-cards | Shared component gallery | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Choose the relationship | triple-builder | Shared component gallery | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Name the object | triple-network | Shared component gallery | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Connect the next triple | standards-layer-stack | Shared component gallery | Resource Description Framework starts with one directed, named relationship: subject, predicate, object. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |

@@ -23,10 +23,10 @@
 ## Concept-to-experience plan
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Write competency questions | relationship or process | `editorial-illustration` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Bound the model | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Define relationships | relationship or process | `raci-grid` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Test and release | relationship or process | `network-diagram` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Write competency questions | relationship or process | `ontology-lifecycle` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Bound the model | relationship or process | `competency-question-funnel` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Define relationships | relationship or process | `modeling-canvas` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Test and release | relationship or process | `version-timeline` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
 
 ## Module design fingerprint
 | Element | Selection |
@@ -35,10 +35,10 @@
 | Mental model | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. |
 | Purposeful interaction 1 | Four-step mechanism laboratory |
 | Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `editorial-illustration`, `interactive-process`, `raci-grid`, `network-diagram` |
+| Visual types, minimum four | `ontology-lifecycle`, `competency-question-funnel`, `modeling-canvas`, `version-timeline` |
 | Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
 | Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
+| Quiz sequence, minimum three types | `ordering`, `multi-select`, `reflection` plus `flip-cards` retrieval practice and `applied-assessment` |
 | Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
 | Final applied work-product check | Deterministic eight-field artifact review |
 | Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
@@ -72,10 +72,10 @@
 ## Explanatory graphic plan
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Write competency questions | editorial-illustration | Shared component gallery | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Bound the model | interactive-process | Shared component gallery | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Define relationships | raci-grid | Shared component gallery | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Test and release | network-diagram | Shared component gallery | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Write competency questions | ontology-lifecycle | Shared component gallery | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Bound the model | competency-question-funnel | Shared component gallery | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Define relationships | modeling-canvas | Shared component gallery | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Test and release | version-timeline | Shared component gallery | Ontology engineering is a controlled sequence from useful questions to shared concepts, relationships, tests, ownership, and versioned release. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
 
 ## Learner FAQ plan
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |
