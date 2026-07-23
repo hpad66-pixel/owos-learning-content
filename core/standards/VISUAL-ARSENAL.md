@@ -21,6 +21,10 @@ live model the learner drives (`calc`, `triangle`, `recommender`), or a reveal (
 `spectrum`). If the learner still has to take your word for how the mechanism works, the section is not
 done. When the needed interactive does not exist, build it into the shared library so every chapter can reuse it.
 
+**Explain the graphic.** A learner should never be expected to decode a diagram alone. Introduce the graphic in plain English, tell the learner where to look first, explain the relationship or change, and state what the picture helps the learner conclude. A graphic that only decorates a heading does not count.
+
+**Use an instructional test.** Before keeping a graphic, finish this sentence: "After reading this picture, the learner can explain..." If the sentence has no clear answer, remove the graphic or redesign it.
+
 ---
 
 ## How to choose: match the visual to the JOB the idea is doing

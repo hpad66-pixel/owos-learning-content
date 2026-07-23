@@ -54,6 +54,13 @@
 | Major component | What the learner sees | What the learner does | What to notice | Utility meaning | Debrief needed |
 | --- | --- | --- | --- | --- | --- |
 | | | | | | |
+
+## Explanatory graphic plan
+
+| Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
+| | | | | | |
 | | | | | | |
 | | | | | | |
 

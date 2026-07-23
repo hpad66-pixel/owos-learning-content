@@ -38,6 +38,8 @@ Golden lesson built, working review pending
 - Added visible instructor explanation before or after every major Module 4 learning component.
 - Added recording scripts for all eight modules and a complete course overview script.
 - Added the instructor-explanation and recording-script contract to the repository instructions, course skill, course standards, design brief template, instructor guide, and automated checks.
+- Added a six-part handoff packet anatomy and an interactive failure-propagation cause map to Module 4.
+- Added the purposeful explanatory-graphics contract to the shared course instructions, operating standard, design system, Visual Arsenal, module brief template, component catalog, gallery, scripts, and automated checks.
 
 ## New sources
 
@@ -58,4 +60,4 @@ Golden lesson built, working review pending
 
 ## Next action
 
-Review the expanded instructor teaching in `curriculum/module-04-the-handoff.html` and the scripts in `curriculum/scripts/`. Record wording revisions, complete practitioner and mobile review, and then decide whether the built lesson becomes the production benchmark for the remaining modules.
+Review Module 4 version `0.5.0`, including the expanded instructor teaching, six-part handoff packet graphic, interactive failure-propagation chain, and recording scripts. Record wording or visual revisions, complete practitioner and mobile review, and then decide whether the built lesson becomes the production benchmark for the remaining modules.

@@ -40,10 +40,11 @@ require(
         "same-page Knowledge Graph experience",
         "Teach the interface in the interface",
         "Prepare the instructor recording package",
+        "Use graphics to explain, not decorate",
         "Failure conditions",
     ],
 )
-require(MODULE_BRIEF, ["Concept-to-experience plan", "Module design fingerprint", "Instructor explanation plan", "Recording script", "Diversity check"])
+require(MODULE_BRIEF, ["Concept-to-experience plan", "Module design fingerprint", "Instructor explanation plan", "Explanatory graphic plan", "Recording script", "Diversity check"])
 require(COURSE_MATRIX, ["Opening pattern", "Purposeful interactions", "Repetition risk"])
 require(
     SKILL,
@@ -57,6 +58,7 @@ require(
         "COURSE-DESIGN-MATRIX.md",
         "Teach every major visual",
         "one recording script for every module",
+        "Use explanatory graphics",
     ],
 )
 require(REPO_AGENTS, ["Course Design System", "Chapter 09 is a capability benchmark"])

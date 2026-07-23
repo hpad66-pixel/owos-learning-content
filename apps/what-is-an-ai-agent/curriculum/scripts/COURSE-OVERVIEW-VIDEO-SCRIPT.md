@@ -62,6 +62,8 @@ Lesson four is about orchestration and handoffs. Orchestration is the coordinati
 
 You will watch a stormwater evidence packet move through an orchestrator, source librarian, analyst, critic, drafter, and human approver. You will see a shared-state ledger, which is the approved task record that tells each role what happened before. Then you will break a handoff, watch the problem travel downstream, and repair the original cause.
 
+You will first read a six-part handoff packet graphic. It shows the goal, status, evidence, limitations, identity, authority, and escalation information that must travel with the work. A cause map then shows why one missing source locator can block several later roles.
+
 You will also set the least authority each role needs and create an orchestration and handoff contract. This lesson shows why adding more agents is not automatically better. Every additional boundary needs evidence, accountability, and a way to stop.
 
 ## Lesson 5: Agent, Agentic, or Automated?

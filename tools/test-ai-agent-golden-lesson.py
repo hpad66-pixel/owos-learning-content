@@ -38,7 +38,7 @@ if text.count("data-correct") < 8:
     raise AssertionError("golden lesson needs deterministic answer keys")
 if text.count('class="panel"') < 4:
     raise AssertionError("golden lesson needs at least four visual or interactive panels")
-if text.count("data-instructor-explanation") < 8:
+if text.count("data-instructor-explanation") < 10:
     raise AssertionError("golden lesson must teach every major component with visible instructor explanation")
 for phrase in (
     "How to read the simulation",
@@ -47,6 +47,11 @@ for phrase in (
     "How to set authority",
     "Why this work product matters",
     "What these checks measure",
+    "Anatomy of a controlled handoff packet",
+    "How one missing locator travels downstream",
+    'id="causeChain"',
+    'data-packet-mode="complete"',
+    'data-packet-mode="missing"',
 ):
     require(phrase)
 if "undefined" in text.lower():

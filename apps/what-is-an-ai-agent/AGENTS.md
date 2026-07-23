@@ -29,3 +29,5 @@ Before building any lesson, create its module design brief and update the course
 Do not place an unexplained visual, animation, simulation, assessment, or builder in a learner-facing lesson. Add instructor paragraphs that tell the learner what the component shows, how to use it, what to watch, why it matters in utility work, and how to interpret the result.
 
 Maintain `curriculum/scripts/COURSE-OVERVIEW-VIDEO-SCRIPT.md` and one recording script for each of the eight modules. Visual directions must be separate from spoken words.
+
+Use the Visual Arsenal to add explanatory graphics where a concept, method, framework, relationship, or consequence needs a picture. Every graphic needs plain-English reading guidance, a learner conclusion, accessible text, and a mobile layout. Do not use decorative stock graphics or repeated icon grids.

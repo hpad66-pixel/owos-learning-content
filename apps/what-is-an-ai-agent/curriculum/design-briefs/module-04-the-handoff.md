@@ -40,7 +40,7 @@ Should one general agent handle the entire task, should a fixed workflow route i
 | --- | --- |
 | Narrative | Multi-voice orchestration room |
 | Mental model | Work plus context plus evidence plus authority must cross every handoff |
-| Visuals | Swimlane, provenance network, shared-state ledger, status heat grid, permission ladder, evidence funnel |
+| Visuals | Handoff packet anatomy, failure-propagation cause map, swimlane, provenance network, shared-state ledger, status heat grid, permission ladder, evidence funnel |
 | Interaction 1 | Orchestration playback with Back, Step, Play, Pause, and Reset |
 | Interaction 2 | Broken-handoff diagnosis and repair |
 | Interaction 3 | Permission and approval console |
@@ -83,5 +83,7 @@ Hardeep review of the working learner-facing lesson, practitioner review of the 
 | Action authority | Position and consequence | Permission ladder | Set read, recommend, draft, write, and execute limits | Multiple choice |
 | Many records becoming a review packet | Filtering and narrowing | Evidence funnel | Inspect which records survive evidence gates | Reflection |
 | Repairing a broken handoff | Cause and effect | Handoff repair laboratory | Diagnose a failure, select a repair, and rerun the transfer | Deterministic repair check |
+| What must cross a handoff | Parts and relationship | Layered handoff packet anatomy | Trace six required layers from the current role to the receiving role | Explain the packet in plain English |
+| Why one missing source travels | Cause and effect | Interactive failure-propagation chain | Compare a complete packet with a missing locator and follow the downstream effect | Explain the repair point |
 
-The swimlane, provenance network, heat grid, permission ladder, and evidence funnel are deliberately different visual shapes. Motion teaches sequence and the effect of missing context. Reduced-motion mode presents the same states through direct stepping and visible text changes.
+The handoff packet, cause chain, swimlane, provenance network, heat grid, permission ladder, and evidence funnel are deliberately different visual shapes. Motion teaches sequence and the effect of missing context. Reduced-motion mode presents the same states through direct stepping and visible text changes.

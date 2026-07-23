@@ -116,6 +116,21 @@ Add a short debrief after a mechanism when the meaning of the change may not be 
 
 Every module must have a spoken-language recording script before production is complete. Every course must maintain one overview script that explains all lessons in order. Scripts must separate visual directions from spoken words, explain technical terms in ordinary language, include a utility example, name the learner action and work product, and close with a transition to the next lesson.
 
+### 11. Use graphics to explain, not decorate
+
+An explanatory graphic has a specific teaching job. It may reveal the parts of a concept, the steps of a method, the relationships in a framework, the path of evidence, the cause of a failure, a change over time, or a comparison that prose alone makes hard to see.
+
+For every proposed graphic, record:
+
+1. the idea and its visual shape;
+2. the selected Visual Arsenal pattern;
+3. the sentence the learner should be able to say after reading it;
+4. the instructor explanation that tells the learner how to read it;
+5. the accessible text and mobile transformation; and
+6. the reduced-motion equivalent when movement carries meaning.
+
+Reject a graphic when it is decorative, repeats the heading, uses generic stock imagery, creates visual noise, or has no conclusion the learner can explain. A module does not pass by placing icons around existing prose.
+
 ## Required diversity contract
 
 The default minimum for each full module is:

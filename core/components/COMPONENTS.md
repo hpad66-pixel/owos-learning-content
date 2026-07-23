@@ -3,7 +3,7 @@
 The Markdown list of every visual in `component-gallery.html`. Open the gallery to see them rendered
 live. Pick the one that fits the idea. Do not reuse the same shape across a chapter.
 
-**Last updated:** 2026-07-19 &middot; **v0.21.0**
+**Last updated:** 2026-07-22 &middot; **v0.22.0**
 
 ## Parts of a whole, and balance
 | Component | Kind | Use when |
@@ -43,6 +43,8 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Tree / WBS | Diagram | a breakdown or hierarchy |
 | RACI grid | Framework | who is Responsible / Accountable / Consulted / Informed |
 | Fishbone (Ishikawa) | Diagram | finding the root causes of a problem |
+| Handoff packet anatomy | Explanatory diagram | show the goal, evidence, limitations, identity, authority, and escalation information that must cross a controlled handoff |
+| Failure-propagation chain | Interactive cause map | compare a complete handoff with one missing control and follow the effect through later roles |
 
 ## Change over time, and comparison
 | Component | Kind | Use when |

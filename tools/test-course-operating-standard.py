@@ -53,6 +53,7 @@ require(
         "Data Before AI Chapter 09",
         "Instructor explanation and recording package",
         "Every module must include a complete recording script",
+        "Explanatory graphics are required",
     ],
     "course operating standard",
 )

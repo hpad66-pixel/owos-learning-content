@@ -65,6 +65,8 @@ The learner-facing page must stand on its own when no video is available. Every 
 
 Every module must include a complete recording script. Every course must include one overview script that explains all modules in order. Visual directions are separate from spoken words. A curriculum change that affects the lesson sequence requires an overview-script update.
 
+Explanatory graphics are required when the teaching idea has a meaningful visual shape. Each graphic must clarify a concept, method, framework, relationship, sequence, comparison, or cause. The lesson must explain how to read it and what conclusion it supports. Decorative stock art and repeated icon tiles do not count toward visual quality.
+
 Page scroll is not completion. A lesson declares its requirements in the course record and records
 completion only when the required evidence exists.
 

@@ -14,6 +14,10 @@ Our scenario is Harbor County. The utility must prepare a stormwater evidence pa
 
 The first question is how to organize the work. One general agent may hide how it reached its conclusion. A fixed workflow may not know how to respond to a record conflict. Specialized roles can help, but only if the handoffs are controlled.
 
+[Show the six-part handoff packet graphic.]
+
+Before we run the system, look at what must cross the boundary. The packet carries the goal and status, evidence locators, limitations and conflicts, identity, authority, and stop or escalation rules. The receiving role checks those six parts before acting. If a source locator is missing, the later roles cannot independently verify the statement. The repair belongs at the first broken handoff, not in polished wording at the end.
+
 [Play the orchestration simulation.]
 
 The orchestrator routes the task. The source librarian finds approved records. The analyst compares them. The critic challenges unsupported statements. The drafter prepares the packet. The human approver accepts, rejects, or returns the work. The shared-state ledger carries the approved task record across those roles.
