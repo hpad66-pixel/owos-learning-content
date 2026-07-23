@@ -68,6 +68,22 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Use explanatory graphics when a concept, method, framework, relationship, or cause chain has a visual shape. Select the graphic through the Visual Arsenal, explain how to read it, and state what it proves or clarifies. Do not add decorative stock art, repeated icon tiles, or graphics that merely restate a heading.
 - Plan visual pacing before HTML production. Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the module brief records why uninterrupted prose is necessary. Use an original editorial illustration when a utility setting, physical asset, record conflict, or accountable decision can be taught as a scene. Give it accessible text, a reading guide, and a learner conclusion.
 - Complete `core/templates/MODULE-QA-REPORT.md` after every built module. Record a score out of 100, the evidence checked, missing work, automated results, manual reviews, and five hard gates. A numeric score never overrides a blocked accuracy, practitioner, accessibility, technical, or release gate. Store the course report under `apps/<course>/qa/` and show it to Hardeep after each module.
+- Run the full implementation gate against every completed full module:
+
+  ```bash
+  python3 tools/course_conformance.py \
+    --lesson apps/<course>/curriculum/<module>.html \
+    --qa apps/<course>/qa/<module>-quality-control-report.md \
+    --brief apps/<course>/curriculum/design-briefs/<module>.md \
+    --script apps/<course>/curriculum/scripts/<module>-video-script.md \
+    --contract apps/<course>/.course/full-module-contract.json
+  ```
+
+  This gate must inspect the actual lesson, design brief, recording script, and scored QA report.
+  Do not use `test-course-production-contract.py`, folder existence, generated scaffolding, or a
+  minimum-floor test as evidence that a full module conforms. Do not report conformance unless this
+  command passes. Do not convert an unperformed browser, mobile, accessibility, practitioner,
+  learner, source, authentication, or release review into a pass.
 
 ## Apply Hardeep Soul
 
@@ -86,6 +102,7 @@ Before ending every material course turn:
 - update `APPROVALS.md` when Hardeep approves or rejects a blueprint, golden lesson, claim boundary, or release;
 - update the source and claims registers when evidence changed;
 - leave all changed artifacts readable in Git;
+- record the exact full-module conformance command and result in `STATE.md`;
 - commit and push when the user asked to publish or when the established repository workflow explicitly requires it.
 
 The repository is the memory. Do not rely on chat history as the only record.

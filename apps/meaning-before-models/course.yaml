@@ -1,0 +1,114 @@
+schema_version: 1
+course_id: owos-course-semantic-data-ai-001
+slug: meaning-before-models
+title: "Meaning Before Models: RDF and Knowledge Graphs for Utilities"
+course_family: master_class
+source_format: native_html
+status: in_development
+visibility: public
+course_version: 0.7.0
+release_date: 2026-07-23
+content_owner: "Hardeep Anand"
+organization: One Water Operating System
+platform: APAS.ai
+
+quality_contract:
+  version: 1
+  enforce_on_release: true
+  minimum_purposeful_interactions: 2
+
+provenance:
+  repository: hpad66-pixel/owos-learning-content
+  ref: main
+  content_baseline_commit: 387ebd8
+  content_baseline_reason: Full eighteen-module production candidate before live-review packaging
+
+structure:
+  parts: 5
+  chapters: 18
+  sections: 72
+  capstone: required
+  chapter_range: "01-18"
+
+planning_effort:
+  status: estimate_pending_pilot
+  guided_hours: 18
+  capstone_hours: 6
+
+primary_roles:
+  - utility-manager
+  - data-leader
+  - emerging-leader
+  - utility-staff
+  - operations-leader
+  - technology-practitioner
+
+course_connections:
+  related_course_id: owos-master-data-governance-001
+  relationship: semantic_foundation_and_companion
+  learner_path: before_during_or_after
+
+assessment:
+  chapter_checks: required_with_explanatory_feedback
+  final_assessment: utility_semantic_backbone_capstone
+  deterministic_scoring: required_before_release
+
+credential:
+  status: not_configured
+  name: pending
+  type: course_completion
+  certification_claim: false
+
+source_files:
+  syllabus: SYLLABUS.md
+  curriculum_package: curriculum/CURRICULUM-PACKAGE.md
+  glossary: curriculum/GLOSSARY.md
+  instructional_views: curriculum/INSTRUCTIONAL-VIEWS.md
+  assessment_blueprint: curriculum/ASSESSMENT-BLUEPRINT.md
+  work_products: curriculum/WORK-PRODUCTS.md
+  methods_and_frameworks: curriculum/METHODS-AND-FRAMEWORKS.md
+  visual_simulation_blueprint: curriculum/VISUAL-SIMULATION-BLUEPRINT.md
+  faq_blueprint: curriculum/FAQ-BLUEPRINT.md
+  knowledge_spine_context_pack: curriculum/KNOWLEDGE-SPINE-AND-AI-CONTEXT-PACK.md
+  course_design_matrix: curriculum/COURSE-DESIGN-MATRIX.md
+  module_design_briefs: curriculum/design-briefs
+  recording_scripts: curriculum/scripts
+  quality_reports: qa
+  source_register: research/SOURCE-REGISTER.md
+  claims_register: research/CLAIMS-REGISTER.md
+  evidence_boundaries: research/EVIDENCE-BOUNDARIES.md
+  architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
+
+delivery:
+  release_state: live_review
+  available_chapters: 18
+  released_chapters:
+    - "01"
+    - "02"
+    - "03"
+    - "04"
+    - "05"
+    - "06"
+    - "07"
+    - "08"
+    - "09"
+    - "10"
+    - "11"
+    - "12"
+    - "13"
+    - "14"
+    - "15"
+    - "16"
+    - "17"
+    - "18"
+  landing_output: dist/site/course-meaning-before-models.html
+  runtime_manifest: dist/release-manifest.json
+  chapter_output_pattern: dist/site/lesson-meaning-before-models-{chapter}-{lesson}.html
+  runtime_repository: hpad66-pixel/onewater-os-platform
+  runtime_path: site
+  runtime_store_key: mbm001
+  runtime_canonical: /course-meaning-before-models
+  learner_records: supabase
+  semantic_alignment: owos_knowledge_graph
+  edge_delivery: cloudflare_pages_and_worker
+  completion_events_enabled: false

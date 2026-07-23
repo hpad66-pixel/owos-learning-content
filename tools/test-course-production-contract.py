@@ -10,6 +10,7 @@ OPERATING = ROOT / "core/standards/COURSE-OPERATING-STANDARD.md"
 DESIGN = ROOT / "core/standards/COURSE-DESIGN-SYSTEM.md"
 SKILL = ROOT / ".codex/skills/continue-owos-course/SKILL.md"
 CREATOR = ROOT / "tools/create-course.py"
+CONFORMANCE = ROOT / "tools/course_conformance.py"
 BRIEF = ROOT / "core/templates/MODULE-DESIGN-BRIEF.md"
 QA = ROOT / "core/templates/MODULE-QA-REPORT.md"
 
@@ -45,7 +46,9 @@ require(
 require(OPERATING, ["COURSE-PRODUCTION-CONTRACT.md"])
 require(DESIGN, ["COURSE-PRODUCTION-CONTRACT.md"])
 require(SKILL, ["COURSE-PRODUCTION-CONTRACT.md", "floating cards or hanging rails", "module-specific FAQ", "contrast guard"])
-require(CREATOR, ["Course Production Contract", "#owos-course-community", "Graph, Community, and Start", "Floating cards and hanging rails are prohibited", "module-specific FAQ"])
+require(CREATOR, ["Course Production Contract", "#owos-course-community", "Graph, Community, and Start", "Floating cards and hanging rails are prohibited", "module-specific FAQ", "course_conformance.py", "full-module-contract.json"])
+require(CONFORMANCE, ["minimum_visual_types", "minimum_quiz_types", "data-final-applied-check", "required_community_features", "approved_quiz_sources", "visual_catalog_terms", "validate_qa_report"])
+require(ROOT / "tools/course_quality.py", ["data-purposeful-interaction", "purposeful:"])
 require(BRIEF, ["Header Graph, Community, and Start actions", "#owos-course-community", "Learner FAQ plan", "Dark-surface contrast plan"])
 require(QA, ["Header Graph, Community, and Start actions", "Explicit bottom connected-learning anchor", "Module-specific FAQ coverage", "Dark-surface contrast guard"])
 

@@ -16,4 +16,11 @@ Use explanatory graphics where they reveal a concept, method, framework, relatio
 
 After every built module, create a scored quality-control report from `core/templates/MODULE-QA-REPORT.md`. The report must show the score, evidence, missing work, automated checks, manual reviews, and hard-gate status. Do not call a module production ready because its numeric score is high.
 
+For every full module, run `python3 tools/course_conformance.py` with the lesson, QA report,
+design brief, recording script, and course `.course/full-module-contract.json`. This validator is
+the binding implementation gate. A standards document, generated folder, minimum-floor test, or
+high numeric score is never a substitute. Do not report full-module conformance unless this command
+passes against the actual lesson. Report every unperformed browser, device, accessibility,
+practitioner, learner, factual, and release review as unresolved.
+
 Never treat a runtime copy in `onewater-os-platform` as the curriculum source. Never release a course without the mandatory Course Quality Contract and explicit approval.

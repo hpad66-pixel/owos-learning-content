@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "contract": "owos-course-release/1.0",
+  "release_id": "owos-course-semantic-data-ai-001-v0.7.0",
+  "release_date": "2026-07-23",
+  "generated_by": "tools/build-course-release.py",
+  "course": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "slug": "meaning-before-models",
+    "title": "Meaning Before Models: RDF and Knowledge Graphs for Utilities",
+    "version": "0.7.0",
+    "status": "in_development",
+    "chapters": 18,
+    "available_chapters": 18,
+    "released_chapters": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "runtime_store_key": "mbm001",
+    "runtime_canonical": "/course-meaning-before-models",
+    "quality_contract": {
+      "version": 1,
+      "released_lessons_validated": 18,
+      "minimum_purposeful_interactions": 2
+    }
+  },
+  "source": {
+    "repository": "hpad66-pixel/owos-learning-content",
+    "ref": "main",
+    "content_baseline_commit": "387ebd8",
+    "course_path": "apps/meaning-before-models",
+    "course_record": "apps/meaning-before-models/course.yaml",
+    "course_record_sha256": "26720752027d00a3acaf84af90c128505b7d4483804f6a872296c819467dfe4c",
+    "syllabus_path": "apps/meaning-before-models/SYLLABUS.md",
+    "syllabus_sha256": "eca5b81a4791b8112291e4439bcc92344e7153980cd9e4f0b14acc42667e1b90"
+  },
+  "runtime": {
+    "repository": "hpad66-pixel/onewater-os-platform",
+    "path": "site",
+    "learner_records": "supabase",
+    "semantic_alignment": "owos_knowledge_graph",
+    "edge_delivery": "cloudflare_pages_and_worker"
+  },
+  "files": [
+    {
+      "source_path": "apps/meaning-before-models/dist/site/course-meaning-before-models.html",
+      "runtime_path": "site/course-meaning-before-models.html",
+      "sha256": "0d0e673cd31f03f10494503fd0da1ec16f412e12f209bcdd10332f642ed305d2",
+      "bytes": 10612,
+      "role": "course_landing"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-01-rdf-in-15-minutes.html",
+      "runtime_path": "site/lesson-meaning-before-models-01-rdf-in-15-minutes.html",
+      "sha256": "571f230ec79be7697aa7cd1fab831db57835a32f6195d0dea9205ff1664a1b96",
+      "bytes": 27196,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-02-anatomy-of-a-triple.html",
+      "runtime_path": "site/lesson-meaning-before-models-02-anatomy-of-a-triple.html",
+      "sha256": "0dab5bea13174b9427542770f016d48fdf1263ad513a8d2b0ce86d58cc1ddb64",
+      "bytes": 26883,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-03-which-pump-do-you-mean.html",
+      "runtime_path": "site/lesson-meaning-before-models-03-which-pump-do-you-mean.html",
+      "sha256": "7c391454481120f1c26825e37e612da18afddcf8484469a2cdbbd05166bd653f",
+      "bytes": 27303,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-04-from-triples-to-a-utility-knowledge-graph.html",
+      "runtime_path": "site/lesson-meaning-before-models-04-from-triples-to-a-utility-knowledge-graph.html",
+      "sha256": "9eeb0c12ae13e391540707d95ba348a74bd3e1d750cf393c62c15fe985b29c0c",
+      "bytes": 26893,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-05-five-layers-of-meaning.html",
+      "runtime_path": "site/lesson-meaning-before-models-05-five-layers-of-meaning.html",
+      "sha256": "61a3c06d0ea5081ea906cc3b72662650d718165cd852929a4bbb7e7440c040d4",
+      "bytes": 51842,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-06-taxonomies-vocabularies-and-rdfs.html",
+      "runtime_path": "site/lesson-meaning-before-models-06-taxonomies-vocabularies-and-rdfs.html",
+      "sha256": "f459ccd996919e0009db8c007c7db2abd8b6904cdc649ff1b560acee3a189f51",
+      "bytes": 26865,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-07-ontology-engineering-in-plain-language.html",
+      "runtime_path": "site/lesson-meaning-before-models-07-ontology-engineering-in-plain-language.html",
+      "sha256": "899b52bebfb6766df2930ff7adfa7fbd89d64e4afbb4b4ee94efc387beeff5da",
+      "bytes": 27713,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-08-ask-the-graph-with-sparql.html",
+      "runtime_path": "site/lesson-meaning-before-models-08-ask-the-graph-with-sparql.html",
+      "sha256": "3e7ccfa821cf9de068078d7624e749cf69c0ba21af37691cc2f66b169042a93d",
+      "bytes": 27101,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-09-reasoning-and-inference-with-owl.html",
+      "runtime_path": "site/lesson-meaning-before-models-09-reasoning-and-inference-with-owl.html",
+      "sha256": "35cd51d3f6999c9b65083d006ce45de70ae54ccb7a1ee1bd459d78c03a277c03",
+      "bytes": 26782,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-10-validation-with-shacl.html",
+      "runtime_path": "site/lesson-meaning-before-models-10-validation-with-shacl.html",
+      "sha256": "cdf21a258825d3355c4f211ce560a690a202fe5e79b032e2a4cf0888f209ee48",
+      "bytes": 26599,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-11-references-provenance-authority-and-time.html",
+      "runtime_path": "site/lesson-meaning-before-models-11-references-provenance-authority-and-time.html",
+      "sha256": "ac890fe4ec09204084cd3bc0bbf035754ea041723e92f441b91e74cf9f8a7859",
+      "bytes": 27810,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-12-running-knowledge-spine.html",
+      "runtime_path": "site/lesson-meaning-before-models-12-running-knowledge-spine.html",
+      "sha256": "d5fa188349a1dacf35162278044ca4f6faacd01d56c52aecfcd62c728c05912c",
+      "bytes": 27848,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-13-map-meaning-to-data.html",
+      "runtime_path": "site/lesson-meaning-before-models-13-map-meaning-to-data.html",
+      "sha256": "c3963ed8d078c25c5809d4152bc47c284d0818231abce86d1b5a8aff6c8b83f5",
+      "bytes": 27270,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-14-virtualize-cache-index-or-materialize.html",
+      "runtime_path": "site/lesson-meaning-before-models-14-virtualize-cache-index-or-materialize.html",
+      "sha256": "d9a9233b092d2f03f05006db2b2362bda55c339e9a136ac58065f23b756c7548",
+      "bytes": 26930,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-15-structured-and-unstructured-knowledge.html",
+      "runtime_path": "site/lesson-meaning-before-models-15-structured-and-unstructured-knowledge.html",
+      "sha256": "962b7a726e5dfb7ea33ff15331d45891fdfb9015f7ee413bf4b3efb62211c2e0",
+      "bytes": 28516,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-16-context-engines-and-runtime-ai-context.html",
+      "runtime_path": "site/lesson-meaning-before-models-16-context-engines-and-runtime-ai-context.html",
+      "sha256": "9c822d3cfc4f5e4790eee9a1fa353fcf03a3bdd937c4223d7e266d1144e3ffaf",
+      "bytes": 27413,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-17-bi-rag-graph-and-agentic-applications.html",
+      "runtime_path": "site/lesson-meaning-before-models-17-bi-rag-graph-and-agentic-applications.html",
+      "sha256": "3ffd2d9271ed0c108916c1bbea42f98a1bff585275c1273e9a2ad2ea9590fba5",
+      "bytes": 26922,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/lesson-meaning-before-models-18-design-the-one-water-knowledge-spine.html",
+      "runtime_path": "site/lesson-meaning-before-models-18-design-the-one-water-knowledge-spine.html",
+      "sha256": "550c6e9b61909afa92cdacb038c191720c431a73fd1ca1b90d97b6e6131d8499",
+      "bytes": 28165,
+      "role": "lesson"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/meaning-before-models-course-module.js",
+      "runtime_path": "site/meaning-before-models-course-module.js",
+      "sha256": "a6c59aba880aa93b6401bbd00bcfefac66f268d5df30946e0084cd1730b61c38",
+      "bytes": 11543,
+      "role": "runtime_asset"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/meaning-before-models-masterclass.css",
+      "runtime_path": "site/meaning-before-models-masterclass.css",
+      "sha256": "3d320c062dd882055587b5b4cbeb1aa82f3101b07edce40e3ce31d706d3945fd",
+      "bytes": 14275,
+      "role": "runtime_asset"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/meaning-before-models-masterclass.js",
+      "runtime_path": "site/meaning-before-models-masterclass.js",
+      "sha256": "ec6835a23b663b8ea4247d446f8652e4971f1f54a9cc3d3fd4a8f646de044555",
+      "bytes": 13621,
+      "role": "runtime_asset"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/meaning-before-models-module-05.css",
+      "runtime_path": "site/meaning-before-models-module-05.css",
+      "sha256": "d3e74ac39765d0fe5941d49dc1a94bd7314a148ad31d0a0c750d688e73aa814f",
+      "bytes": 22596,
+      "role": "runtime_asset"
+    },
+    {
+      "source_path": "apps/meaning-before-models/dist/site/meaning-before-models-module-05.js",
+      "runtime_path": "site/meaning-before-models-module-05.js",
+      "sha256": "3847f751c5aef7112d408f66c487083caedacf2af06ce4812c06b1b3a32b39b9",
+      "bytes": 34853,
+      "role": "runtime_asset"
+    }
+  ]
+}

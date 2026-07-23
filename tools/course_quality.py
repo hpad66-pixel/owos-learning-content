@@ -115,6 +115,12 @@ def validate_lesson(path: Path, contract: dict) -> dict:
     for kind, pattern in native_rules.items():
         if re.search(pattern, text, re.I):
             native_components.append(kind)
+    for interaction in re.findall(
+        r'\bdata-purposeful-interaction="([^"]+)"',
+        text,
+        re.I,
+    ):
+        native_components.append(f"purposeful:{interaction.strip().lower()}")
     if native_components:
         modern_contract = any(
             marker in text

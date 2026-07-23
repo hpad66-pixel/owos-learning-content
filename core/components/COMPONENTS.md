@@ -3,7 +3,7 @@
 The Markdown list of every visual in `component-gallery.html`. Open the gallery to see them rendered
 live. Pick the one that fits the idea. Do not reuse the same shape across a chapter.
 
-**Last updated:** 2026-07-22 &middot; **v0.22.0**
+**Last updated:** 2026-07-23 &middot; **v0.23.0**
 
 ## Parts of a whole, and balance
 | Component | Kind | Use when |
@@ -22,6 +22,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Cycle / loop | Process | steps that repeat forever (plan-do-check-act) |
 | Swimlane | Process | who does what, across the steps |
 | Timeline / roadmap | Process | milestones along a time axis |
+| Governed process stepper | Interactive process | reveal what each controlled stage adds, with step, play, pause, back, and reset |
 | Handoff simulator | Interactive process | step through fragmented and governed versions of a cross-system handoff |
 | Applicability gate | Interactive decision tree | run controlled source, scope, trigger, incorporation, reviewer, and evidence gates before recording an applicability conclusion |
 
@@ -45,6 +46,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Fishbone (Ishikawa) | Diagram | finding the root causes of a problem |
 | Handoff packet anatomy | Explanatory diagram | show the goal, evidence, limitations, identity, authority, and escalation information that must cross a controlled handoff |
 | Failure-propagation chain | Interactive cause map | compare a complete handoff with one missing control and follow the effect through later roles |
+| Editorial utility evidence scene | Editorial illustration | teach a utility setting, record conflict, evidence path, or accountable decision as one readable scene |
 
 ## Change over time, and comparison
 | Component | Kind | Use when |
@@ -53,6 +55,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Bar chart | Chart | compare amounts side by side |
 | Before / after slider | Interactive chart | drag a divider to compare fragmented and governed states |
 | Tornado | Chart | which input swings the result most (sensitivity) |
+| Governed comparison table | Comparison | separate closely related concepts by question, artifact, example, and failure mode |
 
 ## Hidden depth, flow, and status
 | Component | Kind | Use when |
@@ -68,6 +71,7 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 | Fragmentation tax model | Interactive chart | estimate direct search, join, rework, and labor effort from visible assumptions |
 | Artifact builder | Interactive method | draft, preview, save, and copy a governed working artifact without posting it to a server |
 | Quality-by-use model | Interactive framework | change the intended use and evidence levels to see which critical requirements pass or fail |
+| Controlled classification sorter | Interactive method | classify a substantial set of realistic artifacts by primary job with immediate explanation and retry |
 
 > Rule: at least 4 different visual types per module, and run the Selection Prompt in
 > `VISUAL-ARSENAL.md` first. The arsenal also lists a few more (pie, org chart, driver tree,
