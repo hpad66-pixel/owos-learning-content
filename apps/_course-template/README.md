@@ -6,9 +6,20 @@ quizzes with nothing to copy.
 
 ## Start a new course in 4 steps
 
-1. **Copy this folder** to `apps/<your-course-slug>/` (for example `apps/living-graph/`).
+1. **Run the course creator.** Do not manually copy or rename the template:
+
+   ```bash
+   python3 tools/create-course.py \
+     --slug living-graph \
+     --title "Living Graph for Utilities" \
+     --course-id owos-course-living-graph-001 \
+     --runtime-key lg001
+   ```
+
+   If a stable-slug folder already contains research, add `--adopt`. The tool preserves existing
+   files, moves loose research sources into `research/originals/`, and creates only missing records.
 2. **Fill in `course.yaml` and `SYLLABUS.md`** with stable IDs, provenance, release state, parts,
-   chapters, and sections.
+   chapters, and sections after the research, claims, and evidence boundaries are reviewed.
 3. **Build each chapter** by copying `curriculum/module-01-example.html`, renaming it, and filling in
    the placeholders. It already links `../../../core/components/academy.css` and `academy.js`, so every
    `data-ac` component renders. Preview by opening the file over a local server rooted at the repo.

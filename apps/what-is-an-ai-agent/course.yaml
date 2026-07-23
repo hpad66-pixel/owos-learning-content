@@ -1,0 +1,70 @@
+schema_version: 1
+course_id: owos-course-ai-agents-001
+slug: what-is-an-ai-agent
+title: "What Is an AI Agent? A Utility Leader's Guide to Agentic Systems"
+course_family: focused_course
+source_format: native_html
+status: research
+visibility: private_preview
+course_version: 0.1.0
+release_date: null
+content_owner: "Hardeep Anand"
+organization: One Water Operating System
+platform: APAS.ai
+
+quality_contract:
+  version: 1
+  enforce_on_release: true
+  minimum_purposeful_interactions: 2
+
+provenance:
+  repository: hpad66-pixel/owos-learning-content
+  ref: main
+  content_baseline_commit: pending
+  content_baseline_reason: Initial governed research workspace
+
+structure:
+  parts: 0
+  chapters: 0
+  sections: 0
+  capstone: not_decided
+  chapter_range: pending
+
+primary_roles:
+  - utility-manager
+  - data-leader
+  - emerging-leader
+
+assessment:
+  chapter_checks: pending
+  final_assessment: not_configured
+  deterministic_scoring: required_before_release
+
+credential:
+  status: not_configured
+  name: pending
+  type: course_completion
+  certification_claim: false
+
+source_files:
+  syllabus: SYLLABUS.md
+  source_register: research/SOURCE-REGISTER.md
+  claims_register: research/CLAIMS-REGISTER.md
+  evidence_boundaries: research/EVIDENCE-BOUNDARIES.md
+  architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
+
+delivery:
+  release_state: research
+  available_chapters: 0
+  released_chapters: []
+  landing_output: dist/site/course-what-is-an-ai-agent.html
+  runtime_manifest: dist/release-manifest.json
+  chapter_output_pattern: dist/site/lesson-what-is-an-ai-agent-{chapter}-{lesson}.html
+  runtime_repository: hpad66-pixel/onewater-os-platform
+  runtime_path: site
+  runtime_store_key: aia001
+  runtime_canonical: /course-what-is-an-ai-agent
+  learner_records: supabase
+  semantic_alignment: owos_knowledge_graph
+  edge_delivery: cloudflare_pages_and_worker
+  completion_events_enabled: false
