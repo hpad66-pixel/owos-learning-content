@@ -66,6 +66,29 @@ for number in range(1, 19):
         raise AssertionError(f"module {number:02} needs four working question flip cards")
     all_lesson_visual_types.update(visual_types)
     experience_fingerprints.append((number, visual_types, visual_shapes, quiz_sequence))
+    runtime_name = record["lesson"].name.replace("module-", "lesson-meaning-before-models-")
+    runtime_lesson = COURSE / "dist/site" / runtime_name
+    if not runtime_lesson.exists():
+        raise AssertionError(f"module {number:02} is missing its packaged runtime lesson")
+    runtime_soup = BeautifulSoup(runtime_lesson.read_text(encoding="utf-8"), "html.parser")
+    runtime_visual_types = tuple(
+        node["data-visual-type"]
+        for node in runtime_soup.select('[id^="visual-"][data-visual-type]')
+    )
+    runtime_visual_shapes = tuple(
+        node["data-visual-shape"]
+        for node in runtime_soup.select('[id^="visual-"][data-visual-shape]')
+    )
+    runtime_quiz_sequence = tuple(
+        node["data-quiz-type"]
+        for node in runtime_soup.select("[data-quiz-type][data-required]")
+    )
+    if (runtime_visual_types, runtime_visual_shapes, runtime_quiz_sequence) != (
+        visual_types, visual_shapes, quiz_sequence
+    ):
+        raise AssertionError(
+            f"module {number:02} packaged runtime is stale relative to curriculum source"
+        )
     ids = [node["id"] for node in soup.select("[id]")]
     if len(ids) != len(set(ids)):
         raise AssertionError(f"module {number:02} has duplicate HTML ids")
@@ -109,5 +132,16 @@ landing_text = landing.read_text(encoding="utf-8")
 for number, record in records.items():
     if record["lesson"].name not in landing_text:
         raise AssertionError(f"course landing page does not link module {number:02}")
+
+if (
+    COURSE.joinpath("curriculum/course-module.js").read_bytes()
+    != COURSE.joinpath("dist/site/meaning-before-models-course-module.js").read_bytes()
+):
+    raise AssertionError("packaged course interaction runtime is stale")
+if (
+    COURSE.joinpath("curriculum/module-05-golden.css").read_bytes()
+    != COURSE.joinpath("dist/site/meaning-before-models-module-05.css").read_bytes()
+):
+    raise AssertionError("packaged course visual system is stale")
 
 print("Meaning Before Models QA passed: all eighteen full-module candidates conform.")

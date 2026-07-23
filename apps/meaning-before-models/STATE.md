@@ -136,3 +136,9 @@ Version 0.8.0 replaces that system across all eighteen lessons:
 Repository QA passes. Version 0.8.0 is authorized for corrected live-review publication by the
 standing course publication instruction. Credentials, certification, graph publication, and
 operational authority remain disabled.
+
+The 0.8.0 publication workflow also added a packaged-runtime parity gate after exact-commit intake
+detected stale `dist/site` files. Future releases must run
+`python3 tools/build-meaning-before-models-release.py` before the generic manifest builder, and the
+course regression test now compares source and packaged visual shapes, quiz sequences, JavaScript,
+and CSS.

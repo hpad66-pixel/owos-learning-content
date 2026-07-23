@@ -130,6 +130,11 @@ After every material module revision:
 
 A high score cannot override a blocked gate. A release identifies the exact source commit, manifest, checksums, runtime intake, deployment, and approval.
 
+Before creating or checking the checksum manifest, run the course-specific runtime packaging command.
+The release gate must compare lesson visual-shape sequences, quiz sequences, interaction runtime, and
+visual-system assets between curriculum source and packaged `dist/site`. A new manifest that merely
+checksums stale runtime files fails release.
+
 ## 10. Definition of done
 
 A course is complete only when:

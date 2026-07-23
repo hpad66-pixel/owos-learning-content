@@ -43,7 +43,10 @@ Follow the current phase in `STATE.md`:
 3. Golden lesson: build one complete lesson for Hardeep's approval.
 4. Production: build remaining lessons from the approved benchmark without repetitive template writing.
 5. Validation: run the Course Quality Contract and relevant visual, mobile, accessibility, content, and release checks.
-6. Release: commit source and reproducible output, push a reviewed GitHub change, and intake the exact release into OWOS only after approval.
+6. Release: run the course-specific runtime builder before the generic checksum-manifest builder,
+   verify packaged lessons and assets match curriculum fingerprints, commit source and reproducible
+   output, push a reviewed GitHub change, and intake the exact release into OWOS only after approval.
+   A fresh manifest over stale `dist/site` files is a release blocker.
 
 Never skip from research to bulk lesson generation. Never publish because a file was added.
 
