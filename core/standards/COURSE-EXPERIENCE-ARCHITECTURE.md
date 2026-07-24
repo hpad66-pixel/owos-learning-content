@@ -233,9 +233,12 @@ The release record must include:
 
 - the approved Course Experience Brief;
 - the completed Course Design Matrix;
+- every approved module storyboard and visual manifest;
 - the distinctiveness report;
 - the whole-course full-module conformance result with per-lesson evidence paths;
 - rendered desktop and mobile review evidence;
+- rendered tablet review evidence;
+- the completed course coherence report;
 - at least one novice read-without-video review;
 - a utility-practitioner review;
 - course-specific visual and interaction review; and

@@ -1,0 +1,57 @@
+schema_version: 1
+module_id: mbm001:01
+visuals:
+  - visual_id: mbm01-utility-scene
+    title: The relationship hiding inside the alarm
+    asset_class: editorial-utility-scene
+    locator: visuals/utility-relationship-scene.svg
+    component_id: null
+    teaching_idea: An event record and a system relationship perform different jobs.
+    learner_conclusion: More readings do not create meaning by themselves. A named relationship connects the event to an operational consequence.
+    reading_guide: Begin at the control-room alarm, follow the orange relationship through the pump and pressure zone, then inspect the separate systems that contribute evidence.
+    alternative_text: A control-room alarm for Pump P-104 connects through a named serves relationship to Pressure Zone 3, with GIS, work-order, and customer records surrounding the physical water system.
+    mobile_treatment: Scale the full scene and provide the reading guide before the image.
+    reduced_motion_treatment: Static scene contains the complete relationship path.
+    creator: One Water OS course production
+    source: Instructional utility scenario and Hardeep Anand course direction
+    license: Original OWOS course asset
+    permission_status: approved_for_course_reference
+    originality_status: original
+    storyboard_status: approved_for_reference_build
+    rendered_review_status: automated_pass_human_pending
+  - visual_id: mbm01-triple-anatomy
+    title: The anatomy of one RDF triple
+    asset_class: explanatory-diagram
+    locator: visuals/triple-anatomy.svg
+    component_id: null
+    teaching_idea: Subject, predicate, and object have distinct jobs, and direction changes meaning.
+    learner_conclusion: Read a triple from left to right. Reversing the ends without changing the predicate creates a different and usually incorrect claim.
+    reading_guide: Start with the blue subject card, cross the orange directed predicate, and finish at the green object card. Then compare the reversed statement below.
+    alternative_text: A three-part RDF statement shows Pump P-104 as subject, serves as predicate, and Pressure Zone 3 as object, followed by an incorrect reversed statement.
+    mobile_treatment: Stack subject, predicate, and object vertically while preserving arrows and labels.
+    reduced_motion_treatment: Static diagram shows both correct and reversed meanings.
+    creator: One Water OS course production
+    source: W3C RDF concepts and instructional utility example
+    license: Original OWOS course asset
+    permission_status: approved_for_course_reference
+    originality_status: original
+    storyboard_status: approved_for_reference_build
+    rendered_review_status: automated_pass_human_pending
+  - visual_id: mbm01-graph-growth
+    title: Three triples become one answer path
+    asset_class: graph-growth-diagram
+    locator: visuals/graph-growth.svg
+    component_id: null
+    teaching_idea: Shared nodes connect separate statements into a traversable evidence path.
+    learner_conclusion: The answer crosses operational, spatial, and customer records. Every edge must remain named, directed, and supportable.
+    reading_guide: Read the three source statements at the top, then follow their shared nodes into the single path below from Pump P-104 to Service Account 901.
+    alternative_text: Three RDF triples share Pressure Zone 3 and Premise 88, forming a path from Pump P-104 to Service Account 901.
+    mobile_treatment: Preserve the source statements above a horizontally scrollable path with a text alternative.
+    reduced_motion_treatment: Static diagram shows the complete graph and all predicates.
+    creator: One Water OS course production
+    source: Instructional utility scenario
+    license: Original OWOS course asset
+    permission_status: approved_for_course_reference
+    originality_status: original
+    storyboard_status: approved_for_reference_build
+    rendered_review_status: automated_pass_human_pending

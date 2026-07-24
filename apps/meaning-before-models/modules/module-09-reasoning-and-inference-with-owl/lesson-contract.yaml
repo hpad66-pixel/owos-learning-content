@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:09
+  number: 9
+  title: Reasoning and Inference with OWL
+  part: Trust the graph
+  curriculum_role: declared_logic_and_proof
+learning_job:
+  learner_question: Where did this new statement come from, and is the inference justified?
+  outcome: Distinguish explicit assertions from entailed statements and inspect the declared proof path.
+  prior_knowledge: Vocabulary, ontology, and graph query patterns.
+  misconception: Inference is prediction or language-model generation.
+  transfer_task: Accept or reject an upstream wastewater inference under declared relationship rules.
+depth:
+  common_route: Assertion, axiom, entailment, proof trace, open-world principle, and unsupported leap.
+  practitioner: Inverse, transitive, equivalent, and class-membership examples with profile limitations.
+  leader: Approve where inference is useful, explainable, and too risky.
+experience:
+  archetype: model_courtroom
+  opening: A graph displays a statement no person entered directly.
+  mental_model: Evidence plus declared rule produces a reviewable conclusion.
+  signature_mechanism: Admit or reject each inferred statement after inspecting its assertions and axiom.
+  visual_jobs:
+    - Separate asserted from inferred statements visibly.
+    - Show a complete proof trace from evidence through axiom to conclusion.
+    - Contrast unknown with false under open-world semantics.
+  assessment_jobs:
+    - Classify asserted and inferred statements.
+    - Follow a rule path and identify an unsupported leap.
+    - Defend an inference boundary for utility use.
+  work_product: Inference Boundary Card
+  capstone_contribution: Optional inference, proof requirement, limitations, and approval boundary.
+evidence:
+  source_refs: [SRC-003, SRC-001]
+  claim_refs: [CLM-003, CLM-017, CLM-020]
+  boundary: OWL entailment follows declared semantics. It does not replace operating judgment or establish truth outside the model.
+sequence:
+  requires: [mbm001:06, mbm001:07, mbm001:08]
+  prepares: [mbm001:11, mbm001:12, mbm001:18]

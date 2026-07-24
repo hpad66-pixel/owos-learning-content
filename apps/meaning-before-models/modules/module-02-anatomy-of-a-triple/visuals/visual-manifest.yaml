@@ -1,0 +1,93 @@
+schema_version: 1
+module_id: mbm001:02
+visuals:
+  - visual_id: mbm02-forensic-strip
+    title: What the three-cell result forgot
+    asset_class: laboratory-forensic-strip
+    locator: visuals/forensic-strip.svg
+    component_id: null
+    teaching_idea: A syntactically complete-looking statement can omit identity, measure, type, time, and source.
+    learner_conclusion: Three filled positions do not guarantee a defensible claim.
+    reading_guide: Read the original row on the left, then follow each evidence question to the repaired observation pattern.
+    alternative_text: A row saying Outfall 12 has result 7.2 is annotated with missing identity, measured property, datatype, time, and source, then expanded into reviewed statements.
+    mobile_treatment: Stack original row, missing evidence, and repair in numbered order.
+    reduced_motion_treatment: Static annotations contain every state.
+    creator: One Water OS course production
+    source: Instructional wastewater scenario and W3C RDF concepts
+    license: Original OWOS course asset
+    permission_status: approved_for_live_review
+    originality_status: original
+    storyboard_status: approved_for_production
+    rendered_review_status: automated_pass_human_review_pending
+  - visual_id: mbm02-identifier-label
+    title: One identifier, several human names
+    asset_class: identifier-label-specimen
+    locator: visuals/identifier-label.svg
+    component_id: null
+    teaching_idea: Stable identity and human-readable labels perform different jobs.
+    learner_conclusion: A label may change without creating a new resource.
+    reading_guide: Begin with the stable identifier, compare three labels, and inspect the rename-safe relationships.
+    alternative_text: One Outfall 12 identifier connects to three different labels while its watershed relationship remains unchanged.
+    mobile_treatment: Present the identifier first, followed by labels and the unchanged relationship.
+    reduced_motion_treatment: Static specimen preserves the complete comparison.
+    creator: One Water OS course production
+    source: W3C RDF IRI and literal concepts
+    license: Original OWOS course asset
+    permission_status: approved_for_live_review
+    originality_status: original
+    storyboard_status: approved_for_production
+    rendered_review_status: automated_pass_human_review_pending
+  - visual_id: mbm02-object-fork
+    title: The RDF object fork
+    asset_class: branching-decision-map
+    locator: visuals/object-fork.svg
+    component_id: null
+    teaching_idea: An object may identify another resource or carry a literal value.
+    learner_conclusion: Resource objects continue graph relationships; literals carry values.
+    reading_guide: Start at the object position, follow the resource branch and literal branch, then compare what each enables.
+    alternative_text: The RDF object position splits into another-resource examples and typed-literal examples with their different downstream uses.
+    mobile_treatment: Stack the two branches while preserving the shared starting question.
+    reduced_motion_treatment: Static branch map contains both routes.
+    creator: One Water OS course production
+    source: W3C RDF triple and RDF term definitions
+    license: Original OWOS course asset
+    permission_status: approved_for_live_review
+    originality_status: original
+    storyboard_status: approved_for_production
+    rendered_review_status: automated_pass_human_review_pending
+  - visual_id: mbm02-typed-literal
+    title: The evidence anatomy of 7.2
+    asset_class: measurement-instrument-panel
+    locator: visuals/typed-literal.svg
+    component_id: null
+    teaching_idea: A numeric lexical form needs datatype and surrounding measurement meaning.
+    learner_conclusion: Type, measured property, time, source, and applicable unit turn characters into reviewable evidence.
+    reading_guide: Inspect the center value, then read the five surrounding evidence instruments clockwise.
+    alternative_text: A central decimal value 7.2 is surrounded by datatype, measured property, time, source, and unit evidence.
+    mobile_treatment: Convert instruments into a numbered vertical checklist around the value.
+    reduced_motion_treatment: Static panel displays all evidence.
+    creator: One Water OS course production
+    source: W3C RDF literal and datatype concepts plus instructional measurement pattern
+    license: Original OWOS course asset
+    permission_status: approved_for_live_review
+    originality_status: original
+    storyboard_status: approved_for_production
+    rendered_review_status: automated_pass_human_review_pending
+  - visual_id: mbm02-serialization-strip
+    title: One graph, three views
+    asset_class: serialization-translation-strip
+    locator: visuals/serialization-strip.svg
+    component_id: null
+    teaching_idea: Plain language, graph diagrams, and Turtle can express the same statement.
+    learner_conclusion: Serialization changes notation, not the underlying subject, predicate, and object.
+    reading_guide: Read the claim, follow the directed graph, then align each term with the Turtle line.
+    alternative_text: The statement Outfall 12 located in Watershed 4 appears as plain language, a directed graph, and an equivalent Turtle triple.
+    mobile_treatment: Stack the three views in translation order.
+    reduced_motion_treatment: Static strip preserves every correspondence.
+    creator: One Water OS course production
+    source: W3C RDF concepts and Turtle specification
+    license: Original OWOS course asset
+    permission_status: approved_for_live_review
+    originality_status: original
+    storyboard_status: approved_for_production
+    rendered_review_status: automated_pass_human_review_pending

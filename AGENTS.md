@@ -16,6 +16,18 @@ The Course Design System and Course Experience Architecture are both mandatory.
 
 Every module needs a reviewed design brief and the course needs a design matrix. Chapter 09 is a capability benchmark, not a reusable page layout. Visuals, simulations, quizzes, work products, and animation must follow the learning problem and remain deliberately varied across adjacent modules.
 
+New courses and materially rebuilt modules use structured module packages under
+`apps/<course>/modules/`. HTML is compiled delivery output. Before implementation, approve the module
+storyboard. Every counted visual must resolve through the visual manifest to an actual asset or
+registered executable component. Use `tools/course_compiler.py` for validation and preview builds,
+and use the module-level Author Studio when Hardeep needs narrative, storyboard, visual,
+interaction, assessment, evidence, and QA control without editing HTML.
+
+The stable compiler contract is `owos-course-compiler/1`. Do not replace it with a page generator or
+silently change how approved structured sources are interpreted. Every course must declare its
+structured-authoring migration truth in `.course/authoring.json`; run
+`python3 tools/audit-structured-authoring.py` before claiming that existing courses are migrated.
+
 Every course also needs an approved Course Experience Brief. Run
 `python3 tools/course_distinctiveness.py --course apps/<course>` after every three produced lessons
 and before release. Individual module passes cannot override a course-level repetition failure. Never

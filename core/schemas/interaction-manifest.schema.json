@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onewateros.org/schemas/interaction-manifest.schema.json",
+  "title": "OWOS Interaction Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "module_id",
+    "interactions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "interactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "interaction_id",
+          "component",
+          "title",
+          "teaching_purpose",
+          "instructions",
+          "completion_id",
+          "config"
+        ]
+      }
+    }
+  }
+}

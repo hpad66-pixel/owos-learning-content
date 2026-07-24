@@ -1,0 +1,68 @@
+schema_version: 1
+module_id: mbm001:02
+interactions:
+  - interaction_id: mbm02-object-router
+    component: object-router
+    title: Route the object
+    teaching_purpose: Distinguish reusable resource objects from literal values.
+    instructions: For each statement, decide whether the object should identify another resource or carry a literal value.
+    completion_id: object-router
+    config:
+      items:
+        - statement: Outfall 12 locatedIn Watershed 4
+          question: What kind of object is Watershed 4?
+          answer: Resource
+          explanation: Watershed 4 is an identified utility domain thing that can have more relationships.
+        - statement: Observation 771 numericValue 7.2
+          question: What kind of object is 7.2?
+          answer: Literal
+          explanation: The decimal is a value rather than the next identified node.
+        - statement: Work Order 55 assignedTo Crew Alpha
+          question: What kind of object is Crew Alpha?
+          answer: Resource
+          explanation: The crew is an identified organizational resource.
+        - statement: Inspection 88 observedAt 2026-07-24T09:30
+          question: What kind of object is the timestamp?
+          answer: Literal
+          explanation: The timestamp is a typed date-time value.
+  - interaction_id: mbm02-triple-repair-bench
+    component: triple-repair-bench
+    title: The Triple Evidence Bench
+    teaching_purpose: Diagnose and repair four distinct statement defects without overclaiming.
+    instructions: Identify what failed, choose the smallest repair, review the explanation, and retry until all four statements pass.
+    completion_id: repair-bench
+    config:
+      defect_types: [Direction, Identity, Overloaded text, Datatype]
+      repairs:
+        - broken: Watershed_4 locatedIn Outfall_12
+          defect: Direction
+          repair: Outfall_12 locatedIn Watershed_4
+          repair_options:
+            - Outfall_12 locatedIn Watershed_4
+            - Watershed_4 containsLabel Outfall_12
+            - Keep the original
+          explanation: The repaired direction places the outfall in the watershed.
+        - broken: '"North Creek discharge point" locatedIn Watershed_4'
+          defect: Identity
+          repair: Identify Outfall_12 and keep the phrase as a label
+          repair_options:
+            - Identify Outfall_12 and keep the phrase as a label
+            - Delete the phrase
+            - Use every label as a new subject
+          explanation: Stable identity and human-readable labeling perform separate jobs.
+        - broken: 'Observation_771 result "pH 7.2 at 09:30"'
+          defect: Overloaded text
+          repair: Separate measure, numeric value, and observed time
+          repair_options:
+            - Separate measure, numeric value, and observed time
+            - Add more words to the string
+            - Remove the time
+          explanation: Separate statements make each evidence element queryable and reviewable.
+        - broken: 'Observation_771 numericValue "7.2"'
+          defect: Datatype
+          repair: Store 7.2 as a decimal literal
+          repair_options:
+            - Store 7.2 as a decimal literal
+            - Keep it as display text
+            - Turn Observation_771 into a number
+          explanation: A decimal datatype distinguishes the numeric value from the string of characters.

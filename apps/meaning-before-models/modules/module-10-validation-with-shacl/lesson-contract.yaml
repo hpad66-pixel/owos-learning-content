@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:10
+  number: 10
+  title: Validation with SHACL
+  part: Trust the graph
+  curriculum_role: declared_structural_contract
+learning_job:
+  learner_question: Does this graph satisfy the requirements we declared for this use?
+  outcome: Interpret a SHACL report, repair nonconforming data, and explain what conformance does not prove.
+  prior_knowledge: Classes, properties, query patterns, and the distinction between description and inference.
+  misconception: Passing SHACL means the data is complete, true, safe, and fit for every purpose.
+  transfer_task: Repair a wastewater sample record with missing units, location, and review status.
+depth:
+  common_route: Shape, constraint, focus node, result, severity, conformance, and remediation.
+  practitioner: Property shapes, cardinality, datatype, controlled values, nested requirements, and routing.
+  leader: Set validation policy, severity ownership, exceptions, and remediation accountability.
+experience:
+  archetype: validation_clinic
+  opening: A plausible pump record fails the declared operational contract.
+  mental_model: A shape is a declared checklist evaluated against graph data.
+  signature_mechanism: Validate, inspect, repair, and rerun until the graph meets the declared contract.
+  visual_jobs:
+    - Compare a graph record with its declared shape.
+    - Connect each validation result to the exact failed constraint.
+    - Show the difference between conformance and real-world truth.
+  assessment_jobs:
+    - Interpret violations and warnings.
+    - Diagnose and repair a failed graph record.
+    - Route remediation and defend the declared constraint.
+  work_product: Utility SHACL Contract
+  capstone_contribution: Initial validation shapes, severity, owner, and remediation route.
+evidence:
+  source_refs: [SRC-004, SRC-005]
+  claim_refs: [CLM-004, CLM-021, CLM-022]
+  boundary: SHACL conformance is relative to the declared shapes and validation data graph.
+sequence:
+  requires: [mbm001:06, mbm001:08]
+  prepares: [mbm001:11, mbm001:12, mbm001:16, mbm001:18]

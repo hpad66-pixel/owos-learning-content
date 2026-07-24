@@ -13,7 +13,10 @@ import re
 import sys
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 from course_conformance import ConformanceError, validate_module
+from course_compiler import ModulePackageError, validate_package
 
 
 DEFAULT_SETTINGS = {
@@ -148,6 +151,80 @@ def _validate_release_ready_qa(path: Path, errors: list[str]) -> None:
         for blocked in ("blocked", "pending", "not approved")
     ):
         errors.append("Release approval record does not record an approval")
+
+
+def _validate_structured_delivery(
+    course: Path,
+    lesson: Path,
+    package_dir: Path,
+    *,
+    require_release_ready: bool,
+) -> dict:
+    """Verify compiled HTML against its authoritative structured package."""
+
+    try:
+        package = validate_package(
+            package_dir,
+            release_ready=require_release_ready,
+        )
+    except ModulePackageError as error:
+        raise CourseFullConformanceError(str(error)) from error
+
+    soup = BeautifulSoup(lesson.read_text(encoding="utf-8"), "html.parser")
+    expected = {
+        "owos-course-id": package["module_data"]["module"]["course_id"],
+        "owos-learning-object": package["module_data"]["module"]["module_id"],
+        "owos-source-version": package["module_data"]["module"]["source_version"],
+        "owos-compiler-version": package["compiler_version"],
+        "owos-package-checksum": package["checksum"],
+    }
+    errors = []
+    for name, value in expected.items():
+        meta = soup.find("meta", attrs={"name": name})
+        if not meta or meta.get("content") != value:
+            errors.append(
+                f"compiled delivery metadata {name} does not match structured source"
+            )
+    if len(soup.find_all("main")) != 1 or len(soup.find_all("h1")) != 1:
+        errors.append("compiled delivery needs exactly one main landmark and one h1")
+    if not soup.find("meta", attrs={"name": "viewport"}):
+        errors.append("compiled delivery needs a mobile viewport declaration")
+    if not soup.select_one("[data-complete-module][disabled]"):
+        errors.append("compiled delivery completion control must begin disabled")
+    for image in soup.find_all("img", src=True):
+        value = image["src"]
+        if value.startswith(("http:", "https:", "data:", "/")):
+            continue
+        target = (lesson.parent / value).resolve()
+        if not target.is_file():
+            errors.append(f"compiled delivery has missing visual asset: {value}")
+    if errors:
+        raise CourseFullConformanceError("\n".join(errors))
+
+    assessments = package["assessments"]
+    return {
+        "lesson": lesson.name,
+        "visual_types": sorted(
+            {str(item["asset_class"]) for item in package["visuals"].values()}
+        ),
+        "purposeful_interactions": len(package["interactions"]),
+        "quiz_types": sorted(
+            {
+                str(item["type"])
+                for item in assessments.values()
+                if item["type"] != "applied-work-product"
+            }
+        ),
+        "required_evidence": len(
+            package["module_data"]["completion"]["required_ids"]
+        ),
+        "defined_terms": len(package["glossary"]),
+        "community_features": ["connected-learning-runtime"],
+        "structured_package": package_dir.relative_to(course).as_posix(),
+        "package_checksum": package["checksum"],
+        "compiler_version": package["compiler_version"],
+        "status": "structured source and compiled delivery conformance passed",
+    }
 
 
 def audit(course: Path, *, require_release_ready: bool = False) -> dict:
@@ -298,11 +375,40 @@ def audit(course: Path, *, require_release_ready: bool = False) -> dict:
                 )
 
         if not lesson_errors and brief and qa:
+            structured_value = config.get("structured_package")
+            structured_package = None
+            if structured_value not in (None, ""):
+                if not isinstance(structured_value, str):
+                    lesson_errors.append(
+                        f"{lesson_name} structured_package must be a string"
+                    )
+                else:
+                    try:
+                        structured_package = _safe_course_path(
+                            course,
+                            structured_value,
+                            f"{lesson_name} structured package",
+                        )
+                    except CourseFullConformanceError as error:
+                        lesson_errors.append(str(error))
             try:
-                module_result = validate_module(
-                    lesson, qa, brief, script, contract
-                )
-            except (ConformanceError, FileNotFoundError, json.JSONDecodeError) as error:
+                if structured_package is not None:
+                    module_result = _validate_structured_delivery(
+                        course,
+                        lesson,
+                        structured_package,
+                        require_release_ready=require_release_ready,
+                    )
+                else:
+                    module_result = validate_module(
+                        lesson, qa, brief, script, contract
+                    )
+            except (
+                ConformanceError,
+                CourseFullConformanceError,
+                FileNotFoundError,
+                json.JSONDecodeError,
+            ) as error:
                 lesson_errors.extend(str(error).splitlines())
             else:
                 if require_release_ready:

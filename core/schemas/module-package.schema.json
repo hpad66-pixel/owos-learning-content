@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onewateros.org/schemas/module-package.schema.json",
+  "title": "OWOS Structured Module Package",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "module",
+    "learning",
+    "sections",
+    "completion"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "module": {
+      "type": "object",
+      "required": [
+        "course_id",
+        "module_id",
+        "slug",
+        "title",
+        "promise",
+        "duration",
+        "level",
+        "archetype",
+        "signature_mechanism",
+        "source_version"
+      ]
+    },
+    "learning": {
+      "type": "object",
+      "required": [
+        "audience",
+        "outcomes",
+        "prior_knowledge",
+        "misconception",
+        "transfer_task"
+      ]
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "section_id",
+          "title",
+          "blocks"
+        ],
+        "properties": {
+          "blocks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "prose",
+                    "callout",
+                    "visual",
+                    "interaction",
+                    "assessment",
+                    "work_product",
+                    "faq",
+                    "evidence"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "completion": {
+      "type": "object",
+      "required": [
+        "required_ids",
+        "rule"
+      ]
+    }
+  }
+}

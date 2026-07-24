@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:16
+  number: 16
+  title: Context Engines and Runtime AI Context
+  part: Operate the Knowledge Spine
+  curriculum_role: task_specific_context_assembly
+learning_job:
+  learner_question: What does the model or agent need for this task right now?
+  outcome: Assemble and validate a task-specific context contract with evidence, policy, permissions, time, and limits.
+  prior_knowledge: Meaning layers, provenance, mappings, access patterns, and evidence states.
+  misconception: A long prompt or large context window is the same as governed context.
+  transfer_task: Assemble context for an overflow-response recommendation under a current permit and approval workflow.
+depth:
+  common_route: Intent, identified entities, evidence, definitions, policy, jurisdiction, time, permissions, workflow, and output limits.
+  practitioner: Retrieval, filtering, validation, freshness, conflict handling, tool boundaries, and output schemas.
+  leader: Approve context policy, denied content, action boundaries, and accountability.
+experience:
+  archetype: context_assembly_room
+  opening: An agent receives customer and pressure data but misses jurisdiction, policy date, and permitted action.
+  mental_model: A task packet assembled at runtime from governed sources and state.
+  signature_mechanism: Add and remove context elements and observe ambiguity, denial, staleness, or unsafe proposals.
+  visual_jobs:
+    - Explode the context packet into required, optional, prohibited, and freshness-controlled elements.
+    - Trace each context element back to its governing source or runtime state.
+    - Reveal the consequence of omitting one control at a time.
+  assessment_jobs:
+    - Diagnose missing or stale context.
+    - Assemble and validate a context contract.
+    - Defend permissions and output limits.
+  work_product: AI Context Contract
+  capstone_contribution: Runtime context requirements, sources, freshness, permissions, conflicts, and outputs.
+evidence:
+  source_refs: [DIR-005, SRC-009, SRC-011]
+  claim_refs: [CLM-028, CLM-029, CLM-030]
+  boundary: Better context can reduce ambiguity but cannot guarantee correct or deterministic generation.
+sequence:
+  requires: [mbm001:05, mbm001:10, mbm001:11, mbm001:12, mbm001:13, mbm001:14, mbm001:15]
+  prepares: [mbm001:17, mbm001:18]

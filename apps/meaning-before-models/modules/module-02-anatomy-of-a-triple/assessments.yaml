@@ -1,0 +1,82 @@
+schema_version: 1
+module_id: mbm001:02
+assessments:
+  - assessment_id: mbm02-opening-repair
+    type: multiple-choice
+    cognitive_job: recognize evidence lost by an ambiguous result statement
+    prompt: Which statement is the strongest starting repair?
+    options:
+      - {text: Outfall 12 has result "7.2", correct: false}
+      - {text: Observation 771 observedProperty pH and numericValue 7.2 as a decimal, correct: true}
+      - {text: 7.2 has outfall Outfall 12, correct: false}
+    feedback: {correct: Correct. The observation, measure, and typed value have distinct jobs., incorrect: Choose the statement that separates the observation, measured property, and typed numeric value.}
+    completion_id: opening-repair
+  - assessment_id: mbm02-identity-check
+    type: multiple-choice
+    cognitive_job: distinguish stable identity from display text
+    prompt: The label changes from "Outfall 12" to "North Creek discharge point." What should remain stable?
+    options:
+      - {text: The resource identifier, correct: true}
+      - {text: Every character in the label, correct: false}
+      - {text: The numeric result, correct: false}
+    feedback: {correct: Correct. Labels may change while the identifier continues to denote the same resource., incorrect: Keep identity separate from the text people display.}
+    completion_id: identity-check
+  - assessment_id: mbm02-literal-check
+    type: multi-select
+    cognitive_job: identify evidence needed around a measurement value
+    prompt: Which elements make 7.2 usable as a reviewed observation?
+    options:
+      - {text: A decimal datatype, correct: true}
+      - {text: The identified measured property, correct: true}
+      - {text: Observation time and source, correct: true}
+      - {text: A unit relationship when the measure requires one, correct: true}
+      - {text: More decorative text, correct: false}
+    feedback: {correct: Correct. Type, measure, time, source, and applicable unit preserve the evidence., incorrect: Select evidence that changes interpretation or reviewability, not decoration.}
+    completion_id: literal-check
+  - assessment_id: mbm02-repair-boundary
+    type: multiple-choice
+    cognitive_job: preserve claim boundary after repair
+    prompt: What does a repaired triple prove?
+    options:
+      - {text: The source is automatically true and current, correct: false}
+      - {text: The intended claim is represented more precisely, correct: true}
+      - {text: No human review is needed, correct: false}
+    feedback: {correct: Correct. Precision improves the claim but does not establish truth, authority, or freshness., incorrect: Separate precise representation from proof of real-world truth.}
+    completion_id: repair-boundary
+  - assessment_id: mbm02-serialization-check
+    type: multiple-choice
+    cognitive_job: distinguish graph meaning from Turtle notation
+    prompt: What changes when the same triple is written in Turtle?
+    options:
+      - {text: The underlying relationship changes, correct: false}
+      - {text: The notation changes while the graph statement is preserved, correct: true}
+      - {text: The object must become text, correct: false}
+    feedback: {correct: Correct. Turtle encodes the graph; it does not replace the graph model., incorrect: Compare the subject, predicate, and object across both views.}
+    completion_id: serialization-check
+  - assessment_id: mbm02-transfer-check
+    type: multiple-choice
+    cognitive_job: transfer literal typing to stormwater inspection
+    prompt: A stormwater inspection records "2026-07-24" as plain display text. What is the smallest useful repair?
+    options:
+      - {text: Store it as a date-typed literal and retain the inspection relationship, correct: true}
+      - {text: Create a new asset named 2026-07-24, correct: false}
+      - {text: Remove the date, correct: false}
+    feedback: {correct: Correct. The date remains a value with an explicit datatype., incorrect: Keep the inspection as the resource and represent the date as a typed value.}
+    completion_id: transfer-check
+  - assessment_id: mbm02-triple-deck
+    type: applied-work-product
+    title: Reviewed Triple Deck
+    cognitive_job: produce a small source-bounded set of precise utility statements
+    prompt: Record five reviewed triples, identifier conventions, typed values, source, reviewer note, and the boundary of what the deck proves.
+    required_fields: [resource_relationship, typed_number, typed_time, label_statement, source_note, review_note, evidence_boundary]
+    field_labels:
+      resource_relationship: Resource-to-resource triple
+      typed_number: Triple with a typed number
+      typed_time: Triple with a date or time
+      label_statement: Identifier and separate label statement
+      source_note: Source record or system
+      review_note: Reviewer note
+      evidence_boundary: What this deck does not prove
+    textarea_fields: [resource_relationship, typed_number, typed_time, label_statement, source_note, review_note, evidence_boundary]
+    feedback: {correct: Your deck contains varied precise statements, source and review notes, and an explicit evidence boundary., incorrect: Complete every statement and review field with specific, inspectable content.}
+    completion_id: triple-deck

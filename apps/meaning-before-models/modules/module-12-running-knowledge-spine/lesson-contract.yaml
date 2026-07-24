@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:12
+  number: 12
+  title: From an Ontology File to a Running Knowledge Spine
+  part: Operate the Knowledge Spine
+  curriculum_role: semantic_operating_architecture
+learning_job:
+  learner_question: What must exist before shared meaning can affect a runtime answer?
+  outcome: Assemble a vendor-agnostic Knowledge Spine architecture and trace one governed question through it.
+  prior_knowledge: Meaning layers, ontology, query, inference, validation, and provenance.
+  misconception: An ontology file or modeling diagram changes system behavior by itself.
+  transfer_task: Route an overflow-response concept from approved model to queryable operational use.
+depth:
+  common_route: Governance core, semantic services, connection fabric, consumption plane, and feedback.
+  practitioner: Query, reasoning, validation, security, observability, federation, extraction, indexing, and interfaces.
+  leader: Define operating ownership, investment boundary, service levels, and correction governance.
+experience:
+  archetype: architecture_studio
+  opening: The ontology is complete in a slide deck, but no application can query it.
+  mental_model: A governed semantic operating system connects approved meaning to sources and consumers.
+  signature_mechanism: Instantiate one concept, connect it to sources, route a query, and feed a correction back.
+  visual_jobs:
+    - Cut through the architecture to show what each operating layer actually does.
+    - Trace one utility question from consumer through semantic services to sources.
+    - Show the steward feedback and model-release loop.
+  assessment_jobs:
+    - Place capabilities in the correct operating layer.
+    - Diagnose a missing runtime capability.
+    - Assemble and explain a bounded Knowledge Spine.
+  work_product: Utility Knowledge Spine Architecture
+  capstone_contribution: Target architecture, operating roles, services, connections, and feedback path.
+evidence:
+  source_refs: [DIR-005, SRC-015, SRC-017]
+  claim_refs: [CLM-032, CLM-033, CLM-035]
+  boundary: The Knowledge Spine is an architecture pattern, not one required product or a promise that all data becomes RDF.
+sequence:
+  requires: [mbm001:05, mbm001:07, mbm001:08, mbm001:09, mbm001:10, mbm001:11]
+  prepares: [mbm001:13, mbm001:14, mbm001:15, mbm001:16]

@@ -24,11 +24,40 @@
 
 ## Concept-to-experience plan
 
-| Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
+| Teaching idea | Natural shape | Selected visual ID | Resolvable asset or component | Learner action | What changes or becomes visible | Assessment job |
 | --- | --- | --- | --- | --- | --- |
-| | | | | | |
-| | | | | | |
-| | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+
+## Storyboard approval
+
+| Field | Decision |
+| --- | --- |
+| Storyboard path | |
+| Storyboard version | |
+| Beat count | |
+| Narrative review status | |
+| Visual review status | |
+| Interaction review status | |
+| Assessment review status | |
+| Owner approval status and date | |
+
+No build may claim golden-lesson or release readiness while storyboard approval is pending.
+
+## Cognitive design
+
+| Field | Decision |
+| --- | --- |
+| Prior knowledge activated | |
+| Misconception to change | |
+| Worked example | |
+| Guided practice | |
+| Independent practice | |
+| Retrieval opportunities | |
+| Transfer task in a different utility setting | |
+| Feedback and retry model | |
+| Irrelevant cognitive load removed | |
 | | | | | | |
 
 ## Module design fingerprint
@@ -87,9 +116,21 @@
 
 ## Explanatory graphic plan
 
-| Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
-| --- | --- | --- | --- | --- | --- |
-| | | | | | |
+| Teaching idea | Visual ID | Asset class | File or component | Learner conclusion | Instructor reading guide | Accessible, mobile, and reduced-motion treatment | License and originality status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | |
+
+## Rendered evidence plan
+
+| View or behavior | Required evidence | Status | Evidence path |
+| --- | --- | --- | --- |
+| Desktop visual review | Full-page and component captures | pending | |
+| Tablet visual review | Full-page and component captures | pending | |
+| Phone visual review | Full-page and component captures | pending | |
+| Keyboard completion | Recorded path and result | pending | |
+| Touch completion | Recorded path and result | pending | |
+| Reduced motion | Equivalent meaning verified | pending | |
+| Read without video | Novice comprehension notes | pending | |
 
 ## Learner FAQ plan
 

@@ -48,6 +48,19 @@ with tempfile.TemporaryDirectory() as directory:
         raise AssertionError("new course lacks full-module evidence path conventions")
     if not (course / ".course/full-module-contract.json").is_file():
         raise AssertionError("new course lacks a full-module contract")
+    authoring = json.loads((course / ".course/authoring.json").read_text(encoding="utf-8"))
+    if authoring.get("authoritative_source") != "structured_modules":
+        raise AssertionError("new course does not use structured modules as the authoring source")
+    if authoring.get("html_role") != "compiled_delivery_output":
+        raise AssertionError("new course treats HTML as an authoring source")
+    if not (course / "modules/README.md").is_file():
+        raise AssertionError("new course lacks the structured module directory")
+    if not (course / "qa/COURSE-COHERENCE-REPORT.md").is_file():
+        raise AssertionError("new course lacks the course coherence gate")
+    if not (course / "qa/rendered/README.md").is_file():
+        raise AssertionError("new course lacks the rendered evidence directory")
+    if record.get("source_format") != "structured_modules_with_compiled_html":
+        raise AssertionError("new course record does not declare compiler-based delivery")
     if not (course / "curriculum/scripts/README.md").is_file():
         raise AssertionError("new course lacks the optional script directory")
     agents = (course / "AGENTS.md").read_text(encoding="utf-8")
@@ -56,5 +69,5 @@ with tempfile.TemporaryDirectory() as directory:
 
 print(
     "Course creator full-conformance QA passed: new workspaces receive contract "
-    "version 3, evidence conventions, and release instructions."
+    "version 3, structured authoring, evidence conventions, and release instructions."
 )

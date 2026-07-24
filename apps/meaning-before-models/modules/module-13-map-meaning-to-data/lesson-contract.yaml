@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:13
+  number: 13
+  title: Map Meaning to Data
+  part: Operate the Knowledge Spine
+  curriculum_role: concept_to_source_mapping
+learning_job:
+  learner_question: How does an approved concept resolve to actual enterprise data?
+  outcome: Define, test, break, and repair one semantic mapping with ownership and change controls.
+  prior_knowledge: Knowledge Spine architecture and governed identities.
+  misconception: Mapping means copying data into a graph.
+  transfer_task: Map a stormwater outfall inspection concept across Geographic Information System and work-management fields.
+depth:
+  common_route: Concept, source field, transformation, identifier, test question, owner, and change.
+  practitioner: R2RML, direct mappings, query pushdown, event and interface mappings, and test automation.
+  leader: Approve source authority, mapping ownership, change notices, and service expectations.
+experience:
+  archetype: mapping_workshop
+  opening: A source column is renamed and an affected-customer answer silently changes.
+  mental_model: A governed bridge connects meaning to source data and carries tests in both directions.
+  signature_mechanism: Map four concepts, break one mapping, inspect the wrong answer, and repair it.
+  visual_jobs:
+    - Connect ontology concepts to actual source structures.
+    - Reveal transformations, identifiers, and authority along the mapping bridge.
+    - Show how a mapping defect changes a test query and downstream answer.
+  assessment_jobs:
+    - Classify mapping responsibilities.
+    - Construct and test a semantic mapping.
+    - Diagnose a broken mapping and assign change control.
+  work_product: Semantic Mapping Record
+  capstone_contribution: Source mappings, owners, transformations, tests, and change controls.
+evidence:
+  source_refs: [SRC-016, SRC-015]
+  claim_refs: [CLM-033, CLM-034]
+  boundary: Mapping may support query-time views or materialized data. It is not synonymous with copying.
+sequence:
+  requires: [mbm001:03, mbm001:07, mbm001:12]
+  prepares: [mbm001:14, mbm001:16, mbm001:17]

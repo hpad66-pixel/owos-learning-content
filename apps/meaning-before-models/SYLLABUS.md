@@ -8,11 +8,15 @@ agents connect without pretending they are the same thing.
 
 ## Intended learners
 
-- Utility staff who use data but do not consider themselves technical
-- Operators, maintainers, engineers, laboratory staff, planners, and customer-service staff
-- Utility managers, executives, board members, and emerging leaders
-- Data, GIS, OT, IT, cybersecurity, analytics, artificial intelligence, and governance practitioners
-- Partners who need to understand the One Water Operating System knowledge foundation
+Primary learners are utility professionals and leaders who use data and make or govern decisions
+but do not begin with semantic-technology or programming experience. This includes operators,
+maintainers, engineers, laboratory staff, planners, customer-service staff, managers, executives,
+board members, and emerging leaders.
+
+Secondary learners include data, Geographic Information System, operational-technology,
+information-technology, cybersecurity, analytics, artificial-intelligence, and governance
+practitioners. They receive optional implementation depth while sharing the common language and
+decision model.
 
 ## Format
 
@@ -26,10 +30,11 @@ agents connect without pretending they are the same thing.
 
 ## Mastery standard
 
-A learner demonstrates mastery by explaining the major concepts accurately, tracing a utility
-answer to evidence, distinguishing runtime context from stored knowledge, selecting an appropriate
-integration pattern, stopping an unsafe agent action, and producing a reviewable Utility Knowledge
-Spine Pilot Canvas.
+Given one bounded utility question, a learner demonstrates mastery by identifying the important
+entities and relationships, distinguishing asserted from inferred or validated statements, tracing
+an answer to evidence, choosing an appropriate semantic access pattern, defining the context and
+controls required before an application or agent may use or act on the result, and defending a
+reviewable Utility Knowledge Spine Pilot Canvas.
 
 # Part I: See the relationships
 

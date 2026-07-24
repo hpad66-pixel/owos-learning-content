@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onewateros.org/schemas/assessment-manifest.schema.json",
+  "title": "OWOS Assessment Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "module_id",
+    "assessments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "assessment_id",
+          "type",
+          "cognitive_job",
+          "prompt",
+          "feedback",
+          "completion_id"
+        ]
+      }
+    }
+  }
+}

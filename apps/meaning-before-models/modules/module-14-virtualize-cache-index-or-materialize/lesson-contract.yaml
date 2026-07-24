@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:14
+  number: 14
+  title: Virtualize, Cache, Index, or Materialize?
+  part: Operate the Knowledge Spine
+  curriculum_role: governed_access_pattern_decision
+learning_job:
+  learner_question: Where should the question run, and what data must move?
+  outcome: Choose and defend an access pattern under explicit operating constraints.
+  prior_knowledge: Knowledge Spine architecture and semantic mappings.
+  misconception: Virtualization is always better, or data in place means no copies exist.
+  transfer_task: Select an access pattern for an emergency wastewater response when a source may be unavailable.
+depth:
+  common_route: Authority, latency, freshness, availability, security, volume, cost, transformation, and recovery.
+  practitioner: Federation, pushdown, caches, search and vector indexes, extracts, materialized graphs, and hot paths.
+  leader: Approve cost, risk, resilience, and service-level tradeoffs.
+experience:
+  archetype: constraint_stress_test
+  opening: An emergency question must be answered in seconds while one source is intermittently unavailable.
+  mental_model: Access pattern changes as operating constraints change.
+  signature_mechanism: Change latency, freshness, authority, and outage conditions and defend the resulting architecture.
+  visual_jobs:
+    - Place access patterns on a decision surface without ranking one as universally best.
+    - Show where data, indexes, caches, results, and logs actually exist.
+    - Reveal how a changed constraint alters the recommended pattern.
+  assessment_jobs:
+    - Diagnose the binding constraint.
+    - Select and stress-test an access pattern.
+    - Defend materialization and recovery decisions.
+  work_product: Virtualize-or-Materialize Decision Record
+  capstone_contribution: Access pattern, assumptions, controls, fallback, and review trigger.
+evidence:
+  source_refs: [DIR-005, SRC-015, SRC-017]
+  claim_refs: [CLM-033, CLM-035, CLM-036]
+  boundary: Move-less-data-first is a decision prompt, not an absolute architecture rule.
+sequence:
+  requires: [mbm001:12, mbm001:13]
+  prepares: [mbm001:15, mbm001:16, mbm001:17]

@@ -58,6 +58,9 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Lesson contract | | |
+| Structured module package and compiler validation | | |
+| Storyboard approval and beat coverage | | |
+| Visual manifest asset resolution, license, and originality | | |
 | Whole-course full-module conformance inventory | | |
 | JavaScript and component configuration | | |
 | Deterministic assessment | | |
@@ -68,6 +71,8 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Module-specific FAQ coverage and answer quality | | |
 | Graphic teaching coverage | | |
 | Visual pacing and editorial illustration | | |
+| Rendered desktop, tablet, and phone evidence | | |
+| Course coherence dependencies and terminology | | |
 | Header Graph, Community, and Start actions, side drawers, and bottom connected-learning section | | |
 | Explicit bottom connected-learning anchor and rendered DOM order | | |
 | Dark-surface contrast guard | | |
@@ -77,6 +82,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 ## Manual review still required
 
 - [ ] Desktop visual review
+- [ ] Tablet visual and touch review
 - [ ] Mobile visual and touch review
 - [ ] Keyboard-only walkthrough
 - [ ] Screen-reader walkthrough

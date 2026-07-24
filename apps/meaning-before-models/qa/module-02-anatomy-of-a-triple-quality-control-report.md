@@ -1,95 +1,51 @@
----
-module_id: mbm001:02
-course_id: owos-course-semantic-data-ai-001
-version: semantic-fieldbook-retrofit-1
-review_date: 2026-07-23
-reviewer: Codex repository review
-score: 86
-score_out_of: 100
-working_status: conditional_candidate
-release_status: blocked
----
+# Module 02 Quality-Control Report
 
-# Module Quality-Control Report: The Anatomy of a Triple
-
-## Retrofit implementation review
-- Rebuilt as a syntax workbench, not a copy of Module 01.
-- Verified mechanisms: four-defect repair bay, literal inspector, and Turtle to JSON-LD switch.
-- Verified work product: Reviewed Triple Deck with explicit source and review boundary.
-- Score remains conditional while human technical, practitioner, accessibility, and learner reviews remain open.
+Date: 2026-07-24
+Candidate: The Anatomy of a Triple
+Compiler: `owos-course-compiler/1`, implementation version 1.1.0
+Publication scope: authorized live review, not final pedagogical release
 
 ## Decision
-- Working-review result: Conditional production candidate.
-- Release result: Blocked.
-- Score: 86 out of 100.
-- One-sentence reason: Repository-verifiable implementation is complete; human and runtime gates remain.
 
-## Scored quality review
-| Area | Weight | Score | Evidence checked | Missing or required revision |
-| --- | ---: | ---: | --- | --- |
-| Plain-English instructor teaching | 12 | 11 | Instructor explanations before all major components | Novice pilot |
-| Learning design and sequence | 12 | 11 | Decision, model, mechanism, boundary, artifact | Human review |
-| Explanatory graphics and visual reasoning | 12 | 10 | Four traced visual types | Rendered inspection |
-| Interactions and simulations | 12 | 10 | Mechanism, boundary selection, artifact | Browser walkthrough |
-| Utility relevance and practitioner credibility | 10 | 8 | Named utility scenario | Practitioner review |
-| Assessments and feedback | 10 | 10 | Four quiz types and retry | Learner observation |
-| Professional work product | 5 | 5 | Reviewed Ten-Triple Deck | Practitioner review |
-| Accuracy, evidence, and citations | 10 | 8 | W3C sources and boundary | Independent factual review |
-| Accessibility, responsive behavior, and reduced motion | 10 | 7 | Static labels, CSS, focus code | Manual accessibility |
-| Platform integration and release controls | 7 | 6 | IDs, local persistence, blocked release | Authenticated events |
-| **Total** | **100** | **86** | Repository evidence | Human gates remain |
+Automated production gates: passed
+Rendered visual inspection by Codex: passed
+Owner standing authorization for live-review replacement: recorded
+Independent factual, practitioner, accessibility, and novice reviews: pending
 
-## Hard gates
-| Gate | Status | Evidence | Required before pass |
-| --- | --- | --- | --- |
-| Accuracy and evidence | conditional | W3C links and explicit limits | Independent review |
-| Learning design | passed | Complete lesson contract | Hardeep working review |
-| Utility-practitioner review | blocked | Not yet performed | Qualified practitioner review |
-| Technical and accessibility review | conditional | Static checks only | Browser, device, keyboard, screen-reader, contrast |
-| Release control | blocked | Candidate metadata | Explicit release approval |
+This module may replace its legacy live-review HTML. It may not be represented as having completed
+the independent human safeguards.
 
-## Automated checks
-| Check | Result | Evidence |
+## Verified production evidence
+
+| Area | Result | Evidence |
 | --- | --- | --- |
-| Lesson contract | passed | Full-module conformance validator |
-| JavaScript and component configuration | passed static check | Shared runtime and governed sources |
-| Deterministic assessment | passed by code inspection | Explicit answers and criteria |
-| Distributed quiz placement and feedback | passed | Four quiz types across lesson |
-| Instructor explanation coverage | passed | Every governed component traced |
-| Module-specific FAQ coverage and answer quality | passed repository check | Five questions |
-| Graphic teaching coverage | passed | Reading guides and conclusions |
-| Visual pacing and editorial illustration | passed repository check | Design brief trace |
-| Header Graph, Community, and Start actions, side drawers, and bottom connected-learning section | passed repository check | Required markers |
-| Explicit bottom connected-learning anchor and rendered DOM order | passed | Anchor before navigation |
-| Dark-surface contrast guard | passed static check | Light text rules |
-| Prohibited language and punctuation | passed | Validator scan |
-| Repository scan and formatting | passed | Course regression suite |
+| Structured source package | passed | Seven YAML sources, approved design brief, and approved storyboard |
+| Conversational instruction | passed | Seven authored teaching sections plus learner promise and FAQs |
+| Visual reasoning | passed | Five original, lesson-specific SVG visual classes |
+| Purposeful interactions | passed | Object Router and Triple Evidence Bench |
+| Distributed assessment | passed | Six checks beside the relevant concepts with immediate feedback and retry |
+| Applied assessment | passed | Transfer decision plus Reviewed Triple Deck |
+| Utility relevance | passed for instructional scenario | Water, wastewater, and stormwater evidence examples |
+| Source controls | passed for candidate | W3C RDF Concepts, Primer, and Turtle sources with explicit evidence boundary |
+| Responsive behavior | passed automated | Desktop, tablet, and phone browser runs |
+| Reduced motion | passed automated | Phone run reports a maximum transition duration of 0.01 milliseconds |
+| Runtime behavior | passed | Zero console errors; all required completion identifiers resolve |
+| Navigation and drawers | passed | Graph and Glossary open, close, Escape, and focus return |
 
-## Manual review still required
-- [ ] Desktop visual review
-- [ ] Mobile visual and touch review
-- [ ] Keyboard-only walkthrough
-- [ ] Screen-reader walkthrough
-- [ ] Reduced-motion walkthrough
-- [ ] Dense-text and visual-pacing walkthrough
-- [ ] Graph and Community drawer, close, focus-return, and bottom-section walkthrough
-- [ ] Dark blue, navy, and gradient contrast walkthrough
-- [ ] Quiz discoverability and section-placement walkthrough
-- [ ] FAQ accuracy, plain-language, utility-example, disclosure, and mobile walkthrough
-- [ ] Utility-practitioner review
-- [ ] Novice-learner comprehension pilot
-- [ ] Live learner-event and enrollment verification
-- [ ] Final source and citation review
-- [ ] Release approval
+## Distinctive lesson grammar
 
-## Required revisions
-1. Complete factual and practitioner review.
-2. Complete rendered accessibility and device review.
-3. Obtain explicit release approval.
+Module 02 is a forensic syntax workbench. It moves from a suspicious three-cell result to an
+identifier specimen, an object-routing fork, a measurement instrument panel, a four-case repair
+bench, and a serialization strip. It does not reuse Module 01's construction grammar or Module 05's
+decision-room composition.
 
-## Approval record
-| Decision | Reviewer | Date | Note |
-| --- | --- | --- | --- |
-| Working-review acceptance | pending Hardeep Anand | | |
-| Production benchmark | working benchmark | 2026-07-23 | Module 05 capability level |
-| Release | blocked | | |
+## Human safeguards still open
+
+- Independent W3C semantic accuracy review
+- Water, wastewater, stormwater, laboratory, and asset-data practitioner review
+- Keyboard-only and screen-reader review by a human reviewer
+- Contrast, zoom, and representative physical-device review
+- Novice comprehension pilot
+- Final release approval after live review
+
+Automated evidence does not convert these safeguards into approvals.

@@ -1,0 +1,179 @@
+schema_version: 1
+module:
+  course_id: owos-course-semantic-data-ai-001
+  module_id: mbm001:05
+  slug: module-05-five-layers-of-meaning
+  title: Five Layers of Meaning
+  eyebrow: Meaning Before Models, Module 05
+  promise: Separate structure, classification, shared meaning, enterprise mapping, and runtime AI context before choosing a technology or trusting an answer.
+  duration: 55 to 75 minutes
+  level: Foundation with optional Practitioner and Leader depth
+  archetype: decision-room
+  signature_mechanism: meaning-triage-desk-and-first-broken-boundary
+  source_version: 0.2.0-golden-candidate
+learning:
+  audience:
+    - Utility professionals and leaders who use data or govern decisions
+    - Data, GIS, IT, OT, analytics, governance, and AI practitioners
+  outcomes:
+    - Distinguish a data model, taxonomy, ontology, semantic layer, and runtime AI context by the question each answers.
+    - Classify familiar utility artifacts by their primary meaning job in a bounded scenario.
+    - Explain how shared concepts resolve to current enterprise records without confusing meaning with mapping.
+    - Diagnose whether a failed answer begins in structure, classification, meaning, mapping, or runtime context.
+    - Produce and defend a Five-Layer Meaning Map with named owners, a known gap, and an explicit limit.
+  prior_knowledge: The learner can trace named relationships through a small utility knowledge graph from Module 04.
+  misconception: Data models, taxonomies, ontologies, semantic layers, and AI context are interchangeable names for one technical layer.
+  transfer_task: Diagnose the missing meaning job in a wastewater overflow response and a stormwater permit assistant.
+sections:
+  - section_id: pressure-event
+    title: The data is available. The answer is still disputed.
+    kind: Decision room
+    blocks:
+      - type: prose
+        paragraphs:
+          - It is 2:10 a.m. A pressure event has affected Zone 3. The duty manager asks a question that sounds straightforward: Which active critical-facility customers may be exposed, what evidence supports the list, and which response procedure applies tonight?
+          - The utility is not starting from nothing. SCADA has the event. GIS has the pressure zone and premises. CIS has accounts and service status. The document system has procedures. A dashboard already joins several tables. An AI assistant can retrieve text and generate a polished summary.
+          - Yet the room stops on four ordinary words: active, critical facility, exposed, and current. One team uses billing status to define active. Another uses an effective service date. GIS identifies facilities differently from the customer system. Two procedures have similar titles, but only one is in force. The data exists. The shared meaning, mappings, time, permissions, and decision authority are mixed together.
+      - type: visual
+        visual_id: mbm05-pressure-room
+      - type: assessment
+        assessment_id: mbm05-opening-decision
+      - type: callout
+        title: The first lesson
+        text: A table join can connect records. A dashboard can display a result. Neither action automatically settles what the terms mean, whether the mappings are current, or who may use the answer.
+  - section_id: five-questions
+    title: Start with five questions, not five technologies
+    kind: Architecture distinction
+    blocks:
+      - type: prose
+        paragraphs:
+          - People often meet these terms in a vendor diagram. That makes them sound like competing products or stacked boxes. Begin somewhere simpler. Each term earns its place by answering a different question.
+          - A data model asks how information is structured for a system, application, integration, or report. A taxonomy asks how terms are classified and organized. An ontology asks what shared concepts and relationships mean. A semantic layer asks how those meanings connect to fields, tables, metrics, application interfaces, and authoritative sources. AI context asks what a model or agent needs for this specific task, at this time, under these permissions and limits.
+          - These jobs cooperate. They are not interchangeable. A CIS table can store service status without establishing one enterprise definition of active service. A critical-facility hierarchy can classify hospitals and nursing facilities without saying which service account serves which premise. An ontology can define that relationship without pointing to tonight's current CIS row. A mapping can connect the concept to fields without knowing what the duty manager is permitted to do. A runtime context package can include relevant records and policies without becoming the permanent ontology.
+      - type: visual
+        visual_id: mbm05-five-job-comparison
+      - type: assessment
+        assessment_id: mbm05-job-question-match
+      - type: callout
+        title: Product names vary
+        text: Organizations and vendors use these labels differently. Govern the question, responsibility, artifact, owner, and boundary. Do not let a product label erase the distinction.
+  - section_id: triage-desk
+    title: Put twelve familiar artifacts in the right job
+    kind: Meaning Triage Desk
+    blocks:
+      - type: prose
+        paragraphs:
+          - Now use the distinction under pressure. The desk below contains records, lists, definitions, mappings, and controls from the Zone 3 event. Your task is not to guess the file format. Your task is to identify the artifact's primary job in this bounded decision.
+          - Some artifacts could support more than one job. That is normal. A spreadsheet might hold a taxonomy in one process and a semantic mapping in another. The feedback explains why one job is primary here. This is how architecture conversations become precise without pretending the enterprise is perfectly tidy.
+      - type: interaction
+        interaction_id: mbm05-meaning-triage-desk
+      - type: callout
+        title: What changed?
+        text: Nothing was copied into a new platform. The same twelve artifacts became understandable because each responsibility received a distinct name and purpose.
+  - section_id: semantic-bridge
+    title: Shared meaning must still reach a real record
+    kind: Worked connection map
+    blocks:
+      - type: prose
+        paragraphs:
+          - Suppose the ontology defines an Active Service Account as a service account whose service is effective at the decision time and is not ended or suspended under the approved rule. It also defines that a service account serves a premise, a premise lies in a pressure zone, and a pressure event affects a zone.
+          - That shared meaning is reusable. But the ontology does not automatically know that CIS column ACCT_STAT uses A for active, that START_DT and END_DT control effective time, or that a recent system upgrade renamed one field. The semantic layer carries tested mappings from shared concepts to authoritative enterprise structures.
+          - This boundary matters because a correct definition and a broken mapping can coexist. If the concept is wrong, change control belongs in the ontology process. If the mapping points to a retired field, repair belongs in the semantic connection. If the current record is stale, repair belongs in source-data operations. Calling all three problems an AI hallucination hides the first broken responsibility.
+      - type: visual
+        visual_id: mbm05-semantic-bridge
+      - type: assessment
+        assessment_id: mbm05-broken-boundary
+      - type: callout
+        title: Practitioner view
+        text: Practitioners test the concept definition and the source mapping separately. Leaders assign accountable owners and require evidence that both passed before operational use.
+  - section_id: context-packet
+    title: AI context means what this task needs now
+    kind: Runtime boundary
+    blocks:
+      - type: prose
+        paragraphs:
+          - The Zone 3 question is not answered only by retrieving customer rows. The model or agent needs the event identifier, effective time, approved definitions, mapped evidence, current procedure, user permission, unresolved conflicts, workflow state, and output limits. That bounded package is AI context.
+          - A context engine is not the package. It is the governed mechanism that retrieves, filters, validates, and assembles the package. One implementation may combine graph queries, table queries, document retrieval, policy checks, and workflow state. Another may use different technologies. The architectural job remains the same.
+          - More context is not automatically better context. Dumping every customer record, every procedure version, or another district's incident file into the prompt can increase ambiguity, expose unauthorized information, and make evidence harder to trace. Good context reduces ambiguity and unsupported generation. It does not make a generative model perfectly deterministic.
+      - type: visual
+        visual_id: mbm05-context-packet
+      - type: assessment
+        assessment_id: mbm05-context-omission-excess
+      - type: callout
+        title: Human authority remains explicit
+        text: The context can support a draft exposure list. It does not authorize a public advisory, customer notification, valve operation, or any other consequential action.
+  - section_id: failure-trace
+    title: Repair the first broken job
+    kind: Failure propagation laboratory
+    blocks:
+      - type: prose
+        paragraphs:
+          - "A failure usually becomes visible at the end. The answer omits a facility, uses an outdated procedure, or includes an unauthorized account. Teams then reach for the component closest to the symptom: the prompt, model, dashboard, or agent."
+          - The safer method is to walk backward until you find the first broken job. A missing field is not the same as a missing category. A missing category is not the same as a relationship no one has defined. A correct definition with a stale field mapping is not the same as a complete mapping with the wrong runtime time or permission.
+          - Use the laboratory to remove each job. Read how the failure changes as it travels toward the answer. The point is not that every utility needs five products. The point is that every consequential answer needs these responsibilities addressed somewhere.
+      - type: visual
+        visual_id: mbm05-failure-trace
+      - type: interaction
+        interaction_id: mbm05-missing-job-trace
+      - type: assessment
+        assessment_id: mbm05-diagnose-and-repair
+  - section_id: transfer
+    title: The same distinctions survive across One Water
+    kind: Transfer cases
+    blocks:
+      - type: prose
+        paragraphs:
+          - In wastewater, an overflow response asks which assets are upstream, which permit condition applies, and which customers or waterways may be affected. The data model structures work orders, network assets, samples, and events. The taxonomy classifies overflow severity and response type. The ontology defines assets, flow relationships, events, impacts, and obligations. The semantic layer maps those meanings to CMMS, GIS, laboratory, and permit sources. Runtime context packages the actual event, current weather, effective permit, operator permission, conflicts, and action limits.
+          - In stormwater, an inspection assistant retrieves the correct permit PDF but quotes a condition that applied before the latest amendment. Retrieval succeeded. The failure is temporal authority inside runtime context and provenance, not simply document similarity. If the ontology also fails to distinguish an outfall from a monitoring location, that is a separate shared-meaning problem with a different repair.
+          - This is the value of the distinction map. It does not force RDF or a knowledge graph into every small problem. A governed table may be sufficient when one bounded source, one stable definition, and one accountable process answer the question. Relationships earn a graph when identity, traversal, provenance, reuse, or inference carries material value.
+      - type: assessment
+        assessment_id: mbm05-transfer-diagnosis
+      - type: callout
+        title: Hardeep Anand's position
+        text: Meaning must come before models. AI amplifies the condition of the data and operating system around it. This is an owner position that guides the course, not an independent standards claim.
+  - section_id: meaning-map
+    title: Build the map another team can challenge
+    kind: Professional application
+    blocks:
+      - type: prose
+        paragraphs:
+          - Your final task is not to draw a perfect enterprise architecture. Choose one bounded utility question. Name one artifact or responsibility for each meaning job. Assign an accountable owner. Record the first known gap. State what the map does not authorize.
+          - A useful map is specific enough for another team to inspect. "Customer data" is too vague. "CIS account status and effective dates governed by Customer Operations" is reviewable. "Use AI context" is too vague. "Include event time, approved exposure definition, current procedure, operator permission, unresolved conflicts, and a draft-only output limit" is reviewable.
+          - The map becomes one section of your Utility Knowledge Spine Fieldbook. Module 16 will develop the full AI Context Contract. Here you include only enough runtime context to prove that it is a different job from structure, classification, meaning, and mapping.
+      - type: work_product
+        work_product_id: mbm05-five-layer-map
+      - type: faq
+        items:
+          - question: Is a semantic layer the same as an ontology?
+            answer: No. An ontology defines shared concepts and relationships. A semantic layer connects those meanings to governed fields, tables, metrics, application interfaces, and authoritative sources. Product terminology varies, so make the responsibility explicit.
+          - question: Is a taxonomy enough for shared meaning?
+            answer: A taxonomy is useful for classification and hierarchy. It does not by itself express every relationship, rule, identity decision, mapping, permission, or runtime condition needed for a utility answer.
+          - question: Can a data model contain business definitions?
+            answer: Yes. A data model can carry definitions and constraints for its system or application. The distinction is scope. An ontology aims to provide shared domain meaning that can outlive or connect several system-specific models.
+          - question: Is a prompt the same thing as AI context?
+            answer: A prompt may carry part of the context, but the runtime package also includes retrieved evidence, definitions, policy, time, permission, workflow state, conflicts, and output limits. The prompt is one delivery mechanism, not the entire architecture.
+          - question: Does better context make an AI answer deterministic?
+            answer: No. Better context can reduce ambiguity and make evidence easier to trace, but generative output may still vary. Deterministic checks, validation, constrained actions, and human review remain separate controls.
+          - question: Does a knowledge graph replace the warehouse or lakehouse?
+            answer: Not necessarily. A graph can connect meaning to data that stays in existing systems through governed mappings or federation. Materialize only where latency, reliability, cost, security, or operational needs justify it.
+          - question: When is a governed table enough?
+            answer: A table may be enough when one bounded source, one stable definition, and one accountable process answer the question without complex identity, traversal, provenance, or reuse. Choose the smallest architecture that can defend the decision.
+      - type: evidence
+        statement: The Zone 3 event, systems, records, and organizations are instructional. The five-job model is an OWOS teaching framework. W3C sources support RDF, RDF Schema, and ontology concepts. NIST supports the need to govern generative AI risks. This lesson does not authorize an operational response or establish that every AI application requires RDF.
+        source_refs:
+          - w3c-rdf-concepts
+          - w3c-rdfs
+          - w3c-owl-overview
+          - nist-ai-rmf
+completion:
+  required_ids:
+    - opening-decision
+    - five-job-match
+    - triage-complete
+    - broken-boundary
+    - context-packet
+    - failure-paths
+    - diagnose-repair
+    - transfer-diagnosis
+    - five-layer-map
+  rule: Complete the decision, distinctions, triage desk, mapping and context checks, failure laboratory, transfer diagnosis, and Five-Layer Meaning Map.

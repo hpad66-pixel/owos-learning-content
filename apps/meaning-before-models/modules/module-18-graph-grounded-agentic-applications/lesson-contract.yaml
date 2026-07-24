@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:18
+  number: 18
+  title: Graph-Grounded Agentic Applications
+  part: Apply the backbone
+  curriculum_role: governed_action_control
+learning_job:
+  learner_question: When may an agent act, when must it ask, and when must it stop?
+  outcome: Carry a grounded answer through validation, authorization, action or stop, and audit.
+  prior_knowledge: Provenance, validation, context contracts, and answer-architecture comparison.
+  misconception: A correct or well-grounded answer grants permission to act.
+  transfer_task: Govern an agent proposal to create a wastewater work order under stale evidence and limited authority.
+depth:
+  common_route: Propose, validate, authorize, approve, act, stop, record, and explain.
+  practitioner: Tool contracts, policy enforcement, idempotency, retries, external state, and audit events.
+  leader: Set delegated authority, mandatory human approvals, denied actions, and accountability.
+experience:
+  archetype: agent_control_room
+  opening: The answer is correct, but the requested operating action is outside the agent's authority.
+  mental_model: Knowledge supports a proposal; policy and authority control the action.
+  signature_mechanism: Test allowed, denied, stale, ambiguous, and approval-required action cases.
+  visual_jobs:
+    - Separate answer confidence from action authority.
+    - Show the state transitions from proposal through validation, approval, action, stop, and record.
+    - Trace evidence, policy, tool result, and human decision into one audit trail.
+  assessment_jobs:
+    - Identify the correct stop or escalation state.
+    - Diagnose a missing authorization or stale-evidence control.
+    - Defend an agent action contract.
+  work_product: Agent Action Contract
+  capstone_contribution: Permitted tools, action boundaries, approvals, stop states, and audit requirements.
+evidence:
+  source_refs: [DIR-003, DIR-005, SRC-004, SRC-011]
+  claim_refs: [CLM-019, CLM-030, CLM-031]
+  boundary: RDF does not supply agent orchestration, permissions, policy enforcement, or safe execution by itself.
+sequence:
+  requires: [mbm001:10, mbm001:11, mbm001:16, mbm001:17]
+  prepares: [mbm001:19]

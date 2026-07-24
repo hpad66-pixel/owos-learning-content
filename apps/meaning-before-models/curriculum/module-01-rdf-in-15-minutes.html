@@ -2,279 +2,1753 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Module 01: RDF in 15 Minutes | One Water OS Academy</title>
-  <meta name="description" content="Build a utility relationship as an RDF triple, reverse it, and connect it to a small graph.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RDF in 15 Minutes | One Water OS Academy</title>
+  <meta name="description" content="See how one named relationship becomes a machine-readable path across utility systems.">
   <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
   <meta name="owos-learning-object" content="mbm001:01">
-  <meta name="owos-release-state" content="retrofit-working-candidate">
-  <meta name="owos-lesson-archetype" content="guided-construction">
-  <meta name="owos-signature-mechanism" content="build-reverse-and-chain-utility-triples">
-  <meta name="owos-opening-pattern" content="ordinary-relationship-question">
-  <meta name="owos-work-product-mode" content="pocket-relationship-card">
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="meaning-fieldbook.css">
-</head>
-<body data-module="module-01" data-lens="foundation">
-<div class="reading" aria-hidden="true"></div>
-<header class="top"><div class="wrap topin">
-  <a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a>
-  <span class="crumb">Meaning Before Models / 01</span>
-  <nav class="topactions" aria-label="Lesson actions"><button class="btn" type="button" data-open-graph>Graph</button><button class="btn" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav>
-</div></header>
+  <meta name="owos-release-state" content="structured working candidate">
+  <meta name="owos-source-version" content="1.0.0-structured-candidate">
+  <meta name="owos-compiler-version" content="1.1.0">
+  <meta name="owos-package-checksum" content="83dac2d703591a0835d74ad1d85403460b9a30378c7d8de156b89deb36481769">
+  <style>:root {
+  color-scheme: light;
+  --ink: #17324d;
+  --muted: #526d7d;
+  --paper: #ffffff;
+  --wash: #eef6f5;
+  --line: #cddddd;
+  --navy: #102a43;
+  --teal: #147d88;
+  --teal-soft: #dff2ee;
+  --orange: #e8752f;
+  --orange-soft: #fff1e6;
+  --good: #157347;
+  --bad: #a63d32;
+  --shadow: 0 20px 60px rgba(23, 50, 77, .12);
+  --radius: 24px;
+}
 
-<main>
-<section class="wrap hero" aria-labelledby="lesson-title">
-  <span class="eyebrow">Guided construction · Module 01</span>
-  <h1 id="lesson-title">RDF in 15 Minutes</h1>
-  <p>You already understand the basic idea behind Resource Description Framework. You use it every time you say that one thing has a particular relationship to another thing. This short lesson turns that ordinary habit into a machine-readable statement.</p>
-  <div class="meta"><span>15-minute standalone primer</span><span>Foundation</span><span>Build, reverse, connect</span><span>Relationship Card</span></div>
-  <div class="lenses" role="tablist" aria-label="Instructional view"><button class="on" type="button" data-lens="foundation" role="tab" aria-selected="true">Foundation</button><button type="button" data-lens="practitioner" role="tab" aria-selected="false">Practitioner</button><button type="button" data-lens="leader" role="tab" aria-selected="false">Leader</button></div>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7faf9;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--teal);
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.shell {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(16, 42, 67, .96);
+  color: #ffffff;
+  backdrop-filter: blur(14px);
+}
+
+.topbar-inner {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.top-actions,
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  min-height: 44px;
+  border: 1px solid #b8cfce;
+  border-radius: 999px;
+  padding: 10px 17px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--teal);
+}
+
+.button:focus-visible,
+.choice:focus-visible,
+.flip-card:focus-visible,
+.edge-button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.button.primary {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.button.good {
+  border-color: var(--good);
+  background: var(--good);
+  color: #ffffff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 9vw, 110px) 0 70px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 117, 47, .22), transparent 24%),
+    radial-gradient(circle at 12% 70%, rgba(100, 215, 207, .18), transparent 28%),
+    var(--navy);
+  color: #ffffff;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -5% -58% 35%;
+  height: 520px;
+  border: 2px solid rgba(255, 255, 255, .13);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.eyebrow,
+.kind {
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 12px 0 14px;
+  font-size: clamp(2.65rem, 7vw, 5.8rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #d9e8ef;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-meta span {
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: .9rem;
+}
+
+.progress-panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: -30px auto 52px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: var(--shadow);
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.progress-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid #9eb8b8;
+  border-radius: 50%;
+}
+
+.progress-item.done {
+  background: var(--teal-soft);
+  color: var(--ink);
+}
+
+.progress-item.done::before {
+  border-color: var(--good);
+  background: var(--good);
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.lesson-section {
+  margin: 0 auto 34px;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 14px 40px rgba(23, 50, 77, .06);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 26px;
+}
+
+.section-number {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.section-heading h2 {
+  margin: 2px 0 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.prose {
+  max-width: 790px;
+  margin: 0 auto 26px;
+  color: #28485f;
+  font-size: 1.06rem;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.callout {
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 20px 24px;
+  border-left: 6px solid var(--orange);
+  border-radius: 0 16px 16px 0;
+  background: var(--orange-soft);
+}
+
+.callout h3 {
+  margin: 0 0 5px;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.match-grid,
+.multi-grid,
+.triage-grid {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.match-row select,
+.triage-card select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.correct-field {
+  border-color: var(--good) !important;
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, .12);
+}
+
+.incorrect-field {
+  border-color: var(--bad) !important;
+}
+
+.multi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.select-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.select-option input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.select-option.selected-correct {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.select-option.selected-incorrect {
+  border-color: var(--bad);
+  background: #fff3f1;
+}
+
+.signature-component {
+  border-color: #8db9b5;
+  box-shadow: 0 18px 50px rgba(20, 125, 136, .13);
+}
+
+.triage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.triage-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #ffffff, #f4faf8);
+}
+
+.triage-card h4 {
+  margin: 4px 0 6px;
+  font-size: 1.08rem;
+}
+
+.triage-card p {
+  color: var(--muted);
+}
+
+.triage-number,
+.failure-label {
+  color: var(--teal);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.triage-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.triage-card.incorrect-card {
+  border-color: #d69a93;
+}
+
+.item-feedback {
+  min-height: 42px;
+  margin-top: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.failure-lab {
+  display: grid;
+  grid-template-columns: minmax(210px, .38fr) minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.failure-trigger {
+  grid-column: 1;
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.failure-trigger span {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.failure-trigger.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.failure-result {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.failure-result[hidden] {
+  display: none;
+}
+
+.failure-result ol {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 24px;
+}
+
+.failure-result p {
+  color: #e4f0f5;
+}
+
+.route-grid,
+.repair-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.route-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-card,
+.repair-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfdfc;
+}
+
+.route-card h4 {
+  margin: 5px 0;
+}
+
+.route-card .button.active {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.repair-card {
+  border-left: 6px solid #9eb8b8;
+}
+
+.repair-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.repair-card.incorrect-card {
+  border-color: var(--bad);
+  background: #fff8f7;
+}
+
+.broken-statement {
+  margin: 10px 0 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #102a43;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.repair-fields {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 14px;
+}
+
+.repair-fields label {
+  display: grid;
+  gap: 6px;
+  font-weight: 750;
+}
+
+.repair-fields select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+}
+
+.good-text {
+  color: var(--good);
+}
+
+.bad-text {
+  color: var(--bad);
+}
+
+.learning-visual {
+  margin: 34px 0;
+}
+
+.learning-visual h3 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+
+.reading-guide,
+.conclusion {
+  max-width: 880px;
+  margin: 12px auto;
+  padding: 16px 19px;
+  border-radius: 14px;
+}
+
+.reading-guide {
+  border: 1px solid #c9dddd;
+  background: var(--wash);
+}
+
+.conclusion {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.visual-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f7faf9;
+  box-shadow: var(--shadow);
+}
+
+.visual-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.component {
+  margin: 34px 0;
+  border: 1px solid #c8d9d9;
+  border-radius: 22px;
+  background: #fbfdfc;
+  overflow: hidden;
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.component-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.component-header .kind {
+  color: #ffb982;
+}
+
+.component-body {
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.component-intro {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.choice-grid {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.choice {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 17px;
+  border: 2px solid #cadbda;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice.selected {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.choice.correct {
+  border-color: var(--good);
+  background: #e5f4ec;
+}
+
+.choice.incorrect {
+  border-color: var(--bad);
+  background: #fae9e7;
+}
+
+.feedback {
+  min-height: 28px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.triple-builder {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.triple-builder label,
+.field-grid label,
+.work-product label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.triple-builder select,
+.field-grid input,
+.work-product input,
+.work-product textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #cadbda;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.triple-arrow {
+  padding-bottom: 12px;
+  color: var(--orange);
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.triple-output {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.flip-card {
+  min-height: 170px;
+  border: 0;
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.flip-card-inner {
+  position: relative;
+  display: grid;
+  min-height: 170px;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+}
+
+.flip-card.revealed .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border: 2px solid #bdd5d3;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  font-weight: 650;
+}
+
+.path-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.edge-button {
+  min-height: 108px;
+  border: 2px solid #c9dddd;
+  border-radius: 17px;
+  padding: 15px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.edge-button.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.edge-button strong,
+.edge-button span {
+  display: block;
+}
+
+.edge-button span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.work-product {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.artifact-preview {
+  min-height: 130px;
+  margin: 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.faq-list details {
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.faq-list summary {
+  padding: 16px 18px;
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+.evidence {
+  padding: 26px;
+  border-radius: 20px;
+  background: #e9eff2;
+}
+
+.evidence h3 {
+  margin-top: 0;
+}
+
+.connected {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 38px 0;
+}
+
+.connected article {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.connected h3 {
+  margin: 8px 0;
+  color: #ffffff;
+}
+
+.connected p {
+  color: #d9e8ef;
+}
+
+.completion {
+  margin: 36px 0 70px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  background: rgba(5, 19, 31, .56);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  width: min(520px, 100%);
+  height: 100dvh;
+  padding: 26px;
+  overflow: auto;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: -24px 0 70px rgba(5, 19, 31, .24);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-scrim.open {
+  display: block;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer h2 {
+  margin: 0;
+}
+
+.glossary-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.glossary-list article {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--wash);
+}
+
+.glossary-list h3 {
+  margin: 0 0 4px;
+}
+
+.glossary-list p {
+  margin: 0;
+}
+
+footer {
+  padding: 25px 0;
+  background: var(--navy);
+  color: #d9e8ef;
+  font-size: .9rem;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 24px, 1140px);
+  }
+
+  .topbar-inner {
+    min-height: 58px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .top-actions .button {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: .82rem;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .progress-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-section {
+    padding: 25px 18px;
+    border-radius: 19px;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .section-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .triple-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .triple-arrow {
+    padding: 0;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .flip-grid,
+  .path-strip,
+  .field-grid,
+  .connected,
+  .multi-grid,
+  .triage-grid,
+  .route-grid,
+  .repair-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .match-row,
+  .failure-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-trigger,
+  .failure-result {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .failure-result {
+    min-height: 0;
+  }
+
+  .component-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .flip-card.revealed .flip-card-inner {
+    transform: none;
+  }
+
+  .flip-card.revealed .flip-front {
+    display: none;
+  }
+
+  .flip-back {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-module-id="mbm001:01" data-source-version="1.0.0-structured-candidate"
+  data-required-ids="[&quot;opening-choice&quot;,&quot;triple-built&quot;,&quot;term-cards&quot;,&quot;path-traced&quot;,&quot;path-claim&quot;,&quot;relationship-card&quot;]">
+  <a class="skip-link" href="#lesson-start">Skip to lesson</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <nav class="top-actions" aria-label="Lesson tools">
+        <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
+        <a class="button primary" href="#lesson-start">Start</a>
+      </nav>
+    </div>
+  </header>
+  <main id="lesson-start">
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">Meaning Before Models, Module 01</span>
+        <h1>RDF in 15 Minutes</h1>
+        <p>See how one named relationship becomes a machine-readable path across utility systems.</p>
+        <div class="hero-meta"><span>15 to 25 minutes</span><span>Foundation</span><span>guided construction</span></div>
+      </div>
+    </section>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening-choice">Opening Choice</div>
+<div class="progress-item" data-completion-id="triple-built">Triple Built</div>
+<div class="progress-item" data-completion-id="term-cards">Term Cards</div>
+<div class="progress-item" data-completion-id="path-traced">Path Traced</div>
+<div class="progress-item" data-completion-id="path-claim">Path Claim</div>
+<div class="progress-item" data-completion-id="relationship-card">Relationship Card</div></section>
+    <div class="shell">
+      <section class="lesson-section">
+        <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
+        <div class="prose"><ul><li>Identify the subject, predicate, and object in a utility statement.</li><li>Explain why relationship direction changes meaning.</li><li>Connect several triples into one evidence path.</li><li>Separate an explicit graph claim from a proven real-world fact.</li><li>Draft one source-bounded utility relationship.</li></ul><p><strong>Misconception we will change:</strong> More records automatically give a machine more understanding.</p></div>
+      </section>
+
+<section class="lesson-section" id="opening">
+  <header class="section-heading">
+    <span class="section-number">01</span>
+    <div><span class="kind">Utility scene</span><h2>The data is present. The relationship is missing.</h2></div>
+  </header>
+  <div class="prose"><p>A pump alarm appears at 2:00 a.m. The screen says Pump P-104. The operator can see a pressure reading, a work order, a map, and customer records, but none of those records states the complete answer the operator needs.</p><p>The useful question is not, &quot;How much data do we have?&quot; It is, &quot;What does this pump serve, and what is connected to that service area?&quot; Water, wastewater, and stormwater teams ask that same relationship question in different forms.</p></div>
+
+<figure class="learning-visual" id="mbm01-utility-scene"
+  data-visual-type="editorial-utility-scene"
+  data-component-source="structured-module-package">
+  <h3>The relationship hiding inside the alarm</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin at the control-room alarm, follow the orange relationship through the pump and pressure zone, then inspect the separate systems that contribute evidence.</div>
+  <div class="visual-frame">
+    <img src="../modules/module-01-rdf-in-15-minutes/visuals/utility-relationship-scene.svg" alt="A control-room alarm for Pump P-104 connects through a named serves relationship to Pressure Zone 3, with GIS, work-order, and customer records surrounding the physical water system.">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> More readings do not create meaning by themselves. A named relationship connects the event to an operational consequence.</figcaption>
+</figure>
+
+<section class="component" id="mbm01-opening-choice" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="opening-choice"
+  data-correct-feedback="Correct. The statement names two things and the directed relationship between them."
+  data-incorrect-feedback="Choose the statement that explicitly says how one utility thing relates to another.">
+  <header class="component-header"><h3>Which statement gives a machine one reusable piece of meaning?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">Pump P-104 serves Pressure Zone 3.</button>
+<button class="choice" type="button" data-choice data-correct="false">P-104, Zone 3, alarm, 2:00 a.m.</button>
+<button class="choice" type="button" data-choice data-correct="false">Open the pump dashboard.</button>
+<button class="choice" type="button" data-choice data-correct="false">The pump probably affects nearby customers.</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>What to notice</h3><p>The alarm reports an event. The relationship explains why that event may matter somewhere else. Those are different jobs.</p></aside>
+</section>
+<section class="lesson-section" id="triple">
+  <header class="section-heading">
+    <span class="section-number">02</span>
+    <div><span class="kind">Build the triple</span><h2>One statement has three jobs</h2></div>
+  </header>
+  <div class="prose"><p>Resource Description Framework, shortened to RDF, represents information as small statements called triples. The subject is the thing you are describing. The predicate names the relationship. The object is the thing or value on the other end.</p><p>&quot;Pump P-104 serves Pressure Zone 3&quot; becomes Pump_P104, serves, Pressure_Zone_3. The structure is simple. The hard work is agreeing on identity, relationship meaning, source, and authority.</p></div>
+
+<figure class="learning-visual" id="mbm01-triple-anatomy"
+  data-visual-type="explanatory-diagram"
+  data-component-source="structured-module-package">
+  <h3>The anatomy of one RDF triple</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start with the blue subject card, cross the orange directed predicate, and finish at the green object card. Then compare the reversed statement below.</div>
+  <div class="visual-frame">
+    <img src="../modules/module-01-rdf-in-15-minutes/visuals/triple-anatomy.svg" alt="A three-part RDF statement shows Pump P-104 as subject, serves as predicate, and Pressure Zone 3 as object, followed by an incorrect reversed statement.">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Read a triple from left to right. Reversing the ends without changing the predicate creates a different and usually incorrect claim.</figcaption>
+</figure>
+
+<section class="component" id="mbm01-triple-builder" data-triple-builder
+  data-purposeful-interaction="triple-builder"
+  data-component-source="structured-module-package"
+  data-completion="triple-built"
+  data-correct="[&quot;Pump_P104&quot;,&quot;serves&quot;,&quot;Pressure_Zone_3&quot;]"
+  data-minimum-explanation="18">
+  <header class="component-header"><h3>Build it, reverse it, explain it</h3><span class="kind">Triple construction</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the subject, predicate, and object. Check the triple, reverse it, then explain why the reversed claim fails.</p>
+    <div class="triple-builder">
+      <label>Subject<select><option value="">Choose</option><option value="Pump_P104">Pump_P104</option><option value="Pressure_Zone_3">Pressure_Zone_3</option><option value="Outfall_12">Outfall_12</option></select></label>
+      <span class="triple-arrow" aria-hidden="true">→</span>
+      <label>Predicate<select><option value="">Choose</option><option value="serves">serves</option><option value="drains">drains</option><option value="located_in">located_in</option></select></label>
+      <span class="triple-arrow" aria-hidden="true">→</span>
+      <label>Object<select><option value="">Choose</option><option value="Pressure_Zone_3">Pressure_Zone_3</option><option value="Pump_P104">Pump_P104</option><option value="Catchment_5">Catchment_5</option></select></label>
+    </div>
+    <div class="triple-output" data-triple-output aria-live="polite">Choose all three positions.</div>
+    <div class="button-row">
+      <button class="button primary" type="button" data-check-triple>Check triple</button>
+      <button class="button" type="button" data-reverse disabled>Reverse the ends</button>
+    </div>
+    <label class="work-product">Why does the reversed statement change the meaning?
+      <textarea rows="3" placeholder="Explain the direction change"></textarea>
+    </label>
+    <button class="button good" type="button" data-finish-triple>Finish construction</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
 </section>
 
-<div class="wrap lesson" id="lesson-start">
-  <div class="requirements" aria-label="Completion evidence">
-    <div class="req" data-requirement="opening"><i></i>Choose a useful relationship</div>
-    <div class="req" data-requirement="construct"><i></i>Build and reverse a triple</div>
-    <div class="req" data-requirement="trace"><i></i>Trace a three-edge path</div>
-    <div class="req" data-requirement="artifact"><i></i>Save a Relationship Card</div>
-    <div class="req" data-requirement="applied"><i></i>Pass the applied check</div>
+<section class="component" id="mbm01-term-cards" data-flip-group
+  data-purposeful-interaction="flip-cards" data-quiz-type="flip-cards"
+  data-quiz-source="structured-module-package"
+  data-completion="term-cards"
+  data-correct-feedback="All four meanings reviewed. Now use them in the graph path.">
+  <header class="component-header"><h3>Say the job of each RDF position before revealing the answer.</h3><span class="kind">Flip-card retrieval</span></header>
+  <div class="component-body">
+    <p class="component-intro">Say the answer before selecting each card. Select all four cards to complete this retrieval check.</p>
+    <div class="flip-grid">
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Subject</span>
+    <span class="flip-face flip-back">The thing the statement describes. In the example, Pump P-104.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Predicate</span>
+    <span class="flip-face flip-back">The named, directed relationship. In the example, serves.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Object</span>
+    <span class="flip-face flip-back">The thing or value on the other end. In the example, Pressure Zone 3.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Triple</span>
+    <span class="flip-face flip-back">One complete subject, predicate, object statement.</span>
+  </span>
+</button></div>
+    <div class="feedback" data-feedback aria-live="polite"></div>
   </div>
+</section>
+<aside class="callout"><h3>Boundary</h3><p>Writing a triple makes a claim explicit. It does not prove that the claim is current, authoritative, or true.</p></aside>
+</section>
+<section class="lesson-section" id="graph">
+  <header class="section-heading">
+    <span class="section-number">03</span>
+    <div><span class="kind">Connect the graph</span><h2>Repeated statements become a path</h2></div>
+  </header>
+  <div class="prose"><p>Add two more statements. Pressure Zone 3 contains Premise 88. Premise 88 is linked to Service Account 901. The shared things connect the statements into a path.</p><p>A machine can follow that path because every edge is named and directed. The circles and lines are a visual explanation. The graph itself is the underlying set of statements and identifiers.</p></div>
 
-  <section class="chapter narrow">
-    <div class="chapter-head"><span class="chapter-index">1</span><div><span class="kind">Start with a question</span><h2>What relationship would help at 2:00 a.m.?</h2></div></div>
-    <div class="teaching">
-      <p>A pump alarm appears in the control room. The screen says <b>Pump P-104</b>. An operator does not need another pile of data. The operator needs to know what that pump serves, where it is, what work is open, and which customers could be affected.</p>
-      <p>Here are three ordinary questions. In water: which pressure zone does this pump serve? In wastewater: which lift station discharges to this force main? In stormwater: which outfall drains this catchment? Each question asks for the same basic unit of understanding: <b>how one thing relates to another thing</b>.</p>
-    </div>
-    <div class="view foundation"><p>Your job is to name two things and the relationship between them. Nothing more technical is required yet.</p></div>
-    <div class="view practitioner"><p>Your job is to preserve direction, stable identifiers, source authority, and the boundary between a resource and a recorded value.</p></div>
-    <div class="view leader"><p>Your job is to ask whether the relationship is reusable, owned, and important enough to govern across teams.</p></div>
-    <div class="coach" data-instructor-explanation data-teaches="opening-choice utility-scene"><strong>Before you answer</strong><p>Choose the statement that could be reused by operations, maintenance, planning, and an artificial intelligence application without guessing. Then read the scene from the alarm to the affected zone. Notice that a label on a screen is not yet a relationship.</p></div>
-    <div class="panel" id="opening-choice" data-opening-decision data-required="opening" data-quiz data-quiz-type="multiple-choice" data-quiz-source="quiz-gallery" data-correct-feedback="Correct. The statement names the two things and the relationship between them." data-retry="Try again. Choose the statement that explicitly names how one utility thing relates to another.">
-      <div class="panel-head">Opening decision <span class="kind">Multiple choice</span></div>
-      <div class="panel-body"><h3>Which statement gives the machine a reusable piece of meaning?</h3>
-        <div class="choice-grid">
-          <button class="choice" type="button" data-correct="1">Pump P-104 serves Pressure Zone 3.</button>
-          <button class="choice" type="button" data-correct="0">P-104, Zone 3, alarm, 2:00 a.m.</button>
-          <button class="choice" type="button" data-correct="0">Open the pump dashboard.</button>
-          <button class="choice" type="button" data-correct="0">The pump probably affects nearby customers.</button>
-        </div>
-        <button class="btn primary" type="button" data-check-quiz>Check my choice</button><div class="feedback" aria-live="polite"></div>
-      </div>
-    </div>
-    <div class="panel" id="utility-scene" data-visual-type="editorial-illustration" data-component-source="component-gallery">
-      <div class="panel-head">The relationship hiding inside the alarm <span class="kind">Editorial utility evidence scene</span></div>
-      <div class="panel-body">
-        <div class="reading-guide" data-reading-guide><b>How to read it:</b> Begin with the physical pump. The control-system alarm tells you that something happened. The asset-to-zone relationship tells you why the event matters beyond the pump.</div>
-        <div class="evidence-board">
-          <article class="card tint"><span class="micro-label">Physical system</span><h3>Pump P-104</h3><p>Discharge pressure fell below the operating threshold at 2:00 a.m.</p></article>
-          <article class="card"><span class="micro-label">Missing connection</span><h3>serves</h3><p>This named relationship connects the asset to the part of the system that depends on it.</p></article>
-          <article class="card tint"><span class="micro-label">Operational consequence</span><h3>Pressure Zone 3</h3><p>The zone gives operations a path toward premises, service accounts, critical facilities, and procedures.</p></article>
-          <article class="card"><span class="micro-label">Human boundary</span><h3>Operator reviews</h3><p>The relationship supports the answer. It does not authorize a model to issue an advisory or operate the pump.</p></article>
-        </div>
-        <div class="conclusion" data-learner-conclusion><b>What the scene proves:</b> More readings do not create meaning by themselves. A named relationship connects the reading to an operational consequence.</div>
-      </div>
-    </div>
-  </section>
+<figure class="learning-visual" id="mbm01-graph-growth"
+  data-visual-type="graph-growth-diagram"
+  data-component-source="structured-module-package">
+  <h3>Three triples become one answer path</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the three source statements at the top, then follow their shared nodes into the single path below from Pump P-104 to Service Account 901.</div>
+  <div class="visual-frame">
+    <img src="../modules/module-01-rdf-in-15-minutes/visuals/graph-growth.svg" alt="Three RDF triples share Pressure Zone 3 and Premise 88, forming a path from Pump P-104 to Service Account 901.">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The answer crosses operational, spatial, and customer records. Every edge must remain named, directed, and supportable.</figcaption>
+</figure>
 
-  <section class="chapter">
-    <div class="chapter-head"><span class="chapter-index">2</span><div><span class="kind">Build it</span><h2>Subject, predicate, object</h2></div></div>
-    <div class="teaching" data-worked-example>
-      <p>The World Wide Web Consortium calls this three-part statement a <span class="term" data-def="A statement with exactly three positions: subject, predicate, and object.">triple</span>. The thing you are talking about is the <span class="term" data-def="The resource the statement describes.">subject</span>. The named relationship is the <span class="term" data-def="The property that says how the subject relates to the object.">predicate</span>. The thing or value on the other end is the <span class="term" data-def="The resource or literal value connected to the subject by the predicate.">object</span>.</p>
-      <p>So the ordinary sentence “Pump P-104 serves Pressure Zone 3” becomes: <b>Pump_P104 → serves → Pressure_Zone_3</b>. The arrows matter. If you reverse the subject and object without changing the predicate, you say that the pressure zone serves the pump. The words are still recognizable, but the meaning is wrong.</p>
-      <p><span class="term" data-def="Resource Description Framework, a W3C framework for representing information as triples.">Resource Description Framework (RDF)</span> gives this pattern a standard form. A <span class="term" data-def="A thing identified in the graph, such as a pump, zone, person, document, or procedure.">resource</span> can be an asset, place, person, event, procedure, or document. A <span class="term" data-def="A value such as a number, date, or text string rather than another identified resource.">literal</span> can be a number, date, or text value.</p>
-    </div>
-    <div class="coach" data-instructor-explanation data-teaches="triple-anatomy triple-builder"><strong>Use the bench</strong><p>First read the triple from left to right. Then choose the correct pump, relationship, and zone. Check it, reverse it, and explain why the reversed statement fails. The visible change teaches direction, which is one of the easiest RDF details to overlook.</p></div>
-    <div class="panel" id="triple-anatomy" data-visual-type="comparison-table" data-component-source="component-gallery">
-      <div class="panel-head">One statement, three jobs <span class="kind">Governed comparison table</span></div>
-      <div class="panel-body">
-        <div class="reading-guide" data-reading-guide><b>How to read it:</b> Read down each column. The position tells you the job. The identifier tells you which thing. The displayed label can change without changing the identity.</div>
-        <div class="comparison-scroll"><table><thead><tr><th>Position</th><th>Question</th><th>Example</th><th>What can go wrong</th></tr></thead><tbody>
-          <tr><th>Subject</th><td>What are we describing?</td><td>Pump_P104</td><td>A local label identifies the wrong pump.</td></tr>
-          <tr><th>Predicate</th><td>How does it relate?</td><td>serves</td><td>A vague column name hides direction.</td></tr>
-          <tr><th>Object</th><td>What is on the other end?</td><td>Pressure_Zone_3</td><td>A text value is mistaken for an identified zone.</td></tr>
-        </tbody></table></div>
-        <div class="conclusion" data-learner-conclusion><b>What the table clarifies:</b> RDF is simple because each position has one job. Precision comes from choosing the right identifiers and relationship.</div>
-      </div>
-    </div>
-    <div class="panel" id="triple-builder" data-purposeful-interaction="triple-construction-and-reversal" data-required="construct" data-component-source="meaning-before-models-course-library" data-quiz-type="triple-construction" data-quiz-source="applied-assessment-contract" data-retry="Build Pump_P104 serves Pressure_Zone_3, then reverse it and explain why direction changes the meaning.">
-      <div class="panel-head">Triple construction bench <span class="kind">Course-specific RDF mechanism</span></div>
-      <div class="panel-body">
-        <div class="triple" data-triple>
-          <label class="triple-slot"><span>Subject</span><select data-part="subject"><option value="">Choose</option><option>Pump_P104</option><option>Pressure_Zone_3</option><option>Outfall_12</option></select></label><span class="arrow">→</span>
-          <label class="triple-slot predicate"><span>Predicate</span><select data-part="predicate"><option value="">Choose</option><option>serves</option><option>located_in</option><option>inspected_on</option></select></label><span class="arrow">→</span>
-          <label class="triple-slot object"><span>Object</span><select data-part="object"><option value="">Choose</option><option>Pressure_Zone_3</option><option>Pump_P104</option><option>2026-07-22</option></select></label>
-        </div>
-        <div class="toolbar"><button class="btn primary" type="button" data-build-triple>Check triple</button><button class="btn" type="button" data-reverse-triple disabled>Reverse subject and object</button></div>
-        <div class="code" data-triple-output aria-live="polite">Choose all three parts.</div>
-        <label>Why does the reversed statement fail?<textarea rows="2" data-reversal-explanation placeholder="Explain what changed"></textarea></label>
-        <button class="btn good" type="button" data-complete-triple>Finish construction</button>
-        <div class="feedback" aria-live="polite"></div>
-      </div>
-    </div>
-    <div class="debrief"><b>Debrief:</b> RDF did not make the utility fact true. It made the claim explicit and inspectable. The source mapping, owner, and review process still determine whether you should trust it.</div>
-  </section>
+<section class="component" id="mbm01-path-tracer" data-path-tracer
+  data-purposeful-interaction="path-tracer"
+  data-component-source="structured-module-package"
+  data-completion="path-traced">
+  <header class="component-header"><h3>Trace the evidence path</h3><span class="kind">Evidence path</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select the three edges in order. Read what each edge adds before moving to the next.</p>
+    <div class="path-strip">
+<button class="edge-button" type="button" data-edge-index="0" data-explanation="The asset-to-zone relationship comes from the approved utility network model.">
+  <strong>1. Pump P-104 → serves → Pressure Zone 3</strong>
+  <span>The asset-to-zone relationship comes from the approved utility network model.</span>
+</button>
+<button class="edge-button" type="button" data-edge-index="1" data-explanation="The spatial relationship connects the pressure zone to a served premise.">
+  <strong>2. Pressure Zone 3 → contains → Premise 88</strong>
+  <span>The spatial relationship connects the pressure zone to a served premise.</span>
+</button>
+<button class="edge-button" type="button" data-edge-index="2" data-explanation="The customer system links the premise to the service account.">
+  <strong>3. Premise 88 → has_service_account → Service Account 901</strong>
+  <span>The customer system links the premise to the service account.</span>
+</button></div>
+    <div class="button-row"><button class="button" type="button" data-reset-path>Reset path</button></div>
+    <div class="feedback" data-feedback aria-live="polite">Begin with edge 1.</div>
+  </div>
+</section>
 
-  <section class="chapter">
-    <div class="chapter-head"><span class="chapter-index">3</span><div><span class="kind">Connect it</span><h2>Three triples become a path</h2></div></div>
-    <div class="teaching">
-      <p>One triple is useful. A chain of triples is where the larger idea becomes visible. Add “Pressure Zone 3 contains Premise 88” and “Premise 88 serves Account 901.” A machine can now follow a path from the pump to the service account.</p>
-      <p>This connected set of identified things and named relationships is a <span class="term" data-def="A set of nodes and directed, labelled relationships that can be followed as paths.">graph</span>. The circles-and-lines picture is only a visualization. The graph itself is the machine-readable statements underneath it.</p>
-    </div>
-    <div class="coach" data-instructor-explanation data-teaches="path-graph path-check"><strong>Trace the answer</strong><p>Select each numbered edge in order. The path will light up from Pump P-104 to Account 901. At every step, ask what additional fact became available and which source would have to support that relationship.</p></div>
-    <div class="panel" id="path-graph" data-visual-type="network-diagram" data-component-source="component-gallery">
-      <div class="panel-head">From a pump to a customer account <span class="kind">Network / wire diagram</span></div>
-      <div class="panel-body">
-        <div class="reading-guide" data-reading-guide><b>How to read it:</b> Start at the upper left. The edge labels are the predicates. Select edge 1, then 2, then 3. The path is only as trustworthy as the three source-backed relationships.</div>
-        <div class="graph-canvas" data-path-canvas>
-          <button class="graph-card" style="left:4%;top:12%" type="button">Pump P-104</button>
-          <button class="graph-card" style="left:38%;top:12%" type="button">Pressure Zone 3</button>
-          <button class="graph-card" style="left:38%;top:66%" type="button">Premise 88</button>
-          <button class="graph-card" style="right:4%;top:66%" type="button">Account 901</button>
-          <svg viewBox="0 0 900 370" aria-hidden="true">
-            <line class="graph-edge" data-edge="1" x1="150" y1="70" x2="420" y2="70"/><text class="edge-label" x="265" y="55">serves</text>
-            <line class="graph-edge" data-edge="2" x1="510" y1="100" x2="510" y2="255"/><text class="edge-label" x="526" y="185">contains</text>
-            <line class="graph-edge" data-edge="3" x1="600" y1="290" x2="770" y2="290"/><text class="edge-label" x="650" y="275">served_by</text>
-          </svg>
-        </div>
-        <div class="toolbar"><button class="btn path-step" type="button" data-path="1">1. Pump to zone</button><button class="btn path-step" type="button" data-path="2">2. Zone to premise</button><button class="btn path-step" type="button" data-path="3">3. Premise to account</button><button class="btn" type="button" data-path-reset>Reset</button></div>
-        <div class="conclusion" data-learner-conclusion><b>What the path reveals:</b> The answer crosses operational, spatial, and customer records. RDF gives those separate relationships one traversable form.</div>
-      </div>
-    </div>
-    <div class="panel" id="path-check" data-purposeful-interaction="ordered-relationship-path-trace" data-required="trace" data-component-source="meaning-before-models-course-library" data-quiz-type="path-trace" data-quiz-source="applied-assessment-contract" data-retry="Trace edges 1, 2, and 3 in order before checking the path.">
-      <div class="panel-head">Path check <span class="kind">Relationship tracing</span></div>
-      <div class="panel-body"><p>What can the graph support after all three relationships are present?</p>
-        <div class="choice-grid"><button class="choice" type="button" data-path-answer="0">The pump is definitely the cause of every customer complaint.</button><button class="choice" type="button" data-path-answer="1">Account 901 is connected to a premise in the pressure zone served by Pump P-104.</button></div>
-        <button class="btn primary" type="button" data-check-path>Check the path claim</button><div class="feedback" aria-live="polite"></div>
-      </div>
-    </div>
-  </section>
+<section class="component" id="mbm01-path-claim" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="path-claim"
+  data-correct-feedback="Correct. The path supports a connection. It does not prove causation or authorize an action."
+  data-incorrect-feedback="Choose the claim that repeats only the relationships present in the graph.">
+  <header class="component-header"><h3>What can the completed path support?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Pump P-104 caused every complaint from Service Account 901.</button>
+<button class="choice" type="button" data-choice data-correct="true">Service Account 901 is linked to a premise in the pressure zone served by Pump P-104.</button>
+<button class="choice" type="button" data-choice data-correct="false">The utility should automatically notify the account holder.</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="transfer">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Professional application</span><h2>Take one relationship back to work</h2></div>
+  </header>
+  <div class="prose"><p>Do not begin by modeling the whole enterprise. Start with one relationship that answers a recurring question. Name the subject, predicate, object, source, and the question the relationship supports.</p><p>Use a real water, wastewater, or stormwater example. Another team should be able to find the source, challenge the claim, and understand exactly what the relationship means.</p></div>
 
-  <section class="chapter narrow">
-    <div class="chapter-head"><span class="chapter-index">4</span><div><span class="kind">Take it to work</span><h2>Write one relationship your utility needs</h2></div></div>
-    <div class="teaching"><p>Do not start by trying to model the enterprise. Start with a relationship that answers one recurring question. Name the subject, predicate, object, source, and question it supports. That is enough for a useful first conversation with operations, GIS, maintenance, customer service, or data staff.</p></div>
-    <div class="coach" data-instructor-explanation data-teaches="relationship-card final-relationship-check"><strong>Build the card</strong><p>Use a real water, wastewater, or stormwater relationship. Be specific enough that another team could find the source and challenge the statement. The final check looks for a complete relationship and a source boundary, not polished prose.</p></div>
-    <div class="panel" id="relationship-card">
-      <div class="panel-head">Pocket Relationship Card <span class="kind">Professional work product</span></div>
-      <div class="panel-body artifact-grid">
-        <form data-artifact="relationship-card" data-required="artifact">
-          <div class="form-grid">
-            <label>Subject <small>One identified utility thing</small><input name="subject" required></label>
-            <label>Predicate <small>One directed relationship</small><input name="predicate" required></label>
-            <label>Object <small>Another thing or a value</small><input name="object" required></label>
-            <label>Authoritative source <small>Where the relationship is supported</small><input name="source" required></label>
-          </div>
-          <label>Question this relationship helps answer<textarea name="question" rows="3" required></textarea></label>
-          <button class="btn primary" type="submit">Save Relationship Card</button><div class="feedback" aria-live="polite"></div>
-        </form>
-        <pre data-artifact-preview>Complete the card to create a local preview.</pre>
-      </div>
+<section class="component" id="mbm01-relationship-card"
+  data-purposeful-interaction="applied-work-product"
+  data-component-source="structured-module-package">
+  <header class="component-header"><h3>Professional Work Product</h3><span class="kind">Professional work product</span></header>
+  <div class="component-body">
+    <p class="component-intro">Draft one useful utility relationship and identify the source and operational question.</p>
+    <form class="work-product" data-work-product="mbm01-relationship-card"
+      data-artifact="mbm01-relationship-card"
+      data-completion="relationship-card"
+      data-correct-feedback="Your card contains one inspectable relationship and the question it helps answer."
+      data-incorrect-feedback="Complete all five fields. Use one subject, one directed predicate, one object, one source, and one utility question.">
+      <div class="field-grid"><label>Subject<input name="subject" required></label><label>Predicate<input name="predicate" required></label><label>Object<input name="object" required></label><label>Authoritative source<input name="source" required></label></div>
+      <label>Utility question this relationship helps answer<textarea name="question" rows="3" required></textarea></label>
+      <button class="button primary" type="submit">Save Work Product</button>
+      <div class="feedback" data-feedback aria-live="polite"></div>
+      <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
+    </form>
+  </div>
+</section>
+
+<section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
+  <h3 id="faq-heading">Questions people actually ask</h3>
+  <details><summary>Is RDF a database?</summary><p>No. RDF is a standard model for expressing information as triples. The triples may be stored in a graph database, generated from tables, exchanged as files, or exposed through an application interface.</p></details>
+<details><summary>Is the graph the circles-and-lines picture?</summary><p>No. The picture is one view. The graph is the underlying set of identified things and directed, named relationships.</p></details>
+<details><summary>Why not use a spreadsheet?</summary><p>For one small local task, a spreadsheet may be enough. RDF becomes useful when the same pump, zone, premise, procedure, customer, and permit must connect across systems through reusable meanings.</p></details>
+<details><summary>Can the object be a number or date?</summary><p>Yes. An object may be another identified resource or a literal value such as a number, date, or text string.</p></details>
+<details><summary>Does a triple prove the statement is true?</summary><p>No. It makes the claim explicit. Trust still depends on source, mapping, effective time, authority, review, and validation.</p></details>
+</section>
+
+<section class="evidence" data-evidence-boundary>
+  <h3>Evidence boundary</h3>
+  <p>Pump P-104, Pressure Zone 3, Premise 88, and Service Account 901 are instructional examples. RDF definitions are grounded in World Wide Web Consortium standards. The scenario does not establish an operational fact or authorize an action.</p>
+  <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Syntax</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/rdf12-primer/">RDF 1.2 Primer</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>, World Wide Web Consortium</li></ul>
+</section>
+</section>
+      <section id="owos-course-community" class="connected">
+        <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+      </section>
+      <section class="completion">
+        <h2>Complete the working candidate</h2>
+        <p>Complete both interactions, both concept checks, the opening decision, and the Relationship Card.</p>
+        <button class="button good" type="button" data-complete-module disabled>Complete module</button>
+        <p data-completion-status aria-live="polite"></p>
+      </section>
     </div>
-    <div class="panel" id="final-relationship-check" data-final-applied-check data-artifact-ref="relationship-card" data-required="applied" data-quiz-type="applied-assessment" data-quiz-source="applied-assessment-contract" data-retry="Name one subject, one directed predicate, one object, a source, and a utility question.">
-      <div class="panel-head">Applied demonstration <span class="kind">Artifact review</span></div>
-      <div class="panel-body"><p>Run the check after saving. A useful card states one inspectable relationship and the operational question it supports.</p><button class="btn good" type="button" data-final-check="relationship-card" data-required="applied">Check my card</button><div class="feedback" aria-live="polite"></div></div>
-    </div>
-  </section>
+  </main>
+  <div class="drawer-scrim" data-drawer-scrim></div>
+  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+    <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Syntax</h3><p>Definition of the RDF data model and triples</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>RDF 1.2 Primer</h3><p>Plain-language RDF examples and graph explanation</p><a href="https://www.w3.org/TR/rdf12-primer/">Open source</a></article><article><h3>RDF 1.1 Turtle</h3><p>Serialization reference used in the following module</p><a href="https://www.w3.org/TR/turtle/">Open source</a></article></div>
+  </aside>
+  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article><h3>Resource Description Framework (RDF)</h3><p>A World Wide Web Consortium framework for representing information as subject, predicate, object statements.</p></article><article><h3>triple</h3><p>One complete statement with a subject, predicate, and object.</p></article><article><h3>subject</h3><p>The identified thing the statement describes.</p></article><article><h3>predicate</h3><p>The named, directed relationship between the subject and object.</p></article><article><h3>object</h3><p>The identified thing or literal value on the other end of the predicate.</p></article><article><h3>graph</h3><p>A connected set of identified nodes and directed, named relationships.</p></article></div>
+  </aside>
+  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 1.0.0-structured-candidate. No credential or operational authority.</div></footer>
+  <script>(() => {
+  "use strict";
 
-  <section class="chapter faq" data-module-faq>
-    <div class="chapter-head"><span class="chapter-index">?</span><div><span class="kind">Questions people actually ask</span><h2>RDF primer FAQ</h2></div></div>
-    <details><summary>Is RDF a database?</summary><p>No. RDF is a data model for expressing statements as triples. You can store those triples in a graph database, generate them virtually from tables, exchange them as files, or expose them through an application interface. A wastewater utility could keep work orders in its existing enterprise asset management system and map selected relationships into RDF without replacing that system.</p></details>
-    <details><summary>Is the graph the circles-and-lines picture?</summary><p>The picture is one view of the graph. The graph is the underlying set of identified resources and directed relationships. A large utility graph may contain millions of statements, even though a screen shows only the path needed for the current question.</p></details>
-    <details><summary>Why not put the same information in a spreadsheet?</summary><p>You can, and for one small local task a spreadsheet may be the better choice. RDF becomes valuable when the same pump, zone, premise, account, procedure, and permit need to connect across systems and be queried through reusable relationships.</p></details>
-    <details><summary>Can the object be a number or date?</summary><p>Yes. “Pump P-104 has design flow 2,500 gallons per minute” can use a typed numeric literal as the object. The lesson used another resource as the object because a pressure zone has its own identity and relationships.</p></details>
-    <details><summary>Does writing a triple prove the statement is true?</summary><p>No. The triple makes the claim explicit. Trust still depends on the source, mapping, effective time, reviewer, and authority. Later modules add identity controls, provenance, validation, and inference boundaries.</p></details>
-  </section>
+  const required = JSON.parse(document.body.dataset.requiredIds || "[]");
+  const stateKey = `owos-module:${document.body.dataset.moduleId}:${document.body.dataset.sourceVersion}`;
+  const completed = new Set();
+  let lastDrawerTrigger = null;
 
-  <section class="evidence" data-evidence-boundary>
-    <h2>Evidence boundary</h2>
-    <p>Pump P-104, Pressure Zone 3, Premise 88, and Account 901 are instructional examples. RDF definitions are grounded in World Wide Web Consortium standards. The example does not establish an operational fact or authorize an action.</p>
-    <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Syntax</a></li><li><a href="https://www.w3.org/TR/rdf12-primer/">RDF 1.2 Primer</a></li><li><a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a></li></ul>
-  </section>
+  try {
+    const saved = JSON.parse(localStorage.getItem(stateKey) || "[]");
+    saved.forEach((id) => completed.add(id));
+  } catch {
+    localStorage.removeItem(stateKey);
+  }
 
-  <section id="owos-course-community" class="connected">
-    <article><span class="kind">Knowledge Graph</span><h3>Inspect this lesson’s relationships</h3><p>Open the same-page panel to connect the lesson to sources, roles, relationships, and the construction competency.</p><button class="btn" type="button" data-open-graph>Open Graph</button></article>
-    <article><span class="kind">Community</span><h3>Compare one real utility relationship</h3><p>Share a draft relationship for discussion. Community comments are not verified evidence and do not change the governed lesson.</p><button class="btn" type="button" data-open-community>Open Community</button></article>
-  </section>
-  <div class="panel"><div class="panel-body"><button class="btn good" type="button" data-complete disabled>Complete lesson</button><p id="live" aria-live="polite">Complete the five visible requirements to enable this control.</p></div></div>
-  <nav class="footnav"><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="module-02-anatomy-of-a-triple.html">Next: Anatomy of a Triple</a></nav>
-</div>
-</main>
+  function saveState() {
+    localStorage.setItem(stateKey, JSON.stringify([...completed].sort()));
+  }
 
-<div class="drawer-scrim" data-close-drawer></div>
-<aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body">
-  <div class="reading-guide"><b>How to read it:</b> The lesson is connected to a standard, a role, a named relationship, and a competency. These are context links, not a decorative node cloud.</div>
-  <div class="stack"><button type="button" data-graph-kind="concept"><b>Concept:</b> RDF triple</button><button type="button" data-graph-kind="source"><b>Source:</b> W3C RDF Concepts</button><button type="button" data-graph-kind="relationship"><b>Relationship:</b> subject → predicate → object</button><button type="button" data-graph-kind="role"><b>Role:</b> utility data steward</button><button type="button" data-graph-kind="competency"><b>Competency:</b> construct and explain one utility triple</button></div>
-</div></aside>
-<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body">
-  <label data-community-feature="search">Search discussions<input type="search"></label><div class="toolbar" data-community-feature="filters"><button class="btn" type="button">Water</button><button class="btn" type="button">Wastewater</button><button class="btn" type="button">Stormwater</button></div><p data-community-feature="presence">Working-review presence is simulated locally.</p>
-  <article class="card" data-community-feature="instructor-treatment"><h3>Instructor prompt</h3><p>What relationship do people in your utility repeatedly reconstruct by hand?</p><button class="btn" type="button" data-community-feature="bookmarks">Bookmark</button><div data-community-feature="threaded-replies"><p><b>Course member:</b> We repeatedly connect pump stations to emergency response procedures.</p></div></article>
-</div></aside>
-<div id="tt" role="tooltip"></div>
-<footer class="footer"><div class="wrap">Retrofit working candidate. No release, credential, graph publication, or operational authority claim.</div></footer>
-<script src="meaning-fieldbook.js"></script>
-<script>
-(() => {
-  const root = document.querySelector("#triple-builder");
-  const output = root.querySelector("[data-triple-output]");
-  const feedback = root.querySelector(".feedback");
-  const values = () => [...root.querySelectorAll("select")].map((field) => field.value);
-  let built = false;
-  let reversed = false;
-  root.querySelector("[data-build-triple]").addEventListener("click", () => {
-    const [s,p,o] = values();
-    built = s === "Pump_P104" && p === "serves" && o === "Pressure_Zone_3";
-    output.textContent = s && p && o ? `${s} → ${p} → ${o}` : "Choose all three parts.";
-    feedback.textContent = built ? "Correct. Now reverse it and inspect the changed meaning." : "Use Pump_P104 as the subject, serves as the predicate, and Pressure_Zone_3 as the object.";
-    feedback.className = `feedback ${built ? "good" : "bad"}`;
-    root.querySelector("[data-reverse-triple]").disabled = !built;
-  });
-  root.querySelector("[data-reverse-triple]").addEventListener("click", () => {
-    const fields = root.querySelectorAll("select");
-    const first = fields[0].value;
-    fields[0].value = fields[2].value;
-    fields[2].value = first;
-    reversed = true;
-    output.textContent = `${fields[0].value} → ${fields[1].value} → ${fields[2].value}`;
-    feedback.textContent = "The words remain familiar, but the direction now says that the zone serves the pump.";
-    feedback.className = "feedback bad";
-  });
-  root.querySelector("[data-complete-triple]").addEventListener("click", () => {
-    const explanation = root.querySelector("[data-reversal-explanation]").value.trim();
-    if (built && reversed && explanation.length >= 12) {
-      feedback.textContent = "Construction complete. You showed that direction carries meaning.";
-      feedback.className = "feedback good";
-      MBM.mark("construct");
-    } else {
-      feedback.textContent = "Build the correct triple, reverse it, and explain the change in at least one sentence.";
-      feedback.className = "feedback bad";
+  function refreshCompletion() {
+    document.querySelectorAll("[data-completion-id]").forEach((item) => {
+      item.classList.toggle("done", completed.has(item.dataset.completionId));
+    });
+    const ready = required.every((id) => completed.has(id));
+    const button = document.querySelector("[data-complete-module]");
+    const status = document.querySelector("[data-completion-status]");
+    if (button) button.disabled = !ready;
+    if (status) {
+      const count = required.filter((id) => completed.has(id)).length;
+      status.textContent = ready
+        ? "All required evidence is complete. You can complete this working candidate."
+        : `${count} of ${required.length} required activities complete.`;
     }
+  }
+
+  function mark(id) {
+    if (!id) return;
+    completed.add(id);
+    saveState();
+    refreshCompletion();
+  }
+
+  document.querySelectorAll("[data-choice-group]").forEach((group) => {
+    let selected = null;
+    group.querySelectorAll("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        group.querySelectorAll("[data-choice]").forEach((item) => item.classList.remove("selected"));
+        button.classList.add("selected");
+        selected = button;
+      });
+    });
+    group.querySelector("[data-check-choice]")?.addEventListener("click", () => {
+      const feedback = group.querySelector("[data-feedback]");
+      if (!selected) {
+        feedback.textContent = "Choose one response first.";
+        feedback.className = "feedback bad";
+        return;
+      }
+      const correct = selected.dataset.correct === "true";
+      selected.classList.add(correct ? "correct" : "incorrect");
+      feedback.textContent = correct ? group.dataset.correctFeedback : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
   });
 
-  let expected = 1;
-  document.querySelectorAll("[data-path]").forEach((button) => button.addEventListener("click", () => {
-    const step = Number(button.dataset.path);
-    if (step !== expected) return;
-    button.classList.add("selected");
-    document.querySelector(`[data-edge="${step}"]`).classList.add("active");
-    expected += 1;
-  }));
-  document.querySelector("[data-path-reset]").addEventListener("click", () => {
-    expected = 1;
-    document.querySelectorAll("[data-path], [data-edge]").forEach((node) => node.classList.remove("selected","active"));
+  document.querySelectorAll("[data-flip-group]").forEach((group) => {
+    const cards = [...group.querySelectorAll("[data-flip-card]")];
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const revealed = !card.classList.contains("revealed");
+        card.classList.toggle("revealed", revealed);
+        card.setAttribute("aria-pressed", String(revealed));
+        if (cards.every((item) => item.classList.contains("revealed"))) {
+          mark(group.dataset.completion);
+          const feedback = group.querySelector("[data-feedback]");
+          feedback.textContent = group.dataset.correctFeedback;
+          feedback.className = "feedback good";
+        }
+      });
+    });
   });
-  document.querySelectorAll("[data-path-answer]").forEach((button) => button.addEventListener("click", () => {
-    document.querySelectorAll("[data-path-answer]").forEach((node) => node.classList.remove("selected"));
-    button.classList.add("selected");
-  }));
-  document.querySelector("[data-check-path]").addEventListener("click", () => {
-    const selected = document.querySelector("[data-path-answer].selected");
-    const feedback = document.querySelector("#path-check .feedback");
-    const correct = expected === 4 && selected?.dataset.pathAnswer === "1";
-    feedback.textContent = correct ? "Correct. The graph supports the connection, not a claim that the pump caused every outcome." : "Complete the three edges in order and choose the claim the path actually supports.";
-    feedback.className = `feedback ${correct ? "good" : "bad"}`;
-    if (correct) MBM.mark("trace");
+
+  document.querySelectorAll("[data-matching]").forEach((group) => {
+    group.querySelector("[data-check-matching]")?.addEventListener("click", () => {
+      const rows = [...group.querySelectorAll("[data-match-answer]")];
+      const feedback = group.querySelector("[data-feedback]");
+      let correctCount = 0;
+      rows.forEach((field) => {
+        const correct = field.value === field.dataset.matchAnswer;
+        field.classList.toggle("correct-field", correct);
+        field.classList.toggle("incorrect-field", !correct);
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === rows.length;
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : `${group.dataset.incorrectFeedback} ${correctCount} of ${rows.length} are correctly matched.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
   });
+
+  document.querySelectorAll("[data-multi-select]").forEach((group) => {
+    group.querySelector("[data-check-multi]")?.addEventListener("click", () => {
+      const options = [...group.querySelectorAll("[data-multi-option]")];
+      const feedback = group.querySelector("[data-feedback]");
+      const correct = options.every(
+        (option) => option.checked === (option.dataset.correct === "true")
+      );
+      options.forEach((option) => {
+        option.closest(".select-option")?.classList.toggle(
+          "selected-correct",
+          option.checked && option.dataset.correct === "true"
+        );
+        option.closest(".select-option")?.classList.toggle(
+          "selected-incorrect",
+          option.checked && option.dataset.correct !== "true"
+        );
+      });
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-triple-builder]").forEach((builder) => {
+    const selects = [...builder.querySelectorAll("select")];
+    const correct = JSON.parse(builder.dataset.correct);
+    const output = builder.querySelector("[data-triple-output]");
+    const feedback = builder.querySelector("[data-feedback]");
+    const reverseButton = builder.querySelector("[data-reverse]");
+    let built = false;
+    let reversed = false;
+
+    builder.querySelector("[data-check-triple]").addEventListener("click", () => {
+      const values = selects.map((field) => field.value);
+      output.textContent = values.every(Boolean) ? values.join("  →  ") : "Choose all three positions.";
+      built = values.every((value, index) => value === correct[index]);
+      reverseButton.disabled = !built;
+      feedback.textContent = built
+        ? "Correct. Now reverse the ends and inspect what the statement says."
+        : "Use Pump_P104 as subject, serves as predicate, and Pressure_Zone_3 as object.";
+      feedback.className = `feedback ${built ? "good" : "bad"}`;
+    });
+
+    reverseButton.addEventListener("click", () => {
+      const first = selects[0].value;
+      selects[0].value = selects[2].value;
+      selects[2].value = first;
+      reversed = true;
+      output.textContent = selects.map((field) => field.value).join("  →  ");
+      feedback.textContent = "The words are familiar, but the direction now says the pressure zone serves the pump.";
+      feedback.className = "feedback bad";
+    });
+
+    builder.querySelector("[data-finish-triple]").addEventListener("click", () => {
+      const explanation = builder.querySelector("textarea").value.trim();
+      const enough = explanation.length >= Number(builder.dataset.minimumExplanation);
+      if (built && reversed && enough) {
+        mark(builder.dataset.completion);
+        feedback.textContent = "Complete. You showed that direction carries meaning.";
+        feedback.className = "feedback good";
+      } else {
+        feedback.textContent = "Build the correct triple, reverse it, and explain the changed meaning in one full sentence.";
+        feedback.className = "feedback bad";
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-path-tracer]").forEach((tracer) => {
+    const edges = [...tracer.querySelectorAll("[data-edge-index]")];
+    const feedback = tracer.querySelector("[data-feedback]");
+    let expected = 0;
+    edges.forEach((edge) => {
+      edge.addEventListener("click", () => {
+        const index = Number(edge.dataset.edgeIndex);
+        if (index !== expected) {
+          feedback.textContent = `Start with edge ${expected + 1}. A path only works when its relationships connect in order.`;
+          feedback.className = "feedback bad";
+          return;
+        }
+        edge.classList.add("active");
+        expected += 1;
+        feedback.textContent = edge.dataset.explanation;
+        feedback.className = "feedback good";
+        if (expected === edges.length) mark(tracer.dataset.completion);
+      });
+    });
+    tracer.querySelector("[data-reset-path]").addEventListener("click", () => {
+      expected = 0;
+      edges.forEach((edge) => edge.classList.remove("active"));
+      feedback.textContent = "Path reset. Begin with edge 1.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-artifact-classifier]").forEach((desk) => {
+    const items = [...desk.querySelectorAll("[data-triage-item]")];
+    const feedback = desk.querySelector("[data-feedback]");
+    desk.querySelector("[data-check-triage]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      items.forEach((item) => {
+        const field = item.querySelector("select");
+        const correct = field.value === item.dataset.answer;
+        const itemFeedback = item.querySelector("[data-item-feedback]");
+        item.classList.toggle("correct-card", correct);
+        item.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Correct. ${item.dataset.explanation}`
+          : `Try again. Ask what primary job this artifact performs here. ${item.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === items.length;
+      feedback.textContent = correct
+        ? "The desk is organized. The same event now has distinct structures, classifications, meanings, mappings, and runtime controls."
+        : `${correctCount} of ${items.length} artifacts are correctly placed. Use the explanation under each artifact and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(desk.dataset.completion);
+    });
+    desk.querySelector("[data-reset-triage]")?.addEventListener("click", () => {
+      items.forEach((item) => {
+        item.querySelector("select").value = "";
+        item.classList.remove("correct-card", "incorrect-card");
+        item.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "The triage desk is reset.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-failure-trace]").forEach((lab) => {
+    const triggers = [...lab.querySelectorAll("[data-failure-trigger]")];
+    const visited = new Set();
+    const feedback = lab.querySelector("[data-feedback]");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const job = trigger.dataset.failureTrigger;
+        visited.add(job);
+        triggers.forEach((item) => {
+          item.classList.toggle("active", item === trigger);
+          item.setAttribute("aria-pressed", String(item === trigger));
+        });
+        lab.querySelectorAll("[data-failure-result]").forEach((result) => {
+          result.hidden = result.dataset.failureResult !== job;
+        });
+        feedback.textContent =
+          visited.size === triggers.length
+            ? "All five paths inspected. The symptom appears in the answer, but the first repair belongs at the first broken job."
+            : `${visited.size} of ${triggers.length} failure paths inspected.`;
+        feedback.className = "feedback good";
+        if (visited.size === triggers.length) mark(lab.dataset.completion);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-object-router]").forEach((router) => {
+    const items = [...router.querySelectorAll("[data-route-item]")];
+    const feedback = router.querySelector("[data-feedback]");
+    items.forEach((item) => {
+      item.querySelectorAll("[data-route-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          item.querySelectorAll("[data-route-choice]").forEach((choice) => choice.classList.remove("active"));
+          button.classList.add("active");
+          const correct = button.dataset.routeChoice === item.dataset.answer;
+          item.dataset.complete = String(correct);
+          const itemFeedback = item.querySelector("[data-item-feedback]");
+          itemFeedback.textContent = correct
+            ? `Correct. ${item.dataset.explanation}`
+            : `Try the other branch. ${item.dataset.explanation}`;
+          itemFeedback.className = `item-feedback ${correct ? "good-text" : "bad-text"}`;
+          if (items.every((candidate) => candidate.dataset.complete === "true")) {
+            feedback.textContent = "Every object is correctly routed. Resource objects continue relationships; literals carry values.";
+            feedback.className = "feedback good";
+            mark(router.dataset.completion);
+          }
+        });
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-triple-repair-bench]").forEach((bench) => {
+    const cards = [...bench.querySelectorAll("[data-repair-card]")];
+    const feedback = bench.querySelector("[data-feedback]");
+    bench.querySelector("[data-check-repairs]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      cards.forEach((card) => {
+        const defectCorrect = card.querySelector("[data-defect-field]").value === card.dataset.defect;
+        const repairCorrect = card.querySelector("[data-repair-field]").value === card.dataset.repair;
+        const correct = defectCorrect && repairCorrect;
+        const itemFeedback = card.querySelector("[data-item-feedback]");
+        card.classList.toggle("correct-card", correct);
+        card.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Repair accepted. ${card.dataset.explanation}`
+          : `Inspect both the failed position and the smallest repair. ${card.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === cards.length;
+      feedback.textContent = correct
+        ? "All four statements are repaired without claiming more than their evidence supports."
+        : `${correctCount} of ${cards.length} repairs pass review. Read each explanation and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(bench.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-work-product]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = [...form.querySelectorAll("[required]")];
+      const complete = fields.every((field) => field.value.trim());
+      const feedback = form.querySelector("[data-feedback]");
+      if (!complete) {
+        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.className = "feedback bad";
+        return;
+      }
+      const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
+      localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
+      feedback.textContent = form.dataset.correctFeedback;
+      feedback.className = "feedback good";
+      mark(form.dataset.completion);
+    });
+  });
+
+  function openDrawer(name, trigger) {
+    const drawer = document.querySelector(`[data-drawer="${name}"]`);
+    if (!drawer) return;
+    lastDrawerTrigger = trigger;
+    document.querySelector("[data-drawer-scrim]").classList.add("open");
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    drawer.querySelector("button, a, input")?.focus();
+  }
+
+  function closeDrawers() {
+    document.querySelector("[data-drawer-scrim]").classList.remove("open");
+    document.querySelectorAll("[data-drawer]").forEach((drawer) => {
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    });
+    lastDrawerTrigger?.focus();
+  }
+
+  document.querySelectorAll("[data-open-drawer]").forEach((button) => {
+    button.addEventListener("click", () => openDrawer(button.dataset.openDrawer, button));
+  });
+  document.querySelectorAll("[data-close-drawer], [data-drawer-scrim]").forEach((button) => {
+    button.addEventListener("click", closeDrawers);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDrawers();
+  });
+
+  document.querySelector("[data-complete-module]")?.addEventListener("click", () => {
+    const status = document.querySelector("[data-completion-status]");
+    status.textContent = "Working candidate completed locally. This does not issue a credential or operational authority.";
+  });
+
+  refreshCompletion();
 })();
 </script>
 </body>

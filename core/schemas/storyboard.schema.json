@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onewateros.org/schemas/storyboard.schema.json",
+  "title": "OWOS Module Storyboard",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "module_id",
+    "version",
+    "status",
+    "approvals",
+    "beats"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "review",
+        "approved",
+        "superseded"
+      ]
+    },
+    "approvals": {
+      "type": "object",
+      "required": [
+        "narrative",
+        "visuals",
+        "interactions",
+        "assessments",
+        "owner"
+      ]
+    },
+    "beats": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "beat_id",
+          "learner_question",
+          "instructor_purpose",
+          "intended_realization",
+          "transition"
+        ]
+      }
+    }
+  }
+}

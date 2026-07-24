@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:17
+  number: 17
+  title: BI, RAG, Graph Retrieval, and Context Engines
+  part: Apply the backbone
+  curriculum_role: answer_architecture_comparison
+learning_job:
+  learner_question: Why can the same utility question produce different answers through different pipelines?
+  outcome: Compare answer paths, identify fixed and variable stages, and trace each result to evidence.
+  prior_knowledge: Query, provenance, Knowledge Spine, access, unstructured evidence, and context assembly.
+  misconception: Tables are deterministic, Retrieval-Augmented Generation always varies, and graph applications are automatically repeatable.
+  transfer_task: Compare four answer paths for an upstream wastewater overflow question.
+depth:
+  common_route: Source snapshot, mapping, query, retrieval, ranking, inference, validation, context, generation, and explanation.
+  practitioner: Evaluation, decoding settings, caching, reasoner configuration, query versions, and repeatability testing.
+  leader: Choose an answer architecture based on evidence, use, risk, cost, latency, and governance.
+experience:
+  archetype: pipeline_comparison_lab
+  opening: Four systems answer the same Pump P-104 question differently.
+  mental_model: Synchronized pipeline lanes expose every fixed, variable, and unknown stage.
+  signature_mechanism: Rerun four answer paths, change one stage, and observe which evidence and wording change.
+  visual_jobs:
+    - Align Business Intelligence, document retrieval, graph retrieval, and context-engine paths on comparable lanes.
+    - Mark fixed, configurable, probabilistic, external, and unknown stages.
+    - Trace every answer to evidence while separating evidence stability from wording stability.
+  assessment_jobs:
+    - Diagnose the stage responsible for a changed result.
+    - Compare pipeline fit for a utility decision.
+    - Defend a repeatability and evidence plan.
+  work_product: Answer Repeatability Map
+  capstone_contribution: Selected answer architecture, variable stages, evidence path, and evaluation plan.
+evidence:
+  source_refs: [SRC-001, SRC-002, SRC-009, SRC-010, DIR-003]
+  claim_refs: [CLM-014, CLM-015, CLM-016, CLM-017]
+  boundary: Repeatability belongs to the configured end-to-end pipeline, not a technology label.
+sequence:
+  requires: [mbm001:08, mbm001:12, mbm001:13, mbm001:14, mbm001:15, mbm001:16]
+  prepares: [mbm001:18, mbm001:19]

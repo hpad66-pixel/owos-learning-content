@@ -1,0 +1,158 @@
+schema_version: 1
+module_id: mbm001:05
+assessments:
+  - assessment_id: mbm05-opening-decision
+    type: multiple-choice
+    cognitive_job: expose which artifact the learner expects to own shared meaning
+    prompt: What should control the shared meaning of "active customer exposed to this event"?
+    options:
+      - text: Whichever joined table the dashboard currently uses
+        correct: false
+      - text: A governed definition and relationship model, resolved through tested mappings and bounded by current context
+        correct: true
+      - text: The longest available prompt
+        correct: false
+      - text: The source system with the most rows
+        correct: false
+    feedback:
+      correct: Correct. Shared meaning, source resolution, and runtime controls cooperate. No single joined table or prompt owns all three.
+      incorrect: Look for the answer that separates shared meaning, source mapping, and task-specific controls.
+    completion_id: opening-decision
+  - assessment_id: mbm05-job-question-match
+    type: matching
+    cognitive_job: distinguish the five jobs through the questions they answer
+    prompt: Match each question to its primary meaning job.
+    targets:
+      - Data model
+      - Taxonomy
+      - Ontology
+      - Semantic layer
+      - AI context
+    pairs:
+      - prompt: How is account status structured inside CIS?
+        answer: Data model
+      - prompt: How are critical facilities classified?
+        answer: Taxonomy
+      - prompt: What does it mean for an account to serve a premise?
+        answer: Ontology
+      - prompt: Which governed fields implement ActiveServiceAccount?
+        answer: Semantic layer
+      - prompt: What evidence, time, permission, and limits does this task need now?
+        answer: AI context
+    feedback:
+      correct: Correct. You separated structure, classification, meaning, connection, and runtime packaging.
+      incorrect: Read the first verb in each question. Structure, classify, mean, connect, and package point to different jobs.
+    completion_id: five-job-match
+  - assessment_id: mbm05-broken-boundary
+    type: multiple-choice
+    cognitive_job: distinguish correct meaning from broken source mapping
+    prompt: The approved ActiveServiceAccount definition is correct, but the semantic query still uses a retired CIS field. What is the first broken job?
+    options:
+      - text: Ontology, because every wrong answer means the concept is wrong
+        correct: false
+      - text: Semantic layer, because the concept-to-source mapping drifted
+        correct: true
+      - text: Taxonomy, because a status code is a category
+        correct: false
+      - text: AI context, because the answer is delivered at runtime
+        correct: false
+    feedback:
+      correct: Correct. Keep the approved meaning and repair the mapping to the authoritative fields.
+      incorrect: The shared concept is still correct. Find the job that connects that concept to changing source fields.
+    completion_id: broken-boundary
+  - assessment_id: mbm05-context-omission-excess
+    type: multi-select
+    cognitive_job: assemble bounded context without irrelevant or unauthorized data
+    prompt: Which items belong in the Zone 3 draft exposure context packet?
+    options:
+      - text: Event 771, affected zone, and decision time
+        correct: true
+      - text: Approved exposure and active-account definitions
+        correct: true
+      - text: Current mapped customer and facility evidence
+        correct: true
+      - text: Current procedure, operator permission, conflicts, and draft-only output limit
+        correct: true
+      - text: Every customer record in every pressure zone
+        correct: false
+      - text: Superseded procedure versions without labels
+        correct: false
+      - text: Another district's unrelated incident transcript
+        correct: false
+    feedback:
+      correct: Correct. The packet is relevant, current, permission-aware, conflict-aware, and bounded.
+      incorrect: Include evidence and controls needed for this decision. Exclude unrelated, excessive, or unlabeled material.
+    completion_id: context-packet
+  - assessment_id: mbm05-diagnose-and-repair
+    type: multiple-choice
+    cognitive_job: repair the first broken responsibility rather than the visible model symptom
+    prompt: The ontology is approved, but the graph resolves PressureZone to a retired GIS key. What should the team repair first?
+    options:
+      - text: Rewrite the AI system prompt
+        correct: false
+      - text: Add more documents to retrieval
+        correct: false
+      - text: Repair and regression-test the semantic mapping
+        correct: true
+      - text: Replace the ontology with the GIS table
+        correct: false
+    feedback:
+      correct: Correct. The first break is the mapping between approved meaning and the source representation.
+      incorrect: Follow the failure backward. The meaning is correct, but its connection to GIS has drifted.
+    completion_id: diagnose-repair
+  - assessment_id: mbm05-transfer-diagnosis
+    type: multiple-choice
+    cognitive_job: transfer the five-job distinction to stormwater and temporal authority
+    prompt: A stormwater assistant retrieves the correct permit but quotes a superseded condition. Which job is most directly incomplete for this task?
+    options:
+      - text: Data model, because the permit is a document
+        correct: false
+      - text: Taxonomy, because permit conditions should be categorized
+        correct: false
+      - text: AI context, because effective time and current authority were not enforced
+        correct: true
+      - text: Ontology, because every document error is a meaning error
+        correct: false
+    feedback:
+      correct: Correct. Retrieval found the document, but runtime context failed to enforce effective time and authority.
+      incorrect: The document was retrieved successfully. Focus on which job determines what is current and authoritative for this task.
+    completion_id: transfer-diagnosis
+  - assessment_id: mbm05-five-layer-map
+    type: applied-work-product
+    title: Five-Layer Meaning Map
+    cognitive_job: transfer the architecture distinctions into one reviewable utility decision
+    prompt: Choose one bounded utility question. Name the artifact or responsibility for all five jobs, assign owners, record the first gap, and state what the map does not authorize.
+    required_fields:
+      - bounded_question
+      - data_model
+      - taxonomy
+      - ontology
+      - semantic_layer
+      - ai_context
+      - accountable_owners
+      - first_gap
+      - explicit_limit
+    field_labels:
+      bounded_question: Bounded utility question
+      data_model: Data model artifact and system owner
+      taxonomy: Taxonomy or controlled classification
+      ontology: Shared concept and relationship meaning
+      semantic_layer: Concept-to-source mapping and owner
+      ai_context: Task evidence, time, permission, and output limit
+      accountable_owners: Accountable owner for each unresolved responsibility
+      first_gap: First known gap and required repair
+      explicit_limit: What this map does not authorize
+    textarea_fields:
+      - bounded_question
+      - data_model
+      - taxonomy
+      - ontology
+      - semantic_layer
+      - ai_context
+      - accountable_owners
+      - first_gap
+      - explicit_limit
+    feedback:
+      correct: Your Five-Layer Meaning Map names all five jobs, accountable owners, the first gap, and an explicit authority limit. It is ready for professional review, not operational use.
+      incorrect: Complete every field with a specific artifact, responsibility, owner, gap, or limit another team can inspect.
+    completion_id: five-layer-map

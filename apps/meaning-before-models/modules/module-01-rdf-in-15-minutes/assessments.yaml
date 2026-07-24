@@ -1,0 +1,66 @@
+schema_version: 1
+module_id: mbm001:01
+assessments:
+  - assessment_id: mbm01-opening-choice
+    type: multiple-choice
+    cognitive_job: discriminate explicit relationship from disconnected data
+    prompt: Which statement gives a machine one reusable piece of meaning?
+    options:
+      - text: Pump P-104 serves Pressure Zone 3.
+        correct: true
+      - text: P-104, Zone 3, alarm, 2:00 a.m.
+        correct: false
+      - text: Open the pump dashboard.
+        correct: false
+      - text: The pump probably affects nearby customers.
+        correct: false
+    feedback:
+      correct: Correct. The statement names two things and the directed relationship between them.
+      incorrect: Choose the statement that explicitly says how one utility thing relates to another.
+    completion_id: opening-choice
+  - assessment_id: mbm01-term-cards
+    type: flip-cards
+    cognitive_job: retrieve the three positions and their jobs
+    prompt: Say the job of each RDF position before revealing the answer.
+    cards:
+      - front: Subject
+        back: The thing the statement describes. In the example, Pump P-104.
+      - front: Predicate
+        back: The named, directed relationship. In the example, serves.
+      - front: Object
+        back: The thing or value on the other end. In the example, Pressure Zone 3.
+      - front: Triple
+        back: One complete subject, predicate, object statement.
+    feedback:
+      correct: All four meanings reviewed. Now use them in the graph path.
+      incorrect: Reveal each card and say the meaning in your own words.
+    completion_id: term-cards
+  - assessment_id: mbm01-path-claim
+    type: multiple-choice
+    cognitive_job: distinguish supported connection from unsupported causation
+    prompt: What can the completed path support?
+    options:
+      - text: Pump P-104 caused every complaint from Service Account 901.
+        correct: false
+      - text: Service Account 901 is linked to a premise in the pressure zone served by Pump P-104.
+        correct: true
+      - text: The utility should automatically notify the account holder.
+        correct: false
+    feedback:
+      correct: Correct. The path supports a connection. It does not prove causation or authorize an action.
+      incorrect: Choose the claim that repeats only the relationships present in the graph.
+    completion_id: path-claim
+  - assessment_id: mbm01-relationship-card
+    type: applied-work-product
+    cognitive_job: transfer the triple pattern to a source-bounded utility example
+    prompt: Draft one useful utility relationship and identify the source and operational question.
+    required_fields:
+      - subject
+      - predicate
+      - object
+      - source
+      - question
+    feedback:
+      correct: Your card contains one inspectable relationship and the question it helps answer.
+      incorrect: Complete all five fields. Use one subject, one directed predicate, one object, one source, and one utility question.
+    completion_id: relationship-card

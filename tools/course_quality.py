@@ -111,6 +111,11 @@ def validate_lesson(path: Path, contract: dict) -> dict:
         "custom_simulation": r'id="playSteps"',
         "custom_lab": r'id="runRepair"',
         "custom_work_product": r'id="contractForm"',
+        "structured_triple_builder": r"\bdata-triple-builder\b",
+        "structured_path_tracer": r"\bdata-path-tracer\b",
+        "structured_choice": r"\bdata-choice-group\b",
+        "structured_flip_cards": r"\bdata-flip-group\b",
+        "structured_work_product": r"\bdata-work-product\b",
     }
     for kind, pattern in native_rules.items():
         if re.search(pattern, text, re.I):
@@ -126,8 +131,19 @@ def validate_lesson(path: Path, contract: dict) -> dict:
             marker in text
             for marker in ("data-quiz=", "data-match=", "data-stepper=", "data-lab=", "data-artifact=")
         )
-        if legacy_component_count == 0 and modern_contract and "data-required=" not in text:
-            fail(path, "native interactions need completion evidence through data-required")
+        has_completion_contract = (
+            "data-required=" in text
+            or (
+                "data-required-ids=" in text
+                and "data-completion=" in text
+            )
+        )
+        if legacy_component_count == 0 and modern_contract and not has_completion_contract:
+            fail(
+                path,
+                "native interactions need completion evidence through "
+                "data-required or structured data-completion contracts",
+            )
         if "data-quiz=" in text and "data-correct=" not in text:
             fail(path, "native quizzes need deterministic data-correct answers")
         if "data-match=" in text and "data-answer=" not in text:

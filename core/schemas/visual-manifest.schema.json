@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onewateros.org/schemas/visual-manifest.schema.json",
+  "title": "OWOS Visual Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "module_id",
+    "visuals"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "visuals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "visual_id",
+          "title",
+          "asset_class",
+          "teaching_idea",
+          "learner_conclusion",
+          "reading_guide",
+          "alternative_text",
+          "mobile_treatment",
+          "reduced_motion_treatment",
+          "creator",
+          "source",
+          "license",
+          "permission_status",
+          "originality_status",
+          "storyboard_status",
+          "rendered_review_status"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "locator"
+            ]
+          },
+          {
+            "required": [
+              "component_id"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

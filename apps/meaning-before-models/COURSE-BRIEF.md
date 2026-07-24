@@ -18,6 +18,22 @@ Module 01 preserves the original fifteen-minute course as a complete primer. The
 turn recognition into practical competence without requiring prior coding or data-modeling
 experience.
 
+## Approved learner formulation
+
+The primary learner is an intelligent utility professional or leader who uses data and makes or
+governs decisions but begins without semantic-technology or programming experience.
+
+Data, Geographic Information System, information-technology, operational-technology, analytics,
+governance, and artificial-intelligence practitioners are secondary learners. Practitioner depth
+may expose syntax and implementation detail without making that depth mandatory on the common route.
+
+## Approved graduation capability
+
+Given one bounded utility question, the learner can identify the important entities and
+relationships, distinguish asserted from inferred or validated statements, trace an answer to
+evidence, choose an appropriate semantic access pattern, and define the context and controls needed
+before an application or agent may use or act on the result.
+
 ## Utility connection
 
 The lesson begins with three plain questions:

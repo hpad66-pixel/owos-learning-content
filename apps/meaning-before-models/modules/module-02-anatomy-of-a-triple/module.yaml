@@ -1,0 +1,137 @@
+schema_version: 1
+module:
+  course_id: owos-course-semantic-data-ai-001
+  module_id: mbm001:02
+  slug: module-02-anatomy-of-a-triple
+  title: The Anatomy of a Triple
+  eyebrow: Meaning Before Models, Module 02
+  promise: Learn what belongs in each RDF position, then repair statements that look plausible but lose identity, direction, or value meaning.
+  duration: 45 to 65 minutes
+  level: Foundation with optional Practitioner depth
+  archetype: syntax-workbench
+  signature_mechanism: triple-evidence-bench
+  source_version: 0.2.0-structured-candidate
+learning:
+  audience:
+    - Utility professionals and leaders
+    - Data, GIS, laboratory, operations, governance, and AI practitioners
+  outcomes:
+    - Distinguish an identifier from a human-readable label.
+    - Decide whether an RDF object should be another resource or a literal value.
+    - Explain why datatypes, units, direction, source, and time preserve evidence.
+    - Repair reversed, overloaded, free-text, and incorrectly typed triples.
+    - Read the same graph statement in plain language and a small Turtle excerpt.
+  prior_knowledge: Module 01 introduced subject, predicate, object, direction, and graph paths.
+  misconception: A triple is merely a three-column row whose cells may contain any convenient text.
+  transfer_task: Repair a stormwater inspection result and a water work-order statement.
+sections:
+  - section_id: ambiguous-result
+    title: Three filled positions can still lose the evidence
+    kind: Forensic opening
+    blocks:
+      - type: prose
+        paragraphs:
+          - A wastewater laboratory result reaches an overflow-response dashboard as "Outfall 12 | has result | 7.2." The row is tidy. The claim is not. Is Outfall 12 the monitored asset or a sampling location? Is 7.2 pH, dissolved oxygen, turbidity, or another measure? Is the value text or a number? When was it observed, and which record supports it?
+          - RDF gives us three positions, but it does not rescue careless choices inside those positions. Precision begins when identity, relationship direction, and value type are explicit enough for another system and another person to inspect.
+      - type: visual
+        visual_id: mbm02-forensic-strip
+      - type: assessment
+        assessment_id: mbm02-opening-repair
+      - type: callout
+        title: What this lesson adds
+        text: Module 01 taught the shape of a relationship. Module 02 teaches the evidence discipline inside each position.
+  - section_id: identifier-label
+    title: The identifier is not the label
+    kind: Specimen review
+    blocks:
+      - type: prose
+        paragraphs:
+          - People need readable names. Machines need stable identity. A utility may call the same asset "Outfall 12," "OF-12," or "North Creek discharge point" in different interfaces. Those labels help people, but they should not silently become three different things.
+          - An IRI is an identifier used in RDF. Prefixes such as `util:` are compact writing conveniences for longer IRIs. A label is a separate statement about the identified resource. If the label changes, the resource does not have to change.
+      - type: visual
+        visual_id: mbm02-identifier-label
+      - type: assessment
+        assessment_id: mbm02-identity-check
+      - type: callout
+        title: Leader view
+        text: Identifier governance affects every downstream join, graph path, mapping, and answer. It is not merely a developer naming preference.
+  - section_id: object-fork
+    title: The object has two very different destinations
+    kind: Object routing
+    blocks:
+      - type: prose
+        paragraphs:
+          - The subject and predicate identify resources. The object may identify another resource, or it may be a literal value. That fork changes what the statement can do next.
+          - In "Outfall 12 locatedIn Watershed 4," the object is another identified resource that can participate in more relationships. In "Observation 771 numericValue 7.2," the object is a literal value. A literal can carry a datatype or language information, but it is not the next reusable utility thing in a graph path.
+      - type: visual
+        visual_id: mbm02-object-fork
+      - type: interaction
+        interaction_id: mbm02-object-router
+  - section_id: typed-literal
+    title: A number is not enough
+    kind: Measurement anatomy
+    blocks:
+      - type: prose
+        paragraphs:
+          - The characters 7.2 can be stored as text, interpreted as a decimal number, or embedded in a sentence. Those are different data choices. A datatype states how the lexical form maps to a value. Measurement meaning usually also needs an identified measure, a unit relationship when applicable, observation time, and source.
+          - Do not pack every detail into one string such as "pH 7.2 at Outfall 12 on Tuesday." Separate statements preserve the observation, measured property, numeric value, time, location, and source so each can be queried and reviewed.
+      - type: visual
+        visual_id: mbm02-typed-literal
+      - type: assessment
+        assessment_id: mbm02-literal-check
+  - section_id: repair-bench
+    title: Repair the smallest broken part
+    kind: Triple Evidence Bench
+    blocks:
+      - type: prose
+        paragraphs:
+          - The workbench contains four statements that look reasonable at first glance. One reverses direction. One uses a display label as identity. One overloads a value into free text. One stores a number without a numeric datatype.
+          - Diagnose the first defect and choose the smallest repair that preserves the intended claim. A good repair makes the evidence more precise without pretending that the triple proves the source is current or authoritative.
+      - type: interaction
+        interaction_id: mbm02-triple-repair-bench
+      - type: assessment
+        assessment_id: mbm02-repair-boundary
+  - section_id: serialization
+    title: Turtle changes the notation, not the graph
+    kind: Translation strip
+    blocks:
+      - type: prose
+        paragraphs:
+          - RDF is an abstract data model. Turtle is one concrete syntax for writing RDF graphs. Prefix declarations shorten IRIs, semicolons can reuse a subject, and typed-literal notation makes values readable. Those conveniences do not create a new graph.
+          - Read the translation strip from the plain-language claim to the directed graph and then to Turtle. The same subject, predicate, and object survive all three views. On the common route, you need to recognize the correspondence, not memorize every Turtle rule.
+      - type: visual
+        visual_id: mbm02-serialization-strip
+      - type: assessment
+        assessment_id: mbm02-serialization-check
+  - section_id: transfer-and-deck
+    title: Build a reviewed set another team can challenge
+    kind: Professional application
+    blocks:
+      - type: prose
+        paragraphs:
+          - Transfer the method to a stormwater inspection and a water work order. Identify the utility things, choose a directed predicate, decide whether the object is a resource or literal, type each value, and name the source.
+          - Your Reviewed Triple Deck contains five statements with different evidence jobs. It must include a resource-to-resource relationship, a typed number, a date or time, a label separated from identity, a source note, and one boundary explaining what the deck does not prove.
+      - type: assessment
+        assessment_id: mbm02-transfer-check
+      - type: work_product
+        work_product_id: mbm02-triple-deck
+      - type: faq
+        items:
+          - question: Is an IRI the same as a web page address?
+            answer: An IRI is an identifier. It may be designed so it can be looked up on the Web, but RDF uses it first as a globally scoped name for a resource.
+          - question: Can the subject be a literal value?
+            answer: In ordinary asserted RDF triples, the subject identifies a resource rather than being a literal. The object position is where literal values appear.
+          - question: Is a label the asset identifier?
+            answer: No. A label is human-readable text describing an identified resource. Labels can change or vary by language while the identifier remains stable.
+          - question: Does a datatype include the engineering unit?
+            answer: Not usually. A datatype distinguishes values such as decimal, date, boolean, or string. Measurement units are commonly represented through additional vocabulary and relationships.
+          - question: Do I need to learn Turtle to understand RDF?
+            answer: No. Turtle helps people read and exchange RDF, but the graph model is the underlying meaning. This lesson teaches recognition before syntax fluency.
+          - question: Does a corrected triple prove the result is true?
+            answer: No. It makes the claim precise. Source, time, authority, mapping, validation, and review still govern trust.
+      - type: evidence
+        statement: Outfall 12, Observation 771, values, and work orders are instructional examples. RDF term, triple, IRI, literal, datatype, and Turtle explanations are grounded in W3C specifications. Advanced RDF 1.2 triple terms remain outside this common route.
+        source_refs: [w3c-rdf12-concepts, w3c-rdf12-primer, w3c-turtle]
+completion:
+  required_ids: [opening-repair, identity-check, object-router, literal-check, repair-bench, repair-boundary, serialization-check, transfer-check, triple-deck]
+  rule: Complete every position check, both syntax-workbench mechanisms, the transfer decision, and the Reviewed Triple Deck.

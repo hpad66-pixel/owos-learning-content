@@ -1,5 +1,32 @@
 # OWOS Academy Visual Arsenal
 
+## Visual truth rule
+
+The arsenal is a selection catalog, not proof that an asset was built. A counted visual must exist as
+one of the following:
+
+1. A real image or vector file referenced by the module visual manifest.
+2. A registered executable visualization that renders a meaningful state from authored data.
+3. A data graphic generated from a checked dataset and reproducible specification.
+4. A documented interface capture or field artifact with permission and instructional annotation.
+
+The following never count by themselves: a `data-visual-type` label, a card grid, colored rectangles,
+an icon row, a gradient, a heading with arrows, or a static screenshot that the lesson does not
+explain.
+
+Every visual manifest record must answer:
+
+- What exact idea does this teach?
+- What can the learner explain after reading it?
+- Where does the eye start and what path should it follow?
+- What changes on interaction?
+- What survives on a phone and with reduced motion?
+- Who created it, what source informed it, and what permission governs it?
+- Has the actual rendered visual been reviewed?
+
+If the asset file, component registration, reading guide, learner conclusion, or review record is
+missing, the compiler must reject the visual.
+
 The rule: **the visual comes from the idea, never from habit.** Do not reuse the same triangle,
 curve, or bar chart in every chapter. Before you build a section, look at what the idea actually is,
 then pick the visual from this arsenal that shows it best. If two ideas in a chapter would use the
@@ -120,6 +147,10 @@ done. When the needed interactive does not exist, build it into the shared libra
   the actual asset, record, relationship, quantity, decision, or change.
 - Across the course, the dominant visual and visual sequence must vary with the subject. Run the
   distinctiveness gate instead of judging variety one page at a time.
+- A course visual matrix must track the actual manifest identifiers used by each module. Declared
+  visual names without resolvable artifacts do not satisfy variety.
+- At least one visual in a full module should be unmistakably specific to that lesson unless the
+  module brief records why a shared diagram is the more accurate teaching choice.
 
 ---
 

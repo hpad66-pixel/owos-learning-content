@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:02
+  number: 2
+  title: The Anatomy of a Triple
+  part: See the relationships
+  curriculum_role: formal_statement_foundation
+learning_job:
+  learner_question: What exactly belongs in each position of an RDF statement?
+  outcome: Repair ambiguous or malformed triples and explain identifiers, resources, and literal values.
+  prior_knowledge: Module 01 relationship and direction model.
+  misconception: An RDF triple is only a three-column row with technical labels.
+  transfer_task: Convert a sample result and work-order statement into precise triples.
+depth:
+  common_route: Resources, identifiers, predicates, literals, datatypes, labels, and direction.
+  practitioner: Read and modify small Turtle serializations and named source groups.
+  leader: Understand why precision and reusable identity affect downstream answers.
+experience:
+  archetype: syntax_workbench
+  opening: A plausible sentence that becomes ambiguous when entered as data.
+  mental_model: A triple workbench with three positions and explicit value types.
+  signature_mechanism: Repair reversed, overloaded, free-text, and incorrectly typed triples.
+  visual_jobs:
+    - Separate an identifier from its human-readable label.
+    - Compare a resource object with a literal object.
+    - Show one graph statement in plain language and Turtle without making syntax the lesson.
+  assessment_jobs:
+    - Classify resources and literals.
+    - Diagnose malformed triples.
+    - Serialize and defend a small corrected triple set.
+  work_product: Reviewed Triple Deck
+  capstone_contribution: Initial precise triple set and identifier conventions.
+evidence:
+  source_refs: [SRC-001]
+  claim_refs: [CLM-001, CLM-012]
+  boundary: Advanced serialization features and RDF-star topics remain optional.
+sequence:
+  requires: [mbm001:01]
+  prepares: [mbm001:03, mbm001:04]

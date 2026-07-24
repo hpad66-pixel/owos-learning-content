@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:03
+  number: 3
+  title: Which Pump Do You Mean?
+  part: See the relationships
+  curriculum_role: governed_identity
+learning_job:
+  learner_question: When do records from several systems describe the same real utility thing?
+  outcome: Accept, reject, or escalate identity candidates using evidence instead of matching labels alone.
+  prior_knowledge: Identifiers, labels, and resource statements from Module 02.
+  misconception: Matching asset names prove identity.
+  transfer_task: Adjudicate wastewater lift-station records with one unresolved conflict.
+depth:
+  common_route: Candidate identity, canonical identity, evidence, authority, and steward review.
+  practitioner: Crosswalk design, match rules, confidence, conflict queues, and propagation effects.
+  leader: Assign accountability for identity decisions and exception handling.
+experience:
+  archetype: forensic_identity_review
+  opening: Five records all appear to describe Pump P-104.
+  mental_model: An evidence bridge between source identifiers and one reviewed identity.
+  signature_mechanism: Adjudicate five records, then observe how one false equivalence changes answers.
+  visual_jobs:
+    - Place source records side by side without implying equivalence.
+    - Reveal the evidence supporting or contradicting each identity candidate.
+    - Trace the downstream contamination caused by an incorrect equivalence.
+  assessment_jobs:
+    - Distinguish candidate from approved identity.
+    - Judge evidence and escalate ambiguity.
+    - Explain one downstream consequence of a false match.
+  work_product: Identity Crosswalk and Conflict Queue
+  capstone_contribution: Canonical identities, source mappings, and unresolved identity controls.
+evidence:
+  source_refs: [DIR-004, SRC-011]
+  claim_refs: [CLM-023, CLM-024]
+  boundary: Match methods, thresholds, and authoritative sources are utility-specific governance decisions.
+sequence:
+  requires: [mbm001:02]
+  prepares: [mbm001:04, mbm001:11, mbm001:13]

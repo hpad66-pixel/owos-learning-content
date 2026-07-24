@@ -21,6 +21,7 @@ from course_full_conformance import (
     CourseFullConformanceError,
     audit as audit_full_conformance,
 )
+from course_compiler import ModulePackageError, validate_package
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -53,6 +54,60 @@ def relative_file(path: Path) -> dict:
             if path.name.startswith("lesson-")
             else "runtime_asset"
         ),
+    }
+
+
+def audit_structured_authoring(
+    course_dir: Path,
+    *,
+    chapters: int,
+    require_release_ready: bool,
+) -> dict | None:
+    authoring_path = course_dir / ".course/authoring.json"
+    if not authoring_path.is_file():
+        return None
+    authoring = json.loads(authoring_path.read_text(encoding="utf-8"))
+    if authoring.get("authoritative_source") != "structured_modules":
+        return None
+    migration = authoring.get("migration_state") or {}
+    legacy_remaining = int(migration.get("legacy_html_modules_remaining", 0))
+    if legacy_remaining:
+        return None
+    module_value = Path(str(authoring.get("module_directory", "modules")))
+    module_root = module_value if module_value.is_absolute() else course_dir / module_value
+    module_dirs = sorted(
+        path for path in module_root.iterdir()
+        if path.is_dir() and (path / "module.yaml").is_file()
+    )
+    if len(module_dirs) != chapters:
+        raise SystemExit(
+            "structured authoring gate expected "
+            f"{chapters} module packages, found {len(module_dirs)}"
+        )
+    results = []
+    for module_dir in module_dirs:
+        try:
+            package = validate_package(
+                module_dir, release_ready=require_release_ready
+            )
+        except ModulePackageError as error:
+            raise SystemExit(
+                "structured authoring gate failed before release:\n"
+                f"{module_dir.name}:\n{error}"
+            ) from error
+        results.append(
+            {
+                "module_id": package["module_data"]["module"]["module_id"],
+                "module_path": module_dir.relative_to(ROOT).as_posix(),
+                "source_version": package["module_data"]["module"]["source_version"],
+                "package_checksum": package["checksum"],
+                "compiler_version": package["compiler_version"],
+            }
+        )
+    return {
+        "status": "passed",
+        "modules_validated": len(results),
+        "modules": results,
     }
 
 
@@ -118,6 +173,11 @@ def build(course_dir: Path) -> dict:
         or ""
     ).strip()
     require_release_ready = release_state == "released"
+    structured_authoring = audit_structured_authoring(
+        course_dir,
+        chapters=chapters,
+        require_release_ready=require_release_ready,
+    )
     if full_conformance_required is True:
         try:
             full_conformance = audit_full_conformance(
@@ -202,6 +262,14 @@ def build(course_dir: Path) -> dict:
                 "full_module_conformance": "passed",
                 "full_modules_validated": full_conformance["included_lessons"],
                 "full_module_evidence": evidence_inventory,
+            }
+        )
+    if structured_authoring is not None:
+        release_quality_contract.update(
+            {
+                "structured_authoring": structured_authoring["status"],
+                "structured_modules_validated": structured_authoring["modules_validated"],
+                "structured_module_sources": structured_authoring["modules"],
             }
         )
 

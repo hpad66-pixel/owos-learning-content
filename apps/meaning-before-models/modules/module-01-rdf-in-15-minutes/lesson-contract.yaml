@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:01
+  number: 1
+  title: RDF in 15 Minutes
+  part: See the relationships
+  curriculum_role: orientation_and_standalone_primer
+learning_job:
+  learner_question: How can a machine understand one useful relationship?
+  outcome: Construct, reverse, and connect a small set of source-bounded utility triples.
+  prior_knowledge: Familiarity with ordinary utility records and questions.
+  misconception: More records automatically give a machine more understanding.
+  transfer_task: Write one wastewater or stormwater relationship and name its source.
+depth:
+  common_route: Subject, predicate, object, direction, shared identifiers, and graph growth.
+  practitioner: Inspect the generated triples and identifiers.
+  leader: Recognize where implicit relationships create operating risk or manual work.
+experience:
+  archetype: guided_construction
+  opening: A 2 a.m. pump alarm with records but no connected answer.
+  mental_model: One named arrow between two identified things.
+  signature_mechanism: Build one triple, reverse it, explain the error, then chain an evidence path.
+  visual_jobs:
+    - Show a utility scene in which records exist but the needed relationship is missing.
+    - Make subject, predicate, object, and direction visually unmistakable.
+    - Reveal how shared identifiers turn separate triples into a traversable graph.
+  assessment_jobs:
+    - Recognize the strongest explicit relationship.
+    - Construct and explain a directed triple.
+    - Trace a short path and produce a Relationship Card.
+  work_product: Relationship Card
+  capstone_contribution: First bounded relationship with source and purpose.
+evidence:
+  source_refs: [SRC-001, SRC-002]
+  claim_refs: [CLM-001, CLM-012, CLM-013]
+  boundary: Orientation only. Later modules establish syntax, query, inference, and validation mastery.
+sequence:
+  requires: []
+  prepares: [mbm001:02, mbm001:03, mbm001:04]

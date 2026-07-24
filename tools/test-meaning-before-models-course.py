@@ -7,8 +7,8 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup
 
-from course_conformance import validate_module
 from course_distinctiveness import audit as audit_distinctiveness
+from course_full_conformance import audit as audit_full_conformance
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,13 +38,10 @@ records[5] = {
     "qa": COURSE / "qa/module-05-quality-control-report.md",
 }
 
-results = []
+full_conformance = audit_full_conformance(COURSE)
+results = full_conformance["lessons"]
 for number in range(1, 19):
     record = records[number]
-    result = validate_module(
-        record["lesson"], record["qa"], record["brief"], record["script"], CONTRACT
-    )
-    results.append(result)
     soup = BeautifulSoup(record["lesson"].read_text(encoding="utf-8"), "html.parser")
     ids = [node["id"] for node in soup.select("[id]")]
     if len(ids) != len(set(ids)):

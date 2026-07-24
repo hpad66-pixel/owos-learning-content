@@ -1,0 +1,1876 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Five Layers of Meaning | One Water OS Academy</title>
+  <meta name="description" content="Separate structure, classification, shared meaning, enterprise mapping, and runtime AI context before choosing a technology or trusting an answer.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:05">
+  <meta name="owos-release-state" content="structured working candidate">
+  <meta name="owos-source-version" content="0.2.0-golden-candidate">
+  <meta name="owos-compiler-version" content="1.1.0">
+  <meta name="owos-package-checksum" content="252afabe2e97f03fb773a72d449f2e31e29d0633a41669d583820598901bef8c">
+  <style>:root {
+  color-scheme: light;
+  --ink: #17324d;
+  --muted: #526d7d;
+  --paper: #ffffff;
+  --wash: #eef6f5;
+  --line: #cddddd;
+  --navy: #102a43;
+  --teal: #147d88;
+  --teal-soft: #dff2ee;
+  --orange: #e8752f;
+  --orange-soft: #fff1e6;
+  --good: #157347;
+  --bad: #a63d32;
+  --shadow: 0 20px 60px rgba(23, 50, 77, .12);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7faf9;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--teal);
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.shell {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(16, 42, 67, .96);
+  color: #ffffff;
+  backdrop-filter: blur(14px);
+}
+
+.topbar-inner {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.top-actions,
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  min-height: 44px;
+  border: 1px solid #b8cfce;
+  border-radius: 999px;
+  padding: 10px 17px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--teal);
+}
+
+.button:focus-visible,
+.choice:focus-visible,
+.flip-card:focus-visible,
+.edge-button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.button.primary {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.button.good {
+  border-color: var(--good);
+  background: var(--good);
+  color: #ffffff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 9vw, 110px) 0 70px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 117, 47, .22), transparent 24%),
+    radial-gradient(circle at 12% 70%, rgba(100, 215, 207, .18), transparent 28%),
+    var(--navy);
+  color: #ffffff;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -5% -58% 35%;
+  height: 520px;
+  border: 2px solid rgba(255, 255, 255, .13);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.eyebrow,
+.kind {
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 12px 0 14px;
+  font-size: clamp(2.65rem, 7vw, 5.8rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #d9e8ef;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-meta span {
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: .9rem;
+}
+
+.progress-panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: -30px auto 52px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: var(--shadow);
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.progress-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid #9eb8b8;
+  border-radius: 50%;
+}
+
+.progress-item.done {
+  background: var(--teal-soft);
+  color: var(--ink);
+}
+
+.progress-item.done::before {
+  border-color: var(--good);
+  background: var(--good);
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.lesson-section {
+  margin: 0 auto 34px;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 14px 40px rgba(23, 50, 77, .06);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 26px;
+}
+
+.section-number {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.section-heading h2 {
+  margin: 2px 0 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.prose {
+  max-width: 790px;
+  margin: 0 auto 26px;
+  color: #28485f;
+  font-size: 1.06rem;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.callout {
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 20px 24px;
+  border-left: 6px solid var(--orange);
+  border-radius: 0 16px 16px 0;
+  background: var(--orange-soft);
+}
+
+.callout h3 {
+  margin: 0 0 5px;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.match-grid,
+.multi-grid,
+.triage-grid {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.match-row select,
+.triage-card select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.correct-field {
+  border-color: var(--good) !important;
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, .12);
+}
+
+.incorrect-field {
+  border-color: var(--bad) !important;
+}
+
+.multi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.select-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.select-option input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.select-option.selected-correct {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.select-option.selected-incorrect {
+  border-color: var(--bad);
+  background: #fff3f1;
+}
+
+.signature-component {
+  border-color: #8db9b5;
+  box-shadow: 0 18px 50px rgba(20, 125, 136, .13);
+}
+
+.triage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.triage-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #ffffff, #f4faf8);
+}
+
+.triage-card h4 {
+  margin: 4px 0 6px;
+  font-size: 1.08rem;
+}
+
+.triage-card p {
+  color: var(--muted);
+}
+
+.triage-number,
+.failure-label {
+  color: var(--teal);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.triage-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.triage-card.incorrect-card {
+  border-color: #d69a93;
+}
+
+.item-feedback {
+  min-height: 42px;
+  margin-top: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.failure-lab {
+  display: grid;
+  grid-template-columns: minmax(210px, .38fr) minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.failure-trigger {
+  grid-column: 1;
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.failure-trigger span {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.failure-trigger.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.failure-result {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.failure-result[hidden] {
+  display: none;
+}
+
+.failure-result ol {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 24px;
+}
+
+.failure-result p {
+  color: #e4f0f5;
+}
+
+.learning-visual {
+  margin: 34px 0;
+}
+
+.learning-visual h3 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+
+.reading-guide,
+.conclusion {
+  max-width: 880px;
+  margin: 12px auto;
+  padding: 16px 19px;
+  border-radius: 14px;
+}
+
+.reading-guide {
+  border: 1px solid #c9dddd;
+  background: var(--wash);
+}
+
+.conclusion {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.visual-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f7faf9;
+  box-shadow: var(--shadow);
+}
+
+.visual-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.component {
+  margin: 34px 0;
+  border: 1px solid #c8d9d9;
+  border-radius: 22px;
+  background: #fbfdfc;
+  overflow: hidden;
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.component-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.component-header .kind {
+  color: #ffb982;
+}
+
+.component-body {
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.component-intro {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.choice-grid {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.choice {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 17px;
+  border: 2px solid #cadbda;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice.selected {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.choice.correct {
+  border-color: var(--good);
+  background: #e5f4ec;
+}
+
+.choice.incorrect {
+  border-color: var(--bad);
+  background: #fae9e7;
+}
+
+.feedback {
+  min-height: 28px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.triple-builder {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.triple-builder label,
+.field-grid label,
+.work-product label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.triple-builder select,
+.field-grid input,
+.work-product input,
+.work-product textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #cadbda;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.triple-arrow {
+  padding-bottom: 12px;
+  color: var(--orange);
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.triple-output {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.flip-card {
+  min-height: 170px;
+  border: 0;
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.flip-card-inner {
+  position: relative;
+  display: grid;
+  min-height: 170px;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+}
+
+.flip-card.revealed .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border: 2px solid #bdd5d3;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  font-weight: 650;
+}
+
+.path-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.edge-button {
+  min-height: 108px;
+  border: 2px solid #c9dddd;
+  border-radius: 17px;
+  padding: 15px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.edge-button.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.edge-button strong,
+.edge-button span {
+  display: block;
+}
+
+.edge-button span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.work-product {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.artifact-preview {
+  min-height: 130px;
+  margin: 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.faq-list details {
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.faq-list summary {
+  padding: 16px 18px;
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+.evidence {
+  padding: 26px;
+  border-radius: 20px;
+  background: #e9eff2;
+}
+
+.evidence h3 {
+  margin-top: 0;
+}
+
+.connected {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 38px 0;
+}
+
+.connected article {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.connected h3 {
+  margin: 8px 0;
+  color: #ffffff;
+}
+
+.connected p {
+  color: #d9e8ef;
+}
+
+.completion {
+  margin: 36px 0 70px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  background: rgba(5, 19, 31, .56);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  width: min(520px, 100%);
+  height: 100dvh;
+  padding: 26px;
+  overflow: auto;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: -24px 0 70px rgba(5, 19, 31, .24);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-scrim.open {
+  display: block;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer h2 {
+  margin: 0;
+}
+
+.glossary-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.glossary-list article {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--wash);
+}
+
+.glossary-list h3 {
+  margin: 0 0 4px;
+}
+
+.glossary-list p {
+  margin: 0;
+}
+
+footer {
+  padding: 25px 0;
+  background: var(--navy);
+  color: #d9e8ef;
+  font-size: .9rem;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 24px, 1140px);
+  }
+
+  .topbar-inner {
+    min-height: 58px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .top-actions .button {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: .82rem;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .progress-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-section {
+    padding: 25px 18px;
+    border-radius: 19px;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .section-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .triple-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .triple-arrow {
+    padding: 0;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .flip-grid,
+  .path-strip,
+  .field-grid,
+  .connected,
+  .multi-grid,
+  .triage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .match-row,
+  .failure-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-trigger,
+  .failure-result {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .failure-result {
+    min-height: 0;
+  }
+
+  .component-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .flip-card.revealed .flip-card-inner {
+    transform: none;
+  }
+
+  .flip-card.revealed .flip-front {
+    display: none;
+  }
+
+  .flip-back {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-module-id="mbm001:05" data-source-version="0.2.0-golden-candidate"
+  data-required-ids="[&quot;opening-decision&quot;,&quot;five-job-match&quot;,&quot;triage-complete&quot;,&quot;broken-boundary&quot;,&quot;context-packet&quot;,&quot;failure-paths&quot;,&quot;diagnose-repair&quot;,&quot;transfer-diagnosis&quot;,&quot;five-layer-map&quot;]">
+  <a class="skip-link" href="#lesson-start">Skip to lesson</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="../../curriculum/course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <nav class="top-actions" aria-label="Lesson tools">
+        <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
+        <a class="button primary" href="#lesson-start">Start</a>
+      </nav>
+    </div>
+  </header>
+  <main id="lesson-start">
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">Meaning Before Models, Module 05</span>
+        <h1>Five Layers of Meaning</h1>
+        <p>Separate structure, classification, shared meaning, enterprise mapping, and runtime AI context before choosing a technology or trusting an answer.</p>
+        <div class="hero-meta"><span>55 to 75 minutes</span><span>Foundation with optional Practitioner and Leader depth</span><span>decision room</span></div>
+      </div>
+    </section>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening-decision">Opening Decision</div>
+<div class="progress-item" data-completion-id="five-job-match">Five Job Match</div>
+<div class="progress-item" data-completion-id="triage-complete">Triage Complete</div>
+<div class="progress-item" data-completion-id="broken-boundary">Broken Boundary</div>
+<div class="progress-item" data-completion-id="context-packet">Context Packet</div>
+<div class="progress-item" data-completion-id="failure-paths">Failure Paths</div>
+<div class="progress-item" data-completion-id="diagnose-repair">Diagnose Repair</div>
+<div class="progress-item" data-completion-id="transfer-diagnosis">Transfer Diagnosis</div>
+<div class="progress-item" data-completion-id="five-layer-map">Five Layer Map</div></section>
+    <div class="shell">
+      <section class="lesson-section">
+        <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
+        <div class="prose"><ul><li>Distinguish a data model, taxonomy, ontology, semantic layer, and runtime AI context by the question each answers.</li><li>Classify familiar utility artifacts by their primary meaning job in a bounded scenario.</li><li>Explain how shared concepts resolve to current enterprise records without confusing meaning with mapping.</li><li>Diagnose whether a failed answer begins in structure, classification, meaning, mapping, or runtime context.</li><li>Produce and defend a Five-Layer Meaning Map with named owners, a known gap, and an explicit limit.</li></ul><p><strong>Misconception we will change:</strong> Data models, taxonomies, ontologies, semantic layers, and AI context are interchangeable names for one technical layer.</p></div>
+      </section>
+
+<section class="lesson-section" id="pressure-event">
+  <header class="section-heading">
+    <span class="section-number">01</span>
+    <div><span class="kind">Decision room</span><h2>The data is available. The answer is still disputed.</h2></div>
+  </header>
+  <div class="prose"><p>{&#x27;It is 2:10 a.m. A pressure event has affected Zone 3. The duty manager asks a question that sounds straightforward&#x27;: &#x27;Which active critical-facility customers may be exposed, what evidence supports the list, and which response procedure applies tonight?&#x27;}</p><p>The utility is not starting from nothing. SCADA has the event. GIS has the pressure zone and premises. CIS has accounts and service status. The document system has procedures. A dashboard already joins several tables. An AI assistant can retrieve text and generate a polished summary.</p><p>{&#x27;Yet the room stops on four ordinary words&#x27;: &#x27;active, critical facility, exposed, and current. One team uses billing status to define active. Another uses an effective service date. GIS identifies facilities differently from the customer system. Two procedures have similar titles, but only one is in force. The data exists. The shared meaning, mappings, time, permissions, and decision authority are mixed together.&#x27;}</p></div>
+
+<figure class="learning-visual" id="mbm05-pressure-room"
+  data-visual-type="original-editorial-utility-scene"
+  data-component-source="structured-module-package">
+  <h3>The 2:10 a.m. pressure decision room</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin at the pressure event, inspect CIS, GIS, SCADA, and procedure evidence, then follow the unresolved terms to the named human decision.</div>
+  <div class="visual-frame">
+    <img src="../visuals/pressure-decision-room.svg" alt="A utility decision room at 2:10 a.m. shows a Zone 3 pressure event, evidence from four systems, disputed definitions, a mapping gap, runtime controls, and a duty manager responsible for the decision.">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The team can possess the data and still lack a defensible answer.</figcaption>
+</figure>
+
+<section class="component" id="mbm05-opening-decision" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="opening-decision"
+  data-correct-feedback="Correct. Shared meaning, source resolution, and runtime controls cooperate. No single joined table or prompt owns all three."
+  data-incorrect-feedback="Look for the answer that separates shared meaning, source mapping, and task-specific controls.">
+  <header class="component-header"><h3>What should control the shared meaning of &quot;active customer exposed to this event&quot;?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Whichever joined table the dashboard currently uses</button>
+<button class="choice" type="button" data-choice data-correct="true">A governed definition and relationship model, resolved through tested mappings and bounded by current context</button>
+<button class="choice" type="button" data-choice data-correct="false">The longest available prompt</button>
+<button class="choice" type="button" data-choice data-correct="false">The source system with the most rows</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>The first lesson</h3><p>A table join can connect records. A dashboard can display a result. Neither action automatically settles what the terms mean, whether the mappings are current, or who may use the answer.</p></aside>
+</section>
+<section class="lesson-section" id="five-questions">
+  <header class="section-heading">
+    <span class="section-number">02</span>
+    <div><span class="kind">Architecture distinction</span><h2>Start with five questions, not five technologies</h2></div>
+  </header>
+  <div class="prose"><p>People often meet these terms in a vendor diagram. That makes them sound like competing products or stacked boxes. Begin somewhere simpler. Each term earns its place by answering a different question.</p><p>A data model asks how information is structured for a system, application, integration, or report. A taxonomy asks how terms are classified and organized. An ontology asks what shared concepts and relationships mean. A semantic layer asks how those meanings connect to fields, tables, metrics, application interfaces, and authoritative sources. AI context asks what a model or agent needs for this specific task, at this time, under these permissions and limits.</p><p>These jobs cooperate. They are not interchangeable. A CIS table can store service status without establishing one enterprise definition of active service. A critical-facility hierarchy can classify hospitals and nursing facilities without saying which service account serves which premise. An ontology can define that relationship without pointing to tonight&#x27;s current CIS row. A mapping can connect the concept to fields without knowing what the duty manager is permitted to do. A runtime context package can include relevant records and policies without becoming the permanent ontology.</p></div>
+
+<figure class="learning-visual" id="mbm05-five-job-comparison"
+  data-visual-type="governed-comparison"
+  data-component-source="structured-module-package">
+  <h3>Five questions, five meaning jobs</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read each row from its plain-language question to its utility artifact, accountable owner, and missing-job failure.</div>
+  <div class="visual-frame">
+    <img src="../visuals/five-job-comparison.svg" alt="A five-row comparison distinguishes data model, taxonomy, ontology, semantic layer, and AI context through their questions, artifacts, owners, and failure modes.">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Distinguish the terms by the job, artifact, owner, and failure rather than by a vendor label.</figcaption>
+</figure>
+
+<section class="component" id="mbm05-job-question-match" data-matching
+  data-purposeful-interaction="matching" data-quiz-type="matching"
+  data-quiz-source="structured-module-package"
+  data-completion="five-job-match"
+  data-correct-feedback="Correct. You separated structure, classification, meaning, connection, and runtime packaging."
+  data-incorrect-feedback="Read the first verb in each question. Structure, classify, mean, connect, and package point to different jobs.">
+  <header class="component-header"><h3>Match each question to its primary meaning job.</h3><span class="kind">Relationship matching</span></header>
+  <div class="component-body">
+    <p class="component-intro">Match each ordinary-language question to the job that answers it. Check all rows together, then revise any row that needs another look.</p>
+    <div class="match-grid">
+<label class="match-row">
+  <span>How is account status structured inside CIS?</span>
+  <select data-match-answer="Data model"><option value="">Choose a meaning job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select>
+</label>
+<label class="match-row">
+  <span>How are critical facilities classified?</span>
+  <select data-match-answer="Taxonomy"><option value="">Choose a meaning job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select>
+</label>
+<label class="match-row">
+  <span>What does it mean for an account to serve a premise?</span>
+  <select data-match-answer="Ontology"><option value="">Choose a meaning job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select>
+</label>
+<label class="match-row">
+  <span>Which governed fields implement ActiveServiceAccount?</span>
+  <select data-match-answer="Semantic layer"><option value="">Choose a meaning job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select>
+</label>
+<label class="match-row">
+  <span>What evidence, time, permission, and limits does this task need now?</span>
+  <select data-match-answer="AI context"><option value="">Choose a meaning job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select>
+</label></div>
+    <button class="button primary" type="button" data-check-matching>Check the matches</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Product names vary</h3><p>Organizations and vendors use these labels differently. Govern the question, responsibility, artifact, owner, and boundary. Do not let a product label erase the distinction.</p></aside>
+</section>
+<section class="lesson-section" id="triage-desk">
+  <header class="section-heading">
+    <span class="section-number">03</span>
+    <div><span class="kind">Meaning Triage Desk</span><h2>Put twelve familiar artifacts in the right job</h2></div>
+  </header>
+  <div class="prose"><p>Now use the distinction under pressure. The desk below contains records, lists, definitions, mappings, and controls from the Zone 3 event. Your task is not to guess the file format. Your task is to identify the artifact&#x27;s primary job in this bounded decision.</p><p>Some artifacts could support more than one job. That is normal. A spreadsheet might hold a taxonomy in one process and a semantic mapping in another. The feedback explains why one job is primary here. This is how architecture conversations become precise without pretending the enterprise is perfectly tidy.</p></div>
+
+<section class="component signature-component" id="mbm05-meaning-triage-desk" data-artifact-classifier
+  data-purposeful-interaction="artifact-classifier"
+  data-component-source="structured-module-package"
+  data-completion="triage-complete">
+  <header class="component-header"><h3>The Meaning Triage Desk</h3><span class="kind">Meaning Triage Desk</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the primary job each artifact performs in the Zone 3 decision. Check the entire desk, read every explanation, and retry any misplaced artifact.</p>
+    <div class="triage-grid">
+<article class="triage-card" data-triage-item data-answer="Data model"
+  data-explanation="Its primary job is structuring information inside CIS, even though the fields later support mappings and context.">
+  <span class="triage-number">01</span>
+  <h4>CIS account-status table</h4>
+  <p>Columns store status code, effective start, effective end, and service-address key.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="Taxonomy"
+  data-explanation="Its primary job is controlled classification and organization of facility types.">
+  <span class="triage-number">02</span>
+  <h4>Critical-facility category list</h4>
+  <p>Hospital, dialysis center, nursing facility, school, and emergency shelter.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="Ontology"
+  data-explanation="Its primary job is defining a reusable domain concept independently of one table.">
+  <span class="triage-number">03</span>
+  <h4>Active Service Account definition</h4>
+  <p>A shared definition based on effective service and approved status rules.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="Ontology"
+  data-explanation="Its primary job is shared relationship meaning.">
+  <span class="triage-number">04</span>
+  <h4>servesPremise relationship</h4>
+  <p>A service account serves a premise, with agreed direction and meaning.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="Semantic layer"
+  data-explanation="Its primary job is resolving shared meaning to governed source fields.">
+  <span class="triage-number">05</span>
+  <h4>Active account field mapping</h4>
+  <p>Connect ActiveServiceAccount to ACCT_STAT, START_DT, and END_DT.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="Semantic layer"
+  data-explanation="Its primary job is connecting a shared identifier to a source-system representation.">
+  <span class="triage-number">06</span>
+  <h4>GIS zone crosswalk</h4>
+  <p>Maps the enterprise PressureZone identifier to the current GIS feature key.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="AI context"
+  data-explanation="In this scenario the current event is task-specific runtime evidence.">
+  <span class="triage-number">07</span>
+  <h4>Current pressure-event record</h4>
+  <p>Event 771, Zone 3, observed at 2:10 a.m., with current severity.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="AI context"
+  data-explanation="Effective time is a runtime condition for this task.">
+  <span class="triage-number">08</span>
+  <h4>Decision effective time</h4>
+  <p>Evaluate customer status and procedure validity as of 2:10 a.m.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="AI context"
+  data-explanation="The selected current procedure is task-specific policy evidence.">
+  <span class="triage-number">09</span>
+  <h4>Current response procedure</h4>
+  <p>The approved procedure version in force for this event and jurisdiction.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="AI context"
+  data-explanation="Permission and permitted action belong in the runtime task package.">
+  <span class="triage-number">10</span>
+  <h4>Operator permission</h4>
+  <p>User may prepare a draft exposure list but may not issue customer notifications.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="AI context"
+  data-explanation="The unresolved conflict must be carried into this task instead of silently discarded.">
+  <span class="triage-number">11</span>
+  <h4>Unresolved source conflict</h4>
+  <p>CIS and GIS disagree on whether Premise 88 is a critical facility.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article>
+<article class="triage-card" data-triage-item data-answer="AI context"
+  data-explanation="Output constraints and action limits are runtime controls.">
+  <span class="triage-number">12</span>
+  <h4>Draft-only output limit</h4>
+  <p>Label the result for human review and prohibit automated operational action.</p>
+  <label>Primary job<select><option value="">Choose the primary job</option><option value="Data model">Data model</option><option value="Taxonomy">Taxonomy</option><option value="Ontology">Ontology</option><option value="Semantic layer">Semantic layer</option><option value="AI context">AI context</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
+</article></div>
+    <div class="button-row">
+      <button class="button primary" type="button" data-check-triage>Check the desk</button>
+      <button class="button" type="button" data-reset-triage>Reset</button>
+    </div>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>What changed?</h3><p>Nothing was copied into a new platform. The same twelve artifacts became understandable because each responsibility received a distinct name and purpose.</p></aside>
+</section>
+<section class="lesson-section" id="semantic-bridge">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Worked connection map</span><h2>Shared meaning must still reach a real record</h2></div>
+  </header>
+  <div class="prose"><p>Suppose the ontology defines an Active Service Account as a service account whose service is effective at the decision time and is not ended or suspended under the approved rule. It also defines that a service account serves a premise, a premise lies in a pressure zone, and a pressure event affects a zone.</p><p>That shared meaning is reusable. But the ontology does not automatically know that CIS column ACCT_STAT uses A for active, that START_DT and END_DT control effective time, or that a recent system upgrade renamed one field. The semantic layer carries tested mappings from shared concepts to authoritative enterprise structures.</p><p>This boundary matters because a correct definition and a broken mapping can coexist. If the concept is wrong, change control belongs in the ontology process. If the mapping points to a retired field, repair belongs in the semantic connection. If the current record is stale, repair belongs in source-data operations. Calling all three problems an AI hallucination hides the first broken responsibility.</p></div>
+
+<figure class="learning-visual" id="mbm05-semantic-bridge"
+  data-visual-type="concept-to-source-connection-map"
+  data-component-source="structured-module-package">
+  <h3>From shared meaning to a current customer record</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start with ActiveServiceAccount, cross the tested mapping bridge, inspect CIS fields, and finish at the effective record used for the event.</div>
+  <div class="visual-frame">
+    <img src="../visuals/semantic-bridge.svg" alt="A shared ActiveServiceAccount concept connects through a governed mapping to CIS status and effective-date fields, then to the current account record for the Zone 3 event.">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Correct meaning does not prevent mapping drift, so meanings and mappings need separate tests.</figcaption>
+</figure>
+
+<section class="component" id="mbm05-broken-boundary" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="broken-boundary"
+  data-correct-feedback="Correct. Keep the approved meaning and repair the mapping to the authoritative fields."
+  data-incorrect-feedback="The shared concept is still correct. Find the job that connects that concept to changing source fields.">
+  <header class="component-header"><h3>The approved ActiveServiceAccount definition is correct, but the semantic query still uses a retired CIS field. What is the first broken job?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Ontology, because every wrong answer means the concept is wrong</button>
+<button class="choice" type="button" data-choice data-correct="true">Semantic layer, because the concept-to-source mapping drifted</button>
+<button class="choice" type="button" data-choice data-correct="false">Taxonomy, because a status code is a category</button>
+<button class="choice" type="button" data-choice data-correct="false">AI context, because the answer is delivered at runtime</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Practitioner view</h3><p>Practitioners test the concept definition and the source mapping separately. Leaders assign accountable owners and require evidence that both passed before operational use.</p></aside>
+</section>
+<section class="lesson-section" id="context-packet">
+  <header class="section-heading">
+    <span class="section-number">05</span>
+    <div><span class="kind">Runtime boundary</span><h2>AI context means what this task needs now</h2></div>
+  </header>
+  <div class="prose"><p>The Zone 3 question is not answered only by retrieving customer rows. The model or agent needs the event identifier, effective time, approved definitions, mapped evidence, current procedure, user permission, unresolved conflicts, workflow state, and output limits. That bounded package is AI context.</p><p>A context engine is not the package. It is the governed mechanism that retrieves, filters, validates, and assembles the package. One implementation may combine graph queries, table queries, document retrieval, policy checks, and workflow state. Another may use different technologies. The architectural job remains the same.</p><p>More context is not automatically better context. Dumping every customer record, every procedure version, or another district&#x27;s incident file into the prompt can increase ambiguity, expose unauthorized information, and make evidence harder to trace. Good context reduces ambiguity and unsupported generation. It does not make a generative model perfectly deterministic.</p></div>
+
+<figure class="learning-visual" id="mbm05-context-packet"
+  data-visual-type="runtime-context-packet-anatomy"
+  data-component-source="structured-module-package">
+  <h3>What this task needs now</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the task envelope first, then inspect the included evidence and controls, and finally inspect the excluded unauthorized or irrelevant material.</div>
+  <div class="visual-frame">
+    <img src="../visuals/context-packet.svg" alt="An exploded AI context packet contains the task, evidence, definitions, current policy, time, permission, conflicts, workflow state, and output limits, while irrelevant and unauthorized records remain outside.">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Relevant evidence is necessary but insufficient without definitions, policy, time, permission, conflicts, and output limits.</figcaption>
+</figure>
+
+<section class="component" id="mbm05-context-omission-excess" data-multi-select
+  data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
+  data-quiz-source="structured-module-package"
+  data-completion="context-packet"
+  data-correct-feedback="Correct. The packet is relevant, current, permission-aware, conflict-aware, and bounded."
+  data-incorrect-feedback="Include evidence and controls needed for this decision. Exclude unrelated, excessive, or unlabeled material.">
+  <header class="component-header"><h3>Which items belong in the Zone 3 draft exposure context packet?</h3><span class="kind">Context boundary check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
+    <div class="multi-grid">
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Event 771, affected zone, and decision time</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Approved exposure and active-account definitions</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Current mapped customer and facility evidence</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Current procedure, operator permission, conflicts, and draft-only output limit</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>Every customer record in every pressure zone</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>Superseded procedure versions without labels</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>Another district&#x27;s unrelated incident transcript</span>
+</label></div>
+    <button class="button primary" type="button" data-check-multi>Check the packet</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Human authority remains explicit</h3><p>The context can support a draft exposure list. It does not authorize a public advisory, customer notification, valve operation, or any other consequential action.</p></aside>
+</section>
+<section class="lesson-section" id="failure-trace">
+  <header class="section-heading">
+    <span class="section-number">06</span>
+    <div><span class="kind">Failure propagation laboratory</span><h2>Repair the first broken job</h2></div>
+  </header>
+  <div class="prose"><p>A failure usually becomes visible at the end. The answer omits a facility, uses an outdated procedure, or includes an unauthorized account. Teams then reach for the component closest to the symptom: the prompt, model, dashboard, or agent.</p><p>The safer method is to walk backward until you find the first broken job. A missing field is not the same as a missing category. A missing category is not the same as a relationship no one has defined. A correct definition with a stale field mapping is not the same as a complete mapping with the wrong runtime time or permission.</p><p>Use the laboratory to remove each job. Read how the failure changes as it travels toward the answer. The point is not that every utility needs five products. The point is that every consequential answer needs these responsibilities addressed somewhere.</p></div>
+
+<figure class="learning-visual" id="mbm05-failure-trace"
+  data-visual-type="executable-failure-propagation-map"
+  data-component-source="structured-module-package">
+  <h3>Find the first broken meaning job</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Select one missing job, follow its consequence through the answer path, and compare the recommended repair and accountable role.</div>
+  <div class="visual-frame">
+    <img src="../visuals/failure-propagation.svg" alt="An interactive cause map traces five possible missing meaning jobs to distinct data, interpretation, retrieval, permission, and answer failures.">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Repair should begin at the first broken responsibility, even when the symptom appears in the final answer.</figcaption>
+</figure>
+
+<section class="component signature-component" id="mbm05-missing-job-trace" data-failure-trace
+  data-purposeful-interaction="failure-trace"
+  data-component-source="structured-module-package"
+  data-completion="failure-paths">
+  <header class="component-header"><h3>Remove one job and follow the failure</h3><span class="kind">Failure propagation laboratory</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select each missing job. Follow the consequence from the first break to the final answer, then read the first repair and accountable role.</p>
+    <div class="failure-lab">
+<button class="failure-trigger" type="button" data-failure-trigger="Data model">
+  <strong>Data model</strong><span>CIS effective-end date is not represented.</span>
+</button>
+<article class="failure-result" data-failure-result="Data model" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>The source cannot distinguish active from ended service at the decision time.</li><li>The mapping has no governed field to resolve.</li><li>The context packet includes an apparently active account.</li><li>The draft exposure list contains a former customer.</li></ol>
+  <p><strong>First repair:</strong> Add and govern the missing effective-time structure in the source model.</p>
+  <p><strong>Accountable role:</strong> CIS product owner with Customer Operations</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Taxonomy">
+  <strong>Taxonomy</strong><span>Dialysis center is absent from critical-facility categories.</span>
+</button>
+<article class="failure-result" data-failure-result="Taxonomy" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>The facility is classified as commercial only.</li><li>The exposure rule never selects the critical category.</li><li>The context packet omits a high-consequence premise.</li><li>The draft list is incomplete.</li></ol>
+  <p><strong>First repair:</strong> Update the governed critical-facility classification and review downstream use.</p>
+  <p><strong>Accountable role:</strong> Domain steward with Emergency Management</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Ontology">
+  <strong>Ontology</strong><span>The organization never defines what exposed means.</span>
+</button>
+<article class="failure-result" data-failure-result="Ontology" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Teams apply distance, zone membership, or hydraulic impact differently.</li><li>Mappings resolve different interpretations to different records.</li><li>Two valid-looking context packets disagree.</li><li>The answer cannot be defended as one shared decision.</li></ol>
+  <p><strong>First repair:</strong> Approve a bounded exposure concept and its relationships before remapping.</p>
+  <p><strong>Accountable role:</strong> Domain governance council</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Semantic layer">
+  <strong>Semantic layer</strong><span>PressureZone maps to a retired GIS key.</span>
+</button>
+<article class="failure-result" data-failure-result="Semantic layer" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>The approved concept remains correct.</li><li>The query resolves it to the wrong source features.</li><li>Current premises are missing and retired premises appear.</li><li>The draft exposure list is wrong despite correct definitions.</li></ol>
+  <p><strong>First repair:</strong> Repair and regression-test the concept-to-source mapping.</p>
+  <p><strong>Accountable role:</strong> Semantic mapping owner with GIS</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="AI context">
+  <strong>AI context</strong><span>The packet omits effective time and user permission.</span>
+</button>
+<article class="failure-result" data-failure-result="AI context" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Correct records and meanings are available.</li><li>The model selects a superseded procedure and presents the result as actionable.</li><li>The user sees no unresolved conflict or draft-only limit.</li><li>A grounded answer is mistaken for permission to act.</li></ol>
+  <p><strong>First repair:</strong> Add time, permission, conflicts, workflow state, and output limits to the runtime contract.</p>
+  <p><strong>Accountable role:</strong> Application owner with Risk and Operations</p>
+</article></div>
+    <div class="feedback" data-feedback aria-live="polite">Inspect all five failure paths.</div>
+  </div>
+</section>
+
+<section class="component" id="mbm05-diagnose-and-repair" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="diagnose-repair"
+  data-correct-feedback="Correct. The first break is the mapping between approved meaning and the source representation."
+  data-incorrect-feedback="Follow the failure backward. The meaning is correct, but its connection to GIS has drifted.">
+  <header class="component-header"><h3>The ontology is approved, but the graph resolves PressureZone to a retired GIS key. What should the team repair first?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Rewrite the AI system prompt</button>
+<button class="choice" type="button" data-choice data-correct="false">Add more documents to retrieval</button>
+<button class="choice" type="button" data-choice data-correct="true">Repair and regression-test the semantic mapping</button>
+<button class="choice" type="button" data-choice data-correct="false">Replace the ontology with the GIS table</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="transfer">
+  <header class="section-heading">
+    <span class="section-number">07</span>
+    <div><span class="kind">Transfer cases</span><h2>The same distinctions survive across One Water</h2></div>
+  </header>
+  <div class="prose"><p>In wastewater, an overflow response asks which assets are upstream, which permit condition applies, and which customers or waterways may be affected. The data model structures work orders, network assets, samples, and events. The taxonomy classifies overflow severity and response type. The ontology defines assets, flow relationships, events, impacts, and obligations. The semantic layer maps those meanings to CMMS, GIS, laboratory, and permit sources. Runtime context packages the actual event, current weather, effective permit, operator permission, conflicts, and action limits.</p><p>In stormwater, an inspection assistant retrieves the correct permit PDF but quotes a condition that applied before the latest amendment. Retrieval succeeded. The failure is temporal authority inside runtime context and provenance, not simply document similarity. If the ontology also fails to distinguish an outfall from a monitoring location, that is a separate shared-meaning problem with a different repair.</p><p>This is the value of the distinction map. It does not force RDF or a knowledge graph into every small problem. A governed table may be sufficient when one bounded source, one stable definition, and one accountable process answer the question. Relationships earn a graph when identity, traversal, provenance, reuse, or inference carries material value.</p></div>
+
+<section class="component" id="mbm05-transfer-diagnosis" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="transfer-diagnosis"
+  data-correct-feedback="Correct. Retrieval found the document, but runtime context failed to enforce effective time and authority."
+  data-incorrect-feedback="The document was retrieved successfully. Focus on which job determines what is current and authoritative for this task.">
+  <header class="component-header"><h3>A stormwater assistant retrieves the correct permit but quotes a superseded condition. Which job is most directly incomplete for this task?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Data model, because the permit is a document</button>
+<button class="choice" type="button" data-choice data-correct="false">Taxonomy, because permit conditions should be categorized</button>
+<button class="choice" type="button" data-choice data-correct="true">AI context, because effective time and current authority were not enforced</button>
+<button class="choice" type="button" data-choice data-correct="false">Ontology, because every document error is a meaning error</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Hardeep Anand&#x27;s position</h3><p>Meaning must come before models. AI amplifies the condition of the data and operating system around it. This is an owner position that guides the course, not an independent standards claim.</p></aside>
+</section>
+<section class="lesson-section" id="meaning-map">
+  <header class="section-heading">
+    <span class="section-number">08</span>
+    <div><span class="kind">Professional application</span><h2>Build the map another team can challenge</h2></div>
+  </header>
+  <div class="prose"><p>Your final task is not to draw a perfect enterprise architecture. Choose one bounded utility question. Name one artifact or responsibility for each meaning job. Assign an accountable owner. Record the first known gap. State what the map does not authorize.</p><p>A useful map is specific enough for another team to inspect. &quot;Customer data&quot; is too vague. &quot;CIS account status and effective dates governed by Customer Operations&quot; is reviewable. &quot;Use AI context&quot; is too vague. &quot;Include event time, approved exposure definition, current procedure, operator permission, unresolved conflicts, and a draft-only output limit&quot; is reviewable.</p><p>The map becomes one section of your Utility Knowledge Spine Fieldbook. Module 16 will develop the full AI Context Contract. Here you include only enough runtime context to prove that it is a different job from structure, classification, meaning, and mapping.</p></div>
+
+<section class="component" id="mbm05-five-layer-map"
+  data-purposeful-interaction="applied-work-product"
+  data-component-source="structured-module-package">
+  <header class="component-header"><h3>Five-Layer Meaning Map</h3><span class="kind">Professional work product</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose one bounded utility question. Name the artifact or responsibility for all five jobs, assign owners, record the first gap, and state what the map does not authorize.</p>
+    <form class="work-product" data-work-product="mbm05-five-layer-map"
+      data-artifact="mbm05-five-layer-map"
+      data-completion="five-layer-map"
+      data-correct-feedback="Your Five-Layer Meaning Map names all five jobs, accountable owners, the first gap, and an explicit authority limit. It is ready for professional review, not operational use."
+      data-incorrect-feedback="Complete every field with a specific artifact, responsibility, owner, gap, or limit another team can inspect.">
+      <div class="field-grid"><label>Bounded utility question<textarea name="bounded_question" rows="3" required></textarea></label><label>Data model artifact and system owner<textarea name="data_model" rows="3" required></textarea></label><label>Taxonomy or controlled classification<textarea name="taxonomy" rows="3" required></textarea></label><label>Shared concept and relationship meaning<textarea name="ontology" rows="3" required></textarea></label><label>Concept-to-source mapping and owner<textarea name="semantic_layer" rows="3" required></textarea></label><label>Task evidence, time, permission, and output limit<textarea name="ai_context" rows="3" required></textarea></label><label>Accountable owner for each unresolved responsibility<textarea name="accountable_owners" rows="3" required></textarea></label><label>First known gap and required repair<textarea name="first_gap" rows="3" required></textarea></label></div>
+      <label>What this map does not authorize<textarea name="explicit_limit" rows="3" required></textarea></label>
+      <button class="button primary" type="submit">Save Five-Layer Meaning Map</button>
+      <div class="feedback" data-feedback aria-live="polite"></div>
+      <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
+    </form>
+  </div>
+</section>
+
+<section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
+  <h3 id="faq-heading">Questions people actually ask</h3>
+  <details><summary>Is a semantic layer the same as an ontology?</summary><p>No. An ontology defines shared concepts and relationships. A semantic layer connects those meanings to governed fields, tables, metrics, application interfaces, and authoritative sources. Product terminology varies, so make the responsibility explicit.</p></details>
+<details><summary>Is a taxonomy enough for shared meaning?</summary><p>A taxonomy is useful for classification and hierarchy. It does not by itself express every relationship, rule, identity decision, mapping, permission, or runtime condition needed for a utility answer.</p></details>
+<details><summary>Can a data model contain business definitions?</summary><p>Yes. A data model can carry definitions and constraints for its system or application. The distinction is scope. An ontology aims to provide shared domain meaning that can outlive or connect several system-specific models.</p></details>
+<details><summary>Is a prompt the same thing as AI context?</summary><p>A prompt may carry part of the context, but the runtime package also includes retrieved evidence, definitions, policy, time, permission, workflow state, conflicts, and output limits. The prompt is one delivery mechanism, not the entire architecture.</p></details>
+<details><summary>Does better context make an AI answer deterministic?</summary><p>No. Better context can reduce ambiguity and make evidence easier to trace, but generative output may still vary. Deterministic checks, validation, constrained actions, and human review remain separate controls.</p></details>
+<details><summary>Does a knowledge graph replace the warehouse or lakehouse?</summary><p>Not necessarily. A graph can connect meaning to data that stays in existing systems through governed mappings or federation. Materialize only where latency, reliability, cost, security, or operational needs justify it.</p></details>
+<details><summary>When is a governed table enough?</summary><p>A table may be enough when one bounded source, one stable definition, and one accountable process answer the question without complex identity, traversal, provenance, or reuse. Choose the smallest architecture that can defend the decision.</p></details>
+</section>
+
+<section class="evidence" data-evidence-boundary>
+  <h3>Evidence boundary</h3>
+  <p>The Zone 3 event, systems, records, and organizations are instructional. The five-job model is an OWOS teaching framework. W3C sources support RDF, RDF Schema, and ontology concepts. NIST supports the need to govern generative AI risks. This lesson does not authorize an operational response or establish that every AI application requires RDF.</p>
+  <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Syntax</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/rdf12-schema/">RDF 1.2 Schema</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/owl2-overview/">OWL 2 Web Ontology Language Document Overview</a>, World Wide Web Consortium</li><li><a href="https://www.nist.gov/itl/ai-risk-management-framework">Artificial Intelligence Risk Management Framework</a>, National Institute of Standards and Technology</li></ul>
+</section>
+</section>
+      <section id="owos-course-community" class="connected">
+        <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+      </section>
+      <section class="completion">
+        <h2>Complete the working candidate</h2>
+        <p>Complete the decision, distinctions, triage desk, mapping and context checks, failure laboratory, transfer diagnosis, and Five-Layer Meaning Map.</p>
+        <button class="button good" type="button" data-complete-module disabled>Complete module</button>
+        <p data-completion-status aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <div class="drawer-scrim" data-drawer-scrim></div>
+  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+    <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Syntax</h3><p>RDF graph data model, resources, and statements</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>RDF 1.2 Schema</h3><p>Classes, properties, domains, ranges, and vocabulary description</p><a href="https://www.w3.org/TR/rdf12-schema/">Open source</a></article><article><h3>OWL 2 Web Ontology Language Document Overview</h3><p>Ontology language scope and relationship to RDF</p><a href="https://www.w3.org/TR/owl2-overview/">Open source</a></article><article><h3>Artificial Intelligence Risk Management Framework</h3><p>Risk governance boundary for generative AI applications</p><a href="https://www.nist.gov/itl/ai-risk-management-framework">Open source</a></article></div>
+  </aside>
+  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article><h3>data model</h3><p>A structured description of entities, attributes, relationships, keys, cardinalities, and constraints for a system, application, report, integration, or analytical use.</p></article><article><h3>taxonomy</h3><p>A controlled classification or hierarchy used to organize terms, categories, or types.</p></article><article><h3>ontology</h3><p>A shared description of domain concepts, relationships, classifications, and selected rules independently of one source system.</p></article><article><h3>semantic layer</h3><p>Governed mappings and services that connect shared business meaning to fields, tables, metrics, application interfaces, events, and authoritative sources.</p></article><article><h3>AI context</h3><p>The task-specific package of evidence, definitions, policy, time, permission, workflow state, conflicts, and output limits supplied at runtime.</p></article><article><h3>context engine</h3><p>A governed mechanism that retrieves, filters, validates, and assembles AI context for a task.</p></article><article><h3>mapping</h3><p>A controlled connection between a shared concept or relationship and its representation in an enterprise source.</p></article><article><h3>effective time</h3><p>The time at which a fact, rule, status, or policy applies to the decision.</p></article><article><h3>authority</h3><p>The recognized person, role, source, or process permitted to approve a definition, claim, policy, or action.</p></article><article><h3>provenance</h3><p>Information about where a statement came from, who asserted or transformed it, and under what conditions.</p></article></div>
+  </aside>
+  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-golden-candidate. No credential or operational authority.</div></footer>
+  <script>(() => {
+  "use strict";
+
+  const required = JSON.parse(document.body.dataset.requiredIds || "[]");
+  const stateKey = `owos-module:${document.body.dataset.moduleId}:${document.body.dataset.sourceVersion}`;
+  const completed = new Set();
+  let lastDrawerTrigger = null;
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(stateKey) || "[]");
+    saved.forEach((id) => completed.add(id));
+  } catch {
+    localStorage.removeItem(stateKey);
+  }
+
+  function saveState() {
+    localStorage.setItem(stateKey, JSON.stringify([...completed].sort()));
+  }
+
+  function refreshCompletion() {
+    document.querySelectorAll("[data-completion-id]").forEach((item) => {
+      item.classList.toggle("done", completed.has(item.dataset.completionId));
+    });
+    const ready = required.every((id) => completed.has(id));
+    const button = document.querySelector("[data-complete-module]");
+    const status = document.querySelector("[data-completion-status]");
+    if (button) button.disabled = !ready;
+    if (status) {
+      const count = required.filter((id) => completed.has(id)).length;
+      status.textContent = ready
+        ? "All required evidence is complete. You can complete this working candidate."
+        : `${count} of ${required.length} required activities complete.`;
+    }
+  }
+
+  function mark(id) {
+    if (!id) return;
+    completed.add(id);
+    saveState();
+    refreshCompletion();
+  }
+
+  document.querySelectorAll("[data-choice-group]").forEach((group) => {
+    let selected = null;
+    group.querySelectorAll("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        group.querySelectorAll("[data-choice]").forEach((item) => item.classList.remove("selected"));
+        button.classList.add("selected");
+        selected = button;
+      });
+    });
+    group.querySelector("[data-check-choice]")?.addEventListener("click", () => {
+      const feedback = group.querySelector("[data-feedback]");
+      if (!selected) {
+        feedback.textContent = "Choose one response first.";
+        feedback.className = "feedback bad";
+        return;
+      }
+      const correct = selected.dataset.correct === "true";
+      selected.classList.add(correct ? "correct" : "incorrect");
+      feedback.textContent = correct ? group.dataset.correctFeedback : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-flip-group]").forEach((group) => {
+    const cards = [...group.querySelectorAll("[data-flip-card]")];
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const revealed = !card.classList.contains("revealed");
+        card.classList.toggle("revealed", revealed);
+        card.setAttribute("aria-pressed", String(revealed));
+        if (cards.every((item) => item.classList.contains("revealed"))) {
+          mark(group.dataset.completion);
+          const feedback = group.querySelector("[data-feedback]");
+          feedback.textContent = group.dataset.correctFeedback;
+          feedback.className = "feedback good";
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-matching]").forEach((group) => {
+    group.querySelector("[data-check-matching]")?.addEventListener("click", () => {
+      const rows = [...group.querySelectorAll("[data-match-answer]")];
+      const feedback = group.querySelector("[data-feedback]");
+      let correctCount = 0;
+      rows.forEach((field) => {
+        const correct = field.value === field.dataset.matchAnswer;
+        field.classList.toggle("correct-field", correct);
+        field.classList.toggle("incorrect-field", !correct);
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === rows.length;
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : `${group.dataset.incorrectFeedback} ${correctCount} of ${rows.length} are correctly matched.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-multi-select]").forEach((group) => {
+    group.querySelector("[data-check-multi]")?.addEventListener("click", () => {
+      const options = [...group.querySelectorAll("[data-multi-option]")];
+      const feedback = group.querySelector("[data-feedback]");
+      const correct = options.every(
+        (option) => option.checked === (option.dataset.correct === "true")
+      );
+      options.forEach((option) => {
+        option.closest(".select-option")?.classList.toggle(
+          "selected-correct",
+          option.checked && option.dataset.correct === "true"
+        );
+        option.closest(".select-option")?.classList.toggle(
+          "selected-incorrect",
+          option.checked && option.dataset.correct !== "true"
+        );
+      });
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-triple-builder]").forEach((builder) => {
+    const selects = [...builder.querySelectorAll("select")];
+    const correct = JSON.parse(builder.dataset.correct);
+    const output = builder.querySelector("[data-triple-output]");
+    const feedback = builder.querySelector("[data-feedback]");
+    const reverseButton = builder.querySelector("[data-reverse]");
+    let built = false;
+    let reversed = false;
+
+    builder.querySelector("[data-check-triple]").addEventListener("click", () => {
+      const values = selects.map((field) => field.value);
+      output.textContent = values.every(Boolean) ? values.join("  →  ") : "Choose all three positions.";
+      built = values.every((value, index) => value === correct[index]);
+      reverseButton.disabled = !built;
+      feedback.textContent = built
+        ? "Correct. Now reverse the ends and inspect what the statement says."
+        : "Use Pump_P104 as subject, serves as predicate, and Pressure_Zone_3 as object.";
+      feedback.className = `feedback ${built ? "good" : "bad"}`;
+    });
+
+    reverseButton.addEventListener("click", () => {
+      const first = selects[0].value;
+      selects[0].value = selects[2].value;
+      selects[2].value = first;
+      reversed = true;
+      output.textContent = selects.map((field) => field.value).join("  →  ");
+      feedback.textContent = "The words are familiar, but the direction now says the pressure zone serves the pump.";
+      feedback.className = "feedback bad";
+    });
+
+    builder.querySelector("[data-finish-triple]").addEventListener("click", () => {
+      const explanation = builder.querySelector("textarea").value.trim();
+      const enough = explanation.length >= Number(builder.dataset.minimumExplanation);
+      if (built && reversed && enough) {
+        mark(builder.dataset.completion);
+        feedback.textContent = "Complete. You showed that direction carries meaning.";
+        feedback.className = "feedback good";
+      } else {
+        feedback.textContent = "Build the correct triple, reverse it, and explain the changed meaning in one full sentence.";
+        feedback.className = "feedback bad";
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-path-tracer]").forEach((tracer) => {
+    const edges = [...tracer.querySelectorAll("[data-edge-index]")];
+    const feedback = tracer.querySelector("[data-feedback]");
+    let expected = 0;
+    edges.forEach((edge) => {
+      edge.addEventListener("click", () => {
+        const index = Number(edge.dataset.edgeIndex);
+        if (index !== expected) {
+          feedback.textContent = `Start with edge ${expected + 1}. A path only works when its relationships connect in order.`;
+          feedback.className = "feedback bad";
+          return;
+        }
+        edge.classList.add("active");
+        expected += 1;
+        feedback.textContent = edge.dataset.explanation;
+        feedback.className = "feedback good";
+        if (expected === edges.length) mark(tracer.dataset.completion);
+      });
+    });
+    tracer.querySelector("[data-reset-path]").addEventListener("click", () => {
+      expected = 0;
+      edges.forEach((edge) => edge.classList.remove("active"));
+      feedback.textContent = "Path reset. Begin with edge 1.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-artifact-classifier]").forEach((desk) => {
+    const items = [...desk.querySelectorAll("[data-triage-item]")];
+    const feedback = desk.querySelector("[data-feedback]");
+    desk.querySelector("[data-check-triage]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      items.forEach((item) => {
+        const field = item.querySelector("select");
+        const correct = field.value === item.dataset.answer;
+        const itemFeedback = item.querySelector("[data-item-feedback]");
+        item.classList.toggle("correct-card", correct);
+        item.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Correct. ${item.dataset.explanation}`
+          : `Try again. Ask what primary job this artifact performs here. ${item.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === items.length;
+      feedback.textContent = correct
+        ? "The desk is organized. The same event now has distinct structures, classifications, meanings, mappings, and runtime controls."
+        : `${correctCount} of ${items.length} artifacts are correctly placed. Use the explanation under each artifact and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(desk.dataset.completion);
+    });
+    desk.querySelector("[data-reset-triage]")?.addEventListener("click", () => {
+      items.forEach((item) => {
+        item.querySelector("select").value = "";
+        item.classList.remove("correct-card", "incorrect-card");
+        item.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "The triage desk is reset.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-failure-trace]").forEach((lab) => {
+    const triggers = [...lab.querySelectorAll("[data-failure-trigger]")];
+    const visited = new Set();
+    const feedback = lab.querySelector("[data-feedback]");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const job = trigger.dataset.failureTrigger;
+        visited.add(job);
+        triggers.forEach((item) => {
+          item.classList.toggle("active", item === trigger);
+          item.setAttribute("aria-pressed", String(item === trigger));
+        });
+        lab.querySelectorAll("[data-failure-result]").forEach((result) => {
+          result.hidden = result.dataset.failureResult !== job;
+        });
+        feedback.textContent =
+          visited.size === triggers.length
+            ? "All five paths inspected. The symptom appears in the answer, but the first repair belongs at the first broken job."
+            : `${visited.size} of ${triggers.length} failure paths inspected.`;
+        feedback.className = "feedback good";
+        if (visited.size === triggers.length) mark(lab.dataset.completion);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-work-product]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = [...form.querySelectorAll("[required]")];
+      const complete = fields.every((field) => field.value.trim());
+      const feedback = form.querySelector("[data-feedback]");
+      if (!complete) {
+        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.className = "feedback bad";
+        return;
+      }
+      const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
+      localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
+      feedback.textContent = form.dataset.correctFeedback;
+      feedback.className = "feedback good";
+      mark(form.dataset.completion);
+    });
+  });
+
+  function openDrawer(name, trigger) {
+    const drawer = document.querySelector(`[data-drawer="${name}"]`);
+    if (!drawer) return;
+    lastDrawerTrigger = trigger;
+    document.querySelector("[data-drawer-scrim]").classList.add("open");
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    drawer.querySelector("button, a, input")?.focus();
+  }
+
+  function closeDrawers() {
+    document.querySelector("[data-drawer-scrim]").classList.remove("open");
+    document.querySelectorAll("[data-drawer]").forEach((drawer) => {
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    });
+    lastDrawerTrigger?.focus();
+  }
+
+  document.querySelectorAll("[data-open-drawer]").forEach((button) => {
+    button.addEventListener("click", () => openDrawer(button.dataset.openDrawer, button));
+  });
+  document.querySelectorAll("[data-close-drawer], [data-drawer-scrim]").forEach((button) => {
+    button.addEventListener("click", closeDrawers);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDrawers();
+  });
+
+  document.querySelector("[data-complete-module]")?.addEventListener("click", () => {
+    const status = document.querySelector("[data-completion-status]");
+    status.textContent = "Working candidate completed locally. This does not issue a credential or operational authority.";
+  });
+
+  refreshCompletion();
+})();
+</script>
+</body>
+</html>

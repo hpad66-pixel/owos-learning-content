@@ -5,7 +5,10 @@ from __future__ import annotations
 
 import re
 import shutil
+import json
 from pathlib import Path
+
+import yaml
 
 from course_distinctiveness import audit as audit_distinctiveness
 
@@ -26,6 +29,33 @@ ASSETS = {
 }
 
 
+def structured_assets() -> dict[str, tuple[Path, str]]:
+    """Map structured curriculum references to flat release assets."""
+
+    authoring_path = COURSE / ".course/authoring.json"
+    if not authoring_path.is_file():
+        return {}
+    authoring = json.loads(authoring_path.read_text(encoding="utf-8"))
+    migration = authoring.get("migration_state") or {}
+    result: dict[str, tuple[Path, str]] = {}
+    for module_name in migration.get("structured_modules", []):
+        module_dir = COURSE / "modules" / str(module_name)
+        manifest_path = module_dir / "visuals/visual-manifest.yaml"
+        manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
+        for visual in manifest.get("visuals", []):
+            locator = str(visual.get("locator", ""))
+            if not locator:
+                continue
+            source = module_dir / locator
+            output = f"meaning-before-models-{module_name}-{source.name}"
+            curriculum_reference = f"../modules/{module_name}/{locator}"
+            result[curriculum_reference] = (source, output)
+    return result
+
+
+STRUCTURED_ASSETS = structured_assets()
+
+
 def lesson_output(source: Path) -> str:
     match = re.fullmatch(r"module-(\d{2})-(.+)\.html", source.name)
     if not match:
@@ -44,6 +74,9 @@ def transform(text: str, *, landing: bool) -> str:
     for source, output in LINKS.items():
         text = text.replace(f'href="{source}', f'href="{output}')
     for source, output in ASSETS.items():
+        text = text.replace(f'href="{source}"', f'href="{output}"')
+        text = text.replace(f'src="{source}"', f'src="{output}"')
+    for source, (_, output) in STRUCTURED_ASSETS.items():
         text = text.replace(f'href="{source}"', f'href="{output}"')
         text = text.replace(f'src="{source}"', f'src="{output}"')
 
@@ -110,6 +143,8 @@ def main() -> None:
 
     for source_name, output_name in ASSETS.items():
         shutil.copyfile(SOURCE / source_name, DIST / output_name)
+    for source, output_name in STRUCTURED_ASSETS.values():
+        shutil.copyfile(source, DIST / output_name)
 
     for page in sorted(DIST.glob("*.html")):
         text = page.read_text(encoding="utf-8")
@@ -125,7 +160,10 @@ def main() -> None:
             if not (DIST / src).exists():
                 raise SystemExit(f"{page.name} has missing release asset: {src}")
 
-    print(f"Built Meaning Before Models live review: {len(LESSONS)} lessons and {len(ASSETS)} assets.")
+    print(
+        "Built Meaning Before Models live review: "
+        f"{len(LESSONS)} lessons and {len(ASSETS) + len(STRUCTURED_ASSETS)} assets."
+    )
 
 
 if __name__ == "__main__":

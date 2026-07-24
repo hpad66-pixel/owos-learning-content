@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:11
+  number: 11
+  title: References, Provenance, Authority, and Time
+  part: Trust the graph
+  curriculum_role: decision_evidence_governance
+learning_job:
+  learner_question: Which statement may support this decision, who said it, and when does it apply?
+  outcome: Reconcile conflicting statements using provenance, authority, version, time, and review state.
+  prior_knowledge: Graph statements, identity, inference, and validation.
+  misconception: The source system is authoritative for every statement and every time period.
+  transfer_task: Reconcile a superseded stormwater procedure with a current permit clause and inspection.
+depth:
+  common_route: Source, assertion, observation, extraction, inference, approval, authority, and effective time.
+  practitioner: PROV-O entities, activities, agents, versioning, supersession, confidence, and access.
+  leader: Assign decision authority and approve conflict and supersession policy.
+experience:
+  archetype: evidence_reconciliation
+  opening: Five credible records disagree about the same operating condition.
+  mental_model: Every important claim carries an evidence envelope.
+  signature_mechanism: Reconcile five claims by source, authority, time, version, and approval state.
+  visual_jobs:
+    - Trace how a statement was observed, recorded, transformed, reviewed, and approved.
+    - Place conflicting claims on effective-time and record-time lines.
+    - Reveal why the newest record is not always the governing one.
+  assessment_jobs:
+    - Classify evidence and review states.
+    - Resolve a conflict with explicit reasoning.
+    - Defend an authority and supersession decision.
+  work_product: Authority, Provenance, and Time Ledger
+  capstone_contribution: Evidence requirements, authoritative roles, time rules, and supersession policy.
+evidence:
+  source_refs: [SRC-011, DIR-004]
+  claim_refs: [CLM-018, CLM-024]
+  boundary: Authority is an organizational policy decision and is not supplied automatically by RDF or PROV-O.
+sequence:
+  requires: [mbm001:03, mbm001:04, mbm001:09, mbm001:10]
+  prepares: [mbm001:12, mbm001:15, mbm001:16, mbm001:18]

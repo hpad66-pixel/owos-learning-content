@@ -50,7 +50,7 @@ course_id: {args.course_id}
 slug: {args.slug}
 title: "{args.title}"
 course_family: focused_course
-source_format: native_html
+source_format: structured_modules_with_compiled_html
 status: research
 visibility: private_preview
 course_version: 0.1.0
@@ -101,6 +101,9 @@ source_files:
   claims_register: research/CLAIMS-REGISTER.md
   evidence_boundaries: research/EVIDENCE-BOUNDARIES.md
   architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
+  structured_modules: modules
+  compiler: ../../tools/course_compiler.py
+  author_studio: ../../tools/course-author-studio
 
 delivery:
   release_state: research
@@ -137,11 +140,13 @@ def scaffold(args: argparse.Namespace) -> Path:
         "curriculum",
         "curriculum/design-briefs",
         "curriculum/scripts",
+        "modules",
         "assessments",
         "assets",
         "work-products",
         "release",
         "qa",
+        "qa/rendered",
     ]:
         (course_dir / relative).mkdir(parents=True, exist_ok=True)
 
@@ -155,6 +160,23 @@ def scaffold(args: argparse.Namespace) -> Path:
             if source != destination and not destination.exists():
                 shutil.move(str(source), str(destination))
 
+    write_once(
+        course_dir / ".course/authoring.json",
+        """{
+  "schema_version": 1,
+  "authoritative_source": "structured_modules",
+  "module_directory": "modules",
+  "compiler": "../../tools/course_compiler.py",
+  "compiler_contract": "owos-course-compiler/1",
+  "compiler_version": "1.1.0",
+  "author_studio": "../../tools/course-author-studio",
+  "html_role": "compiled_delivery_output",
+  "visual_truth_required": true,
+  "storyboard_approval_required": true,
+  "rendered_experience_required": true,
+  "course_coherence_required": true
+}""",
+    )
     write_once(
         course_dir / ".course/full-module-contract.json",
         """{
@@ -207,9 +229,9 @@ The user adds documents to `inbox/` or speaks and types directly into the Codex 
 
 Before drafting, read `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yaml`, `SYLLABUS.md`, Hardeep Soul, the Course Production Contract, Course Operating Standard, Course Design System, Course Experience Architecture, Visual Arsenal, component catalog, quiz catalog, and writing standard. Preserve originals, distinguish evidence from Hardeep's positions, and require approval before locking the blueprint, golden lesson, or release.
 
-Create and approve `curriculum/COURSE-EXPERIENCE-BRIEF.md` before module production. Create a module design brief before each lesson and maintain the course design matrix. Chapter 09 is a capability benchmark, not a page template. Every module must select its archetype, signature mechanism, visual grammar, interaction, assessment, animation, and work-product mix from the learning problem and must be checked against adjacent modules for repetition.
+Create and approve `curriculum/COURSE-EXPERIENCE-BRIEF.md` before module production. Create a module design brief and approve the module storyboard before implementation, then maintain the course design matrix. Chapter 09 is a capability benchmark, not a page template. Every module must select its archetype, signature mechanism, visual grammar, interaction, assessment, animation, and work-product mix from the learning problem and must be checked against adjacent modules for repetition.
 
-The written lesson is the instruction and must stand without video. Never bulk-generate lesson teaching from one fixed page function. Run `python3 tools/course_distinctiveness.py --course apps/{args.slug}` after every three produced lessons and before release.
+The written lesson is the instruction and must stand without video. Author new modules as structured packages under `modules/<module>/`; HTML is compiled delivery output. Every counted visual must resolve through the visual manifest to a real asset or registered executable component. Never bulk-generate lesson teaching from one fixed page function. Run `python3 tools/course_distinctiveness.py --course apps/{args.slug}` after every three produced lessons and before release.
 
 Use compact Graph, Community, and Start actions in the lesson header. Graph and Community each open a white responsive drawer. Start moves to the beginning of the lesson. Reserve an explicit `#owos-course-community` anchor inside `main`, immediately before bottom navigation, for the complete connected-learning section. Floating cards and hanging rails are prohibited. Dark blue, navy, and gradient surfaces always use tested light text.
 
@@ -401,7 +423,19 @@ The original file is preserved. Extraction, citation coverage, licensing, and fa
     )
     write_once(
         course_dir / "curriculum" / "design-briefs" / "README.md",
-        "# Module Design Briefs\n\nCreate one brief per module from `core/templates/MODULE-DESIGN-BRIEF.md` before writing lesson HTML.\n",
+        "# Module Design Briefs\n\nCreate one brief per module from `core/templates/MODULE-DESIGN-BRIEF.md`, then approve the module storyboard before implementing the structured module package. HTML is compiled delivery output.\n",
+    )
+    write_once(
+        course_dir / "modules" / "README.md",
+        """# Structured modules
+
+Create one folder per module. Start from the governed schemas and templates in `core/`.
+
+Each module keeps `design-brief.md`, `module.yaml`, `storyboard.yaml`, `visuals/visual-manifest.yaml`,
+`interactions.yaml`, `assessments.yaml`, `sources.yaml`, `glossary.yaml`, and `qa.yaml`.
+
+Validate and build with `tools/course_compiler.py`. Use the Author Studio for module-level review.
+""",
     )
     write_once(
         course_dir / "curriculum" / "scripts" / "README.md",
@@ -410,6 +444,14 @@ The original file is preserved. Extraction, citation coverage, licensing, and fa
     write_once(course_dir / "assessments" / "README.md", "# Assessments\n\nDeterministic assessments and scoring contracts will be stored here.")
     write_once(course_dir / "assets" / "README.md", "# Assets\n\nStore governed course graphics and small reproducible assets here.")
     write_once(course_dir / "work-products" / "README.md", "# Work Products\n\nTemplates and applied learner deliverables will be stored here.")
+    write_once(
+        course_dir / "qa" / "COURSE-COHERENCE-REPORT.md",
+        "# Course Coherence Report\n\nCopy `core/templates/COURSE-COHERENCE-REPORT.md` here and complete it before release.\n",
+    )
+    write_once(
+        course_dir / "qa" / "rendered" / "README.md",
+        "# Rendered Evidence\n\nStore desktop, tablet, phone, keyboard, touch, screen-reader, and reduced-motion review evidence here. Use `core/templates/RENDERED-EXPERIENCE-REPORT.md` for each module.\n",
+    )
     write_once(course_dir / "release" / "README.md", "# Release\n\nRelease evidence is generated only after the quality contract passes.")
     return course_dir
 

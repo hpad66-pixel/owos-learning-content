@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:06
+  number: 6
+  title: Taxonomies, Vocabularies, and RDF Schema
+  part: Build shared meaning
+  curriculum_role: governed_vocabulary_and_schema
+learning_job:
+  learner_question: How do utilities govern terms, classes, properties, and hierarchies?
+  outcome: Repair a utility classification and explain what RDF Schema describes and infers.
+  prior_knowledge: The five-job distinction from Module 05.
+  misconception: A taxonomy, ontology, RDF Schema, and validation shape perform the same job.
+  transfer_task: Repair a stormwater inspection hierarchy with overlapping classes.
+depth:
+  common_route: Controlled terms, class, instance, property, hierarchy, label, and definition.
+  practitioner: Subclass, subproperty, domain, range, and their inference consequences.
+  leader: Establish vocabulary ownership, review, release, and change accountability.
+experience:
+  archetype: classification_studio
+  opening: Four departments use the word asset differently.
+  mental_model: A governed classification tree connected to explicit class and property statements.
+  signature_mechanism: Repair a broken hierarchy and observe the classification consequences.
+  visual_jobs:
+    - Separate vocabulary, taxonomy, and RDF Schema roles.
+    - Show class-instance and subclass relationships without using a generic node cloud.
+    - Reveal why a careless domain or range declaration can classify unexpected records.
+  assessment_jobs:
+    - Classify terms and instances.
+    - Diagnose a hierarchy defect.
+    - Defend a governed vocabulary decision.
+  work_product: Governed Vocabulary and Taxonomy Sheet
+  capstone_contribution: Initial vocabulary, hierarchy, definitions, and owner.
+evidence:
+  source_refs: [SRC-005, SRC-004]
+  claim_refs: [CLM-005, CLM-021]
+  boundary: RDF Schema description and inference must not be taught as SHACL validation.
+sequence:
+  requires: [mbm001:04, mbm001:05]
+  prepares: [mbm001:07, mbm001:08, mbm001:09, mbm001:10]

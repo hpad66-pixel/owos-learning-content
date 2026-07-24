@@ -40,9 +40,12 @@ Follow the current phase in `STATE.md`:
 
 1. Research: inventory, extraction, claims, limitations, and Hardeep direction.
 2. Blueprint: course promise, audience, outcomes, modules, work products, competencies, assessments, and graph plan.
-3. Golden lesson: build one complete lesson for Hardeep's approval.
-4. Production: build remaining lessons from the approved benchmark without repetitive template writing.
-5. Validation: run the Course Quality Contract and relevant visual, mobile, accessibility, content, and release checks.
+3. Golden lesson: approve the module design brief and storyboard, then build one complete structured
+   module package for Hardeep's approval.
+4. Production: build remaining structured module packages from their own approved briefs and
+   storyboards, without repetitive template writing.
+5. Validation: compile deterministic HTML, then run the Course Quality Contract and relevant visual,
+   mobile, accessibility, content, and release checks against the rendered experience.
 6. Release: commit source and reproducible output, push a reviewed GitHub change, and intake the exact release into OWOS only after approval.
 
 Never skip from research to bulk lesson generation. Never publish because a file was added.
@@ -53,9 +56,27 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Complete `core/templates/COURSE-EXPERIENCE-BRIEF.md` before the first module design brief. Define a
   course-specific teaching voice, utility world, visual language, archetype rhythm, signature
   mechanisms, artifact family, and prohibited motifs.
-- Complete `core/templates/MODULE-DESIGN-BRIEF.md` before lesson HTML.
+- Complete `core/templates/MODULE-DESIGN-BRIEF.md` and an approved module storyboard before
+  implementation. HTML is compiled delivery output and is never the authoring source for a new or
+  materially rebuilt module.
 - Maintain a course-level design matrix from `core/templates/COURSE-DESIGN-MATRIX.md`.
 - Run the Visual Arsenal Selection Prompt against the actual teaching ideas.
+- Create the structured module under `apps/<course>/modules/<module>/`. Keep `design-brief.md`, `module.yaml`,
+  `storyboard.yaml`, `visuals/visual-manifest.yaml`, `interactions.yaml`, `assessments.yaml`,
+  `sources.yaml`, `glossary.yaml`, and `qa.yaml` separately reviewable.
+- Use `python3 tools/course_compiler.py validate <module-directory>` before building a preview. Use
+  `python3 tools/course_compiler.py build <module-directory>` only after validation passes.
+- Preserve the `owos-course-compiler/1` contract. Do not silently reinterpret an approved source
+  package. Run `python3 tools/audit-structured-authoring.py` before stating that an existing course
+  or portfolio is migrated; the audit must distinguish structured, hybrid, and legacy modules.
+- Count a visual only when its manifest identifier resolves to a real asset or registered executable
+  component. A visual label, card grid, colored box, icon row, or declared data attribute is not
+  visual evidence.
+- Require every visual manifest record to carry a teaching idea, learner conclusion, reading guide,
+  alternative text, mobile treatment, reduced-motion treatment, creator, source, license,
+  permission state, originality state, storyboard state, and rendered-review state.
+- Use Author Studio for module-by-module review when visual or narrative control is needed. It edits
+  structured source, preserves snapshots, validates the package, and previews the compiler output.
 - Use the two to five substantial visual explanations the ideas require. Give every lesson one
   subject-specific signature mechanism. Select assessments from the thinking being taught instead of
   imposing the same quiz inventory.
@@ -75,6 +96,9 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Use explanatory graphics when a concept, method, framework, relationship, or cause chain has a visual shape. Select the graphic through the Visual Arsenal, explain how to read it, and state what it proves or clarifies. Do not add decorative stock art, repeated icon tiles, or graphics that merely restate a heading.
 - Plan visual pacing before HTML production. Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the module brief records why uninterrupted prose is necessary. Use an original editorial illustration when a utility setting, physical asset, record conflict, or accountable decision can be taught as a scene. Give it accessible text, a reading guide, and a learner conclusion.
 - Complete `core/templates/MODULE-QA-REPORT.md` after every built module. Record a score out of 100, the evidence checked, missing work, automated results, manual reviews, and five hard gates. A numeric score never overrides a blocked accuracy, practitioner, accessibility, technical, or release gate. Store the course report under `apps/<course>/qa/` and show it to Hardeep after each module.
+- Complete `core/templates/RENDERED-EXPERIENCE-REPORT.md` after browser review and
+  `core/templates/COURSE-COHERENCE-REPORT.md` before release. Source inspection cannot substitute for
+  rendered desktop, tablet, phone, keyboard, touch, reduced-motion, and read-without-video evidence.
 - After every three produced lessons and before release, run
   `python3 tools/course_distinctiveness.py --course apps/<course>`. Stop bulk production when the
   rendered lessons repeat archetypes, quiz sequences, interaction signatures, generic frequently
@@ -82,6 +106,9 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Never use one large page generator that substitutes module content into fixed section, quiz, visual,
   FAQ, and artifact slots. Generators may create the accessible site shell. Lesson teaching and
   experience architecture must come from the approved module brief.
+- A compiler may render governed block types, but it must preserve the authored storyboard sequence
+  and reject unresolved assets, unknown components, missing approvals, unsupported completion IDs,
+  and unreviewed release evidence. The compiler does not invent teaching.
 - Run the full implementation gate against every completed full module:
 
   ```bash
@@ -115,6 +142,8 @@ Before ending every material course turn:
 - update `STATE.md` with completed work, current phase, new sources, unresolved decisions, and next action;
 - update `APPROVALS.md` when Hardeep approves or rejects a blueprint, golden lesson, claim boundary, or release;
 - update the source and claims registers when evidence changed;
+- retain the structured source checksum, compiler version, storyboard approval, visual manifest, and
+  rendered evidence used for each candidate;
 - leave all changed artifacts readable in Git;
 - record the exact full-module conformance command and result in `STATE.md`;
 - commit and push when the user asked to publish or when the established repository workflow explicitly requires it.

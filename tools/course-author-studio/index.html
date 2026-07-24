@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OWOS Course Author Studio</title>
+  <link rel="stylesheet" href="studio.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <span class="eyebrow">One Water OS</span>
+      <h1>Course Author Studio</h1>
+    </div>
+    <div class="actions">
+      <button type="button" data-action="validate">Validate package</button>
+      <button class="primary" type="button" data-action="build">Build preview</button>
+    </div>
+  </header>
+  <main class="studio">
+    <aside class="course-rail">
+      <h2>Structured courses</h2>
+      <p>Select one module. Every save creates a source snapshot before the file changes.</p>
+      <div data-course-list></div>
+    </aside>
+    <section class="workspace">
+      <div class="empty-state" data-empty>
+        <strong>Select a module</strong>
+        <span>Narrative, storyboard, visuals, interactions, assessments, evidence, and QA remain separately controllable.</span>
+      </div>
+      <div class="module-workspace" data-module-workspace hidden>
+        <header class="module-head">
+          <div>
+            <span class="eyebrow" data-module-id></span>
+            <h2 data-module-title></h2>
+            <p data-module-promise></p>
+          </div>
+          <div class="status-card">
+            <span>Source version</span>
+            <strong data-source-version></strong>
+            <span>Compiler</span>
+            <strong data-compiler-version></strong>
+          </div>
+        </header>
+        <nav class="tabs" aria-label="Module authoring views" data-tabs></nav>
+        <section class="editor-view" data-editor-view>
+          <div class="editor-toolbar">
+            <div>
+              <strong data-current-label></strong>
+              <span data-current-help></span>
+            </div>
+            <button class="primary" type="button" data-save>Save with snapshot</button>
+          </div>
+          <textarea spellcheck="false" data-editor aria-label="Structured module source"></textarea>
+        </section>
+        <section class="preview-view" data-preview-view hidden>
+          <div class="preview-toolbar">
+            <div class="viewport-buttons" role="group" aria-label="Preview width">
+              <button type="button" data-width="100%">Desktop</button>
+              <button type="button" data-width="820px">Tablet</button>
+              <button type="button" data-width="390px">Phone</button>
+            </div>
+            <button type="button" data-refresh-preview>Refresh preview</button>
+          </div>
+          <div class="preview-stage"><iframe title="Compiled module preview" data-preview></iframe></div>
+        </section>
+        <section class="evidence-grid" data-evidence-grid></section>
+      </div>
+    </section>
+  </main>
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <script src="studio.js"></script>
+</body>
+</html>

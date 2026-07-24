@@ -1,0 +1,46 @@
+schema_version: 1
+module_id: mbm001:01
+interactions:
+  - interaction_id: mbm01-triple-builder
+    component: triple-builder
+    title: Build it, reverse it, explain it
+    teaching_purpose: Make relationship direction visible and require the learner to explain the changed meaning.
+    instructions: Choose the subject, predicate, and object. Check the triple, reverse it, then explain why the reversed claim fails.
+    completion_id: triple-built
+    config:
+      subjects:
+        - Pump_P104
+        - Pressure_Zone_3
+        - Outfall_12
+      predicates:
+        - serves
+        - drains
+        - located_in
+      objects:
+        - Pressure_Zone_3
+        - Pump_P104
+        - Catchment_5
+      correct:
+        - Pump_P104
+        - serves
+        - Pressure_Zone_3
+      minimum_explanation_characters: 18
+  - interaction_id: mbm01-path-tracer
+    component: path-tracer
+    title: Trace the evidence path
+    teaching_purpose: Show that a graph answer depends on each directed relationship in the chain.
+    instructions: Select the three edges in order. Read what each edge adds before moving to the next.
+    completion_id: path-traced
+    config:
+      nodes:
+        - Pump P-104
+        - Pressure Zone 3
+        - Premise 88
+        - Service Account 901
+      edges:
+        - predicate: serves
+          explanation: The asset-to-zone relationship comes from the approved utility network model.
+        - predicate: contains
+          explanation: The spatial relationship connects the pressure zone to a served premise.
+        - predicate: has_service_account
+          explanation: The customer system links the premise to the service account.

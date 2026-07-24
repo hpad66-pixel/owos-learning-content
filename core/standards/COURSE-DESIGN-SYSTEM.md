@@ -65,7 +65,8 @@ This approved Course Experience Brief is the course-level design authority.
 
 ### 4. Create a module design fingerprint
 
-Before authoring HTML, complete `core/templates/MODULE-DESIGN-BRIEF.md`. The fingerprint must name:
+Before implementing the structured module package, complete
+`core/templates/MODULE-DESIGN-BRIEF.md`. The fingerprint must name:
 
 - the opening situation and first learner decision;
 - the narrative structure and mental model;
@@ -78,6 +79,21 @@ Before authoring HTML, complete `core/templates/MODULE-DESIGN-BRIEF.md`. The fin
 - the visual pacing plan, including where dense prose is interrupted by a meaningful illustration, interaction, diagram, or worked example;
 - the mobile transformation; and
 - the design elements intentionally not repeated from adjacent modules.
+
+### 4A. Approve the storyboard and artifact manifests
+
+Turn the module fingerprint into a beat-by-beat storyboard. Every beat records the learner question,
+instructor explanation, visual or interaction, learner action, intended realization, assessment
+evidence, and transition.
+
+Create the visual manifest before implementation. A selected arsenal pattern does not count as a
+visual until it resolves to an actual asset or registered executable component with a teaching
+purpose, reading guide, learner conclusion, accessible text, mobile treatment, reduced-motion
+treatment, source, creator, license, permission, originality status, storyboard status, and rendered
+review status.
+
+Keep narrative, storyboard, visuals, interactions, assessments, work products, glossary, sources,
+and QA separately reviewable. Compile HTML only after the structured package validates.
 
 ### 5. Check diversity across the course
 
@@ -114,6 +130,9 @@ Every substantive lesson should create or improve a professional artifact such a
 ### 8. Validate the complete experience
 
 Validation includes factual and citation review, utility-practice review, deterministic scoring, malformed-data checks, desktop and mobile rendering, keyboard and touch operation, screen-reader labels, reduced-motion behavior, contrast, typography, same-page graph behavior, persistence, completion evidence, and comparison against adjacent lessons for repetition.
+
+Retain rendered evidence for desktop, tablet, and phone. Source inspection and declared component
+labels never substitute for seeing the actual assets, controls, feedback, and mobile transformations.
 
 ### 9. Teach the interface in the interface
 
@@ -235,4 +254,7 @@ A module fails design review when it clones Chapter 09 or the prior module, reli
 
 ## Definition of design readiness
 
-HTML production may begin only when the module design brief, course design matrix, evidence boundaries, and work-product specification are reviewable. Bulk production may begin only after Hardeep approves the golden lesson as a capability benchmark.
+Structured module implementation may begin only when the module design brief, approved storyboard,
+course design matrix, evidence boundaries, visual manifest plan, and work-product specification are
+reviewable. Compiled HTML is delivery output. Bulk production may begin only after Hardeep approves
+the golden lesson as a capability benchmark.

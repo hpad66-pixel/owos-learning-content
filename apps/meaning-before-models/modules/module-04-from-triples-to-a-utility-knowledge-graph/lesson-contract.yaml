@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:04
+  number: 4
+  title: From Triples to a Utility Knowledge Graph
+  part: See the relationships
+  curriculum_role: connected_graph_model
+learning_job:
+  learner_question: When do separate statements become a useful knowledge graph?
+  outcome: Connect source-bounded statements and trace cross-domain utility answer paths.
+  prior_knowledge: Precise triples and governed identity.
+  misconception: A node-link picture is itself the knowledge graph.
+  transfer_task: Connect stormwater inspection, catchment, outfall, permit, and maintenance records.
+depth:
+  common_route: Shared nodes, directed edges, paths, source groups, and answerable questions.
+  practitioner: RDF datasets, named graphs, path patterns, and graph partitioning decisions.
+  leader: Identify questions whose value genuinely depends on cross-system relationships.
+experience:
+  archetype: relationship_discovery_lab
+  opening: Isolated source records cannot answer an affected-customer question.
+  mental_model: A graph grows only when reviewed statements share governed identities.
+  signature_mechanism: Connect isolated records until three utility questions become answerable.
+  visual_jobs:
+    - Grow a graph visibly from source records.
+    - Distinguish machine-readable statements from the node-link display.
+    - Illuminate the exact path supporting an answer.
+  assessment_jobs:
+    - Select meaningful graph connections.
+    - Identify a missing edge that blocks an answer.
+    - Trace and defend a source-bounded path.
+  work_product: Utility Mini-Graph
+  capstone_contribution: Initial graph scope, source groups, and competency questions.
+evidence:
+  source_refs: [SRC-001, SRC-002]
+  claim_refs: [CLM-012, CLM-013]
+  boundary: A graph database is not automatically a governed knowledge graph.
+sequence:
+  requires: [mbm001:02, mbm001:03]
+  prepares: [mbm001:05, mbm001:08, mbm001:11]

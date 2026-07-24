@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:15
+  number: 15
+  title: Structured and Unstructured Knowledge
+  part: Operate the Knowledge Spine
+  curriculum_role: document_to_approved_claim
+learning_job:
+  learner_question: When does a retrieved passage become usable evidence or approved knowledge?
+  outcome: Distinguish search, similarity, extraction, explicit graph assertion, review, and approval.
+  prior_knowledge: Provenance, Knowledge Spine architecture, mappings, and access patterns.
+  misconception: Embeddings or extracted entities are approved enterprise knowledge.
+  transfer_task: Reconcile a sewer-overflow procedure passage with sensor and permit evidence.
+depth:
+  common_route: Document, passage, metadata, retrieval, similarity, extraction, claim, source, review, and approval.
+  practitioner: Hybrid retrieval, chunking boundaries, entity linking, provenance, confidence, and evidence promotion.
+  leader: Approve evidence policy, review roles, access boundaries, and retention.
+experience:
+  archetype: evidence_investigation
+  opening: A procedure says one thing while a sensor record and permit clause suggest another.
+  mental_model: A document-to-claim chain with explicit promotion gates.
+  signature_mechanism: Compare retrieval methods, extract candidate claims, and decide which may enter reviewed knowledge.
+  visual_jobs:
+    - Compare what keyword, vector, extraction, and graph methods preserve and lose.
+    - Trace a passage through extraction, identity resolution, review, and approval.
+    - Keep conflicting evidence visible instead of collapsing it into one answer.
+  assessment_jobs:
+    - Classify evidence states.
+    - Trace provenance from passage to claim.
+    - Approve, reject, or hold a candidate statement.
+  work_product: Structured-Unstructured Evidence Plan
+  capstone_contribution: Document sources, retrieval method, extraction path, review, and approval boundary.
+evidence:
+  source_refs: [SRC-009, SRC-011, DIR-005]
+  claim_refs: [CLM-015, CLM-018, CLM-037, CLM-038]
+  boundary: Do not use the unsupported claim that eighty percent of enterprise data is unstructured.
+sequence:
+  requires: [mbm001:11, mbm001:12, mbm001:13, mbm001:14]
+  prepares: [mbm001:16, mbm001:17, mbm001:18]

@@ -40,6 +40,11 @@ useful learning.
 
 No runtime copy becomes the curriculum source of truth. No generator becomes the author of record.
 
+For new courses and materially rebuilt modules, the curriculum source is the structured module
+package. The Course Compiler produces deterministic delivery HTML from that package. Author Studio
+edits the package, preserves source snapshots, and previews the compiled result. Neither tool may
+invent instruction or promote a pending human gate.
+
 ## Required lesson journey
 
 Every released lesson contains these eleven elements in a coherent experience:
@@ -139,6 +144,11 @@ The release is also blocked when any released lesson has:
 - no accessible live-feedback region; or
 - no keyboard-operable learner control.
 
+For a fully migrated structured course, the release builder also validates every module package. It
+blocks unresolved visual assets, unknown component identifiers, missing storyboard approval,
+missing completion producers, unsupported assessment contracts, mismatched module identifiers, and
+pending release-ready visual or QA states.
+
 The lightweight lesson gate is a minimum technical floor. The whole-course conformance gate proves
 that module evidence exists and passes the automated contract. Neither gate replaces qualified
 utility-practice review, source review, learning-design judgment, contrast inspection, learner pilot,
@@ -171,9 +181,11 @@ and receives the missing provenance, event, graph, competency, and release contr
 ```text
 controlled evidence
 -> syllabus and course record
--> product-specific lesson source
--> interaction and work-product build
+-> module design brief and approved storyboard
+-> structured module package and visual manifest
+-> deterministic Course Compiler output
 -> five-gate review
+-> rendered experience and course coherence evidence
 -> self-contained distribution
 -> checksum release manifest
 -> platform intake pull request

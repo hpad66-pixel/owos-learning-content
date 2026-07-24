@@ -1,0 +1,111 @@
+schema_version: 1
+module:
+  course_id: owos-course-semantic-data-ai-001
+  module_id: mbm001:01
+  slug: module-01-rdf-in-15-minutes
+  title: RDF in 15 Minutes
+  eyebrow: Meaning Before Models, Module 01
+  promise: See how one named relationship becomes a machine-readable path across utility systems.
+  duration: 15 to 25 minutes
+  level: Foundation
+  archetype: guided-construction
+  signature_mechanism: build-reverse-and-chain-utility-triples
+  source_version: 1.0.0-structured-candidate
+learning:
+  audience:
+    - Utility staff
+    - Utility leaders
+    - Data, GIS, operations, and technology practitioners
+  outcomes:
+    - Identify the subject, predicate, and object in a utility statement.
+    - Explain why relationship direction changes meaning.
+    - Connect several triples into one evidence path.
+    - Separate an explicit graph claim from a proven real-world fact.
+    - Draft one source-bounded utility relationship.
+  prior_knowledge: Learners already describe ordinary relationships in speech.
+  misconception: More records automatically give a machine more understanding.
+  transfer_task: Write a new triple for wastewater or stormwater and name the source that would support it.
+sections:
+  - section_id: opening
+    title: The data is present. The relationship is missing.
+    kind: Utility scene
+    blocks:
+      - type: prose
+        paragraphs:
+          - A pump alarm appears at 2:00 a.m. The screen says Pump P-104. The operator can see a pressure reading, a work order, a map, and customer records, but none of those records states the complete answer the operator needs.
+          - The useful question is not, "How much data do we have?" It is, "What does this pump serve, and what is connected to that service area?" Water, wastewater, and stormwater teams ask that same relationship question in different forms.
+      - type: visual
+        visual_id: mbm01-utility-scene
+      - type: assessment
+        assessment_id: mbm01-opening-choice
+      - type: callout
+        title: What to notice
+        text: The alarm reports an event. The relationship explains why that event may matter somewhere else. Those are different jobs.
+  - section_id: triple
+    title: One statement has three jobs
+    kind: Build the triple
+    blocks:
+      - type: prose
+        paragraphs:
+          - Resource Description Framework, shortened to RDF, represents information as small statements called triples. The subject is the thing you are describing. The predicate names the relationship. The object is the thing or value on the other end.
+          - '"Pump P-104 serves Pressure Zone 3" becomes Pump_P104, serves, Pressure_Zone_3. The structure is simple. The hard work is agreeing on identity, relationship meaning, source, and authority.'
+      - type: visual
+        visual_id: mbm01-triple-anatomy
+      - type: interaction
+        interaction_id: mbm01-triple-builder
+      - type: assessment
+        assessment_id: mbm01-term-cards
+      - type: callout
+        title: Boundary
+        text: Writing a triple makes a claim explicit. It does not prove that the claim is current, authoritative, or true.
+  - section_id: graph
+    title: Repeated statements become a path
+    kind: Connect the graph
+    blocks:
+      - type: prose
+        paragraphs:
+          - Add two more statements. Pressure Zone 3 contains Premise 88. Premise 88 is linked to Service Account 901. The shared things connect the statements into a path.
+          - A machine can follow that path because every edge is named and directed. The circles and lines are a visual explanation. The graph itself is the underlying set of statements and identifiers.
+      - type: visual
+        visual_id: mbm01-graph-growth
+      - type: interaction
+        interaction_id: mbm01-path-tracer
+      - type: assessment
+        assessment_id: mbm01-path-claim
+  - section_id: transfer
+    title: Take one relationship back to work
+    kind: Professional application
+    blocks:
+      - type: prose
+        paragraphs:
+          - Do not begin by modeling the whole enterprise. Start with one relationship that answers a recurring question. Name the subject, predicate, object, source, and the question the relationship supports.
+          - Use a real water, wastewater, or stormwater example. Another team should be able to find the source, challenge the claim, and understand exactly what the relationship means.
+      - type: work_product
+        work_product_id: mbm01-relationship-card
+      - type: faq
+        items:
+          - question: Is RDF a database?
+            answer: No. RDF is a standard model for expressing information as triples. The triples may be stored in a graph database, generated from tables, exchanged as files, or exposed through an application interface.
+          - question: Is the graph the circles-and-lines picture?
+            answer: No. The picture is one view. The graph is the underlying set of identified things and directed, named relationships.
+          - question: Why not use a spreadsheet?
+            answer: For one small local task, a spreadsheet may be enough. RDF becomes useful when the same pump, zone, premise, procedure, customer, and permit must connect across systems through reusable meanings.
+          - question: Can the object be a number or date?
+            answer: Yes. An object may be another identified resource or a literal value such as a number, date, or text string.
+          - question: Does a triple prove the statement is true?
+            answer: No. It makes the claim explicit. Trust still depends on source, mapping, effective time, authority, review, and validation.
+      - type: evidence
+        statement: Pump P-104, Pressure Zone 3, Premise 88, and Service Account 901 are instructional examples. RDF definitions are grounded in World Wide Web Consortium standards. The scenario does not establish an operational fact or authorize an action.
+        source_refs:
+          - w3c-rdf-concepts
+          - w3c-rdf-primer
+          - w3c-turtle
+completion:
+  required_ids:
+    - opening-choice
+    - triple-built
+    - term-cards
+    - path-traced
+    - path-claim
+    - relationship-card
+  rule: Complete both interactions, both concept checks, the opening decision, and the Relationship Card.

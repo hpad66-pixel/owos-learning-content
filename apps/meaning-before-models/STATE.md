@@ -1,20 +1,55 @@
 # Course State
 
-Updated: 2026-07-23
+Updated: 2026-07-24
 
 ## Current phase
 
-Full-course working review. All eighteen lessons pass module conformance, whole-course full-module
-conformance, and the course-distinctiveness gate. Release remains blocked on the named human gates.
+Progressive structured production from Module 01 through Module 19 under standing owner
+authorization for governed production and live-review publication. The Module 05 benchmark governs
+capability and quality, not page composition. Modules 01 and 05 are compiled structured lessons and
+have replaced their curriculum and distributable outputs. Modules 02, 03, and 04 are the first
+sequential production batch.
 
 ## Approved
 
 - Five-part, eighteen-module curriculum blueprint
+- Primary learner and graduation capability from the Course Formulation Audit
 - Comprehensive semantic-backbone master-class scope
 - Foundation, Practitioner, and Leader instructional views
 - Work-product, assessment, simulation, FAQ, and capstone direction
 - Module 05 capability level for full-course production use
 - Full production of all eighteen modules
+- Structured Course Compiler and module-level Author Studio architecture
+- RDF Module 01 structured reference conversion
+- Nineteen lesson contracts for module design
+- Module 05 selection as the revised golden-lesson design candidate
+- Module 05 design brief and storyboard for golden-lesson implementation
+- Revised Module 05 rendered candidate as the capability-level production benchmark
+
+## Structured-authoring implementation result
+
+- Binding production contract upgraded to version 2.0.0 with visual-truth, storyboard, cognitive
+  quality, rendered-experience, course-coherence, portability, analytics, localization, licensing,
+  correction, and lifecycle controls.
+- Future course scaffolds now use structured module packages and compiled HTML.
+- Course Compiler version 1.1.0 validates real assets, storyboard approvals, component contracts,
+  assessment contracts, completion evidence, source identifiers, punctuation, and release states.
+- Author Studio provides separate Narrative, Storyboard, Visuals, Interactions, Assessments,
+  Sources, Glossary, QA, and Preview views. Every save preserves the prior source.
+- Module 01 now has three original visual assets, two working simulations, working flip cards,
+  distributed deterministic checks, a Relationship Card work product, and a compiled preview.
+- Browser automation passed desktop, tablet, and phone with zero runtime errors, no horizontal
+  overflow, no empty controls, no dark-text failures, all assets loaded, all required activities
+  completed, drawer focus return, and a reduced-motion phone result of 0.01 milliseconds maximum
+  transition duration.
+- Compiler source checksum:
+  `11eb2966db7cfda9f9055561cc6c1c336e628e874a537734ab416766caa9b72b`.
+- The curriculum lesson and distributable live-review lesson were replaced after explicit owner
+  direction. Browser QA passed the distributed output at desktop, tablet, and phone widths. Human
+  factual, practitioner, novice, and screen-reader reviews remain open for final release.
+- `owos-course-compiler/1` is now the stable, versioned compiler contract. All four governed courses
+  carry migration manifests, and the portfolio audit reports one verified structured module and
+  seventy-one legacy modules still requiring conversion.
 
 ## Production inventory
 
@@ -91,5 +126,27 @@ override a blocked hard gate.
 
 ## Next action
 
-Conduct the named factual, practitioner, novice, and accessibility reviews. Do not publish or issue
-credentials until those reviews and final release approval are recorded.
+Obtain Hardeep Anand's review of Module 02's structured design brief and eight-beat storyboard.
+After approval, create its subject-specific visual manifest, Triple Evidence Bench interactions,
+distributed assessments, Reviewed Triple Deck, narrative, glossary, sources, and QA package before
+compilation.
+
+## Revised Module 05 structured result
+
+- Authoritative source: `modules/module-05-five-layers-of-meaning/`
+- Compiler contract: `owos-course-compiler/1`
+- Compiler implementation: 1.1.0
+- Final replacement package checksum: `252afabe2e97f03fb773a72d449f2e31e29d0633a41669d583820598901bef8c`
+- Five original explanatory visual assets
+- Meaning Triage Desk with twelve classified utility artifacts
+- Executable five-path failure propagation laboratory
+- Distributed multiple-choice, matching, multi-select, diagnosis, transfer, and applied checks
+- One Five-Layer Meaning Map professional work product
+- Browser QA passed desktop, tablet, and phone with zero failures
+- Exact browser command:
+  `NODE_PATH=/Users/apas/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules /Users/apas/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node apps/meaning-before-models/qa/module-05-structured-browser-validation.cjs`
+- Curriculum and distributable Module 05 now compile from this structured package.
+- Final distributable browser QA passed desktop, tablet, and phone with zero failures.
+- Whole-course conformance, course distinctiveness, course QA, release checksum, and structured
+  authoring audits pass.
+- The generated release manifest contains 34 checksum-controlled files.

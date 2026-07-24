@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:07
+  number: 7
+  title: Ontology Engineering in Plain Language
+  part: Build shared meaning
+  curriculum_role: bounded_shared_meaning_design
+learning_job:
+  learner_question: How do we define shared meaning without trying to model the entire utility?
+  outcome: Turn competency questions into a bounded ontology slice and defend included and excluded meanings.
+  prior_knowledge: Classes, properties, hierarchies, and definitions from Module 06.
+  misconception: Ontology engineering means documenting every concept the organization knows.
+  transfer_task: Model active customer exposure for a wastewater service interruption.
+depth:
+  common_route: Competency questions, concepts, relationships, definitions, boundaries, examples, and review.
+  practitioner: Upper and domain ontologies, application profiles, modularity, reuse, alignment, and versioning.
+  leader: Approve scope, ownership, release authority, and change control.
+experience:
+  archetype: modeling_workshop
+  opening: A modeling team cannot agree on what active customer means.
+  mental_model: A bounded concept canvas driven by questions the utility must answer.
+  signature_mechanism: Conduct a modeling session that converts competency questions into a reviewed ontology slice.
+  visual_jobs:
+    - Connect competency questions to concepts and relationships.
+    - Expose included, excluded, and unresolved meanings.
+    - Show the review and version path from draft model to approved release.
+  assessment_jobs:
+    - Identify an appropriate modeling starting point.
+    - Construct a bounded concept and relationship set.
+    - Defend scope and change decisions.
+  work_product: Ontology Decision Record
+  capstone_contribution: Competency questions, ontology boundary, decisions, and owner.
+evidence:
+  source_refs: [SRC-001, SRC-003, DIR-005]
+  claim_refs: [CLM-003, CLM-031, CLM-032]
+  boundary: Formal ontology is valuable for targeted use cases but is not a universal requirement for every agent.
+sequence:
+  requires: [mbm001:06]
+  prepares: [mbm001:08, mbm001:09, mbm001:12, mbm001:13]

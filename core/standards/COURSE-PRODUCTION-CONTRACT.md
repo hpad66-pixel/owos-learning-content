@@ -1,6 +1,6 @@
 ---
 title: OWOS Course Production Contract
-version: 1.2.0
+version: 2.0.0
 status: APPROVED IMPLEMENTATION STANDARD
 owner: Hardeep Anand
 effective: 2026-07-23
@@ -13,11 +13,42 @@ This is the binding build and quality contract for every OWOS course, Master Cla
 ## 1. Repository and evidence foundation
 
 - The curriculum source lives in `owos-learning-content`. Runtime copies never become the curriculum source of truth.
+- New courses and materially rebuilt modules use structured authoring packages. HTML is compiled delivery output, not the authoring source.
+- A structured module package must keep narrative, storyboard, visual manifest, interaction contracts, assessments, work-product contract, glossary, sources, and QA evidence separately reviewable.
 - Preserve every original source, checksum, locator, permission state, author, visibility, and limitation.
 - Separate sourced fact, expert interpretation, Hardeep Anand position, instructional scenario, and unresolved question.
 - Load Hardeep Soul when Hardeep's knowledge is used. The Soul file controls voice and boundaries, not factual evidence.
 - Record substantive user direction in `conversations/`, then update course state and approvals.
 - No private, internal, sealed, or permission-pending material becomes public without approval.
+
+## 1A. Course Compiler and Author Studio contract
+
+Every new course workspace must provide a module-level authoring path that supports:
+
+- editing the teaching narrative without editing page markup;
+- reviewing one storyboard beat, visual, interaction, assessment, or source at a time;
+- saving visible draft, review, approved, and released states;
+- previewing the compiled lesson at desktop, tablet, and phone widths;
+- comparing the current module with the modules before and after it;
+- validating source lineage, asset licensing, accessibility text, and approval state;
+- retaining version history and identifying the exact structured source used for a build; and
+- compiling the governed source into HTML, packaged learning formats, and future delivery surfaces.
+
+The compiler must be deterministic. The same approved source package and compiler version must
+produce the same learner-facing structure. It must fail closed when a required artifact, approval,
+identifier, asset, or evidence record is missing.
+
+The compiler contract is versioned as `owos-course-compiler/1`. A compiler update may add validation,
+delivery targets, or backwards-compatible metadata, but it may not silently reinterpret an approved
+source package. A breaking change requires a new compiler contract, migration notes, fixture tests,
+and explicit owner approval. Existing compiled lessons retain their source checksum and compiler
+version so they can be reproduced and compared.
+
+Every governed course, including legacy courses, must carry `.course/authoring.json`. That manifest
+states whether the course is structured, hybrid during migration, or legacy pending migration. It
+must list the structured modules and the exact number of legacy modules remaining. No report may call
+a legacy module "compiler governed" until a structured source package exists and its compiled output
+checksum has passed conformance.
 
 ## 2. Syllabus and blueprint gate
 
@@ -81,6 +112,46 @@ instruction, or a repeated lesson architecture.
 - Run the course-level distinctiveness gate after every three produced lessons and before release.
 - Decorative stock art, generic technology imagery, repeated icon grids, and motion without a teaching purpose do not count.
 
+### Visual truth gate
+
+A visual declaration is not evidence that a visual exists. Every counted visual must resolve through
+the visual manifest to an actual file or registered executable component. Each manifest record must
+include:
+
+- a stable visual identifier and file or component locator;
+- the teaching idea and learner conclusion it supports;
+- a reading guide, alternative text, mobile treatment, and reduced-motion treatment when applicable;
+- an asset class such as editorial illustration, explanatory diagram, data graphic, simulation, map,
+  evidence view, or interface demonstration;
+- source, creator, license, permission, and originality status; and
+- storyboard approval and rendered-review status.
+
+Cards, colored boxes, headings, icon rows, background shapes, and declared `data-visual-type`
+attributes do not count unless the rendered artifact visibly teaches the stated relationship,
+sequence, quantity, location, decision, or change. Automated checks must inspect resolvable assets
+and executable behavior, not labels alone.
+
+### Storyboard approval gate
+
+Before lesson implementation, the module storyboard must show the teaching sequence beat by beat.
+Each beat records the learner question, instructor explanation, visual or interaction, learner
+action, intended realization, assessment evidence, and transition. The storyboard must be approved
+before a module can become the golden lesson or enter release review.
+
+### Cognitive quality gate
+
+Each module must document:
+
+- the prior knowledge it activates;
+- the misconception it is designed to change;
+- the worked example and the learner practice that follows it;
+- the retrieval, comparison, explanation, diagnosis, or application demanded by each check;
+- the feedback and retry path;
+- the transfer task that asks the learner to use the idea in a different utility situation; and
+- any accessibility or language support needed to reduce irrelevant cognitive load.
+
+Recognition-only quizzes cannot establish applied mastery.
+
 ## 6. Course navigation and connected learning
 
 - Keep the main lesson reading surface calm and uncluttered.
@@ -141,6 +212,47 @@ After every material module revision:
 7. Keep accuracy, learning design, utility practice, technical quality, distinctiveness, full-module
    conformance, and release control as hard gates.
 
+### Rendered experience gate
+
+Source inspection alone cannot pass a learner experience. Every release candidate must retain
+rendered evidence for representative desktop, tablet, and phone widths. The evidence must verify:
+
+- each visual asset loads and remains legible;
+- each interaction and quiz can be completed with pointer, keyboard, and touch;
+- no dark blob, clipped label, overflow, duplicate tooltip, hidden answer, or empty control remains;
+- animation and reduced-motion presentations communicate the same conclusion;
+- the teaching remains understandable without video; and
+- the compiled runtime matches the approved storyboard and visual manifest.
+
+### Course coherence gate
+
+The completed course must be reviewed as one intellectual sequence. The review must verify that:
+
+- prerequisites are taught before they are used;
+- terminology, identifiers, recurring examples, and evidence boundaries remain consistent;
+- repetition is intentional and produces stronger retrieval or transfer;
+- visual grammar, emotional rhythm, and module archetypes vary with the learning problem;
+- professional work products accumulate into a useful capstone; and
+- the final assessment samples the stated mastery standard rather than the easiest quiz items.
+
+The course coherence report, rendered experience evidence, and approved storyboards are required
+release artifacts.
+
+## 9A. Portability, analytics, localization, and lifecycle
+
+- Authoring content must be portable across web delivery, print, accessible document, packaged
+  learning, and future interfaces without copying the lesson by hand.
+- Stable learning-event identifiers must connect attempts, feedback, work products, and mastery
+  evidence to the module source version.
+- Learner analytics must distinguish a difficult concept from a malfunctioning component and must
+  support revision proposals without silently changing approved instruction.
+- Translatable learner text must be separated from component behavior. Localized versions must retain
+  the same claim, evidence, accessibility, and approval controls.
+- Every third-party asset must carry creator, source, license, permission, allowed uses, and required
+  attribution.
+- Corrections must identify affected modules, compiled outputs, releases, graph statements, and
+  learner records. Superseded content remains traceable.
+
 A high score cannot override a blocked gate. Passing distinctiveness does not substitute for individual
 module evidence. A release identifies the exact source commit, manifest, checksums, runtime intake,
 deployment, and approval.
@@ -150,7 +262,8 @@ deployment, and approval.
 A course is complete only when:
 
 - the approved syllabus, Course Experience Brief, design matrix, module briefs, applicable media scripts,
-  work products, evidence registers, and QA reports exist;
+  approved storyboards, visual manifests, work products, evidence registers, rendered evidence,
+  course coherence report, and QA reports exist;
 - every lesson meets this contract and the machine-enforced quality floor;
 - the whole-course full-module conformance runner passes every included lesson and records the exact
   design brief, scored QA report, optional script, and contract used for each result;

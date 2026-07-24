@@ -1,0 +1,41 @@
+schema_version: 1
+status: approved_for_design
+course_id: owos-course-semantic-data-ai-001
+module:
+  id: mbm001:08
+  number: 8
+  title: Ask the Graph with SPARQL
+  part: Trust the graph
+  curriculum_role: graph_pattern_query
+learning_job:
+  learner_question: How does a utility question become a graph pattern?
+  outcome: Assemble, run, and interpret a small SPARQL query tied to visible evidence.
+  prior_knowledge: Graph paths, vocabulary, and bounded ontology concepts.
+  misconception: SPARQL is either SQL with a different name or a reasoning engine.
+  transfer_task: Modify an affected-customer query to find overdue outfall inspections.
+depth:
+  common_route: Variables, triple patterns, result bindings, evidence paths, and readable query clauses.
+  practitioner: Filters, optional patterns, federation, property paths, and query planning boundaries.
+  leader: Determine which competency questions deserve governed reusable queries.
+experience:
+  archetype: query_laboratory
+  opening: A dashboard can show records but cannot follow the relationship path behind the question.
+  mental_model: The query pattern is a stencil placed over the graph.
+  signature_mechanism: Assemble a query clause by clause while the matching graph path illuminates.
+  visual_jobs:
+    - Pair each query clause with the graph pattern it expresses.
+    - Illuminate matching nodes and edges as variables bind.
+    - Trace returned rows back to source statements.
+  assessment_jobs:
+    - Match utility questions to graph patterns.
+    - Build and modify a small query.
+    - Interpret and defend the returned evidence.
+  work_product: Question-to-Query Sheet
+  capstone_contribution: Three competency questions, query patterns, and expected evidence.
+evidence:
+  source_refs: [SRC-002]
+  claim_refs: [CLM-002, CLM-009, CLM-013]
+  boundary: SPARQL queries graph patterns. Inference and validation require separate configured capabilities.
+sequence:
+  requires: [mbm001:04, mbm001:06, mbm001:07]
+  prepares: [mbm001:09, mbm001:10, mbm001:17]

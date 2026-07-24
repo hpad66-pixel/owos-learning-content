@@ -1,0 +1,118 @@
+schema_version: 1
+module_id: mbm001:05
+interactions:
+  - interaction_id: mbm05-meaning-triage-desk
+    component: artifact-classifier
+    title: The Meaning Triage Desk
+    teaching_purpose: Make the five architecture distinctions concrete through records, definitions, mappings, and controls from one utility decision.
+    instructions: Choose the primary job each artifact performs in the Zone 3 decision. Check the entire desk, read every explanation, and retry any misplaced artifact.
+    completion_id: triage-complete
+    config:
+      jobs:
+        - Data model
+        - Taxonomy
+        - Ontology
+        - Semantic layer
+        - AI context
+      items:
+        - title: CIS account-status table
+          description: Columns store status code, effective start, effective end, and service-address key.
+          answer: Data model
+          explanation: Its primary job is structuring information inside CIS, even though the fields later support mappings and context.
+        - title: Critical-facility category list
+          description: Hospital, dialysis center, nursing facility, school, and emergency shelter.
+          answer: Taxonomy
+          explanation: Its primary job is controlled classification and organization of facility types.
+        - title: Active Service Account definition
+          description: A shared definition based on effective service and approved status rules.
+          answer: Ontology
+          explanation: Its primary job is defining a reusable domain concept independently of one table.
+        - title: servesPremise relationship
+          description: A service account serves a premise, with agreed direction and meaning.
+          answer: Ontology
+          explanation: Its primary job is shared relationship meaning.
+        - title: Active account field mapping
+          description: Connect ActiveServiceAccount to ACCT_STAT, START_DT, and END_DT.
+          answer: Semantic layer
+          explanation: Its primary job is resolving shared meaning to governed source fields.
+        - title: GIS zone crosswalk
+          description: Maps the enterprise PressureZone identifier to the current GIS feature key.
+          answer: Semantic layer
+          explanation: Its primary job is connecting a shared identifier to a source-system representation.
+        - title: Current pressure-event record
+          description: Event 771, Zone 3, observed at 2:10 a.m., with current severity.
+          answer: AI context
+          explanation: In this scenario the current event is task-specific runtime evidence.
+        - title: Decision effective time
+          description: Evaluate customer status and procedure validity as of 2:10 a.m.
+          answer: AI context
+          explanation: Effective time is a runtime condition for this task.
+        - title: Current response procedure
+          description: The approved procedure version in force for this event and jurisdiction.
+          answer: AI context
+          explanation: The selected current procedure is task-specific policy evidence.
+        - title: Operator permission
+          description: User may prepare a draft exposure list but may not issue customer notifications.
+          answer: AI context
+          explanation: Permission and permitted action belong in the runtime task package.
+        - title: Unresolved source conflict
+          description: CIS and GIS disagree on whether Premise 88 is a critical facility.
+          answer: AI context
+          explanation: The unresolved conflict must be carried into this task instead of silently discarded.
+        - title: Draft-only output limit
+          description: Label the result for human review and prohibit automated operational action.
+          answer: AI context
+          explanation: Output constraints and action limits are runtime controls.
+  - interaction_id: mbm05-missing-job-trace
+    component: failure-trace
+    title: Remove one job and follow the failure
+    teaching_purpose: Show that five missing responsibilities create distinct symptoms, repairs, and accountable owners.
+    instructions: Select each missing job. Follow the consequence from the first break to the final answer, then read the first repair and accountable role.
+    completion_id: failure-paths
+    config:
+      paths:
+        - job: Data model
+          missing: CIS effective-end date is not represented.
+          steps:
+            - The source cannot distinguish active from ended service at the decision time.
+            - The mapping has no governed field to resolve.
+            - The context packet includes an apparently active account.
+            - The draft exposure list contains a former customer.
+          repair: Add and govern the missing effective-time structure in the source model.
+          owner: CIS product owner with Customer Operations
+        - job: Taxonomy
+          missing: Dialysis center is absent from critical-facility categories.
+          steps:
+            - The facility is classified as commercial only.
+            - The exposure rule never selects the critical category.
+            - The context packet omits a high-consequence premise.
+            - The draft list is incomplete.
+          repair: Update the governed critical-facility classification and review downstream use.
+          owner: Domain steward with Emergency Management
+        - job: Ontology
+          missing: The organization never defines what exposed means.
+          steps:
+            - Teams apply distance, zone membership, or hydraulic impact differently.
+            - Mappings resolve different interpretations to different records.
+            - Two valid-looking context packets disagree.
+            - The answer cannot be defended as one shared decision.
+          repair: Approve a bounded exposure concept and its relationships before remapping.
+          owner: Domain governance council
+        - job: Semantic layer
+          missing: PressureZone maps to a retired GIS key.
+          steps:
+            - The approved concept remains correct.
+            - The query resolves it to the wrong source features.
+            - Current premises are missing and retired premises appear.
+            - The draft exposure list is wrong despite correct definitions.
+          repair: Repair and regression-test the concept-to-source mapping.
+          owner: Semantic mapping owner with GIS
+        - job: AI context
+          missing: The packet omits effective time and user permission.
+          steps:
+            - Correct records and meanings are available.
+            - The model selects a superseded procedure and presents the result as actionable.
+            - The user sees no unresolved conflict or draft-only limit.
+            - A grounded answer is mistaken for permission to act.
+          repair: Add time, permission, conflicts, workflow state, and output limits to the runtime contract.
+          owner: Application owner with Risk and Operations
