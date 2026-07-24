@@ -19,8 +19,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install manifest dependency
-        run: python3 -m pip install PyYAML==6.0.2
+      - name: Install release-gate dependencies
+        run: python3 -m pip install PyYAML==6.0.2 beautifulsoup4==4.13.4
       - name: Build and verify release manifest
         run: |
           python3 tools/build-course-release.py "${{ inputs.course }}"
