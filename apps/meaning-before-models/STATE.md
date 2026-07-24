@@ -165,8 +165,23 @@ override a blocked hard gate.
 
 ## Next action
 
-Publish and verify Module 04's structured live-review replacement, then begin Module 06 in the
-approved progressive sequence because Module 05 is already the approved structured benchmark.
+Begin Module 06 in the approved progressive sequence because Module 05 is already the approved
+structured benchmark.
+
+## Module 04 publication evidence
+
+- Learning-content commit: `0730c839bdb5197d8b857d76d185db4deb84cd4b`
+- Platform production commit: `9fe3a57dc4cb55f212863190b1c638d03b79a416`
+- Cloudflare production deployment: `a6ba7a28-e5ed-467d-923d-b9d52355e31f`
+- Public lesson returned HTTP 200 with package checksum
+  `32327f933b3f1637a8ef6f47ce254e8c3552296bddbbc6627df6788c3bd76d33`.
+- All five production visual assets returned HTTP 200.
+- Live browser completion passed desktop, tablet, and phone with zero failures.
+- The standalone legacy `course_conformance.py` checker falsely rejects compiler-built Modules 03
+  and 04 because it searches for retired hand-authored HTML markers. The authoritative structured
+  compiler, whole-course conformance, course distinctiveness, browser, release-manifest, platform,
+  and live-production gates pass. The legacy checker requires a separate compatibility correction
+  and was not used to reshape the lesson into the rejected legacy page mold.
 
 ## Revised Module 05 structured result
 
