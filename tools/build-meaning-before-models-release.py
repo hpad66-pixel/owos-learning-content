@@ -7,6 +7,8 @@ import re
 import shutil
 from pathlib import Path
 
+from course_distinctiveness import audit as audit_distinctiveness
+
 
 ROOT = Path(__file__).resolve().parents[1]
 COURSE = ROOT / "apps/meaning-before-models"
@@ -19,6 +21,8 @@ ASSETS = {
     "course-module.js": "meaning-before-models-course-module.js",
     "module-05-golden.css": "meaning-before-models-module-05.css",
     "module-05-golden.js": "meaning-before-models-module-05.js",
+    "meaning-fieldbook.css": "meaning-before-models-fieldbook.css",
+    "meaning-fieldbook.js": "meaning-before-models-fieldbook.js",
 }
 
 
@@ -80,6 +84,12 @@ def clean_dist() -> None:
 
 
 def main() -> None:
+    distinctiveness = audit_distinctiveness(COURSE)
+    if distinctiveness["status"] != "passed":
+        raise SystemExit(
+            "Meaning Before Models release blocked by course distinctiveness gate:\n"
+            + "\n".join(f"- {error}" for error in distinctiveness["errors"][:20])
+        )
     if len(LESSONS) != 18:
         raise SystemExit(f"expected 18 source lessons, found {len(LESSONS)}")
     clean_dist()

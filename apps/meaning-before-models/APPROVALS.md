@@ -15,6 +15,8 @@
 | Golden lesson as production benchmark for course build | approved for production use | 2026-07-23 | Hardeep directed Codex to build all modules after receiving the rebuilt Module 05 result. This authorizes production use, not release. |
 | Full eighteen-module production | approved | 2026-07-23 | Direct instruction: “Build out all of them now.” |
 | Eighteen-module candidate set | pending working review | 2026-07-23 | All lesson candidates, briefs, scripts, QA reports, interactions, work products, and course navigation are built and pass repository conformance. |
+| Repeated lesson-factory implementation | rejected | 2026-07-23 | Hardeep rejected repeated archetypes, simulations, graphics, flip-card behavior, fixed module structure, and video-dependent teaching. |
+| Course Experience Architecture retrofit | directed | 2026-07-23 | Rebuild written-first lessons with course-specific identity and lesson-specific archetypes, signature mechanisms, graphics, assessments, and work products. |
 | Graph publication | pending | | |
 | Credential claim | pending | | |
 | Course live-review deployment | approved | 2026-07-23 | Direct instruction from Hardeep Anand: “Go ahead and publish and make it live on my website!” Publish the complete eighteen-module course for live review. Keep credentials, certification claims, authoritative completion, and operational authority disabled while separate human gates continue. |

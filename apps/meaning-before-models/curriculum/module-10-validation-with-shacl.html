@@ -1,84 +1,232 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Module 10: Validation with SHACL | One Water OS Academy</title>
-<meta name="owos-course-id" content="owos-course-semantic-data-ai-001"><meta name="owos-learning-object" content="mbm001:10">
-<meta name="owos-release-state" content="production-candidate"><meta name="owos-course-store" content="mbm001">
-<link rel="icon" href="data:,"><link rel="stylesheet" href="module-05-golden.css"></head>
-<body data-module="module-10" data-lens="foundation"><div class="reading" aria-hidden="true"></div>
-<header class="top"><div class="wrap topin"><a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meaning Before Models / Module 10</span><nav class="topactions" aria-label="Lesson actions"><button class="btn secondary" type="button" data-open-graph>Graph</button><button class="btn secondary" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav></div></header>
-<main><section class="wrap hero"><span class="kicker">Module 10 | Production candidate</span><h1>Validation with SHACL</h1><p>Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation.</p><div class="meta"><span>45 to 60 minutes</span><span>Foundation to Leader</span><span>Utility SHACL Contract</span></div><div class="lenses" role="tablist" aria-label="Instructional depth"><button type="button" class="on" data-lens="foundation">Foundation</button><button type="button" data-lens="practitioner">Practitioner</button><button type="button" data-lens="leader">Leader</button></div></section>
-<div class="wrap"><section class="requirements" aria-label="Completion evidence"><div class="req" data-requirement="opening"><i></i>Opening decision</div><div class="req" data-requirement="process"><i></i>Mechanism lab</div><div class="req" data-requirement="matching"><i></i>Concept match</div><div class="req" data-requirement="multi"><i></i>Boundary check</div><div class="req" data-requirement="artifact"><i></i>Work product</div><div class="req" data-requirement="applied"><i></i>Applied assessment</div></section></div>
-<div class="wrap" id="lesson-start"><section class="section"><div class="section-head"><div><span class="tag">Decision first</span><h2>A pump record passes through the graph with no asset identifier, a sample has no unit, and an outfall inspection has no inspector role.</h2></div><span class="section-num">01 / 05</span></div>
-<div class="view foundation"><p>Begin with the ordinary-language relationship and keep the technical labels in the background until the job is clear.</p></div><div class="view practitioner"><p>Inspect identifiers, mappings, rules, tests, and evidence boundaries at every handoff.</p></div><div class="view leader"><p>Name the accountable owner, operating consequence, investment boundary, and stop condition.</p></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="opening-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Choose the answer you would accept in a real utility review. You can retry. The feedback explains the boundary this module will teach.</p></div></div>
-<div class="panel" id="opening-quiz" data-opening-decision data-quiz-type="multiple-choice" data-quiz-source="quiz-gallery" data-required="opening" data-retry="Return to the scenario and choose the statement that is explicit, governed, and reviewable."><div class="panel-head">Opening decision <span class="kind">Multiple choice</span></div><div class="panel-body"><h3>What does a SHACL validation result establish?</h3><div class="decision-grid"><button class="choice" type="button" data-correct="1">Whether the data conforms to the declared shape, not whether the real-world fact is true.</button><button class="choice" type="button" data-correct="0">Use the closest matching label without review.</button><button class="choice" type="button" data-correct="0">Let the newest application define the meaning for everyone.</button><button class="choice" type="button" data-correct="0">Ask the language model to choose what the term probably means.</button></div><button class="btn primary" type="button" data-check-quiz>Check decision</button><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Mental model</span><h2>See the mechanism before memorizing the vocabulary</h2></div><span class="section-num">02 / 05</span></div><p class="lede"><span class="term" data-def="SHACL is defined and used within this module.">SHACL</span> <span class="term" data-def="shape is defined and used within this module.">shape</span> <span class="term" data-def="target is defined and used within this module.">target</span> <span class="term" data-def="constraint is defined and used within this module.">constraint</span> <span class="term" data-def="severity is defined and used within this module.">severity</span> <span class="term" data-def="violation is defined and used within this module.">violation</span> <span class="term" data-def="warning is defined and used within this module.">warning</span> <span class="term" data-def="conformance is defined and used within this module.">conformance</span></p>
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-1">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this packet anatomy from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-1" data-visual-type="packet-anatomy" data-component-source="component-gallery">
-      <div class="panel-head">Apply constraints <span class="kind">packet anatomy</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Select a target. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="packet-core"><div class="packet-layer"><i>01</i><div><b>Select a target</b><span>Required evidence, control, and owner</span></div><em>trace</em></div><div class="packet-layer"><i>02</i><div><b>Apply constraints</b><span>Required evidence, control, and owner</span></div><em>trace</em></div><div class="packet-layer"><i>03</i><div><b>Read the report</b><span>Required evidence, control, and owner</span></div><em>trace</em></div><div class="packet-layer"><i>04</i><div><b>Route remediation</b><span>Required evidence, control, and owner</span></div><em>trace</em></div></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation.</div></div>
-    </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Module 10: Validation with SHACL | One Water OS Academy</title>
+  <meta name="description" content="Turn utility data expectations into SHACL shapes, inspect validation results, and route defects responsibly.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:10">
+  <meta name="owos-release-state" content="retrofit-working-candidate">
+  <meta name="owos-lesson-archetype" content="graph-inspection-station">
+  <meta name="owos-signature-mechanism" content="live-shape-console-and-remediation-board">
+  <meta name="owos-opening-pattern" content="failed-handoff-packet">
+  <meta name="owos-work-product-mode" content="shacl-constraint-card">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="meaning-fieldbook.css">
+  <style>
+    .inspection-strip{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:22px;border-radius:22px;background:#fff7e8;border:1px solid #ecd39a}
+    .inspection-count{min-width:150px;padding:18px;border-radius:18px;background:#7f2f28;color:#fff;text-align:center}
+    .inspection-count strong{display:block;font-size:3rem}
+    .shape-console{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .shape-code{padding:18px;border-radius:18px;background:#112f3d;color:#eafcff}
+    .shape-code label{color:#fff;margin:10px 0}
+    .shape-code select{background:#fff;color:var(--ink)}
+    .data-ticket{display:grid;gap:10px;padding:18px;border:1px solid var(--line);border-radius:18px;background:#fafdfd}
+    .ticket-row{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:10px;border-bottom:1px solid var(--line)}
+    .result-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .result-board article{min-height:170px;padding:16px;border:1px solid var(--line);border-top:7px solid var(--blue);border-radius:16px;background:#fff}
+    .result-board article[data-level="violation"]{border-top-color:var(--coral)}.result-board article[data-level="warning"]{border-top-color:var(--amber)}.result-board article[data-level="info"]{border-top-color:var(--blue)}
+    .route-card{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff;cursor:pointer}.route-card.selected{border:2px solid var(--teal);background:#edfaf7}
+    @media(max-width:760px){.inspection-strip,.shape-console,.result-board{grid-template-columns:1fr}.inspection-count{min-width:0}.ticket-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body data-module="module-10" data-lens="foundation">
+<div class="reading" aria-hidden="true"></div>
+<header class="top"><div class="wrap topin">
+  <a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a>
+  <span class="crumb">Meaning Before Models / 10</span>
+  <nav class="topactions" aria-label="Lesson actions"><button class="btn" type="button" data-open-graph>Graph</button><button class="btn" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav>
+</div></header>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-2">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this interactive process from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-2" data-visual-type="interactive-process" data-component-source="component-gallery">
-      <div class="panel-head">Read the report <span class="kind">interactive process</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Select a target. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="process-flow"><div class="flowbox"><b>1</b><span>Select a target</span></div><span class=flowarrow>→</span><div class="flowbox"><b>2</b><span>Apply constraints</span></div><span class=flowarrow>→</span><div class="flowbox"><b>3</b><span>Read the report</span></div><span class=flowarrow>→</span><div class="flowbox"><b>4</b><span>Route remediation</span></div></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation.</div></div>
-    </div>
+<main>
+<section class="wrap hero" aria-labelledby="lesson-title">
+  <span class="eyebrow">Graph inspection station · Module 10</span>
+  <h1 id="lesson-title">Validation with SHACL</h1>
+  <p>An ontology can explain what a pump is. It does not automatically guarantee that every pump record has the identifiers, location, status, and source your workflow requires. SHACL turns those expectations into inspectable graph contracts and returns precise findings for people to resolve.</p>
+  <div class="meta"><span>55 to 70 minutes</span><span>Inspection lab</span><span>Data steward and operator lenses</span><span>SHACL Constraint Card</span></div>
+  <div class="lenses" role="tablist" aria-label="Instructional view"><button class="on" type="button" data-lens="foundation" role="tab" aria-selected="true">Foundation</button><button type="button" data-lens="practitioner" role="tab" aria-selected="false">Practitioner</button><button type="button" data-lens="leader" role="tab" aria-selected="false">Leader</button></div>
+</section>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-3">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this failure propagation chain from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-3" data-visual-type="failure-propagation-chain" data-component-source="component-gallery">
-      <div class="panel-head">Route remediation <span class="kind">failure propagation chain</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Select a target. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="process-flow"><div class="flowbox"><b>1</b><span>Select a target</span></div><span class=flowarrow>→</span><div class="flowbox"><b>2</b><span>Apply constraints</span></div><span class=flowarrow>→</span><div class="flowbox"><b>3</b><span>Read the report</span></div><span class=flowarrow>→</span><div class="flowbox"><b>4</b><span>Route remediation</span></div></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation.</div></div>
-    </div>
+<div class="wrap lesson" id="lesson-start">
+  <div class="requirements" aria-label="Completion evidence">
+    <div class="req" data-requirement="opening"><i></i>Triage the failed handoff</div>
+    <div class="req" data-requirement="console"><i></i>Configure and run a shape</div>
+    <div class="req" data-requirement="route"><i></i>Route validation results</div>
+    <div class="req" data-requirement="artifact"><i></i>Save a Constraint Card</div>
+    <div class="req" data-requirement="applied"><i></i>Pass contract review</div>
+  </div>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-4">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this raci grid from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-index">Intake</span><div><span class="kind">Failed handoff</span><h2>The agent found Pump P-104, but the graph cannot support the answer</h2></div></div>
+    <div class="inspection-strip">
+      <div class="teaching"><p>A maintenance agent is preparing a shutdown brief. It retrieves Pump P-104 and follows a relationship to Pressure Zone 3. The pump has no stable asset identifier in the graph, the status is recorded as free text, and the installation date is written as <code>spring 2008</code>. Every field looks understandable to a person. The package still fails the contract needed for a governed handoff.</p><p>Your job is not to declare the pump bad. Your job is to identify which graph statements fail which expectations, then route the findings to the right owners.</p></div>
+      <div class="inspection-count"><span>Inspection</span><strong>3</strong><span>findings</span></div>
     </div>
-    <div class="panel" id="visual-4" data-visual-type="raci-grid" data-component-source="component-gallery">
-      <div class="panel-head">Select a target <span class="kind">raci grid</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Select a target. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="comparison-scroll"><table class="comparison"><thead><tr><th>Decision</th><th>Accountable</th><th>Responsible</th></tr></thead><tbody><tr><th>Select a target</th><td>Named utility owner</td><td>Assigned steward or practitioner</td></tr><tr><th>Apply constraints</th><td>Named utility owner</td><td>Assigned steward or practitioner</td></tr><tr><th>Read the report</th><td>Named utility owner</td><td>Assigned steward or practitioner</td></tr><tr><th>Route remediation</th><td>Named utility owner</td><td>Assigned steward or practitioner</td></tr></tbody></table></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation.</div></div>
-    </div></section>
-<section class="section"><div class="section-head"><div><span class="tag">Operate the mechanism</span><h2>Move the scenario through four controlled steps</h2></div><span class="section-num">03 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="process-lab concept-match"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select each step and read what it adds to the decision. Then match the module terms to the jobs they perform.</p><p>The goal is not vocabulary recall. It is knowing where a missing responsibility would first break the answer.</p></div></div>
-<div class="panel" id="process-lab" data-purposeful-interaction="step-through" data-component-source="component-gallery" data-required="process"><div class="panel-head">Mechanism laboratory <span class="kind">Interactive process</span></div><div class="panel-body"><div class="decision-grid"><button type="button" class="choice lab-choice" data-step="0">Select a target</button><button type="button" class="choice lab-choice" data-step="1">Apply constraints</button><button type="button" class="choice lab-choice" data-step="2">Read the report</button><button type="button" class="choice lab-choice" data-step="3">Route remediation</button></div><div class="debrief" data-step-detail><b>Select a step</b>The evidence and control added by that step will appear here.</div><div class="feedback" aria-live="polite"></div></div></div>
-<div class="panel" id="concept-match" data-quiz-type="matching" data-quiz-source="quiz-gallery" data-required="matching" data-retry="Match each term to the job it performs in this module."><div class="panel-head">Match terms to jobs <span class="kind">Matching</span></div><div class="panel-body"><div class="match"><div class="mcol" data-match-left><button type="button" class="match-item" data-match-question="0">SHACL</button><button type="button" class="match-item" data-match-question="1">shape</button><button type="button" class="match-item" data-match-question="2">target</button><button type="button" class="match-item" data-match-question="3">constraint</button></div><div class="mcol" data-match-right><button type="button" class="match-item" data-match-job="0">Route remediation</button><button type="button" class="match-item" data-match-job="1">Read the report</button><button type="button" class="match-item" data-match-job="2">Apply constraints</button><button type="button" class="match-item" data-match-job="3">Select a target</button></div></div><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Check the boundary</span><h2>Choose what belongs in the governed answer path</h2></div><span class="section-num">04 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="boundary-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select the three items that make the result reviewable. Reject shortcuts that hide evidence or authority.</p></div></div>
-<div class="panel" id="boundary-check" data-quiz-type="multi-select" data-quiz-source="quiz-gallery" data-purposeful-interaction="boundary-selection" data-required="multi" data-retry="Include named evidence, an explicit rule or relationship, and an accountable reviewer."><div class="panel-head">Boundary check <span class="kind">Multi-select</span></div><div class="panel-body"><div class="packet-options"><button class="option-check" type="button" data-correct="1">Named source records and identifiers</button><button class="option-check" type="button" data-correct="1">Explicit relationship, rule, mapping, or constraint</button><button class="option-check" type="button" data-correct="1">Named owner, reviewer, and authority boundary</button><button class="option-check" type="button" data-correct="0">Unreviewed label similarity</button><button class="option-check" type="button" data-correct="0">Permission for a model to act without approval</button></div><button class="btn primary" type="button" data-check-multi>Validate selection</button><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Professional work product</span><h2>Build the Utility SHACL Contract</h2></div><span class="section-num">05 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="work-product applied-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Write specific statements that another utility team could inspect. Name sources, relationships, rules, owners, limits, and the human decision.</p><p>Save the draft, then run the applied assessment. Completion requires both.</p></div></div>
-<div class="panel"><div class="panel-head">Utility SHACL Contract <span class="kind">Artifact builder</span></div><div class="panel-body artifact-grid"><form class="form" id="work-product" data-artifact="module-10-artifact" data-component-source="component-gallery" data-purposeful-interaction="artifact-builder" data-required="artifact"><label>Operational question<span>Write a specific utility statement</span><textarea name="field0" rows="2" required></textarea></label><label>Select a target<span>Write a specific utility statement</span><textarea name="field1" rows="2" required></textarea></label><label>Apply constraints<span>Write a specific utility statement</span><textarea name="field2" rows="2" required></textarea></label><label>Read the report<span>Write a specific utility statement</span><textarea name="field3" rows="2" required></textarea></label><label>Route remediation<span>Write a specific utility statement</span><textarea name="field4" rows="2" required></textarea></label><label>Evidence and source boundary<span>Write a specific utility statement</span><textarea name="field5" rows="2" required></textarea></label><label>Named reviewers<span>Write a specific utility statement</span><textarea name="field6" rows="2" required></textarea></label><label>Human authority or stop condition<span>Write a specific utility statement</span><textarea name="field7" rows="2" required></textarea></label><button class="btn primary" type="submit">Save working draft</button><div class="feedback" aria-live="polite"></div></form><div class="preview"><h3>Working preview</h3><pre data-artifact-preview>Complete the form to build the preview.</pre></div></div></div>
-<div class="panel" id="applied-check" data-final-applied-check data-artifact-ref="module-10-artifact" data-quiz-type="applied-assessment" data-quiz-source="applied-assessment-contract" data-required="applied" data-retry="Revise the work product until every field is specific and the human authority boundary is explicit."><div class="panel-head">Applied assessment <span class="kind">Work-product check</span></div><div class="panel-body"><div class="criteria" data-criteria></div><button class="btn primary" type="button" data-check-applied>Evaluate saved work</button><div class="feedback" aria-live="polite"></div></div></div>
-<div class="takeaway"><h2>What to remember</h2><p>Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation. The system may organize, retrieve, infer, validate, or draft. A named human remains accountable for the utility decision.</p></div>
-<section class="complete"><h3>Module 10 completion</h3><p data-completion-status>Complete every required item.</p><button class="btn primary" type="button" data-complete disabled>Mark module complete</button><div class="feedback" id="live" aria-live="polite"></div></section></section>
-<section class="section faq" data-module-faq><span class="tag">Questions learners ask</span><h2>Clear up the remaining boundaries</h2><details><summary>Is SHACL the same as shape?</summary><p>No. In this lesson, SHACL and shape perform different jobs. Shapes Constraint Language expresses structural contracts and produces violations, warnings, and information for governed remediation.</p></details><details><summary>What happens when target is missing?</summary><p>The utility loses a named control in the path. In the module scenario, that makes the answer harder to trace, test, or approve.</p></details><details><summary>Who owns constraint?</summary><p>A named utility role must own the definition or decision. A platform may execute the rule, but it does not become accountable.</p></details><details><summary>Does this replace our existing utility systems?</summary><p>No. Source systems keep doing their operating jobs. This lesson adds explicit meaning, evidence, and control across them.</p></details><details><summary>When should we use a simpler approach?</summary><p>Use the simplest governed design that answers the bounded question. If one reliable table is enough, do not add a graph only because graphs are available.</p></details></section>
-<section class="section source" data-evidence-boundary><span class="tag">Sources and limits</span><h2>Evidence boundary</h2><p>This module uses an instructional utility scenario. It does not establish an operating procedure, legal conclusion, cybersecurity approval, or authority to act. Independent factual and practitioner review remain required.</p><ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">W3C RDF Concepts</a></li><li><a href="https://www.w3.org/TR/rdf-schema/">W3C RDF Schema</a></li><li><a href="https://www.w3.org/TR/sparql12-query/">W3C SPARQL Query Language</a></li><li><a href="https://www.w3.org/TR/owl2-overview/">W3C OWL Overview</a></li><li><a href="https://www.w3.org/TR/shacl/">W3C SHACL</a></li></ul></section>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="graph-visual"><div class="instructor-label">Connected learning</div><div class="instructor-copy"><p>Open Graph to inspect sources, concepts, roles, relationships, and competency. Use Community to challenge boundaries, not to replace verified instruction.</p></div></div>
-<section id="owos-course-community" class="connected"><article><span class="tag">Knowledge Graph</span><h3>Trace this module</h3><p>Follow the module concept into sources, relationships, roles, and competency.</p><button class="btn" type="button" data-open-graph>Open Graph</button></article><article><span class="tag">Community</span><h3>Compare utility practice</h3><p>Search, filter, bookmark, and reply to local course discussions.</p><button class="btn" type="button" data-open-community>Open Community</button></article></section>
-<nav class="footnav"><a class="btn" href="module-09-reasoning-and-inference-with-owl.html">Previous</a><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="module-11-references-provenance-authority-and-time.html">Next: References, Provenance, Authority, and Time</a></nav></div></main>
+    <div class="view foundation"><p><b>Foundation lens:</b> A SHACL shape is a set of expectations. Validation compares selected graph nodes with those expectations and reports mismatches.</p></div>
+    <div class="view practitioner"><p><b>Practitioner lens:</b> Separate the data graph from the shapes graph. Inspect the focus node, result path, source constraint component, value, message, and severity.</p></div>
+    <div class="view leader"><p><b>Leader lens:</b> Decide which findings block a workflow, who owns remediation, and how exceptions are approved. SHACL severity labels do not replace business risk decisions.</p></div>
+    <div class="coach" data-instructor-explanation data-teaches="opening-triage"><strong>Choose the first control</strong><p>The record is not fixed by adding more prose to the prompt. Choose the control that can test the graph before the agent relies on it.</p></div>
+    <div class="panel" id="opening-triage" data-opening-decision data-required="opening" data-quiz data-quiz-type="defect-triage" data-quiz-source="quiz-gallery" data-correct-feedback="Correct. A SHACL shape can test required identifiers, controlled status values, and date datatypes before the handoff proceeds." data-retry="Try again. Choose the mechanism that checks graph structure and values against explicit constraints.">
+      <div class="panel-head">Intake triage <span class="kind">Control selection</span></div><div class="panel-body"><h3>What should happen before the agent builds the shutdown brief?</h3><div class="choice-grid">
+        <button class="choice" type="button" data-correct="0">Ask the model to rewrite the missing values more confidently.</button>
+        <button class="choice" type="button" data-correct="1">Validate the pump node against an approved SHACL shape.</button>
+        <button class="choice" type="button" data-correct="0">Infer every missing value from nearby pumps.</button>
+        <button class="choice" type="button" data-correct="0">Copy the graph into a new database and assume the copy is cleaner.</button>
+      </div><button class="btn primary" type="button" data-check-quiz>Submit triage</button><div class="feedback" aria-live="polite"></div></div>
+    </div>
+  </section>
+
+  <section class="chapter narrow">
+    <div class="chapter-head"><span class="chapter-index">1</span><div><span class="kind">Inspection language</span><h2>SHACL asks whether a graph conforms to explicit shapes</h2></div></div>
+    <div class="teaching" data-worked-example>
+      <p><span class="term" data-def="Shapes Constraint Language, a W3C language for describing and validating RDF graphs.">SHACL</span> stands for Shapes Constraint Language. A <span class="term" data-def="An RDF graph containing the utility statements being checked.">data graph</span> contains the statements you want to inspect. A <span class="term" data-def="An RDF graph containing shapes and constraints used during validation.">shapes graph</span> contains the expectations. A <span class="term" data-def="A node selected for validation against a shape.">focus node</span> is one node being checked.</p>
+      <p>A <span class="term" data-def="A SHACL resource that groups validation expectations for nodes or properties.">shape</span> can identify a <span class="term" data-def="The property path whose values a property shape evaluates.">path</span> and apply a <span class="term" data-def="A test such as minimum count, datatype, class, range, or allowed value.">constraint</span>. For Pump P-104, <code>sh:minCount 1</code> on <code>assetIdentifier</code> says at least one value is required. <code>sh:datatype xsd:date</code> on <code>installationDate</code> says the value must have that datatype.</p>
+      <p>The output is a <span class="term" data-def="An RDF graph that records whether validation conforms and contains any validation results.">validation report</span>. A <span class="term" data-def="A report entry identifying a focus node, source constraint component, severity, and other details about a failed check.">validation result</span> points back to the focus node and source constraint component. That trace is why SHACL is more useful than a red banner saying simply “bad data.”</p>
+    </div>
+    <div class="debrief"><b>Important boundary:</b> SHACL validates against the selected shapes. It does not prove that the underlying real-world fact is true. A correctly typed installation date can still be the wrong date.</div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-index">2</span><div><span class="kind">Packet anatomy</span><h2>Every finding should tell a steward where to look</h2></div></div>
+    <div class="coach" data-instructor-explanation data-teaches="report-packet shape-console"><strong>Inspect before you repair</strong><p>Read the report from the focus node outward. The path identifies the field or relationship, the source constraint component identifies the failed test, and the message should help a person act. Then configure the small console and watch the findings change.</p></div>
+    <div class="panel" id="report-packet" data-visual-type="packet-anatomy" data-component-source="component-gallery">
+      <div class="panel-head">An actionable validation result <span class="kind">Handoff packet anatomy</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with the focus node. Move through the path and failed value to the constraint, severity, and human-readable message. Together they form a repair ticket.</div>
+        <div class="packet-grid">
+          <article class="card tint"><span class="micro-label">Focus node</span><h3>asset:Pump_P104</h3><p>The resource being validated.</p></article>
+          <article class="card"><span class="micro-label">Result path</span><h3>util:assetIdentifier</h3><p>The property whose values were inspected.</p></article>
+          <article class="card"><span class="micro-label">Constraint</span><h3>sh:MinCountConstraintComponent</h3><p>The required minimum count was not met.</p></article>
+          <article class="card tint"><span class="micro-label">Message</span><h3>Asset identifier is required</h3><p>Plain language that supports remediation.</p></article>
+        </div>
+        <div class="conclusion" data-learner-conclusion><b>What makes the result useful:</b> It identifies the node and failed rule. The steward can investigate the mapping or source rather than guessing what a generic error means.</div>
+      </div>
+    </div>
+    <div class="panel" id="shape-console" data-purposeful-interaction="shacl-shape-console" data-required="console" data-component-source="meaning-before-models-course-library" data-quiz-type="shape-configuration" data-quiz-source="applied-assessment-contract" data-retry="Set identifier to required, status to the controlled list, and installation date to xsd:date. Then run validation.">
+      <div class="panel-head">Pump shape console <span class="kind">Constraint simulator</span></div><div class="panel-body shape-console">
+        <div class="shape-code"><span class="micro-label" style="color:#9fe3db">Shapes graph</span>
+          <label>Asset identifier<select data-shape="identifier"><option value="">Choose</option><option value="required">At least one value</option><option value="optional">Optional</option></select></label>
+          <label>Status<select data-shape="status"><option value="">Choose</option><option value="controlled">Only Active, Standby, OutOfService</option><option value="text">Any text</option></select></label>
+          <label>Installation date<select data-shape="date"><option value="">Choose</option><option value="date">xsd:date</option><option value="string">xsd:string</option></select></label>
+          <button class="btn primary" type="button" data-run-shape>Run validation</button>
+        </div>
+        <div class="data-ticket"><span class="micro-label">Data graph: Pump P-104</span>
+          <div class="ticket-row"><b>assetIdentifier</b><span data-value="identifier">(missing)</span></div>
+          <div class="ticket-row"><b>status</b><span data-value="status">running most days</span></div>
+          <div class="ticket-row"><b>installationDate</b><span data-value="date">spring 2008</span></div>
+          <div class="feedback" data-shape-feedback aria-live="polite">Configure the shape, then run it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-index">3</span><div><span class="kind">Remediation floor</span><h2>Severity supports routing, not automatic risk authority</h2></div></div>
+    <div class="teaching"><p>SHACL defines severity values including <code>sh:Violation</code>, <code>sh:Warning</code>, and <code>sh:Info</code>. Those labels can organize validation results. They do not know your emergency plan, permit condition, or customer impact. The utility must define what each result means for each workflow.</p><p>A missing identifier might block an asset handoff because records cannot be reconciled. An unexpected status value might require a mapping correction. An old descriptive label might be informational. The same technical finding can have a different workflow consequence when the operational purpose changes.</p></div>
+    <div class="coach" data-instructor-explanation data-teaches="validation-compare remediation-chain result-router"><strong>Compare, then route</strong><p>First separate ontology reasoning from SHACL validation. Then follow one hidden defect into an agentic failure. Finally assign each finding to a practical response. The goal is controlled remediation, not collecting more red icons.</p></div>
+    <div class="panel" id="validation-compare" data-visual-type="comparison-table" data-component-source="component-gallery">
+      <div class="panel-head">OWL and SHACL do different jobs <span class="kind">Governed comparison table</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Read across one row. OWL describes logical meaning and consequences. SHACL checks selected nodes against explicit expectations. Many semantic systems use both.</div>
+        <div class="comparison-scroll"><table><thead><tr><th>Question</th><th>OWL reasoning</th><th>SHACL validation</th></tr></thead><tbody>
+          <tr><th>Primary job</th><td>What follows from facts and axioms?</td><td>Does this graph conform to these shapes?</td></tr>
+          <tr><th>Missing value</th><td>Usually unknown under open-world reasoning</td><td>Can produce a result when minCount requires it</td></tr>
+          <tr><th>Output</th><td>Entailment or consistency finding</td><td>Validation report and results</td></tr>
+          <tr><th>Utility use</th><td>Classify and connect knowledge</td><td>Gate and route governed data handoffs</td></tr>
+        </tbody></table></div><div class="conclusion" data-learner-conclusion><b>Working rule:</b> Use OWL to express what the domain means and SHACL to test what a particular graph must contain for a particular purpose.</div>
+      </div>
+    </div>
+    <div class="panel" id="remediation-chain" data-visual-type="failure-propagation-chain" data-component-source="component-gallery">
+      <div class="panel-head">One missing identifier, five downstream costs <span class="kind">Failure-propagation chain</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Move left to right. SHACL can stop the defect near the beginning, before entity resolution and agent output amplify it.</div>
+        <div class="status-strip"><div class="status"><b>Missing asset ID</b>Node cannot be reconciled</div><div class="status"><b>Duplicate pump</b>Two records look separate</div><div class="status"><b>Incomplete history</b>Work orders split</div><div class="status"><b>Weak context</b>Agent sees half the evidence</div><div class="status"><b>Bad handoff</b>Reviewer must investigate manually</div></div>
+        <div class="conclusion" data-learner-conclusion><b>Control point:</b> Validation is most valuable when findings enter an owned remediation workflow before a downstream answer is assembled.</div>
+      </div>
+    </div>
+    <div class="panel" id="result-router" data-purposeful-interaction="validation-result-routing-board" data-required="route" data-component-source="meaning-before-models-course-library" data-quiz-type="severity-routing" data-quiz-source="quiz-gallery" data-retry="Route the missing identifier to blocking remediation, the uncontrolled status to mapping review, and the display label to informational cleanup.">
+      <div class="panel-head">Result routing board <span class="kind">Workflow simulation</span></div><div class="panel-body"><p>Select each finding, then choose its response.</p>
+        <div class="result-board">
+          <article data-level="violation" data-route-card data-answer="block"><span class="micro-label">Finding A</span><h3>assetIdentifier missing</h3><select aria-label="Route finding A"><option value="">Choose route</option><option value="block">Block handoff and remediate</option><option value="review">Review mapping next cycle</option><option value="info">Log as information</option></select></article>
+          <article data-level="warning" data-route-card data-answer="review"><span class="micro-label">Finding B</span><h3>Status outside controlled list</h3><select aria-label="Route finding B"><option value="">Choose route</option><option value="block">Block handoff and remediate</option><option value="review">Review mapping with operations</option><option value="info">Log as information</option></select></article>
+          <article data-level="info" data-route-card data-answer="info"><span class="micro-label">Finding C</span><h3>Legacy display label present</h3><select aria-label="Route finding C"><option value="">Choose route</option><option value="block">Block handoff and remediate</option><option value="review">Review mapping next cycle</option><option value="info">Log as information</option></select></article>
+        </div><button class="btn primary" type="button" data-check-routes>Validate routing</button><div class="feedback" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter narrow">
+    <div class="chapter-head"><span class="chapter-index">Card</span><div><span class="kind">Professional work product</span><h2>Write one SHACL Constraint Card</h2></div></div>
+    <div class="teaching"><p>Choose a requirement that protects a real handoff: a pump needs one stable identifier, a stormwater outfall needs a valid location relationship, or a sample result needs a numeric value and unit. State the target, path, constraint, message, owner, and workflow consequence.</p></div>
+    <div class="coach" data-instructor-explanation data-teaches="constraint-card final-contract-review"><strong>Keep technical and business controls together</strong><p>The shape tells a processor what to test. The card tells the utility why the test matters and who decides what happens next.</p></div>
+    <div class="panel" id="constraint-card"><div class="panel-head">SHACL Constraint Card <span class="kind">Professional work product</span></div><div class="panel-body artifact-grid">
+      <form data-artifact="shacl-constraint-card" data-required="artifact">
+        <label>Workflow and target class<textarea name="workflow_target" rows="2" required></textarea></label>
+        <label>Property path and constraint<textarea name="path_constraint" rows="3" required></textarea></label>
+        <label>Plain-English validation message<textarea name="message" rows="2" required></textarea></label>
+        <label>Severity and business consequence<textarea name="severity_consequence" rows="3" required></textarea></label>
+        <label>Authoritative source and remediation owner<textarea name="source_owner" rows="3" required></textarea></label>
+        <label>Exception, approval, or stop condition<textarea name="exception" rows="3" required></textarea></label>
+        <button class="btn primary" type="submit">Save Constraint Card</button><div class="feedback" aria-live="polite"></div>
+      </form><pre data-artifact-preview>Complete the card to create a local review copy.</pre>
+    </div></div>
+    <div class="panel" id="final-contract-review" data-final-applied-check data-artifact-ref="shacl-constraint-card" data-required="applied" data-quiz-type="applied-assessment" data-quiz-source="applied-assessment-contract" data-retry="Revise the card until the target, path, constraint, source, owner, consequence, and exception path are explicit.">
+      <div class="panel-head">Constraint contract review <span class="kind">Applied assessment</span></div><div class="panel-body"><button class="btn good" type="button" data-final-check="shacl-constraint-card" data-required="applied">Evaluate Constraint Card</button><div class="feedback" aria-live="polite"></div></div>
+    </div>
+  </section>
+
+  <section class="chapter faq" data-module-faq>
+    <div class="chapter-head"><span class="chapter-index">?</span><div><span class="kind">Inspection FAQ</span><h2>Questions about SHACL in utility work</h2></div></div>
+    <details><summary>Does SHACL clean the data automatically?</summary><p>No. SHACL produces validation results. A separate governed process decides whether to correct a source, repair a mapping, accept an exception, or stop a handoff. Automatic repair can create new errors if authority and intent are unclear.</p></details>
+    <details><summary>Does a conforming graph prove the real-world facts are correct?</summary><p>No. It proves that validation produced no relevant results against the selected shapes and data. A value can have the right datatype and still describe the wrong pump. Source verification remains necessary.</p></details>
+    <details><summary>Why not express every requirement in one giant shape?</summary><p>Different workflows need different evidence. A public map, a maintenance handoff, and an emergency operating brief have different requirements. Smaller versioned shape sets are easier to own, test, explain, and change.</p></details>
+    <details><summary>Are SHACL severities the same as utility risk levels?</summary><p>No. SHACL severities label validation results. Your utility must map them to workflow consequences using operational risk, regulation, safety, and service impact. That mapping needs named ownership.</p></details>
+    <details><summary>Can SHACL validate relationships, not just fields?</summary><p>Yes. Property paths and shape constraints can test connected graph structures. For example, an outfall could be required to connect to a receiving water resource or a sample to a method and unit.</p></details>
+    <details><summary>Where should validation run?</summary><p>Useful locations include ingestion, mapping tests, graph publication, query-time handoffs, and pre-action agent workflows. Choose the location that catches the defect before it becomes expensive while keeping latency and ownership practical.</p></details>
+  </section>
+
+  <section class="evidence" data-evidence-boundary><h2>Evidence boundary</h2><p>The Pump P-104 findings and routing choices are instructional. SHACL defines validation constructs and reports, but each utility must define authoritative sources, workflow consequences, severity policy, exception handling, and remediation ownership. No example here authorizes an operational action.</p><ul>
+    <li><a href="https://www.w3.org/TR/shacl/">W3C SHACL Recommendation</a></li>
+    <li><a href="https://www.w3.org/TR/shacl12-core/">W3C SHACL 1.2 Core</a></li>
+    <li><a href="https://www.w3.org/TR/rdf12-concepts/">W3C RDF 1.2 Concepts</a></li>
+    <li><a href="https://www.w3.org/TR/owl-overview/">W3C OWL 2 Overview</a></li>
+  </ul></section>
+
+  <section id="owos-course-community" class="connected"><article><span class="kind">Knowledge Graph</span><h3>Inspect validation relationships</h3><p>Trace target, shape, path, constraint, result, owner, and competency.</p><button class="btn" type="button" data-open-graph>Open Graph</button></article><article><span class="kind">Community</span><h3>Compare one quality contract</h3><p>Discuss why a requirement matters before debating syntax.</p><button class="btn" type="button" data-open-community>Open Community</button></article></section>
+  <div class="panel"><div class="panel-body"><button class="btn good" type="button" data-complete disabled>Complete lesson</button><p id="live" aria-live="polite">Complete all five inspection requirements.</p></div></div>
+  <nav class="footnav"><a class="btn" href="module-09-reasoning-and-inference-with-owl.html">Previous</a><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="module-11-references-provenance-authority-and-time.html">Next: Provenance, Authority, and Time</a></nav>
+</div>
+</main>
+
 <div class="drawer-scrim" data-close-drawer></div>
-<aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><div class="panel" id="graph-visual" data-visual-type="network-diagram" data-component-source="component-gallery"><div class="panel-head">Module concept network</div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Select a node and read the named relationship.</div><div class="graph-map"><button class="gnode core" style="left:18%;top:18%" type="button" data-graph-kind="source" data-graph-id="g0">Utility records</button><button class="gnode " style="left:78%;top:31%" type="button" data-graph-kind="concept" data-graph-id="g1">SHACL</button><button class="gnode " style="left:18%;top:44%" type="button" data-graph-kind="relationship" data-graph-id="g2">Apply constraints</button><button class="gnode " style="left:78%;top:57%" type="button" data-graph-kind="role" data-graph-id="g3">Named owner</button><button class="gnode " style="left:18%;top:70%" type="button" data-graph-kind="competency" data-graph-id="g4">Apply the module</button></div><div class="graph-detail" data-graph-detail>Select a node.</div><div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Concepts become useful when they connect to sources, relationships, roles, and a demonstrated competency.</div></div></div></div></aside>
-<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><label data-community-feature="search"><b>Search discussions</b><input type="search" data-community-search></label><div class="filters" data-community-feature="filters"><button class="btn on" type="button" data-filter="all">All</button><button class="btn" type="button" data-filter="foundation">Foundation</button><button class="btn" type="button" data-filter="leader">Leader</button></div><p class="presence" data-community-feature="presence">4 course members viewing this module</p><article class="thread instructor" data-thread data-role="foundation" data-community-feature="instructor-treatment"><div class="thread-head"><b>Instructor prompt</b><button class="btn" type="button" data-bookmark data-community-feature="bookmarks">Bookmark</button></div><p>Where does this responsibility live in your utility today?</p><div class="replies" data-community-feature="threaded-replies"><p><b>Course member:</b> We found that the definition and the approval live with different teams.</p></div><form class="reply-form" data-reply-form><input aria-label="Reply" placeholder="Add a local draft reply"><button class="btn" type="submit">Reply</button></form></article></div></aside>
-<div id="tt" role="tooltip"></div><footer class="footer"><div class="wrap">Production candidate. No release, credential, graph publication, or operational authority claim.</div></footer><script src="course-module.js"></script></body></html>
+<aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><div class="stack">
+  <button type="button" data-graph-kind="concept"><b>Concept:</b> SHACL validation</button><button type="button" data-graph-kind="source"><b>Source:</b> data graph and shapes graph</button><button type="button" data-graph-kind="relationship"><b>Relationship:</b> constraint produces validation result</button><button type="button" data-graph-kind="role"><b>Role:</b> steward and workflow owner</button><button type="button" data-graph-kind="competency"><b>Competency:</b> design and route a graph contract</button>
+</div></div></aside>
+<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Validation Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body">
+  <label data-community-feature="search">Search constraint discussions<input type="search" placeholder="Search by shape or workflow"></label><div class="toolbar" data-community-feature="filters"><button class="btn" type="button">Identifier</button><button class="btn" type="button">Datatype</button><button class="btn" type="button">Relationship</button></div><p data-community-feature="presence">Working-review presence is simulated locally.</p><article class="card" data-community-feature="instructor-treatment"><h3>Instructor prompt</h3><p>Which missing field currently creates the most expensive downstream investigation?</p><button class="btn" type="button" data-community-feature="bookmarks">Bookmark</button><div data-community-feature="threaded-replies"><p><b>Course member:</b> Missing sample-method identifiers force laboratory staff to reopen reports manually.</p></div></article>
+</div></aside>
+<div id="tt" role="tooltip"></div>
+<footer class="footer"><div class="wrap">Retrofit working candidate. No release, credential, graph publication, or operational authority claim.</div></footer>
+<script src="meaning-fieldbook.js"></script>
+<script>
+(() => {
+  document.querySelector("[data-run-shape]").addEventListener("click", () => {
+    const expected = {identifier:"required",status:"controlled",date:"date"};
+    const configured = Object.entries(expected).every(([key,value]) => document.querySelector(`[data-shape="${key}"]`).value === value);
+    const feedback = document.querySelector("[data-shape-feedback]");
+    if (!configured) {
+      feedback.textContent = "The shape is incomplete. Require the identifier, constrain status to the approved list, and require xsd:date.";
+      feedback.className = "feedback bad";
+      return;
+    }
+    feedback.innerHTML = "<strong>sh:conforms false</strong><br>3 results: missing identifier, status outside the allowed list, and installation date with the wrong datatype.";
+    feedback.className = "feedback good";
+    MBM.mark("console");
+  });
+  document.querySelector("[data-check-routes]").addEventListener("click", () => {
+    const cards = [...document.querySelectorAll("[data-route-card]")];
+    const correct = cards.every((card) => card.querySelector("select").value === card.dataset.answer);
+    const feedback = document.querySelector("#result-router .feedback");
+    feedback.textContent = correct ? "Routing accepted. Each technical finding now has a workflow consequence and review path." : "Recheck the routes. Missing identity blocks the handoff, uncontrolled status needs mapping review, and the legacy label is informational in this scenario.";
+    feedback.className = `feedback ${correct ? "good" : "bad"}`;
+    if (correct) MBM.mark("route");
+  });
+})();
+</script>
+</body>
+</html>

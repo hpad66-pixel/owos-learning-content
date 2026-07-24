@@ -4,7 +4,8 @@ Updated: 2026-07-23
 
 ## Current phase
 
-Version 0.7.0 live-review release preparation
+Full-course working review. All eighteen lessons pass module conformance, whole-course full-module
+conformance, and the course-distinctiveness gate. Release remains blocked on the named human gates.
 
 ## Approved
 
@@ -26,17 +27,25 @@ Version 0.7.0 live-review release preparation
 - 18 deterministic applied assessments
 - 18 same-page Graph and Community experiences
 - 18 module-specific FAQ sections
-- One governed shared lesson runtime for Modules 01 to 04 and 06 to 18
-- The richer Module 05 benchmark runtime remains intact
+- One course-specific semantic fieldbook runtime with lesson-specific structures and mechanisms
 - A namespaced, self-contained production package for the course landing page and all eighteen
   lessons
 - Explicit Hardeep approval to publish the complete course for live review
 
 ## Course-wide implementation result
 
-`python3 tools/test-meaning-before-models-course.py`
+### Superseding result
 
-Result: passed on 2026-07-23.
+- `python3 tools/test-meaning-before-models-course.py`: passed.
+- `python3 tools/course_full_conformance.py --course apps/meaning-before-models`: passed for all
+  eighteen lessons.
+- `python3 tools/course_distinctiveness.py --course apps/meaning-before-models`: passed with eighteen
+  lessons and eighteen archetypes.
+- The headless learner-path suite passed thirty-six desktop and mobile/reduced-motion page runs with
+  zero runtime errors, working Graph drawers, focus return, role-lens changes, no empty controls, and
+  no horizontal overflow.
+- The first rendered run exposed a 21-pixel mobile overflow and a unit-sensitive reduced-motion
+  assertion. The CSS overflow defect and test assertion were corrected before the passing rerun.
 
 `python3 tools/build-course-release.py meaning-before-models --check`
 
@@ -72,8 +81,8 @@ override a blocked hard gate.
 - Independent RDF, RDFS, SPARQL, OWL, SHACL, semantic architecture, and AI-context review
 - Real water, wastewater, stormwater, data, cybersecurity, and operations practitioner review
 - Novice-learner comprehension pilots
-- Successful rendered browser learner-path regression for every module
-- Desktop, tablet, phone, keyboard, screen-reader, contrast, zoom, touch, and reduced-motion reviews
+- Human visual review on desktop, tablet, and phone
+- Keyboard, screen-reader, contrast, zoom, and touch reviews
 - Authenticated learner-event and enrollment validation
 - Capstone scoring review
 - Graph publication approval
@@ -82,7 +91,5 @@ override a blocked hard gate.
 
 ## Next action
 
-Merge the validated OWOS platform registration, merge the exact learning-content release, dispatch
-the governed course intake, merge the generated intake pull request, and verify the Cloudflare
-production URL. Continue staged human review after deployment. Do not publish approved domain claims
-to the shared graph or issue a credential until those separate approvals are recorded.
+Conduct the named factual, practitioner, novice, and accessibility reviews. Do not publish or issue
+credentials until those reviews and final release approval are recorded.

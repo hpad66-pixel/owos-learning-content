@@ -1,17 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chapter 11: D04: Lineage, provenance, and traceability &middot; One Water OS Academy</title>
-<meta name="description" content="Chapter 11 shell for D04: Lineage, provenance, and traceability in the OWOS utility Data and AI Governance Master Class.">
-<meta name="owos-course-id" content="owos-master-data-governance-001">
-<meta name="owos-course-store" content="dga001">
-<meta name="owos-release-state" content="structure-ready-content-pending">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 11: Lineage, provenance, and traceability | Data Before AI</title>
+<meta name="description" content="Rebuild a broken utility decision lineage from source records and provenance events.">
+<meta name="owos-course-id" content="owos-master-data-governance-001"><meta name="owos-learning-object" content="dga001:11"><meta name="owos-release-state" content="working-review">
+<meta name="owos-lesson-archetype" content="lineage-reconstruction"><meta name="owos-signature-mechanism" content="rebuild-broken-decision-lineage-from-provenance-events"><meta name="owos-opening-pattern" content="number-cannot-be-reproduced"><meta name="owos-work-product-mode" content="lineage-and-provenance-pack">
 <style>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.css)
@@ -30,6 +24,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -581,84 +576,84 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
-</style>
-<style>
-html,body{max-width:100%;overflow-x:hidden}
-.dg-hero{margin:28px 0 24px;padding:32px;border-radius:24px;background:linear-gradient(135deg,#083a5c,#0a78ba 62%,#15937a);color:#fff;box-shadow:0 20px 60px rgba(8,58,92,.2);overflow:hidden;position:relative}
-.dg-hero:after{content:"";position:absolute;width:280px;height:280px;border:54px solid rgba(255,255,255,.08);border-radius:50%;right:-105px;top:-110px}
-.dg-hero h1{color:#fff;max-width:19ch;margin:.45rem 0 .8rem;font-size:clamp(2.15rem,5vw,4rem)}
-.dg-hero p{color:#e8f5fb;max-width:68ch;font-size:1.08rem;margin:0}
-.dg-eyebrow{font:700 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#bfeaff}
-.dg-status{display:inline-flex;align-items:center;gap:8px;max-width:100%;margin-top:18px;padding:7px 12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);border-radius:999px;font:700 11px var(--fm);line-height:1.45;letter-spacing:.04em;text-transform:uppercase;color:#fff;white-space:normal}
-.dg-status i{width:8px;height:8px;border-radius:50%;background:#f2c94c}
-.dg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 28px}.dg-stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--sh)}.dg-stat b{display:block;color:var(--ink);font-size:1.55rem}.dg-stat span{font:600 10px var(--fm);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
-.dg-note{border:1px solid #ead89d;background:#fff9e8;border-radius:16px;padding:18px 20px;margin:20px 0}.dg-note strong{color:#795809}.dg-note p{margin:4px 0 0}
-.dg-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 30px}.dg-flow div{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12px;font-weight:700;color:var(--ink);text-align:center}.dg-flow div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;z-index:2;color:var(--brand);transform:translateY(-50%);background:var(--bg);padding:0 3px}
-.dg-lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.dg-lens{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--brand)}.dg-lens:nth-child(2){border-top-color:var(--green)}.dg-lens:nth-child(3){border-top-color:var(--gold)}.dg-lens h3{margin:0 0 5px;font-size:1rem}.dg-lens p{margin:0;font-size:.88rem;line-height:1.55}
-.dg-part{margin:24px 0}.dg-part-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;background:#0b3f63;color:#fff;border-radius:14px 14px 0 0;padding:13px 16px}.dg-part-head b{font:700 11px var(--fm);letter-spacing:.1em;color:#9bddff}.dg-part-head span{font-weight:800}.dg-part-head small{margin-left:auto;color:#cce4f2}.dg-list{border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 14px 14px;overflow:hidden}.dg-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:16px;align-items:start;border-bottom:1px solid var(--line);text-decoration:none}.dg-row:last-child{border-bottom:0}.dg-row:hover{background:var(--brand-50);text-decoration:none}.dg-num{width:42px;height:42px;border-radius:11px;background:var(--brand-50);border:1px solid var(--brand-100);display:grid;place-items:center;color:var(--brand-700);font:800 13px var(--fm)}.dg-row h3{margin:0 0 5px;font-size:1rem}.dg-sections{font-size:.79rem;color:var(--ink-3);line-height:1.5}.dg-pill{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;padding:5px 9px;border-radius:999px;white-space:nowrap}
-.dg-row.released{background:linear-gradient(90deg,#eef8f5,#fff)}.dg-row.released .dg-num{background:#dff3ec;border-color:#9fd2bf;color:#086b50}.dg-row.released .dg-pill{color:#086b50;background:#eaf8f3;border-color:#9fd2bf}
-.dg-shell{border:1px solid #ead89d;background:linear-gradient(120deg,#fff9e8,#fff);border-radius:16px;padding:20px;margin:18px 0 26px;display:flex;gap:14px}.dg-shell-icon{width:40px;height:40px;flex:none;border-radius:12px;background:#f2c94c;display:grid;place-items:center;color:#493800;font-weight:900}.dg-shell h2{font-size:1.05rem;margin:0 0 4px}.dg-shell p{margin:0;font-size:.91rem}
-.dg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 28px}.dg-plan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.dg-plan-card .k{font:700 10px var(--fm);letter-spacing:.08em;color:var(--brand);text-transform:uppercase}.dg-plan-card h2{font-size:1.12rem;margin:7px 0}.dg-plan-card p{font-size:.9rem;margin:0}.dg-plan-card .pending{display:inline-block;margin-top:14px;font:700 9px var(--fm);text-transform:uppercase;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;border-radius:999px;padding:4px 8px}
-.dg-artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.dg-artifact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.dg-artifact b{display:block;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.dg-artifact p{font-size:.88rem;margin:0}
-.dg-gates{background:#eef8f5;border:1px solid #bfe0d4;border-radius:16px;padding:18px;margin:24px 0}.dg-gates h2{font-size:1.1rem;margin:0 0 9px}.dg-gates ul{margin:0;padding-left:20px}.dg-gates li{margin:5px 0;font-size:.88rem}
-.dg-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:30px 0}.dg-nav a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:700;font-size:.83rem}.dg-nav a:last-child{text-align:right}.dg-nav .home{text-align:center;background:var(--brand);color:#fff;border-color:var(--brand)}
-.dg-footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 38px;color:var(--ink-3);font:500 11px var(--fm)}
-@media(max-width:760px){.dg-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dg-flow{grid-template-columns:1fr}.dg-flow div:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}.dg-lenses,.dg-plan,.dg-artifacts{grid-template-columns:1fr}.dg-row{grid-template-columns:42px minmax(0,1fr)}.dg-pill{grid-column:2}.dg-nav{grid-template-columns:1fr}.dg-nav a,.dg-nav a:last-child{text-align:center}}
-@media(max-width:520px){.owos-nav{padding:0 12px}.owos-brand{gap:6px;min-width:0}.owos-wm{font-size:13px}.owos-pw{display:none}.crumb{font-size:9px;line-height:1.35;text-align:right;max-width:100px}.wrap{padding-left:16px;padding-right:16px}.dg-hero{padding:26px 20px;border-radius:20px}.dg-hero h1{font-size:2.15rem}.dg-hero p{font-size:1rem}.dg-status{border-radius:14px;font-size:9px}.dg-stat{padding:14px 12px}.dg-stat b{font-size:1.35rem}.dg-row{padding:14px 12px;gap:10px}.dg-sections{overflow-wrap:anywhere}.dg-shell{padding:16px;flex-direction:column}.dg-shell-icon{width:36px;height:36px}}
+</style><style>
+:root{--dg-ink:#102237;--dg-muted:#526579;--dg-line:#d8e2eb;--dg-paper:#fff;--dg-wash:#f3f7fa;--dg-blue:#086998;--dg-teal:#087864;--dg-gold:#9a6b00;--dg-red:#a43b34;--dg-shadow:0 18px 48px rgba(16,34,55,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--dg-wash);color:var(--dg-ink);font-family:Inter,system-ui,sans-serif;line-height:1.68}.wrap{width:min(1120px,calc(100% - 34px));margin:auto}.coursebar{position:sticky;top:0;z-index:30;background:#082f49;color:#fff;border-bottom:1px solid rgba(255,255,255,.18)}.coursebar .inner{width:min(1180px,calc(100% - 28px));margin:auto;display:flex;align-items:center;gap:16px;min-height:62px}.coursebar a{color:#fff;text-decoration:none;font-weight:800}.coursebar .crumb{margin-right:auto;font-size:.78rem;color:#d7edf7}.head-actions{display:flex;gap:8px}.head-actions button,.head-actions a,.hero-actions button{border:1px solid rgba(255,255,255,.42);background:transparent;color:#fff;border-radius:999px;padding:8px 13px;font-weight:750;cursor:pointer;text-decoration:none}.head-actions .primary,.hero-actions .primary{background:#fff;color:#083a5c}.hero{position:relative;overflow:hidden;margin:25px 0 22px;padding:clamp(28px,5vw,58px);border-radius:28px;color:#fff;background:linear-gradient(135deg,#083a5c,#086998 60%,#087864);box-shadow:var(--dg-shadow)}.hero:after{content:"";position:absolute;right:-80px;bottom:-120px;width:310px;height:310px;border:60px solid rgba(255,255,255,.08);border-radius:50%}.hero h1{position:relative;z-index:1;color:#fff;font-size:clamp(2.2rem,5vw,4.3rem);line-height:1.02;max-width:18ch;margin:.35rem 0 1rem}.hero p{position:relative;z-index:1;color:#e7f5fb;max-width:70ch;font-size:1.06rem}.eyebrow{font:800 .72rem "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.12em;color:#bce9fb}.hero-actions{position:relative;z-index:1;display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.release-note{display:inline-block;margin-top:14px;padding:5px 10px;border:1px solid rgba(255,255,255,.3);border-radius:999px;color:#fff;font-size:.72rem;font-weight:750}.lesson-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}.rail{position:sticky;top:84px;background:#fff;border:1px solid var(--dg-line);border-radius:18px;padding:18px}.rail h2{font-size:1rem;margin:0 0 9px}.rail ol{padding-left:20px;margin:0}.rail li{font-size:.82rem;margin:7px 0}.lesson{min-width:0}.panel,.scene,.worked,.decision,.artifact,.assessment,.lens-row,.faq,.evidence,.connected{background:var(--dg-paper);border:1px solid var(--dg-line);border-radius:20px;padding:clamp(20px,4vw,32px);margin:20px 0;box-shadow:0 8px 30px rgba(16,34,55,.05)}.panel h2,.scene h2,.worked h2,.decision h2,.artifact h2,.assessment h2{font-size:clamp(1.45rem,3vw,2.1rem);line-height:1.18;margin:0 0 12px}.section-tag{font:800 .69rem "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.09em;color:var(--dg-blue)}.lede{font-size:1.08rem;color:#263f56}.callout{border-left:5px solid var(--dg-gold);background:#fff8e8;border-radius:0 14px 14px 0;padding:16px 18px;margin:18px 0}.decision{border-color:#e2c983;background:#fffbef}.decision-options{display:grid;gap:10px;margin-top:15px}.decision-options button{border:1px solid #d8c276;background:#fff;border-radius:12px;text-align:left;padding:13px 15px;color:var(--dg-ink);font-weight:700;cursor:pointer}.decision-options button:hover,.decision-options button:focus-visible{border-color:var(--dg-blue);outline:3px solid rgba(8,105,152,.17)}.decision-feedback{display:none;margin-top:13px;padding:14px;border-radius:12px;background:#eaf5f2;color:#184b40}.decision-feedback.on{display:block}.instructor{border-left:4px solid var(--dg-blue);padding:4px 0 4px 17px;margin:22px 0;color:#304a61}.instructor b{color:var(--dg-blue)}.visual{margin:18px 0}.reading-guide,.learner-conclusion{font-size:.88rem;border-radius:11px;padding:11px 13px}.reading-guide{background:#eef6fb;color:#27495e}.learner-conclusion{background:#edf7f3;color:#225647;margin-top:10px}.worked{background:linear-gradient(145deg,#f7fbfd,#fff)}.worked-grid,.lens-row,.artifact-grid,.evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.worked-grid article,.lens-row article,.artifact-grid article,.evidence-grid article{border:1px solid var(--dg-line);background:#fff;border-radius:14px;padding:15px}.worked-grid b,.lens-row b,.artifact-grid b{display:block;margin-bottom:5px}.lens-row article:nth-child(2){border-top:4px solid var(--dg-teal)}.lens-row article:nth-child(3){border-top:4px solid var(--dg-gold)}.lens-row article:first-child{border-top:4px solid var(--dg-blue)}.mechanism{border:1px solid #afd8d0;background:#f4fbf9;border-radius:20px;padding:18px;margin:18px 0}.mechanism h3{margin:0 0 6px}.debrief{margin:13px 0 0;color:#315b52}.artifact label{display:grid;gap:5px;font-weight:750;margin:12px 0}.artifact input,.artifact select,.artifact textarea{width:100%;border:1px solid #b9c8d5;border-radius:10px;padding:11px;background:#fff;color:var(--dg-ink);font:inherit}.artifact textarea{min-height:92px;resize:vertical}.artifact-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.btn{border:1px solid var(--dg-blue);background:#fff;color:var(--dg-blue);border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}.btn.primary{background:var(--dg-blue);color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed}.form-note{font-size:.84rem;color:var(--dg-muted)}.quiz-shell{margin:18px 0}.final-check{border-top:1px solid var(--dg-line);margin-top:18px;padding-top:18px}.final-check label{display:block;margin:8px 0}.status{margin-top:10px;color:#225647;font-weight:700}.faq details{border-top:1px solid var(--dg-line);padding:12px 0}.faq details:first-of-type{border-top:0}.faq summary{font-weight:800;cursor:pointer}.faq p{margin:8px 0 0;color:#344d63}.evidence{font-size:.91rem;background:#fffaf0;border-color:#ead6a2}.evidence a{color:#075f8c}.connected{background:#eef7fb}.footnav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;margin:26px 0 46px}.footnav a{padding:12px;border:1px solid var(--dg-line);border-radius:12px;background:#fff;text-decoration:none;font-weight:800;color:var(--dg-blue)}.footnav a:nth-child(2){text-align:center;background:var(--dg-blue);color:#fff}.footnav a:last-child{text-align:right}.drawer-scrim{position:fixed;inset:0;background:rgba(4,24,38,.48);z-index:50;display:none}.drawer-scrim.open{display:block}.drawer{position:fixed;right:0;top:0;bottom:0;width:min(520px,100%);z-index:60;background:#fff;transform:translateX(103%);transition:transform .25s ease;box-shadow:-18px 0 50px rgba(7,34,52,.22);overflow:auto}.drawer.open{transform:none}.drawer-head{position:sticky;top:0;display:flex;align-items:center;gap:10px;background:#083a5c;color:#fff;padding:16px 18px;z-index:2}.drawer-head b{margin-right:auto}.drawer-head button{border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;border-radius:9px;padding:7px 10px}.drawer-body{padding:20px}.graph-list{display:grid;gap:9px}.graph-list span{border:1px solid var(--dg-line);border-radius:10px;padding:10px}.community-feature{border-bottom:1px solid var(--dg-line);padding:10px 0}.term{border-bottom:1px dotted currentColor;cursor:help}.completion{background:#eaf6f2;border:1px solid #b5d9ce;border-radius:18px;padding:20px;margin:22px 0}.completion [data-complete]{margin-top:10px}.dark{background:#083a5c;color:#fff}.dark h2,.dark p{color:#fff}
+body[data-module="10"] .hero{background:linear-gradient(130deg,#37245f,#7754a8 58%,#bd8243)}body[data-module="11"] .hero{background:linear-gradient(135deg,#183b4d,#126f79 58%,#79a65a)}body[data-module="12"] .hero{background:linear-gradient(135deg,#3d315f,#5a6fb3 58%,#2b9b91)}body[data-module="13"] .hero{background:linear-gradient(135deg,#3e2027,#8e3c43 58%,#bf7b37)}body[data-module="14"] .hero{background:linear-gradient(135deg,#42284f,#8b4e7f 55%,#c87873)}body[data-module="15"] .hero{background:linear-gradient(135deg,#34404a,#66757d 58%,#9a783d)}body[data-module="16"] .hero{background:linear-gradient(135deg,#173f44,#247f75 58%,#9a7c2d)}body[data-module="17"] .hero{background:linear-gradient(135deg,#172d3d,#236589 58%,#b96f31)}body[data-module="18"] .hero{background:linear-gradient(135deg,#282452,#5546a7 58%,#1a8a8f)}body[data-module="19"] .hero{background:linear-gradient(135deg,#343150,#5c668f 58%,#568d7c)}body[data-module="20"] .hero{background:linear-gradient(135deg,#153b57,#2579a0 58%,#70a45f)}body[data-module="21"] .hero{background:linear-gradient(135deg,#43302d,#8b5e3c 58%,#c49342)}body[data-module="22"] .hero{background:linear-gradient(135deg,#0e4a53,#12828b 58%,#8ca944)}body[data-module="23"] .hero{background:linear-gradient(135deg,#17324e,#315c9c 58%,#695db5)}body[data-module="24"] .hero{background:linear-gradient(135deg,#25213f,#604c88 56%,#327c8d)}
+@media(max-width:860px){.lesson-grid{grid-template-columns:1fr}.rail{position:static}.worked-grid,.lens-row,.artifact-grid,.evidence-grid{grid-template-columns:1fr 1fr}.head-actions button:not(.primary){display:none}}@media(max-width:620px){.wrap{width:min(100% - 24px,1120px)}.coursebar .crumb{display:none}.hero{border-radius:20px;padding:28px 21px}.hero h1{font-size:2.45rem}.worked-grid,.lens-row,.artifact-grid,.evidence-grid,.footnav{grid-template-columns:1fr}.footnav a,.footnav a:last-child{text-align:center}.panel,.scene,.worked,.decision,.artifact,.assessment,.lens-row,.faq,.evidence,.connected{padding:19px}.drawer{width:100%}.head-actions{margin-left:auto}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+.evidence-strip{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:9px;overflow:auto;padding:4px}.evidence-strip article{min-width:120px;border:1px solid var(--dg-line);border-radius:12px;padding:12px;background:#fff}.evidence-strip article b{display:block;font-size:.78rem}.evidence-strip article span{font-size:.73rem;color:var(--dg-muted)}.trace-break{border-color:#dd9c94!important;background:#fff1ef!important}.quality-grid{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:8px;overflow:auto}.quality-grid article{border-radius:12px;padding:13px;color:#fff;min-height:110px}.quality-grid .good{background:#237b63}.quality-grid .watch{background:#9b7414}.quality-grid .bad{background:#9a3f39}.quality-grid .unknown{background:#526579}.quality-grid b{display:block}.quality-grid span{font-size:.78rem}.res-console,.rights-console,.life-console{border:1px solid var(--dg-line);border-radius:16px;background:#fff;padding:16px}.scenario-tabs{display:flex;gap:8px;flex-wrap:wrap}.scenario-tabs button{border:1px solid var(--dg-line);background:#fff;border-radius:999px;padding:8px 12px;font-weight:750;cursor:pointer}.scenario-tabs button.on{background:var(--dg-blue);border-color:var(--dg-blue);color:#fff}.console-output{margin-top:14px;border-radius:13px;padding:16px;background:#eef6fb}.console-output strong{display:block;margin-bottom:5px}.control-path{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:8px;margin-top:13px;overflow:auto}.control-path article{border:1px solid var(--dg-line);border-radius:12px;padding:12px;min-width:130px}.control-path article.fail{border-color:#d58a83;background:#fff0ee}.control-path article.pass{border-color:#8bc5b2;background:#eef9f5}.rights-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}.rights-board article{border:1px solid var(--dg-line);border-radius:12px;padding:14px}.rights-board article.alert{border-color:#d58a83;background:#fff0ee}.timeline-track{display:grid;grid-template-columns:repeat(6,minmax(125px,1fr));gap:8px;overflow:auto;margin:14px 0}.timeline-track article{min-width:125px;border:1px solid var(--dg-line);border-radius:12px;padding:12px}.timeline-track article.active{border-color:var(--dg-blue);background:#eef6fb}.timeline-track small{display:block;color:var(--dg-muted)}.proof-card{border:1px dashed #8aa2b5;border-radius:14px;padding:15px;background:#f8fbfd}.split-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px}.sticky-question{position:sticky;top:86px;align-self:start;border-radius:18px;background:#083a5c;color:#fff;padding:22px}.sticky-question h2,.sticky-question p{color:#fff}
+@media(max-width:860px){.split-layout{grid-template-columns:1fr}.sticky-question{position:static}}@media(max-width:620px){.rights-board{grid-template-columns:1fr}}
+html,body{max-width:100%;overflow-x:clip}
+
 </style>
 </head>
-<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-module="11" data-release-state="content-pending">
-<nav class="owos-nav">
-  <a class="owos-brand" href="course-data-governance.html"><span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span><span class="owos-wm">One Water <b>OS</b></span><span class="owos-pw">Academy &middot; <em>Data Governance</em></span></a>
-  <span class="crumb"><a href="course-data-governance.html">Master Class</a> / <b>Chapter 11</b></span>
-</nav>
-<div id="rprog"></div>
+<body data-course-id="owos-master-data-governance-001" data-module="11" data-release-state="working-review">
+<nav class="coursebar"><div class="inner"><a href="course-data-governance.html">One Water OS Academy</a><span class="crumb">Data Before AI / Chapter 11</span><div class="head-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a class="primary" href="#lesson-start">Start</a></div></div></nav>
 <main class="wrap">
-  <header class="dg-hero">
-    <div class="dg-eyebrow">PART C &middot; Operate the twelve governance domains &middot; Core domain</div>
-    <h1>D04: Lineage, provenance, and traceability</h1>
-    <p>design a minimum lineage and provenance record; include manual handoffs and spreadsheets; conduct a replay and impact test.</p>
-    <span class="dg-status"><i></i>Chapter 11 shell &middot; content pending</span>
-  </header>
+<header class="hero"><span class="eyebrow">Part C | Domain D04 | Lineage reconstruction</span><h1>Can you rebuild the number?</h1><p>Riverbend billed 18,642 customers after a rate change. Forty-three bills are disputed, and nobody can reproduce the exact calculation that ran that night. You will rebuild the decision path from retained records and events.</p><div class="hero-actions"><a class="primary" href="#lesson-start">Open the reconstruction</a><button type="button" data-open-graph>Trace the lesson graph</button><button type="button" data-open-community>Compare practices</button></div><span class="release-note">Working lesson | no release or credential event</span></header>
 
-  <section class="dg-shell" role="status">
-    <div class="dg-shell-icon">11</div>
-    <div><h2>Structure is wired; the lesson is not released.</h2><p>This page preserves the approved syllabus plan and navigation. It intentionally contains no completion event, scored assessment, or credential claim. Those activate only after the full lesson passes content, interaction, evidence, accessibility, and utility-pilot review.</p></div>
-  </section>
+<section class="decision" id="lesson-start" data-opening-decision data-required="opening"><span class="section-tag">The incident ticket</span><h2>What do you tell Customer Service?</h2><p>The warehouse contains today’s rate table and today’s customer records. The invoice PDF shows the disputed amount, but the transformation run, manual exception file, and approval record are missing.</p><div class="decision-options">
+<button type="button" data-choice data-feedback="<b>Correct boundary.</b> Preserve the bill and current records, then state that the historical calculation is not yet reproducible. Reconstruct the run before claiming the amount is proven.">Pause the conclusion and reconstruct the historical run.</button>
+<button type="button" data-choice data-feedback="<b>Current data is not historical proof.</b> Re-running with today’s records can produce a different answer and erase the reason for the dispute.">Re-run the current pipeline and use the new result.</button>
+<button type="button" data-choice data-feedback="<b>The invoice is an output, not the complete proof.</b> It does not show source versions, transformations, exceptions, or approval.">Treat the PDF as sufficient evidence because it is the official bill.</button>
+</div><div class="decision-feedback" data-decision-feedback role="status" aria-live="polite"></div></section>
 
-  <h2>What the learner will be able to do</h2>
-  <p>design a minimum lineage and provenance record; include manual handoffs and spreadsheets; conduct a replay and impact test.</p>
+<div class="split-layout">
+<aside class="sticky-question dark"><span class="section-tag">The reconstruction question</span><h2>Which exact records and events produced this bill?</h2><p>Keep that question visible. It prevents the investigation from drifting into a general diagram of systems.</p></aside>
+<article>
+<section class="panel"><span class="section-tag">1 | Three related ideas</span><h2>Route, history, and the ability to follow</h2><p><span class="term" data-def="The route data follows through sources, transformations, stores, reports, models, and decisions.">Data lineage</span> shows the route from source to use. <span class="term" data-def="Information about an entity’s origin, versions, activities, responsible agents, and changes over time.">Provenance</span> records what happened to a specific entity or record, when it happened, which version was involved, and which person or system performed or authorized the activity. <span class="term" data-def="The practical ability to follow a record backward to its basis and forward to affected uses and outcomes.">Traceability</span> is the ability to use that evidence in both directions.</p>
+<p>A pipeline picture can show that billing reads customer and rate data. That is useful <span class="term" data-def="A description of expected movement and dependency among systems, stores, interfaces, and products.">architecture lineage</span>. It does not prove which customer row, rate-table version, code release, exception spreadsheet, execution time, and approval produced one disputed bill. <span class="term" data-def="Lineage detailed and evidenced enough to support, reproduce, challenge, or correct a consequential decision.">Decision-grade lineage</span> combines the route with run-level provenance and retained evidence.</p>
+<div class="callout"><b>Do not confuse a current diagram with a historical replay.</b> A diagram says how the process is designed. A replay shows what actually ran for the decision being challenged.</div></section>
 
-  <div class="dg-plan"><article class="dg-plan-card">
-  <span class="k">Section 1 of 3</span>
-  <h2>Capture source-to-consumption lineage.</h2>
-  <p>Include reports, decisions, products, models, and AI uses.</p>
-  <span class="pending">Content development pending</span>
-</article><article class="dg-plan-card">
-  <span class="k">Section 2 of 3</span>
-  <h2>Record transformation provenance.</h2>
-  <p>Retain inputs, outputs, run, actor or service, time, code or configuration version, quality result, purpose, approval, and integrity evidence.</p>
-  <span class="pending">Content development pending</span>
-</article><article class="dg-plan-card">
-  <span class="k">Section 3 of 3</span>
-  <h2>Use lineage to answer real questions.</h2>
-  <p>Perform impact analysis, replay, incident investigation, reproducibility, regulatory reconstruction, retention, and alteration detection.</p>
-  <span class="pending">Content development pending</span>
+<section class="worked" data-worked-example><span class="section-tag">Worked Riverbend reconstruction</span><h2>Bill 770184, from output back to source</h2><p>The team starts with the bill identifier, not with the warehouse. The invoice points to billing run <code>BR-2026-07-17-02</code>. The run log identifies code release <code>billcalc-4.8.1</code>, rate table <code>RT-2026B</code>, customer snapshot <code>CS-0717-0000</code>, and exception file <code>EX-0717-A</code>. The exception file contains a manual meter-estimate adjustment approved by Dana Ruiz at 01:42.</p>
+<div class="evidence-strip"><article><b>Invoice</b><span>Bill 770184 and amount</span></article><article><b>Run event</b><span>BR-2026-07-17-02</span></article><article><b>Inputs</b><span>Rate, customer, meter snapshots</span></article><article class="trace-break"><b>Manual activity</b><span>Estimate exception and approval</span></article><article><b>Outcome</b><span>Notice, correction, and learning</span></article></div>
+<p>The disputed amount becomes reproducible only after the manual exception is included. That is the practical point: manual work is not outside lineage. If it changes the answer, it belongs in the evidence path with identity, time, reason, authority, before-and-after values, and retention.</p></section>
 </article></div>
 
-  <h2>The utility deployment thread</h2>
-  <div class="dg-artifacts">
-    <article class="dg-artifact"><b>Riverbend utility case</b><p>a customer billing correction moves through meter intervals, estimation rules, account mappings, a spreadsheet exception, approval, notice, and a corrected bill.</p></article>
-    <article class="dg-artifact"><b>Deployment Studio</b><p>lineage graph, provenance-event record, manual-control register, replay test, and protected retention rule.</p></article>
-    <article class="dg-artifact"><b>Chapter output</b><p>one production-quality lineage and provenance package.</p></article>
-  </div>
+<section class="panel"><span class="section-tag">2 | Rebuild the broken path</span><h2>Watch the proof assemble one event at a time</h2>
+<div class="instructor" data-instructor-explanation data-teaches="billing-provnet"><p><b>This network is a reconstruction, not a decoration.</b> Step through it from the retained invoice to the source snapshots and then forward through calculation, review, and customer action. Watch for the agent and activity nodes. They explain who or what changed the records and why the resulting bill can be defended or corrected.</p></div>
+<div id="billing-provnet" class="visual" data-visual-type="provenance-network" data-component-source="shared-component-library" data-purposeful-interaction="broken-lineage-replay" data-required="lineage-replay" data-ac="provnet" data-title="Replay bill 770184" data-kind="Interactive provenance network" data-cue="Use Step or Play. The evidence path should identify entities, activities, agents, and versions."><script type="application/json">{"ariaLabel":"Provenance network for Riverbend bill 770184","nodes":[{"id":"meter","label":"Meter snapshot","sub":"MS-0717-0000","kind":"entity","x":90,"y":70},{"id":"rate","label":"Rate table","sub":"RT-2026B","kind":"entity","x":90,"y":170},{"id":"except","label":"Exception file","sub":"EX-0717-A","kind":"entity","x":90,"y":270},{"id":"calc","label":"Calculate bill","sub":"billcalc-4.8.1","kind":"activity","x":300,"y":120},{"id":"review","label":"Approve exception","sub":"01:42","kind":"activity","x":300,"y":250},{"id":"dana","label":"Dana Ruiz","sub":"billing supervisor","kind":"agent","x":500,"y":265},{"id":"bill","label":"Bill 770184","sub":"retained output","kind":"entity","x":520,"y":105},{"id":"case","label":"Dispute case","sub":"reason and correction","kind":"entity","x":690,"y":175}],"edges":[{"from":"meter","to":"calc","label":"used"},{"from":"rate","to":"calc","label":"used"},{"from":"except","to":"review","label":"reviewed"},{"from":"review","to":"calc","label":"authorized"},{"from":"dana","to":"review","label":"performed"},{"from":"calc","to":"bill","label":"generated"},{"from":"bill","to":"case","label":"triggered"}],"steps":[{"focus":["bill"],"title":"Anchor the output","body":"Start with the exact bill and billing run. Do not substitute a current record."},{"focus":["meter","rate","calc","bill"],"title":"Recover machine inputs","body":"Identify source snapshots, code release, run identifier, parameters, and generated output."},{"focus":["except","review","dana","calc"],"title":"Recover the manual activity","body":"The exception file, reviewer, reason, time, and approval explain the changed calculation."},{"focus":["calc","bill","case"],"title":"Trace forward","body":"Connect the result to the dispute, correction, notice, outcome, and retained learning."}]}</script>
+<p class="reading-guide" data-reading-guide>Blue nodes are records, gold nodes are activities, and green nodes are agents. A complete proof connects all three.</p><p class="learner-conclusion" data-learner-conclusion>Lineage becomes decision evidence when it identifies the exact versions and run events, including manual changes and authority.</p></div>
+<p class="debrief"><b>Debrief.</b> If the code release or exception approval is absent, the route may still look complete while the bill remains unreproducible. Record-level gaps should be visible, not smoothed over by a polished diagram.</p></section>
 
-  <section class="dg-gates"><h2>What must be added before release</h2><ul><li>Complete utility lesson narrative at Foundation, Practitioner, and Leader depth</li><li>Approved diagrams or simulations selected from the OWOS visual system</li><li>Varied knowledge checks with explanatory feedback and critical-gate handling</li><li>Citations, applicability boundaries, accessible interactions, and mobile visual review</li><li>Supabase completion rule and Knowledge Graph alignments verified against the released version</li></ul></section>
+<section class="panel"><span class="section-tag">3 | Govern the handoffs</span><h2>Carry the proof with the answer</h2><p>Every handoff should carry enough context for the next person to use the result without inventing meaning. At minimum, include the decision or purpose, record identity, source and version, transformation or activity, time, quality state, limitations, authority, and escalation route.</p>
+<div class="instructor" data-instructor-explanation data-teaches="trace-handoff"><p><b>Switch between the fragmented and governed handoffs.</b> Step from metering to billing to Customer Service. Notice how the governed path does not merely send more data. It sends the identifiers, limitations, run evidence, and authority needed to interpret and challenge the result. At each handoff, ask whether the next role could reproduce the answer without calling the previous person for missing context.</p></div>
+<div id="trace-handoff" class="visual" data-visual-type="handoff-simulator" data-component-source="component-gallery" data-purposeful-interaction="evidence-packet-handoff" data-required="handoff-review" data-ac="handoff" data-title="Follow the billing evidence packet" data-kind="Handoff simulator" data-cue="Compare what survives each transfer."><script type="application/json">{"steps":[{"from":"Metering","to":"Billing","fragmented":"Monthly usage value without snapshot identity or quality flag.","governed":"Snapshot ID, meter identity, read time, method, quality flag, correction state, and source owner."},{"from":"Billing","to":"Warehouse","fragmented":"Final amount and a generic load timestamp.","governed":"Billing-run ID, source versions, code release, parameter set, exception references, and generated bill ID."},{"from":"Warehouse","to":"Customer Service","fragmented":"Dashboard row with no explanation of manual adjustment.","governed":"Bill ID, calculation basis, approved exception, limitation, responsible owner, and dispute path."},{"from":"Customer Service","to":"Assurance","fragmented":"Resolved ticket marked complete.","governed":"Complaint, investigation, correction, notice, root cause, affected population, retest, and closure approval."}]}</script>
+<p class="reading-guide" data-reading-guide>Step across the same organizational route in both modes. Compare the information needed to reproduce, challenge, and correct the answer.</p><p class="learner-conclusion" data-learner-conclusion>A governed handoff preserves the proof and the limits of the answer, not only the value.</p></div></section>
 
-  <nav class="dg-nav" aria-label="Chapter navigation"><a href="lesson-dg-10-d03-metadata-catalog-and-semantics.html">&larr; Chapter 10</a><a class="home" href="course-data-governance.html">All 25 chapters</a><a href="lesson-dg-12-d05-data-quality-and-observability.html">Chapter 12 &rarr;</a></nav>
+<section class="assessment"><span class="section-tag">Reconstruction check</span><h2>Put a defensible replay in order</h2><div class="instructor" data-instructor-explanation data-teaches="replay-order"><p><b>This ordering check tests investigation discipline.</b> Start with the challenged output and its exact time. Then recover the actual run, inputs, activities, agents, and outcome. A generic source-to-report diagram is not enough.</p></div>
+<div id="replay-order" class="quiz-shell" data-quiz-type="ordering" data-quiz-source="quiz-gallery" data-retry="Anchor the challenged output first, recover the historical run second, then trace the decision and outcome." data-required="replay-order-check" data-ac="order" data-title="Order the lineage reconstruction" data-kind="Knowledge check | sequence"><script type="application/json">{"q":"Put the Riverbend replay steps in defensible order.","items":["Anchor the exact bill, decision, time, consequence, and question being challenged.","Identify the historical run, source snapshots, code or rule version, parameters, and output identifier.","Recover manual activities, before-and-after values, reasons, agents, approvals, and retained evidence.","Re-execute or independently calculate under controlled conditions and compare the result.","Trace the result forward to decision, communication, correction, outcome, issue, and closure."],"ok":"Correct. The reconstruction begins with the exact challenged object and follows actual historical evidence.","no":"Do not begin with today’s pipeline. Anchor the challenged output, recover the run and manual activities, then replay and trace forward."}</script><span aria-live="polite"></span></div></section>
+
+<section class="lens-row" aria-label="Role views"><article data-lens="foundation"><b>Foundation view</b><span>Ask whether the exact answer can be followed back to the records and actions that produced it.</span></article><article data-lens="practitioner"><b>Practitioner view</b><span>Capture run IDs, versions, parameters, manual activities, agents, approvals, errors, replay results, and affected consumers.</span></article><article data-lens="leader"><b>Leader view</b><span>Fund lineage where consequence demands it. A complete architecture picture does not replace decision replay and retained evidence.</span></article></section>
+
+<section class="artifact"><span class="section-tag">Professional work product</span><h2>Prepare a lineage and provenance pack</h2><p>Write this as an investigation record another reviewer could follow. Use working text only and move approved evidence into the utility’s controlled repository.</p>
+<form data-artifact="lineage-provenance-pack" data-required="lineage-pack" data-export-title="D04 LINEAGE AND PROVENANCE PACK">
+<label>Challenged decision, output, time, and consequence<textarea name="anchor" required></textarea></label>
+<label>Historical sources, versions, run, code or rule, and parameters<textarea name="run-evidence" required></textarea></label>
+<label>Manual activities, agents, reasons, before-and-after values, and approvals<textarea name="manual-provenance" required></textarea></label>
+<div class="artifact-grid"><label>Replay method<input name="replay-method" required></label><label>Variance found<input name="variance" required></label><label>Evidence owner<input name="evidence-owner" required></label></div>
+<label>Forward impact, correction, notice, outcome, and closure evidence<textarea name="forward-trace" required></textarea></label>
+<div class="artifact-actions"><button class="btn primary" type="submit">Save reconstruction pack</button><button class="btn" type="button" data-download>Download evidence index</button></div><p class="status" data-artifact-status aria-live="polite">Complete the reconstruction before saving.</p></form>
+<div class="final-check" data-final-applied-check data-required="lineage-defense" data-artifact-ref="lineage-provenance-pack" data-pass="Your pack distinguishes the designed route from the historical run and traces the outcome." data-retry="A defensible replay needs the exact output, historical versions, activities and agents, comparison, and forward impact."><b>Final applied check</b><label><input type="checkbox" data-correct="true"> The pack anchors the exact challenged output and historical run.</label><label><input type="checkbox" data-correct="true"> It includes machine and manual activities, agents, versions, parameters, and approvals.</label><label><input type="checkbox" data-correct="true"> It records replay variance and traces correction and outcome forward.</label><label><input type="checkbox" data-correct="false"> A current architecture diagram is accepted as historical proof.</label><button class="btn" type="button" data-check-applied>Check the reconstruction</button><p class="status" aria-live="polite"></p></div></section>
+
+<section class="faq" data-module-faq><span class="section-tag">Questions from the investigation room</span><h2>Lineage and provenance FAQ</h2>
+<details><summary>Is lineage the same as an audit log?</summary><p>No. An audit log records events in a system. Lineage connects records across sources, transformations, uses, and outcomes. Logs may supply provenance evidence, but they must be linked to the entities and decision being reconstructed.</p></details>
+<details><summary>How detailed should lineage be?</summary><p>Match detail to consequence. A planning trend may need dataset and transformation lineage. A disputed bill, permit filing, safety decision, or automated action may require record-level versions, activities, agents, approvals, and replay.</p></details>
+<details><summary>What if part of the process is a spreadsheet?</summary><p>Include it. Record the file identity and version, source inputs, formulas or logic, person making the change, review, approval, output, access, and retention. Calling it manual does not remove it from the evidence chain.</p></details>
+<details><summary>Can we reconstruct lineage after an incident?</summary><p>Sometimes, but missing versions and logs may make full replay impossible. Preserve what exists, document the gap and consequence, correct the control, and avoid claiming more certainty than the evidence supports.</p></details>
+<details><summary>Does blockchain solve provenance?</summary><p>It may protect some recorded events from alteration, but it does not prove that the original value, identity, meaning, authority, or human action was correct. Good capture and governance still come first.</p></details>
+<details><summary>Who owns lineage?</summary><p>Ownership is shared by job, not ambiguous. Data and decision owners define required evidence. Stewards maintain meaning and trace rules. Technical custodians capture system events. Process owners control manual activities. Assurance independently tests selected traces.</p></details>
+</section>
+
+<section class="evidence" data-evidence-boundary><b>Evidence boundary and release truth.</b> Riverbend billing facts are instructional. This lesson does not prove a billing amount, legal obligation, compliance state, or assurance conclusion. Use approved source systems, current retention and privacy rules, authorized reviewers, and utility-specific evidence. Technical anchors include the <a href="https://www.w3.org/TR/prov-o/">World Wide Web Consortium PROV-O Recommendation</a>, the <a href="https://www.w3.org/TR/prov-dm/">PROV data model</a>, and <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">National Institute of Standards and Technology Special Publication 800-53 Revision 5</a>. D04 criteria remain subject to source-owner and practitioner review.</section>
+<section class="completion"><h2>Working completion</h2><ul><li data-requirement="opening">Record the incident decision.</li><li data-requirement="lineage-replay">Replay the broken lineage.</li><li data-requirement="handoff-review">Compare the evidence handoff.</li><li data-requirement="replay-order-check">Complete the ordering check.</li><li data-requirement="lineage-pack">Save the reconstruction pack.</li><li data-requirement="lineage-defense">Pass the applied defense.</li></ul><button class="btn primary" data-complete disabled type="button">Record working completion</button><p data-completion-status role="status"></p></section>
+<section class="connected" id="owos-course-community"><h2>Connected learning</h2><p>Open the Graph to connect entity, activity, agent, version, evidence, decision, and outcome. Use Community only for non-sensitive patterns and questions.</p></section>
+<nav class="footnav"><a href="lesson-dg-10-d03-metadata-catalog-and-semantics.html">Previous: Metadata</a><a href="course-data-governance.html">All chapters</a><a href="lesson-dg-12-d05-data-quality-and-observability.html">Next: Data quality</a></nav>
 </main>
-<footer class="dg-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:11 &middot; Content status: pending</div></footer>
-<script>
+<div class="drawer-scrim"></div>
+<aside class="drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><b>Chapter 11 Graph</b><button data-close-drawer type="button">Close</button></div><div class="drawer-body"><div class="graph-list"><span data-graph-kind="concept">Concept: historical replay</span><span data-graph-kind="source">Source: run and source-version evidence</span><span data-graph-kind="role">Role: agent performs or authorizes activity</span><span data-graph-kind="competency">Competency: reconstruct decision lineage</span><span data-graph-kind="relationship">Relationship: entity was generated by activity</span></div></div></aside>
+<aside class="drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><b>Course Community</b><button data-close-drawer type="button">Close</button></div><div class="drawer-body"><div class="community-feature" data-community-feature="search">Search lineage questions.</div><div class="community-feature" data-community-feature="filters">Filter by utility service and role.</div><div class="community-feature" data-community-feature="bookmarks">Bookmark useful traces.</div><div class="community-feature" data-community-feature="threaded-replies">Reply in context.</div><div class="community-feature" data-community-feature="presence">See active members.</div><div class="community-feature" data-community-feature="instructor-treatment">Instructor responses are identified.</div></div></aside>
+<div id="tt" role="tooltip"></div><script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
    Modules write declarative markup; this file renders and wires the real
@@ -1998,6 +1993,25 @@ html,body{max-width:100%;overflow-x:hidden}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2007,8 +2021,100 @@ html,body{max-width:100%;overflow-x:hidden}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script><script>
+(function(){
+  "use strict";
+  var moduleId=document.body.dataset.module||"";
+  var key="dga001:"+moduleId+":retrofit";
+  var state={opening:false,artifact:false,applied:false};
+  try{state=Object.assign(state,JSON.parse(localStorage.getItem(key)||"{}"));}catch(error){}
+  function save(){localStorage.setItem(key,JSON.stringify(state));paintCompletion();}
+  function paintCompletion(){
+    var button=document.querySelector("[data-complete]");
+    if(!button)return;
+    var ready=state.opening&&state.artifact&&state.applied;
+    button.disabled=!ready;
+    var out=document.querySelector("[data-completion-status]");
+    if(out)out.textContent=ready?"Opening decision, work product, and applied check are complete. This working lesson is ready for your review.":"Complete the opening decision, save the professional work product, and pass the applied check.";
+  }
+  document.querySelectorAll("[data-opening-decision] [data-choice]").forEach(function(button){
+    button.addEventListener("click",function(){
+      var box=button.closest("[data-opening-decision]");
+      box.querySelectorAll("[data-choice]").forEach(function(item){item.setAttribute("aria-pressed",item===button?"true":"false");});
+      var feedback=box.querySelector("[data-decision-feedback]");
+      feedback.innerHTML=button.dataset.feedback||"Decision recorded. Carry your reasoning into the lesson.";
+      feedback.classList.add("on");
+      state.opening=true;save();
+    });
+  });
+  document.querySelectorAll("form[data-artifact]").forEach(function(form){
+    var artifactKey=key+":"+form.dataset.artifact;
+    try{
+      var saved=JSON.parse(localStorage.getItem(artifactKey)||"{}");
+      Object.keys(saved).forEach(function(name){var field=form.elements.namedItem(name);if(field)field.value=saved[name];});
+    }catch(error){}
+    form.addEventListener("submit",function(event){
+      event.preventDefault();
+      if(!form.reportValidity())return;
+      var data={};new FormData(form).forEach(function(value,name){data[name]=String(value);});
+      localStorage.setItem(artifactKey,JSON.stringify(data));
+      state.artifact=true;save();
+      var status=form.querySelector("[data-artifact-status]");if(status)status.textContent="Saved in this browser. Move the reviewed version into the utility's approved repository.";
+    });
+    var download=form.querySelector("[data-download]");
+    if(download)download.addEventListener("click",function(){
+      var lines=[form.dataset.exportTitle||"OWOS DATA GOVERNANCE WORK PRODUCT",""];
+      new FormData(form).forEach(function(value,name){lines.push(name.replace(/[-_]/g," ").toUpperCase(),String(value),"");});
+      lines.push("EVIDENCE BOUNDARY","This instructional draft requires utility approval, current authority, protected evidence handling, and independent review where required.");
+      var blob=new Blob([lines.join("\n")],{type:"text/plain"}),a=document.createElement("a");
+      a.href=URL.createObjectURL(blob);a.download=(form.dataset.artifact||"work-product")+".txt";a.click();URL.revokeObjectURL(a.href);
+    });
+  });
+  document.querySelectorAll("[data-final-applied-check]").forEach(function(check){
+    var button=check.querySelector("[data-check-applied]");
+    if(!button)return;
+    button.addEventListener("click",function(){
+      var required=Array.from(check.querySelectorAll("input[data-correct]"));
+      var ok=required.length>0&&required.every(function(input){return input.checked===(input.dataset.correct==="true");});
+      var out=check.querySelector("[aria-live]");
+      if(ok){out.textContent=check.dataset.pass||"Your recommendation includes the required evidence and boundary.";state.applied=true;save();}
+      else{out.textContent=check.dataset.retry||"Review the evidence, authority, limitation, and next action, then try again.";}
+    });
+  });
+  document.querySelectorAll("[data-resilience-console]").forEach(function(consoleEl){
+    var scenarios=JSON.parse(consoleEl.querySelector('script[type="application/json"]').textContent),out=consoleEl.querySelector("[data-console-output]"),path=consoleEl.querySelector("[data-control-path]");
+    function paint(index,button){var s=scenarios[index];consoleEl.querySelectorAll("[data-scenario]").forEach(function(b){b.classList.toggle("on",b===button);});out.innerHTML="<strong>"+s.verdict+"</strong>"+s.explanation;path.innerHTML=s.path.map(function(step){return '<article class="'+step.state+'"><b>'+step.label+"</b><span>"+step.detail+"</span></article>";}).join("");}
+    consoleEl.querySelectorAll("[data-scenario]").forEach(function(button){button.addEventListener("click",function(){paint(+button.dataset.scenario,button);});});paint(0,consoleEl.querySelector("[data-scenario]"));
+  });
+  document.querySelectorAll("[data-rights-console]").forEach(function(consoleEl){
+    var scenarios=JSON.parse(consoleEl.querySelector('script[type="application/json"]').textContent),out=consoleEl.querySelector("[data-console-output]"),board=consoleEl.querySelector("[data-rights-board]");
+    function paint(index,button){var s=scenarios[index];consoleEl.querySelectorAll("[data-scenario]").forEach(function(b){b.classList.toggle("on",b===button);});out.innerHTML="<strong>"+s.decision+"</strong>"+s.reason;board.innerHTML=s.tests.map(function(test){return '<article class="'+(test.pass?"":"alert")+'"><b>'+test.label+"</b><span>"+test.result+"</span></article>";}).join("");}
+    consoleEl.querySelectorAll("[data-scenario]").forEach(function(button){button.addEventListener("click",function(){paint(+button.dataset.scenario,button);});});paint(0,consoleEl.querySelector("[data-scenario]"));
+  });
+  document.querySelectorAll("[data-lifecycle-console]").forEach(function(consoleEl){
+    var scenarios=JSON.parse(consoleEl.querySelector('script[type="application/json"]').textContent),out=consoleEl.querySelector("[data-console-output]"),track=consoleEl.querySelector("[data-timeline-track]");
+    function paint(index,button){var s=scenarios[index];consoleEl.querySelectorAll("[data-scenario]").forEach(function(b){b.classList.toggle("on",b===button);});out.innerHTML="<strong>"+s.decision+"</strong>"+s.reason;track.innerHTML=s.stages.map(function(stage,i){return '<article class="'+(i===s.active?"active":"")+'"><b>'+stage.label+"</b><small>"+stage.detail+"</small></article>";}).join("");}
+    consoleEl.querySelectorAll("[data-scenario]").forEach(function(button){button.addEventListener("click",function(){paint(+button.dataset.scenario,button);});});paint(0,consoleEl.querySelector("[data-scenario]"));
+  });
+  var lastTrigger=null;
+  function setDrawer(name,open,trigger){
+    var drawer=document.querySelector('[data-drawer="'+name+'"]'),scrim=document.querySelector(".drawer-scrim");
+    if(!drawer)return;
+    if(open){lastTrigger=trigger||document.activeElement;drawer.classList.add("open");drawer.setAttribute("aria-hidden","false");scrim.classList.add("open");drawer.querySelector("[data-close-drawer]").focus();}
+    else{drawer.classList.remove("open");drawer.setAttribute("aria-hidden","true");if(!document.querySelector(".drawer.open"))scrim.classList.remove("open");if(lastTrigger)lastTrigger.focus();}
+  }
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){button.addEventListener("click",function(){setDrawer("graph",true,button);});});
+  document.querySelectorAll("[data-open-community]").forEach(function(button){button.addEventListener("click",function(){setDrawer("community",true,button);});});
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){button.addEventListener("click",function(){setDrawer(button.closest("[data-drawer]").dataset.drawer,false);});});
+  var scrim=document.querySelector(".drawer-scrim");if(scrim)scrim.addEventListener("click",function(){document.querySelectorAll(".drawer.open").forEach(function(drawer){setDrawer(drawer.dataset.drawer,false);});});
+  document.addEventListener("keydown",function(event){if(event.key==="Escape")document.querySelectorAll(".drawer.open").forEach(function(drawer){setDrawer(drawer.dataset.drawer,false);});});
+  var complete=document.querySelector("[data-complete]");if(complete)complete.addEventListener("click",function(){var out=document.querySelector("[data-completion-status]");if(out)out.textContent="Working completion recorded in this browser. Release and credential events remain disabled.";});
+  paintCompletion();
 })();
 
 </script>

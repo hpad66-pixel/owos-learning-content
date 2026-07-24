@@ -24,10 +24,14 @@ Also: spell out every acronym in full the first time it appears, and give every 
 | **Reflection** | an open question | the reader thinks, then reveals a full plain-English answer |
 
 ## Guidance
-- Use at least 3 different quiz types per module.
+- Use the number and type of checks the learning job requires. Every full lesson needs distributed
+  checks and a final applied demonstration, but it does not need a fixed quiz inventory.
 - Do not put the same quiz type twice in a row.
 - Match the quiz to the idea: terms fit flip cards, sequences fit ordering, definitions fit matching,
   judgment calls fit multiple choice or reflection, and numbers fit estimate.
+- Do not repeat an identical quiz sequence in more than two lessons in one course.
+- A simulation, query, graph construction, repair task, calculation, or defended recommendation may
+  be a stronger assessment than a conventional quiz.
 
 To reuse one, copy its block from `quiz-gallery.html` (both the markup and its piece of the script).
 The `module-template.html` already includes the common ones ready to fill in.

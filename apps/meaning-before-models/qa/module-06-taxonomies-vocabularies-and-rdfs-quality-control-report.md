@@ -1,7 +1,7 @@
 ---
 module_id: mbm001:06
 course_id: owos-course-semantic-data-ai-001
-version: production-candidate-1
+version: semantic-fieldbook-retrofit-1
 review_date: 2026-07-23
 reviewer: Codex repository review
 score: 86
@@ -11,6 +11,12 @@ release_status: blocked
 ---
 
 # Module Quality-Control Report: Taxonomies, Vocabularies, and RDFS
+
+## Retrofit implementation review
+- Rebuilt as a classification studio with a contested “asset” definition.
+- Verified mechanisms: subclass, instance, and part repair plus domain-range diagnosis.
+- Verified work product: Governed Vocabulary Sheet with examples, exclusions, owner, and review trigger.
+- Score remains conditional because local utility vocabulary practice and accessibility require human review.
 
 ## Decision
 - Working-review result: Conditional production candidate.

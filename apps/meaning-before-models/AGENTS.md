@@ -4,6 +4,12 @@ Use `$continue-owos-course` for every material task in this folder.
 
 The user adds documents to `inbox/` or speaks and types directly into the Codex task. Preserve substantive direction in `conversations/`. Run internal inventory, extraction, research, course generation, validation, and release tools yourself. Never ask the user to operate Python scripts.
 
-Before drafting, read `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yaml`, `SYLLABUS.md`, Hardeep Soul, the Course Operating Standard, Course Design System, Visual Arsenal, component catalog, quiz catalog, and writing standard. Preserve originals, distinguish evidence from Hardeep's positions, and require approval before locking the blueprint, golden lesson, or release.
+Before drafting, read `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yaml`, `SYLLABUS.md`, Hardeep Soul, the Course Operating Standard, Course Design System, Course Experience Architecture, `curriculum/COURSE-EXPERIENCE-BRIEF.md`, Visual Arsenal, component catalog, quiz catalog, and writing standard. Preserve originals, distinguish evidence from Hardeep's positions, and require approval before locking the blueprint, golden lesson, or release.
 
 Create a module design brief before each lesson and maintain the course design matrix. Chapter 09 is a capability benchmark, not a page template. Every module must select its visual, interaction, quiz, animation, and work-product mix from the learning problem and must be checked against adjacent modules for repetition.
+
+The fixed lesson generator in `tools/build-meaning-before-models-course.py` is retired. It produced
+the repeated five-section, four-quiz, eight-field-form pattern that failed Hardeep's experience
+review. Rebuild each module from its approved archetype and signature mechanism. Run
+`python3 tools/course_distinctiveness.py --course apps/meaning-before-models` after every three
+rebuilt modules. The written lesson must stand without video.

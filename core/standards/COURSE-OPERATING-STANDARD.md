@@ -1,6 +1,6 @@
 ---
 title: OWOS Course Operating Standard
-version: 2.0.0
+version: 2.2.0
 status: APPROVED
 owner: Hardeep Anand
 approved: 2026-07-22
@@ -62,17 +62,23 @@ satisfy the interaction requirement. Reduced-motion behavior is mandatory.
 
 ## Lesson completion
 
-### Instructor explanation and recording package
+### Instructor explanation and optional media
 
 The learner-facing page must stand on its own when no video is available. Every major visual, animation, simulation, assessment, and work-product interface must include one or two visible instructor paragraphs. The paragraphs explain what the learner is seeing, what action to take, what to notice, why it matters in utility work, and what the result means. Add a debrief when a change or consequence needs interpretation. Tooltips define terms but never replace instruction.
 
-Every module must include a complete recording script. Every course must include one overview script that explains all modules in order. Visual directions are separate from spoken words. A curriculum change that affects the lesson sequence requires an overview-script update.
+Recording scripts are optional and follow the approved course modality plan. When a recording is
+planned, visual directions must remain separate from spoken words. The learner-facing page still
+carries the complete instruction.
 
 Explanatory graphics are required when the teaching idea has a meaningful visual shape. Each graphic must clarify a concept, method, framework, relationship, sequence, comparison, or cause. The lesson must explain how to read it and what conclusion it supports. Decorative stock art and repeated icon tiles do not count toward visual quality.
 
 Long lessons also require a visual pacing plan. Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout unless the module brief records why uninterrupted prose is necessary. An original editorial illustration may break visual monotony only when it teaches a utility setting, asset, record relationship, or accountable decision and includes accessible reading guidance.
 
-Distribute quizzes and checks throughout the lesson. Place each check immediately after the idea or mechanism it evaluates. Use at least three different quiz types in a full module, provide immediate explanatory feedback and retry, and finish with an applied check connected to the professional work product. Do not rely on reflection alone for deterministic completion.
+Distribute checks throughout the lesson. Place each check immediately after the idea or mechanism it
+evaluates. Match the assessment to the thinking being taught, provide immediate explanatory feedback
+and retry where appropriate, and finish with an applied check connected to the professional work
+product. Do not rely on reflection alone for deterministic completion, and do not impose one quiz
+sequence on every lesson.
 
 End every module with an FAQ before the source boundary and bottom connected-learning section. Questions must come from the actual lesson's likely misunderstandings. Answers must be complete, conversational, and grounded in a utility example. Use an explanatory diagram, comparison, or worked sequence when prose alone leaves the relationship unclear. The FAQ supports proactive learning but does not replace the lesson's instructor explanation.
 
@@ -116,8 +122,14 @@ No lesson may claim release, mastery, certification, or assurance before the rel
 ## Machine-enforced release gate
 
 The course record must declare `quality_contract.enforce_on_release: true`. The release builder
-validates every chapter listed in `released_chapters` before it creates a manifest. A release is
-blocked when any released lesson has:
+validates every chapter listed in `released_chapters` before it creates a manifest. Quality contract
+version 3 and later must also declare `full_module_conformance_required: true`. The release builder
+runs `tools/course_full_conformance.py` across every lesson included by the course experience
+architecture and blocks release if a lesson, design brief, scored QA report, configured script, or
+full-module contract is missing or nonconforming. Release-ready mode also blocks any unchecked manual
+review, non-passing hard gate, or QA report without an explicit Release approval record.
+
+The release is also blocked when any released lesson has:
 
 - fewer than two purposeful interactions;
 - malformed interactive-component JSON or an invalid table or deterministic multi-select shape;
@@ -127,9 +139,11 @@ blocked when any released lesson has:
 - no accessible live-feedback region; or
 - no keyboard-operable learner control.
 
-This gate is a minimum technical floor. It does not replace the qualified utility-practice review,
-source review, learning-design judgment, contrast inspection, or learner pilot. Future course
-templates must carry the contract by default. A course cannot opt out when it is released.
+The lightweight lesson gate is a minimum technical floor. The whole-course conformance gate proves
+that module evidence exists and passes the automated contract. Neither gate replaces qualified
+utility-practice review, source review, learning-design judgment, contrast inspection, learner pilot,
+or explicit release approval. Future course templates carry contract version 3 by default. Legacy
+contract versions remain readable, but must migrate to version 3 before claiming this stronger gate.
 
 ## Golden lesson
 

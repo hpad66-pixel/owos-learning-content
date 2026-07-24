@@ -32,8 +32,14 @@ the operating rhythm, and Chapter 08 delivers the D01 charter, value, risk, deci
 roadmap package. Chapter 09 is the first golden hybrid lesson under the OWOS Course Operating
 Standard 2.0. It combines the Project Delivery learner experience with Data Before AI provenance,
 release control, graph alignment, and learner-event requirements. It delivers the D02 ownership and
-stewardship operating pack. The other 15 chapter destinations preserve
-the approved syllabus structure while their lesson bodies remain in development. Course-completion
+stewardship operating pack.
+
+Chapters 10 through 15 are complete working-review lessons under the Course Experience Architecture.
+They cover metadata forensics, lineage reconstruction, quality by use, integrity and resilience,
+privacy and rights review, and records lifecycle decisions. Each has its own module brief, scored
+quality report, signature mechanism, visual grammar, assessment job, and professional work product.
+They are not released and do not emit completion or credential events. Chapters 16 through 24 remain
+content-pending destinations. Course-completion
 credential language and scored assessments remain proposed until their separate review and pilot
 gates pass.
 

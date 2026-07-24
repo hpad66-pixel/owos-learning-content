@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 18 &middot; Asset management, digital and resilience &middot; One Water OS Academy</title>
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-18-asset-management-digital-resilience">
+<meta name="owos-release-state" content="working-review">
 <meta name="description" content="Chapter 18 of the Project Management masterclass. Asset management and handover to operations, digital delivery with GIS, BIM and SCADA, and resilience, sustainability and the One Water idea.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,38 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+/* Project Management retrofit controls. The field-delivery teaching surface remains in academy.css. */
+.lesson-actions{display:flex;gap:6px;align-items:center;margin-left:auto}
+.lesson-actions a,.lesson-actions button{border:1px solid var(--line-2);border-radius:999px;background:#fff;padding:6px 10px;color:var(--ink-2);font:700 10px var(--fm);text-decoration:none;cursor:pointer}
+.lesson-actions a:hover,.lesson-actions button:hover,.lesson-actions a:focus-visible,.lesson-actions button:focus-visible{border-color:var(--brand);color:var(--brand);outline:2px solid var(--brand-100);outline-offset:2px}
+.owos-nav .crumb{margin-left:12px}
+[data-visual-type]{margin:24px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface-2)}
+[data-reading-guide],[data-learner-conclusion]{margin:0;padding:10px 12px;border-radius:11px;font-size:13.5px;line-height:1.55}
+[data-reading-guide]{border:1px solid var(--brand-100);background:var(--brand-50);color:var(--ink)}
+[data-learner-conclusion]{border:1px solid #bfe0d4;background:var(--green-50);color:#086b50}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.role-grid article{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.role-grid b{color:var(--ink)}.role-grid p{margin:5px 0 0;font-size:13px;line-height:1.5}
+.evidence-card ul,.requirement-list{padding-left:20px}.evidence-card li,.requirement-list li{margin:7px 0}
+.evidence-card a{color:var(--brand-700)}
+.completion-card{border-color:var(--brand-100);background:var(--brand-50)}
+.completion-status{display:inline-block;margin-left:10px;font:600 11px var(--fm);color:var(--ink-3)}
+.requirement-list li.done{color:var(--green);font-weight:700}
+.course-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:120;background:#fff;box-shadow:-14px 0 38px rgba(15,23,40,.2);transform:translateX(105%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
+.course-drawer.open{transform:translateX(0);visibility:visible;transition:transform .22s ease}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--brand-800);color:#fff}
+.drawer-head h2{margin:0;color:#fff;font-size:1.15rem}.drawer-head button{border:1px solid rgba(255,255,255,.65);border-radius:8px;background:transparent;padding:7px 10px;color:#fff;font-weight:700;cursor:pointer}
+.drawer-body{height:calc(100% - 70px);overflow:auto;padding:18px}.drawer-body>p,.drawer-body>div,.drawer-body>label,.drawer-body>button{display:block;margin:0 0 11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--ink-2)}
+.community-tools input{display:block;width:100%;margin-top:7px;border:1px solid var(--line-2);border-radius:8px;padding:8px;font:inherit}.community-tools button{border:1px solid var(--line-2);border-radius:8px;background:#fff;padding:7px 10px;color:var(--ink-2);font-weight:700;cursor:pointer;margin:3px}
+.connected-learning{margin:28px 0 18px;padding:16px 18px;border:1px solid var(--brand-100);border-radius:14px;background:var(--brand-50)}.connected-learning b{color:var(--ink)}.connected-learning p{margin:5px 0 0}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body.drawer-open{overflow:hidden}
+@media(max-width:900px){.lesson-actions{order:3;width:100%;justify-content:flex-end}.owos-nav{height:auto;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.wrap{padding-top:34px}}
+@media(max-width:700px){.role-grid{grid-template-columns:1fr}.lesson-actions{justify-content:flex-start}.owos-nav .crumb{margin-left:auto}[data-visual-type]{padding:8px}.completion-status{display:block;margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){.course-drawer{transition:none}}
+
+</style>
 </head>
 <body>
 
@@ -589,10 +625,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 18</b></span>
+  <span class="lesson-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 18 &middot; The next thirty years</span>
   <h1>Asset management, digital delivery, and <span>resilience</span></h1>
@@ -605,7 +642,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job, about to become an asset</p>
@@ -819,12 +856,37 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec">
+    <h2>Build the operating-handover brief</h2>
+    <p data-instructor-explanation data-teaches="pm18-cost-curve">Read the cost curve from bid day to the end of the asset's evaluation period. The capital price is visible immediately, while energy, maintenance, downtime, and replacement accumulate over years.</p>
+    <div id="pm18-cost-curve" data-visual-type="line-s-curve" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> compare cumulative ownership cost, not only the first-year gap. The crossover shows when the higher initial price becomes the lower-cost choice.</p><div style="overflow:auto"><table><thead><tr><th>Evaluation point</th><th>Option A</th><th>Option B</th><th>Decision signal</th></tr></thead><tbody><tr><td>Bid day</td><td>Lower</td><td>Higher</td><td>Capital-only view favors A</td></tr><tr><td>Crossover</td><td>Rising faster</td><td>Rising slower</td><td>Ownership view changes</td></tr><tr><td>Thirty years</td><td>Higher total</td><td>Lower total</td><td>Lifecycle view favors B</td></tr></tbody></table></div><p data-learner-conclusion>The evaluation period and operating assumptions can reverse the apparent winning bid.</p></div>
+    <p data-instructor-explanation data-teaches="pm18-handover-network">Read this handover as a network, not a box of files. The physical asset, Geographic Information System, Building Information Modeling record, control system, work system, warranty, and operator procedure need a shared identity and verified relationships.</p>
+    <div id="pm18-handover-network" data-visual-type="network-diagram" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> begin at the commissioned asset and follow each required record to the operating decision it supports.</p><ul><li>Asset identity connects drawings, location, equipment, and warranty.</li><li>Commissioning results connect acceptance to operating limits.</li><li>Maintenance tasks connect the asset to parts, intervals, and responsible roles.</li><li>Control points connect tags, alarms, ranges, and approved procedures.</li></ul><p data-learner-conclusion>Digital handover succeeds when operations can use and trust the connected records, not when a file transfer is marked complete.</p></div>
+    <p data-instructor-explanation data-teaches="pm18-handover-gate">Run the handover gate for the pump option. It checks ownership value, identity, acceptance evidence, operating readiness, and remaining resilience limits before final completion.</p>
+    <div id="pm18-handover-gate" data-ac="applicability" data-purposeful-interaction="operating-handover-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-quiz-type="handover-gate" data-quiz-source="applied-assessment-contract" data-retry="Run every gate and identify the missing lifecycle basis, identity, acceptance, or operating evidence." data-title="Operating-handover gate" data-kind="Interactive readiness gate"><span class="sr-only" aria-live="polite">Handover-gate feedback appears as each gate is run.</span><script type="application/json">{"scenarios":[{"label":"Wellfield pump handover","authority":"Contract acceptance and utility operating authority","facts":"The selected pumps have lower lifecycle cost but require complete operating data and commissioning evidence.","gates":[{"label":"Lifecycle basis","state":"pass","detail":"Evaluation period and major ownership assumptions are visible."},{"label":"Shared identity","state":"review","detail":"Asset, drawing, model, control, and work-system identifiers must resolve."},{"label":"Acceptance evidence","state":"review","detail":"Tests, settings, punch items, and warranties remain to be verified."},{"label":"Operating readiness","state":"review","detail":"Operators need approved procedures, training, spares, and limits."}],"result":"CONDITIONAL HANDOVER UNTIL IDENTITY AND READINESS EVIDENCE PASS.","resultClass":"review","basis":"Do not confuse physical completion with operating readiness."}],"boundary":"This teaching gate does not accept an asset. Contract criteria and authorized engineering and operating roles govern."}</script></div>
+    <div data-ac="artifactbuilder" data-artifact="operating-handover-brief" data-purposeful-interaction="handover-brief-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Operating-handover brief" data-kind="Work product &middot; handover brief"><script type="application/json">{"key":"pm18-operating-handover-brief","notice":"Use non-sensitive instructional text. A real handover belongs in the controlled asset and project systems.","fields":[{"id":"asset","label":"Asset and service outcome","help":"Name the asset, service, and operating requirement.","placeholder":"Pump... provides..."},{"id":"lifecycle","label":"Lifecycle basis","help":"Record evaluation period, assumptions, and selected option.","placeholder":"Thirty-year basis..."},{"id":"identity","label":"Connected identifiers","help":"List asset, location, drawing, model, control, and work-system identifiers.","placeholder":"Asset ID..."},{"id":"acceptance","label":"Acceptance evidence","help":"Name tests, results, punch status, warranty, and authority.","placeholder":"Test... accepted by..."},{"id":"operations","label":"Operating readiness","help":"Name procedures, training, spares, limits, and monitoring.","placeholder":"Procedure... training..."},{"id":"resilience","label":"Resilience and remaining limits","help":"State firm capacity, redundancy, failure mode, and open risk.","placeholder":"With one unit out..."}],"template":"OPERATING-HANDOVER BRIEF\n\nAsset and outcome\n{asset}\n\nLifecycle basis\n{lifecycle}\n\nConnected identifiers\n{identity}\n\nAcceptance evidence\n{acceptance}\n\nOperating readiness\n{operations}\n\nResilience and limits\n{resilience}"}</script></div>
+    <p data-instructor-explanation data-teaches="pm18-final-check">Use the final check against the handover brief. Select every element operations needs to own the asset and understand the remaining limits.</p>
+    <div id="pm18-final-check" data-ac="multi" data-quiz-type="handover-brief-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="operating-handover-brief" data-required="final-check" data-retry="Add the missing lifecycle, identity, acceptance, operating, or resilience evidence and check again." data-title="Final handover-brief gate" data-kind="Final applied check"><span class="sr-only" aria-live="polite">Final handover-brief feedback appears after checking the selected items.</span><script type="application/json">{"q":"What must the handover brief contain?","options":[["Asset and service outcome",true],["Lifecycle basis and connected identifiers",true],["Acceptance and warranty evidence",true],["Operating readiness and remaining resilience limits",true],["A folder location without verified contents",false]],"ok":"The brief connects ownership value, identity, acceptance, and operating readiness.","no":"Repair the lifecycle, identity, acceptance, readiness, and resilience evidence."}</script></div>
+  </section>
+  <section class="sec" data-module-faq><h2>Questions people ask about asset handover and resilience</h2>
+    <details><summary>Why can the lowest bid be the expensive choice?</summary><p>Because the utility pays energy, maintenance, downtime, and replacement for decades. A small efficiency difference in a continuously operated pump can outweigh the capital-price gap.</p></details>
+    <details><summary>Is sending record drawings enough for digital handover?</summary><p>No. Operations needs verified asset identities, formats, relationships, settings, test results, ownership, and update responsibility across the systems it actually uses.</p></details>
+    <details><summary>What is the difference between reliability and resilience?</summary><p>Reliability concerns performance under expected conditions. Resilience concerns continuing and recovering when a disruption occurs, such as operating with one pump unavailable during peak demand.</p></details>
+    <details><summary>Who accepts the asset?</summary><p>The contract and utility authority define acceptance roles. Engineering may verify technical criteria, operations may confirm readiness, and the owner may control substantial or final completion.</p></details>
+    <details><summary>Does a digital model replace the asset register or control system?</summary><p>No. Each system has a job. The handover must connect the model, asset register, work system, Geographic Information System, and control records through governed identities.</p></details>
+  </section>
+  <section class="sec role-strip"><h2>What changes by role</h2><div class="role-grid"><article data-lens="foundation"><b>Foundation</b><p>Recognize lifecycle cost, handover records, digital systems, reliability, and resilience.</p></article><article data-lens="practitioner"><b>Practitioner</b><p>Verify identities, acceptance evidence, procedures, training, spares, and operating limits.</p></article><article data-lens="leader"><b>Leader</b><p>Buy for service value and refuse final completion when operations cannot safely own the asset.</p></article></div></section>
+  <section class="sec evidence-card" data-evidence-boundary><h2>Evidence boundary</h2><p>The pump values and Millpond scenario are instructional. A real lifecycle decision requires current bids, energy, maintenance, reliability, financing, operating, and engineering evidence. Contract acceptance and utility authority govern handover.</p><ul><li><a href="https://www.epa.gov/dwcapacity/asset-management-resources-small-drinking-water-systems">United States Environmental Protection Agency asset-management resources</a></li><li><a href="SYLLABUS.md">Project Delivery course syllabus</a></li><li><a href="COURSE-EXPERIENCE-BRIEF.md">Project Delivery experience brief</a></li></ul></section>
+  <section class="sec completion-card"><h2>Completion evidence</h2><ul class="requirement-list"><li data-requirement="opening-decision">Review the Millpond ownership decision.</li><li data-requirement="applied-interaction">Run the operating-handover gate.</li><li data-requirement="work-product">Complete the operating-handover brief.</li><li data-requirement="final-check">Pass the final handover-brief gate.</li></ul><button type="button" class="btn" data-complete disabled>Complete Module 18</button><span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span></section>
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Module 18 graph</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body"><p data-graph-kind="concept"><b>Concept:</b> lifecycle value and operating readiness</p><p data-graph-kind="source"><b>Source:</b> cost basis, asset data, tests, procedures</p><p data-graph-kind="role"><b>Role:</b> project team, asset manager, operator, engineer</p><p data-graph-kind="competency"><b>Competency:</b> hand over a usable and resilient asset</p><p data-graph-kind="relationship"><b>Relationship:</b> asset to identity to evidence to service outcome</p></div></aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Project delivery community</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body community-tools"><label data-community-feature="search">Search discussions<input type="search" placeholder="Lifecycle, handover, resilience"></label><div data-community-feature="filters"><button type="button">Asset management</button><button type="button">Handover</button></div><button type="button" data-community-feature="bookmarks">Bookmark this discussion</button><div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare operating-readiness evidence and identity practices.</p></div><p data-community-feature="presence">Practitioners reviewing: asset managers, operators, project managers</p><p data-community-feature="instructor-treatment"><b>Instructor note:</b> do not post protected asset or control information.</p></div></aside>
+  <div id="owos-course-community" class="connected-learning" tabindex="-1"><b>Continue the handover conversation</b><p>Use Graph to follow asset evidence into service. Use Community to compare methods safely.</p></div><div id="tt" role="tooltip" hidden></div>
+  <div class="navrow footnav">
     <a href="lesson-pm-17-safety-locates-commissioning.html">&#8592; Chapter 17 &middot; Safety, locates and commissioning</a>
     <a class="btn" href="lesson-pm-19-program-portfolio.html">Chapter 19 &middot; Program and portfolio management &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1141,10 +1203,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2169,6 +2235,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2178,8 +2263,96 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  var lastTrigger=null;
+
+  function drawer(kind){
+    return document.querySelector('[data-drawer="'+kind+'"]');
+  }
+
+  function closeDrawer(panel){
+    if(!panel)return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden","true");
+    document.body.classList.remove("drawer-open");
+    if(lastTrigger)lastTrigger.focus();
+  }
+
+  function openDrawer(kind,trigger){
+    var panel=drawer(kind);
+    if(!panel)return;
+    document.querySelectorAll("[data-drawer].open").forEach(function(other){
+      other.classList.remove("open");
+      other.setAttribute("aria-hidden","true");
+    });
+    lastTrigger=trigger;
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden","false");
+    document.body.classList.add("drawer-open");
+    var close=panel.querySelector("[data-close-drawer]");
+    if(close)close.focus();
+  }
+
+  function requirementComplete(value){
+    var target=document.querySelector('[data-required="'+value+'"]');
+    if(!target)return false;
+    if(value==="opening-decision")return true;
+    if(value==="applied-interaction"){
+      if(target.querySelector(".exdone.on"))return true;
+      var run=target.querySelector("[data-run]");
+      return !!(run&&run.disabled);
+    }
+    if(value==="work-product"){
+      var textareas=target.querySelectorAll("textarea");
+      if(textareas.length)return Array.prototype.every.call(textareas,function(field){return field.value.trim().length>0;});
+      var rows=target.querySelectorAll(".at-item");
+      return rows.length>0&&Array.prototype.every.call(rows,function(row){return row.getAttribute("data-state")==="3";});
+    }
+    if(value==="final-check")return !!target.querySelector(".ac-fb.on.ok");
+    return false;
+  }
+
+  function updateCompletion(){
+    var values=["opening-decision","applied-interaction","work-product","final-check"];
+    var all=true;
+    values.forEach(function(value){
+      var done=requirementComplete(value);
+      all=all&&done;
+      var row=document.querySelector('[data-requirement="'+value+'"]');
+      if(row)row.classList.toggle("done",done);
+    });
+    var button=document.querySelector("[data-complete]");
+    var status=document.querySelector("[data-completion-status]");
+    var nextStatus=all?"All required evidence is complete.":"Complete the required evidence above.";
+    if(button&&button.disabled===all)button.disabled=!all;
+    if(status&&status.textContent!==nextStatus)status.textContent=nextStatus;
+  }
+
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("graph",button);});
+  });
+  document.querySelectorAll("[data-open-community]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("community",button);});
+  });
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){
+    button.addEventListener("click",function(){closeDrawer(button.closest("[data-drawer]"));});
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape")closeDrawer(document.querySelector("[data-drawer].open"));
+  });
+  document.addEventListener("input",updateCompletion);
+  document.addEventListener("click",function(){window.setTimeout(updateCompletion,0);});
+  new MutationObserver(updateCompletion).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","data-state","disabled"]});
+  updateCompletion();
 })();
 
 </script>

@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 17 &middot; Safety, locates and commissioning &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 17 of the Project Management masterclass. Health and safety and the hierarchy of controls, utility locates and right of way coordination, and commissioning and acceptance of new water infrastructure.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-17-safety-locates-commissioning">
+<meta name="owos-release-state" content="working-review">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,38 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+/* Project Management retrofit controls. The field-delivery teaching surface remains in academy.css. */
+.lesson-actions{display:flex;gap:6px;align-items:center;margin-left:auto}
+.lesson-actions a,.lesson-actions button{border:1px solid var(--line-2);border-radius:999px;background:#fff;padding:6px 10px;color:var(--ink-2);font:700 10px var(--fm);text-decoration:none;cursor:pointer}
+.lesson-actions a:hover,.lesson-actions button:hover,.lesson-actions a:focus-visible,.lesson-actions button:focus-visible{border-color:var(--brand);color:var(--brand);outline:2px solid var(--brand-100);outline-offset:2px}
+.owos-nav .crumb{margin-left:12px}
+[data-visual-type]{margin:24px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface-2)}
+[data-reading-guide],[data-learner-conclusion]{margin:0;padding:10px 12px;border-radius:11px;font-size:13.5px;line-height:1.55}
+[data-reading-guide]{border:1px solid var(--brand-100);background:var(--brand-50);color:var(--ink)}
+[data-learner-conclusion]{border:1px solid #bfe0d4;background:var(--green-50);color:#086b50}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.role-grid article{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.role-grid b{color:var(--ink)}.role-grid p{margin:5px 0 0;font-size:13px;line-height:1.5}
+.evidence-card ul,.requirement-list{padding-left:20px}.evidence-card li,.requirement-list li{margin:7px 0}
+.evidence-card a{color:var(--brand-700)}
+.completion-card{border-color:var(--brand-100);background:var(--brand-50)}
+.completion-status{display:inline-block;margin-left:10px;font:600 11px var(--fm);color:var(--ink-3)}
+.requirement-list li.done{color:var(--green);font-weight:700}
+.course-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:120;background:#fff;box-shadow:-14px 0 38px rgba(15,23,40,.2);transform:translateX(105%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
+.course-drawer.open{transform:translateX(0);visibility:visible;transition:transform .22s ease}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--brand-800);color:#fff}
+.drawer-head h2{margin:0;color:#fff;font-size:1.15rem}.drawer-head button{border:1px solid rgba(255,255,255,.65);border-radius:8px;background:transparent;padding:7px 10px;color:#fff;font-weight:700;cursor:pointer}
+.drawer-body{height:calc(100% - 70px);overflow:auto;padding:18px}.drawer-body>p,.drawer-body>div,.drawer-body>label,.drawer-body>button{display:block;margin:0 0 11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--ink-2)}
+.community-tools input{display:block;width:100%;margin-top:7px;border:1px solid var(--line-2);border-radius:8px;padding:8px;font:inherit}.community-tools button{border:1px solid var(--line-2);border-radius:8px;background:#fff;padding:7px 10px;color:var(--ink-2);font-weight:700;cursor:pointer;margin:3px}
+.connected-learning{margin:28px 0 18px;padding:16px 18px;border:1px solid var(--brand-100);border-radius:14px;background:var(--brand-50)}.connected-learning b{color:var(--ink)}.connected-learning p{margin:5px 0 0}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body.drawer-open{overflow:hidden}
+@media(max-width:900px){.lesson-actions{order:3;width:100%;justify-content:flex-end}.owos-nav{height:auto;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.wrap{padding-top:34px}}
+@media(max-width:700px){.role-grid{grid-template-columns:1fr}.lesson-actions{justify-content:flex-start}.owos-nav .crumb{margin-left:auto}[data-visual-type]{padding:8px}.completion-status{display:block;margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){.course-drawer{transition:none}}
+
+</style>
 </head>
 <body>
 
@@ -588,11 +624,12 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-wm">One Water <b>OS</b></span>
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
+  <span class="lesson-actions"><a href="#lesson-start">Start</a><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button></span>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 17</b></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 17 &middot; The work in the ground</span>
   <h1>Safety, locates, and <span>commissioning</span></h1>
@@ -605,7 +642,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job, now in the ground</p>
@@ -650,26 +687,17 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       <p>Read the residual numbers from the bottom up and the shape of the problem appears. Moving from personal protective equipment to a trench box takes far more risk out than anything you can do inside the bottom two rungs, and eliminating the trench takes out almost all of it. Yet safety programs spend most of their energy on the bottom two, because those are the ones you can enforce with a clipboard. <b>Where the hazard is serious, spend the design decision, not the toolbox talk.</b></p>
     </div>
 
-    <div data-ac="classify" data-title="Which rung is it?" data-kind="Quiz &middot; classify" data-cue="Ask what happens if a worker has a bad day. Higher controls still work; lower ones do not.">
-      <script type="application/json">
-      {"buckets":["Higher control (works anyway)","Lower control (needs people to comply)"],
-       "items":[
-        ["Directional drilling instead of open cut",0,"Elimination. No trench, no trench collapse, regardless of anyone's behavior."],
-        ["A daily toolbox talk about trench safety",1,"Administrative. Valuable, but it only works if people act on it under pressure."],
-        ["A trench box set in the excavation",0,"Engineering. A physical barrier that protects a worker who is not thinking about it."],
-        ["Requiring high visibility vests on site",1,"Personal protective equipment. The last line, and useless against a collapse."],
-        ["Backfilling each section the same day it is opened",0,"Substitution and exposure reduction. Less hazard exists, for less time."]
-       ]}
-      </script>
-    </div>
+    <p>Use one test when you review a control: what happens when a person has a bad day? Directional drilling still removes the trench. A trench box still provides a physical barrier. A toolbox talk and a high-visibility vest depend on behavior and do little against collapse. That does not make lower controls useless. It means you should never present them as substitutes for eliminating or physically controlling a serious hazard.</p>
   </div>
 
   <!-- ===================== SECTION 2 ===================== -->
   <div class="sec">
     <span class="tag">2 / 3</span>
     <h2>Locates, right of way, and the agencies who own the ground</h2>
-    <p>Before anyone breaks ground you have to know what is already down there, and you find out through the <span class="term" data-term="One-call system" data-def="A free service, reached in the United States by dialing 811, that notifies every utility owner in an area that you intend to dig. Each owner then marks their buried facilities on the ground. Calling is legally required before excavation.">one-call system</span>. In the United States you dial 811, and every utility owner in the area is notified to come out and mark their lines. The process has a rhythm, and each step exists because somebody once skipped it.</p>
+    <p data-instructor-explanation data-teaches="pm17-locate-cycle">Before anyone breaks ground you have to know what is already down there, and you find out through the <span class="term" data-term="One-call system" data-def="A free service, reached in the United States by dialing 811, that notifies every utility owner in an area that you intend to dig. Each owner then marks their buried facilities on the ground. Calling is legally required before excavation.">one-call system</span>. In the United States you dial 811, and every utility owner in the area is notified to come out and mark their lines. Move through the sequence and notice that the ticket begins the control. It does not replace field verification at the conflict.</p>
 
+    <section id="pm17-locate-cycle" data-visual-type="phase-gate" data-component-source="shared-component-library">
+    <p data-reading-guide><b>How to read it:</b> move from notification through field verification and ticket maintenance. Each step adds evidence required for safe excavation.</p>
     <div data-ac="process" data-title="The one-call locate cycle" data-kind="Interactive &middot; the steps" data-cue="Click each step. Step 4 is the one that gets people killed, and it is the one crews most want to skip.">
       <script type="application/json">
       {"gate":false,
@@ -683,6 +711,8 @@ input[type=range]{width:100%;accent-color:var(--brand)}
        ]}
       </script>
     </div>
+    <p data-learner-conclusion><b>Conclusion:</b> a valid ticket and visible marks still leave location uncertainty that must be controlled in the field.</p>
+    </section>
 
     <div class="lv f">
       <p>The financial case for doing this properly is not subtle. A utility strike on a gas main means an evacuation, an emergency response, a repair you pay for, a regulatory report, and a stopped job. A serious strike can injure or kill someone. Against that, potholing a few crossings costs a crew a day. This is one of the rare places in project management where the safe choice and the cheap choice are the same choice, and people still get it wrong because the cost of potholing is visible today and the cost of the strike is only probable.</p>
@@ -708,19 +738,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       </script>
     </div>
 
-    <div data-ac="mc" data-title="The call in the trench" data-kind="Quiz &middot; multiple choice">
-      <script type="application/json">
-      {"q":"Your crew is excavating and reaches a point where a yellow gas mark crosses the trench line. The ticket is valid and the marks are fresh. They are running two days behind. What is the correct instruction?",
-       "options":[
-        ["Hand dig or vacuum within the tolerance zone to expose the line before machine work continues",1],
-        ["Continue with the machine but ask the operator to go slowly and carefully",0],
-        ["Continue, since the ticket is valid and the marks were placed by the gas utility",0],
-        ["Call the gas utility and wait for them to come out again before doing anything",0]
-       ],
-       "right":"Correct. Valid marks tell you a gas line is approximately there, which is exactly why the tolerance zone exists. Inside it, you expose the line by hand or vacuum. Being two days behind is not a reason to change this, and if schedule pressure is what is driving the question, that is a project management failure showing up as a safety decision.",
-       "wrong":"No. A valid ticket and fresh marks give you approximate horizontal position and almost no information about depth. Inside the tolerance zone the rule does not bend: hand dig or vacuum to expose the line. Careful machine work is still machine work, and calling the utility back is not required when the marks are already valid."}
-      </script>
-    </div>
+    <p>Suppose the crew reaches a fresh yellow gas mark while running two days behind. A valid ticket does not authorize machine excavation up to the paint. It tells you that a gas facility is approximately there. The readiness requirement is still to hand dig or vacuum within the tolerance zone and expose the facility before machine work continues. Schedule pressure does not alter the evidence required to proceed.</p>
   </div>
 
   <!-- ===================== SECTION 3 ===================== -->
@@ -779,47 +797,97 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       </script>
     </div>
 
+    <p data-instructor-explanation data-teaches="pm17-readiness-board pm17-readiness-gate">Now move from individual rules to the actual project decision: are we ready to proceed? A readiness gate does not ask whether the team is busy, nearly finished, or under pressure. It asks whether the required condition and evidence exist for the next irreversible move. Select each Millpond decision, run it one line at a time, and notice how one missing blocker controls the result even when the rest of the work is complete.</p>
+
+    <section id="pm17-readiness-board" data-visual-type="applicability-gate" data-component-source="shared-component-library">
+    <p data-reading-guide><b>How to read it:</b> select a decision at the top, run each evidence gate, and read the final release or hold instruction only after every line has been examined.</p>
+    <div id="pm17-readiness-gate" data-ac="applicability" data-quiz-type="readiness-gate" data-quiz-source="applied-assessment-contract" data-purposeful-interaction="field-readiness-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-retry="Run every evidence gate and identify the first blocking condition before trying again." data-title="Millpond field-readiness board" data-kind="Applied assessment &middot; run the gates" data-cue="Run every gate before accepting the result. One missing blocker can stop an otherwise ready project.">
+      <span class="sr-only" aria-live="polite">Readiness feedback updates as each gate is run.</span>
+      <script type="application/json">
+      {"boundary":"This teaching gate does not replace the current contract, safety plan, locate law, permit, utility standard, laboratory requirement, or authorized professional judgment. Use the governing local requirements and retained evidence.",
+       "scenarios":[
+        {"label":"Excavation start",
+         "authority":"Decision: release tomorrow's excavation at the gas crossing",
+         "facts":"The locate ticket is valid, marks are fresh, the trench box is on site, and the crew is briefed. The gas crossing has not been potholed to confirm depth.",
+         "gates":[
+          {"label":"Work-area authority","state":"pass","detail":"The right-of-way and traffic-control permissions cover tomorrow's work window."},
+          {"label":"Hazard control","state":"pass","detail":"The competent-person review, protective system, access, and spoil setback are documented for the planned trench."},
+          {"label":"Locate status","state":"pass","detail":"The ticket is valid and all listed facility owners have responded for the defined area."},
+          {"label":"Conflict verification","state":"fail","detail":"The marked gas crossing has not been physically exposed, so depth and exact position remain unknown at the conflict."}
+         ],
+         "resultClass":"fail","result":"HOLD THE EXCAVATION AT THE CROSSING.","basis":"Pothole or vacuum expose the facility and update the field plan before machine excavation enters the conflict area."},
+        {"label":"Water in service",
+         "authority":"Decision: connect the new main and place it into service",
+         "facts":"Pressure and leakage tests passed. Disinfection was completed. The first bacteriological sample passed, and the second sample is still at the laboratory.",
+         "gates":[
+          {"label":"Physical integrity","state":"pass","detail":"Pressure and leakage test results meet the stated acceptance criterion."},
+          {"label":"Disinfection record","state":"pass","detail":"Chlorination, hold, dechlorination, and flushing records are complete."},
+          {"label":"Required clearance evidence","state":"fail","detail":"The required second result is not available. One passing sample does not complete the clearance sequence."},
+          {"label":"Operations authorization","state":"review","detail":"Operations cannot authorize service until the complete clearance evidence is available and accepted."}
+         ],
+         "resultClass":"fail","result":"DO NOT PLACE THE MAIN IN SERVICE.","basis":"Wait for the required clearance result, retain the evidence, and obtain the authorized release. Schedule pressure does not create a partial clearance."},
+        {"label":"Final acceptance",
+         "authority":"Decision: certify final completion and release retainage",
+         "facts":"The main is operating and the punch list is closed. Record drawings are incomplete, valve attributes are missing from the asset register, and operator training attendance is unsigned.",
+         "gates":[
+          {"label":"Physical completion","state":"pass","detail":"The field punch list is closed and the installed work is usable."},
+          {"label":"Record drawings","state":"fail","detail":"The controlled record drawings do not yet represent the accepted installation."},
+          {"label":"Asset and maintenance data","state":"fail","detail":"Required valve identifiers and attributes are missing from the handover package."},
+          {"label":"Operations training evidence","state":"review","detail":"Training occurred, but attendance and acceptance evidence are incomplete."}
+         ],
+         "resultClass":"fail","result":"WITHHOLD FINAL ACCEPTANCE.","basis":"Operating use supports substantial completion, not final completion. Close the information and training deliverables before releasing the remaining leverage."}
+       ]}
+      </script>
+    </div>
+    <p data-learner-conclusion><b>Conclusion:</b> readiness is controlled by the first unresolved blocker, not by the percentage of work already completed.</p>
+    </section>
+
+    <p>All three decisions are hard for the same reason. Most of the work is ready. The missing item looks small beside everything that has been completed. Readiness control exists precisely for that moment. It keeps an unverified gas conflict, an incomplete clearance, or an unfinished handover from disappearing inside a percentage-complete story.</p>
+
     <div class="lv l leadcall">
       <p class="h">Leader's call</p>
       <p>The pressure to put an asset into service before it has cleared is the most dangerous moment on a water project, and it will be presented to you reasonably, by tired people, with a good argument. <b>There is no version of this where you accept a partial clearance to save four days.</b> Say so out loud, early, and before anyone is standing in front of you at the end of a long week asking for an exception.</p>
     </div>
 
-    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+  </div>
+
+  <!-- ===================== WORK PRODUCT ===================== -->
+  <div class="sec">
+    <h2>Assemble the readiness and clearance pack</h2>
+    <p>Use the tracker to rehearse the evidence set. Each click moves an item from not started to draft, evidence noted, and reviewed. “Reviewed” should mean a named person checked the actual evidence against the applicable requirement. The tracker is a learning aid stored on this device. It is not an authorization to excavate, energize, place water in service, or release payment.</p>
+
+    <div data-ac="artifacttracker" data-artifact="readiness-and-clearance-pack" data-purposeful-interaction="readiness-evidence-tracker" data-component-source="shared-component-library" data-required="work-product" data-title="Readiness and clearance pack" data-kind="Work product &middot; evidence tracker" data-cue="Advance an item only when you can name the evidence and the person who reviewed it.">
       <script type="application/json">
-      {"items":[
-        ["Adding crew to commissioning shortens it.",false,"Mostly no. The long poles are hold time and two bacteriological samples taken 24 hours apart, both fixed by standard. More people cannot compress a laboratory result."],
-        ["Personal protective equipment protects a worker in a trench collapse.",false,"It does not. A hard hat and a vest do nothing against soil. Only elimination, substitution, or engineering controls address that hazard."],
-        ["At substantial completion, liquidated damages usually stop and warranties usually start.",true,"Correct, and that is exactly why the date matters contractually and why it should never be granted casually."],
-        ["A valid locate ticket means it is safe to use a machine right up to the mark.",false,"No. The tolerance zone around the mark must be hand dug or vacuum excavated. Marks are approximate, especially in depth."]
+      {"key":"pm17-readiness-clearance-pack",
+       "states":["Not started","Draft","Evidence noted","Reviewed"],
+       "items":[
+        {"id":"authority","label":"Work-area and permit authority","detail":"Current right-of-way, traffic-control, environmental, and agency conditions for the planned location and time."},
+        {"id":"hazard","label":"Hazard-control release","detail":"Competent-person review, protective system, access, spoil setback, daily inspection, and stop-work authority."},
+        {"id":"locate","label":"Locate and conflict verification","detail":"Valid ticket, owner responses, marks, tolerance zones, potholes, exposed crossings, and field-plan updates."},
+        {"id":"test","label":"Pressure and leakage acceptance","detail":"Approved procedure, calibrated equipment where required, witnessed result, acceptance criterion, and signed record."},
+        {"id":"clearance","label":"Disinfection and laboratory clearance","detail":"Chlorination, hold, flushing, sample chain, required results, acceptance, and release authorization."},
+        {"id":"operations","label":"Operations readiness","detail":"Isolation plan, startup procedure, operator participation, training, emergency response, and accepted operating limits."},
+        {"id":"handover","label":"Final handover evidence","detail":"Punch list, record drawings, manuals, asset identifiers, warranty dates, training evidence, and final acceptance authority."}
        ]}
       </script>
     </div>
-  </div>
 
-  <!-- ===================== REVIEW ===================== -->
-  <div class="sec">
-    <h2>Lock it in</h2>
-    <p>Flip through the key terms from this chapter.</p>
+    <p>A good pack does not hide a missing blocker behind six completed rows. If conflict verification is not reviewed, excavation at that crossing is not ready. If laboratory clearance is not reviewed, the main is not ready for service. If record drawings and asset data are not reviewed, the project may be substantially complete but it is not ready for final acceptance.</p>
 
-    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+    <p data-instructor-explanation data-teaches="pm17-artifact-check">Use the final gate against the readiness pack. Select every rule that protects the integrity of the release decision. This is not a count of completed documents. The pack must identify the governing requirement, retained evidence, authorized reviewer, and any blocker that prevents the next irreversible move.</p>
+    <div id="pm17-artifact-check" data-ac="multi" data-quiz-type="readiness-pack-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="readiness-and-clearance-pack" data-required="final-check" data-retry="Return to the pack, expose every unresolved blocker and authorized review, and check again." data-title="Final readiness-pack gate" data-kind="Final applied check &middot; release review">
+      <span class="sr-only" aria-live="polite">Final readiness-pack feedback appears after checking the selected items.</span>
       <script type="application/json">
-      {"cards":[
-        ["Hierarchy of controls","Eliminate, substitute, engineer, administer, then PPE. Ranked because they are wildly unequal."],
-        ["One-call (811)","Free, legally required notification before digging. Every utility owner comes out and marks their lines."],
-        ["Tolerance zone","The buffer either side of a mark that must be hand dug or vacuum excavated. Never machine dug."],
-        ["Potholing","Physically exposing a buried line to confirm its depth and position, because marks do not give you depth."],
-        ["Right of way","The public land your pipe occupies, controlled by whichever agency owns that road."],
-        ["Commissioning","Proving the asset works and is safe to use: testing, disinfection, clearance, startup, handover."],
-        ["Substantial completion","The asset can be used for its purpose. Damages usually stop and warranties usually start."],
-        ["Final completion","Punch list closed, documents delivered, retainage released, contractor off the job."]
-      ]}
-      </script>
-    </div>
-
-    <div data-ac="reflect">
-      <script type="application/json">
-      {"q":"Think about the last time schedule pressure and a safety or quality rule came into conflict on a job you know. How was it resolved, and who actually made the call?",
-       "a":"The honest answer on most projects is that nobody made the call explicitly. The pressure was ambient rather than stated, nobody instructed anyone to skip anything, and a crew simply made a small decision at four in the afternoon that they would not have made at nine in the morning. That is what makes this category of risk hard: it does not arrive as a decision on your desk, it arrives as a gradual loosening that only becomes visible in hindsight or in an incident report. Which is why the useful thing a project manager does is not to intervene heroically in the moment, but to remove the pressure beforehand: honest durations for commissioning, potholing priced into the estimate, and a stated position on exceptions that everyone heard you say while the job was still calm."}
+      {"q":"Which rules must the readiness pack enforce? Choose all that apply.",
+       "options":[
+        ["Every gate names its governing requirement and retained evidence",true],
+        ["A named authorized role reviews the evidence",true],
+        ["One unresolved blocker can hold the release decision",true],
+        ["Substantial and final completion remain separate decisions",true],
+        ["A high overall completion percentage can override missing clearance",false]
+       ],
+       "ok":"The pack preserves requirements, evidence, authority, blockers, and separate release decisions.",
+       "no":"Readiness depends on requirements, retained evidence, authorized review, visible blockers, and the correct contractual milestone. Percentage complete cannot override a missing gate."}
       </script>
     </div>
   </div>
@@ -841,12 +909,95 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec" data-module-faq>
+    <h2>Questions people ask at the readiness gate</h2>
+    <details>
+      <summary>Does a valid 811 ticket prove the excavation is safe?</summary>
+      <p>No. It starts the locate process and records the notified area and response window. The crew must still review responses and marks, respect the tolerance zone, verify critical conflicts, maintain the ticket, and follow current state and local requirements.</p>
+    </details>
+    <details>
+      <summary>Can schedule pressure justify machine digging near a marked line?</summary>
+      <p>No. Schedule pressure does not change the uncertainty in the mark or the requirement that applies within the tolerance zone. Recover the schedule elsewhere instead of transferring schedule risk into strike risk.</p>
+    </details>
+    <details>
+      <summary>Why cannot more people shorten the laboratory clearance sequence?</summary>
+      <p>Parts of the sequence are waiting periods and required sample intervals. Additional labor may help prepare, flush, or coordinate, but it cannot make a required hold period or laboratory result occur sooner. Plan those fixed durations honestly.</p>
+    </details>
+    <details>
+      <summary>Can operations use the asset before final completion?</summary>
+      <p>Often, yes, when the contract requirements for substantial completion and safe operating use have been met. That does not erase the remaining punch list, records, training, asset data, or payment conditions. The contract and authorized decision govern the exact milestone.</p>
+    </details>
+    <details>
+      <summary>Who has authority to release a readiness gate?</summary>
+      <p>The governing contract, safety plan, utility procedure, permit, and law determine the authorized role. The project manager organizes the evidence and makes the gate visible, but should not assume authority assigned to a competent person, engineer, laboratory reviewer, operator, or contracting officer.</p>
+    </details>
+  </section>
+
+  <section class="sec role-strip" aria-labelledby="pm17-role-title">
+    <h2 id="pm17-role-title">What changes by role</h2>
+    <div class="role-grid">
+      <article data-lens="foundation"><b>Foundation</b><p>Recognize the hazard-control, locate, clearance, and acceptance evidence that governs the next move.</p></article>
+      <article data-lens="practitioner"><b>Practitioner</b><p>Assemble the readiness pack, expose unresolved blockers, and route each decision to the authorized reviewer.</p></article>
+      <article data-lens="leader"><b>Leader</b><p>Protect stop-work and hold decisions when schedule pressure makes an incomplete release sound reasonable.</p></article>
+    </div>
+  </section>
+
+  <section class="sec evidence-card" data-evidence-boundary>
+    <h2>Evidence boundary</h2>
+    <p>This lesson is general instruction, not site-specific safety, locate, water-quality, legal, or contract approval. Apply current federal, state, local, utility, permit, laboratory, and contract requirements. The authorized competent person, professional, operator, or contracting role makes the real release decision.</p>
+    <ul>
+      <li><a href="https://www.osha.gov/trenching-excavation">Occupational Safety and Health Administration trenching and excavation overview</a></li>
+      <li><a href="https://www.osha.gov/trenching-excavation/construction">Occupational Safety and Health Administration excavation standards and resources</a></li>
+      <li><a href="https://call811.com/Before-You-Dig">811 before-you-dig process</a></li>
+    </ul>
+  </section>
+
+  <section class="sec completion-card" aria-labelledby="pm17-completion-title">
+    <h2 id="pm17-completion-title">Completion evidence</h2>
+    <ul class="requirement-list">
+      <li data-requirement="opening-decision">Open with the Millpond field-readiness condition.</li>
+      <li data-requirement="applied-interaction">Complete the field-readiness gates.</li>
+      <li data-requirement="work-product">Complete the readiness and clearance pack.</li>
+      <li data-requirement="final-check">Pass the final readiness-pack gate.</li>
+    </ul>
+    <button type="button" class="btn" data-complete disabled>Complete Module 17</button>
+    <span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm17-graph-title">
+    <div class="drawer-head"><h2 id="pm17-graph-title">Module 17 graph</h2><button type="button" data-close-drawer aria-label="Close graph">Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> evidence-controlled readiness</p>
+      <p data-graph-kind="source"><b>Source:</b> safety plan, locate ticket, field verification, test report, laboratory result, and contract record</p>
+      <p data-graph-kind="role"><b>Role:</b> competent person, crew, locator, engineer, laboratory reviewer, operator, and contracting officer</p>
+      <p data-graph-kind="competency"><b>Competency:</b> hold or release the next field and acceptance gate</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> requirement to evidence to authorized review to hold or release</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm17-community-title">
+    <div class="drawer-head"><h2 id="pm17-community-title">Project delivery community</h2><button type="button" data-close-drawer aria-label="Close community">Close</button></div>
+    <div class="drawer-body community-tools">
+      <label data-community-feature="search">Search discussions<input type="search" placeholder="Trench, locate, commissioning"></label>
+      <div data-community-feature="filters"><button type="button">Field safety</button><button type="button">Commissioning</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this discussion</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare readiness evidence and stop-work practices without sharing active-site details.</p></div>
+      <p data-community-feature="presence">Practitioners reviewing this topic: safety leads, operators, inspectors, project managers</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor note:</b> never use Community to request or issue a real field authorization.</p>
+    </div>
+  </aside>
+
+  <div id="owos-course-community" class="connected-learning" tabindex="-1">
+    <b>Continue the readiness conversation</b>
+    <p>Use Graph to inspect the requirement-to-release chain. Use Community to compare readiness practices without replacing authorized field decisions.</p>
+  </div>
+  <div id="tt" role="tooltip" hidden></div>
+
+  <div class="navrow footnav">
     <a href="lesson-pm-16-capital-lifecycle-regulatory.html">&#8592; Chapter 16 &middot; Capital life cycle and regulatory</a>
     <a class="btn" href="lesson-pm-18-asset-management-digital-resilience.html">Chapter 18 &middot; Asset management, digital and resilience &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1163,10 +1314,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2191,6 +2346,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2200,8 +2374,96 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  var lastTrigger=null;
+
+  function drawer(kind){
+    return document.querySelector('[data-drawer="'+kind+'"]');
+  }
+
+  function closeDrawer(panel){
+    if(!panel)return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden","true");
+    document.body.classList.remove("drawer-open");
+    if(lastTrigger)lastTrigger.focus();
+  }
+
+  function openDrawer(kind,trigger){
+    var panel=drawer(kind);
+    if(!panel)return;
+    document.querySelectorAll("[data-drawer].open").forEach(function(other){
+      other.classList.remove("open");
+      other.setAttribute("aria-hidden","true");
+    });
+    lastTrigger=trigger;
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden","false");
+    document.body.classList.add("drawer-open");
+    var close=panel.querySelector("[data-close-drawer]");
+    if(close)close.focus();
+  }
+
+  function requirementComplete(value){
+    var target=document.querySelector('[data-required="'+value+'"]');
+    if(!target)return false;
+    if(value==="opening-decision")return true;
+    if(value==="applied-interaction"){
+      if(target.querySelector(".exdone.on"))return true;
+      var run=target.querySelector("[data-run]");
+      return !!(run&&run.disabled);
+    }
+    if(value==="work-product"){
+      var textareas=target.querySelectorAll("textarea");
+      if(textareas.length)return Array.prototype.every.call(textareas,function(field){return field.value.trim().length>0;});
+      var rows=target.querySelectorAll(".at-item");
+      return rows.length>0&&Array.prototype.every.call(rows,function(row){return row.getAttribute("data-state")==="3";});
+    }
+    if(value==="final-check")return !!target.querySelector(".ac-fb.on.ok");
+    return false;
+  }
+
+  function updateCompletion(){
+    var values=["opening-decision","applied-interaction","work-product","final-check"];
+    var all=true;
+    values.forEach(function(value){
+      var done=requirementComplete(value);
+      all=all&&done;
+      var row=document.querySelector('[data-requirement="'+value+'"]');
+      if(row)row.classList.toggle("done",done);
+    });
+    var button=document.querySelector("[data-complete]");
+    var status=document.querySelector("[data-completion-status]");
+    var nextStatus=all?"All required evidence is complete.":"Complete the required evidence above.";
+    if(button&&button.disabled===all)button.disabled=!all;
+    if(status&&status.textContent!==nextStatus)status.textContent=nextStatus;
+  }
+
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("graph",button);});
+  });
+  document.querySelectorAll("[data-open-community]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("community",button);});
+  });
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){
+    button.addEventListener("click",function(){closeDrawer(button.closest("[data-drawer]"));});
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape")closeDrawer(document.querySelector("[data-drawer].open"));
+  });
+  document.addEventListener("input",updateCompletion);
+  document.addEventListener("click",function(){window.setTimeout(updateCompletion,0);});
+  new MutationObserver(updateCompletion).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","data-state","disabled"]});
+  updateCompletion();
 })();
 
 </script>

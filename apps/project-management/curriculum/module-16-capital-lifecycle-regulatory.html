@@ -4,12 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 16 &middot; Capital life cycle and regulatory &middot; One Water OS Academy</title>
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-16-capital-lifecycle-regulatory">
+<meta name="owos-release-state" content="working-review">
 <meta name="description" content="Chapter 16 of the Project Management masterclass. The utility capital project life cycle, the regulatory landscape of the Safe Drinking Water Act and Clean Water Act, and environmental permitting as a schedule driver.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../core/components/academy.css">
+<link rel="stylesheet" href="project-retrofit.css">
 </head>
 <body>
 
@@ -20,10 +24,11 @@
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 16</b></span>
+  <span class="lesson-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 16 &middot; Capital and regulatory</span>
   <h1>The capital life cycle and the <span>rules</span> that shape it</h1>
@@ -36,7 +41,7 @@
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job, and a new one beside it</p>
@@ -282,12 +287,37 @@
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec">
+    <h2>Build the compliance-path brief</h2>
+    <p data-instructor-explanation data-teaches="pm16-life-cycle">Read the capital path from need through operations. The gates are where evidence and authority should challenge the current answer before more money is committed. Notice that permitting is planned beside study and design, not added after them.</p>
+    <div id="pm16-life-cycle" data-visual-type="phase-gate" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> each phase produces an artifact and each gate asks whether the project may proceed, must be revised, or should stop.</p><ol><li>Need and planning study</li><li>Alternatives and preliminary engineering</li><li>Design and permits</li><li>Procurement and construction</li><li>Commissioning and operating handover</li></ol><p data-learner-conclusion>The earliest gates hold the most freedom to change the solution, while later gates protect readiness and acceptance.</p></div>
+    <p data-instructor-explanation data-teaches="pm16-authority-table">Use this table to keep different authorities from collapsing into one vague word called approval. Read the source, trigger, project effect, and retained evidence across each row. A real job may require more or different authorities.</p>
+    <div id="pm16-authority-table" data-visual-type="comparison-table" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> begin with project facts, identify the current controlled authority, then confirm scope, trigger, reviewer, and evidence.</p><div style="overflow:auto"><table><thead><tr><th>Authority family</th><th>Typical project question</th><th>Evidence to retain</th></tr></thead><tbody><tr><td>Drinking water</td><td>Does the project affect regulated drinking-water service or treatment?</td><td>Current rule, applicability conclusion, design basis, approvals</td></tr><tr><td>Clean water and discharge</td><td>Does construction or operation affect discharge, wetlands, or receiving water?</td><td>Current permits, conditions, agency decisions, monitoring plan</td></tr><tr><td>Local and property</td><td>Are land, roadway, easement, zoning, or building approvals required?</td><td>Executed rights, permits, conditions, expiration and renewal dates</td></tr></tbody></table></div><p data-learner-conclusion>A regulatory label is not a schedule activity until the current authority, project trigger, reviewer, and evidence are known.</p></div>
+    <p data-instructor-explanation data-teaches="pm16-permit-gate">Run the permit gate for an alignment near a wetland. The gate deliberately stops at authorized applicability review because this course does not make a legal conclusion.</p>
+    <div id="pm16-permit-gate" data-ac="applicability" data-purposeful-interaction="permit-path-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-quiz-type="permit-gate" data-quiz-source="applied-assessment-contract" data-retry="Run every gate and identify the missing controlled source, project fact, reviewer, or evidence." data-title="Permit-path gate" data-kind="Interactive applicability gate"><span class="sr-only" aria-live="polite">Permit-gate feedback appears as each gate is run.</span><script type="application/json">{"scenarios":[{"label":"Wetland-adjacent alignment","authority":"Current federal, state, and local authorities","facts":"The proposed alignment is near mapped wetland and requires dewatering.","gates":[{"label":"Controlled source","state":"review","detail":"Confirm current official requirements and incorporated permit conditions."},{"label":"Project facts and trigger","state":"review","detail":"Verify limits of disturbance, discharge, crossing, dewatering, and jurisdictional facts."},{"label":"Authorized review","state":"review","detail":"Use the utility's environmental, engineering, and legal reviewers."},{"label":"Schedule evidence","state":"review","detail":"Record submittal, review, decision, condition, expiration, and predecessor dates."}],"result":"APPLICABILITY AND SCHEDULE BASIS REQUIRE AUTHORIZED REVIEW.","resultClass":"review","basis":"Do not treat a map flag as either an approval or a legal conclusion."}],"boundary":"This teaching tool structures a review and does not decide regulatory applicability. Current authorities and authorized reviewers govern."}</script></div>
+    <div data-ac="artifactbuilder" data-artifact="compliance-path-brief" data-purposeful-interaction="compliance-brief-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Compliance-path brief" data-kind="Work product &middot; compliance path"><script type="application/json">{"key":"pm16-compliance-path-brief","notice":"Use non-sensitive instructional text. A real applicability conclusion requires controlled sources and authorized review.","fields":[{"id":"decision","label":"Project decision and facts","help":"Name the decision and facts that may trigger review.","placeholder":"Alignment... disturbance..."},{"id":"sources","label":"Controlled authorities","help":"List current official sources and incorporated conditions.","placeholder":"Authority... version..."},{"id":"reviewers","label":"Authorized reviewers","help":"Name the roles that confirm applicability.","placeholder":"Environmental... legal..."},{"id":"artifacts","label":"Required artifacts","help":"Name studies, drawings, applications, and approvals.","placeholder":"Study... application..."},{"id":"schedule","label":"Schedule logic","help":"Record predecessors, durations, decision dates, and expiration risk.","placeholder":"Submit by... approval before..."},{"id":"limits","label":"Open questions and limits","help":"State what is not yet concluded and the escalation path.","placeholder":"Unresolved... escalate to..."}],"template":"COMPLIANCE-PATH BRIEF\n\nDecision and facts\n{decision}\n\nControlled authorities\n{sources}\n\nAuthorized reviewers\n{reviewers}\n\nRequired artifacts\n{artifacts}\n\nSchedule logic\n{schedule}\n\nOpen questions and limits\n{limits}"}</script></div>
+    <p data-instructor-explanation data-teaches="pm16-final-check">Use the final check against the brief. Select the evidence that makes the path reviewable without pretending the course or project manager has made a legal conclusion.</p>
+    <div id="pm16-final-check" data-ac="multi" data-quiz-type="compliance-brief-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="compliance-path-brief" data-required="final-check" data-retry="Add the missing source, fact, reviewer, artifact, schedule logic, or limitation and check again." data-title="Final compliance-brief gate" data-kind="Final applied check"><span class="sr-only" aria-live="polite">Final compliance-brief feedback appears after checking the selected items.</span><script type="application/json">{"q":"What must the compliance-path brief show?","options":[["Project facts and possible trigger",true],["Current controlled authorities",true],["Authorized reviewers and required artifacts",true],["Schedule logic, open questions, and limits",true],["A legal conclusion made by the course",false]],"ok":"The brief supports authorized applicability and schedule review.","no":"Repair the sources, facts, reviewers, artifacts, schedule logic, and limits."}</script></div>
+  </section>
+  <section class="sec" data-module-faq><h2>Questions people ask about capital projects and regulation</h2>
+    <details><summary>Is a regulatory deadline automatically the project finish date?</summary><p>No. Translate the obligation into the required operating condition, approvals, startup evidence, and any reporting date. The construction finish may need to occur much earlier.</p></details>
+    <details><summary>Can the project manager decide which environmental permits apply?</summary><p>The project manager organizes facts, sources, schedule, and review. Authorized environmental, engineering, legal, and agency roles make the required applicability and approval decisions.</p></details>
+    <details><summary>Why start permitting before design is complete?</summary><p>Many approvals require enough design to define effects, but waiting for final design can place review on the critical path. The team plans progressive information and agency engagement without submitting unsupported facts.</p></details>
+    <details><summary>Does a permit remove project risk?</summary><p>No. It adds conditions, monitoring, expiration dates, and compliance evidence. The permit may control work but does not guarantee access, constructability, schedule, or operating acceptance.</p></details>
+    <details><summary>What belongs at a capital stage gate?</summary><p>The artifact, decision criteria, evidence, accountable decision-maker, possible outcomes, and retained record. A meeting without a real option to revise or stop is not much of a gate.</p></details>
+  </section>
+  <section class="sec role-strip"><h2>What changes by role</h2><div class="role-grid"><article data-lens="foundation"><b>Foundation</b><p>Recognize phases, stage gates, regulatory drivers, permits, and schedule predecessors.</p></article><article data-lens="practitioner"><b>Practitioner</b><p>Assemble facts, sources, reviewers, artifacts, and permit schedule logic.</p></article><article data-lens="leader"><b>Leader</b><p>Require early applicability review and prevent unsupported compliance claims.</p></article></div></section>
+  <section class="sec evidence-card" data-evidence-boundary><h2>Evidence boundary</h2><p>This lesson is instructional and is not legal, regulatory, environmental, engineering, or permitting advice. Requirements vary by project facts, location, jurisdiction, date, funding, and incorporated conditions. Use current official sources and authorized reviewers.</p><ul><li><a href="https://www.epa.gov/laws-regulations/summary-safe-drinking-water-act">United States Environmental Protection Agency Safe Drinking Water Act summary</a></li><li><a href="https://www.epa.gov/laws-regulations/summary-clean-water-act">United States Environmental Protection Agency Clean Water Act summary</a></li><li><a href="https://www.epa.gov/nepa">United States Environmental Protection Agency National Environmental Policy Act resources</a></li></ul></section>
+  <section class="sec completion-card"><h2>Completion evidence</h2><ul class="requirement-list"><li data-requirement="opening-decision">Review the Millpond capital and regulatory situation.</li><li data-requirement="applied-interaction">Run the permit-path gate.</li><li data-requirement="work-product">Complete the compliance-path brief.</li><li data-requirement="final-check">Pass the final compliance-brief gate.</li></ul><button type="button" class="btn" data-complete disabled>Complete Module 16</button><span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span></section>
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Module 16 graph</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body"><p data-graph-kind="concept"><b>Concept:</b> capital and compliance path</p><p data-graph-kind="source"><b>Source:</b> current authority, permit, facts, and design basis</p><p data-graph-kind="role"><b>Role:</b> project manager, engineer, environmental reviewer, agency</p><p data-graph-kind="competency"><b>Competency:</b> build a governed approval path</p><p data-graph-kind="relationship"><b>Relationship:</b> facts to applicability to artifact to decision date</p></div></aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Project delivery community</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body community-tools"><label data-community-feature="search">Search discussions<input type="search" placeholder="Permit, stage gate, deadline"></label><div data-community-feature="filters"><button type="button">Capital lifecycle</button><button type="button">Permitting</button></div><button type="button" data-community-feature="bookmarks">Bookmark this discussion</button><div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare schedule-planning methods without making legal conclusions.</p></div><p data-community-feature="presence">Practitioners reviewing: project managers, engineers, environmental staff</p><p data-community-feature="instructor-treatment"><b>Instructor note:</b> do not post protected project or permit materials.</p></div></aside>
+  <div id="owos-course-community" class="connected-learning" tabindex="-1"><b>Continue the capital-path conversation</b><p>Use Graph to follow facts through authority and schedule. Use Community for method discussion only.</p></div><div id="tt" role="tooltip" hidden></div>
+  <div class="navrow footnav">
     <a href="module-15-measurement-honest-status.html">&#8592; Chapter 15 &middot; Measurement and honest status</a>
     <a class="btn" href="module-17-safety-locates-commissioning.html">Chapter 17 &middot; Safety, locates and commissioning &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -297,5 +327,6 @@
 </footer>
 
 <script src="../../../core/components/academy.js"></script>
+<script src="project-retrofit.js"></script>
 </body>
 </html>

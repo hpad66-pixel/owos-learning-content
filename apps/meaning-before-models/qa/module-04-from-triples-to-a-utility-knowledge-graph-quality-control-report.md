@@ -1,7 +1,7 @@
 ---
 module_id: mbm001:04
 course_id: owos-course-semantic-data-ai-001
-version: production-candidate-1
+version: semantic-fieldbook-retrofit-1
 review_date: 2026-07-23
 reviewer: Codex repository review
 score: 86
@@ -11,6 +11,12 @@ release_status: blocked
 ---
 
 # Module Quality-Control Report: From Triples to a Utility Knowledge Graph
+
+## Retrofit implementation review
+- Rebuilt as a relationship discovery lab driven by one cross-system utility question.
+- Verified mechanisms: minimum-graph construction and bounded evidence-path claim test.
+- Verified work product: Utility Mini-Graph with source groups, test path, and unsupported-claim boundary.
+- Score remains conditional while graph-practice, accessibility, mobile, and novice reviews remain pending.
 
 ## Decision
 - Working-review result: Conditional production candidate.

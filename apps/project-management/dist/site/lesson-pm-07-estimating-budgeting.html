@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 07 &middot; Estimating and budgeting &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 7 of the Project Management masterclass. Cost estimating and AACE accuracy classes, the cost baseline, capital vs O&M, the Capital Improvement Plan, and how utilities pay for it: SRF, WIFIA, grants, bonds, and the rate impact per customer.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-07-estimating-budgeting">
+<meta name="owos-release-state" content="working">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,12 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+.course-actions{margin-left:auto;display:flex;gap:.45rem;align-items:center}.course-actions a,.course-actions button{border:1px solid #bfd6e5;background:#fff;color:#123047;border-radius:999px;padding:.45rem .72rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.role-views,.artifact-builder,.final-check,.completion-requirements,.governed-visual,.module-faq details,.evidence-boundary,.connected-learning{border:1px solid #d7e3ec;border-radius:16px;background:#fff;padding:1rem;margin:1rem 0}.role-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.role-views article{background:#f4f8fb;border-radius:12px;padding:.85rem}.artifact-builder label,.final-check label{display:grid;gap:.35rem}.artifact-builder textarea,.final-check select,.course-drawer input{width:100%;box-sizing:border-box;margin-top:.6rem;padding:.75rem;border:1px solid #9eb4c4;border-radius:10px;font:inherit}.reading-guide,.learner-conclusion{background:#f4f8fb;border-left:4px solid #0a78ba;padding:.8rem 1rem}.source-links{display:flex;flex-wrap:wrap;gap:.6rem}.source-links a{font-weight:700}.course-drawer{position:fixed;inset:0 0 0 auto;width:min(430px,100%);z-index:1000;background:#fff;box-shadow:-18px 0 48px rgba(8,35,55,.25);overflow:auto}.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#123b5d;color:#fff;padding:1rem}.drawer-head h2{color:#fff;margin:0;font-size:1.15rem}.drawer-head button{background:#fff;color:#123047;border:0;border-radius:999px;padding:.5rem .8rem}.drawer-body{display:grid;gap:.8rem;padding:1rem}.drawer-body [data-community-feature]{border:1px solid #d7e3ec;border-radius:10px;padding:.75rem}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}#tt{position:fixed;left:-9999px}.module-faq details summary{cursor:pointer;font-weight:800}.module-faq details p{margin-bottom:0}
+@media (max-width:760px){.course-actions{width:100%;margin:0;flex-wrap:wrap}.role-views{grid-template-columns:1fr}.owos-nav{flex-wrap:wrap}.governed-visual,.artifact-builder,.final-check,.completion-requirements{padding:.8rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -589,10 +599,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 07</b></span>
+  <div class="course-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></div>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 07 &middot; Cost and procurement</span>
   <h1>What it costs, and <span>who pays</span></h1>
@@ -604,6 +615,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <button data-lens="l">Leader</button>
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+  <section class="role-views" aria-label="Role-sensitive views">
+    <article data-lens="foundation"><b>Foundation</b><p>Learn the plain-language distinction and use it on the Millpond example.</p></article>
+    <article data-lens="practitioner"><b>Practitioner</b><p>Make the decision, retain the evidence, and surface the assumption that could change it.</p></article>
+    <article data-lens="leader"><b>Leader</b><p>Confirm authority, consequence, and the threshold for approving or escalating the decision.</p></article>
+  </section>
 
   <div class="casebox">
     <span class="pin">&#9873;</span>
@@ -627,7 +643,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <h2>An estimate is a range, not a number</h2>
     <p>The single most misunderstood thing about a cost estimate is that it is never one number, it is a range, and the range depends entirely on how far along the design is. The industry names these levels with <span class="term" data-term="AACE" data-def="AACE International, the Association for the Advancement of Cost Engineering. It defines five estimate classes, from Class 5 (concept, very wide range) to Class 1 (complete design, narrow range).">AACE</span> estimate classes, from Class 5 (a concept sketch) to Class 1 (a complete design ready to bid). Slide through them and watch the range close in on the number.</p>
 
-    <div data-ac="estrange" data-title="How accurate is the Millpond estimate?" data-kind="Interactive &middot; simulation" data-cue="Notice the point estimate barely moves. What changes as design matures is how wrong you could be. That band is the risk you carry into a budget.">
+    <div data-ac="estrange" id="opening-07" data-opening-decision data-required="opening-decision" data-purposeful-interaction="estimate-range-decision" data-component-source="component-gallery" data-title="How accurate is the Millpond estimate?" data-kind="Interactive &middot; simulation" data-cue="Notice the point estimate barely moves. What changes as design matures is how wrong you could be. That band is the risk you carry into a budget.">
       <script type="application/json">
       {"base":1300}
       </script>
@@ -635,7 +651,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
     <p>Three add-ons turn a raw estimate into a usable one. An <span class="term" data-term="Allowance" data-def="Money set aside for work you know you will need but cannot yet price precisely, like restoration or unsuitable-soil handling.">allowance</span> covers work you know is coming but cannot price yet. <span class="term" data-term="Escalation" data-def="An adjustment for cost inflation between when you estimate and when you build. Materials and labor cost more next year than this year.">Escalation</span> accounts for inflation between today and construction. And <span class="term" data-term="Contingency" data-def="Money held for the known unknowns, the things that usually go wrong but you cannot name in advance. It belongs to the project manager. Separate from management reserve, which covers true surprises.">contingency</span> covers the known unknowns, the things that usually go wrong but you cannot name yet.</p>
 
-    <div data-ac="truefalse" data-title="Quick check" data-kind="Quiz &middot; true or false">
+    <p data-instructor-explanation data-teaches="estimate-funding-myth-check">Test whether estimate class, contingency, grant funding, and rate impact have been interpreted honestly. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="truefalse" id="estimate-funding-myth-check" data-quiz-type="true-false" data-required="knowledge-check-2" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Quick check" data-kind="Quiz &middot; true or false">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"items":[
         ["A Class 5 concept estimate is accurate enough to commit a budget.",false,"No. A Class 5 can be off by minus 30 to plus 50 percent. You commit a budget from a Class 3 or better, once real design exists."],
@@ -653,7 +672,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <p>Approve an estimate with its contingency and spread it over the schedule, and you have a <span class="term" data-term="Cost baseline" data-def="The approved, time-phased budget you measure spending against. It is the estimate plus contingency, laid out over the schedule (the S-curve from the scheduling chapter).">cost baseline</span>, the number you measure actual spending against. But first, one distinction that trips up every new utility PM: capital versus operating money.</p>
     <p>A <span class="term" data-term="Capital cost" data-def="One-time money to build or replace a long-lived asset. It is planned in the Capital Improvement Plan and usually funded by debt, grants, or reserves.">capital cost</span> builds or replaces a long-lived asset. An <span class="term" data-term="O&M cost" data-def="Operations and Maintenance: the ongoing, recurring cost of running the system day to day, funded from rates in the operating budget.">O&M cost</span> (Operations and Maintenance) is the recurring cost of running the system. They come from different budgets and are funded differently, so sort them right.</p>
 
-    <div data-ac="classify" data-title="Capital or O&amp;M?" data-kind="Quiz &middot; classify" data-cue="One-time build of a lasting asset is capital. Recurring cost to keep it running is O&amp;M.">
+    <p data-instructor-explanation data-teaches="capital-om-classification">Classify each cost by how it should be treated before building the baseline. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="classify" id="capital-om-classification" data-quiz-type="classification" data-required="knowledge-check-1" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Capital or O&amp;M?" data-kind="Quiz &middot; classify" data-cue="One-time build of a lasting asset is capital. Recurring cost to keep it running is O&amp;M.">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"buckets":["Capital","O&M"],
        "items":[
@@ -668,7 +690,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
     <p>Capital projects live in the <span class="term" data-term="CIP" data-def="Capital Improvement Plan (or Program): the utility's multi-year, prioritized list of capital projects and how each year's money is allocated across them.">Capital Improvement Plan (CIP)</span>, a multi-year, prioritized list. The hard truth of a CIP is that you can never fund everything at once. Slide the annual budget and watch which projects make the cut and which wait.</p>
 
-    <div data-ac="cipplan" data-title="Fit this year's CIP" data-kind="Interactive &middot; simulation" data-cue="These are ranked top to bottom. Raise the budget and more get funded this year; drop it and good projects slide to next year. That queue is the CIP.">
+    <p data-instructor-explanation data-teaches="cip-funding-gates">The gates show that a capital plan is a sequence of decisions, not a wish list.</p>
+
+<section id="cip-funding-gates" class="governed-visual" data-visual-type="phase-gate" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Move through prioritization, affordability, funding, authorization, and annual revalidation before treating a project as committed.</p>
+<div data-ac="cipplan" data-title="Fit this year's CIP" data-kind="Interactive &middot; simulation" data-cue="These are ranked top to bottom. Raise the budget and more get funded this year; drop it and good projects slide to next year. That queue is the CIP.">
       <script type="application/json">
       {"min":1000,"max":9000,"step":250,"start":4000,
        "projects":[
@@ -681,6 +707,8 @@ input[type=range]{width:100%;accent-color:var(--brand)}
        ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> A funded year is credible only when scope, estimate maturity, financing, and rate impact align.</p>
+</section>
   </div>
 
   <!-- ===================== SECTION 3 ===================== -->
@@ -707,11 +735,17 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
     <p>Whatever the source, debt has to be repaid, and that repayment shows up on customer bills. The <span class="term" data-term="Rate impact" data-def="How much a capital project adds to a customer's bill, once its debt service is spread across all the accounts that pay for it.">rate impact</span> is the number a board and the public actually care about. Work it out for Millpond.</p>
 
-    <div data-ac="rateimpact" data-title="What does Millpond add to the bill?" data-kind="Interactive &middot; simulation" data-cue="Drop the interest rate to see why cheap SRF money matters. One main is pennies a month, but the whole capital plan stacked together is what moves the rate.">
+    <p data-instructor-explanation data-teaches="rate-impact-curve">The curve translates a capital decision into the customer scale leaders must explain.</p>
+
+<section id="rate-impact-curve" class="governed-visual" data-visual-type="line-s-curve" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Change project cost, financing terms, and customer count, then watch the monthly bill consequence move.</p>
+<div data-ac="rateimpact" data-title="What does Millpond add to the bill?" data-kind="Interactive &middot; simulation" data-cue="Drop the interest rate to see why cheap SRF money matters. One main is pennies a month, but the whole capital plan stacked together is what moves the rate.">
       <script type="application/json">
       {"cost":1300,"debt":80,"rate":4,"term":20,"acct":15}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> Affordability belongs in project selection, not only in the final rate hearing.</p>
+</section>
 
     <div class="lv f">
       <p>One compliance note that catches utilities off guard. The moment you take federal money, whether SRF, WIFIA, or a grant, strings attach to the construction itself. <span class="term" data-term="Davis-Bacon" data-def="A federal law requiring contractors on federally funded public works to pay local prevailing wages. It can raise construction cost and adds payroll reporting.">Davis-Bacon</span> prevailing-wage rules, Buy America material sourcing, and extra reporting all apply. They can raise the construction cost and the administrative load, so cheap money is not entirely free. Factor that in before you assume the SRF loan is the obvious choice.</p>
@@ -775,12 +809,90 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+
+  <section class="sec retrofit-evidence" aria-labelledby="evidence-07">
+    <span class="tag">Professional evidence</span>
+    <h2 id="evidence-07">Build the estimate and funding basis note</h2>
+    <p>This is the record you should be able to carry into utility work. Keep it short enough to review and specific enough that another person can understand the decision, the assumptions, and the evidence still missing.</p>
+    <section class="artifact-builder" data-artifact="estimate-funding-note" data-required="work-product">
+      <label for="estimate-funding-note-text"><b>Estimate and funding basis note</b><span>Record estimate class and date, range, basis, contingency rationale, exclusions, lifecycle O&M, funding sources, customer impact, and the next estimate maturity gate.</span></label>
+      <textarea id="estimate-funding-note-text" rows="7" placeholder="Write a concise, reviewable record. Do not enter sensitive utility information."></textarea>
+    </section>
+    <section class="final-check" data-final-applied-check data-required="final-applied-check" data-artifact-ref="estimate-funding-note">
+      <label for="estimate-funding-note-check"><b>Final applied check</b><span>Which statement makes the estimate suitable for a capital-plan decision?</span></label>
+      <select id="estimate-funding-note-check">
+        <option value="">Choose the evidence standard</option>
+        <option value="weak">The preferred result is recorded, even if assumptions remain implicit.</option>
+        <option value="ready">The range, maturity, basis, exclusions, funding assumptions, and affordability consequence are explicit.</option>
+      </select>
+      <p id="estimate-funding-note-feedback" aria-live="polite">Choose an answer after drafting the record.</p>
+    </section>
+    <div class="completion-requirements" aria-labelledby="requirements-07">
+      <h3 id="requirements-07">Visible completion requirements</h3>
+      <ul>
+        <li data-requirement="opening-decision">Complete the opening decision.</li>
+        <li data-requirement="knowledge-check-1">Complete the first knowledge check.</li>
+        <li data-requirement="knowledge-check-2">Complete the second knowledge check.</li>
+        <li data-requirement="work-product">Draft the estimate and funding basis note.</li>
+        <li data-requirement="final-applied-check">Pass the final applied check.</li>
+      </ul>
+      <button type="button" class="btn" data-complete disabled>Complete this chapter</button>
+    </div>
+  </section>
+
+  <section class="sec module-faq" data-module-faq aria-labelledby="faq-07">
+    <span class="tag">Questions people actually ask</span>
+    <h2 id="faq-07">Chapter 07 FAQ</h2>
+    <details><summary>Is contingency the same as padding?</summary><p>No. Controlled contingency addresses identified and residual uncertainty with a stated basis and authority. Padding is hidden and cannot be governed.</p></details>
+      <details><summary>Why show an estimate range instead of one number?</summary><p>The range communicates uncertainty appropriate to design maturity. A single number can imply precision the evidence does not support.</p></details>
+      <details><summary>Does a grant make a project free?</summary><p>No. Grants may require match, compliance, administration, schedule, and long-term operating commitments. The utility still owns the asset consequences.</p></details>
+      <details><summary>What belongs in lifecycle cost?</summary><p>Include capital delivery plus material operating, maintenance, renewal, financing, and disposal consequences over the decision horizon.</p></details>
+      <details><summary>How should rate impact be communicated?</summary><p>State assumptions, customer classes, timing, financing, existing revenue needs, and the difference between this project's incremental effect and the total rate plan.</p></details>
+  </section>
+
+  <section class="sec evidence-boundary" data-evidence-boundary aria-labelledby="boundary-07">
+    <span class="tag">Evidence boundary</span>
+    <h2 id="boundary-07">What this lesson can and cannot decide</h2>
+    <p>The Millpond examples and calculators are instructional models. They help you structure judgment, but they do not replace the current contract, adopted utility policy, funding conditions, applicable law, approved design basis, or a qualified professional review. Verify every live decision against controlled local evidence.</p>
+    <div class="source-links"><a href="https://www.gao.gov/products/gao-20-195g">GAO Cost Estimating and Assessment Guide</a>
+      <a href="https://www.epa.gov/water-infrastructure/water-infrastructure-wifia-program">EPA WIFIA Program</a>
+      <a href="https://www.pmi.org/standards/about">PMI standards</a></div>
+  </section>
+
+  <section id="owos-course-community" class="sec connected-learning" aria-labelledby="connected-07">
+    <span class="tag">Connected learning</span>
+    <h2 id="connected-07">Compare the decision, not just the answer</h2>
+    <p>Use the Community drawer to compare assumptions, evidence, and role perspectives without posting controlled project information.</p>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" hidden aria-labelledby="graph-title-07">
+    <div class="drawer-head"><h2 id="graph-title-07">Chapter 07 knowledge graph</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> cost estimate</p>
+      <p data-graph-kind="source"><b>Source:</b> funding and affordability</p>
+      <p data-graph-kind="role"><b>Roles:</b> finance lead and sponsor</p>
+      <p data-graph-kind="competency"><b>Competency:</b> capital planning</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> estimate maturity shapes funding confidence</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" hidden aria-labelledby="community-title-07">
+    <div class="drawer-head"><h2 id="community-title-07">Chapter 07 community</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <label data-community-feature="search">Search discussion <input type="search" placeholder="Search this chapter"></label>
+      <div data-community-feature="filters"><button type="button">Assumptions</button> <button type="button">Evidence</button> <button type="button">Role views</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this decision pattern</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Reply to the decision basis and name the evidence you would need.</p></div>
+      <p data-community-feature="presence"><b>Presence:</b> Peer discussion is available when the course platform is connected.</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor treatment:</b> Strong contributions separate source, assumption, recommendation, and authority.</p>
+    </div>
+  </aside>
+
+  <div class="navrow footnav">
     <a href="lesson-pm-06-advanced-scheduling.html">&#8592; Chapter 06 &middot; Advanced scheduling</a>
     <a class="btn" href="lesson-pm-08-earned-value.html">Chapter 08 &middot; Earned value &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1097,10 +1209,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2125,6 +2241,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2134,10 +2269,45 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 
 </script>
+<script>
+(function(){
+  var lastTrigger=null;
+  function openDrawer(kind,trigger){
+    var drawer=document.querySelector('[data-drawer="'+kind+'"]');
+    if(!drawer)return;
+    lastTrigger=trigger;drawer.hidden=false;
+    var close=drawer.querySelector('[data-close-drawer]');if(close)close.focus();
+  }
+  document.querySelectorAll('[data-open-graph]').forEach(function(b){b.addEventListener('click',function(){openDrawer('graph',b);});});
+  document.querySelectorAll('[data-open-community]').forEach(function(b){b.addEventListener('click',function(){openDrawer('community',b);});});
+  document.querySelectorAll('[data-close-drawer]').forEach(function(b){b.addEventListener('click',function(){b.closest('[data-drawer]').hidden=true;if(lastTrigger)lastTrigger.focus();});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var open=document.querySelector('[data-drawer]:not([hidden])');if(open){open.hidden=true;if(lastTrigger)lastTrigger.focus();}}});
+  var text=document.getElementById('estimate-funding-note-text');
+  var check=document.getElementById('estimate-funding-note-check');
+  var feedback=document.getElementById('estimate-funding-note-feedback');
+  var complete=document.querySelector('[data-complete]');
+  function assess(){
+    var drafted=text&&text.value.trim().length>=40;
+    var ready=check&&check.value==='ready';
+    if(feedback){
+      if(!check.value)feedback.textContent='Choose an answer after drafting the record.';
+      else if(!ready)feedback.textContent='Not yet. A preferred result without explicit assumptions and evidence is not reviewable. Retry.';
+      else if(!drafted)feedback.textContent='That evidence standard is right. Add at least a short decision record before completion.';
+      else feedback.textContent='Ready for working review. The record and evidence standard are both present.';
+    }
+    if(complete)complete.disabled=!(drafted&&ready);
+  }
+  if(text){text.addEventListener('input',assess);}
+  if(check){check.addEventListener('change',assess);}
+  assess();
+})();
+</script>
+<div id="tt" role="tooltip"></div>
 </body>
 </html>

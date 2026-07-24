@@ -1,6 +1,6 @@
 ---
 title: OWOS Course Design System
-version: 1.0.0
+version: 1.1.0
 status: APPROVED IMPLEMENTATION STANDARD
 owner: Hardeep Anand
 effective: 2026-07-22
@@ -33,13 +33,13 @@ Read these files before designing a module:
 1. `core/standards/COURSE-PRODUCTION-CONTRACT.md`
 2. `core/standards/COURSE-OPERATING-STANDARD.md`
 3. `core/standards/COURSE-DESIGN-SYSTEM.md`
-4. `core/standards/VISUAL-ARSENAL.md`
-5. `core/standards/WRITING-STANDARD.md`
-6. `core/components/COMPONENTS.md`
-7. `core/components/QUIZ-TYPES.md`
-8. `core/components/component-gallery.html`
-9. `core/components/quiz-gallery.html`
-10. `core/components/module-template.html`
+4. `core/standards/COURSE-EXPERIENCE-ARCHITECTURE.md`
+5. `core/standards/VISUAL-ARSENAL.md`
+6. `core/standards/WRITING-STANDARD.md`
+7. `core/components/COMPONENTS.md`
+8. `core/components/QUIZ-TYPES.md`
+9. `core/components/component-gallery.html`
+10. `core/components/quiz-gallery.html`
 11. `core/brand/BRAND-GUIDELINES.md`
 
 When Hardeep's knowledge is used, also read `hardeep-soul/SOUL.md` and `hardeep-soul/authoring/AUTHORING_STANDARD.md` from the canonical sibling repository.
@@ -56,15 +56,22 @@ For each material idea, identify whether it is primarily a process, system, rela
 
 Run the Selection Prompt in `VISUAL-ARSENAL.md`. Do not select visuals because they are convenient or were used in the previous lesson.
 
-### 3. Create a module design fingerprint
+### 3. Establish the course experience before the module fingerprint
+
+Complete `core/templates/COURSE-EXPERIENCE-BRIEF.md`. Define the course's teaching voice, utility
+world, visual language, signature mechanisms, archetype rhythm, professional artifact family, and
+prohibited motifs. A shared site shell is allowed. A shared lesson composition is not.
+This approved Course Experience Brief is the course-level design authority.
+
+### 4. Create a module design fingerprint
 
 Before authoring HTML, complete `core/templates/MODULE-DESIGN-BRIEF.md`. The fingerprint must name:
 
 - the opening situation and first learner decision;
 - the narrative structure and mental model;
-- at least four varied visual types, unless a documented exception is approved;
-- at least two purposeful interactions that reveal cause, consequence, sequence, or trade-off;
-- at least three quiz types, with no type repeated consecutively;
+- the two to five explanatory visuals the ideas actually require;
+- one lesson-specific signature mechanism and any supporting interaction;
+- checks matched to recognition, relationship, sequence, diagnosis, judgment, application, or synthesis;
 - assessments distributed at the point of instruction instead of collected in one end-of-module block;
 - the professional work product and same-page Knowledge Graph behavior;
 - the animation purpose and reduced-motion equivalent;
@@ -72,11 +79,14 @@ Before authoring HTML, complete `core/templates/MODULE-DESIGN-BRIEF.md`. The fin
 - the mobile transformation; and
 - the design elements intentionally not repeated from adjacent modules.
 
-### 4. Check diversity across the course
+### 5. Check diversity across the course
 
 Update `core/templates/COURSE-DESIGN-MATRIX.md` as modules are planned. Adjacent modules must not use the same opening pattern, dominant visual, interaction pair, quiz sequence, and work-product format.
 
 A different title or color does not make a different learning experience. The learner action and teaching structure must change.
+
+Run `python3 tools/course_distinctiveness.py --course apps/<course>` after every three produced
+lessons. A course-level failure blocks production even when every lesson passes individually.
 
 ### 5. Build from governed components
 
@@ -117,9 +127,13 @@ A learner must never meet an unexplained animation, simulation, diagram, assessm
 
 Add a short debrief after a mechanism when the meaning of the change may not be obvious. Tooltips define terms, but they do not carry the lesson.
 
-### 10. Prepare the instructor recording package
+### 10. Prepare media only when the course modality calls for it
 
-Every module must have a spoken-language recording script before production is complete. Every course must maintain one overview script that explains all lessons in order. Scripts must separate visual directions from spoken words, explain technical terms in ordinary language, include a utility example, name the learner action and work product, and close with a transition to the next lesson.
+The written lesson must carry the complete explanation. If the approved modality includes recordings,
+scripts must separate visual directions from spoken words, explain technical terms in ordinary
+language, include a utility example, name the learner action and work product, and close with a
+transition. A script is not required for a written-first course and never substitutes for teaching in
+the lesson.
 
 ### 11. Use graphics to explain, not decorate
 
@@ -148,7 +162,16 @@ After each built module, complete the scored report in `core/templates/MODULE-QA
 
 ### 12A. Distribute assessment throughout the lesson
 
-Do not hide every quiz at the bottom of a long module. Place a short, clearly labelled knowledge check after the concept, visual, simulation, or decision it measures. Full modules require at least three different quiz types, immediate explanatory feedback, unlimited review and retry, and one final applied check tied to the professional work product. Reflection may deepen learning, but it cannot satisfy deterministic completion by itself.
+Do not hide every check at the bottom of a long module. Place a short, clearly labelled check after the
+concept, visual, simulation, or decision it measures. Full modules require immediate explanatory
+feedback, unlimited review and retry where appropriate, and one final applied check tied to the
+professional work product. Reflection may deepen learning, but it cannot satisfy deterministic
+completion by itself.
+
+Do not read this as a fixed three-quiz recipe. Select the assessment form from the thinking being
+taught. A query lab, proof repair, graph construction, calculation, scenario branch, or defended
+recommendation may be the check. Repeating the same quiz sequence across more than two lessons fails
+the course-level gate.
 
 The lesson route and section headings must make assessments visible. The learner should understand what is being checked, why it matters, and what to revisit after an incorrect response.
 
@@ -169,11 +192,11 @@ Do not copy one generic FAQ across a course. The FAQ is part of the module's des
 
 ## Required diversity contract
 
-The default minimum for each full module is:
+The default requirements for each full module are:
 
-- four different visual types;
-- two purposeful interactions or simulations;
-- three different quiz types;
+- two to five substantial explanatory visuals selected from the idea;
+- one subject-specific signature mechanism and any supporting interaction the learning job requires;
+- distributed checks matched to the type of thinking;
 - one consequential opening decision;
 - one role-sensitive perspective when roles change the decision;
 - one professional work product;
@@ -182,7 +205,8 @@ The default minimum for each full module is:
 - one documented visual pacing plan that prevents long runs of undifferentiated prose; and
 - one deterministic completion rule.
 
-These numbers are a floor, not a formula. A short lesson may request a documented exception. A long lesson may need more. Meeting the count with irrelevant components fails the standard.
+These are experience requirements, not a page recipe. A short lesson may request a documented
+exception. A long lesson may need more. Meeting a count with irrelevant components fails the standard.
 
 ## Variation patterns
 

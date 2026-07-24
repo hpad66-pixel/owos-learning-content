@@ -2,16 +2,19 @@
 """Validate all eighteen Meaning Before Models module candidates."""
 
 import importlib.util
+import json
 from pathlib import Path
 
 from bs4 import BeautifulSoup
 
 from course_conformance import validate_module
+from course_distinctiveness import audit as audit_distinctiveness
 
 
 ROOT = Path(__file__).resolve().parents[1]
 COURSE = ROOT / "apps/meaning-before-models"
 CONTRACT = COURSE / ".course/full-module-contract.json"
+contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
 spec = importlib.util.spec_from_file_location(
     "meaning_course_builder", ROOT / "tools/build-meaning-before-models-course.py"
 )
@@ -60,10 +63,20 @@ for number in range(1, 19):
 
 if len(results) != 18:
     raise AssertionError("all eighteen modules must be validated")
-if any(len(item["visual_types"]) < 4 for item in results):
-    raise AssertionError("every module needs four visual types")
-if any(len(item["quiz_types"]) < 3 for item in results):
-    raise AssertionError("every module needs three quiz types")
+minimum_visuals = int(contract["minimum_visual_types"])
+minimum_quizzes = int(contract["minimum_quiz_types"])
+if any(len(item["visual_types"]) < minimum_visuals for item in results):
+    raise AssertionError(f"every module needs at least {minimum_visuals} explanatory visual types")
+if any(len(item["quiz_types"]) < minimum_quizzes for item in results):
+    raise AssertionError(f"every module needs at least {minimum_quizzes} assessment types")
+
+distinctiveness = audit_distinctiveness(COURSE)
+if distinctiveness["status"] != "passed":
+    raise AssertionError(
+        "Meaning Before Models module contracts pass individually, but the course-level "
+        "distinctiveness gate is blocked:\n"
+        + "\n".join(f"- {error}" for error in distinctiveness["errors"][:20])
+    )
 
 landing = COURSE / "curriculum/course-meaning-before-models.html"
 landing_text = landing.read_text(encoding="utf-8")
@@ -71,4 +84,4 @@ for number, record in records.items():
     if record["lesson"].name not in landing_text:
         raise AssertionError(f"course landing page does not link module {number:02}")
 
-print("Meaning Before Models QA passed: all eighteen full-module candidates conform.")
+print("Meaning Before Models QA passed: module conformance and course distinctiveness both pass.")

@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 08 &middot; Earned Value and forecasting &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 8 of the Project Management masterclass. Earned Value Management made visual: Planned Value, Earned Value, Actual Cost, the CPI and SPI indices, and forecasting the finish cost with EAC.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-08-earned-value">
+<meta name="owos-release-state" content="working">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,12 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+.course-actions{margin-left:auto;display:flex;gap:.45rem;align-items:center}.course-actions a,.course-actions button{border:1px solid #bfd6e5;background:#fff;color:#123047;border-radius:999px;padding:.45rem .72rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.role-views,.artifact-builder,.final-check,.completion-requirements,.governed-visual,.module-faq details,.evidence-boundary,.connected-learning{border:1px solid #d7e3ec;border-radius:16px;background:#fff;padding:1rem;margin:1rem 0}.role-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.role-views article{background:#f4f8fb;border-radius:12px;padding:.85rem}.artifact-builder label,.final-check label{display:grid;gap:.35rem}.artifact-builder textarea,.final-check select,.course-drawer input{width:100%;box-sizing:border-box;margin-top:.6rem;padding:.75rem;border:1px solid #9eb4c4;border-radius:10px;font:inherit}.reading-guide,.learner-conclusion{background:#f4f8fb;border-left:4px solid #0a78ba;padding:.8rem 1rem}.source-links{display:flex;flex-wrap:wrap;gap:.6rem}.source-links a{font-weight:700}.course-drawer{position:fixed;inset:0 0 0 auto;width:min(430px,100%);z-index:1000;background:#fff;box-shadow:-18px 0 48px rgba(8,35,55,.25);overflow:auto}.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#123b5d;color:#fff;padding:1rem}.drawer-head h2{color:#fff;margin:0;font-size:1.15rem}.drawer-head button{background:#fff;color:#123047;border:0;border-radius:999px;padding:.5rem .8rem}.drawer-body{display:grid;gap:.8rem;padding:1rem}.drawer-body [data-community-feature]{border:1px solid #d7e3ec;border-radius:10px;padding:.75rem}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}#tt{position:fixed;left:-9999px}.module-faq details summary{cursor:pointer;font-weight:800}.module-faq details p{margin-bottom:0}
+@media (max-width:760px){.course-actions{width:100%;margin:0;flex-wrap:wrap}.role-views{grid-template-columns:1fr}.owos-nav{flex-wrap:wrap}.governed-visual,.artifact-builder,.final-check,.completion-requirements{padding:.8rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -589,10 +599,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 08</b></span>
+  <div class="course-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></div>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 08 &middot; Cost and procurement</span>
   <h1>Earned value: are you <span>really</span> on track?</h1>
@@ -604,6 +615,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <button data-lens="l">Leader</button>
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+  <section class="role-views" aria-label="Role-sensitive views">
+    <article data-lens="foundation"><b>Foundation</b><p>Learn the plain-language distinction and use it on the Millpond example.</p></article>
+    <article data-lens="practitioner"><b>Practitioner</b><p>Make the decision, retain the evidence, and surface the assumption that could change it.</p></article>
+    <article data-lens="leader"><b>Leader</b><p>Confirm authority, consequence, and the threshold for approving or escalating the decision.</p></article>
+  </section>
 
   <div class="casebox">
     <span class="pin">&#9873;</span>
@@ -627,7 +643,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <h2>Three numbers, not one</h2>
     <p><span class="term" data-term="EVM" data-def="Earned Value Management. A method that measures project health by comparing what you planned to spend, the value of the work actually done, and what you actually spent.">Earned Value Management (EVM)</span> works because it stops looking at money alone and compares three things. <span class="term" data-term="Planned Value (PV)" data-def="The budgeted cost of the work you planned to have finished by today. Where the schedule said you would be.">Planned Value (PV)</span> is what you planned to have accomplished by now. <span class="term" data-term="Earned Value (EV)" data-def="The budgeted value of the work you have actually finished. If a $1.3M job is 40% done, you have earned $520k of value, no matter what you spent.">Earned Value (EV)</span> is the budgeted worth of the work actually done. <span class="term" data-term="Actual Cost (AC)" data-def="The money you have actually spent so far, regardless of how much work it bought.">Actual Cost (AC)</span> is the cash out the door. Sort a few.</p>
 
-    <div data-ac="classify" data-title="Which value is it?" data-kind="Quiz &middot; classify" data-cue="Planned = where you should be. Earned = the worth of what is done. Actual = what you spent.">
+    <p data-instructor-explanation data-teaches="evm-signal-table">The comparison prevents the EVM abbreviations from becoming disconnected formulas.</p>
+
+<section id="evm-signal-table" class="governed-visual" data-visual-type="comparison-table" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Sort each signal by whether it describes cost efficiency, schedule performance, or required future efficiency.</p>
+<div data-ac="classify" data-title="Which value is it?" data-kind="Quiz &middot; classify" data-cue="Planned = where you should be. Earned = the worth of what is done. Actual = what you spent.">
       <script type="application/json">
       {"buckets":["Planned Value","Earned Value","Actual Cost"],
        "items":[
@@ -638,18 +658,29 @@ input[type=range]{width:100%;accent-color:var(--brand)}
        ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> CPI, SPI, EAC, and TCPI answer different management questions and should not be substituted for one another.</p>
+</section>
 
     <p>The magic is in comparing them. Put all three on one chart, mark where the project is today, and the whole health of the job jumps out. Drag the sliders and watch it.</p>
 
-    <div data-ac="evm" data-title="The Millpond earned-value chart" data-kind="Interactive &middot; simulation" data-cue="Set work complete below the money spent and watch CPI drop under 1 (over budget). Set it below schedule elapsed and SPI drops under 1 (behind). The forecast moves with them.">
+    <p data-instructor-explanation data-teaches="evm-performance-curve">The curve separates work accomplished from money spent, which ordinary budget reporting cannot do.</p>
+
+<section id="evm-performance-curve" class="governed-visual" data-visual-type="line-s-curve" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Compare planned value, earned value, and actual cost at the same data date before reading CPI, SPI, and EAC.</p>
+<div data-ac="evm" id="opening-08" data-opening-decision data-required="opening-decision" data-purposeful-interaction="evm-status-decision" data-component-source="component-gallery" data-title="The Millpond earned-value chart" data-kind="Interactive &middot; simulation" data-cue="Set work complete below the money spent and watch CPI drop under 1 (over budget). Set it below schedule elapsed and SPI drops under 1 (behind). The forecast moves with them.">
       <script type="application/json">
       {"bac":1300,"t":50,"w":40,"a":600}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> A forecast is useful when the underlying progress measurement is trustworthy and the response is explicit.</p>
+</section>
 
     <p>Two indices turn that picture into a scorecard. The <span class="term" data-term="CPI" data-def="Cost Performance Index = EV / AC. Above 1 means under budget (you are getting more than a dollar of work per dollar spent). Below 1 means over budget.">Cost Performance Index (CPI)</span> is EV divided by AC: above 1 is under budget, below 1 is over. The <span class="term" data-term="SPI" data-def="Schedule Performance Index = EV / PV. Above 1 means ahead of schedule, below 1 means behind.">Schedule Performance Index (SPI)</span> is EV divided by PV: above 1 is ahead, below 1 is behind. One glance at the two numbers tells you where a project stands.</p>
 
-    <div data-ac="mc" data-title="Read the scorecard" data-kind="Quiz &middot; multiple choice">
+    <p data-instructor-explanation data-teaches="forecast-response-choice">Choose the response that follows from the evidence rather than from the preferred status color. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="mc" id="forecast-response-choice" data-quiz-type="multiple-choice" data-required="knowledge-check-2" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Read the scorecard" data-kind="Quiz &middot; multiple choice">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"q":"A status report shows CPI = 0.87 and SPI = 0.80. What is the honest one-line summary?",
        "options":[
@@ -686,7 +717,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
     <p>A few cousins finish the toolkit. The <span class="term" data-term="ETC" data-def="Estimate To Complete. The money still needed to finish from today: EAC minus what you have already spent (AC).">Estimate to Complete (ETC)</span> is what is left to spend from here. The <span class="term" data-term="VAC" data-def="Variance At Completion. How far off budget you will finish: BAC minus EAC. Negative means an overrun.">Variance at Completion (VAC)</span> is how far off budget you will land. And the <span class="term" data-term="TCPI" data-def="To-Complete Performance Index. The cost efficiency you would have to hit on all remaining work to still finish on budget. When it is well above your current CPI, the budget is no longer realistic.">To-Complete Performance Index (TCPI)</span> tells you the efficiency you would need on the rest of the work to still land on budget, which is your reality check.</p>
 
-    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+    <p data-instructor-explanation data-teaches="evm-myth-check">Test the difference between spending, earning progress, and forecasting. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="truefalse" id="evm-myth-check" data-quiz-type="true-false" data-required="knowledge-check-1" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Myth check" data-kind="Quiz &middot; true or false">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"items":[
         ["A CPI above 1 means you are over budget.",false,"The opposite. CPI above 1 means you are getting more than a dollar of work per dollar spent: under budget."],
@@ -744,12 +778,90 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+
+  <section class="sec retrofit-evidence" aria-labelledby="evidence-08">
+    <span class="tag">Professional evidence</span>
+    <h2 id="evidence-08">Build the evm forecast note</h2>
+    <p>This is the record you should be able to carry into utility work. Keep it short enough to review and specific enough that another person can understand the decision, the assumptions, and the evidence still missing.</p>
+    <section class="artifact-builder" data-artifact="evm-forecast-note" data-required="work-product">
+      <label for="evm-forecast-note-text"><b>EVM forecast note</b><span>Record the data date, BAC, PV, EV, AC, CPI, SPI, EAC method, variance drivers, confidence limits, and the management action with owner and due date.</span></label>
+      <textarea id="evm-forecast-note-text" rows="7" placeholder="Write a concise, reviewable record. Do not enter sensitive utility information."></textarea>
+    </section>
+    <section class="final-check" data-final-applied-check data-required="final-applied-check" data-artifact-ref="evm-forecast-note">
+      <label for="evm-forecast-note-check"><b>Final applied check</b><span>Which statement makes the forecast actionable?</span></label>
+      <select id="evm-forecast-note-check">
+        <option value="">Choose the evidence standard</option>
+        <option value="weak">The preferred result is recorded, even if assumptions remain implicit.</option>
+        <option value="ready">The performance basis, forecast method, uncertainty, variance cause, and owned response are explicit.</option>
+      </select>
+      <p id="evm-forecast-note-feedback" aria-live="polite">Choose an answer after drafting the record.</p>
+    </section>
+    <div class="completion-requirements" aria-labelledby="requirements-08">
+      <h3 id="requirements-08">Visible completion requirements</h3>
+      <ul>
+        <li data-requirement="opening-decision">Complete the opening decision.</li>
+        <li data-requirement="knowledge-check-1">Complete the first knowledge check.</li>
+        <li data-requirement="knowledge-check-2">Complete the second knowledge check.</li>
+        <li data-requirement="work-product">Draft the evm forecast note.</li>
+        <li data-requirement="final-applied-check">Pass the final applied check.</li>
+      </ul>
+      <button type="button" class="btn" data-complete disabled>Complete this chapter</button>
+    </div>
+  </section>
+
+  <section class="sec module-faq" data-module-faq aria-labelledby="faq-08">
+    <span class="tag">Questions people actually ask</span>
+    <h2 id="faq-08">Chapter 08 FAQ</h2>
+    <details><summary>Can EVM be used on every project?</summary><p>The ideas can help widely, but formal EVM requires a credible scope baseline, schedule, budget, progress rules, and disciplined updates. Scale the method to the decision.</p></details>
+      <details><summary>Why is percent spent not percent complete?</summary><p>Spending measures cost outflow. Earned value measures budgeted value for completed work. They can differ substantially.</p></details>
+      <details><summary>What if CPI and SPI disagree?</summary><p>That is normal. One describes cost efficiency and the other schedule performance. Explain both and trace the causes.</p></details>
+      <details><summary>Which EAC formula should I use?</summary><p>Use the method that matches the expected future conditions, document the rationale, and compare it with an independent bottom-up forecast when consequence is high.</p></details>
+      <details><summary>Does a good CPI prove the project is healthy?</summary><p>No. Progress measurement may be weak, critical work may be late, quality may be failing, or future risk may be unpriced. EVM is one evidence stream.</p></details>
+  </section>
+
+  <section class="sec evidence-boundary" data-evidence-boundary aria-labelledby="boundary-08">
+    <span class="tag">Evidence boundary</span>
+    <h2 id="boundary-08">What this lesson can and cannot decide</h2>
+    <p>The Millpond examples and calculators are instructional models. They help you structure judgment, but they do not replace the current contract, adopted utility policy, funding conditions, applicable law, approved design basis, or a qualified professional review. Verify every live decision against controlled local evidence.</p>
+    <div class="source-links"><a href="https://www.energy.gov/projectmanagement/articles/earned-value-management-system-evms-gold-card">DOE EVMS Gold Card</a>
+      <a href="https://www.gao.gov/products/gao-20-195g">GAO Cost Estimating and Assessment Guide</a>
+      <a href="https://www.pmi.org/standards/about">PMI standards</a></div>
+  </section>
+
+  <section id="owos-course-community" class="sec connected-learning" aria-labelledby="connected-08">
+    <span class="tag">Connected learning</span>
+    <h2 id="connected-08">Compare the decision, not just the answer</h2>
+    <p>Use the Community drawer to compare assumptions, evidence, and role perspectives without posting controlled project information.</p>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" hidden aria-labelledby="graph-title-08">
+    <div class="drawer-head"><h2 id="graph-title-08">Chapter 08 knowledge graph</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> earned value</p>
+      <p data-graph-kind="source"><b>Source:</b> forecast and corrective action</p>
+      <p data-graph-kind="role"><b>Roles:</b> project controls and sponsor</p>
+      <p data-graph-kind="competency"><b>Competency:</b> performance measurement</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> progress and cost evidence drive forecast</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" hidden aria-labelledby="community-title-08">
+    <div class="drawer-head"><h2 id="community-title-08">Chapter 08 community</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <label data-community-feature="search">Search discussion <input type="search" placeholder="Search this chapter"></label>
+      <div data-community-feature="filters"><button type="button">Assumptions</button> <button type="button">Evidence</button> <button type="button">Role views</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this decision pattern</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Reply to the decision basis and name the evidence you would need.</p></div>
+      <p data-community-feature="presence"><b>Presence:</b> Peer discussion is available when the course platform is connected.</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor treatment:</b> Strong contributions separate source, assumption, recommendation, and authority.</p>
+    </div>
+  </aside>
+
+  <div class="navrow footnav">
     <a href="lesson-pm-07-estimating-budgeting.html">&#8592; Chapter 07 &middot; Estimating and budgeting</a>
     <a class="btn" href="lesson-pm-09-procurement-contracts-claims.html">Chapter 09 &middot; Procurement, contracts and claims &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1066,10 +1178,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2094,6 +2210,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2103,10 +2238,45 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 
 </script>
+<script>
+(function(){
+  var lastTrigger=null;
+  function openDrawer(kind,trigger){
+    var drawer=document.querySelector('[data-drawer="'+kind+'"]');
+    if(!drawer)return;
+    lastTrigger=trigger;drawer.hidden=false;
+    var close=drawer.querySelector('[data-close-drawer]');if(close)close.focus();
+  }
+  document.querySelectorAll('[data-open-graph]').forEach(function(b){b.addEventListener('click',function(){openDrawer('graph',b);});});
+  document.querySelectorAll('[data-open-community]').forEach(function(b){b.addEventListener('click',function(){openDrawer('community',b);});});
+  document.querySelectorAll('[data-close-drawer]').forEach(function(b){b.addEventListener('click',function(){b.closest('[data-drawer]').hidden=true;if(lastTrigger)lastTrigger.focus();});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var open=document.querySelector('[data-drawer]:not([hidden])');if(open){open.hidden=true;if(lastTrigger)lastTrigger.focus();}}});
+  var text=document.getElementById('evm-forecast-note-text');
+  var check=document.getElementById('evm-forecast-note-check');
+  var feedback=document.getElementById('evm-forecast-note-feedback');
+  var complete=document.querySelector('[data-complete]');
+  function assess(){
+    var drafted=text&&text.value.trim().length>=40;
+    var ready=check&&check.value==='ready';
+    if(feedback){
+      if(!check.value)feedback.textContent='Choose an answer after drafting the record.';
+      else if(!ready)feedback.textContent='Not yet. A preferred result without explicit assumptions and evidence is not reviewable. Retry.';
+      else if(!drafted)feedback.textContent='That evidence standard is right. Add at least a short decision record before completion.';
+      else feedback.textContent='Ready for working review. The record and evidence standard are both present.';
+    }
+    if(complete)complete.disabled=!(drafted&&ready);
+  }
+  if(text){text.addEventListener('input',assess);}
+  if(check){check.addEventListener('change',assess);}
+  assess();
+})();
+</script>
+<div id="tt" role="tooltip"></div>
 </body>
 </html>

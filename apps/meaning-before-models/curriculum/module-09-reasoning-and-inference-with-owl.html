@@ -1,84 +1,245 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Module 09: Reasoning and Inference with OWL | One Water OS Academy</title>
-<meta name="owos-course-id" content="owos-course-semantic-data-ai-001"><meta name="owos-learning-object" content="mbm001:09">
-<meta name="owos-release-state" content="production-candidate"><meta name="owos-course-store" content="mbm001">
-<link rel="icon" href="data:,"><link rel="stylesheet" href="module-05-golden.css"></head>
-<body data-module="module-09" data-lens="foundation"><div class="reading" aria-hidden="true"></div>
-<header class="top"><div class="wrap topin"><a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meaning Before Models / Module 09</span><nav class="topactions" aria-label="Lesson actions"><button class="btn secondary" type="button" data-open-graph>Graph</button><button class="btn secondary" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav></div></header>
-<main><section class="wrap hero"><span class="kicker">Module 09 | Production candidate</span><h1>Reasoning and Inference with OWL</h1><p>Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment.</p><div class="meta"><span>45 to 60 minutes</span><span>Foundation to Leader</span><span>Inference Boundary Card</span></div><div class="lenses" role="tablist" aria-label="Instructional depth"><button type="button" class="on" data-lens="foundation">Foundation</button><button type="button" data-lens="practitioner">Practitioner</button><button type="button" data-lens="leader">Leader</button></div></section>
-<div class="wrap"><section class="requirements" aria-label="Completion evidence"><div class="req" data-requirement="opening"><i></i>Opening decision</div><div class="req" data-requirement="process"><i></i>Mechanism lab</div><div class="req" data-requirement="matching"><i></i>Concept match</div><div class="req" data-requirement="multi"><i></i>Boundary check</div><div class="req" data-requirement="artifact"><i></i>Work product</div><div class="req" data-requirement="applied"><i></i>Applied assessment</div></section></div>
-<div class="wrap" id="lesson-start"><section class="section"><div class="section-head"><div><span class="tag">Decision first</span><h2>The graph states that Pump P-104 serves Zone 3 and that Zone 3 is part of the North Service Area. A new relationship appears after reasoning.</h2></div><span class="section-num">01 / 05</span></div>
-<div class="view foundation"><p>Begin with the ordinary-language relationship and keep the technical labels in the background until the job is clear.</p></div><div class="view practitioner"><p>Inspect identifiers, mappings, rules, tests, and evidence boundaries at every handoff.</p></div><div class="view leader"><p>Name the accountable owner, operating consequence, investment boundary, and stop condition.</p></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="opening-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Choose the answer you would accept in a real utility review. You can retry. The feedback explains the boundary this module will teach.</p></div></div>
-<div class="panel" id="opening-quiz" data-opening-decision data-quiz-type="multiple-choice" data-quiz-source="quiz-gallery" data-required="opening" data-retry="Return to the scenario and choose the statement that is explicit, governed, and reviewable."><div class="panel-head">Opening decision <span class="kind">Multiple choice</span></div><div class="panel-body"><h3>What must accompany an inferred statement?</h3><div class="decision-grid"><button class="choice" type="button" data-correct="1">The asserted inputs and declared axiom that entail it.</button><button class="choice" type="button" data-correct="0">Use the closest matching label without review.</button><button class="choice" type="button" data-correct="0">Let the newest application define the meaning for everyone.</button><button class="choice" type="button" data-correct="0">Ask the language model to choose what the term probably means.</button></div><button class="btn primary" type="button" data-check-quiz>Check decision</button><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Mental model</span><h2>See the mechanism before memorizing the vocabulary</h2></div><span class="section-num">02 / 05</span></div><p class="lede"><span class="term" data-def="OWL is defined and used within this module.">OWL</span> <span class="term" data-def="assertion is defined and used within this module.">assertion</span> <span class="term" data-def="axiom is defined and used within this module.">axiom</span> <span class="term" data-def="inference is defined and used within this module.">inference</span> <span class="term" data-def="entailment is defined and used within this module.">entailment</span> <span class="term" data-def="inverse is defined and used within this module.">inverse</span> <span class="term" data-def="transitive is defined and used within this module.">transitive</span> <span class="term" data-def="open world is defined and used within this module.">open world</span></p>
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-1">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this network diagram from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-1" data-visual-type="network-diagram" data-component-source="component-gallery">
-      <div class="panel-head">Apply one axiom <span class="kind">network diagram</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Inspect assertions. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="graph-map inline-map"><button type="button" class="gnode core" style="left:18%;top:20%" data-inline-node="0">Inspect assertions</button><button type="button" class="gnode " style="left:76%;top:40%" data-inline-node="1">Apply one axiom</button><button type="button" class="gnode " style="left:18%;top:60%" data-inline-node="2">Trace the entailment</button><button type="button" class="gnode " style="left:76%;top:80%" data-inline-node="3">Preserve unknowns</button><svg viewBox="0 0 520 360" aria-hidden="true"><g stroke="#B9D3E1" stroke-width="2"><line x1="95" y1="72" x2="395" y2="144"/><line x1="395" y1="144" x2="95" y2="216"/><line x1="95" y1="216" x2="395" y2="288"/></g></svg></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment.</div></div>
-    </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Module 09: Reasoning and Inference with OWL | One Water OS Academy</title>
+  <meta name="description" content="Test utility inferences, inspect their proof paths, and define where OWL reasoning must stop.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:09">
+  <meta name="owos-release-state" content="retrofit-working-candidate">
+  <meta name="owos-lesson-archetype" content="inference-courtroom">
+  <meta name="owos-signature-mechanism" content="rule-switchboard-with-visible-proof-path">
+  <meta name="owos-opening-pattern" content="contested-operational-claim">
+  <meta name="owos-work-product-mode" content="inference-case-file">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="meaning-fieldbook.css">
+  <style>
+    .case-banner{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;padding:22px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#eef6ff,#f5fbf8)}
+    .verdict-seal{display:grid;place-items:center;min-height:190px;border:2px dashed #7d97a5;border-radius:50%;text-align:center;background:#fff}
+    .rule-switchboard{display:grid;grid-template-columns:260px 1fr;gap:18px}
+    .rule-rail{display:grid;gap:9px;align-content:start}
+    .rule-rail button{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff;text-align:left;cursor:pointer}
+    .rule-rail button.on{border:2px solid var(--violet);background:#f5f1ff}
+    .proof-sheet{min-height:260px;padding:20px;border:1px solid var(--line);border-radius:18px;background:#fbfaf6}
+    .proof-line{display:grid;grid-template-columns:34px 1fr;gap:10px;margin:10px 0;padding:12px;border-left:4px solid var(--blue);background:#fff}
+    .proof-line b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff}
+    .claim-lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .claim-lanes article{padding:16px;border-radius:16px;border:1px solid var(--line)}
+    .role-court{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    @media(max-width:760px){.case-banner,.rule-switchboard,.claim-lanes,.role-court{grid-template-columns:1fr}.verdict-seal{border-radius:18px;min-height:130px}}
+  </style>
+</head>
+<body data-module="module-09" data-lens="foundation">
+<div class="reading" aria-hidden="true"></div>
+<header class="top"><div class="wrap topin">
+  <a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a>
+  <span class="crumb">Meaning Before Models / 09</span>
+  <nav class="topactions" aria-label="Lesson actions"><button class="btn" type="button" data-open-graph>Graph</button><button class="btn" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav>
+</div></header>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-2">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this interactive process from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-2" data-visual-type="interactive-process" data-component-source="component-gallery">
-      <div class="panel-head">Trace the entailment <span class="kind">interactive process</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Inspect assertions. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="process-flow"><div class="flowbox"><b>1</b><span>Inspect assertions</span></div><span class=flowarrow>→</span><div class="flowbox"><b>2</b><span>Apply one axiom</span></div><span class=flowarrow>→</span><div class="flowbox"><b>3</b><span>Trace the entailment</span></div><span class=flowarrow>→</span><div class="flowbox"><b>4</b><span>Preserve unknowns</span></div></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment.</div></div>
-    </div>
+<main>
+<section class="wrap hero" aria-labelledby="lesson-title">
+  <span class="eyebrow">Inference courtroom · Module 09</span>
+  <h1 id="lesson-title">Reasoning and Inference with OWL</h1>
+  <p>Reasoning is not a language model making a clever guess. In this lesson, a claim is admitted only when named facts and named ontology rules support it. You will see every step, challenge an invalid conclusion, and write the boundary a utility must keep around automated inference.</p>
+  <div class="meta"><span>55 to 70 minutes</span><span>Foundation to Leader</span><span>Water, wastewater, stormwater</span><span>Inference Case File</span></div>
+  <div class="lenses" role="tablist" aria-label="Instructional view"><button class="on" type="button" data-lens="foundation" role="tab" aria-selected="true">Foundation</button><button type="button" data-lens="practitioner" role="tab" aria-selected="false">Practitioner</button><button type="button" data-lens="leader" role="tab" aria-selected="false">Leader</button></div>
+</section>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-3">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this failure propagation chain from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-3" data-visual-type="failure-propagation-chain" data-component-source="component-gallery">
-      <div class="panel-head">Preserve unknowns <span class="kind">failure propagation chain</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Inspect assertions. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="process-flow"><div class="flowbox"><b>1</b><span>Inspect assertions</span></div><span class=flowarrow>→</span><div class="flowbox"><b>2</b><span>Apply one axiom</span></div><span class=flowarrow>→</span><div class="flowbox"><b>3</b><span>Trace the entailment</span></div><span class=flowarrow>→</span><div class="flowbox"><b>4</b><span>Preserve unknowns</span></div></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment.</div></div>
-    </div>
+<div class="wrap lesson" id="lesson-start">
+  <div class="requirements" aria-label="Completion evidence">
+    <div class="req" data-requirement="opening"><i></i>Issue an opening verdict</div>
+    <div class="req" data-requirement="rulelab"><i></i>Operate the rule switchboard</div>
+    <div class="req" data-requirement="proof"><i></i>Challenge a proof path</div>
+    <div class="req" data-requirement="artifact"><i></i>Save an Inference Case File</div>
+    <div class="req" data-requirement="applied"><i></i>Pass case review</div>
+  </div>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-4">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this comparison table from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-index">Case</span><div><span class="kind">Contested claim</span><h2>Can the graph call Pump P-104 a critical asset?</h2></div></div>
+    <div class="case-banner">
+      <div class="teaching">
+        <p>Imagine a morning coordination call. The maintenance system says Pump P-104 is a pump. GIS says it serves Pressure Zone 3. The customer system says Zone 3 contains a hospital. A graph reasoner returns: <b>Pump P-104 is a critical service asset.</b></p>
+        <p>That conclusion could help a planner prioritize inspection. It could also be dangerously over-read as permission to change an operating plan. Your first job is to decide whether the conclusion is a guess, an asserted fact, or a traceable inference.</p>
+      </div>
+      <div class="verdict-seal" aria-label="Case status"><div><span class="micro-label">Case 09-104</span><h3>Claim under review</h3><p>Critical service asset?</p></div></div>
     </div>
-    <div class="panel" id="visual-4" data-visual-type="comparison-table" data-component-source="component-gallery">
-      <div class="panel-head">Inspect assertions <span class="kind">comparison table</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Inspect assertions. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="comparison-scroll"><table class="comparison"><thead><tr><th>Question</th><th>Weak treatment</th><th>Governed treatment</th></tr></thead><tbody><tr><th>Inspect assertions</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr><tr><th>Apply one axiom</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr><tr><th>Trace the entailment</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr><tr><th>Preserve unknowns</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr></tbody></table></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment.</div></div>
-    </div></section>
-<section class="section"><div class="section-head"><div><span class="tag">Operate the mechanism</span><h2>Move the scenario through four controlled steps</h2></div><span class="section-num">03 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="process-lab concept-match"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select each step and read what it adds to the decision. Then match the module terms to the jobs they perform.</p><p>The goal is not vocabulary recall. It is knowing where a missing responsibility would first break the answer.</p></div></div>
-<div class="panel" id="process-lab" data-purposeful-interaction="step-through" data-component-source="component-gallery" data-required="process"><div class="panel-head">Mechanism laboratory <span class="kind">Interactive process</span></div><div class="panel-body"><div class="decision-grid"><button type="button" class="choice lab-choice" data-step="0">Inspect assertions</button><button type="button" class="choice lab-choice" data-step="1">Apply one axiom</button><button type="button" class="choice lab-choice" data-step="2">Trace the entailment</button><button type="button" class="choice lab-choice" data-step="3">Preserve unknowns</button></div><div class="debrief" data-step-detail><b>Select a step</b>The evidence and control added by that step will appear here.</div><div class="feedback" aria-live="polite"></div></div></div>
-<div class="panel" id="concept-match" data-quiz-type="matching" data-quiz-source="quiz-gallery" data-required="matching" data-retry="Match each term to the job it performs in this module."><div class="panel-head">Match terms to jobs <span class="kind">Matching</span></div><div class="panel-body"><div class="match"><div class="mcol" data-match-left><button type="button" class="match-item" data-match-question="0">OWL</button><button type="button" class="match-item" data-match-question="1">assertion</button><button type="button" class="match-item" data-match-question="2">axiom</button><button type="button" class="match-item" data-match-question="3">inference</button></div><div class="mcol" data-match-right><button type="button" class="match-item" data-match-job="0">Preserve unknowns</button><button type="button" class="match-item" data-match-job="1">Trace the entailment</button><button type="button" class="match-item" data-match-job="2">Apply one axiom</button><button type="button" class="match-item" data-match-job="3">Inspect assertions</button></div></div><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Check the boundary</span><h2>Choose what belongs in the governed answer path</h2></div><span class="section-num">04 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="boundary-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select the three items that make the result reviewable. Reject shortcuts that hide evidence or authority.</p></div></div>
-<div class="panel" id="boundary-check" data-quiz-type="multi-select" data-quiz-source="quiz-gallery" data-purposeful-interaction="boundary-selection" data-required="multi" data-retry="Include named evidence, an explicit rule or relationship, and an accountable reviewer."><div class="panel-head">Boundary check <span class="kind">Multi-select</span></div><div class="panel-body"><div class="packet-options"><button class="option-check" type="button" data-correct="1">Named source records and identifiers</button><button class="option-check" type="button" data-correct="1">Explicit relationship, rule, mapping, or constraint</button><button class="option-check" type="button" data-correct="1">Named owner, reviewer, and authority boundary</button><button class="option-check" type="button" data-correct="0">Unreviewed label similarity</button><button class="option-check" type="button" data-correct="0">Permission for a model to act without approval</button></div><button class="btn primary" type="button" data-check-multi>Validate selection</button><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Professional work product</span><h2>Build the Inference Boundary Card</h2></div><span class="section-num">05 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="work-product applied-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Write specific statements that another utility team could inspect. Name sources, relationships, rules, owners, limits, and the human decision.</p><p>Save the draft, then run the applied assessment. Completion requires both.</p></div></div>
-<div class="panel"><div class="panel-head">Inference Boundary Card <span class="kind">Artifact builder</span></div><div class="panel-body artifact-grid"><form class="form" id="work-product" data-artifact="module-09-artifact" data-component-source="component-gallery" data-purposeful-interaction="artifact-builder" data-required="artifact"><label>Operational question<span>Write a specific utility statement</span><textarea name="field0" rows="2" required></textarea></label><label>Inspect assertions<span>Write a specific utility statement</span><textarea name="field1" rows="2" required></textarea></label><label>Apply one axiom<span>Write a specific utility statement</span><textarea name="field2" rows="2" required></textarea></label><label>Trace the entailment<span>Write a specific utility statement</span><textarea name="field3" rows="2" required></textarea></label><label>Preserve unknowns<span>Write a specific utility statement</span><textarea name="field4" rows="2" required></textarea></label><label>Evidence and source boundary<span>Write a specific utility statement</span><textarea name="field5" rows="2" required></textarea></label><label>Named reviewers<span>Write a specific utility statement</span><textarea name="field6" rows="2" required></textarea></label><label>Human authority or stop condition<span>Write a specific utility statement</span><textarea name="field7" rows="2" required></textarea></label><button class="btn primary" type="submit">Save working draft</button><div class="feedback" aria-live="polite"></div></form><div class="preview"><h3>Working preview</h3><pre data-artifact-preview>Complete the form to build the preview.</pre></div></div></div>
-<div class="panel" id="applied-check" data-final-applied-check data-artifact-ref="module-09-artifact" data-quiz-type="applied-assessment" data-quiz-source="applied-assessment-contract" data-required="applied" data-retry="Revise the work product until every field is specific and the human authority boundary is explicit."><div class="panel-head">Applied assessment <span class="kind">Work-product check</span></div><div class="panel-body"><div class="criteria" data-criteria></div><button class="btn primary" type="button" data-check-applied>Evaluate saved work</button><div class="feedback" aria-live="polite"></div></div></div>
-<div class="takeaway"><h2>What to remember</h2><p>Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment. The system may organize, retrieve, infer, validate, or draft. A named human remains accountable for the utility decision.</p></div>
-<section class="complete"><h3>Module 09 completion</h3><p data-completion-status>Complete every required item.</p><button class="btn primary" type="button" data-complete disabled>Mark module complete</button><div class="feedback" id="live" aria-live="polite"></div></section></section>
-<section class="section faq" data-module-faq><span class="tag">Questions learners ask</span><h2>Clear up the remaining boundaries</h2><details><summary>Is OWL the same as assertion?</summary><p>No. In this lesson, OWL and assertion perform different jobs. Web Ontology Language reasoning derives statements under declared logic. It does not predict the future or replace human judgment.</p></details><details><summary>What happens when axiom is missing?</summary><p>The utility loses a named control in the path. In the module scenario, that makes the answer harder to trace, test, or approve.</p></details><details><summary>Who owns inference?</summary><p>A named utility role must own the definition or decision. A platform may execute the rule, but it does not become accountable.</p></details><details><summary>Does this replace our existing utility systems?</summary><p>No. Source systems keep doing their operating jobs. This lesson adds explicit meaning, evidence, and control across them.</p></details><details><summary>When should we use a simpler approach?</summary><p>Use the simplest governed design that answers the bounded question. If one reliable table is enough, do not add a graph only because graphs are available.</p></details></section>
-<section class="section source" data-evidence-boundary><span class="tag">Sources and limits</span><h2>Evidence boundary</h2><p>This module uses an instructional utility scenario. It does not establish an operating procedure, legal conclusion, cybersecurity approval, or authority to act. Independent factual and practitioner review remain required.</p><ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">W3C RDF Concepts</a></li><li><a href="https://www.w3.org/TR/rdf-schema/">W3C RDF Schema</a></li><li><a href="https://www.w3.org/TR/sparql12-query/">W3C SPARQL Query Language</a></li><li><a href="https://www.w3.org/TR/owl2-overview/">W3C OWL Overview</a></li><li><a href="https://www.w3.org/TR/shacl/">W3C SHACL</a></li></ul></section>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="graph-visual"><div class="instructor-label">Connected learning</div><div class="instructor-copy"><p>Open Graph to inspect sources, concepts, roles, relationships, and competency. Use Community to challenge boundaries, not to replace verified instruction.</p></div></div>
-<section id="owos-course-community" class="connected"><article><span class="tag">Knowledge Graph</span><h3>Trace this module</h3><p>Follow the module concept into sources, relationships, roles, and competency.</p><button class="btn" type="button" data-open-graph>Open Graph</button></article><article><span class="tag">Community</span><h3>Compare utility practice</h3><p>Search, filter, bookmark, and reply to local course discussions.</p><button class="btn" type="button" data-open-community>Open Community</button></article></section>
-<nav class="footnav"><a class="btn" href="module-08-ask-the-graph-with-sparql.html">Previous</a><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="module-10-validation-with-shacl.html">Next: Validation with SHACL</a></nav></div></main>
+    <div class="view foundation"><p><b>Foundation lens:</b> An inference is a new statement that follows from statements and rules already present. The machine should be able to show the path.</p></div>
+    <div class="view practitioner"><p><b>Practitioner lens:</b> Check the exact OWL axiom, reasoning profile, named graph, and asserted versus inferred status. Similar labels do not establish an entailment.</p></div>
+    <div class="view leader"><p><b>Leader lens:</b> Decide which inferred classifications may inform work and which actions still require operating authority, safety review, and current field evidence.</p></div>
+    <div class="coach" data-instructor-explanation data-teaches="opening-verdict"><strong>Issue a preliminary verdict</strong><p>Do not decide whether the pump is important in ordinary language. Decide whether the displayed facts alone logically support the exact classification. The distinction between plausible and entailed is the heart of this module.</p></div>
+    <div class="panel" id="opening-verdict" data-opening-decision data-required="opening" data-quiz data-quiz-type="inference-verdict" data-quiz-source="quiz-gallery" data-correct-feedback="Correct. The conclusion needs an explicit rule connecting the path to the CriticalServiceAsset class." data-retry="Try again. Plausibility is not proof. Ask which explicit ontology rule turns the three facts into that class membership.">
+      <div class="panel-head">Preliminary verdict <span class="kind">Claim judgment</span></div>
+      <div class="panel-body"><h3>What can you conclude from the three facts as stated?</h3><div class="choice-grid">
+        <button class="choice" type="button" data-correct="0">The pump is definitely critical because hospitals are important.</button>
+        <button class="choice" type="button" data-correct="1">The conclusion is plausible, but it is not entailed until an explicit rule connects the path to the class.</button>
+        <button class="choice" type="button" data-correct="0">OWL automatically knows the utility meaning of the word critical.</button>
+        <button class="choice" type="button" data-correct="0">The conclusion is false because inferred facts can never be used.</button>
+      </div><button class="btn primary" type="button" data-check-quiz>Record verdict</button><div class="feedback" aria-live="polite"></div></div>
+    </div>
+  </section>
+
+  <section class="chapter narrow">
+    <div class="chapter-head"><span class="chapter-index">1</span><div><span class="kind">Plain-English doctrine</span><h2>OWL gives machines rules with defined meaning</h2></div></div>
+    <div class="teaching" data-worked-example>
+      <p><span class="term" data-def="The Web Ontology Language, a W3C language for expressing classes, properties, individuals, and logical axioms.">OWL</span> is a W3C ontology language. An <span class="term" data-def="A formal statement in an ontology, such as one class being a subclass of another.">axiom</span> says something that tools can interpret with defined semantics. For example, <code>BoosterPump subclassOf Pump</code> means every booster pump is also a pump. If P-104 is asserted to be a booster pump, a reasoner can infer that it is a pump.</p>
+      <p>An <span class="term" data-def="A statement supplied directly by a source or model rather than computed as a logical consequence.">asserted fact</span> is placed on the record. A <span class="term" data-def="A statement that follows logically from asserted statements and ontology axioms.">logical inference</span> is not a prediction. It follows from the model. The relationship between premises and a supported conclusion is called <span class="term" data-def="The condition in which a conclusion follows logically from an ontology and its assertions under the selected semantics.">entailment</span>. The <span class="term" data-def="A software component that computes logical consequences or checks consistency against an ontology.">reasoner</span> may compute class membership, property relationships, or inconsistencies. The result depends on the axioms, the data, and the supported <span class="term" data-def="A defined subset of OWL that trades expressive features for particular computational characteristics.">OWL profile</span>.</p>
+      <p>One surprise for people coming from database work is the <span class="term" data-def="The assumption that lack of a statement does not by itself make the statement false.">open-world assumption</span>. If the graph does not say that P-104 has a backup pump, OWL normally does not conclude that no backup exists. Missing is not the same as false. Another surprise is that OWL does not generally assume two differently named resources are different. Identity must be handled deliberately.</p>
+    </div>
+    <div class="debrief"><b>Database instinct versus ontology logic:</b> A closed checklist often treats an unrecorded value as absent. OWL usually treats it as unknown. SHACL, in the next module, is the tool we use when we need to test whether required graph content is present.</div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-index">2</span><div><span class="kind">Rule switchboard</span><h2>Watch three kinds of inference appear</h2></div></div>
+    <div class="coach" data-instructor-explanation data-teaches="inference-network rule-switchboard"><strong>Read the graph as evidence</strong><p>Begin with the solid facts. Then activate one rule at a time. The new dashed conclusion is not added because it sounds reasonable. It appears because the selected axiom has a defined logical effect. Keep the rule name beside the conclusion so a reviewer can reconstruct it.</p></div>
+    <div class="panel" id="inference-network" data-visual-type="network-diagram" data-component-source="component-gallery">
+      <div class="panel-head">Facts, axiom, entailment <span class="kind">Network / wire diagram</span></div>
+      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Blue cards are asserted. Violet cards are ontology axioms. Green cards are inferred. Never present all three as if they came from the same source.</div>
+        <div class="claim-lanes">
+          <article style="background:#eef8fc"><span class="micro-label">Asserted</span><h3>P-104 rdf:type BoosterPump</h3><p>Mapped from the approved asset class.</p></article>
+          <article style="background:#f5f1ff"><span class="micro-label">Axiom</span><h3>BoosterPump subClassOf Pump</h3><p>Maintained in the utility ontology.</p></article>
+          <article style="background:#eef9f3"><span class="micro-label">Inferred</span><h3>P-104 rdf:type Pump</h3><p>Entailed by the asserted type and subclass axiom.</p></article>
+        </div>
+        <div class="conclusion" data-learner-conclusion><b>What the colors protect:</b> The conclusion may be logically valid while its trust still depends on the source assertion and the approved ontology version.</div>
+      </div>
+    </div>
+    <div class="panel" id="rule-switchboard" data-purposeful-interaction="owl-rule-switchboard" data-required="rulelab" data-component-source="meaning-before-models-course-library" data-quiz-type="rule-path" data-quiz-source="applied-assessment-contract" data-retry="Inspect subclass, inverse, and property-chain rules. Then select the conclusion supported by the active premises.">
+      <div class="panel-head">OWL rule switchboard <span class="kind">Visible inference mechanism</span></div>
+      <div class="panel-body rule-switchboard">
+        <div class="rule-rail" role="group" aria-label="Inference rules">
+          <button type="button" data-rule="subclass">Subclass classification</button>
+          <button type="button" data-rule="inverse">Inverse relationship</button>
+          <button type="button" data-rule="chain">Property chain</button>
+        </div>
+        <div class="proof-sheet"><span class="micro-label">Proof path</span><div data-rule-proof><p>Select a rule. The premises and conclusion will appear here.</p></div>
+          <label>Which statement is safe to publish as an inference?<select data-rule-answer><option value="">Choose</option><option value="traceable">The conclusion with named premises and an applicable axiom</option><option value="probable">The conclusion that a language model rates most probable</option><option value="popular">The label used by the largest department</option></select></label>
+          <button class="btn primary" type="button" data-check-rules>Close the rule review</button><div class="feedback" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-index">3</span><div><span class="kind">Cross-examination</span><h2>A valid rule can still be applied to the wrong operational question</h2></div></div>
+    <div class="teaching">
+      <p>Suppose the ontology defines <code>serves o containsCriticalFacility</code> as a subproperty of <code>supportsCriticalFacility</code>. With the right premises, a reasoner can infer that P-104 supports Hospital H-7. That does not prove the pump caused the hospital's low-pressure complaint. It does not prove the pump is currently available. It does not authorize a switching action.</p>
+      <p>This is where deterministic logic and probabilistic generation must not be blurred. Given the same supported OWL axioms and facts, a conforming reasoning process targets logical consequences. A generative model may produce varied wording or unsupported associations. An agent may use both, but it should label the source of each claim and keep action authority separate.</p>
+    </div>
+    <div class="coach" data-instructor-explanation data-teaches="failure-chain proof-challenge"><strong>Challenge the leap</strong><p>Follow the chain until the first unsupported step. The exercise is not asking whether the final statement might be true. It asks whether the displayed graph and rule set prove it.</p></div>
+    <div class="panel" id="failure-chain" data-visual-type="failure-propagation-chain" data-component-source="component-gallery">
+      <div class="panel-head">How an inference becomes an overclaim <span class="kind">Failure-propagation chain</span></div>
+      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> The first three boxes form a supported path. The fourth quietly changes from relationship evidence to causal diagnosis. The fifth turns diagnosis into authority.</div>
+        <div class="status-strip"><div class="status"><b>1. Asserted</b>P-104 serves Zone 3</div><div class="status"><b>2. Asserted</b>Zone 3 contains H-7</div><div class="status"><b>3. Inferred</b>P-104 supports H-7</div><div class="status"><b>4. Unsupported leap</b>P-104 caused low pressure</div><div class="status"><b>5. Unsafe action</b>Shut down P-104</div></div>
+        <div class="conclusion" data-learner-conclusion><b>Boundary:</b> Relationship inference is not causal diagnosis, and causal diagnosis is not operating authority.</div>
+      </div>
+    </div>
+    <div class="panel" id="proof-challenge" data-purposeful-interaction="counterexample-cross-examination" data-required="proof" data-component-source="meaning-before-models-course-library" data-quiz-type="counterexample-check" data-quiz-source="quiz-gallery" data-retry="Choose every statement that requires evidence beyond the shown facts and property-chain axiom.">
+      <div class="panel-head">Cross-examine the conclusion <span class="kind">Counterexample check</span></div>
+      <div class="panel-body"><p>Select the two unsupported claims.</p><div class="choice-grid" data-proof-options>
+        <button class="choice" type="button" data-proof-correct="0">P-104 supports a zone containing H-7.</button>
+        <button class="choice" type="button" data-proof-correct="1">P-104 caused today's low-pressure event.</button>
+        <button class="choice" type="button" data-proof-correct="0">The support relationship was inferred from a property chain.</button>
+        <button class="choice" type="button" data-proof-correct="1">The reasoner may authorize an operator to shut down P-104.</button>
+      </div><button class="btn primary" type="button" data-check-proof>Check challenge</button><div class="feedback" aria-live="polite"></div></div>
+    </div>
+    <div class="role-court">
+      <article class="card"><span class="micro-label">Operator</span><h3>Uses the path</h3><p>Checks current conditions and procedures before acting.</p></article>
+      <article class="card"><span class="micro-label">Ontology steward</span><h3>Owns the axiom</h3><p>Reviews definitions, scope, version, and unintended entailments.</p></article>
+      <article class="card"><span class="micro-label">Executive sponsor</span><h3>Owns the boundary</h3><p>Sets where inference may inform, recommend, or stop for approval.</p></article>
+    </div>
+  </section>
+
+  <section class="chapter narrow">
+    <div class="chapter-head"><span class="chapter-index">File</span><div><span class="kind">Professional work product</span><h2>Prepare an Inference Case File</h2></div></div>
+    <div class="teaching"><p>A useful case file is small enough to review. Name the operational question, the asserted facts, the axiom, the inferred statement, the proof path, and the human stop condition. If you cannot show those pieces, do not hide the gap behind the word reasoning.</p></div>
+    <div class="coach" data-instructor-explanation data-teaches="inference-case final-case-review"><strong>Write for a skeptical reviewer</strong><p>Use a water, wastewater, or stormwater example. Separate what a source states from what the ontology entails. Finish with one decision the machine must not make.</p></div>
+    <div class="panel" id="inference-case"><div class="panel-head">Inference Case File <span class="kind">Professional work product</span></div><div class="panel-body artifact-grid">
+      <form data-artifact="inference-case-file" data-required="artifact">
+        <label>Operational question<textarea name="question" rows="2" required></textarea></label>
+        <label>Asserted utility facts<textarea name="assertions" rows="3" required></textarea></label>
+        <label>OWL axiom or rule<textarea name="axiom" rows="3" required></textarea></label>
+        <label>Inferred statement<textarea name="inference" rows="2" required></textarea></label>
+        <label>Proof path and ontology version<textarea name="proof_path" rows="3" required></textarea></label>
+        <label>Human authority or stop condition<textarea name="stop_condition" rows="3" required></textarea></label>
+        <button class="btn primary" type="submit">Save case file</button><div class="feedback" aria-live="polite"></div>
+      </form><pre data-artifact-preview>Complete the case file to create a local review copy.</pre>
+    </div></div>
+    <div class="panel" id="final-case-review" data-final-applied-check data-artifact-ref="inference-case-file" data-required="applied" data-quiz-type="applied-assessment" data-quiz-source="applied-assessment-contract" data-retry="Revise the file until assertions, axiom, inference, proof path, and human stop condition are explicit.">
+      <div class="panel-head">Case review <span class="kind">Applied assessment</span></div><div class="panel-body"><button class="btn good" type="button" data-final-check="inference-case-file" data-required="applied">Evaluate case file</button><div class="feedback" aria-live="polite"></div></div>
+    </div>
+  </section>
+
+  <section class="chapter faq" data-module-faq>
+    <div class="chapter-head"><span class="chapter-index">?</span><div><span class="kind">Inference FAQ</span><h2>Questions utility teams ask about OWL</h2></div></div>
+    <details><summary>Is an OWL inference always true in the real world?</summary><p>It is logically supported by the supplied facts and axioms under the relevant semantics. If an asset mapping is wrong, an ontology version is inappropriate, or a source is stale, the real-world conclusion can still mislead. Logical validity and evidence fitness both matter.</p></details>
+    <details><summary>Is OWL reasoning the same as machine-learning prediction?</summary><p>No. An OWL entailment follows from formal axioms and facts. A prediction estimates an outcome from a model and data. An agent may use both, but it should label them differently and expose the evidence behind each.</p></details>
+    <details><summary>Why does missing information not become false?</summary><p>OWL normally uses the open-world assumption. The graph may be incomplete, so not finding a backup pump does not prove none exists. Use explicit negative statements where appropriate, and use validation when required information must be present.</p></details>
+    <details><summary>Can OWL decide which pump to operate?</summary><p>OWL can infer classifications and relationships that inform the decision. It does not receive operating authority merely because the inference is correct. Current telemetry, procedures, safety controls, and named human authority remain separate.</p></details>
+    <details><summary>Do we need the most expressive OWL features?</summary><p>Usually not. Choose only the expressivity needed for the reasoning job and the operational scale. OWL profiles such as EL, QL, and RL trade features for different reasoning characteristics. Test the selected profile against real utility workloads.</p></details>
+    <details><summary>How should inferred triples be stored?</summary><p>You may compute them at query time or materialize selected results. In either case, preserve asserted versus inferred status, the rule set and version, and enough provenance to reproduce the result. Do not let cached inferences silently outlive their premises.</p></details>
+  </section>
+
+  <section class="evidence" data-evidence-boundary><h2>Evidence boundary</h2><p>The pump, zone, and hospital case is instructional. It demonstrates subclass, inverse-property, and property-chain reasoning but does not establish a utility operating rule or prove causation. Local ontology design, source mappings, reasoner behavior, safety controls, and practitioner review must be verified before operational use.</p><ul>
+    <li><a href="https://www.w3.org/TR/owl-overview/">W3C OWL 2 Overview</a></li>
+    <li><a href="https://www.w3.org/TR/owl2-primer/">W3C OWL 2 Primer</a></li>
+    <li><a href="https://www.w3.org/TR/owl2-profiles/">W3C OWL 2 Profiles</a></li>
+    <li><a href="https://www.w3.org/TR/rdf12-semantics/">W3C RDF Semantics</a></li>
+  </ul></section>
+
+  <section id="owos-course-community" class="connected"><article><span class="kind">Knowledge Graph</span><h3>Inspect the case vocabulary</h3><p>Trace asserted facts, axioms, inferred claims, roles, and competency.</p><button class="btn" type="button" data-open-graph>Open Graph</button></article><article><span class="kind">Community</span><h3>Challenge one local inference</h3><p>Bring the premises and rule, then ask peers to find the first unsupported leap.</p><button class="btn" type="button" data-open-community>Open Community</button></article></section>
+  <div class="panel"><div class="panel-body"><button class="btn good" type="button" data-complete disabled>Complete lesson</button><p id="live" aria-live="polite">Complete all five pieces of case evidence.</p></div></div>
+  <nav class="footnav"><a class="btn" href="module-08-ask-the-graph-with-sparql.html">Previous</a><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="module-10-validation-with-shacl.html">Next: Validation with SHACL</a></nav>
+</div>
+</main>
+
 <div class="drawer-scrim" data-close-drawer></div>
-<aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><div class="panel" id="graph-visual" data-visual-type="network-diagram" data-component-source="component-gallery"><div class="panel-head">Module concept network</div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Select a node and read the named relationship.</div><div class="graph-map"><button class="gnode core" style="left:18%;top:18%" type="button" data-graph-kind="source" data-graph-id="g0">Utility records</button><button class="gnode " style="left:78%;top:31%" type="button" data-graph-kind="concept" data-graph-id="g1">OWL</button><button class="gnode " style="left:18%;top:44%" type="button" data-graph-kind="relationship" data-graph-id="g2">Apply one axiom</button><button class="gnode " style="left:78%;top:57%" type="button" data-graph-kind="role" data-graph-id="g3">Named owner</button><button class="gnode " style="left:18%;top:70%" type="button" data-graph-kind="competency" data-graph-id="g4">Apply the module</button></div><div class="graph-detail" data-graph-detail>Select a node.</div><div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Concepts become useful when they connect to sources, relationships, roles, and a demonstrated competency.</div></div></div></div></aside>
-<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><label data-community-feature="search"><b>Search discussions</b><input type="search" data-community-search></label><div class="filters" data-community-feature="filters"><button class="btn on" type="button" data-filter="all">All</button><button class="btn" type="button" data-filter="foundation">Foundation</button><button class="btn" type="button" data-filter="leader">Leader</button></div><p class="presence" data-community-feature="presence">4 course members viewing this module</p><article class="thread instructor" data-thread data-role="foundation" data-community-feature="instructor-treatment"><div class="thread-head"><b>Instructor prompt</b><button class="btn" type="button" data-bookmark data-community-feature="bookmarks">Bookmark</button></div><p>Where does this responsibility live in your utility today?</p><div class="replies" data-community-feature="threaded-replies"><p><b>Course member:</b> We found that the definition and the approval live with different teams.</p></div><form class="reply-form" data-reply-form><input aria-label="Reply" placeholder="Add a local draft reply"><button class="btn" type="submit">Reply</button></form></article></div></aside>
-<div id="tt" role="tooltip"></div><footer class="footer"><div class="wrap">Production candidate. No release, credential, graph publication, or operational authority claim.</div></footer><script src="course-module.js"></script></body></html>
+<aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><div class="stack">
+  <button type="button" data-graph-kind="concept"><b>Concept:</b> OWL entailment</button>
+  <button type="button" data-graph-kind="source"><b>Source:</b> asserted utility graph</button>
+  <button type="button" data-graph-kind="relationship"><b>Relationship:</b> axiom entails inference</button>
+  <button type="button" data-graph-kind="role"><b>Role:</b> ontology steward and operator</button>
+  <button type="button" data-graph-kind="competency"><b>Competency:</b> prove and bound an inference</button>
+</div></div></aside>
+<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Inference Review Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body">
+  <label data-community-feature="search">Search case discussions<input type="search" placeholder="Search by asset or rule"></label>
+  <div class="toolbar" data-community-feature="filters"><button class="btn" type="button">Subclass</button><button class="btn" type="button">Inverse</button><button class="btn" type="button">Property chain</button></div>
+  <p data-community-feature="presence">Working-review presence is simulated locally.</p>
+  <article class="card" data-community-feature="instructor-treatment"><h3>Instructor cross-examination</h3><p>Which conclusion in your current graph would be most harmful if someone mistook it for an observed fact?</p><button class="btn" type="button" data-community-feature="bookmarks">Bookmark</button><div data-community-feature="threaded-replies"><p><b>Course member:</b> Our criticality class is inferred from customer type, but the customer mapping needs review.</p></div></article>
+</div></aside>
+<div id="tt" role="tooltip"></div>
+<footer class="footer"><div class="wrap">Retrofit working candidate. No release, credential, graph publication, or operational authority claim.</div></footer>
+<script src="meaning-fieldbook.js"></script>
+<script>
+(() => {
+  const proofs = {
+    subclass: "<div class='proof-line'><b>1</b><span><strong>Fact</strong><br>P-104 is a BoosterPump.</span></div><div class='proof-line'><b>2</b><span><strong>Axiom</strong><br>Every BoosterPump is a Pump.</span></div><div class='proof-line'><b>3</b><span><strong>Inference</strong><br>P-104 is a Pump.</span></div>",
+    inverse: "<div class='proof-line'><b>1</b><span><strong>Fact</strong><br>P-104 serves Zone 3.</span></div><div class='proof-line'><b>2</b><span><strong>Axiom</strong><br>servedBy is inverse of serves.</span></div><div class='proof-line'><b>3</b><span><strong>Inference</strong><br>Zone 3 is servedBy P-104.</span></div>",
+    chain: "<div class='proof-line'><b>1</b><span><strong>Facts</strong><br>P-104 serves Zone 3; Zone 3 contains H-7.</span></div><div class='proof-line'><b>2</b><span><strong>Axiom</strong><br>serves followed by containsCriticalFacility implies supportsCriticalFacility.</span></div><div class='proof-line'><b>3</b><span><strong>Inference</strong><br>P-104 supports H-7.</span></div>"
+  };
+  const seen = new Set();
+  document.querySelectorAll("[data-rule]").forEach((button) => button.addEventListener("click", () => {
+    seen.add(button.dataset.rule);
+    document.querySelectorAll("[data-rule]").forEach((item) => item.classList.toggle("on", item === button));
+    document.querySelector("[data-rule-proof]").innerHTML = proofs[button.dataset.rule];
+  }));
+  document.querySelector("[data-check-rules]").addEventListener("click", () => {
+    const correct = seen.size === 3 && document.querySelector("[data-rule-answer]").value === "traceable";
+    const feedback = document.querySelector("#rule-switchboard .feedback");
+    feedback.textContent = correct ? "Rule review complete. You inspected three inference patterns and kept the proof beside the conclusion." : "Inspect all three rules, then choose the conclusion backed by named premises and an applicable axiom.";
+    feedback.className = `feedback ${correct ? "good" : "bad"}`;
+    if (correct) MBM.mark("rulelab");
+  });
+  document.querySelectorAll("[data-proof-options] .choice").forEach((button) => button.addEventListener("click", () => button.classList.toggle("selected")));
+  document.querySelector("[data-check-proof]").addEventListener("click", () => {
+    const selected = [...document.querySelectorAll("[data-proof-options] .choice.selected")];
+    const correct = selected.length === 2 && selected.every((item) => item.dataset.proofCorrect === "1");
+    const feedback = document.querySelector("#proof-challenge .feedback");
+    feedback.textContent = correct ? "Challenge sustained. The graph supports a relationship path, not causation or operating authority." : "Select exactly the causal claim and the operating-authority claim. Both go beyond the shown entailment.";
+    feedback.className = `feedback ${correct ? "good" : "bad"}`;
+    if (correct) MBM.mark("proof");
+  });
+})();
+</script>
+</body>
+</html>

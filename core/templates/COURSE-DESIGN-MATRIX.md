@@ -2,9 +2,9 @@
 
 Use this matrix to prevent a course from becoming a sequence of visually renamed copies.
 
-| Module | Opening pattern | Narrative architecture | Dominant visual | Supporting visuals | Purposeful interactions | Quiz sequence | Work product | Graph experience | Mobile transformation | Repetition risk |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | | | | | | | | | | |
+| Module | Lesson archetype | Opening pattern | Narrative architecture | Signature mechanism | Dominant visual | Supporting visuals | Assessment sequence | Work-product mode | Intended feeling | Graph experience | Mobile transformation | Deliberate contrast | Repetition risk |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | | | | | | |
 
 ## Course-level review
 
@@ -15,3 +15,5 @@ Use this matrix to prevent a course from becoming a sequence of visually renamed
 - Are quizzes varied and matched to the type of knowledge?
 - Does every module preserve accessibility, mobile behavior, and deterministic feedback?
 - Do repeated components earn their repetition because the same cognitive job recurs?
+- Does the course meet the minimum archetype count in `COURSE-EXPERIENCE-ARCHITECTURE.md`?
+- Does the rendered course pass `tools/course_distinctiveness.py`?

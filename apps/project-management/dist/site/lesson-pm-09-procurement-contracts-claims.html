@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 09 &middot; Procurement, contracts and claims &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 9 of the Project Management masterclass. How you buy the work (IFB, RFP, RFQ), the contract types and who carries the cost risk (FFP, cost-plus, GMP), contract administration, and handling change, claims, liquidated damages, and disputes.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-09-procurement-contracts-claims">
+<meta name="owos-release-state" content="working">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,12 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+.course-actions{margin-left:auto;display:flex;gap:.45rem;align-items:center}.course-actions a,.course-actions button{border:1px solid #bfd6e5;background:#fff;color:#123047;border-radius:999px;padding:.45rem .72rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.role-views,.artifact-builder,.final-check,.completion-requirements,.governed-visual,.module-faq details,.evidence-boundary,.connected-learning{border:1px solid #d7e3ec;border-radius:16px;background:#fff;padding:1rem;margin:1rem 0}.role-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.role-views article{background:#f4f8fb;border-radius:12px;padding:.85rem}.artifact-builder label,.final-check label{display:grid;gap:.35rem}.artifact-builder textarea,.final-check select,.course-drawer input{width:100%;box-sizing:border-box;margin-top:.6rem;padding:.75rem;border:1px solid #9eb4c4;border-radius:10px;font:inherit}.reading-guide,.learner-conclusion{background:#f4f8fb;border-left:4px solid #0a78ba;padding:.8rem 1rem}.source-links{display:flex;flex-wrap:wrap;gap:.6rem}.source-links a{font-weight:700}.course-drawer{position:fixed;inset:0 0 0 auto;width:min(430px,100%);z-index:1000;background:#fff;box-shadow:-18px 0 48px rgba(8,35,55,.25);overflow:auto}.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#123b5d;color:#fff;padding:1rem}.drawer-head h2{color:#fff;margin:0;font-size:1.15rem}.drawer-head button{background:#fff;color:#123047;border:0;border-radius:999px;padding:.5rem .8rem}.drawer-body{display:grid;gap:.8rem;padding:1rem}.drawer-body [data-community-feature]{border:1px solid #d7e3ec;border-radius:10px;padding:.75rem}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}#tt{position:fixed;left:-9999px}.module-faq details summary{cursor:pointer;font-weight:800}.module-faq details p{margin-bottom:0}
+@media (max-width:760px){.course-actions{width:100%;margin:0;flex-wrap:wrap}.role-views{grid-template-columns:1fr}.owos-nav{flex-wrap:wrap}.governed-visual,.artifact-builder,.final-check,.completion-requirements{padding:.8rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -589,10 +599,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 09</b></span>
+  <div class="course-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></div>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 09 &middot; Cost and procurement</span>
   <h1>Buying the work, and <span>who carries the risk</span></h1>
@@ -604,6 +615,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <button data-lens="l">Leader</button>
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+  <section class="role-views" aria-label="Role-sensitive views">
+    <article data-lens="foundation"><b>Foundation</b><p>Learn the plain-language distinction and use it on the Millpond example.</p></article>
+    <article data-lens="practitioner"><b>Practitioner</b><p>Make the decision, retain the evidence, and surface the assumption that could change it.</p></article>
+    <article data-lens="leader"><b>Leader</b><p>Confirm authority, consequence, and the threshold for approving or escalating the decision.</p></article>
+  </section>
 
   <div class="casebox">
     <span class="pin">&#9873;</span>
@@ -627,7 +643,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <h2>Soliciting the work</h2>
     <p>First a quick decision every project starts with: <span class="term" data-term="Make-or-buy" data-def="The choice between doing work with your own crews (make) or hiring it out under contract (buy). Utilities buy most capital construction and make most routine operations.">make-or-buy</span>. Utilities make most operations and buy most capital construction. Once you are buying, how you ask for it matters, because the way you solicit sets what you are allowed to weigh when you pick a winner.</p>
 
-    <div data-ac="table" data-title="Three ways to solicit" data-kind="Interactive &middot; comparison table" data-cue="Click any method for how it fits the Millpond contract.">
+    <p data-instructor-explanation data-teaches="solicitation-contract-table">The table separates solicitation choice from contract type and administration.</p>
+
+<section id="solicitation-contract-table" class="governed-visual" data-visual-type="comparison-table" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Compare when price, qualifications, approach, scope certainty, and negotiation matter.</p>
+<div data-ac="table" data-title="Three ways to solicit" data-kind="Interactive &middot; comparison table" data-cue="Click any method for how it fits the Millpond contract.">
       <script type="application/json">
       {"headers":["Method","Award on","Use when"],
        "rows":[
@@ -640,8 +660,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
        ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> Commercial choices should follow the nature of the requirement and governing authority.</p>
+</section>
 
-    <div data-ac="recommender" data-title="Which solicitation?" data-kind="Interactive &middot; recommender" data-cue="Match how you ask to what you are buying and what your rules allow.">
+    <div data-ac="recommender" id="opening-09" data-opening-decision data-required="opening-decision" data-purposeful-interaction="solicitation-selection" data-component-source="component-gallery" data-title="Which solicitation?" data-kind="Interactive &middot; recommender" data-cue="Match how you ask to what you are buying and what your rules allow.">
       <script type="application/json">
       {"prompt":"Pick the situation and see the fitting solicitation.",
        "options":[
@@ -654,7 +676,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
     <p>Once a contract is signed, work does not start until you issue the <span class="term" data-term="NTP" data-def="Notice to Proceed: the formal written go-ahead that starts the contract clock. Durations, milestones, and liquidated damages are all measured from it.">Notice to Proceed (NTP)</span>. It starts the clock that every deadline and penalty is measured from.</p>
 
-    <div data-ac="truefalse" data-title="Quick check" data-kind="Quiz &middot; true or false">
+    <p data-instructor-explanation data-teaches="claims-myth-check">Test the difference between a change, a change order, a claim, and a dispute. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="truefalse" id="claims-myth-check" data-quiz-type="true-false" data-required="knowledge-check-2" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Quick check" data-kind="Quiz &middot; true or false">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"items":[
         ["An Invitation for Bids awards to the lowest responsive, responsible bidder.",true,"Yes. IFB is price-based: the design is complete, so low bid decides, as long as the bidder is responsive and responsible."],
@@ -671,11 +696,17 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <h2>Contract types: where the risk sits</h2>
     <p>Here is the idea that matters most in this whole chapter. A contract type is a decision about <b>who eats the overrun if the job costs more than planned</b>. A <span class="term" data-term="FFP" data-def="Firm Fixed Price: the contractor agrees to one price no matter what it actually costs. The contractor carries the cost risk, and prices it in.">Firm Fixed Price (FFP)</span> puts that risk on the contractor. A <span class="term" data-term="T&M" data-def="Time and Materials, a form of cost-reimbursable contract: the owner pays the actual cost plus a fee. The owner carries the cost risk.">Time and Materials (T&M)</span> or cost-plus contract puts it on the owner. A <span class="term" data-term="GMP" data-def="Guaranteed Maximum Price: the owner pays actual cost plus a fee, but only up to a cap. Below the cap the owner carries the risk; above it, the contractor does.">Guaranteed Maximum Price (GMP)</span> splits it. Drag the actual cost and watch who pays.</p>
 
-    <div data-ac="contractrisk" data-title="Who carries the risk?" data-kind="Interactive &middot; simulation" data-cue="Push the actual cost above the fixed price and watch the Fixed Price contractor go into the red while the cost-plus owner just keeps paying. That is the risk you are pricing.">
+    <p data-instructor-explanation data-teaches="contract-risk-transfer">The simulation makes risk allocation visible rather than treating contract labels as paperwork.</p>
+
+<section id="contract-risk-transfer" class="governed-visual" data-visual-type="line-s-curve" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Move actual cost across the estimate and watch owner and contractor exposure change under each contract type.</p>
+<div data-ac="contractrisk" data-title="Who carries the risk?" data-kind="Interactive &middot; simulation" data-cue="Push the actual cost above the fixed price and watch the Fixed Price contractor go into the red while the cost-plus owner just keeps paying. That is the risk you are pricing.">
       <script type="application/json">
       {"target":1000,"fee":100}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> Contract type changes who carries cost uncertainty and therefore changes price, incentive, and administration.</p>
+</section>
 
     <p>Signing the contract is the easy part. Running it is <span class="term" data-term="Contract administration" data-def="The day-to-day management of a construction contract: reviewing submittals, processing payments, holding retainage, and closing out.">contract administration</span>, and it runs on a few instruments. Learn them.</p>
 
@@ -690,7 +721,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       </script>
     </div>
 
-    <div data-ac="mc" data-title="Read the contract" data-kind="Quiz &middot; multiple choice">
+    <p data-instructor-explanation data-teaches="commercial-method-choice">Choose the commercial path that matches scope certainty, evaluation need, and authority. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="mc" id="commercial-method-choice" data-quiz-type="multiple-choice" data-required="knowledge-check-1" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Read the contract" data-kind="Quiz &middot; multiple choice">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"q":"The Millpond construction is fully designed and you want price certainty, with the contractor carrying the risk of overruns. Which contract type fits?",
        "options":[
@@ -806,12 +840,90 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+
+  <section class="sec retrofit-evidence" aria-labelledby="evidence-09">
+    <span class="tag">Professional evidence</span>
+    <h2 id="evidence-09">Build the commercial decision record</h2>
+    <p>This is the record you should be able to carry into utility work. Keep it short enough to review and specific enough that another person can understand the decision, the assumptions, and the evidence still missing.</p>
+    <section class="artifact-builder" data-artifact="commercial-decision-record" data-required="work-product">
+      <label for="commercial-decision-record-text"><b>Commercial decision record</b><span>Record the procurement authority, solicitation, evaluation basis, contract type, allocated risks, notice rules, change authority, required records, and escalation path.</span></label>
+      <textarea id="commercial-decision-record-text" rows="7" placeholder="Write a concise, reviewable record. Do not enter sensitive utility information."></textarea>
+    </section>
+    <section class="final-check" data-final-applied-check data-required="final-applied-check" data-artifact-ref="commercial-decision-record">
+      <label for="commercial-decision-record-check"><b>Final applied check</b><span>Which statement makes the commercial decision reviewable?</span></label>
+      <select id="commercial-decision-record-check">
+        <option value="">Choose the evidence standard</option>
+        <option value="weak">The preferred result is recorded, even if assumptions remain implicit.</option>
+        <option value="ready">Authority, evaluation logic, risk allocation, administration controls, and escalation are explicit.</option>
+      </select>
+      <p id="commercial-decision-record-feedback" aria-live="polite">Choose an answer after drafting the record.</p>
+    </section>
+    <div class="completion-requirements" aria-labelledby="requirements-09">
+      <h3 id="requirements-09">Visible completion requirements</h3>
+      <ul>
+        <li data-requirement="opening-decision">Complete the opening decision.</li>
+        <li data-requirement="knowledge-check-1">Complete the first knowledge check.</li>
+        <li data-requirement="knowledge-check-2">Complete the second knowledge check.</li>
+        <li data-requirement="work-product">Draft the commercial decision record.</li>
+        <li data-requirement="final-applied-check">Pass the final applied check.</li>
+      </ul>
+      <button type="button" class="btn" data-complete disabled>Complete this chapter</button>
+    </div>
+  </section>
+
+  <section class="sec module-faq" data-module-faq aria-labelledby="faq-09">
+    <span class="tag">Questions people actually ask</span>
+    <h2 id="faq-09">Chapter 09 FAQ</h2>
+    <details><summary>Is lowest bid always the required choice?</summary><p>No. The answer depends on the applicable procurement method and law. Sealed bidding emphasizes price after responsiveness and responsibility, while negotiated best-value methods can weigh stated nonprice factors.</p></details>
+      <details><summary>Does fixed price remove all owner risk?</summary><p>No. The owner still carries risks it retains, changes it directs, information it warrants, and events allocated by the contract.</p></details>
+      <details><summary>When does a change become a claim?</summary><p>A change becomes a claim when entitlement, time, or money is disputed under the contract process. Early notice and complete records help resolve it sooner.</p></details>
+      <details><summary>Why does contract administration matter after award?</summary><p>The contract only controls work when submittals, notices, payment evidence, changes, acceptance, and authority are managed consistently.</p></details>
+      <details><summary>Can the project manager promise extra work in the field?</summary><p>Only within delegated authority and the contract procedure. An informal promise can create exposure without an approved scope, price, schedule, or funding record.</p></details>
+  </section>
+
+  <section class="sec evidence-boundary" data-evidence-boundary aria-labelledby="boundary-09">
+    <span class="tag">Evidence boundary</span>
+    <h2 id="boundary-09">What this lesson can and cannot decide</h2>
+    <p>The Millpond examples and calculators are instructional models. They help you structure judgment, but they do not replace the current contract, adopted utility policy, funding conditions, applicable law, approved design basis, or a qualified professional review. Verify every live decision against controlled local evidence.</p>
+    <div class="source-links"><a href="https://www.acquisition.gov/far/part-15">FAR Part 15, Contracting by Negotiation</a>
+      <a href="https://www.acquisition.gov/far/part-16">FAR Part 16, Types of Contracts</a>
+      <a href="https://www.fhwa.dot.gov/construction/contracts/acm/">FHWA Alternative Contracting Methods</a></div>
+  </section>
+
+  <section id="owos-course-community" class="sec connected-learning" aria-labelledby="connected-09">
+    <span class="tag">Connected learning</span>
+    <h2 id="connected-09">Compare the decision, not just the answer</h2>
+    <p>Use the Community drawer to compare assumptions, evidence, and role perspectives without posting controlled project information.</p>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" hidden aria-labelledby="graph-title-09">
+    <div class="drawer-head"><h2 id="graph-title-09">Chapter 09 knowledge graph</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> contract risk</p>
+      <p data-graph-kind="source"><b>Source:</b> change and claim</p>
+      <p data-graph-kind="role"><b>Roles:</b> contracting authority and PM</p>
+      <p data-graph-kind="competency"><b>Competency:</b> commercial control</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> risk allocation shapes price and behavior</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" hidden aria-labelledby="community-title-09">
+    <div class="drawer-head"><h2 id="community-title-09">Chapter 09 community</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <label data-community-feature="search">Search discussion <input type="search" placeholder="Search this chapter"></label>
+      <div data-community-feature="filters"><button type="button">Assumptions</button> <button type="button">Evidence</button> <button type="button">Role views</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this decision pattern</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Reply to the decision basis and name the evidence you would need.</p></div>
+      <p data-community-feature="presence"><b>Presence:</b> Peer discussion is available when the course platform is connected.</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor treatment:</b> Strong contributions separate source, assumption, recommendation, and authority.</p>
+    </div>
+  </aside>
+
+  <div class="navrow footnav">
     <a href="lesson-pm-08-earned-value.html">&#8592; Chapter 08 &middot; Earned Value and forecasting</a>
     <a class="btn" href="lesson-pm-10-quality-management.html">Chapter 10 &middot; Quality management &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1128,10 +1240,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2156,6 +2272,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2165,10 +2300,45 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 
 </script>
+<script>
+(function(){
+  var lastTrigger=null;
+  function openDrawer(kind,trigger){
+    var drawer=document.querySelector('[data-drawer="'+kind+'"]');
+    if(!drawer)return;
+    lastTrigger=trigger;drawer.hidden=false;
+    var close=drawer.querySelector('[data-close-drawer]');if(close)close.focus();
+  }
+  document.querySelectorAll('[data-open-graph]').forEach(function(b){b.addEventListener('click',function(){openDrawer('graph',b);});});
+  document.querySelectorAll('[data-open-community]').forEach(function(b){b.addEventListener('click',function(){openDrawer('community',b);});});
+  document.querySelectorAll('[data-close-drawer]').forEach(function(b){b.addEventListener('click',function(){b.closest('[data-drawer]').hidden=true;if(lastTrigger)lastTrigger.focus();});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var open=document.querySelector('[data-drawer]:not([hidden])');if(open){open.hidden=true;if(lastTrigger)lastTrigger.focus();}}});
+  var text=document.getElementById('commercial-decision-record-text');
+  var check=document.getElementById('commercial-decision-record-check');
+  var feedback=document.getElementById('commercial-decision-record-feedback');
+  var complete=document.querySelector('[data-complete]');
+  function assess(){
+    var drafted=text&&text.value.trim().length>=40;
+    var ready=check&&check.value==='ready';
+    if(feedback){
+      if(!check.value)feedback.textContent='Choose an answer after drafting the record.';
+      else if(!ready)feedback.textContent='Not yet. A preferred result without explicit assumptions and evidence is not reviewable. Retry.';
+      else if(!drafted)feedback.textContent='That evidence standard is right. Add at least a short decision record before completion.';
+      else feedback.textContent='Ready for working review. The record and evidence standard are both present.';
+    }
+    if(complete)complete.disabled=!(drafted&&ready);
+  }
+  if(text){text.addEventListener('input',assess);}
+  if(check){check.addEventListener('change',assess);}
+  assess();
+})();
+</script>
+<div id="tt" role="tooltip"></div>
 </body>
 </html>

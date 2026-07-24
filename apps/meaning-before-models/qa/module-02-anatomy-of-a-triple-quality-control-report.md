@@ -1,7 +1,7 @@
 ---
 module_id: mbm001:02
 course_id: owos-course-semantic-data-ai-001
-version: production-candidate-1
+version: semantic-fieldbook-retrofit-1
 review_date: 2026-07-23
 reviewer: Codex repository review
 score: 86
@@ -11,6 +11,12 @@ release_status: blocked
 ---
 
 # Module Quality-Control Report: The Anatomy of a Triple
+
+## Retrofit implementation review
+- Rebuilt as a syntax workbench, not a copy of Module 01.
+- Verified mechanisms: four-defect repair bay, literal inspector, and Turtle to JSON-LD switch.
+- Verified work product: Reviewed Triple Deck with explicit source and review boundary.
+- Score remains conditional while human technical, practitioner, accessibility, and learner reviews remain open.
 
 ## Decision
 - Working-review result: Conditional production candidate.

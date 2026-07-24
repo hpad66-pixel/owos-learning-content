@@ -28,9 +28,10 @@ its own sake.
    what action to take, what to notice, why it matters in utility work, and what the result means. Add a
    short debrief after the component when the learner must interpret a change or consequence. A tooltip
    supports this explanation but never replaces it.
-9. **Write the recording script.** Every module needs a complete instructor recording script, and every
-   course needs one overview script that explains all lessons in order. Put visual directions in brackets
-   and keep them separate from the words the instructor will speak.
+9. **Make the page complete without video.** The written lesson carries every required explanation,
+   worked example, instruction, and debrief. Create a recording script only when the approved course
+   modality includes video or narration. Put visual directions in brackets and keep them separate from
+   spoken words.
 10. **Anticipate learner questions.** End every module with a module-specific FAQ. Answer likely novice
    questions directly in conversational plain English, use a concrete utility example, and add a diagram,
    comparison, or worked sequence when it makes the relationship easier to understand. Do not reuse a
@@ -43,14 +44,12 @@ its own sake.
 - Be encouraging and calm, not hype-y. No exclamation-point energy, no salesy adjectives.
 - It is fine to sound a little informal ("Here's the easiest way to tell them apart.").
 
-## Structure every module keeps
-- Three levels (Foundation / Practitioner / Leader), switchable.
-- Learn by doing: each idea comes with something interactive suited to that topic.
-- Droobi guides, in the same plain voice.
-- Hover definitions on every new term.
-- "Try it yourself" checks at the end, with full plain-English answers.
-- A module-specific FAQ near the bottom, before sources and connected learning.
-- A short takeaway in plain sentences.
+## What every module keeps
+
+Keep the accessibility, navigation, evidence, glossary, completion, Graph, and Community contracts.
+Keep role-sensitive teaching when roles genuinely change the decision. Keep a module-specific FAQ
+and a clear takeaway. Do not keep one page composition, section count, guide character, quiz order,
+interaction pair, or work-product form across the course.
 
 ## Learning components every module should draw from
 A module is not just text with one widget. Reach for the right teaching tool for each idea. Every
@@ -82,21 +81,25 @@ interaction, it is under-built. Add the component that fits.
 Before building any module, run the **Selection Prompt** in `VISUAL-ARSENAL.md`. It maps each idea to
 the visual that fits its shape (a three-legged stool for sustainability, a fishbone for root cause, a
 2x2 for priorities, a wire diagram for a network, and so on). This is required.
-- Use at least **4 different visual types** per module, and do not repeat a type unless it truly fits.
+- Use the **2 to 5 substantial visual explanations** the ideas require. One deep simulation may teach
+  more than four static diagrams.
 - **Never** default to the iron triangle or a cash-flow curve out of habit. That is what makes modules
   feel cheesy and identical. The variety is where the flair, clarity, and uniqueness come from.
 - If an idea has no natural visual, keep it as plain text plus a quiz. Do not force a picture.
 - Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout. Record the reason for any necessary exception.
 - Use original editorial illustrations for utility settings, physical assets, conflicting records, or decision paths when a scene teaches the idea better than prose. Add accessible text, a reading guide, and the conclusion the learner should reach.
-- Distribute at least three different quiz types through a full module. Place each check after the idea it measures, label the check clearly, explain incorrect responses, allow retry, and connect the final applied assessment to the professional work product.
+- Distribute checks through a full module. Match the form to recognition, sequence, relationship,
+  diagnosis, judgment, application, or synthesis. Explain incorrect responses, allow retry where
+  appropriate, and connect the final applied assessment to the professional work product.
 
 ## Quick before-you-publish check
 - Search the file for "—". There should be zero.
 - Read it out loud. If a sentence sounds like a press release or a robot, rewrite it.
 - Every concept: is there an example? Is every term explained?
-- Component check: does the module include a process, a diagram, a chart or curve, a framework, a
-  method, and at least three different quiz types? If not, it is not done.
-- Reuse `module-template.html` as the starting scaffold so every course looks and behaves the same.
+- Component check: do the visuals and interactions reveal the actual idea, and does the lesson have
+  one memorable subject-specific mechanism? If not, it is not done.
+- Reuse governed accessibility and behavior primitives. Do not reuse one lesson composition so every
+  course looks and behaves the same.
 
 ## The three connected reference files (the palette)
 Everything is wired together. Before and during a build, use these:
@@ -106,8 +109,9 @@ Everything is wired together. Before and during a build, use these:
 - **`quiz-gallery.html`** — every quiz type (flip cards, matching, multiple choice, multi-select,
   classify, estimate, true/false, fill-in, ordering, reflection) rendered live and working.
 
-**Mix the quiz types.** Do not use the same quiz twice in a row. Rotate them through a chapter so the
-learner keeps getting a different kind of task. Aim for at least 3 different quiz types per module.
+**Match and vary the assessments.** Do not use the same quiz twice in a row or repeat one sequence
+throughout a course. A query, graph construction, proof repair, calculation, simulation, or defended
+recommendation can be the assessment.
 
 ## Wire the four files together. DO NOT hand-roll. (This is the most important rule.)
 A module is ASSEMBLED from the four reference files below. You do not invent components from scratch,

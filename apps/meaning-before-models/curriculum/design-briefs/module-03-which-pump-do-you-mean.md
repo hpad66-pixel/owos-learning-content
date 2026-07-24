@@ -1,5 +1,10 @@
 # OWOS Module Design Brief: Which Pump Do You Mean?
 
+Retrofit implementation: forensic identity review using `identity-bridge`, `provenance-network`, and
+`failure-propagation-chain`. The assessment sequence is `evidence-hold`, `identity-adjudication`,
+`control-placement`, and `applied-review`. The learner adjudicates five P-104 records, then runs the
+blast radius of a false merge. The work product separates an approved crosswalk from a conflict queue.
+
 ## Identity
 | Field | Decision |
 | --- | --- |

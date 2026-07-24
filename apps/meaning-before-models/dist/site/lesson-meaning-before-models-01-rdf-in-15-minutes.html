@@ -1,84 +1,281 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Module 01: RDF in 15 Minutes | One Water OS Academy</title>
-<meta name="owos-course-id" content="owos-course-semantic-data-ai-001"><meta name="owos-learning-object" content="mbm001:01">
-<meta name="owos-release-state" content="live-review"><meta name="owos-course-store" content="mbm001">
-<link rel="icon" href="data:,"><link rel="stylesheet" href="meaning-before-models-module-05.css"></head>
-<body data-module="module-01" data-lens="foundation"><div class="reading" aria-hidden="true"></div>
-<header class="top"><div class="wrap topin"><a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meaning Before Models / Module 01</span><nav class="topactions" aria-label="Lesson actions"><button class="btn secondary" type="button" data-open-graph>Graph</button><button class="btn secondary" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav></div></header>
-<main><section class="wrap hero"><span class="kicker">Module 01 | Production candidate</span><h1>RDF in 15 Minutes</h1><p>Resource Description Framework starts with one directed, named relationship: subject, predicate, object.</p><div class="meta"><span>45 to 60 minutes</span><span>Foundation to Leader</span><span>Relationship Card</span></div><div class="lenses" role="tablist" aria-label="Instructional depth"><button type="button" class="on" data-lens="foundation">Foundation</button><button type="button" data-lens="practitioner">Practitioner</button><button type="button" data-lens="leader">Leader</button></div></section>
-<div class="wrap"><section class="requirements" aria-label="Completion evidence"><div class="req" data-requirement="opening"><i></i>Opening decision</div><div class="req" data-requirement="process"><i></i>Mechanism lab</div><div class="req" data-requirement="matching"><i></i>Concept match</div><div class="req" data-requirement="multi"><i></i>Boundary check</div><div class="req" data-requirement="artifact"><i></i>Work product</div><div class="req" data-requirement="applied"><i></i>Applied assessment</div></section></div>
-<div class="wrap" id="lesson-start"><section class="section"><div class="section-head"><div><span class="tag">Decision first</span><h2>A pump alarm appears at 2:00 a.m. The records name a pump, a pressure zone, a work order, and customers, but no record states the complete path.</h2></div><span class="section-num">01 / 05</span></div>
-<div class="view foundation"><p>Begin with the ordinary-language relationship and keep the technical labels in the background until the job is clear.</p></div><div class="view practitioner"><p>Inspect identifiers, mappings, rules, tests, and evidence boundaries at every handoff.</p></div><div class="view leader"><p>Name the accountable owner, operating consequence, investment boundary, and stop condition.</p></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="opening-quiz"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Choose the answer you would accept in a real utility review. You can retry. The feedback explains the boundary this module will teach.</p></div></div>
-<div class="panel" id="opening-quiz" data-opening-decision data-quiz-type="multiple-choice" data-quiz-source="quiz-gallery" data-required="opening" data-retry="Return to the scenario and choose the statement that is explicit, governed, and reviewable."><div class="panel-head">Opening decision <span class="kind">Multiple choice</span></div><div class="panel-body"><h3>Which statement gives a machine one reusable piece of meaning?</h3><div class="decision-grid"><button class="choice" type="button" data-correct="1">Pump_P104 serves Pressure_Zone_3.</button><button class="choice" type="button" data-correct="0">Use the closest matching label without review.</button><button class="choice" type="button" data-correct="0">Let the newest application define the meaning for everyone.</button><button class="choice" type="button" data-correct="0">Ask the language model to choose what the term probably means.</button></div><button class="btn primary" type="button" data-check-quiz>Check decision</button><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Mental model</span><h2>See the mechanism before memorizing the vocabulary</h2></div><span class="section-num">02 / 05</span></div><p class="lede"><span class="term" data-def="RDF is defined and used within this module.">RDF</span> <span class="term" data-def="triple is defined and used within this module.">triple</span> <span class="term" data-def="subject is defined and used within this module.">subject</span> <span class="term" data-def="predicate is defined and used within this module.">predicate</span> <span class="term" data-def="object is defined and used within this module.">object</span> <span class="term" data-def="resource is defined and used within this module.">resource</span> <span class="term" data-def="literal is defined and used within this module.">literal</span> <span class="term" data-def="graph is defined and used within this module.">graph</span></p>
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-1">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this editorial illustration from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-1" data-visual-type="editorial-illustration" data-component-source="component-gallery">
-      <div class="panel-head">Choose the relationship <span class="kind">editorial illustration</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Name the subject. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="scene"><div class="scene-card"><span class="tag">Utility scene</span><h3>A pump alarm appears at 2:00 a.m. The records name a pump, a pressure zone, a work order, and customers, but no record states the complete path.</h3><p>Resource Description Framework starts with one directed, named relationship: subject, predicate, object.</p></div><div class="scene-legend"><div class="legend-row"><i style="background:#062B43"></i><div><b>Name the subject</b><span>Follow this evidence into the next controlled step.</span></div></div><div class="legend-row"><i style="background:#0A78BA"></i><div><b>Choose the relationship</b><span>Follow this evidence into the next controlled step.</span></div></div><div class="legend-row"><i style="background:#0E8A64"></i><div><b>Name the object</b><span>Follow this evidence into the next controlled step.</span></div></div><div class="legend-row"><i style="background:#A97B0F"></i><div><b>Connect the next triple</b><span>Follow this evidence into the next controlled step.</span></div></div></div></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Resource Description Framework starts with one directed, named relationship: subject, predicate, object.</div></div>
-    </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Module 01: RDF in 15 Minutes | One Water OS Academy</title>
+  <meta name="description" content="Build a utility relationship as an RDF triple, reverse it, and connect it to a small graph.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:01">
+  <meta name="owos-release-state" content="live-review">
+  <meta name="owos-lesson-archetype" content="guided-construction">
+  <meta name="owos-signature-mechanism" content="build-reverse-and-chain-utility-triples">
+  <meta name="owos-opening-pattern" content="ordinary-relationship-question">
+  <meta name="owos-work-product-mode" content="pocket-relationship-card">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="meaning-before-models-fieldbook.css">
+</head>
+<body data-module="module-01" data-lens="foundation">
+<div class="reading" aria-hidden="true"></div>
+<header class="top"><div class="wrap topin">
+  <a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a>
+  <span class="crumb">Meaning Before Models / 01</span>
+  <nav class="topactions" aria-label="Lesson actions"><button class="btn" type="button" data-open-graph>Graph</button><button class="btn" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav>
+</div></header>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-2">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this network diagram from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-2" data-visual-type="network-diagram" data-component-source="component-gallery">
-      <div class="panel-head">Name the object <span class="kind">network diagram</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Name the subject. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="graph-map inline-map"><button type="button" class="gnode core" style="left:18%;top:20%" data-inline-node="0">Name the subject</button><button type="button" class="gnode " style="left:76%;top:40%" data-inline-node="1">Choose the relationship</button><button type="button" class="gnode " style="left:18%;top:60%" data-inline-node="2">Name the object</button><button type="button" class="gnode " style="left:76%;top:80%" data-inline-node="3">Connect the next triple</button><svg viewBox="0 0 520 360" aria-hidden="true"><g stroke="#B9D3E1" stroke-width="2"><line x1="95" y1="72" x2="395" y2="144"/><line x1="395" y1="144" x2="95" y2="216"/><line x1="95" y1="216" x2="395" y2="288"/></g></svg></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Resource Description Framework starts with one directed, named relationship: subject, predicate, object.</div></div>
-    </div>
+<main>
+<section class="wrap hero" aria-labelledby="lesson-title">
+  <span class="eyebrow">Guided construction · Module 01</span>
+  <h1 id="lesson-title">RDF in 15 Minutes</h1>
+  <p>You already understand the basic idea behind Resource Description Framework. You use it every time you say that one thing has a particular relationship to another thing. This short lesson turns that ordinary habit into a machine-readable statement.</p>
+  <div class="meta"><span>15-minute standalone primer</span><span>Foundation</span><span>Build, reverse, connect</span><span>Relationship Card</span></div>
+  <div class="lenses" role="tablist" aria-label="Instructional view"><button class="on" type="button" data-lens="foundation" role="tab" aria-selected="true">Foundation</button><button type="button" data-lens="practitioner" role="tab" aria-selected="false">Practitioner</button><button type="button" data-lens="leader" role="tab" aria-selected="false">Leader</button></div>
+</section>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-3">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this comparison table from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
-    </div>
-    <div class="panel" id="visual-3" data-visual-type="comparison-table" data-component-source="component-gallery">
-      <div class="panel-head">Connect the next triple <span class="kind">comparison table</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Name the subject. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="comparison-scroll"><table class="comparison"><thead><tr><th>Question</th><th>Weak treatment</th><th>Governed treatment</th></tr></thead><tbody><tr><th>Name the subject</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr><tr><th>Choose the relationship</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr><tr><th>Name the object</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr><tr><th>Connect the next triple</th><td>Implicit, local, or unreviewed</td><td>Named, testable, owned, and traceable</td></tr></tbody></table></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Resource Description Framework starts with one directed, named relationship: subject, predicate, object.</div></div>
-    </div>
+<div class="wrap lesson" id="lesson-start">
+  <div class="requirements" aria-label="Completion evidence">
+    <div class="req" data-requirement="opening"><i></i>Choose a useful relationship</div>
+    <div class="req" data-requirement="construct"><i></i>Build and reverse a triple</div>
+    <div class="req" data-requirement="trace"><i></i>Trace a three-edge path</div>
+    <div class="req" data-requirement="artifact"><i></i>Save a Relationship Card</div>
+    <div class="req" data-requirement="applied"><i></i>Pass the applied check</div>
+  </div>
 
-    <div class="instructor-dialogue" data-instructor-explanation data-teaches="visual-4">
-      <div class="instructor-label">Instructor explanation</div><div class="instructor-copy">
-      <p>Read this interactive process from the first named decision toward the controlled result. Notice what becomes explicit, who owns it, and what evidence another team could inspect.</p>
-      <p>In utility work, the picture matters only if it helps you explain the relationship and use it in a real decision.</p></div>
+  <section class="chapter narrow">
+    <div class="chapter-head"><span class="chapter-index">1</span><div><span class="kind">Start with a question</span><h2>What relationship would help at 2:00 a.m.?</h2></div></div>
+    <div class="teaching">
+      <p>A pump alarm appears in the control room. The screen says <b>Pump P-104</b>. An operator does not need another pile of data. The operator needs to know what that pump serves, where it is, what work is open, and which customers could be affected.</p>
+      <p>Here are three ordinary questions. In water: which pressure zone does this pump serve? In wastewater: which lift station discharges to this force main? In stormwater: which outfall drains this catchment? Each question asks for the same basic unit of understanding: <b>how one thing relates to another thing</b>.</p>
     </div>
-    <div class="panel" id="visual-4" data-visual-type="interactive-process" data-component-source="component-gallery">
-      <div class="panel-head">Name the subject <span class="kind">interactive process</span></div>
-      <div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with Name the subject. Follow the named steps and compare the controlled result with the shortcut.</div>
-      <div class="process-flow"><div class="flowbox"><b>1</b><span>Name the subject</span></div><span class=flowarrow>→</span><div class="flowbox"><b>2</b><span>Choose the relationship</span></div><span class=flowarrow>→</span><div class="flowbox"><b>3</b><span>Name the object</span></div><span class=flowarrow>→</span><div class="flowbox"><b>4</b><span>Connect the next triple</span></div></div>
-      <div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Resource Description Framework starts with one directed, named relationship: subject, predicate, object.</div></div>
-    </div></section>
-<section class="section"><div class="section-head"><div><span class="tag">Operate the mechanism</span><h2>Move the scenario through four controlled steps</h2></div><span class="section-num">03 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="process-lab concept-match"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select each step and read what it adds to the decision. Then match the module terms to the jobs they perform.</p><p>The goal is not vocabulary recall. It is knowing where a missing responsibility would first break the answer.</p></div></div>
-<div class="panel" id="process-lab" data-purposeful-interaction="step-through" data-component-source="component-gallery" data-required="process"><div class="panel-head">Mechanism laboratory <span class="kind">Interactive process</span></div><div class="panel-body"><div class="decision-grid"><button type="button" class="choice lab-choice" data-step="0">Name the subject</button><button type="button" class="choice lab-choice" data-step="1">Choose the relationship</button><button type="button" class="choice lab-choice" data-step="2">Name the object</button><button type="button" class="choice lab-choice" data-step="3">Connect the next triple</button></div><div class="debrief" data-step-detail><b>Select a step</b>The evidence and control added by that step will appear here.</div><div class="feedback" aria-live="polite"></div></div></div>
-<div class="panel" id="concept-match" data-quiz-type="matching" data-quiz-source="quiz-gallery" data-required="matching" data-retry="Match each term to the job it performs in this module."><div class="panel-head">Match terms to jobs <span class="kind">Matching</span></div><div class="panel-body"><div class="match"><div class="mcol" data-match-left><button type="button" class="match-item" data-match-question="0">RDF</button><button type="button" class="match-item" data-match-question="1">triple</button><button type="button" class="match-item" data-match-question="2">subject</button><button type="button" class="match-item" data-match-question="3">predicate</button></div><div class="mcol" data-match-right><button type="button" class="match-item" data-match-job="0">Connect the next triple</button><button type="button" class="match-item" data-match-job="1">Name the object</button><button type="button" class="match-item" data-match-job="2">Choose the relationship</button><button type="button" class="match-item" data-match-job="3">Name the subject</button></div></div><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Check the boundary</span><h2>Choose what belongs in the governed answer path</h2></div><span class="section-num">04 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="boundary-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Select the three items that make the result reviewable. Reject shortcuts that hide evidence or authority.</p></div></div>
-<div class="panel" id="boundary-check" data-quiz-type="multi-select" data-quiz-source="quiz-gallery" data-purposeful-interaction="boundary-selection" data-required="multi" data-retry="Include named evidence, an explicit rule or relationship, and an accountable reviewer."><div class="panel-head">Boundary check <span class="kind">Multi-select</span></div><div class="panel-body"><div class="packet-options"><button class="option-check" type="button" data-correct="1">Named source records and identifiers</button><button class="option-check" type="button" data-correct="1">Explicit relationship, rule, mapping, or constraint</button><button class="option-check" type="button" data-correct="1">Named owner, reviewer, and authority boundary</button><button class="option-check" type="button" data-correct="0">Unreviewed label similarity</button><button class="option-check" type="button" data-correct="0">Permission for a model to act without approval</button></div><button class="btn primary" type="button" data-check-multi>Validate selection</button><div class="feedback" aria-live="polite"></div></div></div>
-</section><section class="section"><div class="section-head"><div><span class="tag">Professional work product</span><h2>Build the Relationship Card</h2></div><span class="section-num">05 / 05</span></div>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="work-product applied-check"><div class="instructor-label">Instructor explanation</div><div class="instructor-copy"><p>Write specific statements that another utility team could inspect. Name sources, relationships, rules, owners, limits, and the human decision.</p><p>Save the draft, then run the applied assessment. Completion requires both.</p></div></div>
-<div class="panel"><div class="panel-head">Relationship Card <span class="kind">Artifact builder</span></div><div class="panel-body artifact-grid"><form class="form" id="work-product" data-artifact="module-01-artifact" data-component-source="component-gallery" data-purposeful-interaction="artifact-builder" data-required="artifact"><label>Operational question<span>Write a specific utility statement</span><textarea name="field0" rows="2" required></textarea></label><label>Name the subject<span>Write a specific utility statement</span><textarea name="field1" rows="2" required></textarea></label><label>Choose the relationship<span>Write a specific utility statement</span><textarea name="field2" rows="2" required></textarea></label><label>Name the object<span>Write a specific utility statement</span><textarea name="field3" rows="2" required></textarea></label><label>Connect the next triple<span>Write a specific utility statement</span><textarea name="field4" rows="2" required></textarea></label><label>Evidence and source boundary<span>Write a specific utility statement</span><textarea name="field5" rows="2" required></textarea></label><label>Named reviewers<span>Write a specific utility statement</span><textarea name="field6" rows="2" required></textarea></label><label>Human authority or stop condition<span>Write a specific utility statement</span><textarea name="field7" rows="2" required></textarea></label><button class="btn primary" type="submit">Save working draft</button><div class="feedback" aria-live="polite"></div></form><div class="preview"><h3>Working preview</h3><pre data-artifact-preview>Complete the form to build the preview.</pre></div></div></div>
-<div class="panel" id="applied-check" data-final-applied-check data-artifact-ref="module-01-artifact" data-quiz-type="applied-assessment" data-quiz-source="applied-assessment-contract" data-required="applied" data-retry="Revise the work product until every field is specific and the human authority boundary is explicit."><div class="panel-head">Applied assessment <span class="kind">Work-product check</span></div><div class="panel-body"><div class="criteria" data-criteria></div><button class="btn primary" type="button" data-check-applied>Evaluate saved work</button><div class="feedback" aria-live="polite"></div></div></div>
-<div class="takeaway"><h2>What to remember</h2><p>Resource Description Framework starts with one directed, named relationship: subject, predicate, object. The system may organize, retrieve, infer, validate, or draft. A named human remains accountable for the utility decision.</p></div>
-<section class="complete"><h3>Module 01 completion</h3><p data-completion-status>Complete every required item.</p><button class="btn primary" type="button" data-complete disabled>Mark module complete</button><div class="feedback" id="live" aria-live="polite"></div></section></section>
-<section class="section faq" data-module-faq><span class="tag">Questions learners ask</span><h2>Clear up the remaining boundaries</h2><details><summary>Is RDF the same as triple?</summary><p>No. In this lesson, RDF and triple perform different jobs. Resource Description Framework starts with one directed, named relationship: subject, predicate, object.</p></details><details><summary>What happens when subject is missing?</summary><p>The utility loses a named control in the path. In the module scenario, that makes the answer harder to trace, test, or approve.</p></details><details><summary>Who owns predicate?</summary><p>A named utility role must own the definition or decision. A platform may execute the rule, but it does not become accountable.</p></details><details><summary>Does this replace our existing utility systems?</summary><p>No. Source systems keep doing their operating jobs. This lesson adds explicit meaning, evidence, and control across them.</p></details><details><summary>When should we use a simpler approach?</summary><p>Use the simplest governed design that answers the bounded question. If one reliable table is enough, do not add a graph only because graphs are available.</p></details></section>
-<section class="section source" data-evidence-boundary><span class="tag">Sources and limits</span><h2>Evidence boundary</h2><p>This module uses an instructional utility scenario. It does not establish an operating procedure, legal conclusion, cybersecurity approval, or authority to act. Independent factual and practitioner review remain required.</p><ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">W3C RDF Concepts</a></li><li><a href="https://www.w3.org/TR/rdf-schema/">W3C RDF Schema</a></li><li><a href="https://www.w3.org/TR/sparql12-query/">W3C SPARQL Query Language</a></li><li><a href="https://www.w3.org/TR/owl2-overview/">W3C OWL Overview</a></li><li><a href="https://www.w3.org/TR/shacl/">W3C SHACL</a></li></ul></section>
-<div class="instructor-dialogue" data-instructor-explanation data-teaches="graph-visual"><div class="instructor-label">Connected learning</div><div class="instructor-copy"><p>Open Graph to inspect sources, concepts, roles, relationships, and competency. Use Community to challenge boundaries, not to replace verified instruction.</p></div></div>
-<section id="owos-course-community" class="connected"><article><span class="tag">Knowledge Graph</span><h3>Trace this module</h3><p>Follow the module concept into sources, relationships, roles, and competency.</p><button class="btn" type="button" data-open-graph>Open Graph</button></article><article><span class="tag">Community</span><h3>Compare utility practice</h3><p>Search, filter, bookmark, and reply to local course discussions.</p><button class="btn" type="button" data-open-community>Open Community</button></article></section>
-<nav class="footnav"><a class="btn" href="course-meaning-before-models.html">Previous</a><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="lesson-meaning-before-models-02-anatomy-of-a-triple.html">Next: The Anatomy of a Triple</a></nav></div></main>
+    <div class="view foundation"><p>Your job is to name two things and the relationship between them. Nothing more technical is required yet.</p></div>
+    <div class="view practitioner"><p>Your job is to preserve direction, stable identifiers, source authority, and the boundary between a resource and a recorded value.</p></div>
+    <div class="view leader"><p>Your job is to ask whether the relationship is reusable, owned, and important enough to govern across teams.</p></div>
+    <div class="coach" data-instructor-explanation data-teaches="opening-choice utility-scene"><strong>Before you answer</strong><p>Choose the statement that could be reused by operations, maintenance, planning, and an artificial intelligence application without guessing. Then read the scene from the alarm to the affected zone. Notice that a label on a screen is not yet a relationship.</p></div>
+    <div class="panel" id="opening-choice" data-opening-decision data-required="opening" data-quiz data-quiz-type="multiple-choice" data-quiz-source="quiz-gallery" data-correct-feedback="Correct. The statement names the two things and the relationship between them." data-retry="Try again. Choose the statement that explicitly names how one utility thing relates to another.">
+      <div class="panel-head">Opening decision <span class="kind">Multiple choice</span></div>
+      <div class="panel-body"><h3>Which statement gives the machine a reusable piece of meaning?</h3>
+        <div class="choice-grid">
+          <button class="choice" type="button" data-correct="1">Pump P-104 serves Pressure Zone 3.</button>
+          <button class="choice" type="button" data-correct="0">P-104, Zone 3, alarm, 2:00 a.m.</button>
+          <button class="choice" type="button" data-correct="0">Open the pump dashboard.</button>
+          <button class="choice" type="button" data-correct="0">The pump probably affects nearby customers.</button>
+        </div>
+        <button class="btn primary" type="button" data-check-quiz>Check my choice</button><div class="feedback" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="panel" id="utility-scene" data-visual-type="editorial-illustration" data-component-source="component-gallery">
+      <div class="panel-head">The relationship hiding inside the alarm <span class="kind">Editorial utility evidence scene</span></div>
+      <div class="panel-body">
+        <div class="reading-guide" data-reading-guide><b>How to read it:</b> Begin with the physical pump. The control-system alarm tells you that something happened. The asset-to-zone relationship tells you why the event matters beyond the pump.</div>
+        <div class="evidence-board">
+          <article class="card tint"><span class="micro-label">Physical system</span><h3>Pump P-104</h3><p>Discharge pressure fell below the operating threshold at 2:00 a.m.</p></article>
+          <article class="card"><span class="micro-label">Missing connection</span><h3>serves</h3><p>This named relationship connects the asset to the part of the system that depends on it.</p></article>
+          <article class="card tint"><span class="micro-label">Operational consequence</span><h3>Pressure Zone 3</h3><p>The zone gives operations a path toward premises, service accounts, critical facilities, and procedures.</p></article>
+          <article class="card"><span class="micro-label">Human boundary</span><h3>Operator reviews</h3><p>The relationship supports the answer. It does not authorize a model to issue an advisory or operate the pump.</p></article>
+        </div>
+        <div class="conclusion" data-learner-conclusion><b>What the scene proves:</b> More readings do not create meaning by themselves. A named relationship connects the reading to an operational consequence.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-index">2</span><div><span class="kind">Build it</span><h2>Subject, predicate, object</h2></div></div>
+    <div class="teaching" data-worked-example>
+      <p>The World Wide Web Consortium calls this three-part statement a <span class="term" data-def="A statement with exactly three positions: subject, predicate, and object.">triple</span>. The thing you are talking about is the <span class="term" data-def="The resource the statement describes.">subject</span>. The named relationship is the <span class="term" data-def="The property that says how the subject relates to the object.">predicate</span>. The thing or value on the other end is the <span class="term" data-def="The resource or literal value connected to the subject by the predicate.">object</span>.</p>
+      <p>So the ordinary sentence “Pump P-104 serves Pressure Zone 3” becomes: <b>Pump_P104 → serves → Pressure_Zone_3</b>. The arrows matter. If you reverse the subject and object without changing the predicate, you say that the pressure zone serves the pump. The words are still recognizable, but the meaning is wrong.</p>
+      <p><span class="term" data-def="Resource Description Framework, a W3C framework for representing information as triples.">Resource Description Framework (RDF)</span> gives this pattern a standard form. A <span class="term" data-def="A thing identified in the graph, such as a pump, zone, person, document, or procedure.">resource</span> can be an asset, place, person, event, procedure, or document. A <span class="term" data-def="A value such as a number, date, or text string rather than another identified resource.">literal</span> can be a number, date, or text value.</p>
+    </div>
+    <div class="coach" data-instructor-explanation data-teaches="triple-anatomy triple-builder"><strong>Use the bench</strong><p>First read the triple from left to right. Then choose the correct pump, relationship, and zone. Check it, reverse it, and explain why the reversed statement fails. The visible change teaches direction, which is one of the easiest RDF details to overlook.</p></div>
+    <div class="panel" id="triple-anatomy" data-visual-type="comparison-table" data-component-source="component-gallery">
+      <div class="panel-head">One statement, three jobs <span class="kind">Governed comparison table</span></div>
+      <div class="panel-body">
+        <div class="reading-guide" data-reading-guide><b>How to read it:</b> Read down each column. The position tells you the job. The identifier tells you which thing. The displayed label can change without changing the identity.</div>
+        <div class="comparison-scroll"><table><thead><tr><th>Position</th><th>Question</th><th>Example</th><th>What can go wrong</th></tr></thead><tbody>
+          <tr><th>Subject</th><td>What are we describing?</td><td>Pump_P104</td><td>A local label identifies the wrong pump.</td></tr>
+          <tr><th>Predicate</th><td>How does it relate?</td><td>serves</td><td>A vague column name hides direction.</td></tr>
+          <tr><th>Object</th><td>What is on the other end?</td><td>Pressure_Zone_3</td><td>A text value is mistaken for an identified zone.</td></tr>
+        </tbody></table></div>
+        <div class="conclusion" data-learner-conclusion><b>What the table clarifies:</b> RDF is simple because each position has one job. Precision comes from choosing the right identifiers and relationship.</div>
+      </div>
+    </div>
+    <div class="panel" id="triple-builder" data-purposeful-interaction="triple-construction-and-reversal" data-required="construct" data-component-source="meaning-before-models-course-library" data-quiz-type="triple-construction" data-quiz-source="applied-assessment-contract" data-retry="Build Pump_P104 serves Pressure_Zone_3, then reverse it and explain why direction changes the meaning.">
+      <div class="panel-head">Triple construction bench <span class="kind">Course-specific RDF mechanism</span></div>
+      <div class="panel-body">
+        <div class="triple" data-triple>
+          <label class="triple-slot"><span>Subject</span><select data-part="subject"><option value="">Choose</option><option>Pump_P104</option><option>Pressure_Zone_3</option><option>Outfall_12</option></select></label><span class="arrow">→</span>
+          <label class="triple-slot predicate"><span>Predicate</span><select data-part="predicate"><option value="">Choose</option><option>serves</option><option>located_in</option><option>inspected_on</option></select></label><span class="arrow">→</span>
+          <label class="triple-slot object"><span>Object</span><select data-part="object"><option value="">Choose</option><option>Pressure_Zone_3</option><option>Pump_P104</option><option>2026-07-22</option></select></label>
+        </div>
+        <div class="toolbar"><button class="btn primary" type="button" data-build-triple>Check triple</button><button class="btn" type="button" data-reverse-triple disabled>Reverse subject and object</button></div>
+        <div class="code" data-triple-output aria-live="polite">Choose all three parts.</div>
+        <label>Why does the reversed statement fail?<textarea rows="2" data-reversal-explanation placeholder="Explain what changed"></textarea></label>
+        <button class="btn good" type="button" data-complete-triple>Finish construction</button>
+        <div class="feedback" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="debrief"><b>Debrief:</b> RDF did not make the utility fact true. It made the claim explicit and inspectable. The source mapping, owner, and review process still determine whether you should trust it.</div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-index">3</span><div><span class="kind">Connect it</span><h2>Three triples become a path</h2></div></div>
+    <div class="teaching">
+      <p>One triple is useful. A chain of triples is where the larger idea becomes visible. Add “Pressure Zone 3 contains Premise 88” and “Premise 88 serves Account 901.” A machine can now follow a path from the pump to the service account.</p>
+      <p>This connected set of identified things and named relationships is a <span class="term" data-def="A set of nodes and directed, labelled relationships that can be followed as paths.">graph</span>. The circles-and-lines picture is only a visualization. The graph itself is the machine-readable statements underneath it.</p>
+    </div>
+    <div class="coach" data-instructor-explanation data-teaches="path-graph path-check"><strong>Trace the answer</strong><p>Select each numbered edge in order. The path will light up from Pump P-104 to Account 901. At every step, ask what additional fact became available and which source would have to support that relationship.</p></div>
+    <div class="panel" id="path-graph" data-visual-type="network-diagram" data-component-source="component-gallery">
+      <div class="panel-head">From a pump to a customer account <span class="kind">Network / wire diagram</span></div>
+      <div class="panel-body">
+        <div class="reading-guide" data-reading-guide><b>How to read it:</b> Start at the upper left. The edge labels are the predicates. Select edge 1, then 2, then 3. The path is only as trustworthy as the three source-backed relationships.</div>
+        <div class="graph-canvas" data-path-canvas>
+          <button class="graph-card" style="left:4%;top:12%" type="button">Pump P-104</button>
+          <button class="graph-card" style="left:38%;top:12%" type="button">Pressure Zone 3</button>
+          <button class="graph-card" style="left:38%;top:66%" type="button">Premise 88</button>
+          <button class="graph-card" style="right:4%;top:66%" type="button">Account 901</button>
+          <svg viewBox="0 0 900 370" aria-hidden="true">
+            <line class="graph-edge" data-edge="1" x1="150" y1="70" x2="420" y2="70"/><text class="edge-label" x="265" y="55">serves</text>
+            <line class="graph-edge" data-edge="2" x1="510" y1="100" x2="510" y2="255"/><text class="edge-label" x="526" y="185">contains</text>
+            <line class="graph-edge" data-edge="3" x1="600" y1="290" x2="770" y2="290"/><text class="edge-label" x="650" y="275">served_by</text>
+          </svg>
+        </div>
+        <div class="toolbar"><button class="btn path-step" type="button" data-path="1">1. Pump to zone</button><button class="btn path-step" type="button" data-path="2">2. Zone to premise</button><button class="btn path-step" type="button" data-path="3">3. Premise to account</button><button class="btn" type="button" data-path-reset>Reset</button></div>
+        <div class="conclusion" data-learner-conclusion><b>What the path reveals:</b> The answer crosses operational, spatial, and customer records. RDF gives those separate relationships one traversable form.</div>
+      </div>
+    </div>
+    <div class="panel" id="path-check" data-purposeful-interaction="ordered-relationship-path-trace" data-required="trace" data-component-source="meaning-before-models-course-library" data-quiz-type="path-trace" data-quiz-source="applied-assessment-contract" data-retry="Trace edges 1, 2, and 3 in order before checking the path.">
+      <div class="panel-head">Path check <span class="kind">Relationship tracing</span></div>
+      <div class="panel-body"><p>What can the graph support after all three relationships are present?</p>
+        <div class="choice-grid"><button class="choice" type="button" data-path-answer="0">The pump is definitely the cause of every customer complaint.</button><button class="choice" type="button" data-path-answer="1">Account 901 is connected to a premise in the pressure zone served by Pump P-104.</button></div>
+        <button class="btn primary" type="button" data-check-path>Check the path claim</button><div class="feedback" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter narrow">
+    <div class="chapter-head"><span class="chapter-index">4</span><div><span class="kind">Take it to work</span><h2>Write one relationship your utility needs</h2></div></div>
+    <div class="teaching"><p>Do not start by trying to model the enterprise. Start with a relationship that answers one recurring question. Name the subject, predicate, object, source, and question it supports. That is enough for a useful first conversation with operations, GIS, maintenance, customer service, or data staff.</p></div>
+    <div class="coach" data-instructor-explanation data-teaches="relationship-card final-relationship-check"><strong>Build the card</strong><p>Use a real water, wastewater, or stormwater relationship. Be specific enough that another team could find the source and challenge the statement. The final check looks for a complete relationship and a source boundary, not polished prose.</p></div>
+    <div class="panel" id="relationship-card">
+      <div class="panel-head">Pocket Relationship Card <span class="kind">Professional work product</span></div>
+      <div class="panel-body artifact-grid">
+        <form data-artifact="relationship-card" data-required="artifact">
+          <div class="form-grid">
+            <label>Subject <small>One identified utility thing</small><input name="subject" required></label>
+            <label>Predicate <small>One directed relationship</small><input name="predicate" required></label>
+            <label>Object <small>Another thing or a value</small><input name="object" required></label>
+            <label>Authoritative source <small>Where the relationship is supported</small><input name="source" required></label>
+          </div>
+          <label>Question this relationship helps answer<textarea name="question" rows="3" required></textarea></label>
+          <button class="btn primary" type="submit">Save Relationship Card</button><div class="feedback" aria-live="polite"></div>
+        </form>
+        <pre data-artifact-preview>Complete the card to create a local preview.</pre>
+      </div>
+    </div>
+    <div class="panel" id="final-relationship-check" data-final-applied-check data-artifact-ref="relationship-card" data-required="applied" data-quiz-type="applied-assessment" data-quiz-source="applied-assessment-contract" data-retry="Name one subject, one directed predicate, one object, a source, and a utility question.">
+      <div class="panel-head">Applied demonstration <span class="kind">Artifact review</span></div>
+      <div class="panel-body"><p>Run the check after saving. A useful card states one inspectable relationship and the operational question it supports.</p><button class="btn good" type="button" data-final-check="relationship-card" data-required="applied">Check my card</button><div class="feedback" aria-live="polite"></div></div>
+    </div>
+  </section>
+
+  <section class="chapter faq" data-module-faq>
+    <div class="chapter-head"><span class="chapter-index">?</span><div><span class="kind">Questions people actually ask</span><h2>RDF primer FAQ</h2></div></div>
+    <details><summary>Is RDF a database?</summary><p>No. RDF is a data model for expressing statements as triples. You can store those triples in a graph database, generate them virtually from tables, exchange them as files, or expose them through an application interface. A wastewater utility could keep work orders in its existing enterprise asset management system and map selected relationships into RDF without replacing that system.</p></details>
+    <details><summary>Is the graph the circles-and-lines picture?</summary><p>The picture is one view of the graph. The graph is the underlying set of identified resources and directed relationships. A large utility graph may contain millions of statements, even though a screen shows only the path needed for the current question.</p></details>
+    <details><summary>Why not put the same information in a spreadsheet?</summary><p>You can, and for one small local task a spreadsheet may be the better choice. RDF becomes valuable when the same pump, zone, premise, account, procedure, and permit need to connect across systems and be queried through reusable relationships.</p></details>
+    <details><summary>Can the object be a number or date?</summary><p>Yes. “Pump P-104 has design flow 2,500 gallons per minute” can use a typed numeric literal as the object. The lesson used another resource as the object because a pressure zone has its own identity and relationships.</p></details>
+    <details><summary>Does writing a triple prove the statement is true?</summary><p>No. The triple makes the claim explicit. Trust still depends on the source, mapping, effective time, reviewer, and authority. Later modules add identity controls, provenance, validation, and inference boundaries.</p></details>
+  </section>
+
+  <section class="evidence" data-evidence-boundary>
+    <h2>Evidence boundary</h2>
+    <p>Pump P-104, Pressure Zone 3, Premise 88, and Account 901 are instructional examples. RDF definitions are grounded in World Wide Web Consortium standards. The example does not establish an operational fact or authorize an action.</p>
+    <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Syntax</a></li><li><a href="https://www.w3.org/TR/rdf12-primer/">RDF 1.2 Primer</a></li><li><a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a></li></ul>
+  </section>
+
+  <section id="owos-course-community" class="connected">
+    <article><span class="kind">Knowledge Graph</span><h3>Inspect this lesson’s relationships</h3><p>Open the same-page panel to connect the lesson to sources, roles, relationships, and the construction competency.</p><button class="btn" type="button" data-open-graph>Open Graph</button></article>
+    <article><span class="kind">Community</span><h3>Compare one real utility relationship</h3><p>Share a draft relationship for discussion. Community comments are not verified evidence and do not change the governed lesson.</p><button class="btn" type="button" data-open-community>Open Community</button></article>
+  </section>
+  <div class="panel"><div class="panel-body"><button class="btn good" type="button" data-complete disabled>Complete lesson</button><p id="live" aria-live="polite">Complete the five visible requirements to enable this control.</p></div></div>
+  <nav class="footnav"><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="lesson-meaning-before-models-02-anatomy-of-a-triple.html">Next: Anatomy of a Triple</a></nav>
+</div>
+</main>
+
 <div class="drawer-scrim" data-close-drawer></div>
-<aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><div class="panel" id="graph-visual" data-visual-type="network-diagram" data-component-source="component-gallery"><div class="panel-head">Module concept network</div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Select a node and read the named relationship.</div><div class="graph-map"><button class="gnode core" style="left:18%;top:18%" type="button" data-graph-kind="source" data-graph-id="g0">Utility records</button><button class="gnode " style="left:78%;top:31%" type="button" data-graph-kind="concept" data-graph-id="g1">RDF</button><button class="gnode " style="left:18%;top:44%" type="button" data-graph-kind="relationship" data-graph-id="g2">Choose the relationship</button><button class="gnode " style="left:78%;top:57%" type="button" data-graph-kind="role" data-graph-id="g3">Named owner</button><button class="gnode " style="left:18%;top:70%" type="button" data-graph-kind="competency" data-graph-id="g4">Apply the module</button></div><div class="graph-detail" data-graph-detail>Select a node.</div><div class="learner-conclusion" data-learner-conclusion><b>Learner conclusion:</b> Concepts become useful when they connect to sources, relationships, roles, and a demonstrated competency.</div></div></div></div></aside>
-<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><label data-community-feature="search"><b>Search discussions</b><input type="search" data-community-search></label><div class="filters" data-community-feature="filters"><button class="btn on" type="button" data-filter="all">All</button><button class="btn" type="button" data-filter="foundation">Foundation</button><button class="btn" type="button" data-filter="leader">Leader</button></div><p class="presence" data-community-feature="presence">4 course members viewing this module</p><article class="thread instructor" data-thread data-role="foundation" data-community-feature="instructor-treatment"><div class="thread-head"><b>Instructor prompt</b><button class="btn" type="button" data-bookmark data-community-feature="bookmarks">Bookmark</button></div><p>Where does this responsibility live in your utility today?</p><div class="replies" data-community-feature="threaded-replies"><p><b>Course member:</b> We found that the definition and the approval live with different teams.</p></div><form class="reply-form" data-reply-form><input aria-label="Reply" placeholder="Add a local draft reply"><button class="btn" type="submit">Reply</button></form></article></div></aside>
-<div id="tt" role="tooltip"></div><footer class="footer"><div class="wrap">Live-review lesson. No credential, certification, graph-publication, or operational authority claim.</div></footer><script src="meaning-before-models-course-module.js"></script></body></html>
+<aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body">
+  <div class="reading-guide"><b>How to read it:</b> The lesson is connected to a standard, a role, a named relationship, and a competency. These are context links, not a decorative node cloud.</div>
+  <div class="stack"><button type="button" data-graph-kind="concept"><b>Concept:</b> RDF triple</button><button type="button" data-graph-kind="source"><b>Source:</b> W3C RDF Concepts</button><button type="button" data-graph-kind="relationship"><b>Relationship:</b> subject → predicate → object</button><button type="button" data-graph-kind="role"><b>Role:</b> utility data steward</button><button type="button" data-graph-kind="competency"><b>Competency:</b> construct and explain one utility triple</button></div>
+</div></aside>
+<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body">
+  <label data-community-feature="search">Search discussions<input type="search"></label><div class="toolbar" data-community-feature="filters"><button class="btn" type="button">Water</button><button class="btn" type="button">Wastewater</button><button class="btn" type="button">Stormwater</button></div><p data-community-feature="presence">Working-review presence is simulated locally.</p>
+  <article class="card" data-community-feature="instructor-treatment"><h3>Instructor prompt</h3><p>What relationship do people in your utility repeatedly reconstruct by hand?</p><button class="btn" type="button" data-community-feature="bookmarks">Bookmark</button><div data-community-feature="threaded-replies"><p><b>Course member:</b> We repeatedly connect pump stations to emergency response procedures.</p></div></article>
+</div></aside>
+<div id="tt" role="tooltip"></div>
+<footer class="footer"><div class="wrap">Retrofit working candidate. No release, credential, graph publication, or operational authority claim.</div></footer>
+<script src="meaning-before-models-fieldbook.js"></script>
+<script>
+(() => {
+  const root = document.querySelector("#triple-builder");
+  const output = root.querySelector("[data-triple-output]");
+  const feedback = root.querySelector(".feedback");
+  const values = () => [...root.querySelectorAll("select")].map((field) => field.value);
+  let built = false;
+  let reversed = false;
+  root.querySelector("[data-build-triple]").addEventListener("click", () => {
+    const [s,p,o] = values();
+    built = s === "Pump_P104" && p === "serves" && o === "Pressure_Zone_3";
+    output.textContent = s && p && o ? `${s} → ${p} → ${o}` : "Choose all three parts.";
+    feedback.textContent = built ? "Correct. Now reverse it and inspect the changed meaning." : "Use Pump_P104 as the subject, serves as the predicate, and Pressure_Zone_3 as the object.";
+    feedback.className = `feedback ${built ? "good" : "bad"}`;
+    root.querySelector("[data-reverse-triple]").disabled = !built;
+  });
+  root.querySelector("[data-reverse-triple]").addEventListener("click", () => {
+    const fields = root.querySelectorAll("select");
+    const first = fields[0].value;
+    fields[0].value = fields[2].value;
+    fields[2].value = first;
+    reversed = true;
+    output.textContent = `${fields[0].value} → ${fields[1].value} → ${fields[2].value}`;
+    feedback.textContent = "The words remain familiar, but the direction now says that the zone serves the pump.";
+    feedback.className = "feedback bad";
+  });
+  root.querySelector("[data-complete-triple]").addEventListener("click", () => {
+    const explanation = root.querySelector("[data-reversal-explanation]").value.trim();
+    if (built && reversed && explanation.length >= 12) {
+      feedback.textContent = "Construction complete. You showed that direction carries meaning.";
+      feedback.className = "feedback good";
+      MBM.mark("construct");
+    } else {
+      feedback.textContent = "Build the correct triple, reverse it, and explain the change in at least one sentence.";
+      feedback.className = "feedback bad";
+    }
+  });
+
+  let expected = 1;
+  document.querySelectorAll("[data-path]").forEach((button) => button.addEventListener("click", () => {
+    const step = Number(button.dataset.path);
+    if (step !== expected) return;
+    button.classList.add("selected");
+    document.querySelector(`[data-edge="${step}"]`).classList.add("active");
+    expected += 1;
+  }));
+  document.querySelector("[data-path-reset]").addEventListener("click", () => {
+    expected = 1;
+    document.querySelectorAll("[data-path], [data-edge]").forEach((node) => node.classList.remove("selected","active"));
+  });
+  document.querySelectorAll("[data-path-answer]").forEach((button) => button.addEventListener("click", () => {
+    document.querySelectorAll("[data-path-answer]").forEach((node) => node.classList.remove("selected"));
+    button.classList.add("selected");
+  }));
+  document.querySelector("[data-check-path]").addEventListener("click", () => {
+    const selected = document.querySelector("[data-path-answer].selected");
+    const feedback = document.querySelector("#path-check .feedback");
+    const correct = expected === 4 && selected?.dataset.pathAnswer === "1";
+    feedback.textContent = correct ? "Correct. The graph supports the connection, not a claim that the pump caused every outcome." : "Complete the three edges in order and choose the claim the path actually supports.";
+    feedback.className = `feedback ${correct ? "good" : "bad"}`;
+    if (correct) MBM.mark("trace");
+  });
+})();
+</script>
+</body>
+</html>

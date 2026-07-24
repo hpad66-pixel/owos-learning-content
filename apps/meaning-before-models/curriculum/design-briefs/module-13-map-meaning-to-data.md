@@ -1,116 +1,146 @@
-# OWOS Module Design Brief: Map Meaning to Data
+# Module 13 Design Brief: Map Meaning to Data
 
 ## Identity
+
 | Field | Decision |
 | --- | --- |
 | Course and module ID | `owos-course-semantic-data-ai-001`, `mbm001:13` |
 | Working title | Map Meaning to Data |
-| Learner roles | Utility staff, practitioners, and leaders |
-| Competencies | Explain and apply the module mental model |
-| Controlled sources | W3C RDF, RDFS, SPARQL, OWL, and SHACL standards as applicable |
-| Evidence boundary | Instructional utility scenario; independent factual and practitioner review required |
+| Learner roles | Non-technical domain staff, integration teams, data engineers, semantic modelers, leaders |
+| Competencies | Distinguish joins and mappings; specify identity, triples, transformations, provenance, and tests |
+| Controlled sources | W3C R2RML, Direct Mapping, RDF 1.2 Concepts, PROV-O |
+| Evidence boundary | Source dictionaries and actual mappings require local review |
 
 ## Learning job
+
 | Question | Answer |
 | --- | --- |
-| What consequential situation opens the lesson? | The shared concept ActiveCustomer is approved, but the Customer Information System stores status codes and dates that change independently. |
-| What must the learner decide before teaching begins? | What makes the concept resolve to actual enterprise records? |
-| What professional consequence makes this matter? | An implicit or unowned boundary can produce an indefensible utility answer. |
-| What should the learner be able to do afterward? | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. |
-| What usable work product will the learner create? | Semantic Mapping Record |
-| What evidence is required for completion? | Opening, mechanism lab, matching, boundary check, saved artifact, and applied assessment |
+| What consequential situation opens the lesson? | Three systems expose a field named STATUS with three different meanings. |
+| What must the learner decide before teaching begins? | Whether to collapse the fields or map lifecycle, run, and work status separately. |
+| What professional consequence makes this matter? | A bad mapping creates confident semantic error for every dashboard, graph query, and agent. |
+| What should the learner be able to do afterward? | Define stable identity, map source fields to concepts, preserve units and provenance, and specify tests. |
+| What usable work product will the learner create? | Semantic Mapping Specification |
+| What evidence is required for completion? | False-equivalence ruling, wiring bench, unit normalizer, specification, applied review |
 
 ## Concept-to-experience plan
+
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Inspect source structure | relationship or process | `comparison-table` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Map concept and property | relationship or process | `interactive-process` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Test transformation | relationship or process | `failure-propagation-chain` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
-| Monitor source change | relationship or process | `packet-anatomy` | Inspect the utility example | A governed boundary becomes visible | multiple-choice |
+| Same label, different meaning | Source wall | Editorial source boards | Reject false equivalence | Three status concepts separate | `mapping-classification` |
+| Cross-system identity | Bridge | `identity-bridge` | Inspect reconciliation | Local records stay traceable | `identity-join` |
+| Join, map, transform, infer | Comparison | `comparison-table` | Compare operations | Jobs and boundaries become explicit | Embedded check |
+| Mapping lifecycle | Five-stage flow and bench | `interactive-process` | Wire fields to concepts | Expected triples appear | `identity-join` |
+| Unit normalization | Conversion machine | Measured-value simulation | Preserve original and derived values | Provenance appears | `unit-normalization` |
+| Transfer | Specification | Professional artifact | Write expected triples and tests | Mapping becomes reviewable | `applied-assessment` |
 
 ## Module design fingerprint
+
 | Element | Selection |
 | --- | --- |
-| Narrative architecture | The shared concept ActiveCustomer is approved, but the Customer Information System stores status codes and dates that change independently. |
-| Mental model | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. |
-| Purposeful interaction 1 | Four-step mechanism laboratory |
-| Purposeful interaction 2 | Governed artifact builder |
-| Visual types, minimum four | `comparison-table`, `interactive-process`, `failure-propagation-chain`, `packet-anatomy` |
-| Visual pacing plan and any prose exception | Every teaching block is followed by a visual, decision, or learner action |
-| Original editorial illustration, when appropriate | Included when `editorial-illustration` appears in the selected set |
-| Quiz sequence, minimum three types | `multiple-choice`, `matching`, `multi-select`, `applied-assessment` |
-| Distributed assessment locations | Opening, mechanism section, boundary section, and work-product section |
-| Final applied work-product check | Deterministic eight-field artifact review |
-| Role-sensitive treatment | Foundation, Practitioner, and Leader lenses |
-| Professional work product | Semantic Mapping Record |
-| Same-page Knowledge Graph behavior | `network-diagram` with source, concept, relationship, role, and competency nodes |
-| Header Graph, Community, and Start actions | Required compact header controls |
-| Bottom connected-learning section | Graph and Community cards before navigation |
-| Explicit bottom `#owos-course-community` anchor before navigation | Required |
-| Drawer focus return and mobile behavior | Focus return and full-width mobile drawers |
-| Module-specific FAQ location and disclosure behavior | Five questions before evidence boundary |
-| Animation and teaching purpose | Step selection reveals controlled sequence |
-| Reduced-motion equivalent | Every state is available by direct selection |
-| Mobile transformation | Grids stack and wide comparisons scroll |
-| Persistence and learner events | Local draft and completion cache; production events disabled |
+| Lesson archetype | Semantic wiring workshop |
+| Signature mechanism | Source-to-concept wiring bench |
+| Course visual language applied here | Workshop wall, bridge, wiring bench, conversion gear |
+| Intended learner feeling | “I can explain exactly how this field becomes that graph statement.” |
+| Narrative architecture | Source wall, vocabulary, identity bridge, wiring bench, normalization, specification |
+| Mental model | Source contract plus mapping rules produces testable RDF statements |
+| Purposeful interaction 1 | `source-to-concept-wiring-bench` |
+| Purposeful interaction 2 | `unit-and-provenance-normalizer` |
+| Explanatory visuals, normally two to five | `identity-bridge`, `comparison-table`, `interactive-process` |
+| Visual pacing plan and any prose exception | Source boards and workshop mechanisms alternate with explanation |
+| Original editorial illustration, when appropriate | Same-label source wall |
+| Assessment sequence and cognitive jobs | `mapping-classification`, `identity-join`, `unit-normalization`, `applied-assessment` |
+| Distributed assessment locations | Opening, mapping implementation, value normalization, transfer |
+| Final applied work-product check | Mapping-specification completeness check |
+| Role-sensitive treatment | Foundation, practitioner, leader mapping lenses |
+| Professional work product | Semantic Mapping Specification |
+| Same-page Knowledge Graph behavior | Traces source, triples map, property, role, competency |
+| Header Graph, Community, and Start actions | Present |
+| Bottom connected-learning section | Mapping graph and field-name discussion |
+| Explicit bottom `#owos-course-community` anchor before navigation | Present |
+| Drawer focus return and mobile behavior | Shared behavior; workshop stacks |
+| Module-specific FAQ location and disclosure behavior | Six mapping questions before evidence boundary |
+| Animation and teaching purpose | Mapping preview and unit derivation appear on valid learner choices |
+| Reduced-motion equivalent | Immediate text updates |
+| Mobile transformation | Wall, bridge, bench, and converter become one column |
+| Persistence and learner events | Local state and specification storage |
 
 ## Instructor explanation plan
+
 | Major component | What the learner sees | What the learner does | What to notice | Utility meaning | Debrief needed |
 | --- | --- | --- | --- | --- | --- |
-| Opening decision | Utility scenario | Choose and retry | Explicit evidence boundary | Decisions need reviewable meaning | Yes |
-| Visual set | Four visual shapes | Read and compare | Different controls perform different jobs | Architecture follows the question | Yes |
-| Mechanism lab | Four steps | Select all steps | Each step adds evidence or control | Missing steps propagate failure | Yes |
-| Work product | Eight fields | Save and evaluate | Specificity and authority | Artifact supports cross-team review | Yes |
+| Source wall | Three STATUS fields | Reject collapse | Labels are not semantics | Prevent false equivalence | Yes |
+| Identity bridge | Three local keys | Trace reconciliation | Graph identity is governed | Entity resolution | Yes |
+| Comparison | Four operations | Compare boundaries | Join is not mapping | Architecture clarity | Yes |
+| Wiring bench | Source row and target graph | Configure mapping | Expected triples are testable | Mapping contract | Yes |
+| Unit machine | Original and derived values | Choose preservation | Conversion creates derived evidence | Measurement integrity | Yes |
+
+## Written-first review
+
+- Approximate conversational teaching words: 2,200
+- Worked utility example and marker: P-104 asset row; `data-worked-example`
+- Misconception addressed: Semantic mapping is column renaming or an ordinary join.
+- Boundary or non-example: Matching STATUS labels do not imply matching concepts.
+- Component debriefs: Identity bridge, operation table, mapping flow, wiring bench, unit normalizer.
+- What remains if every video and animation is removed: Full mapping explanation, expected triples, exercises, specification, FAQs, sources.
 
 ## Visual pacing review
-- Longest run of consecutive full prose blocks: two.
-- Visual, interaction, worked example, or callout used to break each dense section: yes.
-- Any uninterrupted prose exception and reason: none.
-- Editorial illustration reading guide and learner conclusion, when used: required.
-- Dark-surface contrast plan: explicit white or light text.
+
+- Longest run of consecutive full prose blocks: Two paragraphs.
+- Visual, interaction, worked example, or callout used to break each dense section: Source wall, bridge, table, flow, bench, converter.
+- Any uninterrupted prose exception and reason: Vocabulary grouped before the workshop.
+- Editorial illustration reading guide and learner conclusion, when used: Source wall interpreted by opening choice.
+- Dark-surface contrast plan: Mapping preview and drawers use explicit light text.
 
 ## Explanatory graphic plan
+
 | Teaching idea | Visual shape | Arsenal pattern | Learner conclusion | How the instructor explains it | Accessible and mobile treatment |
 | --- | --- | --- | --- | --- | --- |
-| Inspect source structure | comparison-table | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Map concept and property | interactive-process | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Test transformation | failure-propagation-chain | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
-| Monitor source change | packet-anatomy | Shared component gallery | Mapping connects shared meaning to fields, tables, application programming interfaces, streams, and extracted document entities without implying that all data is copied. | Read from the first boundary to the controlled result | Text guide, conclusion, responsive layout |
+| Identity | Bridge | `identity-bridge` | Matching is governed, not magical | Keep source links | Stacks |
+| Operation boundaries | Table | `comparison-table` | Join, transform, map, infer differ | Read one operation per row | Scroll |
+| Mapping lifecycle | Five-stage flow | `interactive-process` | Review meaning before code | Profile to release | Ordered cards |
 
 ## Learner FAQ plan
+
 | Likely learner question | Why it may remain unclear | Direct plain-English answer | Utility example | Diagram, comparison, or worked sequence | Evidence boundary |
 | --- | --- | --- | --- | --- | --- |
-| How does mapping apply? | New term | It performs one named job in the module mental model. | The shared concept ActiveCustomer is approved, but the Customer Information System stores status codes and dates that change independently. | Selected module visuals | Instructional scenario |
-| How does transformation apply? | New term | It performs one named job in the module mental model. | The shared concept ActiveCustomer is approved, but the Customer Information System stores status codes and dates that change independently. | Selected module visuals | Instructional scenario |
-| How does R2RML apply? | New term | It performs one named job in the module mental model. | The shared concept ActiveCustomer is approved, but the Customer Information System stores status codes and dates that change independently. | Selected module visuals | Instructional scenario |
-| How does pushdown apply? | New term | It performs one named job in the module mental model. | The shared concept ActiveCustomer is approved, but the Customer Information System stores status codes and dates that change independently. | Selected module visuals | Instructional scenario |
-| How does semantic contract apply? | New term | It performs one named job in the module mental model. | The shared concept ActiveCustomer is approved, but the Customer Information System stores status codes and dates that change independently. | Selected module visuals | Instructional scenario |
+| Just rename columns? | Mapping looks textual | No | STATUS properties | Table | Source dictionary required |
+| Same RDF resource? | Identity feels technical | Yes, with governed rules | P-104 keys | Bridge | Reconciliation review |
+| Map every column? | Completeness mistaken for value | No | Technical fields | Flow | Use-case boundary |
+| Map documents? | R2RML is relational | Extract selected claims with provenance | Procedure clause | FAQ sequence | Authority review |
+| Who approves code mapping? | Engineer may implement alone | Domain and source owners | Code A | Wiring bench | Governance required |
+| Virtual or materialized? | Mapping confused with storage | Either, per workload | CMMS view | Spine transition | Architecture review |
 
 ## Recording script
+
 | Field | Decision |
 | --- | --- |
 | Script path | `curriculum/scripts/module-13-map-meaning-to-data-video-script.md` |
-| Intended recording length | 25 to 35 minutes |
-| Spoken opening | The shared concept ActiveCustomer is approved, but the Customer Information System stores status codes and dates that change independently. |
-| Utility example | Module scenario and work product |
-| Visual directions | Follow the four selected visual patterns |
-| Learner action and work product | Complete Semantic Mapping Record |
-| Transition to next lesson | Continue through the approved course sequence |
+| Intended recording length | 15 to 18 minutes if recorded |
+| Spoken opening | “Three fields have the same label and three different meanings.” |
+| Utility example | P-104 asset row and pressure conversion |
+| Visual directions | Compare source wall, cross identity bridge, wire fields, derive unit |
+| Learner action and work product | Run wiring bench and write Mapping Specification |
+| Transition to next lesson | Choose whether each mapped path is virtualized, indexed, cached, or materialized |
 
 ## Diversity check
-- Adjacent module reviewed: yes.
-- Opening pattern intentionally different: scenario and decision are module-specific.
-- Dominant visual intentionally different: selected from the course design matrix.
-- Interaction pair intentionally different: content and mechanism follow this module.
-- Quiz sequence intentionally different: content and placement are module-specific.
-- Work-product format intentionally different: Semantic Mapping Record.
-- Any justified repetition: shared Graph, Community, accessibility, and completion controls.
+
+- Adjacent module reviewed: Knowledge-spine operations bridge and access-pattern decision lesson.
+- Course Experience Brief reviewed: Yes.
+- Lesson archetype differs from adjacent modules: Yes.
+- Signature mechanism is unique to this lesson: Yes.
+- Opening pattern intentionally different: Same-label false equivalence.
+- Dominant visual intentionally different: Workshop wall and wiring bench.
+- Interaction pair intentionally different: Mapping configuration and unit provenance.
+- Quiz sequence intentionally different: `mapping-classification` → `identity-join` → `unit-normalization` → `applied-assessment`.
+- Work-product format intentionally different: Semantic Mapping Specification.
+- Any justified repetition: Shared platform controls only.
+- Course-level distinctiveness result: Diagnostic required.
 
 ## Approval
+
 | Gate | Status | Reviewer | Date | Note |
 | --- | --- | --- | --- | --- |
-| Evidence and claims | conditional | Codex repository review | 2026-07-23 | Independent review required |
-| Learning design | production candidate | Hardeep direction | 2026-07-23 | Full course production authorized |
-| Utility practice | pending | | | Practitioner review required |
-| Golden lesson benchmark, when applicable | working benchmark | Hardeep direction | 2026-07-23 | Module 05 capability level applied |
-| Release | blocked | | | Separate approval required |
+| Evidence and claims | conditional | Codex working review | 2026-07-23 | W3C mapping sources used; local source review pending |
+| Learning design | passed | Codex working review | 2026-07-23 | Distinct workshop architecture |
+| Utility practice | pending |  |  | Practitioner review required |
+| Golden lesson benchmark, when applicable | not applicable |  |  |  |

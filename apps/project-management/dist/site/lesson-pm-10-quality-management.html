@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 10 &middot; Quality management &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 10 of the Project Management masterclass. Quality assurance vs quality control, Inspection and Test Plans, hold and witness points, the cost of quality, and non-conformance reports.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-10-quality-management">
+<meta name="owos-release-state" content="working-review">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,38 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+/* Project Management retrofit controls. The field-delivery teaching surface remains in academy.css. */
+.lesson-actions{display:flex;gap:6px;align-items:center;margin-left:auto}
+.lesson-actions a,.lesson-actions button{border:1px solid var(--line-2);border-radius:999px;background:#fff;padding:6px 10px;color:var(--ink-2);font:700 10px var(--fm);text-decoration:none;cursor:pointer}
+.lesson-actions a:hover,.lesson-actions button:hover,.lesson-actions a:focus-visible,.lesson-actions button:focus-visible{border-color:var(--brand);color:var(--brand);outline:2px solid var(--brand-100);outline-offset:2px}
+.owos-nav .crumb{margin-left:12px}
+[data-visual-type]{margin:24px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface-2)}
+[data-reading-guide],[data-learner-conclusion]{margin:0;padding:10px 12px;border-radius:11px;font-size:13.5px;line-height:1.55}
+[data-reading-guide]{border:1px solid var(--brand-100);background:var(--brand-50);color:var(--ink)}
+[data-learner-conclusion]{border:1px solid #bfe0d4;background:var(--green-50);color:#086b50}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.role-grid article{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.role-grid b{color:var(--ink)}.role-grid p{margin:5px 0 0;font-size:13px;line-height:1.5}
+.evidence-card ul,.requirement-list{padding-left:20px}.evidence-card li,.requirement-list li{margin:7px 0}
+.evidence-card a{color:var(--brand-700)}
+.completion-card{border-color:var(--brand-100);background:var(--brand-50)}
+.completion-status{display:inline-block;margin-left:10px;font:600 11px var(--fm);color:var(--ink-3)}
+.requirement-list li.done{color:var(--green);font-weight:700}
+.course-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:120;background:#fff;box-shadow:-14px 0 38px rgba(15,23,40,.2);transform:translateX(105%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
+.course-drawer.open{transform:translateX(0);visibility:visible;transition:transform .22s ease}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--brand-800);color:#fff}
+.drawer-head h2{margin:0;color:#fff;font-size:1.15rem}.drawer-head button{border:1px solid rgba(255,255,255,.65);border-radius:8px;background:transparent;padding:7px 10px;color:#fff;font-weight:700;cursor:pointer}
+.drawer-body{height:calc(100% - 70px);overflow:auto;padding:18px}.drawer-body>p,.drawer-body>div,.drawer-body>label,.drawer-body>button{display:block;margin:0 0 11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--ink-2)}
+.community-tools input{display:block;width:100%;margin-top:7px;border:1px solid var(--line-2);border-radius:8px;padding:8px;font:inherit}.community-tools button{border:1px solid var(--line-2);border-radius:8px;background:#fff;padding:7px 10px;color:var(--ink-2);font-weight:700;cursor:pointer;margin:3px}
+.connected-learning{margin:28px 0 18px;padding:16px 18px;border:1px solid var(--brand-100);border-radius:14px;background:var(--brand-50)}.connected-learning b{color:var(--ink)}.connected-learning p{margin:5px 0 0}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body.drawer-open{overflow:hidden}
+@media(max-width:900px){.lesson-actions{order:3;width:100%;justify-content:flex-end}.owos-nav{height:auto;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.wrap{padding-top:34px}}
+@media(max-width:700px){.role-grid{grid-template-columns:1fr}.lesson-actions{justify-content:flex-start}.owos-nav .crumb{margin-left:auto}[data-visual-type]{padding:8px}.completion-status{display:block;margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){.course-drawer{transition:none}}
+
+</style>
 </head>
 <body>
 
@@ -588,11 +624,12 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-wm">One Water <b>OS</b></span>
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
+  <span class="lesson-actions"><a href="#lesson-start">Start</a><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button></span>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 10</b></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 10 &middot; Quality and risk</span>
   <h1>Quality: building it <span>right</span>, not gold-plating it</h1>
@@ -605,7 +642,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job we are inspecting</p>
@@ -639,8 +676,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       </script>
     </div>
 
-    <p>QC runs on an <span class="term" data-term="ITP" data-def="Inspection and Test Plan. A document that lists every inspection and test on a job, when it happens, who does it, and whether it is a hold point or a witness point.">Inspection and Test Plan (ITP)</span>, which lists every check on the job. Two kinds of checkpoint matter most. A <span class="term" data-term="Hold point" data-def="A point where work must stop until the inspector signs off. You cannot proceed without approval, for example inspecting pipe joints before backfilling covers them.">hold point</span> stops the work until an inspector signs off. A <span class="term" data-term="Witness point" data-def="A point where the inspector is invited to observe, but work may proceed if they do not attend. Less strict than a hold point.">witness point</span> invites the inspector but lets work continue. Walk the Millpond ITP.</p>
+    <p data-instructor-explanation data-teaches="pm10-itp-visual">Quality control runs on an <span class="term" data-term="ITP" data-def="Inspection and Test Plan. A document that lists every inspection and test on a job, when it happens, who does it, and whether it is a hold point or a witness point.">Inspection and Test Plan (ITP)</span>, which lists every check on the job. Two kinds of checkpoint matter most. A <span class="term" data-term="Hold point" data-def="A point where work must stop until the inspector signs off. You cannot proceed without approval, for example inspecting pipe joints before backfilling covers them.">hold point</span> stops the work until an inspector signs off. A <span class="term" data-term="Witness point" data-def="A point where the inspector is invited to observe, but work may proceed if they do not attend. Less strict than a hold point.">witness point</span> invites the inspector but lets work continue. Walk the Millpond sequence from submittal through pressure testing. Watch where the work becomes hidden and compare that point with the placement of the hold gate.</p>
 
+    <section id="pm10-itp-visual" data-visual-type="phase-gate" data-component-source="shared-component-library">
+    <p data-reading-guide><b>How to read it:</b> move left to right. A gold gate means the crew cannot proceed until the stated acceptance evidence is reviewed.</p>
     <div data-ac="process" data-title="The Millpond inspection sequence" data-kind="Interactive &middot; process" data-cue="The gold gates are hold points: work stops until sign-off. Notice the hold point sits right before backfill, because once the pipe is buried, fixing a bad joint costs a fortune.">
       <script type="application/json">
       {"gate":true,"phases":[
@@ -652,40 +691,76 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       ]}
       </script>
     </div>
+    <p data-learner-conclusion><b>Conclusion:</b> the strongest hold point sits immediately before backfill because that is when a visible, inexpensive correction becomes a buried, expensive failure.</p>
+    </section>
 
-    <p>How much should you spend on all this checking? There is a real answer, and it is not "as much as possible." The <span class="term" data-term="Cost of quality" data-def="The total of what you spend preventing and finding defects (prevention and appraisal) plus what defects cost you (internal and external failure). It has a minimum: a sweet spot of investment.">cost of quality</span> is prevention and appraisal spend plus the cost of the failures that slip through. Spend too little and failures are expensive; spend too much and you over-inspect. There is a sweet spot. Find it.</p>
+    <p data-instructor-explanation data-teaches="pm10-cost-visual">How much should you spend on all this checking? There is a real answer, and it is not "as much as possible." The <span class="term" data-term="Cost of quality" data-def="The total of what you spend preventing and finding defects (prevention and appraisal) plus what defects cost you (internal and external failure). It has a minimum: a sweet spot of investment.">cost of quality</span> is prevention and appraisal spend plus the cost of the failures that slip through. Move the prevention slider and watch three lines: planned quality spending, failure cost, and their total. The lowest point on the total line is the planning insight, not the highest inspection budget.</p>
 
+    <section id="pm10-cost-visual" data-visual-type="line-s-curve" data-component-source="shared-component-library">
+    <p data-reading-guide><b>How to read it:</b> prevention spending rises from left to right while expected failure cost falls. Read the dark total-cost curve to find the lowest combined cost.</p>
     <div data-ac="coq" data-title="How much quality is worth buying?" data-kind="Interactive &middot; simulation" data-cue="Slide prevention up from zero. Failure cost drops fast at first, then the total curve bottoms out and starts rising again. That bottom is where to aim.">
       <script type="application/json">
       {"failBase":400,"K":100,"max":300,"start":30}
       </script>
     </div>
+    <p data-learner-conclusion><b>Conclusion:</b> under-investing leaves expensive defects, but unlimited inspection also wastes money. The useful target is the minimum total cost supported by the project risk and requirements.</p>
+    </section>
 
-    <p>When something does not meet spec, it gets logged as a <span class="term" data-term="NCR" data-def="Non-Conformance Report. The formal record that something did not meet the requirement, what was done about it (rework, repair, use-as-is with approval, or reject), and how it was closed out.">Non-Conformance Report (NCR)</span>. The NCR is not a punishment, it is a controlled way to decide what to do (rework it, repair it, use it as-is with engineering approval, or reject it) and to prove you handled it. A job with zero NCRs is usually a job that is not inspecting hard enough.</p>
+    <p>When something does not meet spec, it gets logged as a <span class="term" data-term="NCR" data-def="Non-Conformance Report. The formal record that something did not meet the requirement, what was done about it (rework, repair, use-as-is with approval, or reject), and how it was closed out.">Non-Conformance Report (NCR)</span>. The NCR is not a punishment. It is a controlled repair path. The record says what requirement was missed, what evidence proves the miss, who may decide the disposition, what corrective work is required, and what evidence closes the issue. A job with zero NCRs is often a job that is not looking very hard.</p>
 
-    <div data-ac="mc" data-title="Handle the non-conformance" data-kind="Quiz &middot; multiple choice">
+    <p>Before you diagnose the Millpond cases, put the repair path in order. The order matters because a crew cannot choose a convenient correction before the authorized engineer or owner has decided whether that correction is acceptable. A repair that works physically can still fail contractually when the approval and verification trail is missing.</p>
+
+    <div data-ac="order" data-title="Build the NCR repair path" data-kind="Diagnostic &middot; sequence repair" data-cue="Move the steps into the order that preserves the requirement, the authorized decision, and the evidence.">
       <script type="application/json">
-      {"q":"An inspector finds a pipe joint that does not meet the spec, at the hold point before backfill. What is the right first move?",
-       "options":[
-        ["Log an NCR and decide the disposition (rework, repair, use-as-is, or reject) before proceeding",1],
-        ["Backfill it anyway to stay on schedule and note it later",0],
-        ["Quietly have the crew fix it and say nothing",0],
-        ["Reject the whole main and start over",0]
+      {"q":"Put the non-conformance repair path in the order you would defend at closeout.",
+       "items":[
+        "Stop the affected work and preserve the condition",
+        "Record the missed requirement and the evidence",
+        "Obtain an authorized disposition",
+        "Complete the approved correction",
+        "Reinspect or retest against the acceptance criterion",
+        "Close the NCR with names, dates, and evidence"
        ],
-       "right":"Correct. That is exactly what the hold point and the NCR are for: stop, document the non-conformance, decide the disposition with the right sign-offs, then proceed. It keeps quality and the record honest.",
-       "wrong":"Not quite. The hold point exists so you stop and handle it: log an NCR, decide the disposition (rework, repair, use-as-is with approval, or reject), and proceed only once it is resolved. Burying it or hiding it is how small defects become failures and disputes."}
+       "ok":"That is the defensible path. You preserved the condition, separated diagnosis from authorization, verified the correction, and closed the record.",
+       "no":"Not yet. Start by stopping and documenting. Authorization comes before correction, and verification comes before closure."}
       </script>
     </div>
 
-    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
+    <p data-instructor-explanation data-teaches="pm10-quality-clinic">Now work as the quality lead. Each case gives you an observed condition, but the first visible defect is not always the real management failure. Read the evidence, identify what failed, and choose the next move that repairs both the work and the control that allowed it.</p>
+
+    <div id="pm10-quality-clinic" data-ac="examsim" data-quiz-type="diagnostic-repair" data-quiz-source="applied-assessment-contract" data-purposeful-interaction="quality-defect-diagnosis" data-component-source="shared-component-library" data-required="applied-interaction" data-retry="Review the requirement, authority, correction, and verification chain, then try again." data-title="Millpond quality clinic" data-kind="Applied assessment &middot; diagnose and repair" data-cue="Treat each case like a quality review. Diagnose the failed control before choosing the repair.">
+      <span class="sr-only" aria-live="polite">Quality clinic feedback appears after each response.</span>
       <script type="application/json">
-      {"items":[
-        ["Quality means building the best possible thing, above the requirements.",false,"No. Quality is conformance to the requirements. Exceeding them (gold-plating) wastes money the requirements did not ask for."],
-        ["Quality assurance prevents defects; quality control detects them.",true,"Right. Assurance builds quality into the process; control checks the product for what slipped through."],
-        ["Spending more on inspection always lowers the total cost of quality.",false,"No. Past the sweet spot, extra inspection costs more than the failures it prevents. Quality has diminishing returns."]
+      {"questions":[
+        {"q":"Case 1. Three pipe joints show the same gasket twist at the hold point. The crew proposes fixing the three joints and continuing. What is the stronger diagnosis?",
+         "options":[
+          ["This is probably a process failure. Hold the affected work, repair the joints, and verify the crew's assembly method and training before production resumes.",1],
+          ["It is three unrelated workmanship defects. Repair only the joints that failed.",0],
+          ["The specification is too strict because most joints passed.",0],
+          ["Backfill the passing joints and review the pattern at closeout.",0]
+         ],
+         "why":"A repeated defect is evidence of a common cause. Repairing three joints treats the visible product. Checking the procedure, tools, material handling, and crew understanding repairs the assurance system that produced them."},
+        {"q":"Case 2. A compaction test fails after backfill, but the inspector's field note does not identify the station, lift, or test location. What must happen before anyone accepts a retest?",
+         "options":[
+          ["Establish the exact affected location and evidence chain, then define and witness the corrective work and retest.",1],
+          ["Repeat one test anywhere in the block and use the passing result.",0],
+          ["Average this result with the earlier passing tests.",0],
+          ["Close the item because the record is too incomplete to prove a failure.",0]
+         ],
+         "why":"A test without location cannot prove what work passed or failed. The first repair is to restore traceability. Only then can the team correct and retest the right material."},
+        {"q":"Case 3. The installed valve is an approved model, but it opens opposite the utility's operating convention. The contractor asks to leave it because it functions. What is the defensible next move?",
+         "options":[
+          ["Open an NCR and obtain an authorized disposition that considers the requirement, operator safety, consistency, labeling, and future maintenance.",1],
+          ["Accept it because the valve opens and closes.",0],
+          ["Reject it automatically without checking the requirement or operating consequence.",0],
+          ["Ask operations to remember that this valve is different.",0]
+         ],
+         "why":"Function alone does not prove conformance. The authorized disposition must consider the written requirement and the operating consequence. A permanent exception also needs an accurate record, not institutional memory."}
       ]}
       </script>
     </div>
+
+    <p>The pattern across all three cases is the point of the clinic. A quality manager does not merely point at a bad object. You connect the object to the requirement, the process that produced it, the person authorized to decide, and the evidence that proves the repair. That is how an isolated defect becomes useful information instead of recurring rework.</p>
 
     <div class="lv l leadcall">
       <p class="h">Leader's call</p>
@@ -693,28 +768,44 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <!-- ===================== REVIEW ===================== -->
+  <!-- ===================== WORK PRODUCT ===================== -->
   <div class="sec">
-    <h2>Lock it in</h2>
-    <p>Flip through the key terms from this chapter.</p>
+    <h2>Write the quality repair record</h2>
+    <p>Use one of the clinic cases, or a non-sensitive case from your own work. Write the record so that a superintendent, engineer, operator, and auditor can all understand the same chain without calling you for the missing story. The builder saves only in this browser. Move the finished text into your utility's approved project system if you intend to use it.</p>
 
-    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+    <div data-ac="artifactbuilder" data-artifact="quality-repair-record" data-purposeful-interaction="quality-repair-record-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Quality repair record" data-kind="Work product &middot; controlled repair record" data-cue="Write the missed requirement first. Then connect the condition, authorized disposition, correction, verification, and closure evidence.">
       <script type="application/json">
-      {"cards":[
-        ["Quality Assurance","Building quality in through process: prevents defects."],
-        ["Quality Control","Checking the product against spec: detects defects."],
-        ["ITP","Inspection and Test Plan: every check, when, who, and hold or witness."],
-        ["Hold point","Work stops until the inspector signs off."],
-        ["Cost of quality","Prevention plus failure cost. It has a sweet-spot minimum."],
-        ["NCR","Non-Conformance Report: the controlled record and disposition of a defect."]
-      ]}
+      {"key":"pm10-quality-repair-record",
+       "notice":"Use non-sensitive instructional text. A real NCR belongs in the utility's controlled project record with the required signatures and attachments.",
+       "previewLabel":"Quality repair record preview",
+       "fields":[
+        {"id":"requirement","label":"Requirement and acceptance criterion","help":"Name the specification, drawing, approved submittal, procedure, or test criterion that governs the work.","placeholder":"Example: Joint assembly must follow approved procedure..."},
+        {"id":"condition","label":"Observed condition and evidence","help":"State what was found, where it was found, and which photo, test, inspection note, or measurement supports it.","placeholder":"Example: Three gasket twists at stations..."},
+        {"id":"disposition","label":"Authorized disposition","help":"Record rework, repair, use-as-is, or reject, plus the person or role authorized to approve it.","placeholder":"Example: Rework approved by..."},
+        {"id":"correction","label":"Correction and prevention","help":"Describe the physical correction and the process change that prevents recurrence.","placeholder":"Example: Reassembled joints and retrained crew..."},
+        {"id":"verification","label":"Verification evidence","help":"Name the inspection, test, result, witness, date, and acceptance criterion used after correction.","placeholder":"Example: Reinspection passed..."},
+        {"id":"closure","label":"Closure and remaining limits","help":"State who closed the record, when, and any monitoring, exception, or follow-up that remains.","placeholder":"Example: Closed by... Follow-up at..."}
+       ],
+       "template":"QUALITY REPAIR RECORD\n\nRequirement\n{requirement}\n\nObserved condition and evidence\n{condition}\n\nAuthorized disposition\n{disposition}\n\nCorrection and prevention\n{correction}\n\nVerification evidence\n{verification}\n\nClosure and remaining limits\n{closure}"}
       </script>
     </div>
 
-    <div data-ac="reflect">
+    <p>A complete record should let a reviewer answer six questions without guessing: What was required? What failed? Who was authorized to decide? What changed? What proved the change worked? What remains open? If any answer is missing, the defect may be repaired in the ground while the quality system is still broken.</p>
+
+    <p data-instructor-explanation data-teaches="pm10-artifact-check">Use this final check against the record you just produced. Select every item that must be visible before the record is ready for controlled project review. If an item is missing, return to the builder and repair the record rather than accepting an incomplete evidence chain.</p>
+    <div id="pm10-artifact-check" data-ac="multi" data-quiz-type="quality-record-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="quality-repair-record" data-required="final-check" data-retry="Return to the record, add every missing link in the evidence chain, and check again." data-title="Final quality-record gate" data-kind="Final applied check &middot; work-product review">
+      <span class="sr-only" aria-live="polite">Final quality-record feedback appears after checking the selected items.</span>
       <script type="application/json">
-      {"q":"On your last job, was quality mostly assurance (built in up front) or mostly control (caught at the end)? And did the inspections sit at the points where a missed defect gets buried or expensive?",
-       "a":"The cheapest quality is the kind you build in: approved materials, trained crews, clear procedures, so the defect never happens. The next cheapest is a hold point placed exactly where a defect is about to become invisible or permanent, like the joint inspection before backfill. The most expensive quality is the failure you find after handover, when fixing it means tearing out finished work. Good quality management pushes the effort to the front and the checkpoints to the moments of no return, and it treats every NCR as information, not as blame."}
+      {"q":"Which elements must be present in the quality repair record? Choose all that apply.",
+       "options":[
+        ["The governing requirement and acceptance criterion",true],
+        ["The observed condition, location, and evidence",true],
+        ["An authorized disposition and completed correction",true],
+        ["Verification against the acceptance criterion",true],
+        ["A promise to remember the exception without documenting it",false]
+       ],
+       "ok":"The record contains the full requirement, decision, correction, and verification chain.",
+       "no":"The complete record needs the requirement, observed evidence, authorized disposition, correction, and verification. Memory is not closure evidence."}
       </script>
     </div>
   </div>
@@ -735,12 +826,95 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec" data-module-faq>
+    <h2>Questions people ask after the inspection</h2>
+    <details>
+      <summary>Does opening an NCR mean the contractor is automatically at fault?</summary>
+      <p>No. An NCR records that a requirement was not met. Responsibility, cost, and schedule entitlement may require a separate contract review. For example, a valve may be non-conforming because the approved drawing was wrong, because the supplier shipped the wrong item, or because the installer ignored the approved submittal. The record should establish the facts before it assigns blame.</p>
+    </details>
+    <details>
+      <summary>Can an engineer approve a use-as-is disposition?</summary>
+      <p>Only when that person has the required authority and enough evidence to evaluate the consequence. Use-as-is does not mean the defect disappeared. It means an authorized decision-maker accepted the condition with a documented technical and contractual basis. Local procedures and contract authority govern who can make that call.</p>
+    </details>
+    <details>
+      <summary>Why not repair the defect first and complete the paperwork later?</summary>
+      <p>Because the original condition is evidence. If the crew changes it before the condition, location, and requirement are recorded, the team may lose the ability to determine cause, responsibility, and the correct verification. At Millpond, photographing and locating the twisted gasket before disassembly preserves the evidence while the repair is still quick.</p>
+    </details>
+    <details>
+      <summary>Is a project with many NCRs necessarily a poor-quality project?</summary>
+      <p>Not by count alone. A high count can mean poor workmanship, strong inspection, or both. Look at severity, recurrence, age, closure quality, and cause. Ten minor items found and closed before burial may be healthier than one repeated defect hidden until startup.</p>
+    </details>
+    <details>
+      <summary>Where should the project place hold points?</summary>
+      <p>Place them immediately before work becomes hidden, irreversible, hazardous to correct, or expensive to reopen. Joint inspection before backfill is the obvious Millpond example. The hold point should protect a defined acceptance criterion, not stop work without a clear inspection purpose.</p>
+    </details>
+  </section>
+
+  <section class="sec role-strip" aria-labelledby="pm10-role-title">
+    <h2 id="pm10-role-title">What changes by role</h2>
+    <div class="role-grid">
+      <article data-lens="foundation"><b>Foundation</b><p>Recognize the requirement, inspection point, and difference between preventing a defect and detecting one.</p></article>
+      <article data-lens="practitioner"><b>Practitioner</b><p>Place hold points, preserve traceability, route the disposition, and verify corrective work.</p></article>
+      <article data-lens="leader"><b>Leader</b><p>Fund prevention, protect independent inspection, and make honest NCR reporting safe.</p></article>
+    </div>
+  </section>
+
+  <section class="sec evidence-card" data-evidence-boundary>
+    <h2>Evidence boundary</h2>
+    <p>This lesson teaches a general construction-quality method through an instructional Millpond scenario. The contract documents, approved submittals, project quality plan, utility standards, and authorized professional decisions govern real work. It does not certify an ISO quality-management system or decide contractual responsibility.</p>
+    <ul>
+      <li><a href="https://www.iso.org/quality-management">International Organization for Standardization quality-management overview</a></li>
+      <li><a href="https://www.fhwa.dot.gov/construction/cqit/qa.cfm">Federal Highway Administration construction and materials quality assurance</a></li>
+      <li><a href="https://www.fhwa.dot.gov/construction/cpmi0404.cfm">Federal Highway Administration construction inspection guidance</a></li>
+    </ul>
+  </section>
+
+  <section class="sec completion-card" aria-labelledby="pm10-completion-title">
+    <h2 id="pm10-completion-title">Completion evidence</h2>
+    <ul class="requirement-list">
+      <li data-requirement="opening-decision">Open with the Millpond quality condition.</li>
+      <li data-requirement="applied-interaction">Complete the quality-clinic diagnosis.</li>
+      <li data-requirement="work-product">Complete the quality repair record.</li>
+      <li data-requirement="final-check">Pass the final quality-record gate.</li>
+    </ul>
+    <button type="button" class="btn" data-complete disabled>Complete Module 10</button>
+    <span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm10-graph-title">
+    <div class="drawer-head"><h2 id="pm10-graph-title">Module 10 graph</h2><button type="button" data-close-drawer aria-label="Close graph">Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> conformance to a stated requirement</p>
+      <p data-graph-kind="source"><b>Source:</b> specification, approved submittal, inspection, or test evidence</p>
+      <p data-graph-kind="role"><b>Role:</b> contractor, inspector, engineer, owner, and operator</p>
+      <p data-graph-kind="competency"><b>Competency:</b> diagnose and close a non-conformance</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> requirement to condition to disposition to correction to verification</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm10-community-title">
+    <div class="drawer-head"><h2 id="pm10-community-title">Project delivery community</h2><button type="button" data-close-drawer aria-label="Close community">Close</button></div>
+    <div class="drawer-body community-tools">
+      <label data-community-feature="search">Search discussions<input type="search" placeholder="Quality, NCR, hold point"></label>
+      <div data-community-feature="filters"><button type="button">Quality</button><button type="button">Field inspection</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this discussion</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare where utilities place hold points before work becomes hidden.</p></div>
+      <p data-community-feature="presence">Practitioners reviewing this topic: quality managers, inspectors, project managers</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor note:</b> share process lessons, never sensitive project evidence.</p>
+    </div>
+  </aside>
+
+  <div id="owos-course-community" class="connected-learning" tabindex="-1">
+    <b>Continue the quality conversation</b>
+    <p>Use Graph to inspect the requirement-to-verification chain. Use Community to compare quality controls without exposing controlled project records.</p>
+  </div>
+  <div id="tt" role="tooltip" hidden></div>
+
+  <div class="navrow footnav">
     <a href="lesson-pm-09-procurement-contracts-claims.html">&#8592; Chapter 09 &middot; Procurement, contracts and claims</a>
     <a class="btn" href="lesson-pm-11-risk-uncertainty.html">Chapter 11 &middot; Risk and uncertainty &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1057,10 +1231,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2085,6 +2263,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2094,8 +2291,96 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  var lastTrigger=null;
+
+  function drawer(kind){
+    return document.querySelector('[data-drawer="'+kind+'"]');
+  }
+
+  function closeDrawer(panel){
+    if(!panel)return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden","true");
+    document.body.classList.remove("drawer-open");
+    if(lastTrigger)lastTrigger.focus();
+  }
+
+  function openDrawer(kind,trigger){
+    var panel=drawer(kind);
+    if(!panel)return;
+    document.querySelectorAll("[data-drawer].open").forEach(function(other){
+      other.classList.remove("open");
+      other.setAttribute("aria-hidden","true");
+    });
+    lastTrigger=trigger;
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden","false");
+    document.body.classList.add("drawer-open");
+    var close=panel.querySelector("[data-close-drawer]");
+    if(close)close.focus();
+  }
+
+  function requirementComplete(value){
+    var target=document.querySelector('[data-required="'+value+'"]');
+    if(!target)return false;
+    if(value==="opening-decision")return true;
+    if(value==="applied-interaction"){
+      if(target.querySelector(".exdone.on"))return true;
+      var run=target.querySelector("[data-run]");
+      return !!(run&&run.disabled);
+    }
+    if(value==="work-product"){
+      var textareas=target.querySelectorAll("textarea");
+      if(textareas.length)return Array.prototype.every.call(textareas,function(field){return field.value.trim().length>0;});
+      var rows=target.querySelectorAll(".at-item");
+      return rows.length>0&&Array.prototype.every.call(rows,function(row){return row.getAttribute("data-state")==="3";});
+    }
+    if(value==="final-check")return !!target.querySelector(".ac-fb.on.ok");
+    return false;
+  }
+
+  function updateCompletion(){
+    var values=["opening-decision","applied-interaction","work-product","final-check"];
+    var all=true;
+    values.forEach(function(value){
+      var done=requirementComplete(value);
+      all=all&&done;
+      var row=document.querySelector('[data-requirement="'+value+'"]');
+      if(row)row.classList.toggle("done",done);
+    });
+    var button=document.querySelector("[data-complete]");
+    var status=document.querySelector("[data-completion-status]");
+    var nextStatus=all?"All required evidence is complete.":"Complete the required evidence above.";
+    if(button&&button.disabled===all)button.disabled=!all;
+    if(status&&status.textContent!==nextStatus)status.textContent=nextStatus;
+  }
+
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("graph",button);});
+  });
+  document.querySelectorAll("[data-open-community]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("community",button);});
+  });
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){
+    button.addEventListener("click",function(){closeDrawer(button.closest("[data-drawer]"));});
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape")closeDrawer(document.querySelector("[data-drawer].open"));
+  });
+  document.addEventListener("input",updateCompletion);
+  document.addEventListener("click",function(){window.setTimeout(updateCompletion,0);});
+  new MutationObserver(updateCompletion).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","data-state","disabled"]});
+  updateCompletion();
 })();
 
 </script>

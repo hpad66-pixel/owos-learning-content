@@ -1,7 +1,7 @@
 ---
 module_id: mbm001:01
 course_id: owos-course-semantic-data-ai-001
-version: production-candidate-1
+version: semantic-fieldbook-retrofit-1
 review_date: 2026-07-23
 reviewer: Codex repository review
 score: 86
@@ -11,6 +11,12 @@ release_status: blocked
 ---
 
 # Module Quality-Control Report: RDF in 15 Minutes
+
+## Retrofit implementation review
+- Rebuilt as a written-first guided construction lesson.
+- Verified mechanisms: triple construction, reversal, path illumination, and Relationship Card.
+- Verified visual grammar: utility evidence scene, triple comparison, and labelled graph path.
+- Score remains conditional because practitioner, novice, screen-reader, and device reviews are pending.
 
 ## Decision
 - Working-review result: Conditional production candidate.

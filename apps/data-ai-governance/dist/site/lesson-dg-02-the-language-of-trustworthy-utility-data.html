@@ -7,6 +7,7 @@
 <meta name="description" content="Separate governance from management, distinguish lineage, provenance, integrity, and traceability, test quality for a stated utility use, and build governed starter records.">
 <meta name="owos-course-id" content="owos-master-data-governance-001">
 <meta name="owos-course-store" content="dga001">
+<meta name="owos-learning-object" content="dga001:02">
 <meta name="owos-release-state" content="released">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +31,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -598,12 +600,13 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   <span class="crumb"><a href="course-data-governance.html">Master Class</a> / <b>Chapter 02</b></span>
 </nav>
 <div id="rprog"></div>
-<main class="wrap">
+<main class="wrap" id="lesson-start">
   <header class="dg02-hero">
     <div class="dg02-kicker">Part A &middot; Chapter 02 &middot; Why data must be ready before artificial intelligence</div>
     <h1>The language of trustworthy utility data</h1>
     <p>People cannot govern together if the same words mean different things in operations, the laboratory, engineering, information technology, records, and management. This chapter gives your utility a plain working language and turns it into records you can use.</p>
     <span class="dg02-status"><i></i>Released lesson &middot; utility deployment chapter</span>
+    <span class="contract-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
   </header>
 
   <div class="lens" aria-label="Choose lesson depth">
@@ -932,6 +935,26 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   </section>
 
   <nav class="dg02-nav" aria-label="Chapter navigation"><a href="lesson-dg-01-the-missing-layer-above-utility-systems.html">&larr; Chapter 01</a><a class="home" href="course-data-governance.html">All 25 chapters</a><a href="lesson-dg-03-standards-law-and-the-applicability-record.html">Chapter 03 &rarr;</a></nav>
+  <section class="contract-evidence" aria-label="Chapter 02 governed evidence mapping">
+    <style>.dark{color:#fff}.contract-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.contract-actions button,.contract-actions a{border:1px solid rgba(255,255,255,.5);border-radius:9px;background:transparent;color:#fff;padding:8px 11px;font-weight:800;text-decoration:none}.contract-evidence{margin:30px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#f8fbff}.contract-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.contract-visual{padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-faq details{margin:8px 0;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff}.contract-drawer{position:fixed;inset:0 0 0 auto;z-index:95;width:min(430px,92vw);padding:20px;border:0;border-left:1px solid var(--line);background:#fff;box-shadow:-20px 0 60px rgba(7,51,79,.22);overflow:auto}.contract-drawer[hidden]{display:none}@media(max-width:700px){.contract-grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.contract-drawer{scroll-behavior:auto}}</style>
+    <span hidden data-lens="foundation">Foundation view: separate the core terms.</span><span hidden data-lens="practitioner">Practitioner view: retain the minimum provenance event.</span><span hidden data-lens="leader">Leader view: reject quality claims without a stated use.</span>
+    <div data-opening-decision="release-drinking-water-result" data-required="opening-decision"><b>Opening decision:</b> decide whether Riverbend has enough evidence to release sample RB-24-017.</div>
+    <div data-worked-example><b>Worked utility example:</b> one drinking-water result is connected to its sample, method, instrument, calibration, analyst, treatment condition, approval, and amendment.</div>
+    <p data-instructor-explanation data-teaches="dg02-provenance-network dg02-quality-use">Read the provenance network as a chain of entities, activities, and responsible agents, then compare it with the quality-by-use threshold. The first picture explains where the result came from. The second asks whether that evidence is sufficient for this specific release decision. Provenance and quality answer different questions and must work together.</p>
+    <div class="contract-grid"><article class="contract-visual" id="dg02-provenance-network" data-visual-type="provenance-network" data-component-source="component-gallery"><p data-reading-guide>Trace the sample through collection, analysis, review, release, and amendment.</p><p>Sample → method run → instrument and analyst → approved result → consumer decision</p><p data-learner-conclusion>Provenance identifies the evidence path and responsible activity behind the result.</p></article><article class="contract-visual" id="dg02-quality-use" data-visual-type="quality-by-use" data-component-source="component-gallery"><p data-reading-guide>Hold the record constant and change the intended use from trend review to regulatory release.</p><p>Trend use: useful with limitations. Release use: every critical requirement must meet the higher gate.</p><p data-learner-conclusion>Data quality is fitness for a stated use, time, and consequence.</p></article></div>
+    <details data-purposeful-interaction="provenance-inspection" data-component-source="component-gallery" data-required="provenance-inspection"><summary>Inspect the missing provenance fact</summary><p>If the instrument calibration record cannot be tied to the analysis run, Riverbend should hold or qualify the release according to authorized procedure. A correct-looking value does not repair the evidence gap.</p></details>
+    <p data-instructor-explanation data-teaches="dg02-term-check">Match each term to the question it answers. Do not treat lineage, provenance, integrity, and traceability as synonyms. If you miss one, return to the drinking-water release example and ask whether you are locating movement, origin and responsibility, unauthorized change, or the complete retrievable chain.</p>
+    <fieldset id="dg02-term-check" data-quiz-type="matching" data-quiz-source="quiz-gallery" data-required="term-check" data-retry="Return to the four questions and match the terms again."><legend>Which term asks who or what produced the result?</legend><label><input type="radio" name="dg02-check">Lineage</label><label><input type="radio" name="dg02-check">Provenance</label><p aria-live="polite">Provenance asks who or what produced the result, using which activity, version, and time.</p></fieldset>
+    <div data-artifact="governed-language-starter-pack" data-required="work-product"><b>Professional work product:</b> the lesson's glossary, minimum provenance event, and data-product card.</div>
+    <div data-final-applied-check data-required="final-review" data-artifact-ref="governed-language-starter-pack"><b>Final applied check:</b> verify the record distinguishes governance from management, identifies the provenance event, states the intended use, and names the quality limitation.</div>
+    <ul><li data-requirement="opening-decision">Make the release decision.</li><li data-requirement="provenance-inspection">Inspect provenance.</li><li data-requirement="term-check">Complete the term check.</li><li data-requirement="work-product">Build the starter pack.</li><li data-requirement="final-review">Review the pack.</li></ul><button type="button" data-complete disabled>Completion remains unavailable until required evidence is recorded</button>
+    <section class="contract-faq" data-module-faq><h2>Chapter 02 questions</h2><details><summary>Are lineage and provenance the same?</summary><p>No. Lineage follows movement and transformation. Provenance identifies origins, activities, agents, versions, and times behind a record.</p></details><details><summary>What does integrity add?</summary><p>Integrity asks whether the record remained complete and protected from unauthorized or undetected change.</p></details><details><summary>Can data be high quality for one use and poor for another?</summary><p>Yes. A value may support trend screening but still be insufficient for a regulatory release.</p></details><details><summary>What is a minimum provenance event?</summary><p>It is the smallest retained record that identifies inputs, outputs, activity, actor or service, time, and relevant version.</p></details><details><summary>What makes a data product governed?</summary><p>It has a purpose, owner, contract, service promise, limits, quality state, lineage, and lifecycle.</p></details></section>
+    <section data-evidence-boundary><h2>Evidence boundary</h2><p>The Riverbend sample and thresholds are instructional. Use approved laboratory procedures and local authority. Sources: <a href="SYLLABUS.md">course syllabus</a>, <a href="../course.yaml">course record</a>, and <a href="https://github.com/hpad66-pixel/utility-data-ai-governance/tree/825e4661a6dbdfe6628148eb005c86cfb10b8515">controlled Version 2.3 method</a>.</p></section>
+    <section id="owos-course-community"><h2>Continue the learning</h2><p>Use Community to compare a provenance event or quality-by-use statement. Peer discussion is not verified evidence.</p></section><nav class="footnav" aria-label="Connected lesson navigation"><a href="lesson-dg-01-the-missing-layer-above-utility-systems.html">Previous</a> <a href="lesson-dg-03-standards-law-and-the-applicability-record.html">Next</a></nav>
+  </section>
+  <aside class="contract-drawer" data-drawer="graph" data-component-source="shared-component-library" hidden><button type="button" data-close-drawer>Close</button><h2>Chapter 02 Knowledge Graph</h2><p data-graph-kind="concept">Concept: provenance and quality by use</p><p data-graph-kind="source">Source: Version 2.3 Chapter 2</p><p data-graph-kind="role">Role: laboratory analyst, approver, and data owner</p><p data-graph-kind="competency">Competency: distinguish trust terms and build a minimum event</p><p data-graph-kind="relationship">Relationship: a result is fit for use when its evidence meets the stated decision requirement</p></aside>
+  <aside class="contract-drawer" data-drawer="community" data-component-source="shared-component-library" hidden><button type="button" data-close-drawer>Close</button><h2>Community</h2><p data-community-feature="search">Search terms and examples.</p><p data-community-feature="filters">Filter by role and service.</p><p data-community-feature="bookmarks">Bookmark useful explanations.</p><p data-community-feature="threaded-replies">Reply in context.</p><p data-community-feature="presence">See active participants.</p><p data-community-feature="instructor-treatment">Instructor replies are marked.</p></aside><div id="tt" role="tooltip" hidden></div>
+  <script>(function(){var last=null;function open(selector,trigger){var drawer=document.querySelector(selector);last=trigger;drawer.hidden=false;drawer.querySelector('[data-close-drawer]').focus();}document.querySelector('[data-open-graph]').addEventListener('click',function(){open('[data-drawer="graph"]',this);});document.querySelector('[data-open-community]').addEventListener('click',function(){open('[data-drawer="community"]',this);});document.querySelectorAll('[data-close-drawer]').forEach(function(button){button.addEventListener('click',function(){button.closest('[data-drawer]').hidden=true;if(last)last.focus();});});})();</script>
 </main>
 <footer class="dg02-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:02 &middot; Released in course build 0.20.0</div></footer>
 <script>
@@ -2274,6 +2297,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2283,6 +2325,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();

@@ -32,6 +32,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -610,9 +611,9 @@ html,body{max-width:100%;overflow-x:hidden}.wrap{max-width:1120px}.dg09-progress
 </head>
 <body data-lens="f">
 <div class="dg09-progress" id="readingProgress"></div>
-<nav class="dg09-nav"><div class="inner"><a class="dg09-brand" href="course-data-governance.html"><span class="dg09-drop">OW</span><span>One Water OS Academy</span></a><span class="dg09-crumb">Data Before AI / Chapter 09</span><div class="dg09-actions"><button class="dg09-btn" type="button" id="openGraphTop">Open lesson graph</button><a class="dg09-btn primary" href="course-data-governance.html">All chapters</a></div></div></nav>
+<nav class="dg09-nav"><div class="inner"><a class="dg09-brand" href="course-data-governance.html"><span class="dg09-drop">OW</span><span>One Water OS Academy</span></a><span class="dg09-crumb">Data Before AI / Chapter 09</span><div class="dg09-actions"><button class="dg09-btn" type="button" id="openGraphTop" data-open-graph>Graph</button><button class="dg09-btn" type="button" data-open-community>Community</button><a class="dg09-btn" href="#lesson-start">Start</a><a class="dg09-btn primary" href="course-data-governance.html">All chapters</a></div></div></nav>
 
-<main class="wrap">
+<main class="wrap" id="lesson-start">
   <section class="dg09-hero">
     <div class="dg09-kicker">Golden hybrid lesson 01 | Domain D02</div>
     <h1>Accountability that survives the handoff.</h1>
@@ -730,8 +731,23 @@ html,body{max-width:100%;overflow-x:hidden}.wrap{max-width:1120px}.dg09-progress
     <h3>Evidence readiness</h3><p>Select an item only when your saved operating pack points to the actual utility-approved evidence.</p>
     <div class="dg09-evidence" id="evidenceTracker"><label><input type="checkbox" value="D02.1">D02.1 owner and steward evidence</label><label><input type="checkbox" value="D02.2">D02.2 authority and capacity evidence</label><label><input type="checkbox" value="D02.3">D02.3 forum and decision evidence</label><label><input type="checkbox" value="D02.4">D02.4 conflicting-duty evidence</label><label><input type="checkbox" value="D02.5">D02.5 supplier evidence</label></div>
 
+    <section class="contract-evidence" aria-label="Chapter 09 governed evidence mapping"><style>.dark{color:#fff}.contract-evidence{margin:30px 0;padding:22px;border:1px solid var(--dg-line);border-radius:18px;background:#f5fbff}.contract-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.contract-visual{padding:16px;border:1px solid var(--dg-line);border-radius:14px;background:#fff}.contract-faq details{margin:8px 0;padding:12px;border:1px solid var(--dg-line);border-radius:10px;background:#fff}.community-drawer{position:fixed;inset:0 0 0 auto;z-index:95;width:min(430px,92vw);padding:20px;border:0;border-left:1px solid var(--dg-line);background:#fff;overflow:auto}.community-drawer[hidden]{display:none}@media(max-width:700px){.contract-grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.community-drawer{scroll-behavior:auto}}</style>
+      <span hidden data-lens="foundation">Foundation view: distinguish owner, steward, custodian, forum, and assurance.</span><span hidden data-lens="practitioner">Practitioner view: make authority executable.</span><span hidden data-lens="leader">Leader view: fund operating capacity and separation.</span>
+      <div data-opening-decision="lead-service-line-conflict" data-required="opening-decision"><b>Opening decision:</b> choose who can authorize treatment of 1,200 conflicting lead-service-line records before filing.</div><div data-worked-example><b>Worked example:</b> Riverbend moves contractor, field, Geographic Information System, customer, regulatory, and supplier evidence through an accountable data-product decision.</div>
+      <p><span class="term" data-def="The role answerable for a defined data-product decision.">Accountable owner</span>, <span class="term" data-def="The role maintaining meaning, rules, issues, and communication.">steward</span>, <span class="term" data-def="The role operating approved technology controls.">custodian</span>, <span class="term" data-def="A governed route for cross-functional advice and decisions.">decision forum</span>, and <span class="term" data-def="Independent testing that does not own management remediation.">assurance</span> are related but not interchangeable.</p>
+      <p data-instructor-explanation data-teaches="dg09-accountability-network dg09-forum-gates">Read the accountability network from source evidence through the governed inventory to regulatory, customer, and field decisions. Then follow the forum gates from framing through closure. Notice that the forum assembles advice and preserves evidence, while the accountable owner remains the named authority for approval, risk acceptance, or escalation.</p>
+      <div class="contract-grid"><article class="contract-visual" id="dg09-accountability-network" data-visual-type="network-diagram" data-component-source="component-gallery"><p data-reading-guide>Trace source evidence into the inventory and outward to each material use.</p><p>Sources → governed inventory → filing, notice, planning, and verification</p><p data-learner-conclusion>One governed product supports several decisions through explicit accountability.</p></article><article class="contract-visual" id="dg09-forum-gates" data-visual-type="phase-gate" data-component-source="component-gallery"><p data-reading-guide>Move from frame to assemble, challenge, decide, and close.</p><p>Frame → assemble → challenge → decide → close</p><p data-learner-conclusion>A forum improves a decision without becoming its unnamed owner.</p></article></div>
+      <details data-purposeful-interaction="authority-test" data-component-source="component-gallery" data-required="authority-test"><summary>Test the owner-steward boundary</summary><p>The steward investigates and proposes the rule. The accountable owner approves its use, accepts or escalates residual risk, and records the decision.</p></details>
+      <p data-instructor-explanation data-teaches="dg09-authority-check">Classify each action by authority, not by job title. Look for the role that can approve purpose or risk, the role that maintains meaning and issue evidence, and the role that operates the technical environment. If you miss one, return to the decision-room handoff and retry.</p>
+      <fieldset id="dg09-authority-check" data-quiz-type="classify" data-quiz-source="quiz-gallery" data-required="authority-check" data-retry="Review the owner, steward, and custodian authority boundaries, then retry."><legend>Who approves use of the joined inventory for a new filing purpose?</legend><label><input type="radio" name="dg09-check">Accountable owner</label><label><input type="radio" name="dg09-check">System custodian</label><p aria-live="polite">The accountable owner approves the material purpose change with required advice and evidence.</p></fieldset>
+      <div data-artifact="ownership-stewardship-operating-pack" data-required="work-product"><b>Work product:</b> the existing operating-pack builder records owner, steward, custodian, forum, authority, evidence, escalation, and supplier duties.</div><div data-final-applied-check data-required="final-review" data-artifact-ref="ownership-stewardship-operating-pack"><b>Final check:</b> confirm the pack can operate without its designer and preserves separation, supplier accountability, evidence, and escalation.</div>
+      <ul><li data-requirement="opening-decision">Make the conflict decision.</li><li data-requirement="authority-test">Test authority.</li><li data-requirement="authority-check">Complete classification.</li><li data-requirement="work-product">Save the operating pack.</li><li data-requirement="final-review">Review the pack.</li></ul>
+      <section class="contract-faq" data-module-faq><h2>Chapter 09 questions</h2><details><summary>Is a data owner just a name in a catalog?</summary><p>No. The owner needs defined decisions, authority, measures, escalation, and retained evidence.</p></details><details><summary>What does a steward decide?</summary><p>The steward operates meaning, rules, issues, and communication within approved authority and prepares evidence for owner decisions.</p></details><details><summary>Can a committee replace the owner?</summary><p>No. A forum coordinates advice and records decisions while preserving accountable authority.</p></details><details><summary>Why separate duties?</summary><p>A role should not quietly create, approve, release, and independently assure the same consequential work.</p></details><details><summary>Does a supplier own utility accountability?</summary><p>No. The contract assigns supplier duties, but the utility retains accountability for the public-service decision.</p></details></section>
+      <section data-evidence-boundary><h2>Evidence boundary</h2><p>Riverbend roles and timeframes are instructional. Sources: <a href="SYLLABUS.md">syllabus</a>, <a href="../course.yaml">course record</a>, and <a href="https://github.com/hpad66-pixel/utility-data-ai-governance/tree/825e4661a6dbdfe6628148eb005c86cfb10b8515">controlled method</a>.</p></section><section id="owos-course-community"><h2>Continue the learning</h2><p>Compare role boundaries without posting protected utility records.</p></section><nav class="footnav"><a href="lesson-dg-08-d01-strategy-value-and-decision-rights.html">Previous</a> <a href="lesson-dg-10-d03-metadata-catalog-and-semantics.html">Next</a></nav>
+      <aside class="community-drawer" data-drawer="graph" data-component-source="shared-component-library" hidden><p data-graph-kind="concept">Concept: accountability</p><p data-graph-kind="source">Source: domain D02</p><p data-graph-kind="role">Role: owner, steward, custodian, forum, assurance</p><p data-graph-kind="competency">Competency: establish accountable stewardship</p><p data-graph-kind="relationship">Relationship: owner authorizes purpose while steward operates meaning and evidence</p></aside><aside class="community-drawer" data-drawer="community" data-component-source="shared-component-library" hidden><button data-close-community>Close</button><p data-community-feature="search">Search accountability cases.</p><p data-community-feature="filters">Filter.</p><p data-community-feature="bookmarks">Bookmark.</p><p data-community-feature="threaded-replies">Reply.</p><p data-community-feature="presence">Presence.</p><p data-community-feature="instructor-treatment">Instructor replies are marked.</p></aside><div id="tt" role="tooltip" hidden></div><script>(function(){var d=document.querySelector('[data-drawer="community"]'),b=document.querySelector('[data-open-community]');b.addEventListener('click',function(){d.hidden=false;d.querySelector('[data-close-community]').focus();});d.querySelector('[data-close-community]').addEventListener('click',function(){d.hidden=true;b.focus();});})();</script>
+    </section>
     <div class="dg09-boundary"><b>Evidence boundary.</b> This lesson teaches how to build and evaluate accountability and stewardship. The Riverbend facts, timeframes, roles, and decisions are instructional. Completing the lesson does not establish legal compliance, regulatory approval, certification, or independent assurance. Apply current law, contracts, governance authority, labor obligations, professional judgment, and utility-specific evidence.</div>
-    <div class="dg09-complete"><h3>Record Chapter 09 completion</h3><p id="completionRequirements">Complete the opening decision, authority simulation, saved operating pack, and mastery check first.</p><button class="dg09-btn primary" type="button" id="completeChapter" disabled>Mark Chapter 09 complete</button><span class="dg09-result" id="completionResult" role="status" aria-live="polite"></span></div>
+    <div class="dg09-complete"><h3>Record Chapter 09 completion</h3><p id="completionRequirements">Complete the opening decision, authority simulation, saved operating pack, and mastery check first.</p><button class="dg09-btn primary" type="button" id="completeChapter" data-complete disabled>Mark Chapter 09 complete</button><span class="dg09-result" id="completionResult" role="status" aria-live="polite"></span></div>
   </section>
 
   <section class="dg09-boundary"><b>Provenance and control.</b> This lesson implements domain D02 and criteria D02.1 through D02.5 of <i>Data Ready Before AI Ready</i>, Version 2.3, controlled commit <code>825e4661a6dbdfe6628148eb005c86cfb10b8515</code>. The primary controlled anchors are International Organization for Standardization and International Electrotechnical Commission 38505-1 and 38505-2, DAMA-DMBOK2 Revised, National Institute of Standards and Technology Special Publication 800-53 Revision 5 and Special Publication 800-161 Revision 1, and EDM Council Cloud Data Management Capabilities Version 1.1. Course <code>owos-master-data-governance-001</code>. Learning object <code>dga001:09</code>. OWOS Course Operating Standard <code>2.0.0</code>.</section>
@@ -2081,6 +2097,25 @@ html,body{max-width:100%;overflow-x:hidden}.wrap{max-width:1120px}.dg09-progress
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2090,6 +2125,7 @@ html,body{max-width:100%;overflow-x:hidden}.wrap{max-width:1120px}.dg09-progress
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();

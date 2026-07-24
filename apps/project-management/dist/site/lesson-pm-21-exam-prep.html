@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 21 &middot; PMP and CAPM exam preparation &middot; One Water OS Academy</title>
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-21-exam-prep">
+<meta name="owos-release-state" content="working-review">
 <meta name="description" content="Chapter 21 of the Project Management masterclass. The PMP and CAPM exams, the Examination Content Outline, predictive versus agile versus hybrid, the formulas worth memorizing, and test strategy with a practice question runner.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,38 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+/* Project Management retrofit controls. The field-delivery teaching surface remains in academy.css. */
+.lesson-actions{display:flex;gap:6px;align-items:center;margin-left:auto}
+.lesson-actions a,.lesson-actions button{border:1px solid var(--line-2);border-radius:999px;background:#fff;padding:6px 10px;color:var(--ink-2);font:700 10px var(--fm);text-decoration:none;cursor:pointer}
+.lesson-actions a:hover,.lesson-actions button:hover,.lesson-actions a:focus-visible,.lesson-actions button:focus-visible{border-color:var(--brand);color:var(--brand);outline:2px solid var(--brand-100);outline-offset:2px}
+.owos-nav .crumb{margin-left:12px}
+[data-visual-type]{margin:24px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface-2)}
+[data-reading-guide],[data-learner-conclusion]{margin:0;padding:10px 12px;border-radius:11px;font-size:13.5px;line-height:1.55}
+[data-reading-guide]{border:1px solid var(--brand-100);background:var(--brand-50);color:var(--ink)}
+[data-learner-conclusion]{border:1px solid #bfe0d4;background:var(--green-50);color:#086b50}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.role-grid article{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.role-grid b{color:var(--ink)}.role-grid p{margin:5px 0 0;font-size:13px;line-height:1.5}
+.evidence-card ul,.requirement-list{padding-left:20px}.evidence-card li,.requirement-list li{margin:7px 0}
+.evidence-card a{color:var(--brand-700)}
+.completion-card{border-color:var(--brand-100);background:var(--brand-50)}
+.completion-status{display:inline-block;margin-left:10px;font:600 11px var(--fm);color:var(--ink-3)}
+.requirement-list li.done{color:var(--green);font-weight:700}
+.course-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:120;background:#fff;box-shadow:-14px 0 38px rgba(15,23,40,.2);transform:translateX(105%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
+.course-drawer.open{transform:translateX(0);visibility:visible;transition:transform .22s ease}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--brand-800);color:#fff}
+.drawer-head h2{margin:0;color:#fff;font-size:1.15rem}.drawer-head button{border:1px solid rgba(255,255,255,.65);border-radius:8px;background:transparent;padding:7px 10px;color:#fff;font-weight:700;cursor:pointer}
+.drawer-body{height:calc(100% - 70px);overflow:auto;padding:18px}.drawer-body>p,.drawer-body>div,.drawer-body>label,.drawer-body>button{display:block;margin:0 0 11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--ink-2)}
+.community-tools input{display:block;width:100%;margin-top:7px;border:1px solid var(--line-2);border-radius:8px;padding:8px;font:inherit}.community-tools button{border:1px solid var(--line-2);border-radius:8px;background:#fff;padding:7px 10px;color:var(--ink-2);font-weight:700;cursor:pointer;margin:3px}
+.connected-learning{margin:28px 0 18px;padding:16px 18px;border:1px solid var(--brand-100);border-radius:14px;background:var(--brand-50)}.connected-learning b{color:var(--ink)}.connected-learning p{margin:5px 0 0}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body.drawer-open{overflow:hidden}
+@media(max-width:900px){.lesson-actions{order:3;width:100%;justify-content:flex-end}.owos-nav{height:auto;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.wrap{padding-top:34px}}
+@media(max-width:700px){.role-grid{grid-template-columns:1fr}.lesson-actions{justify-content:flex-start}.owos-nav .crumb{margin-left:auto}[data-visual-type]{padding:8px}.completion-status{display:block;margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){.course-drawer{transition:none}}
+
+</style>
 </head>
 <body>
 
@@ -589,10 +625,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 21</b></span>
+  <span class="lesson-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 21 &middot; Certification</span>
   <h1>Passing the <span>PMP</span> or the CAPM</h1>
@@ -605,7 +642,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">A word before you start</p>
@@ -890,12 +927,37 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec">
+    <h2>Build the exam study plan</h2>
+    <p data-instructor-explanation data-teaches="pm21-choice-table">Use the comparison to separate credential choice from study tactics. Verify current eligibility, fees, format, and content with the Project Management Institute before committing time or money.</p>
+    <div id="pm21-choice-table" data-visual-type="comparison-table" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> begin with your current experience and goal, confirm the official eligibility path, then choose a study plan that targets the current examination content.</p><div style="overflow:auto"><table><thead><tr><th>Decision</th><th>Certified Associate in Project Management</th><th>Project Management Professional</th></tr></thead><tbody><tr><td>Primary fit</td><td>Entry or early-career credential</td><td>Experienced project leadership credential</td></tr><tr><td>Evidence</td><td>Current official education and application requirements</td><td>Current official experience, education, and application requirements</td></tr><tr><td>Study basis</td><td>Current official exam outline and references</td><td>Current official examination content outline and references</td></tr></tbody></table></div><p data-learner-conclusion>The right credential path depends on verified current eligibility and the professional outcome you actually need.</p></div>
+    <p data-instructor-explanation data-teaches="pm21-practice-loop">Read the practice loop as a controlled improvement cycle. One large question bank is not the plan. The value comes from diagnosing the reasoning error, repairing the concept, and retesting under time.</p>
+    <div id="pm21-practice-loop" data-visual-type="phase-gate" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> move from baseline to targeted study to timed practice. Each gate requires evidence before the plan advances.</p><ol><li>Verify current exam and eligibility information</li><li>Run a mixed baseline set</li><li>Classify misses by domain and reasoning error</li><li>Repair weak concepts and formulas</li><li>Retest under realistic timing and stamina</li></ol><p data-learner-conclusion>Practice improves performance only when each wrong answer changes the next study action.</p></div>
+    <p data-instructor-explanation data-teaches="pm21-plan-gate">Run the plan gate before filling the builder. It checks the official source, eligibility, baseline evidence, target weaknesses, and test conditions.</p>
+    <div id="pm21-plan-gate" data-ac="applicability" data-purposeful-interaction="exam-plan-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-quiz-type="exam-plan-gate" data-quiz-source="applied-assessment-contract" data-retry="Run every gate and identify the missing official source, eligibility evidence, baseline, or practice condition." data-title="Exam-plan gate" data-kind="Interactive planning gate"><span class="sr-only" aria-live="polite">Exam-plan feedback appears as each gate is run.</span><script type="application/json">{"scenarios":[{"label":"Credential plan","authority":"Current Project Management Institute requirements","facts":"The learner wants a credential for a utility project role and has not verified the current handbook.","gates":[{"label":"Current official source","state":"review","detail":"Verify the current handbook, examination content, fees, and policies."},{"label":"Eligibility evidence","state":"review","detail":"Confirm documented experience and education against current rules."},{"label":"Baseline performance","state":"pass","detail":"Use a mixed set to identify domains and reasoning errors."},{"label":"Practice conditions","state":"review","detail":"Plan timed sets, review, stamina, and an exam date only after eligibility is clear."}],"result":"VERIFY CURRENT REQUIREMENTS BEFORE LOCKING THE PLAN.","resultClass":"review","basis":"The course teaches a study method and does not certify eligibility."}],"boundary":"Exam requirements and policies change. The Project Management Institute is the current authority."}</script></div>
+    <div data-ac="artifactbuilder" data-artifact="exam-study-plan" data-purposeful-interaction="exam-study-plan-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Exam study plan" data-kind="Work product &middot; study plan"><script type="application/json">{"key":"pm21-exam-study-plan","notice":"Verify all current requirements with the Project Management Institute. This course does not determine eligibility.","fields":[{"id":"goal","label":"Credential goal","help":"State which credential and why it matters for your role.","placeholder":"I am pursuing..."},{"id":"verification","label":"Official verification","help":"Record the current handbook, outline, eligibility, and policy checks.","placeholder":"Verified on..."},{"id":"baseline","label":"Baseline evidence","help":"Record scores by domain and the types of reasoning errors.","placeholder":"People... Process..."},{"id":"targets","label":"Target weaknesses","help":"Name concepts, formulas, approaches, and question patterns to repair.","placeholder":"Weak areas..."},{"id":"practice","label":"Practice cadence","help":"Plan study blocks, timed sets, review, and stamina practice.","placeholder":"Weekly..."},{"id":"readiness","label":"Readiness criteria and date","help":"State the evidence required before scheduling or sitting the exam.","placeholder":"Ready when..."}],"template":"EXAM STUDY PLAN\n\nCredential goal\n{goal}\n\nOfficial verification\n{verification}\n\nBaseline evidence\n{baseline}\n\nTarget weaknesses\n{targets}\n\nPractice cadence\n{practice}\n\nReadiness criteria and date\n{readiness}"}</script></div>
+    <p data-instructor-explanation data-teaches="pm21-final-check">Use the final check against your plan. Select every element that turns study activity into evidence-based preparation.</p>
+    <div id="pm21-final-check" data-ac="multi" data-quiz-type="study-plan-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="exam-study-plan" data-required="final-check" data-retry="Add the missing official verification, baseline, target, cadence, or readiness evidence and check again." data-title="Final study-plan gate" data-kind="Final applied check"><span class="sr-only" aria-live="polite">Final study-plan feedback appears after checking the selected items.</span><script type="application/json">{"q":"What must the exam study plan contain?","options":[["A clear credential goal",true],["Verified current official requirements",true],["Baseline evidence and targeted weaknesses",true],["Practice cadence and readiness criteria",true],["A promise that this course guarantees eligibility or a passing score",false]],"ok":"The plan connects current authority, evidence, targeted practice, and readiness.","no":"Repair the official verification, baseline, targets, practice cadence, and readiness criteria."}</script></div>
+  </section>
+  <section class="sec" data-module-faq><h2>Questions people ask about the examinations</h2>
+    <details><summary>Does completing this course make me eligible for either examination?</summary><p>Do not assume that. Verify current education, experience, application, and audit requirements directly with the Project Management Institute. This lesson is study guidance, not an eligibility determination.</p></details>
+    <details><summary>Should I memorize every formula?</summary><p>No. Use the current exam outline and reputable preparation sources to identify what is tested. Understand the meaning of the common cost, schedule, float, and estimating relationships so you can reason under pressure.</p></details>
+    <details><summary>Why are scenario questions harder than definition questions?</summary><p>They test the next best action inside a particular delivery approach, role, and authority. Two answers may sound reasonable, but only one fits the situation and sequence.</p></details>
+    <details><summary>How do I know whether a question is predictive, adaptive, or hybrid?</summary><p>Look at how scope, planning, delivery, review, and change are organized. A fixed baseline and formal change control suggest predictive work. A backlog, iterations, and frequent review suggest adaptive work.</p></details>
+    <details><summary>What score means I am ready?</summary><p>Use consistent performance across current, representative timed sets, plus evidence that you can explain your errors. A single high score on familiar questions is weak evidence.</p></details>
+  </section>
+  <section class="sec role-strip"><h2>What changes by role</h2><div class="role-grid"><article data-lens="foundation"><b>Foundation</b><p>Choose a credential path and learn the current exam vocabulary and structure.</p></article><article data-lens="practitioner"><b>Practitioner</b><p>Diagnose scenario reasoning, formulas, delivery approaches, and time management.</p></article><article data-lens="leader"><b>Leader</b><p>Treat the credential as one signal and continue judging real project capability separately.</p></article></div></section>
+  <section class="sec evidence-card" data-evidence-boundary><h2>Evidence boundary</h2><p>Exam requirements, policies, prices, outlines, and formats can change. The Project Management Institute is the current authority. This lesson does not guarantee eligibility, application acceptance, audit outcome, passing performance, or certification.</p><ul><li><a href="https://www.pmi.org/certifications/project-management-pmp">Project Management Professional certification information</a></li><li><a href="https://www.pmi.org/certifications/certified-associate-capm">Certified Associate in Project Management certification information</a></li><li><a href="https://www.pmi.org/certifications/project-management-pmp/earn-the-pmp/how-to-apply">Project Management Professional application information</a></li></ul></section>
+  <section class="sec completion-card"><h2>Completion evidence</h2><ul class="requirement-list"><li data-requirement="opening-decision">Review the current-information warning.</li><li data-requirement="applied-interaction">Run the exam-plan gate.</li><li data-requirement="work-product">Complete the exam study plan.</li><li data-requirement="final-check">Pass the final study-plan gate.</li></ul><button type="button" class="btn" data-complete disabled>Complete Module 21</button><span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span></section>
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Module 21 graph</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body"><p data-graph-kind="concept"><b>Concept:</b> evidence-based exam preparation</p><p data-graph-kind="source"><b>Source:</b> current official handbook and examination content</p><p data-graph-kind="role"><b>Role:</b> candidate, mentor, credential authority</p><p data-graph-kind="competency"><b>Competency:</b> build and execute a targeted study plan</p><p data-graph-kind="relationship"><b>Relationship:</b> goal to authority to baseline to practice to readiness</p></div></aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Project delivery community</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body community-tools"><label data-community-feature="search">Search discussions<input type="search" placeholder="PMP, CAPM, study plan"></label><div data-community-feature="filters"><button type="button">Credential choice</button><button type="button">Practice</button></div><button type="button" data-community-feature="bookmarks">Bookmark this discussion</button><div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare study methods and verified official updates.</p></div><p data-community-feature="presence">Practitioners reviewing: candidates, project leaders, mentors</p><p data-community-feature="instructor-treatment"><b>Instructor note:</b> verify all requirements with the credential authority.</p></div></aside>
+  <div id="owos-course-community" class="connected-learning" tabindex="-1"><b>Continue the exam-prep conversation</b><p>Use Graph to connect goal, authority, baseline, and readiness. Use Community to compare study methods.</p></div><div id="tt" role="tooltip" hidden></div>
+  <div class="navrow footnav">
     <a href="lesson-pm-20-capstone-agentic-pm.html">&#8592; Chapter 20 &middot; Capstone</a>
     <a class="btn" href="course-project-management.html">Back to the masterclass &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1212,10 +1274,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2240,6 +2306,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2249,8 +2334,96 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  var lastTrigger=null;
+
+  function drawer(kind){
+    return document.querySelector('[data-drawer="'+kind+'"]');
+  }
+
+  function closeDrawer(panel){
+    if(!panel)return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden","true");
+    document.body.classList.remove("drawer-open");
+    if(lastTrigger)lastTrigger.focus();
+  }
+
+  function openDrawer(kind,trigger){
+    var panel=drawer(kind);
+    if(!panel)return;
+    document.querySelectorAll("[data-drawer].open").forEach(function(other){
+      other.classList.remove("open");
+      other.setAttribute("aria-hidden","true");
+    });
+    lastTrigger=trigger;
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden","false");
+    document.body.classList.add("drawer-open");
+    var close=panel.querySelector("[data-close-drawer]");
+    if(close)close.focus();
+  }
+
+  function requirementComplete(value){
+    var target=document.querySelector('[data-required="'+value+'"]');
+    if(!target)return false;
+    if(value==="opening-decision")return true;
+    if(value==="applied-interaction"){
+      if(target.querySelector(".exdone.on"))return true;
+      var run=target.querySelector("[data-run]");
+      return !!(run&&run.disabled);
+    }
+    if(value==="work-product"){
+      var textareas=target.querySelectorAll("textarea");
+      if(textareas.length)return Array.prototype.every.call(textareas,function(field){return field.value.trim().length>0;});
+      var rows=target.querySelectorAll(".at-item");
+      return rows.length>0&&Array.prototype.every.call(rows,function(row){return row.getAttribute("data-state")==="3";});
+    }
+    if(value==="final-check")return !!target.querySelector(".ac-fb.on.ok");
+    return false;
+  }
+
+  function updateCompletion(){
+    var values=["opening-decision","applied-interaction","work-product","final-check"];
+    var all=true;
+    values.forEach(function(value){
+      var done=requirementComplete(value);
+      all=all&&done;
+      var row=document.querySelector('[data-requirement="'+value+'"]');
+      if(row)row.classList.toggle("done",done);
+    });
+    var button=document.querySelector("[data-complete]");
+    var status=document.querySelector("[data-completion-status]");
+    var nextStatus=all?"All required evidence is complete.":"Complete the required evidence above.";
+    if(button&&button.disabled===all)button.disabled=!all;
+    if(status&&status.textContent!==nextStatus)status.textContent=nextStatus;
+  }
+
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("graph",button);});
+  });
+  document.querySelectorAll("[data-open-community]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("community",button);});
+  });
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){
+    button.addEventListener("click",function(){closeDrawer(button.closest("[data-drawer]"));});
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape")closeDrawer(document.querySelector("[data-drawer].open"));
+  });
+  document.addEventListener("input",updateCompletion);
+  document.addEventListener("click",function(){window.setTimeout(updateCompletion,0);});
+  new MutationObserver(updateCompletion).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","data-state","disabled"]});
+  updateCompletion();
 })();
 
 </script>

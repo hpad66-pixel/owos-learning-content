@@ -1,5 +1,10 @@
 # OWOS Module Design Brief: The Anatomy of a Triple
 
+Retrofit implementation: syntax workbench using `comparison-table`, `layered-stack`, and
+`interactive-process`. The assessment sequence is `diagnostic-choice`, `error-repair`,
+`serialization-interpretation`, and `applied-assessment`. The signature mechanism repairs malformed
+triples and switches one graph between Turtle and JSON-LD. The work product is a Reviewed Triple Deck.
+
 ## Identity
 | Field | Decision |
 | --- | --- |

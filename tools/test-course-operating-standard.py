@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mechanical acceptance checks for OWOS Course Operating Standard 2.0."""
+"""Mechanical acceptance checks for the current OWOS Course Operating Standard."""
 
 from __future__ import annotations
 
@@ -50,9 +50,11 @@ require(
         "Course production gates",
         "Machine-enforced release gate",
         "quality_contract.enforce_on_release: true",
+        "full_module_conformance_required: true",
+        "tools/course_full_conformance.py",
         "Data Before AI Chapter 09",
-        "Instructor explanation and recording package",
-        "Every module must include a complete recording script",
+        "Instructor explanation and optional media",
+        "Recording scripts are optional",
         "Explanatory graphics are required",
     ],
     "course operating standard",
@@ -84,7 +86,8 @@ require(
         'id="lessonGraph"',
         'id="packForm"',
         'id="masteryCheck"',
-        'id="completeChapter" disabled',
+        'id="completeChapter"',
+        "data-complete disabled",
         "criteria D02.1 through D02.5",
         "v0.25.1",
     ],
@@ -124,4 +127,4 @@ if quality.get("version") != 1 or quality.get("released_lessons_validated") != 1
 if len(release.get("files", [])) != 26:
     raise AssertionError("release manifest must contain the landing page and 25 lessons")
 
-print("OWOS Course Operating Standard QA passed: standard 2.0.0, golden lesson 09, release 0.25.1.")
+print("OWOS Course Operating Standard QA passed: standard 2.2.0, golden lesson 09, release 0.25.1.")

@@ -24,10 +24,10 @@ if not required_contract_keys.issubset(DEFAULT_CONTRACT):
     raise AssertionError("full-module contract is missing reusable enforcement keys")
 
 result = validate_module(
-    COURSE / "curriculum/module-05-five-layers-of-meaning.html",
-    COURSE / "qa/module-05-quality-control-report.md",
-    COURSE / "curriculum/design-briefs/module-05-five-layers-of-meaning.md",
-    COURSE / "curriculum/scripts/module-05-five-layers-of-meaning-video-script.md",
+    COURSE / "curriculum/module-12-running-knowledge-spine.html",
+    COURSE / "qa/module-12-running-knowledge-spine-quality-control-report.md",
+    COURSE / "curriculum/design-briefs/module-12-running-knowledge-spine.md",
+    COURSE / "curriculum/scripts/module-12-running-knowledge-spine-video-script.md",
     COURSE / ".course/full-module-contract.json",
 )
 if len(result["visual_types"]) < 4:
@@ -37,4 +37,4 @@ if len(result["quiz_types"]) < 3:
 if result["purposeful_interactions"] < 2:
     raise AssertionError("Module 05 needs at least two purposeful interactions")
 
-print("Reusable full-module conformance QA passed for Meaning Before Models Module 05.")
+print("Reusable full-module conformance QA passed for Meaning Before Models Module 12.")

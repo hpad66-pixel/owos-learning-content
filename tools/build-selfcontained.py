@@ -49,7 +49,8 @@ LINK_MAP = {
 }
 
 def build(src_path, out_path):
-    html = pathlib.Path(src_path).read_text(encoding="utf-8")
+    source_path = pathlib.Path(src_path)
+    html = source_path.read_text(encoding="utf-8")
 
     # inline the stylesheet
     html = re.sub(
@@ -63,6 +64,34 @@ def build(src_path, out_path):
         "<script>\n" + JS + "\n</script>",
         html,
     )
+    # Course-specific retrofit assets stay authoritative beside the source
+    # lesson, but are inlined into the deployable page.
+    for asset_name in ("project-retrofit.css",):
+        asset = source_path.parent / asset_name
+        if asset.is_file():
+            asset_css = re.sub(
+                r'</(style)',
+                r'<\\/\1',
+                asset.read_text(encoding="utf-8"),
+                flags=re.I,
+            )
+            html = html.replace(
+                f'<link rel="stylesheet" href="{asset_name}">',
+                "<style>\n" + asset_css + "\n</style>",
+            )
+    for asset_name in ("project-retrofit.js",):
+        asset = source_path.parent / asset_name
+        if asset.is_file():
+            asset_js = re.sub(
+                r'</(script)',
+                r'<\\/\1',
+                asset.read_text(encoding="utf-8"),
+                flags=re.I,
+            )
+            html = html.replace(
+                f'<script src="{asset_name}"></script>',
+                "<script>\n" + asset_js + "\n</script>",
+            )
     # rewrite nav links to deployed names
     for a, b in LINK_MAP.items():
         html = html.replace('href="' + a + '"', 'href="' + b + '"')
@@ -73,6 +102,8 @@ def build(src_path, out_path):
     # library must actually be inlined, not left as external references
     assert not re.search(r'<link[^>]*academy\.css', html), "academy.css still linked"
     assert not re.search(r'<script src="[^"]*academy\.js"', html), "academy.js still linked"
+    assert "project-retrofit.css" not in html, "project retrofit CSS still linked"
+    assert "project-retrofit.js" not in html, "project retrofit JS still linked"
 
     pathlib.Path(out_path).write_text(html, encoding="utf-8")
     print("built", out_path, "(%d KB)" % (len(html.encode("utf-8")) // 1024))

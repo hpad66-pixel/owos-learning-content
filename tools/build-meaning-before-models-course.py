@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build the governed Meaning Before Models lesson set from module contracts."""
+"""Retired fixed-layout generator retained only for historical module metadata.
+
+This file must not generate production lessons. It created a repeated lesson factory that passed
+module-count checks while failing the course experience standard.
+"""
 
 from __future__ import annotations
 
@@ -540,6 +544,11 @@ release_status: blocked
 
 
 def main():
+    raise SystemExit(
+        "RETIRED: the fixed Meaning Before Models page generator is prohibited. "
+        "Build each lesson from curriculum/COURSE-EXPERIENCE-BRIEF.md and its approved module brief."
+    )
+    # Historical implementation remains below temporarily so earlier module metadata can be migrated.
     pages = {item["number"]: f"module-{item['number']:02}-{item['slug']}.html" for item in MODULES}
     pages[5] = "module-05-five-layers-of-meaning.html"
     titles = {item["number"]: item["title"] for item in MODULES}

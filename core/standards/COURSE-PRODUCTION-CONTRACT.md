@@ -1,6 +1,6 @@
 ---
 title: OWOS Course Production Contract
-version: 1.0.0
+version: 1.2.0
 status: APPROVED IMPLEMENTATION STANDARD
 owner: Hardeep Anand
 effective: 2026-07-23
@@ -30,27 +30,30 @@ Before lesson production, the syllabus must define:
 - the progressive work products, capstone, competencies, assessment plan, and completion evidence;
 - the concept, source, contributor, competency, and course relationships proposed for the Knowledge Graph;
 - the evidence boundary and permission status for every module; and
-- one course overview recording script that follows the approved sequence.
+- the course modality plan and any optional recording package.
 
-Complete a course design matrix and one module design brief per module. Bulk production begins only after a golden lesson is approved as a capability benchmark.
+Complete a Course Experience Brief, course design matrix, and one module design brief per module.
+Bulk production begins only after a golden lesson is approved as a capability benchmark and the next
+three lessons have documented contrasting experience plans.
 
 ## 3. Complete lesson experience
 
 Every full lesson must provide:
 
 1. A consequential utility situation and an initial learner decision.
-2. Plain-English instructor teaching that stands on its own without video.
-3. One clear mental model and at least four relevant visual types.
-4. At least two purposeful interactions or simulations.
+2. Detailed, conversational instructor teaching that stands on its own without video, narration, or animation.
+3. One clear mental model and the explanatory visuals the idea requires, normally two to five.
+4. At least one lesson-specific signature mechanism and any supporting interaction the learning job requires.
 5. Foundation, Practitioner, and Leader perspectives when roles change the decision.
-6. At least three different quiz types, distributed beside the ideas they assess.
+6. Distributed checks matched to the kind of thinking being taught, without imposing a standard quiz inventory.
 7. Immediate explanatory feedback, retry, and a final applied check.
 8. A professional work product the learner can use after the course.
 9. A source map, evidence boundary, release state, and limitations.
 10. Deterministic completion evidence and a transition to the next lesson.
-11. A complete instructor recording script with visual directions separated from spoken words.
+11. An optional recording script when the approved modality plan includes video or narration.
 
-A short lesson may request a documented exception. Counts never excuse irrelevant components or weak teaching.
+A short lesson may request a documented exception. Counts never excuse irrelevant components, generic
+instruction, or a repeated lesson architecture.
 
 ## 4. Instructor voice and explanation
 
@@ -59,6 +62,8 @@ A short lesson may request a documented exception. Counts never excuse irrelevan
 - Connect every abstraction to water, wastewater, stormwater, a utility role, an asset, a record, or a real decision.
 - Before each major visual, animation, simulation, assessment, and builder, explain what the learner sees, what to do, what to notice, why it matters, and what the result means.
 - Add a debrief when the consequence or change is not self-evident.
+- Teach through a worked utility example before asking the learner to operate an unfamiliar mechanism.
+- Pass a read-without-video review. Optional media can enrich the lesson but cannot carry required instruction.
 - Use tooltips for definitions. A tooltip never replaces instruction.
 - Do not use em dashes, en dashes, corporate filler, unsupported claims, cryptic fragments, or generic artificial-intelligence prose.
 
@@ -71,6 +76,9 @@ A short lesson may request a documented exception. Counts never excuse irrelevan
 - Every animation needs a reduced-motion equivalent that preserves the meaning.
 - Do not place more than two consecutive full prose blocks without a meaningful visual, interaction, worked example, comparison, or instructor callout.
 - Do not repeat adjacent modules' opening pattern, dominant visual, interaction pair, quiz sequence, and work-product format without an instructional reason.
+- Define and enforce a course-specific experience architecture. Individual module conformance does not
+  prove that the course is varied.
+- Run the course-level distinctiveness gate after every three produced lessons and before release.
 - Decorative stock art, generic technology imagery, repeated icon grids, and motion without a teaching purpose do not count.
 
 ## 6. Course navigation and connected learning
@@ -121,18 +129,33 @@ After every material module revision:
 1. Complete `core/templates/MODULE-QA-REPORT.md`.
 2. Score instructor teaching, learning design, graphics, interaction, utility credibility, assessment, work product, evidence, accessibility, and platform integration.
 3. Run mechanical tests for lesson structure, JavaScript, undefined values, deterministic assessment, distributed quizzes, instructor explanation, module-specific FAQ coverage, visual pacing, contrast, responsive behavior, reduced motion, and prohibited language.
-4. Perform desktop, mobile, keyboard, screen-reader, reduced-motion, novice-learner, and utility-practitioner reviews.
-5. Keep accuracy, learning design, utility practice, technical quality, and release control as hard gates.
+4. Run the course-level distinctiveness gate for archetype balance, structural similarity, repeated
+   quiz and interaction sequences, generic FAQs, and factory-pattern control counts.
+5. Run `tools/course_full_conformance.py --release-ready` for the complete lesson inventory in
+   `.course/experience-architecture.json`. Every included lesson must pass against its module design
+   brief, scored QA report, optional recording script when one exists, and full-module contract.
+   Every hard gate and manual review must be complete, and the QA report must record an explicit
+   release approval.
+6. Perform desktop, mobile, keyboard, screen-reader, reduced-motion, novice-learner, read-without-video,
+   and utility-practitioner reviews.
+7. Keep accuracy, learning design, utility practice, technical quality, distinctiveness, full-module
+   conformance, and release control as hard gates.
 
-A high score cannot override a blocked gate. A release identifies the exact source commit, manifest, checksums, runtime intake, deployment, and approval.
+A high score cannot override a blocked gate. Passing distinctiveness does not substitute for individual
+module evidence. A release identifies the exact source commit, manifest, checksums, runtime intake,
+deployment, and approval.
 
 ## 10. Definition of done
 
 A course is complete only when:
 
-- the approved syllabus, design matrix, module briefs, scripts, work products, evidence registers, and QA reports exist;
+- the approved syllabus, Course Experience Brief, design matrix, module briefs, applicable media scripts,
+  work products, evidence registers, and QA reports exist;
 - every lesson meets this contract and the machine-enforced quality floor;
+- the whole-course full-module conformance runner passes every included lesson and records the exact
+  design brief, scored QA report, optional script, and contract used for each result;
 - all modules form a coherent sequence without unnecessary repetition;
+- the course-level distinctiveness gate passes against the actual rendered lessons;
 - the live runtime matches the governed source release;
 - Graph and Community work on the same page and remain available at the bottom;
 - every module includes a module-specific, plain-English FAQ with useful examples and visual explanation where appropriate;

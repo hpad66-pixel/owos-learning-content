@@ -4,12 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 18 &middot; Asset management, digital and resilience &middot; One Water OS Academy</title>
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-18-asset-management-digital-resilience">
+<meta name="owos-release-state" content="working-review">
 <meta name="description" content="Chapter 18 of the Project Management masterclass. Asset management and handover to operations, digital delivery with GIS, BIM and SCADA, and resilience, sustainability and the One Water idea.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../core/components/academy.css">
+<link rel="stylesheet" href="project-retrofit.css">
 </head>
 <body>
 
@@ -20,10 +24,11 @@
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 18</b></span>
+  <span class="lesson-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 18 &middot; The next thirty years</span>
   <h1>Asset management, digital delivery, and <span>resilience</span></h1>
@@ -36,7 +41,7 @@
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job, about to become an asset</p>
@@ -250,12 +255,37 @@
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec">
+    <h2>Build the operating-handover brief</h2>
+    <p data-instructor-explanation data-teaches="pm18-cost-curve">Read the cost curve from bid day to the end of the asset's evaluation period. The capital price is visible immediately, while energy, maintenance, downtime, and replacement accumulate over years.</p>
+    <div id="pm18-cost-curve" data-visual-type="line-s-curve" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> compare cumulative ownership cost, not only the first-year gap. The crossover shows when the higher initial price becomes the lower-cost choice.</p><div style="overflow:auto"><table><thead><tr><th>Evaluation point</th><th>Option A</th><th>Option B</th><th>Decision signal</th></tr></thead><tbody><tr><td>Bid day</td><td>Lower</td><td>Higher</td><td>Capital-only view favors A</td></tr><tr><td>Crossover</td><td>Rising faster</td><td>Rising slower</td><td>Ownership view changes</td></tr><tr><td>Thirty years</td><td>Higher total</td><td>Lower total</td><td>Lifecycle view favors B</td></tr></tbody></table></div><p data-learner-conclusion>The evaluation period and operating assumptions can reverse the apparent winning bid.</p></div>
+    <p data-instructor-explanation data-teaches="pm18-handover-network">Read this handover as a network, not a box of files. The physical asset, Geographic Information System, Building Information Modeling record, control system, work system, warranty, and operator procedure need a shared identity and verified relationships.</p>
+    <div id="pm18-handover-network" data-visual-type="network-diagram" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> begin at the commissioned asset and follow each required record to the operating decision it supports.</p><ul><li>Asset identity connects drawings, location, equipment, and warranty.</li><li>Commissioning results connect acceptance to operating limits.</li><li>Maintenance tasks connect the asset to parts, intervals, and responsible roles.</li><li>Control points connect tags, alarms, ranges, and approved procedures.</li></ul><p data-learner-conclusion>Digital handover succeeds when operations can use and trust the connected records, not when a file transfer is marked complete.</p></div>
+    <p data-instructor-explanation data-teaches="pm18-handover-gate">Run the handover gate for the pump option. It checks ownership value, identity, acceptance evidence, operating readiness, and remaining resilience limits before final completion.</p>
+    <div id="pm18-handover-gate" data-ac="applicability" data-purposeful-interaction="operating-handover-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-quiz-type="handover-gate" data-quiz-source="applied-assessment-contract" data-retry="Run every gate and identify the missing lifecycle basis, identity, acceptance, or operating evidence." data-title="Operating-handover gate" data-kind="Interactive readiness gate"><span class="sr-only" aria-live="polite">Handover-gate feedback appears as each gate is run.</span><script type="application/json">{"scenarios":[{"label":"Wellfield pump handover","authority":"Contract acceptance and utility operating authority","facts":"The selected pumps have lower lifecycle cost but require complete operating data and commissioning evidence.","gates":[{"label":"Lifecycle basis","state":"pass","detail":"Evaluation period and major ownership assumptions are visible."},{"label":"Shared identity","state":"review","detail":"Asset, drawing, model, control, and work-system identifiers must resolve."},{"label":"Acceptance evidence","state":"review","detail":"Tests, settings, punch items, and warranties remain to be verified."},{"label":"Operating readiness","state":"review","detail":"Operators need approved procedures, training, spares, and limits."}],"result":"CONDITIONAL HANDOVER UNTIL IDENTITY AND READINESS EVIDENCE PASS.","resultClass":"review","basis":"Do not confuse physical completion with operating readiness."}],"boundary":"This teaching gate does not accept an asset. Contract criteria and authorized engineering and operating roles govern."}</script></div>
+    <div data-ac="artifactbuilder" data-artifact="operating-handover-brief" data-purposeful-interaction="handover-brief-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Operating-handover brief" data-kind="Work product &middot; handover brief"><script type="application/json">{"key":"pm18-operating-handover-brief","notice":"Use non-sensitive instructional text. A real handover belongs in the controlled asset and project systems.","fields":[{"id":"asset","label":"Asset and service outcome","help":"Name the asset, service, and operating requirement.","placeholder":"Pump... provides..."},{"id":"lifecycle","label":"Lifecycle basis","help":"Record evaluation period, assumptions, and selected option.","placeholder":"Thirty-year basis..."},{"id":"identity","label":"Connected identifiers","help":"List asset, location, drawing, model, control, and work-system identifiers.","placeholder":"Asset ID..."},{"id":"acceptance","label":"Acceptance evidence","help":"Name tests, results, punch status, warranty, and authority.","placeholder":"Test... accepted by..."},{"id":"operations","label":"Operating readiness","help":"Name procedures, training, spares, limits, and monitoring.","placeholder":"Procedure... training..."},{"id":"resilience","label":"Resilience and remaining limits","help":"State firm capacity, redundancy, failure mode, and open risk.","placeholder":"With one unit out..."}],"template":"OPERATING-HANDOVER BRIEF\n\nAsset and outcome\n{asset}\n\nLifecycle basis\n{lifecycle}\n\nConnected identifiers\n{identity}\n\nAcceptance evidence\n{acceptance}\n\nOperating readiness\n{operations}\n\nResilience and limits\n{resilience}"}</script></div>
+    <p data-instructor-explanation data-teaches="pm18-final-check">Use the final check against the handover brief. Select every element operations needs to own the asset and understand the remaining limits.</p>
+    <div id="pm18-final-check" data-ac="multi" data-quiz-type="handover-brief-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="operating-handover-brief" data-required="final-check" data-retry="Add the missing lifecycle, identity, acceptance, operating, or resilience evidence and check again." data-title="Final handover-brief gate" data-kind="Final applied check"><span class="sr-only" aria-live="polite">Final handover-brief feedback appears after checking the selected items.</span><script type="application/json">{"q":"What must the handover brief contain?","options":[["Asset and service outcome",true],["Lifecycle basis and connected identifiers",true],["Acceptance and warranty evidence",true],["Operating readiness and remaining resilience limits",true],["A folder location without verified contents",false]],"ok":"The brief connects ownership value, identity, acceptance, and operating readiness.","no":"Repair the lifecycle, identity, acceptance, readiness, and resilience evidence."}</script></div>
+  </section>
+  <section class="sec" data-module-faq><h2>Questions people ask about asset handover and resilience</h2>
+    <details><summary>Why can the lowest bid be the expensive choice?</summary><p>Because the utility pays energy, maintenance, downtime, and replacement for decades. A small efficiency difference in a continuously operated pump can outweigh the capital-price gap.</p></details>
+    <details><summary>Is sending record drawings enough for digital handover?</summary><p>No. Operations needs verified asset identities, formats, relationships, settings, test results, ownership, and update responsibility across the systems it actually uses.</p></details>
+    <details><summary>What is the difference between reliability and resilience?</summary><p>Reliability concerns performance under expected conditions. Resilience concerns continuing and recovering when a disruption occurs, such as operating with one pump unavailable during peak demand.</p></details>
+    <details><summary>Who accepts the asset?</summary><p>The contract and utility authority define acceptance roles. Engineering may verify technical criteria, operations may confirm readiness, and the owner may control substantial or final completion.</p></details>
+    <details><summary>Does a digital model replace the asset register or control system?</summary><p>No. Each system has a job. The handover must connect the model, asset register, work system, Geographic Information System, and control records through governed identities.</p></details>
+  </section>
+  <section class="sec role-strip"><h2>What changes by role</h2><div class="role-grid"><article data-lens="foundation"><b>Foundation</b><p>Recognize lifecycle cost, handover records, digital systems, reliability, and resilience.</p></article><article data-lens="practitioner"><b>Practitioner</b><p>Verify identities, acceptance evidence, procedures, training, spares, and operating limits.</p></article><article data-lens="leader"><b>Leader</b><p>Buy for service value and refuse final completion when operations cannot safely own the asset.</p></article></div></section>
+  <section class="sec evidence-card" data-evidence-boundary><h2>Evidence boundary</h2><p>The pump values and Millpond scenario are instructional. A real lifecycle decision requires current bids, energy, maintenance, reliability, financing, operating, and engineering evidence. Contract acceptance and utility authority govern handover.</p><ul><li><a href="https://www.epa.gov/dwcapacity/asset-management-resources-small-drinking-water-systems">United States Environmental Protection Agency asset-management resources</a></li><li><a href="SYLLABUS.md">Project Delivery course syllabus</a></li><li><a href="COURSE-EXPERIENCE-BRIEF.md">Project Delivery experience brief</a></li></ul></section>
+  <section class="sec completion-card"><h2>Completion evidence</h2><ul class="requirement-list"><li data-requirement="opening-decision">Review the Millpond ownership decision.</li><li data-requirement="applied-interaction">Run the operating-handover gate.</li><li data-requirement="work-product">Complete the operating-handover brief.</li><li data-requirement="final-check">Pass the final handover-brief gate.</li></ul><button type="button" class="btn" data-complete disabled>Complete Module 18</button><span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span></section>
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Module 18 graph</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body"><p data-graph-kind="concept"><b>Concept:</b> lifecycle value and operating readiness</p><p data-graph-kind="source"><b>Source:</b> cost basis, asset data, tests, procedures</p><p data-graph-kind="role"><b>Role:</b> project team, asset manager, operator, engineer</p><p data-graph-kind="competency"><b>Competency:</b> hand over a usable and resilient asset</p><p data-graph-kind="relationship"><b>Relationship:</b> asset to identity to evidence to service outcome</p></div></aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Project delivery community</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body community-tools"><label data-community-feature="search">Search discussions<input type="search" placeholder="Lifecycle, handover, resilience"></label><div data-community-feature="filters"><button type="button">Asset management</button><button type="button">Handover</button></div><button type="button" data-community-feature="bookmarks">Bookmark this discussion</button><div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare operating-readiness evidence and identity practices.</p></div><p data-community-feature="presence">Practitioners reviewing: asset managers, operators, project managers</p><p data-community-feature="instructor-treatment"><b>Instructor note:</b> do not post protected asset or control information.</p></div></aside>
+  <div id="owos-course-community" class="connected-learning" tabindex="-1"><b>Continue the handover conversation</b><p>Use Graph to follow asset evidence into service. Use Community to compare methods safely.</p></div><div id="tt" role="tooltip" hidden></div>
+  <div class="navrow footnav">
     <a href="module-17-safety-locates-commissioning.html">&#8592; Chapter 17 &middot; Safety, locates and commissioning</a>
     <a class="btn" href="module-19-program-portfolio.html">Chapter 19 &middot; Program and portfolio management &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -265,5 +295,6 @@
 </footer>
 
 <script src="../../../core/components/academy.js"></script>
+<script src="project-retrofit.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 ---
 module_id: mbm001:08
 course_id: owos-course-semantic-data-ai-001
-version: production-candidate-1
+version: semantic-fieldbook-retrofit-1
 review_date: 2026-07-23
 reviewer: Codex repository review
 score: 86
@@ -11,6 +11,12 @@ release_status: blocked
 ---
 
 # Module Quality-Control Report: Ask the Graph with SPARQL
+
+## Retrofit implementation review
+- Rebuilt as a query laboratory with a deterministic instructional mini-graph.
+- Verified mechanisms: clause-by-clause SPARQL execution and required-versus-OPTIONAL result test.
+- Verified work product: Question-to-Query Sheet with source boundaries and positive and negative tests.
+- Score remains conditional pending independent SPARQL review, browser interaction review, and novice testing.
 
 ## Decision
 - Working-review result: Conditional production candidate.

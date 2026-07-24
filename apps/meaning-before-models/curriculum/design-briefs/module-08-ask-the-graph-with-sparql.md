@@ -1,5 +1,11 @@
 # OWOS Module Design Brief: Ask the Graph with SPARQL
 
+Retrofit implementation: query laboratory using `network-diagram`, `interactive-process`, and
+`comparison-table`. The assessment sequence is `query-fit`, `query-execution`,
+`result-interpretation`, and `query-defense`. The course-specific console assembles and executes a
+SPARQL query clause by clause, then compares required and OPTIONAL patterns. The work product is a
+Question-to-Query Sheet.
+
 ## Identity
 | Field | Decision |
 | --- | --- |

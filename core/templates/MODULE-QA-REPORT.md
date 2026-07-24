@@ -20,21 +20,24 @@ release_status: blocked
 - One-sentence reason:
 
 The numeric score summarizes quality. It never overrides a failed hard gate.
+Keep `release_status: blocked` until every manual review and hard gate is complete and the Release
+approval record is signed. Only then may an authorized human reviewer set `release_status: approved`.
 
 ## Scored quality review
 
 | Area | Weight | Score | Evidence checked | Missing or required revision |
 | --- | ---: | ---: | --- | --- |
-| Plain-English instructor teaching | 12 | 0 | | |
+| Plain-English instructor teaching | 14 | 0 | | |
 | Learning design and sequence | 12 | 0 | | |
-| Explanatory graphics and visual reasoning | 12 | 0 | | |
-| Interactions and simulations | 12 | 0 | | |
+| Course distinctiveness and lesson identity | 10 | 0 | | |
+| Explanatory graphics and visual reasoning | 10 | 0 | | |
+| Interactions and simulations | 10 | 0 | | |
 | Utility relevance and practitioner credibility | 10 | 0 | | |
 | Assessments and feedback | 10 | 0 | | |
 | Professional work product | 5 | 0 | | |
-| Accuracy, evidence, and citations | 10 | 0 | | |
-| Accessibility, responsive behavior, and reduced motion | 10 | 0 | | |
-| Platform integration and release controls | 7 | 0 | | |
+| Accuracy, evidence, and citations | 8 | 0 | | |
+| Accessibility, responsive behavior, and reduced motion | 6 | 0 | | |
+| Platform integration and release controls | 5 | 0 | | |
 | **Total** | **100** | **0** | | |
 
 ## Hard gates
@@ -43,6 +46,7 @@ The numeric score summarizes quality. It never overrides a failed hard gate.
 | --- | --- | --- | --- |
 | Accuracy and evidence | not reviewed | | |
 | Learning design | not reviewed | | |
+| Course distinctiveness | not reviewed | | |
 | Utility-practitioner review | not reviewed | | |
 | Technical and accessibility review | not reviewed | | |
 | Release control | not reviewed | | |
@@ -54,10 +58,13 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Lesson contract | | |
+| Whole-course full-module conformance inventory | | |
 | JavaScript and component configuration | | |
 | Deterministic assessment | | |
 | Distributed quiz placement and feedback | | |
 | Instructor explanation coverage | | |
+| Read-without-video teaching coverage | | |
+| Course-level structural distinctiveness | | |
 | Module-specific FAQ coverage and answer quality | | |
 | Graphic teaching coverage | | |
 | Visual pacing and editorial illustration | | |
@@ -75,6 +82,8 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 - [ ] Screen-reader walkthrough
 - [ ] Reduced-motion walkthrough
 - [ ] Dense-text and visual-pacing walkthrough
+- [ ] Read-without-video novice walkthrough
+- [ ] Adjacent-module and whole-course distinctiveness walkthrough
 - [ ] Graph and Community drawer, close, focus-return, and bottom-section walkthrough
 - [ ] Dark blue, navy, and gradient contrast walkthrough
 - [ ] Quiz discoverability and section-placement walkthrough

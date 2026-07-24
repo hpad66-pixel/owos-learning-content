@@ -1,5 +1,10 @@
 # OWOS Module Design Brief: From Triples to a Utility Knowledge Graph
 
+Retrofit implementation: relationship discovery lab using `utility-estate-map` and
+`network-diagram`. The assessment sequence is `missing-link`, `graph-construction`, `bounded-claim`,
+and `path-defense`. The learner grows the graph only until a bounded question becomes answerable.
+The work product is a Utility Mini-Graph with source groups, path test, and unsupported-claim boundary.
+
 ## Identity
 | Field | Decision |
 | --- | --- |

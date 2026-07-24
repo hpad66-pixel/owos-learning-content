@@ -13,9 +13,9 @@ from bs4 import BeautifulSoup
 
 
 DEFAULT_CONTRACT = {
-    "minimum_visual_types": 4,
-    "minimum_purposeful_interactions": 2,
-    "minimum_quiz_types": 3,
+    "minimum_visual_types": 2,
+    "minimum_purposeful_interactions": 1,
+    "minimum_quiz_types": 1,
     "minimum_faq_questions": 5,
     "minimum_defined_terms": 5,
     "approved_component_sources": ["component-gallery", "shared-component-library"],
@@ -111,7 +111,7 @@ def validate_module(
     lesson: Path,
     qa: Path,
     brief: Path,
-    script: Path,
+    script: Path | None,
     contract_path: Path | None = None,
 ) -> dict:
     contract = load_contract(contract_path)
@@ -130,6 +130,22 @@ def validate_module(
             errors.append(f"lesson needs stable metadata: {name}")
     if len(soup.find_all("main")) != 1 or len(soup.find_all("h1")) != 1:
         errors.append("lesson needs exactly one main landmark and one h1")
+    main = soup.find("main")
+    if main and contract.get("minimum_conversational_teaching_words"):
+        teaching_words = re.findall(r"\b[\w'-]+\b", main.get_text(" ", strip=True))
+        minimum_words = int(contract["minimum_conversational_teaching_words"])
+        if len(teaching_words) < minimum_words:
+            errors.append(
+                f"written-first lesson needs at least {minimum_words} conversational teaching words; "
+                f"found {len(teaching_words)}"
+            )
+    if contract.get("minimum_worked_examples"):
+        minimum_examples = int(contract["minimum_worked_examples"])
+        worked_examples = soup.select("[data-worked-example]")
+        if len(worked_examples) < minimum_examples:
+            errors.append(
+                f"lesson needs at least {minimum_examples} governed worked utility example"
+            )
 
     header = soup.find("header") or soup.find("nav")
     if not header:
@@ -178,6 +194,16 @@ def validate_module(
             errors.append(f"{visual_id} needs a preceding instructor explanation")
         elif explanation.sourceline and visual.sourceline and explanation.sourceline > visual.sourceline:
             errors.append(f"{visual_id} instructor explanation must appear before the visual")
+        elif contract.get("minimum_instructor_explanation_words"):
+            minimum_explanation = int(contract["minimum_instructor_explanation_words"])
+            explanation_words = re.findall(
+                r"\b[\w'-]+\b", explanation.get_text(" ", strip=True)
+            )
+            if len(explanation_words) < minimum_explanation:
+                errors.append(
+                    f"{visual_id} instructor explanation needs at least "
+                    f"{minimum_explanation} conversational words"
+                )
 
     catalog_path = Path(__file__).resolve().parents[1] / "core/components/COMPONENTS.md"
     gallery_path = Path(__file__).resolve().parents[1] / "core/components/component-gallery.html"
@@ -366,13 +392,13 @@ def validate_module(
                     f"design brief does not trace implemented quiz type: {quiz_type}"
                 )
 
-    if not script.is_file():
-        errors.append(f"missing module recording script: {script}")
-    else:
+    if script is not None and script.is_file():
         script_text = script.read_text(encoding="utf-8")
         for marker in ("Spoken words", "Visual direction"):
             if marker not in script_text:
                 errors.append(f"recording script is missing marker: {marker}")
+    elif script is not None:
+        errors.append(f"configured module recording script is missing: {script}")
 
     validate_qa_report(qa, errors)
     if errors:
@@ -395,7 +421,7 @@ def main() -> int:
     parser.add_argument("--lesson", type=Path, required=True)
     parser.add_argument("--qa", type=Path, required=True)
     parser.add_argument("--brief", type=Path, required=True)
-    parser.add_argument("--script", type=Path, required=True)
+    parser.add_argument("--script", type=Path)
     parser.add_argument("--contract", type=Path)
     args = parser.parse_args()
     try:

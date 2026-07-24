@@ -16,6 +16,11 @@ from pathlib import Path
 import yaml
 
 from course_quality import CourseQualityError, validate_lesson
+from course_distinctiveness import audit as audit_distinctiveness
+from course_full_conformance import (
+    CourseFullConformanceError,
+    audit as audit_full_conformance,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -83,8 +88,52 @@ def build(course_dir: Path) -> dict:
             f"expected {len(released)} released lesson files, found {len(released_lessons)}"
         )
     quality_results = []
+    full_conformance = None
     if quality_contract.get("enforce_on_release") is not True:
         raise SystemExit("quality_contract.enforce_on_release must be true")
+    if quality_contract.get("course_distinctiveness_required") is not True:
+        raise SystemExit("quality_contract.course_distinctiveness_required must be true")
+    quality_contract_version = int(
+        required(quality_contract.get("version"), "quality_contract.version")
+    )
+    full_conformance_required = quality_contract.get(
+        "full_module_conformance_required"
+    )
+    if quality_contract_version >= 3 and full_conformance_required is not True:
+        raise SystemExit(
+            "quality contract version 3 or later requires "
+            "quality_contract.full_module_conformance_required: true"
+        )
+    distinctiveness = audit_distinctiveness(course_dir)
+    if distinctiveness["status"] != "passed":
+        summary = "\n".join(
+            f"- {error}" for error in distinctiveness["errors"][:20]
+        )
+        raise SystemExit(
+            "course distinctiveness gate failed before release:\n" + summary
+        )
+    release_state = str(
+        delivery.get("release_state")
+        or delivery.get("shell_status")
+        or ""
+    ).strip()
+    require_release_ready = release_state == "released"
+    if full_conformance_required is True:
+        try:
+            full_conformance = audit_full_conformance(
+                course_dir, require_release_ready=require_release_ready
+            )
+        except CourseFullConformanceError as error:
+            raise SystemExit(
+                "whole-course full-module conformance gate failed before release:\n"
+                f"{error}"
+            ) from error
+        if full_conformance["included_lessons"] != chapters:
+            raise SystemExit(
+                "whole-course full-module conformance validated "
+                f"{full_conformance['included_lessons']} included lessons, "
+                f"but structure.chapters declares {chapters}"
+            )
     try:
         quality_results = [validate_lesson(path, quality_contract) for path in released_lessons]
     except CourseQualityError as error:
@@ -112,6 +161,49 @@ def build(course_dir: Path) -> dict:
     slug = required(record.get("slug"), "slug")
     course_id = required(record.get("course_id"), "course_id")
     release_id = f"{course_id}-v{version}"
+    release_quality_contract = {
+        "version": quality_contract_version,
+        "released_lessons_validated": len(quality_results),
+        "minimum_purposeful_interactions": int(
+            required(
+                quality_contract.get("minimum_purposeful_interactions"),
+                "quality_contract.minimum_purposeful_interactions",
+            )
+        ),
+        "course_distinctiveness": "passed",
+        "lesson_archetypes": len(distinctiveness["archetypes"]),
+        "release_assurance": (
+            "release-ready" if require_release_ready else "public-live-review"
+        ),
+    }
+    if full_conformance is not None:
+        evidence_inventory = []
+        for lesson_result in full_conformance["lessons"]:
+            evidence = {}
+            for kind, course_relative in lesson_result["evidence"].items():
+                if course_relative is None:
+                    evidence[kind] = None
+                    continue
+                evidence_path = course_dir / course_relative
+                evidence[kind] = {
+                    "source_path": evidence_path.relative_to(ROOT).as_posix(),
+                    "sha256": sha256(evidence_path),
+                }
+            lesson_path = course_dir / "curriculum" / lesson_result["lesson"]
+            evidence_inventory.append(
+                {
+                    "lesson": lesson_path.relative_to(ROOT).as_posix(),
+                    "lesson_sha256": sha256(lesson_path),
+                    "evidence": evidence,
+                }
+            )
+        release_quality_contract.update(
+            {
+                "full_module_conformance": "passed",
+                "full_modules_validated": full_conformance["included_lessons"],
+                "full_module_evidence": evidence_inventory,
+            }
+        )
 
     return {
         "schema_version": 1,
@@ -130,16 +222,7 @@ def build(course_dir: Path) -> dict:
             "released_chapters": released,
             "runtime_store_key": required(delivery.get("runtime_store_key"), "delivery.runtime_store_key"),
             "runtime_canonical": required(delivery.get("runtime_canonical"), "delivery.runtime_canonical"),
-            "quality_contract": {
-                "version": int(required(quality_contract.get("version"), "quality_contract.version")),
-                "released_lessons_validated": len(quality_results),
-                "minimum_purposeful_interactions": int(
-                    required(
-                        quality_contract.get("minimum_purposeful_interactions"),
-                        "quality_contract.minimum_purposeful_interactions",
-                    )
-                ),
-            },
+            "quality_contract": release_quality_contract,
         },
         "source": {
             "repository": repository,

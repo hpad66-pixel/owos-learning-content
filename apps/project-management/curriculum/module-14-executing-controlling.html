@@ -4,12 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 14 &middot; Executing and controlling &middot; One Water OS Academy</title>
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-14-executing-controlling">
+<meta name="owos-release-state" content="working-review">
 <meta name="description" content="Chapter 14 of the Project Management masterclass. The five process groups and the operating rhythm, directing and managing the work, and integrated change control.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../core/components/academy.css">
+<link rel="stylesheet" href="project-retrofit.css">
 </head>
 <body>
 
@@ -20,10 +24,11 @@
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 14</b></span>
+  <span class="lesson-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 14 &middot; Executing and controlling</span>
   <h1>Running the work, and <span>keeping it on track</span></h1>
@@ -36,7 +41,7 @@
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job in motion</p>
@@ -202,12 +207,38 @@
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec">
+    <h2>Create the change decision record</h2>
+    <p data-instructor-explanation data-teaches="pm14-change-flow">Read this phase gate from request through baseline update. The gate is not bureaucracy for its own sake. Each stage prevents the team from building a change before scope, schedule, cost, risk, and authority have been considered together.</p>
+    <div id="pm14-change-flow" data-visual-type="phase-gate" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> each gate answers a different question: Is the request defined, analyzed, authorized, communicated, and reflected in the controlled baseline?</p><ol><li>Log and define the request</li><li>Analyze integrated effects</li><li>Obtain an authorized decision</li><li>Update baselines and records</li><li>Communicate and verify execution</li></ol><p data-learner-conclusion>A change is controlled only when the decision and every affected baseline tell the same story.</p></div>
+    <p data-instructor-explanation data-teaches="pm14-control-board">Use the control board as a weekly reading pattern. Green means evidence supports plan, amber means a trigger needs action, and red means the baseline or outcome is no longer credible without an authorized response.</p>
+    <div id="pm14-control-board" data-visual-type="heat-grid" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> scan rows for scope, schedule, cost, risk, quality, and decisions; scan columns for evidence, threshold, owner, and action date.</p><div style="overflow:auto"><table><thead><tr><th>Control</th><th>Evidence</th><th>Threshold</th><th>Owner</th></tr></thead><tbody><tr><td>Scope</td><td>Amber: pending request</td><td>No work before decision</td><td>Project manager</td></tr><tr><td>Schedule</td><td>Red: zero float</td><td>Escalate recovery choice</td><td>Scheduler and sponsor</td></tr><tr><td>Cost</td><td>Amber: estimate pending</td><td>Hold commitment</td><td>Cost lead</td></tr></tbody></table></div><p data-learner-conclusion>The weekly rhythm works when each exception has evidence, a threshold, an owner, and a dated action.</p></div>
+    <p data-instructor-explanation data-teaches="pm14-change-gate">Run the change gate for the Millpond request. Watch how a reasonable field idea remains unapproved until integrated effects and decision authority are visible.</p>
+    <div id="pm14-change-gate" data-ac="applicability" data-purposeful-interaction="integrated-change-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-quiz-type="change-gate" data-quiz-source="applied-assessment-contract" data-retry="Run every gate and identify the missing analysis, authority, or baseline update." data-title="Integrated change gate" data-kind="Interactive decision gate"><span class="sr-only" aria-live="polite">Change-gate feedback appears as each gate is run.</span><script type="application/json">{"scenarios":[{"label":"Field reroute","authority":"Millpond change-control plan","facts":"The contractor proposes a reroute to avoid a conflict.","gates":[{"label":"Defined request","state":"pass","detail":"Scope and reason are recorded."},{"label":"Integrated analysis","state":"review","detail":"Schedule, cost, permit, risk, and operations effects remain incomplete."},{"label":"Decision authority","state":"review","detail":"The field team cannot commit this change."},{"label":"Baseline update","state":"review","detail":"Approved scope, schedule, cost, and drawings must move together."}],"result":"HOLD WORK PENDING INTEGRATED ANALYSIS AND AUTHORIZED DECISION.","resultClass":"review","basis":"Do not let urgency create an unofficial baseline."}],"boundary":"This teaching gate does not authorize a real change. The current contract and approved change-control plan govern."}</script></div>
+    <div data-ac="artifactbuilder" data-artifact="change-decision-record" data-purposeful-interaction="change-record-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Change decision record" data-kind="Work product &middot; change record"><script type="application/json">{"key":"pm14-change-decision-record","notice":"Use non-sensitive instructional text. A real change record belongs in the approved project system.","fields":[{"id":"request","label":"Request and reason","help":"Define what would change and why.","placeholder":"Reroute..."},{"id":"effects","label":"Integrated effects","help":"State scope, schedule, cost, quality, risk, permit, and operating effects.","placeholder":"Scope... Schedule..."},{"id":"options","label":"Options considered","help":"Record alternatives and consequences.","placeholder":"Option A..."},{"id":"authority","label":"Decision and authority","help":"Name approve, reject, defer, or return and the authorized role.","placeholder":"Decision..."},{"id":"baseline","label":"Baseline updates","help":"List every controlled document and baseline that changes.","placeholder":"Drawing... schedule..."},{"id":"communication","label":"Communication and verification","help":"Name who receives the decision and how execution will be verified.","placeholder":"Notify... verify..."}],"template":"CHANGE DECISION RECORD\n\nRequest\n{request}\n\nIntegrated effects\n{effects}\n\nOptions\n{options}\n\nDecision and authority\n{authority}\n\nBaseline updates\n{baseline}\n\nCommunication and verification\n{communication}"}</script></div>
+    <p data-instructor-explanation data-teaches="pm14-final-check">Use the final gate to test whether the record controls the change across the whole project, not only the drawing or price that first caught attention.</p>
+    <div id="pm14-final-check" data-ac="multi" data-quiz-type="change-record-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="change-decision-record" data-required="final-check" data-retry="Add the missing integrated effect, authority, baseline, or verification step and check again." data-title="Final change-record gate" data-kind="Final applied check"><span class="sr-only" aria-live="polite">Final change-record feedback appears after checking the selected items.</span><script type="application/json">{"q":"What must be visible before the change is controlled?","options":[["Defined request and reason",true],["Integrated effects and alternatives",true],["Authorized decision",true],["Updated baselines, communication, and verification",true],["A verbal field agreement only",false]],"ok":"The change record keeps decision and baselines aligned.","no":"A controlled change needs definition, analysis, authority, baseline updates, communication, and verification."}</script></div>
+  </section>
+  <section class="sec" data-module-faq><h2>Questions people ask about executing and controlling</h2>
+    <details><summary>Are the five process groups the same as project phases?</summary><p>No. Phases describe the product or delivery life cycle. Process groups describe the management work, and several run at the same time. Monitoring and Controlling continues while Millpond is planned, built, and closed.</p></details>
+    <details><summary>Does every small field change need a board meeting?</summary><p>No. The approved plan should delegate authority by threshold. The control still needs definition, impact review, an authorized decision, and updated records at the level the change requires.</p></details>
+    <details><summary>Why update several baselines for one change?</summary><p>Because scope, schedule, cost, risk, quality, permits, and operations are connected. A reroute that changes only the drawing leaves the schedule and cost reports describing a project that no longer exists.</p></details>
+    <details><summary>Can work start while the price is still being negotiated?</summary><p>Only under the contract and an authorized written direction that defines scope, basis, controls, and reservation of rights. A casual instruction creates cost and entitlement ambiguity.</p></details>
+    <details><summary>What makes a weekly control meeting useful?</summary><p>Evidence, thresholds, owners, and dated actions. A meeting that only reports activity creates conversation, not control.</p></details>
+  </section>
+  <section class="sec role-strip"><h2>What changes by role</h2><div class="role-grid"><article data-lens="foundation"><b>Foundation</b><p>Recognize process groups, baselines, changes, and the weekly control loop.</p></article><article data-lens="practitioner"><b>Practitioner</b><p>Analyze integrated effects, route decisions, update records, and verify execution.</p></article><article data-lens="leader"><b>Leader</b><p>Set delegated authority and require honest escalation when a baseline is no longer credible.</p></article></div></section>
+  <section class="sec evidence-card" data-evidence-boundary><h2>Evidence boundary</h2><p>This lesson teaches general execution and integrated-change-control methods through Millpond. The current contract, approved project-management plan, delegated authority, baselines, permits, and written directions govern real work.</p><ul><li><a href="https://www.pmi.org/standards">Project Management Institute standards</a></li><li><a href="SYLLABUS.md">Project Delivery course syllabus</a></li><li><a href="COURSE-EXPERIENCE-BRIEF.md">Project Delivery experience brief</a></li></ul></section>
+  <section class="sec completion-card"><h2>Completion evidence</h2><ul class="requirement-list"><li data-requirement="opening-decision">Review the Millpond work-in-motion situation.</li><li data-requirement="applied-interaction">Run the integrated change gate.</li><li data-requirement="work-product">Complete the change decision record.</li><li data-requirement="final-check">Pass the final change-record gate.</li></ul><button type="button" class="btn" data-complete disabled>Complete Module 14</button><span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span></section>
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Module 14 graph</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body"><p data-graph-kind="concept"><b>Concept:</b> integrated change control</p><p data-graph-kind="source"><b>Source:</b> request, baselines, contract, and evidence</p><p data-graph-kind="role"><b>Role:</b> requester, project manager, control board, sponsor</p><p data-graph-kind="competency"><b>Competency:</b> keep decision and baselines aligned</p><p data-graph-kind="relationship"><b>Relationship:</b> request to analysis to authority to controlled execution</p></div></aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Project delivery community</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body community-tools"><label data-community-feature="search">Search discussions<input type="search" placeholder="Execution, baseline, change"></label><div data-community-feature="filters"><button type="button">Change control</button><button type="button">Weekly rhythm</button></div><button type="button" data-community-feature="bookmarks">Bookmark this discussion</button><div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare delegated change thresholds and meeting rhythms.</p></div><p data-community-feature="presence">Practitioners reviewing: project managers, schedulers, cost leads</p><p data-community-feature="instructor-treatment"><b>Instructor note:</b> do not post live claim or change-order details.</p></div></aside>
+  <div id="owos-course-community" class="connected-learning" tabindex="-1"><b>Continue the control conversation</b><p>Use Graph to inspect the request-to-execution chain. Use Community to compare methods safely.</p></div><div id="tt" role="tooltip" hidden></div>
+
+  <div class="navrow footnav">
     <a href="module-13-leadership-negotiation-ethics.html">&#8592; Chapter 13 &middot; Leadership, negotiation and ethics</a>
     <a class="btn" href="module-15-measurement-honest-status.html">Chapter 15 &middot; Measurement and honest status &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -217,5 +248,6 @@
 </footer>
 
 <script src="../../../core/components/academy.js"></script>
+<script src="project-retrofit.js"></script>
 </body>
 </html>

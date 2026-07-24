@@ -1,7 +1,7 @@
 ---
 module_id: mbm001:05
 course_id: owos-course-semantic-data-ai-001
-version: golden-candidate-remediation-1
+version: semantic-fieldbook-retrofit-2
 review_date: 2026-07-23
 reviewer: Codex repository review
 score: 89
@@ -11,6 +11,12 @@ release_status: blocked
 ---
 
 # Module Quality-Control Report: Five Layers of Meaning
+
+## Retrofit implementation review
+- Preserved the pressure-event teaching strength while replacing the former golden-lesson composition.
+- Verified mechanisms: five-job classification and context-control omission laboratory.
+- Verified visual grammar: evidence desk, five-job comparison, and runtime packet anatomy.
+- Score remains conditional. Existing human-review blocks continue to apply to the rebuilt composition.
 
 ## Decision
 

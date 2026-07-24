@@ -1,17 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chapter 14: D07: Privacy, rights, ethics, and transparency &middot; One Water OS Academy</title>
-<meta name="description" content="Chapter 14 shell for D07: Privacy, rights, ethics, and transparency in the OWOS utility Data and AI Governance Master Class.">
-<meta name="owos-course-id" content="owos-master-data-governance-001">
-<meta name="owos-course-store" content="dga001">
-<meta name="owos-release-state" content="structure-ready-content-pending">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 14: Privacy, rights, ethics, and transparency | Data Before AI</title>
+<meta name="description" content="Review a utility data use for purpose, rights, harm, explanation, and redress.">
+<meta name="owos-course-id" content="owos-master-data-governance-001"><meta name="owos-learning-object" content="dga001:14"><meta name="owos-release-state" content="working-review">
+<meta name="owos-lesson-archetype" content="rights-review-panel"><meta name="owos-signature-mechanism" content="review-purpose-rights-harm-explanation-and-redress"><meta name="owos-opening-pattern" content="permitted-use-questioned-use"><meta name="owos-work-product-mode" content="rights-and-transparency-review">
 <style>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.css)
@@ -30,6 +22,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -581,84 +574,82 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
+</style><style>
+:root{--dg-ink:#102237;--dg-muted:#526579;--dg-line:#d8e2eb;--dg-paper:#fff;--dg-wash:#f3f7fa;--dg-blue:#086998;--dg-teal:#087864;--dg-gold:#9a6b00;--dg-red:#a43b34;--dg-shadow:0 18px 48px rgba(16,34,55,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--dg-wash);color:var(--dg-ink);font-family:Inter,system-ui,sans-serif;line-height:1.68}.wrap{width:min(1120px,calc(100% - 34px));margin:auto}.coursebar{position:sticky;top:0;z-index:30;background:#082f49;color:#fff;border-bottom:1px solid rgba(255,255,255,.18)}.coursebar .inner{width:min(1180px,calc(100% - 28px));margin:auto;display:flex;align-items:center;gap:16px;min-height:62px}.coursebar a{color:#fff;text-decoration:none;font-weight:800}.coursebar .crumb{margin-right:auto;font-size:.78rem;color:#d7edf7}.head-actions{display:flex;gap:8px}.head-actions button,.head-actions a,.hero-actions button{border:1px solid rgba(255,255,255,.42);background:transparent;color:#fff;border-radius:999px;padding:8px 13px;font-weight:750;cursor:pointer;text-decoration:none}.head-actions .primary,.hero-actions .primary{background:#fff;color:#083a5c}.hero{position:relative;overflow:hidden;margin:25px 0 22px;padding:clamp(28px,5vw,58px);border-radius:28px;color:#fff;background:linear-gradient(135deg,#083a5c,#086998 60%,#087864);box-shadow:var(--dg-shadow)}.hero:after{content:"";position:absolute;right:-80px;bottom:-120px;width:310px;height:310px;border:60px solid rgba(255,255,255,.08);border-radius:50%}.hero h1{position:relative;z-index:1;color:#fff;font-size:clamp(2.2rem,5vw,4.3rem);line-height:1.02;max-width:18ch;margin:.35rem 0 1rem}.hero p{position:relative;z-index:1;color:#e7f5fb;max-width:70ch;font-size:1.06rem}.eyebrow{font:800 .72rem "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.12em;color:#bce9fb}.hero-actions{position:relative;z-index:1;display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.release-note{display:inline-block;margin-top:14px;padding:5px 10px;border:1px solid rgba(255,255,255,.3);border-radius:999px;color:#fff;font-size:.72rem;font-weight:750}.lesson-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}.rail{position:sticky;top:84px;background:#fff;border:1px solid var(--dg-line);border-radius:18px;padding:18px}.rail h2{font-size:1rem;margin:0 0 9px}.rail ol{padding-left:20px;margin:0}.rail li{font-size:.82rem;margin:7px 0}.lesson{min-width:0}.panel,.scene,.worked,.decision,.artifact,.assessment,.lens-row,.faq,.evidence,.connected{background:var(--dg-paper);border:1px solid var(--dg-line);border-radius:20px;padding:clamp(20px,4vw,32px);margin:20px 0;box-shadow:0 8px 30px rgba(16,34,55,.05)}.panel h2,.scene h2,.worked h2,.decision h2,.artifact h2,.assessment h2{font-size:clamp(1.45rem,3vw,2.1rem);line-height:1.18;margin:0 0 12px}.section-tag{font:800 .69rem "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.09em;color:var(--dg-blue)}.lede{font-size:1.08rem;color:#263f56}.callout{border-left:5px solid var(--dg-gold);background:#fff8e8;border-radius:0 14px 14px 0;padding:16px 18px;margin:18px 0}.decision{border-color:#e2c983;background:#fffbef}.decision-options{display:grid;gap:10px;margin-top:15px}.decision-options button{border:1px solid #d8c276;background:#fff;border-radius:12px;text-align:left;padding:13px 15px;color:var(--dg-ink);font-weight:700;cursor:pointer}.decision-options button:hover,.decision-options button:focus-visible{border-color:var(--dg-blue);outline:3px solid rgba(8,105,152,.17)}.decision-feedback{display:none;margin-top:13px;padding:14px;border-radius:12px;background:#eaf5f2;color:#184b40}.decision-feedback.on{display:block}.instructor{border-left:4px solid var(--dg-blue);padding:4px 0 4px 17px;margin:22px 0;color:#304a61}.instructor b{color:var(--dg-blue)}.visual{margin:18px 0}.reading-guide,.learner-conclusion{font-size:.88rem;border-radius:11px;padding:11px 13px}.reading-guide{background:#eef6fb;color:#27495e}.learner-conclusion{background:#edf7f3;color:#225647;margin-top:10px}.worked{background:linear-gradient(145deg,#f7fbfd,#fff)}.worked-grid,.lens-row,.artifact-grid,.evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.worked-grid article,.lens-row article,.artifact-grid article,.evidence-grid article{border:1px solid var(--dg-line);background:#fff;border-radius:14px;padding:15px}.worked-grid b,.lens-row b,.artifact-grid b{display:block;margin-bottom:5px}.lens-row article:nth-child(2){border-top:4px solid var(--dg-teal)}.lens-row article:nth-child(3){border-top:4px solid var(--dg-gold)}.lens-row article:first-child{border-top:4px solid var(--dg-blue)}.mechanism{border:1px solid #afd8d0;background:#f4fbf9;border-radius:20px;padding:18px;margin:18px 0}.mechanism h3{margin:0 0 6px}.debrief{margin:13px 0 0;color:#315b52}.artifact label{display:grid;gap:5px;font-weight:750;margin:12px 0}.artifact input,.artifact select,.artifact textarea{width:100%;border:1px solid #b9c8d5;border-radius:10px;padding:11px;background:#fff;color:var(--dg-ink);font:inherit}.artifact textarea{min-height:92px;resize:vertical}.artifact-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.btn{border:1px solid var(--dg-blue);background:#fff;color:var(--dg-blue);border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}.btn.primary{background:var(--dg-blue);color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed}.form-note{font-size:.84rem;color:var(--dg-muted)}.quiz-shell{margin:18px 0}.final-check{border-top:1px solid var(--dg-line);margin-top:18px;padding-top:18px}.final-check label{display:block;margin:8px 0}.status{margin-top:10px;color:#225647;font-weight:700}.faq details{border-top:1px solid var(--dg-line);padding:12px 0}.faq details:first-of-type{border-top:0}.faq summary{font-weight:800;cursor:pointer}.faq p{margin:8px 0 0;color:#344d63}.evidence{font-size:.91rem;background:#fffaf0;border-color:#ead6a2}.evidence a{color:#075f8c}.connected{background:#eef7fb}.footnav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;margin:26px 0 46px}.footnav a{padding:12px;border:1px solid var(--dg-line);border-radius:12px;background:#fff;text-decoration:none;font-weight:800;color:var(--dg-blue)}.footnav a:nth-child(2){text-align:center;background:var(--dg-blue);color:#fff}.footnav a:last-child{text-align:right}.drawer-scrim{position:fixed;inset:0;background:rgba(4,24,38,.48);z-index:50;display:none}.drawer-scrim.open{display:block}.drawer{position:fixed;right:0;top:0;bottom:0;width:min(520px,100%);z-index:60;background:#fff;transform:translateX(103%);transition:transform .25s ease;box-shadow:-18px 0 50px rgba(7,34,52,.22);overflow:auto}.drawer.open{transform:none}.drawer-head{position:sticky;top:0;display:flex;align-items:center;gap:10px;background:#083a5c;color:#fff;padding:16px 18px;z-index:2}.drawer-head b{margin-right:auto}.drawer-head button{border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;border-radius:9px;padding:7px 10px}.drawer-body{padding:20px}.graph-list{display:grid;gap:9px}.graph-list span{border:1px solid var(--dg-line);border-radius:10px;padding:10px}.community-feature{border-bottom:1px solid var(--dg-line);padding:10px 0}.term{border-bottom:1px dotted currentColor;cursor:help}.completion{background:#eaf6f2;border:1px solid #b5d9ce;border-radius:18px;padding:20px;margin:22px 0}.completion [data-complete]{margin-top:10px}.dark{background:#083a5c;color:#fff}.dark h2,.dark p{color:#fff}
+body[data-module="10"] .hero{background:linear-gradient(130deg,#37245f,#7754a8 58%,#bd8243)}body[data-module="11"] .hero{background:linear-gradient(135deg,#183b4d,#126f79 58%,#79a65a)}body[data-module="12"] .hero{background:linear-gradient(135deg,#3d315f,#5a6fb3 58%,#2b9b91)}body[data-module="13"] .hero{background:linear-gradient(135deg,#3e2027,#8e3c43 58%,#bf7b37)}body[data-module="14"] .hero{background:linear-gradient(135deg,#42284f,#8b4e7f 55%,#c87873)}body[data-module="15"] .hero{background:linear-gradient(135deg,#34404a,#66757d 58%,#9a783d)}body[data-module="16"] .hero{background:linear-gradient(135deg,#173f44,#247f75 58%,#9a7c2d)}body[data-module="17"] .hero{background:linear-gradient(135deg,#172d3d,#236589 58%,#b96f31)}body[data-module="18"] .hero{background:linear-gradient(135deg,#282452,#5546a7 58%,#1a8a8f)}body[data-module="19"] .hero{background:linear-gradient(135deg,#343150,#5c668f 58%,#568d7c)}body[data-module="20"] .hero{background:linear-gradient(135deg,#153b57,#2579a0 58%,#70a45f)}body[data-module="21"] .hero{background:linear-gradient(135deg,#43302d,#8b5e3c 58%,#c49342)}body[data-module="22"] .hero{background:linear-gradient(135deg,#0e4a53,#12828b 58%,#8ca944)}body[data-module="23"] .hero{background:linear-gradient(135deg,#17324e,#315c9c 58%,#695db5)}body[data-module="24"] .hero{background:linear-gradient(135deg,#25213f,#604c88 56%,#327c8d)}
+@media(max-width:860px){.lesson-grid{grid-template-columns:1fr}.rail{position:static}.worked-grid,.lens-row,.artifact-grid,.evidence-grid{grid-template-columns:1fr 1fr}.head-actions button:not(.primary){display:none}}@media(max-width:620px){.wrap{width:min(100% - 24px,1120px)}.coursebar .crumb{display:none}.hero{border-radius:20px;padding:28px 21px}.hero h1{font-size:2.45rem}.worked-grid,.lens-row,.artifact-grid,.evidence-grid,.footnav{grid-template-columns:1fr}.footnav a,.footnav a:last-child{text-align:center}.panel,.scene,.worked,.decision,.artifact,.assessment,.lens-row,.faq,.evidence,.connected{padding:19px}.drawer{width:100%}.head-actions{margin-left:auto}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+.evidence-strip{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:9px;overflow:auto;padding:4px}.evidence-strip article{min-width:120px;border:1px solid var(--dg-line);border-radius:12px;padding:12px;background:#fff}.evidence-strip article b{display:block;font-size:.78rem}.evidence-strip article span{font-size:.73rem;color:var(--dg-muted)}.trace-break{border-color:#dd9c94!important;background:#fff1ef!important}.quality-grid{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:8px;overflow:auto}.quality-grid article{border-radius:12px;padding:13px;color:#fff;min-height:110px}.quality-grid .good{background:#237b63}.quality-grid .watch{background:#9b7414}.quality-grid .bad{background:#9a3f39}.quality-grid .unknown{background:#526579}.quality-grid b{display:block}.quality-grid span{font-size:.78rem}.res-console,.rights-console,.life-console{border:1px solid var(--dg-line);border-radius:16px;background:#fff;padding:16px}.scenario-tabs{display:flex;gap:8px;flex-wrap:wrap}.scenario-tabs button{border:1px solid var(--dg-line);background:#fff;border-radius:999px;padding:8px 12px;font-weight:750;cursor:pointer}.scenario-tabs button.on{background:var(--dg-blue);border-color:var(--dg-blue);color:#fff}.console-output{margin-top:14px;border-radius:13px;padding:16px;background:#eef6fb}.console-output strong{display:block;margin-bottom:5px}.control-path{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:8px;margin-top:13px;overflow:auto}.control-path article{border:1px solid var(--dg-line);border-radius:12px;padding:12px;min-width:130px}.control-path article.fail{border-color:#d58a83;background:#fff0ee}.control-path article.pass{border-color:#8bc5b2;background:#eef9f5}.rights-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}.rights-board article{border:1px solid var(--dg-line);border-radius:12px;padding:14px}.rights-board article.alert{border-color:#d58a83;background:#fff0ee}.timeline-track{display:grid;grid-template-columns:repeat(6,minmax(125px,1fr));gap:8px;overflow:auto;margin:14px 0}.timeline-track article{min-width:125px;border:1px solid var(--dg-line);border-radius:12px;padding:12px}.timeline-track article.active{border-color:var(--dg-blue);background:#eef6fb}.timeline-track small{display:block;color:var(--dg-muted)}.proof-card{border:1px dashed #8aa2b5;border-radius:14px;padding:15px;background:#f8fbfd}.split-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px}.sticky-question{position:sticky;top:86px;align-self:start;border-radius:18px;background:#083a5c;color:#fff;padding:22px}.sticky-question h2,.sticky-question p{color:#fff}
+@media(max-width:860px){.split-layout{grid-template-columns:1fr}.sticky-question{position:static}}@media(max-width:620px){.rights-board{grid-template-columns:1fr}}
+html,body{max-width:100%;overflow-x:clip}
+
 </style>
-<style>
-html,body{max-width:100%;overflow-x:hidden}
-.dg-hero{margin:28px 0 24px;padding:32px;border-radius:24px;background:linear-gradient(135deg,#083a5c,#0a78ba 62%,#15937a);color:#fff;box-shadow:0 20px 60px rgba(8,58,92,.2);overflow:hidden;position:relative}
-.dg-hero:after{content:"";position:absolute;width:280px;height:280px;border:54px solid rgba(255,255,255,.08);border-radius:50%;right:-105px;top:-110px}
-.dg-hero h1{color:#fff;max-width:19ch;margin:.45rem 0 .8rem;font-size:clamp(2.15rem,5vw,4rem)}
-.dg-hero p{color:#e8f5fb;max-width:68ch;font-size:1.08rem;margin:0}
-.dg-eyebrow{font:700 11px var(--fm);letter-spacing:.13em;text-transform:uppercase;color:#bfeaff}
-.dg-status{display:inline-flex;align-items:center;gap:8px;max-width:100%;margin-top:18px;padding:7px 12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);border-radius:999px;font:700 11px var(--fm);line-height:1.45;letter-spacing:.04em;text-transform:uppercase;color:#fff;white-space:normal}
-.dg-status i{width:8px;height:8px;border-radius:50%;background:#f2c94c}
-.dg-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 28px}.dg-stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--sh)}.dg-stat b{display:block;color:var(--ink);font-size:1.55rem}.dg-stat span{font:600 10px var(--fm);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
-.dg-note{border:1px solid #ead89d;background:#fff9e8;border-radius:16px;padding:18px 20px;margin:20px 0}.dg-note strong{color:#795809}.dg-note p{margin:4px 0 0}
-.dg-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0 30px}.dg-flow div{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12px;font-weight:700;color:var(--ink);text-align:center}.dg-flow div:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;z-index:2;color:var(--brand);transform:translateY(-50%);background:var(--bg);padding:0 3px}
-.dg-lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 28px}.dg-lens{padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--brand)}.dg-lens:nth-child(2){border-top-color:var(--green)}.dg-lens:nth-child(3){border-top-color:var(--gold)}.dg-lens h3{margin:0 0 5px;font-size:1rem}.dg-lens p{margin:0;font-size:.88rem;line-height:1.55}
-.dg-part{margin:24px 0}.dg-part-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;background:#0b3f63;color:#fff;border-radius:14px 14px 0 0;padding:13px 16px}.dg-part-head b{font:700 11px var(--fm);letter-spacing:.1em;color:#9bddff}.dg-part-head span{font-weight:800}.dg-part-head small{margin-left:auto;color:#cce4f2}.dg-list{border:1px solid var(--line);border-top:0;background:#fff;border-radius:0 0 14px 14px;overflow:hidden}.dg-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;padding:16px;align-items:start;border-bottom:1px solid var(--line);text-decoration:none}.dg-row:last-child{border-bottom:0}.dg-row:hover{background:var(--brand-50);text-decoration:none}.dg-num{width:42px;height:42px;border-radius:11px;background:var(--brand-50);border:1px solid var(--brand-100);display:grid;place-items:center;color:var(--brand-700);font:800 13px var(--fm)}.dg-row h3{margin:0 0 5px;font-size:1rem}.dg-sections{font-size:.79rem;color:var(--ink-3);line-height:1.5}.dg-pill{font:700 9px var(--fm);text-transform:uppercase;letter-spacing:.06em;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;padding:5px 9px;border-radius:999px;white-space:nowrap}
-.dg-row.released{background:linear-gradient(90deg,#eef8f5,#fff)}.dg-row.released .dg-num{background:#dff3ec;border-color:#9fd2bf;color:#086b50}.dg-row.released .dg-pill{color:#086b50;background:#eaf8f3;border-color:#9fd2bf}
-.dg-shell{border:1px solid #ead89d;background:linear-gradient(120deg,#fff9e8,#fff);border-radius:16px;padding:20px;margin:18px 0 26px;display:flex;gap:14px}.dg-shell-icon{width:40px;height:40px;flex:none;border-radius:12px;background:#f2c94c;display:grid;place-items:center;color:#493800;font-weight:900}.dg-shell h2{font-size:1.05rem;margin:0 0 4px}.dg-shell p{margin:0;font-size:.91rem}
-.dg-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 28px}.dg-plan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.dg-plan-card .k{font:700 10px var(--fm);letter-spacing:.08em;color:var(--brand);text-transform:uppercase}.dg-plan-card h2{font-size:1.12rem;margin:7px 0}.dg-plan-card p{font-size:.9rem;margin:0}.dg-plan-card .pending{display:inline-block;margin-top:14px;font:700 9px var(--fm);text-transform:uppercase;color:#7a5c13;background:#fff7df;border:1px solid #ead89d;border-radius:999px;padding:4px 8px}
-.dg-artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.dg-artifact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.dg-artifact b{display:block;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.dg-artifact p{font-size:.88rem;margin:0}
-.dg-gates{background:#eef8f5;border:1px solid #bfe0d4;border-radius:16px;padding:18px;margin:24px 0}.dg-gates h2{font-size:1.1rem;margin:0 0 9px}.dg-gates ul{margin:0;padding-left:20px}.dg-gates li{margin:5px 0;font-size:.88rem}
-.dg-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:30px 0}.dg-nav a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:700;font-size:.83rem}.dg-nav a:last-child{text-align:right}.dg-nav .home{text-align:center;background:var(--brand);color:#fff;border-color:var(--brand)}
-.dg-footer{margin-top:48px;border-top:1px solid var(--line);padding:22px 0 38px;color:var(--ink-3);font:500 11px var(--fm)}
-@media(max-width:760px){.dg-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dg-flow{grid-template-columns:1fr}.dg-flow div:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}.dg-lenses,.dg-plan,.dg-artifacts{grid-template-columns:1fr}.dg-row{grid-template-columns:42px minmax(0,1fr)}.dg-pill{grid-column:2}.dg-nav{grid-template-columns:1fr}.dg-nav a,.dg-nav a:last-child{text-align:center}}
-@media(max-width:520px){.owos-nav{padding:0 12px}.owos-brand{gap:6px;min-width:0}.owos-wm{font-size:13px}.owos-pw{display:none}.crumb{font-size:9px;line-height:1.35;text-align:right;max-width:100px}.wrap{padding-left:16px;padding-right:16px}.dg-hero{padding:26px 20px;border-radius:20px}.dg-hero h1{font-size:2.15rem}.dg-hero p{font-size:1rem}.dg-status{border-radius:14px;font-size:9px}.dg-stat{padding:14px 12px}.dg-stat b{font-size:1.35rem}.dg-row{padding:14px 12px;gap:10px}.dg-sections{overflow-wrap:anywhere}.dg-shell{padding:16px;flex-direction:column}.dg-shell-icon{width:36px;height:36px}}
-</style>
-</head>
-<body data-course-id="owos-master-data-governance-001" data-course-store="dga001" data-module="14" data-release-state="content-pending">
-<nav class="owos-nav">
-  <a class="owos-brand" href="course-data-governance.html"><span class="owos-logo"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C32 6 13 30 13 43a19 19 0 0 0 38 0C51 30 32 6 32 6Z" fill="#fff"/></svg></span><span class="owos-wm">One Water <b>OS</b></span><span class="owos-pw">Academy &middot; <em>Data Governance</em></span></a>
-  <span class="crumb"><a href="course-data-governance.html">Master Class</a> / <b>Chapter 14</b></span>
-</nav>
-<div id="rprog"></div>
+</head><body data-course-id="owos-master-data-governance-001" data-module="14" data-release-state="working-review">
+<nav class="coursebar"><div class="inner"><a href="course-data-governance.html">One Water OS Academy</a><span class="crumb">Data Before AI / Chapter 14</span><div class="head-actions"><button data-open-graph type="button">Graph</button><button data-open-community type="button">Community</button><a class="primary" href="#lesson-start">Start</a></div></div></nav>
 <main class="wrap">
-  <header class="dg-hero">
-    <div class="dg-eyebrow">PART C &middot; Operate the twelve governance domains &middot; Core domain</div>
-    <h1>D07: Privacy, rights, ethics, and transparency</h1>
-    <p>write a purpose statement; test minimization and secondary use; design a redress path; identify when fairness, human rights, or operational impact review is required.</p>
-    <span class="dg-status"><i></i>Chapter 14 shell &middot; content pending</span>
-  </header>
+<header class="hero"><span class="eyebrow">Part C | Domain D07 | Rights review panel</span><h1>Allowed to collect does not mean allowed to reuse</h1><p>Riverbend collected customer contact and payment information to provide water service. A supplier now proposes using payment history, call notes, property records, and neighborhood indicators to rank customers for collection action.</p><div class="hero-actions"><a class="primary" href="#lesson-start">Convene the panel</a><button data-open-graph type="button">Open rights graph</button><button data-open-community type="button">Open Community</button></div><span class="release-note">Instructional review | not legal advice or use approval</span></header>
 
-  <section class="dg-shell" role="status">
-    <div class="dg-shell-icon">14</div>
-    <div><h2>Structure is wired; the lesson is not released.</h2><p>This page preserves the approved syllabus plan and navigation. It intentionally contains no completion event, scored assessment, or credential claim. Those activate only after the full lesson passes content, interaction, evidence, accessibility, and utility-pilot review.</p></div>
-  </section>
+<section class="decision" id="lesson-start" data-opening-decision data-required="opening"><span class="section-tag">Panel referral</span><h2>May the pilot proceed next week?</h2><p>The proposal says the utility already possesses the data and the model does not use a protected-class field. No approved purpose statement, minimization analysis, impact review, customer explanation, correction path, or appeal process exists.</p><div class="decision-options"><button data-choice type="button" data-feedback="<b>Correct referral.</b> Pause the pilot and require authorized review of purpose, authority, necessity, rights, distributional effects, explanation, correction, appeal, and safer alternatives.">Hold the pilot for a complete rights and impact review.</button><button data-choice type="button" data-feedback="<b>Possession is not permission for every use.</b> Collection purpose, authority, expectations, rights, contracts, and consequence must be reviewed for the new use.">Proceed because Riverbend already holds the data.</button><button data-choice type="button" data-feedback="<b>Removing one field does not remove unfair effect.</b> Other fields and historical patterns may act as proxies, and the action path still needs explanation and redress.">Proceed because protected-class fields are excluded.</button></div><div class="decision-feedback" data-decision-feedback aria-live="polite"></div></section>
 
-  <h2>What the learner will be able to do</h2>
-  <p>write a purpose statement; test minimization and secondary use; design a redress path; identify when fairness, human rights, or operational impact review is required.</p>
+<section class="scene"><span class="section-tag">1 | Meet the person behind the record</span><h2>The decision reaches a household, not a row</h2>
+<p>Maria Gomez calls Riverbend after a high bill caused by a concealed leak. The account has two late payments, notes from a language-access request, and a temporary hardship-plan application. The proposed score marks the account “high collection priority.” A staff member sees the score but cannot tell which evidence drove it, whether the leak adjustment is reflected, or how Maria can challenge the record.</p>
+<p><span class="term" data-def="Governance of personal information and its collection, use, sharing, retention, protection, and effect on people.">Privacy</span> is not only secrecy. It includes appropriate purpose, data handling, access, correction, sharing, retention, and effects on people. <span class="term" data-def="Using personal data only for a stated, authorized purpose and reviewing material new uses.">Purpose limitation</span> asks whether this new use fits the approved reason for collecting and holding the information. <span class="term" data-def="Collecting and using only the information reasonably needed for the stated purpose.">Data minimization</span> asks whether each field is needed and whether a less intrusive method can achieve the service goal.</p>
+<div class="callout"><b>“No protected field” is not a complete ethical test.</b> Location, property, language, payment, contact, and service history can reproduce existing disadvantage or act as proxies. Review the whole decision and its effects.</div></section>
 
-  <div class="dg-plan"><article class="dg-plan-card">
-  <span class="k">Section 1 of 3</span>
-  <h2>State purpose and authority before use.</h2>
-  <p>Record personal or sensitive data processing, lawful or authorized basis, necessity, collection limits, retention, and secondary-use restrictions.</p>
-  <span class="pending">Content development pending</span>
-</article><article class="dg-plan-card">
-  <span class="k">Section 2 of 3</span>
-  <h2>Make rights and redress work.</h2>
-  <p>Operate notices, consent where required, access, correction, complaint, appeal, human review, and response measures.</p>
-  <span class="pending">Content development pending</span>
-</article><article class="dg-plan-card">
-  <span class="k">Section 3 of 3</span>
-  <h2>Assess high-impact analytics and AI.</h2>
-  <p>Complete Privacy Impact Assessment (PIA), Data Protection Impact Assessment (DPIA), or Algorithmic Impact Assessment (AIA) as applicable, then disclose sources, limits, automated decisions, and human oversight accurately.</p>
-  <span class="pending">Content development pending</span>
-</article></div>
+<section class="worked" data-worked-example><span class="section-tag">Worked panel conversation</span><h2>Reframe the proposal as a utility decision</h2>
+<p>The original proposal asks, “Can the model predict which customers are most likely to pay late?” The panel reframes it: “How should Riverbend identify and support accounts that may need timely, fair, and lawful assistance while protecting revenue and service obligations?” That change matters. It opens safer options such as earlier leak review, benefit eligibility checks, language access, payment-plan outreach, and human confirmation before collection action.</p>
+<div class="worked-grid"><article><b>Customer Service</b><span>Explains current workflow, correction, communication, and hardship options.</span></article><article><b>Privacy and Legal</b><span>Review authority, purpose, rights, notices, contracts, and required safeguards.</span></article><article><b>Community and Equity</b><span>Challenge burden, access, proxy effects, language, disability, and redress.</span></article></div>
+<p>The panel does not assume that every beneficial use is permitted or that every permitted use is wise. It documents the intended service outcome, authority, necessary data, affected people, alternatives, likely benefits and harms, human authority, explanation, monitoring, and stop conditions.</p></section>
 
-  <h2>The utility deployment thread</h2>
-  <div class="dg-artifacts">
-    <article class="dg-artifact"><b>Riverbend utility case</b><p>a leak-risk model uses household interval data to prioritize outreach and account actions. The team must separate service help from enforcement and explain human review.</p></article>
-    <article class="dg-artifact"><b>Deployment Studio</b><p>processing record, minimization review, rights workflow, impact assessment, transparency statement, and redress measure.</p></article>
-    <article class="dg-artifact"><b>Chapter output</b><p>privacy, ethics, transparency, and redress pack.</p></article>
-  </div>
+<section class="panel"><span class="section-tag">2 | Operate the rights review</span><h2>Change the proposed use and watch the review change</h2>
+<div class="instructor" data-instructor-explanation data-teaches="rights-console"><p><b>Select each proposed use.</b> The panel tests purpose, necessity, effect, and redress. Notice that the same account information can support routine billing, require additional review for supportive outreach, and be rejected for an unsupported collection score. The conclusion depends on verified authority and facts, not this teaching tool.</p></div>
+<div id="rights-console" class="visual mechanism rights-console" data-visual-type="two-by-two" data-component-source="shared-component-library" data-purposeful-interaction="purpose-rights-harm-redress-review" data-required="rights-review" data-rights-console>
+<div class="scenario-tabs"><button type="button" data-scenario="0">Issue the bill</button><button type="button" data-scenario="1">Offer leak assistance</button><button type="button" data-scenario="2">Rank collection priority</button></div><div class="console-output" data-console-output aria-live="polite"></div><div class="rights-board" data-rights-board></div>
+<script type="application/json">[{"decision":"Routine use may proceed under the approved billing process.","reason":"The data is used to calculate and communicate the service charge, with existing correction, access, security, and retention controls still required.","tests":[{"label":"Purpose","result":"Directly tied to billing service","pass":true},{"label":"Necessity","result":"Account and meter facts are needed","pass":true},{"label":"Effect","result":"Charge and notice affect the customer","pass":true},{"label":"Redress","result":"Billing dispute and correction path exists","pass":true}]},{"decision":"Supportive outreach requires bounded review and approval.","reason":"The service goal may be beneficial, but Riverbend must define eligibility, minimize fields, protect sensitive circumstances, test unequal access, and provide clear choice and correction.","tests":[{"label":"Purpose","result":"Related public-service purpose needs approval","pass":true},{"label":"Necessity","result":"Some call notes and property fields may be excessive","pass":false},{"label":"Effect","result":"Benefit access and stigma must be tested","pass":false},{"label":"Redress","result":"Notice, choice, correction, and human help required","pass":false}]},{"decision":"Do not release the collection-ranking pilot on the current evidence.","reason":"The proposal lacks approved purpose, necessity, impact, proxy, explanation, correction, appeal, monitoring, and accountable-action evidence.","tests":[{"label":"Purpose","result":"New consequential use not approved","pass":false},{"label":"Necessity","result":"Broad data combination is unsupported","pass":false},{"label":"Effect","result":"Unequal burden and proxy risk untested","pass":false},{"label":"Redress","result":"No meaningful explanation or appeal","pass":false}]}]</script>
+<p class="reading-guide" data-reading-guide>Read all four tests together. A positive service intention does not cancel missing authority, unnecessary data, harmful effect, or absent redress.</p><p class="learner-conclusion" data-learner-conclusion>A defensible data use connects public-service purpose with necessity, rights, impact evidence, explanation, correction, and accountable action.</p></div>
+<p class="debrief"><b>Debrief.</b> The panel is not a checkbox committee. It changes the use, data, workflow, authority, notice, and monitoring until the proposal is supportable, or it stops the proposal. Record dissent and unresolved uncertainty rather than converting them into a generic “approved with caution.”</p></section>
 
-  <section class="dg-gates"><h2>What must be added before release</h2><ul><li>Complete utility lesson narrative at Foundation, Practitioner, and Leader depth</li><li>Approved diagrams or simulations selected from the OWOS visual system</li><li>Varied knowledge checks with explanatory feedback and critical-gate handling</li><li>Citations, applicability boundaries, accessible interactions, and mobile visual review</li><li>Supabase completion rule and Knowledge Graph alignments verified against the released version</li></ul></section>
+<section class="panel"><span class="section-tag">3 | Minimize before protecting</span><h2>Security does not justify unnecessary collection</h2>
+<p>A well-secured dataset can still be excessive. Riverbend asks which information is necessary for each step. Billing may need account identity, service, meter, rate, and payment records. Leak-assistance outreach may need a high-use signal and contact preference, but not free-text call notes or unrelated neighborhood attributes. Collection action may require a controlled legal and policy basis, current balance, notice history, protections, exceptions, and human authority.</p>
+<div class="instructor" data-instructor-explanation data-teaches="minimization-view"><p><b>Move the divider to compare the supplier proposal with a minimized support workflow.</b> Notice that minimization changes the fields, purpose, access, retention, and decision path. It is not simply deleting columns after the model is built. Read the human-review and correction steps as part of the minimization design because they reduce reliance on unsupported inferences.</p></div>
+<div id="minimization-view" class="visual" data-visual-type="before-after-slider" data-component-source="component-gallery" data-ac="beforeafter" data-title="From broad ranking to bounded assistance" data-kind="Before and after | purpose and minimization" data-cue="Compare what is collected, who acts, and how a person can correct the result."><script type="application/json">{"beforeTitle":"Broad collection ranking","afterTitle":"Bounded assistance workflow","before":["Payment and call history","Property and neighborhood indicators","Opaque risk score","Automatic priority queue","No explanation or appeal"],"after":["High-use and current balance trigger","Approved hardship eligibility facts","Human review before contact","Plain-language purpose and options","Correction, choice, appeal, and monitoring"]}</script><p class="reading-guide" data-reading-guide>The governed alternative changes the service question and uses fewer, more relevant facts with human review.</p><p class="learner-conclusion" data-learner-conclusion>Minimization can improve both rights protection and decision quality by removing unsupported proxies and stale context.</p></div></section>
 
-  <nav class="dg-nav" aria-label="Chapter navigation"><a href="lesson-dg-13-d06-integrity-security-and-resilience.html">&larr; Chapter 13</a><a class="home" href="course-data-governance.html">All 25 chapters</a><a href="lesson-dg-15-d08-lifecycle-retention-and-records.html">Chapter 15 &rarr;</a></nav>
+<section class="panel"><span class="section-tag">4 | Explanation and redress</span><h2>A person needs a usable path, not a model lecture</h2>
+<p><span class="term" data-def="Clear information about the purpose, data, process, limits, decision authority, and effects of a data use.">Transparency</span> means telling people what matters in language they can use. It does not require exposing security-sensitive details or every mathematical coefficient. Maria needs to know the action being considered, the main information used, the responsible utility role, significant limitations, how to correct the record, how to obtain human help, and how to challenge the decision.</p>
+<p><span class="term" data-def="A practical way for an affected person to obtain explanation, correction, human review, appeal, or remedy.">Redress</span> must work in practice. A web form that requires English, broadband, and a customer portal may exclude the person most affected. Riverbend tests phone, mail, in-person, language, disability, timing, identity verification, status updates, and escalation.</p>
+<div class="instructor" data-instructor-explanation data-teaches="redress-lane"><p><b>Follow the redress lane from notice to closure.</b> Each handoff should preserve the person’s question, disputed fact, evidence, deadline, decision authority, explanation, correction, and communication. The path is a service process, not a disclaimer. Ask whether Maria could understand where the case sits, reach an authorized human, and receive the corrected outcome in time to avoid harm.</p></div>
+<div id="redress-lane" class="visual" data-visual-type="swimlane" data-component-source="shared-component-library"><div class="evidence-strip" role="img" aria-label="Customer redress process"><article><b>Customer</b><span>Receives notice and raises question</span></article><article><b>Service agent</b><span>Explains, records, and pauses unsafe action</span></article><article><b>Data steward</b><span>Checks identity, source, definition, and correction</span></article><article><b>Decision owner</b><span>Confirms, changes, or escalates the action</span></article><article><b>Customer</b><span>Receives outcome, reason, and next appeal</span></article></div><p class="reading-guide" data-reading-guide>Read across the roles. The question and evidence should not disappear at a handoff.</p><p class="learner-conclusion" data-learner-conclusion>Redress is governed when a person can reach an authorized human, correct evidence, receive a reason, and escalate within a meaningful time.</p></div></section>
+
+<section class="assessment"><span class="section-tag">Panel classification</span><h2>Place each proposal in the right review state</h2><div class="instructor" data-instructor-explanation data-teaches="rights-classify"><p><b>Classify the proposals by what the current evidence supports.</b> “Review required” is a legitimate answer. It keeps uncertainty visible while the utility gathers authority, necessity, impact, and redress evidence.</p></div>
+<div id="rights-classify" class="quiz-shell" data-quiz-type="classify" data-quiz-source="quiz-gallery" data-retry="Ask whether the purpose is approved, data is necessary, effects are tested, and redress exists." data-required="rights-check" data-ac="classify" data-title="Classify the proposed use" data-kind="Knowledge check | rights judgment"><script type="application/json">{"buckets":["Supported routine use","Review and redesign","Do not release"],"items":[["Calculate a bill from approved meter, rate, and account records with an existing dispute path.",0,"The use is directly tied to the approved service process, subject to its operating controls."],["Use high-consumption and contact preference to offer leak assistance, with purpose and minimization review still open.",1,"The service goal may be supportable after authority, necessity, choice, impact, and redress are designed."],["Automatically escalate collections from an opaque score combining call notes and neighborhood indicators.",2,"The current proposal lacks the evidence and safeguards required for a consequential action."],["Study de-identified program outcomes, but the re-identification and small-group risk has not been tested.",1,"Review the transformation, residual risk, access, purpose, retention, and release conditions before use."]]}</script><span aria-live="polite"></span></div></section>
+
+<section class="lens-row" aria-label="Role views"><article data-lens="foundation"><b>Foundation view</b><span>Ask why the data was collected, why it is needed now, who is affected, and how a person can correct or challenge the result.</span></article><article data-lens="practitioner"><b>Practitioner view</b><span>Maintain purpose, authority, minimization, impact, transparency, redress, monitoring, incident, and retirement evidence.</span></article><article data-lens="leader"><b>Leader view</b><span>Set boundaries for consequential uses and require affected-community, legal, privacy, operational, security, and independent challenge where appropriate.</span></article></section>
+
+<section class="artifact"><span class="section-tag">Professional work product</span><h2>Prepare a rights and transparency review</h2><form data-artifact="rights-transparency-review" data-required="rights-record" data-export-title="D07 RIGHTS AND TRANSPARENCY REVIEW">
+<label>Proposed purpose, service outcome, action, and accountable owner<textarea name="purpose-action" required></textarea></label>
+<label>Authority, original collection context, expectations, and material new-use analysis<textarea name="authority-context" required></textarea></label>
+<label>Necessary fields, rejected fields, alternatives, access, sharing, and retention<textarea name="minimization" required></textarea></label>
+<label>Affected people, benefit, harm, proxy, segment, accessibility, and community evidence<textarea name="impact" required></textarea></label>
+<div class="artifact-grid"><label>Panel decision<select name="panel-decision" required><option value="">Choose</option><option>Proceed within existing control</option><option>Redesign and return</option><option>Do not release</option></select></label><label>Review date<input name="review-date" type="date" required></label><label>Decision owner<input name="decision-owner" required></label></div>
+<label>Notice, explanation, correction, human review, appeal, remedy, monitoring, and stop rules<textarea name="transparency-redress" required></textarea></label>
+<div class="artifact-actions"><button class="btn primary" type="submit">Save panel record</button><button class="btn" type="button" data-download>Download review record</button></div><p class="status" data-artifact-status aria-live="polite">Do not enter personal or sensitive information.</p></form>
+<div class="final-check" data-final-applied-check data-required="rights-defense" data-artifact-ref="rights-transparency-review" data-pass="Your review connects purpose and authority to necessity, effects, explanation, redress, and accountable action." data-retry="Add the new-use basis, minimization, affected-person evidence, explanation, redress, monitoring, and stop authority."><b>Final applied check</b><label><input type="checkbox" data-correct="true"> Purpose, authority, necessity, and alternatives are documented.</label><label><input type="checkbox" data-correct="true"> Effects on people and proxy or segment risks are tested.</label><label><input type="checkbox" data-correct="true"> Explanation, correction, human review, appeal, monitoring, and stop rules are usable.</label><label><input type="checkbox" data-correct="false"> Existing possession of data is treated as approval for the new use.</label><button class="btn" data-check-applied type="button">Defend the panel decision</button><p class="status" aria-live="polite"></p></div></section>
+
+<section class="faq" data-module-faq><span class="section-tag">Questions people bring to the panel</span><h2>Privacy, rights, ethics, and transparency FAQ</h2>
+<details><summary>Is anonymized data outside privacy review?</summary><p>Not automatically. Review how it was transformed, whether people or small groups can be re-identified, linkage risk, purpose, access, release, retention, and the consequences of error.</p></details>
+<details><summary>Does consent solve every new use?</summary><p>No. Consent may be inappropriate, unavailable, or insufficient depending on authority and power. Review necessity, fairness, rights, contracts, public duties, safeguards, and alternatives with authorized professionals.</p></details>
+<details><summary>Do we have to reveal the entire model?</summary><p>No. Provide a useful explanation of purpose, principal information, action, limitations, responsible role, correction, human review, and appeal while protecting security, privacy, and legitimate confidential information.</p></details>
+<details><summary>What if the model is accurate overall?</summary><p>Overall accuracy can hide worse errors or burdens for particular groups, locations, languages, disabilities, or service conditions. Test segments and consequences relevant to the use.</p></details>
+<details><summary>Who should sit on the review panel?</summary><p>Include the decision owner and the operational, privacy, legal, security, data, customer, accessibility, records, supplier, and community perspectives needed by the consequence. Preserve independent challenge.</p></details>
+</section>
+<section class="evidence" data-evidence-boundary><b>Evidence boundary and release truth.</b> Maria and Riverbend are instructional. This lesson does not determine legal authority, discrimination, privacy compliance, or approval for a specific data use. Jurisdictions and duties vary. Use current law, policy, contracts, public-records and retention rules, community engagement, and authorized review. Anchors include the <a href="https://www.nist.gov/privacy-framework">National Institute of Standards and Technology Privacy Framework</a>, the <a href="https://www.oecd.org/en/topics/privacy-and-data-protection.html">Organisation for Economic Co-operation and Development privacy and data protection resources</a>, and the <a href="https://www.ftc.gov/business-guidance/privacy-security">United States Federal Trade Commission privacy and security guidance</a>. D07 remains subject to legal, privacy, community, practitioner, and source-owner review.</section>
+<section class="completion"><h2>Working completion</h2><ul><li data-requirement="opening">Record the panel referral.</li><li data-requirement="rights-review">Operate the rights review.</li><li data-requirement="rights-check">Complete the classification.</li><li data-requirement="rights-record">Save the panel record.</li><li data-requirement="rights-defense">Defend the decision.</li></ul><button class="btn primary" data-complete disabled type="button">Record working completion</button><p data-completion-status role="status"></p></section>
+<section class="connected" id="owos-course-community"><h2>Connected learning</h2><p>The Graph connects person, purpose, data, authority, action, effect, explanation, correction, and redress. Never post personal cases or identifying details in Community.</p></section>
+<nav class="footnav"><a href="lesson-dg-13-d06-integrity-security-and-resilience.html">Previous: Resilience</a><a href="course-data-governance.html">All chapters</a><a href="lesson-dg-15-d08-lifecycle-retention-and-records.html">Next: Records lifecycle</a></nav>
 </main>
-<footer class="dg-footer"><div class="wrap">owos-master-data-governance-001 &middot; Learning object dga001:14 &middot; Content status: pending</div></footer>
-<script>
+<div class="drawer-scrim"></div><aside class="drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><b>Chapter 14 Graph</b><button data-close-drawer type="button">Close</button></div><div class="drawer-body"><div class="graph-list"><span data-graph-kind="concept">Concept: bounded data use</span><span data-graph-kind="source">Source: authority, impact, and rights evidence</span><span data-graph-kind="role">Role: accountable use owner and rights reviewers</span><span data-graph-kind="competency">Competency: conduct a rights review</span><span data-graph-kind="relationship">Relationship: data use affects a person</span></div></div></aside>
+<aside class="drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><b>Course Community</b><button data-close-drawer type="button">Close</button></div><div class="drawer-body"><div class="community-feature" data-community-feature="search">Search rights questions.</div><div class="community-feature" data-community-feature="filters">Filter by role and use.</div><div class="community-feature" data-community-feature="bookmarks">Bookmark public guidance.</div><div class="community-feature" data-community-feature="threaded-replies">Reply without personal details.</div><div class="community-feature" data-community-feature="presence">See active members.</div><div class="community-feature" data-community-feature="instructor-treatment">Instructor guidance is marked.</div></div></aside>
+<div id="tt" role="tooltip"></div><script>
 /* =====================================================================
    OWOS ACADEMY COMPONENT LIBRARY  (academy.js)
    Modules write declarative markup; this file renders and wires the real
@@ -1998,6 +1989,25 @@ html,body{max-width:100%;overflow-x:hidden}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2007,9 +2017,100 @@ html,body{max-width:100%;overflow-x:hidden}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 
-</script>
-</body></html>
+</script><script>
+(function(){
+  "use strict";
+  var moduleId=document.body.dataset.module||"";
+  var key="dga001:"+moduleId+":retrofit";
+  var state={opening:false,artifact:false,applied:false};
+  try{state=Object.assign(state,JSON.parse(localStorage.getItem(key)||"{}"));}catch(error){}
+  function save(){localStorage.setItem(key,JSON.stringify(state));paintCompletion();}
+  function paintCompletion(){
+    var button=document.querySelector("[data-complete]");
+    if(!button)return;
+    var ready=state.opening&&state.artifact&&state.applied;
+    button.disabled=!ready;
+    var out=document.querySelector("[data-completion-status]");
+    if(out)out.textContent=ready?"Opening decision, work product, and applied check are complete. This working lesson is ready for your review.":"Complete the opening decision, save the professional work product, and pass the applied check.";
+  }
+  document.querySelectorAll("[data-opening-decision] [data-choice]").forEach(function(button){
+    button.addEventListener("click",function(){
+      var box=button.closest("[data-opening-decision]");
+      box.querySelectorAll("[data-choice]").forEach(function(item){item.setAttribute("aria-pressed",item===button?"true":"false");});
+      var feedback=box.querySelector("[data-decision-feedback]");
+      feedback.innerHTML=button.dataset.feedback||"Decision recorded. Carry your reasoning into the lesson.";
+      feedback.classList.add("on");
+      state.opening=true;save();
+    });
+  });
+  document.querySelectorAll("form[data-artifact]").forEach(function(form){
+    var artifactKey=key+":"+form.dataset.artifact;
+    try{
+      var saved=JSON.parse(localStorage.getItem(artifactKey)||"{}");
+      Object.keys(saved).forEach(function(name){var field=form.elements.namedItem(name);if(field)field.value=saved[name];});
+    }catch(error){}
+    form.addEventListener("submit",function(event){
+      event.preventDefault();
+      if(!form.reportValidity())return;
+      var data={};new FormData(form).forEach(function(value,name){data[name]=String(value);});
+      localStorage.setItem(artifactKey,JSON.stringify(data));
+      state.artifact=true;save();
+      var status=form.querySelector("[data-artifact-status]");if(status)status.textContent="Saved in this browser. Move the reviewed version into the utility's approved repository.";
+    });
+    var download=form.querySelector("[data-download]");
+    if(download)download.addEventListener("click",function(){
+      var lines=[form.dataset.exportTitle||"OWOS DATA GOVERNANCE WORK PRODUCT",""];
+      new FormData(form).forEach(function(value,name){lines.push(name.replace(/[-_]/g," ").toUpperCase(),String(value),"");});
+      lines.push("EVIDENCE BOUNDARY","This instructional draft requires utility approval, current authority, protected evidence handling, and independent review where required.");
+      var blob=new Blob([lines.join("\n")],{type:"text/plain"}),a=document.createElement("a");
+      a.href=URL.createObjectURL(blob);a.download=(form.dataset.artifact||"work-product")+".txt";a.click();URL.revokeObjectURL(a.href);
+    });
+  });
+  document.querySelectorAll("[data-final-applied-check]").forEach(function(check){
+    var button=check.querySelector("[data-check-applied]");
+    if(!button)return;
+    button.addEventListener("click",function(){
+      var required=Array.from(check.querySelectorAll("input[data-correct]"));
+      var ok=required.length>0&&required.every(function(input){return input.checked===(input.dataset.correct==="true");});
+      var out=check.querySelector("[aria-live]");
+      if(ok){out.textContent=check.dataset.pass||"Your recommendation includes the required evidence and boundary.";state.applied=true;save();}
+      else{out.textContent=check.dataset.retry||"Review the evidence, authority, limitation, and next action, then try again.";}
+    });
+  });
+  document.querySelectorAll("[data-resilience-console]").forEach(function(consoleEl){
+    var scenarios=JSON.parse(consoleEl.querySelector('script[type="application/json"]').textContent),out=consoleEl.querySelector("[data-console-output]"),path=consoleEl.querySelector("[data-control-path]");
+    function paint(index,button){var s=scenarios[index];consoleEl.querySelectorAll("[data-scenario]").forEach(function(b){b.classList.toggle("on",b===button);});out.innerHTML="<strong>"+s.verdict+"</strong>"+s.explanation;path.innerHTML=s.path.map(function(step){return '<article class="'+step.state+'"><b>'+step.label+"</b><span>"+step.detail+"</span></article>";}).join("");}
+    consoleEl.querySelectorAll("[data-scenario]").forEach(function(button){button.addEventListener("click",function(){paint(+button.dataset.scenario,button);});});paint(0,consoleEl.querySelector("[data-scenario]"));
+  });
+  document.querySelectorAll("[data-rights-console]").forEach(function(consoleEl){
+    var scenarios=JSON.parse(consoleEl.querySelector('script[type="application/json"]').textContent),out=consoleEl.querySelector("[data-console-output]"),board=consoleEl.querySelector("[data-rights-board]");
+    function paint(index,button){var s=scenarios[index];consoleEl.querySelectorAll("[data-scenario]").forEach(function(b){b.classList.toggle("on",b===button);});out.innerHTML="<strong>"+s.decision+"</strong>"+s.reason;board.innerHTML=s.tests.map(function(test){return '<article class="'+(test.pass?"":"alert")+'"><b>'+test.label+"</b><span>"+test.result+"</span></article>";}).join("");}
+    consoleEl.querySelectorAll("[data-scenario]").forEach(function(button){button.addEventListener("click",function(){paint(+button.dataset.scenario,button);});});paint(0,consoleEl.querySelector("[data-scenario]"));
+  });
+  document.querySelectorAll("[data-lifecycle-console]").forEach(function(consoleEl){
+    var scenarios=JSON.parse(consoleEl.querySelector('script[type="application/json"]').textContent),out=consoleEl.querySelector("[data-console-output]"),track=consoleEl.querySelector("[data-timeline-track]");
+    function paint(index,button){var s=scenarios[index];consoleEl.querySelectorAll("[data-scenario]").forEach(function(b){b.classList.toggle("on",b===button);});out.innerHTML="<strong>"+s.decision+"</strong>"+s.reason;track.innerHTML=s.stages.map(function(stage,i){return '<article class="'+(i===s.active?"active":"")+'"><b>'+stage.label+"</b><small>"+stage.detail+"</small></article>";}).join("");}
+    consoleEl.querySelectorAll("[data-scenario]").forEach(function(button){button.addEventListener("click",function(){paint(+button.dataset.scenario,button);});});paint(0,consoleEl.querySelector("[data-scenario]"));
+  });
+  var lastTrigger=null;
+  function setDrawer(name,open,trigger){
+    var drawer=document.querySelector('[data-drawer="'+name+'"]'),scrim=document.querySelector(".drawer-scrim");
+    if(!drawer)return;
+    if(open){lastTrigger=trigger||document.activeElement;drawer.classList.add("open");drawer.setAttribute("aria-hidden","false");scrim.classList.add("open");drawer.querySelector("[data-close-drawer]").focus();}
+    else{drawer.classList.remove("open");drawer.setAttribute("aria-hidden","true");if(!document.querySelector(".drawer.open"))scrim.classList.remove("open");if(lastTrigger)lastTrigger.focus();}
+  }
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){button.addEventListener("click",function(){setDrawer("graph",true,button);});});
+  document.querySelectorAll("[data-open-community]").forEach(function(button){button.addEventListener("click",function(){setDrawer("community",true,button);});});
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){button.addEventListener("click",function(){setDrawer(button.closest("[data-drawer]").dataset.drawer,false);});});
+  var scrim=document.querySelector(".drawer-scrim");if(scrim)scrim.addEventListener("click",function(){document.querySelectorAll(".drawer.open").forEach(function(drawer){setDrawer(drawer.dataset.drawer,false);});});
+  document.addEventListener("keydown",function(event){if(event.key==="Escape")document.querySelectorAll(".drawer.open").forEach(function(drawer){setDrawer(drawer.dataset.drawer,false);});});
+  var complete=document.querySelector("[data-complete]");if(complete)complete.addEventListener("click",function(){var out=document.querySelector("[data-completion-status]");if(out)out.textContent="Working completion recorded in this browser. Release and credential events remain disabled.";});
+  paintCompletion();
+})();
+
+</script></body></html>

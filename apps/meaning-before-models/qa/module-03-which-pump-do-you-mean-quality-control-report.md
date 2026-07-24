@@ -1,7 +1,7 @@
 ---
 module_id: mbm001:03
 course_id: owos-course-semantic-data-ai-001
-version: production-candidate-1
+version: semantic-fieldbook-retrofit-1
 review_date: 2026-07-23
 reviewer: Codex repository review
 score: 86
@@ -11,6 +11,12 @@ release_status: blocked
 ---
 
 # Module Quality-Control Report: Which Pump Do You Mean?
+
+## Retrofit implementation review
+- Rebuilt as a forensic identity review using five conflicting P-104 records.
+- Verified mechanisms: evidence adjudication, provenance trace, and false-merge blast radius.
+- Verified work product: approved crosswalk plus preserved conflict queue.
+- Score remains conditional because the identity evidence pattern requires utility-practitioner and independent technical review.
 
 ## Decision
 - Working-review result: Conditional production candidate.

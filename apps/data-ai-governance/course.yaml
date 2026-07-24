@@ -13,9 +13,11 @@ organization: One Water Operating System
 platform: APAS.ai
 
 quality_contract:
-  version: 1
+  version: 3
   enforce_on_release: true
-  minimum_purposeful_interactions: 2
+  minimum_purposeful_interactions: 1
+  course_distinctiveness_required: true
+  full_module_conformance_required: true
 
 provenance:
   repository: hpad66-pixel/owos-learning-content
@@ -109,8 +111,9 @@ source_files:
   architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
 
 delivery:
-  shell_status: chapter_release_in_progress
-  available_chapters: 10
+  release_state: live_review
+  shell_status: all_25_chapters_public_live_review
+  available_chapters: 25
   released_chapters:
     - "00"
     - "01"
@@ -122,9 +125,24 @@ delivery:
     - "07"
     - "08"
     - "09"
+    - "10"
+    - "11"
+    - "12"
+    - "13"
+    - "14"
+    - "15"
+    - "16"
+    - "17"
+    - "18"
+    - "19"
+    - "20"
+    - "21"
+    - "22"
+    - "23"
+    - "24"
   landing_source: curriculum/masterclass-data-governance.html
   landing_output: dist/site/course-data-governance.html
-  runtime_manifest: dist/course-manifest.json
+  runtime_manifest: dist/release-manifest.json
   chapter_source_pattern: curriculum/module-{chapter}-{slug}.html
   chapter_output_pattern: dist/site/lesson-dg-{chapter}-{slug}.html
   runtime_repository: hpad66-pixel/onewater-os-platform
@@ -134,15 +152,4 @@ delivery:
   learner_records: supabase
   semantic_alignment: owos_knowledge_graph
   edge_delivery: cloudflare_pages_and_worker
-  completion_events_enabled: true
-  completion_events_enabled_for:
-    - "00"
-    - "01"
-    - "02"
-    - "03"
-    - "04"
-    - "05"
-    - "06"
-    - "07"
-    - "08"
-    - "09"
+  completion_events_enabled: false

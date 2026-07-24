@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 15 &middot; Measurement and honest status &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 15 of the Project Management masterclass. Metrics, KPIs and dashboards, leading versus lagging indicators, and evidence-grounded status reporting with an honest red-amber-green rollup.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-15-measurement-honest-status">
+<meta name="owos-release-state" content="working-review">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,38 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+/* Project Management retrofit controls. The field-delivery teaching surface remains in academy.css. */
+.lesson-actions{display:flex;gap:6px;align-items:center;margin-left:auto}
+.lesson-actions a,.lesson-actions button{border:1px solid var(--line-2);border-radius:999px;background:#fff;padding:6px 10px;color:var(--ink-2);font:700 10px var(--fm);text-decoration:none;cursor:pointer}
+.lesson-actions a:hover,.lesson-actions button:hover,.lesson-actions a:focus-visible,.lesson-actions button:focus-visible{border-color:var(--brand);color:var(--brand);outline:2px solid var(--brand-100);outline-offset:2px}
+.owos-nav .crumb{margin-left:12px}
+[data-visual-type]{margin:24px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface-2)}
+[data-reading-guide],[data-learner-conclusion]{margin:0;padding:10px 12px;border-radius:11px;font-size:13.5px;line-height:1.55}
+[data-reading-guide]{border:1px solid var(--brand-100);background:var(--brand-50);color:var(--ink)}
+[data-learner-conclusion]{border:1px solid #bfe0d4;background:var(--green-50);color:#086b50}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.role-grid article{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.role-grid b{color:var(--ink)}.role-grid p{margin:5px 0 0;font-size:13px;line-height:1.5}
+.evidence-card ul,.requirement-list{padding-left:20px}.evidence-card li,.requirement-list li{margin:7px 0}
+.evidence-card a{color:var(--brand-700)}
+.completion-card{border-color:var(--brand-100);background:var(--brand-50)}
+.completion-status{display:inline-block;margin-left:10px;font:600 11px var(--fm);color:var(--ink-3)}
+.requirement-list li.done{color:var(--green);font-weight:700}
+.course-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:120;background:#fff;box-shadow:-14px 0 38px rgba(15,23,40,.2);transform:translateX(105%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
+.course-drawer.open{transform:translateX(0);visibility:visible;transition:transform .22s ease}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--brand-800);color:#fff}
+.drawer-head h2{margin:0;color:#fff;font-size:1.15rem}.drawer-head button{border:1px solid rgba(255,255,255,.65);border-radius:8px;background:transparent;padding:7px 10px;color:#fff;font-weight:700;cursor:pointer}
+.drawer-body{height:calc(100% - 70px);overflow:auto;padding:18px}.drawer-body>p,.drawer-body>div,.drawer-body>label,.drawer-body>button{display:block;margin:0 0 11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--ink-2)}
+.community-tools input{display:block;width:100%;margin-top:7px;border:1px solid var(--line-2);border-radius:8px;padding:8px;font:inherit}.community-tools button{border:1px solid var(--line-2);border-radius:8px;background:#fff;padding:7px 10px;color:var(--ink-2);font-weight:700;cursor:pointer;margin:3px}
+.connected-learning{margin:28px 0 18px;padding:16px 18px;border:1px solid var(--brand-100);border-radius:14px;background:var(--brand-50)}.connected-learning b{color:var(--ink)}.connected-learning p{margin:5px 0 0}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body.drawer-open{overflow:hidden}
+@media(max-width:900px){.lesson-actions{order:3;width:100%;justify-content:flex-end}.owos-nav{height:auto;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.wrap{padding-top:34px}}
+@media(max-width:700px){.role-grid{grid-template-columns:1fr}.lesson-actions{justify-content:flex-start}.owos-nav .crumb{margin-left:auto}[data-visual-type]{padding:8px}.completion-status{display:block;margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){.course-drawer{transition:none}}
+
+</style>
 </head>
 <body>
 
@@ -588,11 +624,12 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-wm">One Water <b>OS</b></span>
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
+  <span class="lesson-actions"><a href="#lesson-start">Start</a><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button></span>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 15</b></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 15 &middot; Measurement</span>
   <h1>Measurement and <span>honest</span> status</h1>
@@ -605,12 +642,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job we are reporting on</p>
       <p><b>The Millpond Road water main replacement, mid-construction.</b> Same job. It is running a little over budget and a little behind. This chapter is about which numbers reveal that, and how to put them in front of a board while there is still time to fix it.</p>
     </div>
+  </div>
+
+  <p>The board packet calls Millpond green. The cost performance index is 0.87, critical-path float has fallen from twelve days to three, two high risks are open, and no recordable safety incident has occurred. Before the lesson gives you a framework, decide whether you would let the green rating stand.</p>
+
+  <div data-ac="decide" data-purposeful-interaction="initial-status-decision" data-title="The packet is already on the agenda" data-kind="Opening decision &middot; accept or challenge" data-cue="Make the call before you see the full dashboard. The board meeting begins in twenty minutes.">
+    <script type="application/json">
+    {"q":"What do you do with the green status?",
+     "options":[
+      {"label":"Let it stand because most indicators are acceptable","result":"That averages away the condition that requires action. A green rollup would tell the board that no intervention is needed even though cost and float evidence say otherwise."},
+      {"label":"Challenge the rating and reconstruct it from the underlying evidence","result":"That is the defensible move. You are not declaring the project a failure. You are testing whether the summary matches the evidence before a decision-maker relies on it."},
+      {"label":"Change it to red without reviewing the sources","result":"The instinct may be right, but an unsupported correction is still unsupported. Trace the numbers, dates, thresholds, and trends first."}
+     ]}
+    </script>
   </div>
 
   <h3>What you will be able to do</h3>
@@ -625,23 +675,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   <div class="sec">
     <span class="tag">1 / 2</span>
     <h2>Metrics, KPIs, and what is worth measuring</h2>
-    <p>A <span class="term" data-term="KPI" data-def="Key Performance Indicator: one of the few measures that genuinely tells you whether the project is succeeding, and that you would actually act on. If a number would not change a decision, it is not a KPI.">Key Performance Indicator (KPI)</span> is not just any number you can collect. The test is simple: <em>would this number ever change a decision?</em> If not, it is decoration. And the most useful measures come in two flavors. A <span class="term" data-term="Lagging indicator" data-def="A measure of what already happened: cost variance last month, injuries last quarter. Accurate but too late to prevent.">lagging indicator</span> tells you what already happened; a <span class="term" data-term="Leading indicator" data-def="A measure that predicts what is coming: near-miss reports, first-pass submittal approvals, long-lead orders placed on time. Early enough to act on.">leading indicator</span> warns you about what is coming. You need both, but only one of them lets you act in time. Sort a few.</p>
+    <p>A <span class="term" data-term="KPI" data-def="Key Performance Indicator: one of the few measures that genuinely tells you whether the project is succeeding, and that you would actually act on. If a number would not change a decision, it is not a KPI.">Key Performance Indicator (KPI)</span> is not just any number you can collect. The test is simple: <em>would this number ever change a decision?</em> If not, it is decoration. The most useful measures come in two flavors. A <span class="term" data-term="Lagging indicator" data-def="A measure of what already happened: cost variance last month, injuries last quarter. Accurate but too late to prevent.">lagging indicator</span> tells you what already happened. A <span class="term" data-term="Leading indicator" data-def="A measure that predicts what is coming: near-miss reports, first-pass submittal approvals, long-lead orders placed on time. Early enough to act on.">leading indicator</span> warns you about what is coming.</p>
 
-    <div data-ac="classify" data-title="Leading or lagging?" data-kind="Quiz &middot; classify" data-cue="Does it tell you what already happened, or warn you about what is about to?">
-      <script type="application/json">
-      {"buckets":["Leading","Lagging"],
-       "items":[
-        ["Near-miss reports filed by the crew this month",0,"Warns you about incidents that have not happened yet. Leading, and the most valuable safety signal you have."],
-        ["Recordable injuries last quarter",1,"Counts harm already done. Lagging: accurate, but too late to prevent."],
-        ["Percent of submittals approved on the first pass",0,"Predicts rework and quality trouble downstream. Leading."],
-        ["Cost variance reported at the end of the phase",1,"Tells you the money is already spent. Lagging."],
-        ["Long-lead orders placed on schedule",0,"Predicts whether procurement will hold the critical path. Leading."]
-       ]}
-      </script>
-    </div>
+    <p>Take safety as a worked example. Last quarter's recordable injuries are lagging because the harm has already occurred. Near-miss reports, housekeeping findings, and completed pre-task plans are leading because they show whether controls are working before the injury. You need both. The lagging measure tells you whether the outcome was acceptable. The leading measure gives you time to change the next outcome.</p>
 
-    <p>For a utility capital job, a short list carries most of the signal. Click each one for what it actually tells you, and when to worry.</p>
+    <p data-instructor-explanation data-teaches="pm15-measure-table">For a utility capital job, a short list carries most of the signal. Read across each row from measure to meaning to threshold, then select it for the operating interpretation. The table is not a menu of every available number. It shows the measures that can change a cost, schedule, quality, or safety decision while the team still has time to act.</p>
 
+    <section id="pm15-measure-table" data-visual-type="comparison-table" data-component-source="shared-component-library">
+    <p data-reading-guide><b>How to read it:</b> start with the measure, read the condition that should trigger concern, and then open the row to see the project decision it supports.</p>
     <div data-ac="table" data-title="The measures worth watching" data-kind="Interactive &middot; comparison table" data-cue="Click any measure. Notice the last one: near-misses falling to zero is bad news, not good.">
       <script type="application/json">
       {"headers":["Measure","What it tells you","Worry when"],
@@ -659,28 +700,20 @@ input[type=range]{width:100%;accent-color:var(--brand)}
        ]}
       </script>
     </div>
+    <p data-learner-conclusion><b>Conclusion:</b> a useful dashboard combines outcome measures with early-warning measures and gives every threshold a management consequence.</p>
+    </section>
 
-    <div data-ac="mc" data-title="Which number earns its place?" data-kind="Quiz &middot; multiple choice">
-      <script type="application/json">
-      {"q":"Your dashboard has room for one more number. Which of these would actually change a decision?",
-       "options":[
-        ["Percent of submittals approved on the first pass",1],
-        ["Total pages of documentation produced",0],
-        ["Number of project emails sent this month",0],
-        ["Hours the team spent in meetings",0]
-       ],
-       "right":"Correct. First-pass approval rate is a leading indicator of rework: if it drops, you know quality trouble and schedule delay are coming, and you can act. The others are activity counts that never change what you do.",
-       "wrong":"Not quite. Ask which number would change a decision. Pages, emails, and meeting hours measure activity, not progress or risk. First-pass submittal approval predicts rework, so it earns its place."}
-      </script>
-    </div>
+    <p>As you inspect the table, ask a second question beyond “Is the number good or bad?” Ask who can act and what action the threshold triggers. First-pass submittal approval earns its place because a falling rate can trigger a design-quality review before rework reaches the field. Email volume does not earn a place because no threshold leads to a useful project decision.</p>
   </div>
 
   <!-- ===================== SECTION 2 ===================== -->
   <div class="sec">
     <span class="tag">2 / 2</span>
     <h2>Honest status: the worst light, not the average</h2>
-    <p>Most status reporting uses <span class="term" data-term="RAG status" data-def="Red, Amber, Green: a simple status rating. Red means at risk and needs help, amber means watch, green means on track. Its value depends entirely on being assigned honestly.">red, amber, green (RAG)</span>. The failure mode is so common it has a name: the <span class="term" data-term="Watermelon status" data-def="A status reported green on the outside while the underlying measures are red. It usually comes from averaging away bad news or from optimism, and it removes the chance to fix things early.">watermelon</span>, green on the outside and red at the core. It happens when someone averages the measures, or reports a feeling instead of evidence. Set the Millpond numbers and watch what an honest rollup does.</p>
+    <p data-instructor-explanation data-teaches="pm15-rag-dashboard">Most status reporting uses <span class="term" data-term="RAG status" data-def="Red, Amber, Green: a simple status rating. Red means at risk and needs help, amber means watch, green means on track. Its value depends entirely on being assigned honestly.">red, amber, green (RAG)</span>. The failure mode is so common it has a name: the <span class="term" data-term="Watermelon status" data-def="A status reported green on the outside while the underlying measures are red. It usually comes from averaging away bad news or from optimism, and it removes the chance to fix things early.">watermelon</span>, green on the outside and red at the core. Move each Millpond measure across its threshold and watch the overall rating. The model deliberately refuses to average a blocking red condition into a comfortable color.</p>
 
+    <section id="pm15-rag-dashboard" data-visual-type="heat-grid" data-component-source="shared-component-library">
+    <p data-reading-guide><b>How to read it:</b> adjust one measure at a time, observe its individual color, and then compare that color with the overall project status.</p>
     <div data-ac="dashboard" data-title="The Millpond status dashboard" data-kind="Interactive &middot; simulation" data-cue="Safety is green and the overall is still red. That is correct. An honest status takes the worst light, because a board cannot act on an average that hides the one thing going wrong.">
       <script type="application/json">
       {"metrics":[
@@ -691,10 +724,56 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       ]}
       </script>
     </div>
+    <p data-learner-conclusion><b>Conclusion:</b> a summary is honest only when its rollup rule preserves every condition that requires leadership action.</p>
+    </section>
 
     <div class="lv f">
       <p>Notice what the rollup refuses to do. Three of the four measures are green or amber, and an average would land somewhere comfortable. But the cost number is genuinely at risk, and hiding it inside an average is how a project arrives at the end $200k over with everyone surprised. Honest status is not pessimism, it is precision: green where things are green, red exactly where they are red.</p>
     </div>
+
+    <p data-instructor-explanation data-teaches="pm15-dashboard-forensics">A dashboard is a claim about the project. Forensics means tracing that claim backward. You check the source date, definition, threshold, trend, and relationship to the reported color. Then you check whether the narrative and requested decision agree with the evidence. Work through four Millpond evidence packets.</p>
+
+    <div id="pm15-dashboard-forensics" data-ac="examsim" data-quiz-type="dashboard-forensics" data-quiz-source="applied-assessment-contract" data-purposeful-interaction="dashboard-evidence-forensics" data-component-source="shared-component-library" data-required="applied-interaction" data-retry="Trace the source date, definition, threshold, trend, and decision consequence, then try again." data-title="Millpond dashboard forensics" data-kind="Applied assessment &middot; inspect the evidence" data-cue="Do not grade the color by instinct. Trace the number, date, threshold, trend, and decision consequence.">
+      <span class="sr-only" aria-live="polite">Dashboard forensics feedback appears after each response.</span>
+      <script type="application/json">
+      {"questions":[
+        {"q":"Packet 1. The dashboard says schedule green. The schedule file was updated yesterday, but its status date is five weeks old and it still shows twelve days of critical-path float. The superintendent's current two-week look-ahead shows three days. What is your finding?",
+         "options":[
+          ["The green rating is unsupported because the displayed source is stale and conflicts with current field evidence. Reconcile the status date and critical path before reporting.",1],
+          ["The dashboard is correct because the file itself was opened yesterday.",0],
+          ["Average twelve days and three days, then report amber.",0],
+          ["Use the more favorable source because it is the baseline schedule.",0]
+         ],
+         "why":"File-modified date is not schedule status date. A current-looking file can contain stale project truth. The conflict must be reconciled before the color is defensible."},
+        {"q":"Packet 2. Cost performance index is 0.87 and the forecast is $200,000 over budget. The narrative says, “Cost remains manageable because contingency is available.” What is missing?",
+         "options":[
+          ["The narrative must state the red cost condition, identify the forecast source, explain the proposed contingency use, and name the approval required.",1],
+          ["Nothing. Available contingency makes the underlying performance green.",0],
+          ["Remove the cost index because leaders only need the forecast.",0],
+          ["Report amber because red sounds too negative.",0]
+         ],
+         "why":"Contingency may fund an approved response, but it does not rewrite cost performance. The board needs the condition, evidence, response, and authority decision."},
+        {"q":"Packet 3. Recordable incidents are zero, and near-miss reports fell from eleven to zero after a new superintendent arrived. The dashboard says safety green. What should you investigate first?",
+         "options":[
+          ["Whether reporting behavior changed and whether field observations support the claimed improvement.",1],
+          ["Nothing. Zero incidents and zero near-misses prove the site is safe.",0],
+          ["Whether the crew can reduce the number below zero.",0],
+          ["Remove near-misses because they are not actual incidents.",0]
+         ],
+         "why":"A sudden disappearance of near-miss reports may indicate silence, not improvement. Check reporting trust, observation data, and control performance before declaring success."},
+        {"q":"Packet 4. The overall status is red, the evidence is current, and the narrative explains the cause. The report does not ask the board for anything. What is the defect?",
+         "options":[
+          ["The report stops at description. It must name the decision, authority, money, or intervention needed and the date by which it is needed.",1],
+          ["There is no defect. Status reports should avoid asking leaders to act.",0],
+          ["Change the status to amber until an ask is available.",0],
+          ["Add more charts so the board can infer the decision.",0]
+         ],
+         "why":"A status report without a decision request is a diary. Evidence earns attention, but a clear ask turns attention into project control."}
+      ]}
+      </script>
+    </div>
+
+    <p>The forensic habit is simple: never argue with a color in the abstract. Trace the claim to evidence and then trace the evidence to a decision. Sometimes the color is wrong. Sometimes the number is stale. Sometimes the narrative hides the condition. Sometimes everything is accurate and the report still fails because nobody asked for action.</p>
 
     <p>A status report is <span class="term" data-term="Evidence-grounded" data-def="Backed by a number and its source (earned value, an inspection result, a test report) rather than by impression or reassurance. If you cannot point to where a claim came from, it is an opinion.">evidence-grounded</span> when every claim points to something measurable. Here is the shape of a status a board can actually use.</p>
 
@@ -709,44 +788,66 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       </script>
     </div>
 
+    <p>Use the comparison below to see how the same facts can produce two very different management messages. Move the divider slowly. The comfortable version reports activity and reassurance. The decision-ready version reports condition, evidence, change, and the help required.</p>
+
+    <div data-ac="beforeafter" data-purposeful-interaction="status-brief-comparison" data-title="Comfortable report versus decision-ready report" data-kind="Comparison &middot; evidence rewrite" data-cue="Move the divider and compare what each version allows a leader to decide.">
+      <script type="application/json">
+      {"rangeLabel":"Reveal the decision-ready report",
+       "before":{"label":"Comfortable","title":"Generally progressing well","items":["Several work fronts remain active","The team continues to monitor cost","Safety performance remains positive","Some schedule pressure is being managed"]},
+       "after":{"label":"Decision ready","title":"RED: cost forecast requires action by Friday","items":["CPI 0.87 from the July 21 earned-value file","Forecast is $200,000 above the approved baseline","Critical-path float fell from 12 days to 3 in two updates","Decision requested: authorize recovery option B and $80,000 contingency by July 25"]},
+       "notes":[
+        {"max":30,"body":"Most of the comfortable report is still visible. It sounds calm, but it does not tell a leader what condition exists or what decision is required."},
+        {"max":70,"body":"The evidence begins to replace reassurance. Notice that the decision-ready version names dates, sources, trend, and authority."},
+        {"max":100,"body":"The decision-ready report is shorter and more useful. It does not dramatize the problem. It makes the condition and the required action testable."}
+       ]}
+      </script>
+    </div>
+
     <div class="lv l leadcall">
       <p class="h">Leader's call</p>
       <p>Make it safe to report red. <b>If your team believes a red status is a career risk, you will get green reports until the project fails,</b> and you will lose the months when it was still fixable. Reward the person who raises the flag early, every time, and watch what you do the first time someone does.</p>
     </div>
 
-    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
-      <script type="application/json">
-      {"items":[
-        ["An honest overall status takes the worst measure, not the average.",true,"Right. Averaging hides the one thing that needs attention, which is the whole point of a status."],
-        ["Zero near-miss reports is always good news.",false,"Usually the opposite. It normally means under-reporting. A crew that reports near-misses is a crew that trusts you and is catching problems early."],
-        ["Leading indicators tell you what already happened.",false,"No, that is a lagging indicator. Leading indicators warn you about what is coming, early enough to act."]
-      ]}
-      </script>
-    </div>
   </div>
 
-  <!-- ===================== REVIEW ===================== -->
+  <!-- ===================== WORK PRODUCT ===================== -->
   <div class="sec">
-    <h2>Lock it in</h2>
-    <p>Flip through the key terms from this chapter.</p>
+    <h2>Produce the one-page status brief</h2>
+    <p>Build a brief from Millpond or a non-sensitive project. Begin with the rating and its reason. Name the source and status date. State what changed. Then make the request that turns the report into a management tool. The builder saves on this device only.</p>
 
-    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+    <div data-ac="artifactbuilder" data-artifact="executive-status-brief" data-purposeful-interaction="executive-status-brief-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Decision-ready status brief" data-kind="Work product &middot; executive control record" data-cue="Every red or amber claim needs current evidence, a trend, an owner, and a decision or response.">
       <script type="application/json">
-      {"cards":[
-        ["KPI","A measure you would actually act on. If it changes no decision, it is decoration."],
-        ["Leading indicator","Warns you what is coming: near-misses, first-pass approvals. Early enough to act."],
-        ["Lagging indicator","Reports what already happened: injuries, cost variance. Accurate but late."],
-        ["RAG status","Red, amber, green. Only as good as the honesty behind it."],
-        ["Watermelon status","Green outside, red at the core. The classic reporting failure."],
-        ["Evidence-grounded","Every claim points to a number and its source, not an impression."]
-      ]}
+      {"key":"pm15-executive-status-brief",
+       "notice":"Use non-sensitive instructional data unless this browser and device are approved for project reporting.",
+       "previewLabel":"Executive status preview",
+       "fields":[
+        {"id":"rating","label":"Overall rating and reason","help":"State red, amber, or green and name the condition driving that rating.","placeholder":"Example: RED because CPI is 0.87..."},
+        {"id":"evidence","label":"Evidence and status date","help":"Name the measure, value, source, owner, and date. Do not rely on a file-modified date.","placeholder":"Example: July 21 earned-value file..."},
+        {"id":"change","label":"What changed","help":"Compare the current condition with the prior report and explain the direction of travel.","placeholder":"Example: Float fell from 12 to 3 days..."},
+        {"id":"forecast","label":"Consequence if unchanged","help":"State the forecast or operating consequence with its assumption and limit.","placeholder":"Example: Forecast exceeds baseline by..."},
+        {"id":"response","label":"Current response and owner","help":"Name the action underway, the person accountable, and the next evidence point.","placeholder":"Example: Project controls lead will..."},
+        {"id":"ask","label":"Decision or help required","help":"Name what is needed, who has authority, and the decision date.","placeholder":"Example: Sponsor approval of option B by..."}
+       ],
+       "template":"EXECUTIVE STATUS BRIEF\n\nOverall rating and reason\n{rating}\n\nEvidence and status date\n{evidence}\n\nWhat changed\n{change}\n\nConsequence if unchanged\n{forecast}\n\nCurrent response and owner\n{response}\n\nDecision or help required\n{ask}"}
       </script>
     </div>
 
-    <div data-ac="reflect">
+    <p>Read the preview once as the project manager and once as the board member. The project manager should be able to defend every claim. The board member should know what decision is needed and by when. If the brief satisfies only one reader, it is not finished.</p>
+
+    <p data-instructor-explanation data-teaches="pm15-artifact-check">Use the final gate to test whether your brief can support a real decision. Select the elements that must survive executive compression. The detailed workbook can sit behind the page, but the rating, source, change, consequence, accountable response, and requested decision must remain visible.</p>
+    <div id="pm15-artifact-check" data-ac="multi" data-quiz-type="status-brief-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="executive-status-brief" data-required="final-check" data-retry="Return to the brief, connect every rating to current evidence and a decision, and check again." data-title="Final status-brief gate" data-kind="Final applied check &middot; evidence review">
+      <span class="sr-only" aria-live="polite">Final status-brief feedback appears after checking the selected items.</span>
       <script type="application/json">
-      {"q":"Think about the last status report you wrote or received. Was the rating backed by evidence, or by a feeling? And if it had been red, would saying so have been safe?",
-       "a":"Most status reporting fails for one of two reasons, and only one of them is about measurement. The first is technical: nobody had real numbers, so the rating was a vibe, and vibes are always a bit more optimistic than reality. The second is cultural, and it is the harder one: people knew the truth and did not feel safe saying it, because the last person who reported red got interrogated instead of helped. You can fix the first with earned value and a dashboard. You fix the second only by how you respond the first time someone brings you bad news early, and everyone on the team is watching to find out."}
+      {"q":"Which elements belong in the decision-ready status brief? Choose all that apply.",
+       "options":[
+        ["An overall rating with the condition driving it",true],
+        ["Current evidence, source, owner, and status date",true],
+        ["The change since the prior report and consequence if unchanged",true],
+        ["The accountable response and decision required",true],
+        ["A reassuring summary with no source or request",false]
+       ],
+       "ok":"The brief connects the reported condition to current evidence, trend, consequence, response, and decision.",
+       "no":"A decision-ready brief needs the rating, current evidence, change, consequence, accountable response, and requested decision."}
       </script>
     </div>
   </div>
@@ -767,12 +868,95 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec" data-module-faq>
+    <h2>Questions people ask about honest status</h2>
+    <details>
+      <summary>Does one red measure always make the whole project red?</summary>
+      <p>Only when the course's stated rollup rule treats that measure as a project-level blocker. The point is not to use the worst color mechanically in every organization. The point is to define the rule before the report and never average away a condition that needs leadership action. A red permit on the critical path may control the whole project. A red housekeeping metric may require action without changing the overall rating.</p>
+    </details>
+    <details>
+      <summary>Can contingency make a cost problem green?</summary>
+      <p>No. Contingency may fund an approved response to uncertainty, but it does not change the cost-performance evidence that created the problem. Report the current condition honestly, explain the proposed contingency use, and obtain the required authority.</p>
+    </details>
+    <details>
+      <summary>Why is zero near-miss reporting treated cautiously?</summary>
+      <p>Because the number can mean two opposite things. It may mean controls are working, or it may mean people stopped reporting. Look at field observations, reporting behavior, pre-task planning, and trust before interpreting the number. The measure needs context.</p>
+    </details>
+    <details>
+      <summary>How much evidence belongs in an executive status report?</summary>
+      <p>Enough to support the claim and decision without burying the reader. Name the current measure, source, date, trend, owner, and consequence. Keep detailed calculations and records available behind the brief. The report is an index to the evidence, not a replacement for it.</p>
+    </details>
+    <details>
+      <summary>Should a project manager wait for perfect data before reporting red?</summary>
+      <p>No. Report the known condition, identify what remains unverified, and state when the missing evidence will arrive. A clearly labeled provisional red or amber is more useful than a confident green built on stale information.</p>
+    </details>
+  </section>
+
+  <section class="sec role-strip" aria-labelledby="pm15-role-title">
+    <h2 id="pm15-role-title">What changes by role</h2>
+    <div class="role-grid">
+      <article data-lens="foundation"><b>Foundation</b><p>Separate leading from lagging evidence and trace each reported color to a current source.</p></article>
+      <article data-lens="practitioner"><b>Practitioner</b><p>Reconcile dates, definitions, thresholds, and trends before writing the status narrative and forecast.</p></article>
+      <article data-lens="leader"><b>Leader</b><p>Make early red reporting safe and respond with a decision instead of punishing the messenger.</p></article>
+    </div>
+  </section>
+
+  <section class="sec evidence-card" data-evidence-boundary>
+    <h2>Evidence boundary</h2>
+    <p>Millpond values and thresholds are instructional. Real project status must use the approved baseline, current status date, controlled definitions, traceable source records, authorized thresholds, and the utility's governance and reporting rules.</p>
+    <ul>
+      <li><a href="https://www.energy.gov/management/downloads/earned-value-management-system-evms-and-project-analysis-standard-operating">United States Department of Energy earned-value management resources</a></li>
+      <li><a href="https://www.gao.gov/products/gao-20-195g">United States Government Accountability Office cost-estimating and assessment guide</a></li>
+      <li><a href="https://www.gao.gov/products/gao-16-89g">United States Government Accountability Office schedule-assessment guide</a></li>
+    </ul>
+  </section>
+
+  <section class="sec completion-card" aria-labelledby="pm15-completion-title">
+    <h2 id="pm15-completion-title">Completion evidence</h2>
+    <ul class="requirement-list">
+      <li data-requirement="opening-decision">Challenge or accept the initial Millpond status condition.</li>
+      <li data-requirement="applied-interaction">Complete the dashboard-forensics assessment.</li>
+      <li data-requirement="work-product">Complete the decision-ready status brief.</li>
+      <li data-requirement="final-check">Pass the final status-brief gate.</li>
+    </ul>
+    <button type="button" class="btn" data-complete disabled>Complete Module 15</button>
+    <span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm15-graph-title">
+    <div class="drawer-head"><h2 id="pm15-graph-title">Module 15 graph</h2><button type="button" data-close-drawer aria-label="Close graph">Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> evidence-grounded project status</p>
+      <p data-graph-kind="source"><b>Source:</b> approved baseline, status-date schedule, earned-value file, risk register, and field evidence</p>
+      <p data-graph-kind="role"><b>Role:</b> project controls lead, project manager, sponsor, board, and field team</p>
+      <p data-graph-kind="competency"><b>Competency:</b> reconstruct an honest status and decision request</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> evidence to threshold to trend to rating to consequence to decision</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm15-community-title">
+    <div class="drawer-head"><h2 id="pm15-community-title">Project delivery community</h2><button type="button" data-close-drawer aria-label="Close community">Close</button></div>
+    <div class="drawer-body community-tools">
+      <label data-community-feature="search">Search discussions<input type="search" placeholder="Status, KPI, forecast"></label>
+      <div data-community-feature="filters"><button type="button">Dashboards</button><button type="button">Executive reporting</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this discussion</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare status rules, evidence dates, and escalation practices.</p></div>
+      <p data-community-feature="presence">Practitioners reviewing this topic: project controls staff, project managers, sponsors</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor note:</b> use fictional or approved data when discussing project status.</p>
+    </div>
+  </aside>
+
+  <div id="owos-course-community" class="connected-learning" tabindex="-1">
+    <b>Continue the status conversation</b>
+    <p>Use Graph to inspect the evidence-to-decision chain. Use Community to compare honest reporting practices.</p>
+  </div>
+  <div id="tt" role="tooltip" hidden></div>
+
+  <div class="navrow footnav">
     <a href="lesson-pm-14-executing-controlling.html">&#8592; Chapter 14 &middot; Executing and controlling</a>
     <a class="btn" href="lesson-pm-16-capital-lifecycle-regulatory.html">Chapter 16 &middot; Capital life cycle and regulatory &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1089,10 +1273,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2117,6 +2305,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2126,8 +2333,96 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  var lastTrigger=null;
+
+  function drawer(kind){
+    return document.querySelector('[data-drawer="'+kind+'"]');
+  }
+
+  function closeDrawer(panel){
+    if(!panel)return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden","true");
+    document.body.classList.remove("drawer-open");
+    if(lastTrigger)lastTrigger.focus();
+  }
+
+  function openDrawer(kind,trigger){
+    var panel=drawer(kind);
+    if(!panel)return;
+    document.querySelectorAll("[data-drawer].open").forEach(function(other){
+      other.classList.remove("open");
+      other.setAttribute("aria-hidden","true");
+    });
+    lastTrigger=trigger;
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden","false");
+    document.body.classList.add("drawer-open");
+    var close=panel.querySelector("[data-close-drawer]");
+    if(close)close.focus();
+  }
+
+  function requirementComplete(value){
+    var target=document.querySelector('[data-required="'+value+'"]');
+    if(!target)return false;
+    if(value==="opening-decision")return true;
+    if(value==="applied-interaction"){
+      if(target.querySelector(".exdone.on"))return true;
+      var run=target.querySelector("[data-run]");
+      return !!(run&&run.disabled);
+    }
+    if(value==="work-product"){
+      var textareas=target.querySelectorAll("textarea");
+      if(textareas.length)return Array.prototype.every.call(textareas,function(field){return field.value.trim().length>0;});
+      var rows=target.querySelectorAll(".at-item");
+      return rows.length>0&&Array.prototype.every.call(rows,function(row){return row.getAttribute("data-state")==="3";});
+    }
+    if(value==="final-check")return !!target.querySelector(".ac-fb.on.ok");
+    return false;
+  }
+
+  function updateCompletion(){
+    var values=["opening-decision","applied-interaction","work-product","final-check"];
+    var all=true;
+    values.forEach(function(value){
+      var done=requirementComplete(value);
+      all=all&&done;
+      var row=document.querySelector('[data-requirement="'+value+'"]');
+      if(row)row.classList.toggle("done",done);
+    });
+    var button=document.querySelector("[data-complete]");
+    var status=document.querySelector("[data-completion-status]");
+    var nextStatus=all?"All required evidence is complete.":"Complete the required evidence above.";
+    if(button&&button.disabled===all)button.disabled=!all;
+    if(status&&status.textContent!==nextStatus)status.textContent=nextStatus;
+  }
+
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("graph",button);});
+  });
+  document.querySelectorAll("[data-open-community]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("community",button);});
+  });
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){
+    button.addEventListener("click",function(){closeDrawer(button.closest("[data-drawer]"));});
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape")closeDrawer(document.querySelector("[data-drawer].open"));
+  });
+  document.addEventListener("input",updateCompletion);
+  document.addEventListener("click",function(){window.setTimeout(updateCompletion,0);});
+  new MutationObserver(updateCompletion).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","data-state","disabled"]});
+  updateCompletion();
 })();
 
 </script>

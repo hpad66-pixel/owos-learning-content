@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 20 &middot; Capstone: agentic project management with Droobi &middot; One Water OS Academy</title>
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-20-capstone-agentic-pm">
+<meta name="owos-release-state" content="working-review">
 <meta name="description" content="Chapter 20 of the Project Management masterclass. A capstone running one real utility job from need to closeout, deciding at every gate, with an agent doing the mechanical work.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,38 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+/* Project Management retrofit controls. The field-delivery teaching surface remains in academy.css. */
+.lesson-actions{display:flex;gap:6px;align-items:center;margin-left:auto}
+.lesson-actions a,.lesson-actions button{border:1px solid var(--line-2);border-radius:999px;background:#fff;padding:6px 10px;color:var(--ink-2);font:700 10px var(--fm);text-decoration:none;cursor:pointer}
+.lesson-actions a:hover,.lesson-actions button:hover,.lesson-actions a:focus-visible,.lesson-actions button:focus-visible{border-color:var(--brand);color:var(--brand);outline:2px solid var(--brand-100);outline-offset:2px}
+.owos-nav .crumb{margin-left:12px}
+[data-visual-type]{margin:24px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface-2)}
+[data-reading-guide],[data-learner-conclusion]{margin:0;padding:10px 12px;border-radius:11px;font-size:13.5px;line-height:1.55}
+[data-reading-guide]{border:1px solid var(--brand-100);background:var(--brand-50);color:var(--ink)}
+[data-learner-conclusion]{border:1px solid #bfe0d4;background:var(--green-50);color:#086b50}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.role-grid article{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.role-grid b{color:var(--ink)}.role-grid p{margin:5px 0 0;font-size:13px;line-height:1.5}
+.evidence-card ul,.requirement-list{padding-left:20px}.evidence-card li,.requirement-list li{margin:7px 0}
+.evidence-card a{color:var(--brand-700)}
+.completion-card{border-color:var(--brand-100);background:var(--brand-50)}
+.completion-status{display:inline-block;margin-left:10px;font:600 11px var(--fm);color:var(--ink-3)}
+.requirement-list li.done{color:var(--green);font-weight:700}
+.course-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:120;background:#fff;box-shadow:-14px 0 38px rgba(15,23,40,.2);transform:translateX(105%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
+.course-drawer.open{transform:translateX(0);visibility:visible;transition:transform .22s ease}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--brand-800);color:#fff}
+.drawer-head h2{margin:0;color:#fff;font-size:1.15rem}.drawer-head button{border:1px solid rgba(255,255,255,.65);border-radius:8px;background:transparent;padding:7px 10px;color:#fff;font-weight:700;cursor:pointer}
+.drawer-body{height:calc(100% - 70px);overflow:auto;padding:18px}.drawer-body>p,.drawer-body>div,.drawer-body>label,.drawer-body>button{display:block;margin:0 0 11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--ink-2)}
+.community-tools input{display:block;width:100%;margin-top:7px;border:1px solid var(--line-2);border-radius:8px;padding:8px;font:inherit}.community-tools button{border:1px solid var(--line-2);border-radius:8px;background:#fff;padding:7px 10px;color:var(--ink-2);font-weight:700;cursor:pointer;margin:3px}
+.connected-learning{margin:28px 0 18px;padding:16px 18px;border:1px solid var(--brand-100);border-radius:14px;background:var(--brand-50)}.connected-learning b{color:var(--ink)}.connected-learning p{margin:5px 0 0}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body.drawer-open{overflow:hidden}
+@media(max-width:900px){.lesson-actions{order:3;width:100%;justify-content:flex-end}.owos-nav{height:auto;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.wrap{padding-top:34px}}
+@media(max-width:700px){.role-grid{grid-template-columns:1fr}.lesson-actions{justify-content:flex-start}.owos-nav .crumb{margin-left:auto}[data-visual-type]{padding:8px}.completion-status{display:block;margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){.course-drawer{transition:none}}
+
+</style>
 </head>
 <body>
 
@@ -589,10 +625,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 20</b></span>
+  <span class="lesson-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 20 &middot; Capstone</span>
   <h1>Run the whole job: <span>you decide</span>, Droobi does</h1>
@@ -605,7 +642,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job, from the beginning</p>
@@ -782,12 +819,37 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec">
+    <h2>Assemble the capstone decision pack</h2>
+    <p data-instructor-explanation data-teaches="pm20-gate-path">Read the Cypress Creek path as a sequence of accountable gates. Each later decision inherits the quality of the earlier one. If the problem was framed badly, better scheduling and reporting only deliver the wrong project more efficiently.</p>
+    <div id="pm20-gate-path" data-visual-type="phase-gate" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> follow need, alternative, authority, delivery, status, and handover. At every gate identify evidence, decision-maker, stop condition, and retained record.</p><ol><li>Define the service problem</li><li>Select and fund the alternative</li><li>Choose delivery and establish controls</li><li>Respond to change and report status</li><li>Commission, accept, and hand over</li></ol><p data-learner-conclusion>The capstone is one connected decision chain, not twenty separate techniques.</p></div>
+    <p data-instructor-explanation data-teaches="pm20-agent-table">Use the comparison to decide what <span class="term" data-term="Delegation boundary" data-def="The explicit line between work a tool may perform and decisions an accountable person must retain.">delegation boundary</span> applies. A <span class="term" data-term="Decision pack" data-def="A compact record of the question, evidence, options, authority, decision, action, and remaining limits.">decision pack</span> makes that boundary visible by separating mechanical preparation from accountable judgment.</p>
+    <div id="pm20-agent-table" data-visual-type="comparison-table" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> delegate checkable preparation with review; retain decisions that commit money, authority, safety, public representation, or acceptance.</p><div style="overflow:auto"><table><thead><tr><th>Work</th><th>Agent may prepare</th><th>Human must own</th></tr></thead><tbody><tr><td>Forecast</td><td>Calculate and assemble source evidence</td><td>Accept assumptions and report status</td></tr><tr><td>Change</td><td>Compare records and draft options</td><td>Decide entitlement, authority, and action</td></tr><tr><td>Handover</td><td>Check completeness and identifiers</td><td>Accept readiness and remaining risk</td></tr></tbody></table></div><p data-learner-conclusion>Automation can compress preparation time, but accountability stays with the authorized person.</p></div>
+    <p data-instructor-explanation data-teaches="pm20-agent-gate">Run the agent boundary gate for the red status report. Notice that calculation and drafting may be delegated, while the decision to report red and act on it remains human.</p>
+    <div id="pm20-agent-gate" data-ac="applicability" data-purposeful-interaction="agent-boundary-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-quiz-type="agent-boundary-gate" data-quiz-source="applied-assessment-contract" data-retry="Run every gate and identify the missing evidence, permission, review, or accountable decision." data-title="Agent delegation gate" data-kind="Interactive accountability gate"><span class="sr-only" aria-live="polite">Agent-boundary feedback appears as each gate is run.</span><script type="application/json">{"scenarios":[{"label":"Red status report","authority":"Cypress Creek governance and reporting authority","facts":"The project has zero float, zero contingency, and an unresolved change on a compliance deadline.","gates":[{"label":"Evidence access","state":"pass","detail":"The agent may retrieve approved schedule, cost, risk, and change records."},{"label":"Mechanical work","state":"pass","detail":"The agent may calculate indicators and draft a status explanation."},{"label":"Human review","state":"review","detail":"The project manager must verify sources, assumptions, and wording."},{"label":"Accountable action","state":"review","detail":"An authorized person must declare status, escalate, and choose action."}],"result":"DELEGATE PREPARATION. RETAIN STATUS AND ACTION.","resultClass":"review","basis":"The agent supports the decision and does not own it."}],"boundary":"This teaching gate does not authorize autonomous project decisions. Humans remain accountable."}</script></div>
+    <div data-ac="artifactbuilder" data-artifact="capstone-decision-pack" data-purposeful-interaction="decision-pack-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Capstone decision pack" data-kind="Work product &middot; capstone pack"><script type="application/json">{"key":"pm20-capstone-decision-pack","notice":"Use non-sensitive instructional text. Real decisions belong in authorized utility systems.","fields":[{"id":"problem","label":"Service problem and outcome","help":"Define the need before the solution.","placeholder":"Cypress Creek must..."},{"id":"evidence","label":"Evidence and limits","help":"Name sources, dates, assumptions, conflicts, and unknowns.","placeholder":"Evidence..."},{"id":"options","label":"Options and consequences","help":"Compare lifecycle, schedule, risk, compliance, and service effects.","placeholder":"Option A..."},{"id":"authority","label":"Authority and decision","help":"Name who decides and what was decided.","placeholder":"Authorized by..."},{"id":"delegation","label":"Agent and human boundary","help":"State what may be prepared, checked, reviewed, and retained by people.","placeholder":"Agent prepares... Human decides..."},{"id":"action","label":"Action, record, and remaining risk","help":"State next action, record location, trigger, and unresolved limit.","placeholder":"Action... remaining risk..."}],"template":"CAPSTONE DECISION PACK\n\nProblem and outcome\n{problem}\n\nEvidence and limits\n{evidence}\n\nOptions and consequences\n{options}\n\nAuthority and decision\n{authority}\n\nAgent and human boundary\n{delegation}\n\nAction and remaining risk\n{action}"}</script></div>
+    <p data-instructor-explanation data-teaches="pm20-final-check">Use the final check as the capstone review panel. Select every element needed to reconstruct the decision and the human accountability boundary.</p>
+    <div id="pm20-final-check" data-ac="multi" data-quiz-type="decision-pack-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="capstone-decision-pack" data-required="final-check" data-retry="Add the missing problem, evidence, options, authority, delegation boundary, action, or remaining risk and check again." data-title="Final decision-pack gate" data-kind="Final capstone check"><span class="sr-only" aria-live="polite">Final capstone feedback appears after checking the selected items.</span><script type="application/json">{"q":"What must the capstone decision pack contain?","options":[["Service problem and intended outcome",true],["Evidence, assumptions, conflicts, and limits",true],["Options, authority, and decision",true],["Agent boundary, next action, record, and remaining risk",true],["An autonomous tool's unreviewed recommendation",false]],"ok":"The pack makes the decision and accountability reconstructable.","no":"Repair the problem, evidence, options, authority, boundary, action, and remaining risk."}</script></div>
+  </section>
+  <section class="sec" data-module-faq><h2>Questions people ask after the capstone</h2>
+    <details><summary>Why did the capstone begin with the problem instead of pump replacement?</summary><p>Because a proposed asset is an answer, not the need. Cypress Creek might require inflow reduction, capacity, reliability, operating changes, or a combination. Framing determines every later choice.</p></details>
+    <details><summary>What can an agent safely own?</summary><p>It can own bounded preparation and checking when permissions, sources, rules, review, and stop conditions are explicit. An accountable person owns commitments, exceptions, public representations, safety, and acceptance.</p></details>
+    <details><summary>Does a recommendation become correct because every source is cited?</summary><p>No. Sources improve traceability. The evidence can still be incomplete, stale, conflicting, misapplied, or outside authority. Human review evaluates relevance and consequence.</p></details>
+    <details><summary>Why report red before every unknown is resolved?</summary><p>Status describes current exposure, not future certainty. Zero float and zero contingency on a deadline are current facts. Waiting for the change price can hide the time left to act.</p></details>
+    <details><summary>What is the capstone work product for?</summary><p>It is a compact decision record. A sponsor or reviewer should be able to see the problem, evidence, options, authority, delegation boundary, action, and remaining risk without replaying the entire course.</p></details>
+  </section>
+  <section class="sec role-strip"><h2>What changes by role</h2><div class="role-grid"><article data-lens="foundation"><b>Foundation</b><p>Follow the connected decision chain and separate preparation from accountability.</p></article><article data-lens="practitioner"><b>Practitioner</b><p>Assemble evidence, options, controls, records, and bounded agent tasks.</p></article><article data-lens="leader"><b>Leader</b><p>Own problem framing, commitments, public status, exceptions, and operating acceptance.</p></article></div></section>
+  <section class="sec evidence-card" data-evidence-boundary><h2>Evidence boundary</h2><p>Cypress Creek is an instructional scenario. Values, alternatives, authorities, and outcomes are not a recommendation for a real utility. Real decisions require current engineering, operating, regulatory, financial, contractual, cybersecurity, privacy, and governance review.</p><ul><li><a href="https://www.pmi.org/standards">Project Management Institute standards</a></li><li><a href="SYLLABUS.md">Project Delivery course syllabus</a></li><li><a href="COURSE-EXPERIENCE-BRIEF.md">Project Delivery experience brief</a></li></ul></section>
+  <section class="sec completion-card"><h2>Completion evidence</h2><ul class="requirement-list"><li data-requirement="opening-decision">Review the Cypress Creek situation.</li><li data-requirement="applied-interaction">Run the agent-boundary gate.</li><li data-requirement="work-product">Complete the capstone decision pack.</li><li data-requirement="final-check">Pass the final decision-pack gate.</li></ul><button type="button" class="btn" data-complete disabled>Complete Module 20</button><span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span></section>
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Module 20 graph</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body"><p data-graph-kind="concept"><b>Concept:</b> accountable project decision chain</p><p data-graph-kind="source"><b>Source:</b> approved project and operating evidence</p><p data-graph-kind="role"><b>Role:</b> agent, project manager, sponsor, operator</p><p data-graph-kind="competency"><b>Competency:</b> design and defend a governed decision</p><p data-graph-kind="relationship"><b>Relationship:</b> problem to evidence to decision to action and outcome</p></div></aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Project delivery community</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body community-tools"><label data-community-feature="search">Search discussions<input type="search" placeholder="Capstone, agent, accountability"></label><div data-community-feature="filters"><button type="button">Capstone</button><button type="button">Agent boundary</button></div><button type="button" data-community-feature="bookmarks">Bookmark this discussion</button><div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare accountable delegation patterns.</p></div><p data-community-feature="presence">Practitioners reviewing: project leaders, operators, sponsors</p><p data-community-feature="instructor-treatment"><b>Instructor note:</b> do not post protected project evidence.</p></div></aside>
+  <div id="owos-course-community" class="connected-learning" tabindex="-1"><b>Continue the capstone conversation</b><p>Use Graph to inspect the complete decision chain. Use Community to compare delegation boundaries safely.</p></div><div id="tt" role="tooltip" hidden></div>
+  <div class="navrow footnav">
     <a href="lesson-pm-19-program-portfolio.html">&#8592; Chapter 19 &middot; Program and portfolio management</a>
     <a class="btn" href="lesson-pm-21-exam-prep.html">Chapter 21 &middot; Exam prep &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1104,10 +1166,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2132,6 +2198,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2141,8 +2226,96 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  var lastTrigger=null;
+
+  function drawer(kind){
+    return document.querySelector('[data-drawer="'+kind+'"]');
+  }
+
+  function closeDrawer(panel){
+    if(!panel)return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden","true");
+    document.body.classList.remove("drawer-open");
+    if(lastTrigger)lastTrigger.focus();
+  }
+
+  function openDrawer(kind,trigger){
+    var panel=drawer(kind);
+    if(!panel)return;
+    document.querySelectorAll("[data-drawer].open").forEach(function(other){
+      other.classList.remove("open");
+      other.setAttribute("aria-hidden","true");
+    });
+    lastTrigger=trigger;
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden","false");
+    document.body.classList.add("drawer-open");
+    var close=panel.querySelector("[data-close-drawer]");
+    if(close)close.focus();
+  }
+
+  function requirementComplete(value){
+    var target=document.querySelector('[data-required="'+value+'"]');
+    if(!target)return false;
+    if(value==="opening-decision")return true;
+    if(value==="applied-interaction"){
+      if(target.querySelector(".exdone.on"))return true;
+      var run=target.querySelector("[data-run]");
+      return !!(run&&run.disabled);
+    }
+    if(value==="work-product"){
+      var textareas=target.querySelectorAll("textarea");
+      if(textareas.length)return Array.prototype.every.call(textareas,function(field){return field.value.trim().length>0;});
+      var rows=target.querySelectorAll(".at-item");
+      return rows.length>0&&Array.prototype.every.call(rows,function(row){return row.getAttribute("data-state")==="3";});
+    }
+    if(value==="final-check")return !!target.querySelector(".ac-fb.on.ok");
+    return false;
+  }
+
+  function updateCompletion(){
+    var values=["opening-decision","applied-interaction","work-product","final-check"];
+    var all=true;
+    values.forEach(function(value){
+      var done=requirementComplete(value);
+      all=all&&done;
+      var row=document.querySelector('[data-requirement="'+value+'"]');
+      if(row)row.classList.toggle("done",done);
+    });
+    var button=document.querySelector("[data-complete]");
+    var status=document.querySelector("[data-completion-status]");
+    var nextStatus=all?"All required evidence is complete.":"Complete the required evidence above.";
+    if(button&&button.disabled===all)button.disabled=!all;
+    if(status&&status.textContent!==nextStatus)status.textContent=nextStatus;
+  }
+
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("graph",button);});
+  });
+  document.querySelectorAll("[data-open-community]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("community",button);});
+  });
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){
+    button.addEventListener("click",function(){closeDrawer(button.closest("[data-drawer]"));});
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape")closeDrawer(document.querySelector("[data-drawer].open"));
+  });
+  document.addEventListener("input",updateCompletion);
+  document.addEventListener("click",function(){window.setTimeout(updateCompletion,0);});
+  new MutationObserver(updateCompletion).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","data-state","disabled"]});
+  updateCompletion();
 })();
 
 </script>

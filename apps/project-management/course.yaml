@@ -13,9 +13,11 @@ organization: One Water Operating System
 platform: APAS.ai
 
 quality_contract:
-  version: 1
+  version: 3
   enforce_on_release: true
-  minimum_purposeful_interactions: 2
+  minimum_purposeful_interactions: 1
+  course_distinctiveness_required: true
+  full_module_conformance_required: true
 
 provenance:
   repository: hpad66-pixel/owos-learning-content
@@ -75,7 +77,7 @@ source_files:
   architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
 
 delivery:
-  release_state: released
+  release_state: live_review
   available_chapters: 21
   released_chapters:
     - "01"

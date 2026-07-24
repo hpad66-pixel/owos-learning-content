@@ -1,5 +1,11 @@
 # OWOS Module Design Brief: Five Layers of Meaning
 
+Retrofit implementation: decision room using `editorial-illustration`, `comparison-table`, and
+`packet-anatomy`. The assessment sequence is `definition-authority`, `five-layer-classification`,
+`failure-trace`, and `decision-defense`. The learner classifies artifacts by job and removes runtime
+context controls to observe distinct failures. The rebuilt composition preserves the original
+pressure-event teaching strength without preserving the former golden-lesson page mold.
+
 Candidate status: rebuilt for working review on 2026-07-23. Hardeep Anand approved production of
 the candidate, not its designation as the golden benchmark and not release.
 

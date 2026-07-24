@@ -1,5 +1,11 @@
 # OWOS Module Design Brief: RDF in 15 Minutes
 
+Retrofit implementation: guided construction using `editorial-illustration`, `comparison-table`,
+and `network-diagram`. The assessment sequence is `multiple-choice`, `triple-construction`,
+`path-trace`, and `applied-assessment`. The signature mechanism builds, reverses, and chains utility
+triples. The work product is a five-field pocket Relationship Card. This written-first lesson does
+not depend on its optional legacy recording script.
+
 ## Identity
 | Field | Decision |
 | --- | --- |

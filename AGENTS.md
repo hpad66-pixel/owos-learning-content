@@ -6,18 +6,31 @@ When a user asks to continue, update, research, build, revise, validate, or rele
 
 The user works conversationally. Do not require the user to run Python, Git, extraction, build, or validation commands. Run internal tools yourself and report their results in plain English.
 
-Apply Hardeep Soul, the OWOS Course Production Contract, Course Operating Standard, Course Design System, Visual Arsenal, writing standard, component and quiz catalogs, provenance, evidence boundaries, module state, approval gates, and Course Quality Contract automatically. Read `core/standards/COURSE-PRODUCTION-CONTRACT.md` first; it is the non-optional release floor for every course.
+Apply Hardeep Soul, the OWOS Course Production Contract, Course Operating Standard, Course Design
+System, Course Experience Architecture, Visual Arsenal, writing standard, component and quiz
+catalogs, provenance, evidence boundaries, module state, approval gates, and Course Quality Contract
+automatically. Read `core/standards/COURSE-PRODUCTION-CONTRACT.md` first; it is the non-optional
+release floor for every course.
+
+The Course Design System and Course Experience Architecture are both mandatory.
 
 Every module needs a reviewed design brief and the course needs a design matrix. Chapter 09 is a capability benchmark, not a reusable page layout. Visuals, simulations, quizzes, work products, and animation must follow the learning problem and remain deliberately varied across adjacent modules.
 
-Every major learning component must include visible instructor explanation in plain English. Every module must have a recording script, and every course must maintain an overview script that explains the lesson sequence.
+Every course also needs an approved Course Experience Brief. Run
+`python3 tools/course_distinctiveness.py --course apps/<course>` after every three produced lessons
+and before release. Individual module passes cannot override a course-level repetition failure. Never
+bulk-generate lesson teaching from one fixed page function with content substituted into slots.
+
+Every major learning component must include visible instructor explanation in plain English. The
+written lesson must stand on its own without video. Recording scripts are optional and follow the
+course modality plan.
 
 Use explanatory graphics where they reveal a concept, method, framework, relationship, sequence, or consequence. Graphics must have an instructional job, visible interpretation, accessible meaning, mobile behavior, and a reduced-motion equivalent when animated. Decorative imagery does not satisfy the course visual requirement.
 
 After every built module, create a scored quality-control report from `core/templates/MODULE-QA-REPORT.md`. The report must show the score, evidence, missing work, automated checks, manual reviews, and hard-gate status. Do not call a module production ready because its numeric score is high.
 
 For every full module, run `python3 tools/course_conformance.py` with the lesson, QA report,
-design brief, recording script, and course `.course/full-module-contract.json`. This validator is
+design brief, optional modality script when one exists, and course `.course/full-module-contract.json`. This validator is
 the binding implementation gate. A standards document, generated folder, minimum-floor test, or
 high numeric score is never a substitute. Do not report full-module conformance unless this command
 passes against the actual lesson. Report every unperformed browser, device, accessibility,

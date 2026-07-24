@@ -33,7 +33,7 @@ STORE_KEY = "dga001"
 COURSE_TITLE = "Data Before AI: Data and Artificial Intelligence Governance for Utilities"
 COURSE_SOURCE = "masterclass-data-governance.html"
 COURSE_OUTPUT = "course-data-governance.html"
-RELEASED_CHAPTERS = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09"}
+RELEASED_CHAPTERS = {f"{number:02d}" for number in range(25)}
 SHELL_VERSION = "0.25.1"
 
 CORE_CSS = (ROOT / "core/components/academy.css").read_text(encoding="utf-8")
@@ -229,9 +229,9 @@ def landing(chapters: list[Chapter]) -> str:
 <div class="dg-part-head"><b>{html.escape(code)}</b><span>{html.escape(title)}</span><small>{len(items)} chapter{'s' if len(items) != 1 else ''}</small></div>
 <div class="dg-list">{''.join(rows)}</div>
 </section>""")
-    description = "The complete 25-chapter utility Data and AI Governance curriculum structure, ready for governed lesson development."
-    return f"""{head('Data Before AI', description, 'in-development')}
-<body data-course-id="{COURSE_ID}" data-course-store="{STORE_KEY}" data-release-state="in-development">
+    description = "The complete 25-chapter utility Data and AI Governance master class, available for public live review."
+    return f"""{head('Data Before AI', description, 'live-review')}
+<body data-course-id="{COURSE_ID}" data-course-store="{STORE_KEY}" data-release-state="live-review">
 {nav(COURSE_SOURCE, 'Curriculum')}
 <div id="rprog"></div>
 <main class="wrap">
@@ -239,7 +239,7 @@ def landing(chapters: list[Chapter]) -> str:
     <div class="dg-eyebrow">OWOS Academy &middot; Utility Master Class</div>
     <h1>Data Before AI</h1>
     <p>Build the governance layer that makes utility data trustworthy enough for operations, regulation, capital decisions, analytics, artificial intelligence, and digital twins.</p>
-    <span class="dg-status"><i></i>Chapters 00 to 09 available &middot; 15 chapters in development</span>
+    <span class="dg-status"><i></i>All 25 chapters available for live review</span>
   </header>
 
   <div class="dg-stats" aria-label="Course structure">
@@ -249,7 +249,7 @@ def landing(chapters: list[Chapter]) -> str:
     <div class="dg-stat"><b>{len(RELEASED_CHAPTERS)}</b><span>Lessons released</span></div>
   </div>
 
-  <aside class="dg-note"><strong>The course is releasing chapter by chapter.</strong><p>Chapters 00 to 02 establish the governed Launch Pack, executive case, controlled utility language, provenance, quality-by-use rule, and first data product. Chapter 03 builds the authority register and legal applicability gate. Chapter 04 maps the utility data estate, Chapter 05 establishes shared identity and minimum records, Chapter 06 traces a material decision from source to outcome, Chapter 07 builds roles, forums, and the operating rhythm, Chapter 08 delivers the D01 scope, value, risk, decision-rights, and funded-roadmap package, and Chapter 09 delivers the D02 ownership and stewardship operating pack as the first golden hybrid lesson. The other 15 destinations preserve the governed syllabus while their lesson bodies remain in development.</p></aside>
+  <aside class="dg-note"><strong>The complete course is available for public live review.</strong><p>All 25 chapters now contain the written instruction, lesson-specific visuals, interactions, assessments, utility scenarios, evidence boundaries, and professional work products required by the OWOS Course Experience Architecture. Credential and authoritative completion claims remain disabled while separate human review continues.</p></aside>
 
   <h2>One source, one delivery path</h2>
   <div class="dg-flow" aria-label="Course delivery path"><div>onewater-os curriculum</div><div>Validated native build</div><div>OWOS.ai Learn</div><div>Supabase learner records</div><div>Knowledge Graph alignment</div></div>
@@ -343,6 +343,16 @@ def self_contained(source: str, link_map: dict[str, str]) -> str:
         lambda _: f"<script>\n{js}\n</script>",
         result,
     )
+    course_css = (CURRICULUM / "assets/data-governance-course.css").read_text(encoding="utf-8")
+    course_js = (CURRICULUM / "assets/data-governance-course.js").read_text(encoding="utf-8")
+    result = result.replace(
+        '<link rel="stylesheet" href="assets/data-governance-course.css">',
+        f"<style>\n{course_css.replace('</style', '<\\/style')}\n</style>",
+    )
+    result = result.replace(
+        '<script src="assets/data-governance-course.js"></script>',
+        f"<script>\n{course_js.replace('</script', '<\\/script')}\n</script>",
+    )
     data_uri = "data:image/svg+xml;base64," + base64.b64encode(DROOBI_SVG).decode("ascii")
     result = result.replace("../../../core/brand/droobi.svg", data_uri)
     for source_name, output_name in link_map.items():
@@ -351,6 +361,8 @@ def self_contained(source: str, link_map: dict[str, str]) -> str:
         raise ValueError("Built page contains a prohibited em or en dash")
     if re.search(r'<(?:link[^>]*academy\.css|script src="[^"]*academy\.js)', result):
         raise ValueError("Built page still references the shared core")
+    if "assets/data-governance-course." in result:
+        raise ValueError("Built page still references course-local runtime assets")
     return result
 
 
@@ -373,7 +385,7 @@ def expected_files(chapters: list[Chapter]) -> dict[pathlib.Path, str]:
         "slug": "data-before-ai-governance",
         "title": COURSE_TITLE,
         "source_format": "native_html",
-        "release_state": "in_development",
+        "release_state": "live_review",
         "available_modules": len(RELEASED_CHAPTERS),
         "module_count": len(chapters),
         "section_count": sum(len(c.sections) for c in chapters),

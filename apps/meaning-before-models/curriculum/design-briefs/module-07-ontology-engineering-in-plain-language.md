@@ -1,5 +1,11 @@
 # OWOS Module Design Brief: Ontology Engineering in Plain Language
 
+Retrofit implementation: modeling workshop using `interactive-process`, `network-diagram`, and
+`comparison-table`. The assessment sequence is `modeling-start`, `ontology-construction`,
+`change-board`, and `model-defense`. The learner turns one competency question into a bounded
+ontology slice and reviews an unsafe equivalence proposal. The work product is an Ontology Decision
+Record.
+
 ## Identity
 | Field | Decision |
 | --- | --- |

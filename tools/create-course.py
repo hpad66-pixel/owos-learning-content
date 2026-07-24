@@ -60,9 +60,11 @@ organization: One Water Operating System
 platform: APAS.ai
 
 quality_contract:
-  version: 1
+  version: 3
   enforce_on_release: true
-  minimum_purposeful_interactions: 2
+  minimum_purposeful_interactions: 1
+  course_distinctiveness_required: true
+  full_module_conformance_required: true
 
 provenance:
   repository: hpad66-pixel/owos-learning-content
@@ -134,6 +136,7 @@ def scaffold(args: argparse.Namespace) -> Path:
         "author-input/approved-transcripts",
         "curriculum",
         "curriculum/design-briefs",
+        "curriculum/scripts",
         "assessments",
         "assets",
         "work-products",
@@ -155,15 +158,42 @@ def scaffold(args: argparse.Namespace) -> Path:
     write_once(
         course_dir / ".course/full-module-contract.json",
         """{
-  "minimum_visual_types": 4,
-  "minimum_purposeful_interactions": 2,
-  "minimum_quiz_types": 3,
+  "minimum_visual_types": 2,
+  "minimum_purposeful_interactions": 1,
+  "minimum_quiz_types": 1,
   "minimum_faq_questions": 5,
   "minimum_defined_terms": 5,
+  "minimum_conversational_teaching_words": 900,
+  "minimum_instructor_explanation_words": 35,
+  "minimum_worked_examples": 1,
   "approved_component_sources": ["component-gallery", "shared-component-library"],
   "approved_quiz_sources": ["quiz-gallery", "applied-assessment-contract"],
   "visual_catalog_terms": {},
   "required_community_features": ["search", "filters", "bookmarks", "threaded-replies", "presence", "instructor-treatment"]
+}""",
+    )
+    write_once(
+        course_dir / ".course/experience-architecture.json",
+        """{
+  "minimum_archetypes": 3,
+  "full_module_conformance": {
+    "lesson_directory": "curriculum",
+    "brief_directory": "curriculum/design-briefs",
+    "qa_directory": "qa",
+    "script_directory": "curriculum/scripts",
+    "contract": ".course/full-module-contract.json",
+    "script_policy": "if-present"
+  },
+  "thresholds": {
+    "maximum_archetype_share": 0.33,
+    "maximum_identical_quiz_sequence_count": 2,
+    "maximum_identical_interaction_signature_count": 2,
+    "maximum_adjacent_structural_similarity": 0.82,
+    "maximum_repeated_faq_question_count": 2,
+    "maximum_repeated_instructor_paragraph_count": 3,
+    "factory_pattern_share": 0.40
+  },
+  "lessons": {}
 }""",
     )
 
@@ -175,17 +205,22 @@ Use `$continue-owos-course` for every material task in this folder.
 
 The user adds documents to `inbox/` or speaks and types directly into the Codex task. Preserve substantive direction in `conversations/`. Run internal inventory, extraction, research, course generation, validation, and release tools yourself. Never ask the user to operate Python scripts.
 
-Before drafting, read `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yaml`, `SYLLABUS.md`, Hardeep Soul, the Course Production Contract, Course Operating Standard, Course Design System, Visual Arsenal, component catalog, quiz catalog, and writing standard. Preserve originals, distinguish evidence from Hardeep's positions, and require approval before locking the blueprint, golden lesson, or release.
+Before drafting, read `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yaml`, `SYLLABUS.md`, Hardeep Soul, the Course Production Contract, Course Operating Standard, Course Design System, Course Experience Architecture, Visual Arsenal, component catalog, quiz catalog, and writing standard. Preserve originals, distinguish evidence from Hardeep's positions, and require approval before locking the blueprint, golden lesson, or release.
 
-Create a module design brief before each lesson and maintain the course design matrix. Chapter 09 is a capability benchmark, not a page template. Every module must select its visual, interaction, quiz, animation, and work-product mix from the learning problem and must be checked against adjacent modules for repetition.
+Create and approve `curriculum/COURSE-EXPERIENCE-BRIEF.md` before module production. Create a module design brief before each lesson and maintain the course design matrix. Chapter 09 is a capability benchmark, not a page template. Every module must select its archetype, signature mechanism, visual grammar, interaction, assessment, animation, and work-product mix from the learning problem and must be checked against adjacent modules for repetition.
+
+The written lesson is the instruction and must stand without video. Never bulk-generate lesson teaching from one fixed page function. Run `python3 tools/course_distinctiveness.py --course apps/{args.slug}` after every three produced lessons and before release.
 
 Use compact Graph, Community, and Start actions in the lesson header. Graph and Community each open a white responsive drawer. Start moves to the beginning of the lesson. Reserve an explicit `#owos-course-community` anchor inside `main`, immediately before bottom navigation, for the complete connected-learning section. Floating cards and hanging rails are prohibited. Dark blue, navy, and gradient surfaces always use tested light text.
 
 End every module with a module-specific FAQ before the evidence boundary and bottom connected-learning section. Anticipate novice questions, answer them directly in plain English, use a utility example, and add a diagram, comparison, or worked sequence when it improves understanding.
 
 Before reporting that a full module passes, run `tools/course_conformance.py` against the lesson,
-module brief, recording script, scored QA report, and `.course/full-module-contract.json`. The
-minimum release-floor checker is not proof of full Course Production Contract compliance.
+module brief, optional modality script when one exists, scored QA report, and `.course/full-module-contract.json`.
+Before release, run `python3 tools/course_full_conformance.py --release-ready --course apps/{args.slug}`. It validates
+every included lesson declared in `.course/experience-architecture.json`, including completed manual QA gates and
+the explicit release approval; the release builder runs the same release-ready gate automatically.
+The minimum release-floor checker is not proof of full Course Production Contract compliance.
 """,
     )
     write_once(
@@ -361,8 +396,16 @@ The original file is preserved. Extraction, citation coverage, licensing, and fa
         "# Course Design Matrix\n\nCopy the structure from `core/templates/COURSE-DESIGN-MATRIX.md` and update it before module production.\n",
     )
     write_once(
+        course_dir / "curriculum" / "COURSE-EXPERIENCE-BRIEF.md",
+        "# Course Experience Brief\n\nCopy the structure from `core/templates/COURSE-EXPERIENCE-BRIEF.md`, define this course's own teaching and visual identity, and approve it before module production.\n",
+    )
+    write_once(
         course_dir / "curriculum" / "design-briefs" / "README.md",
         "# Module Design Briefs\n\nCreate one brief per module from `core/templates/MODULE-DESIGN-BRIEF.md` before writing lesson HTML.\n",
+    )
+    write_once(
+        course_dir / "curriculum" / "scripts" / "README.md",
+        "# Optional Module Scripts\n\nStore a module video or recording script here only when that modality is planned. The written lesson must remain complete without it.\n",
     )
     write_once(course_dir / "assessments" / "README.md", "# Assessments\n\nDeterministic assessments and scoring contracts will be stored here.")
     write_once(course_dir / "assets" / "README.md", "# Assets\n\nStore governed course graphics and small reproducible assets here.")

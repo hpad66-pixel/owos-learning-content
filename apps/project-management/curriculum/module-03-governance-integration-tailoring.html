@@ -5,11 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 03 &middot; Governance, integration and tailoring &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 3 of the Project Management masterclass. How the utility governs its projects (gates and the PMO), how the pieces knit together (the charter and the PM plan), and how to scale process to the size of the job.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-03-governance-integration-tailoring">
+<meta name="owos-release-state" content="working">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../core/components/academy.css">
+<style>
+.course-actions{margin-left:auto;display:flex;gap:.45rem;align-items:center}.course-actions a,.course-actions button{border:1px solid #bfd6e5;background:#fff;color:#123047;border-radius:999px;padding:.45rem .72rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.role-views,.artifact-builder,.final-check,.completion-requirements,.governed-visual,.module-faq details,.evidence-boundary,.connected-learning{border:1px solid #d7e3ec;border-radius:16px;background:#fff;padding:1rem;margin:1rem 0}.role-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.role-views article{background:#f4f8fb;border-radius:12px;padding:.85rem}.artifact-builder label,.final-check label{display:grid;gap:.35rem}.artifact-builder textarea,.final-check select,.course-drawer input{width:100%;box-sizing:border-box;margin-top:.6rem;padding:.75rem;border:1px solid #9eb4c4;border-radius:10px;font:inherit}.reading-guide,.learner-conclusion{background:#f4f8fb;border-left:4px solid #0a78ba;padding:.8rem 1rem}.source-links{display:flex;flex-wrap:wrap;gap:.6rem}.source-links a{font-weight:700}.course-drawer{position:fixed;inset:0 0 0 auto;width:min(430px,100%);z-index:1000;background:#fff;box-shadow:-18px 0 48px rgba(8,35,55,.25);overflow:auto}.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#123b5d;color:#fff;padding:1rem}.drawer-head h2{color:#fff;margin:0;font-size:1.15rem}.drawer-head button{background:#fff;color:#123047;border:0;border-radius:999px;padding:.5rem .8rem}.drawer-body{display:grid;gap:.8rem;padding:1rem}.drawer-body [data-community-feature]{border:1px solid #d7e3ec;border-radius:10px;padding:.75rem}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}#tt{position:fixed;left:-9999px}.module-faq details summary{cursor:pointer;font-weight:800}.module-faq details p{margin-bottom:0}
+@media (max-width:760px){.course-actions{width:100%;margin:0;flex-wrap:wrap}.role-views{grid-template-columns:1fr}.owos-nav{flex-wrap:wrap}.governed-visual,.artifact-builder,.final-check,.completion-requirements{padding:.8rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -20,10 +29,11 @@
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 03</b></span>
+  <div class="course-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></div>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 03 &middot; Fundamentals</span>
   <h1>Governance, <span>integration</span> and tailoring</h1>
@@ -35,6 +45,11 @@
     <button data-lens="l">Leader</button>
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+  <section class="role-views" aria-label="Role-sensitive views">
+    <article data-lens="foundation"><b>Foundation</b><p>Learn the plain-language distinction and use it on the Millpond example.</p></article>
+    <article data-lens="practitioner"><b>Practitioner</b><p>Make the decision, retain the evidence, and surface the assumption that could change it.</p></article>
+    <article data-lens="leader"><b>Leader</b><p>Confirm authority, consequence, and the threshold for approving or escalating the decision.</p></article>
+  </section>
 
   <div class="casebox">
     <span class="pin">&#9873;</span>
@@ -95,7 +110,10 @@
 
     <p>Governance also decides <em>which</em> projects run. Utilities split the capital list into two piles: work you have to do, and work you choose to do. Sort a few Millpond Road candidates.</p>
 
-    <div data-ac="classify" data-title="Must-do or scored?" data-kind="Quiz &middot; classify" data-cue="Must-do work (safety, compliance, failure) skips the scoring line. Everything else competes on value.">
+    <p data-instructor-explanation data-teaches="governance-control-check">Classify the situations by the control or authority they require. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="classify" id="governance-control-check" data-quiz-type="classification" data-required="knowledge-check-1" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Must-do or scored?" data-kind="Quiz &middot; classify" data-cue="Must-do work (safety, compliance, failure) skips the scoring line. Everything else competes on value.">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"buckets":["Must-do","Scored and ranked"],
        "items":[
@@ -110,7 +128,11 @@
 
     <p>For the discretionary pile, selection is a <b>weighted score</b>: rate each project against a few criteria, weight the criteria by what your utility values most, and rank them. Change the weights and watch the order shift. That is, in miniature, how a capital plan gets prioritized.</p>
 
-    <div data-ac="scoreboard" data-title="Score and rank the capital candidates" data-kind="Interactive &middot; simulation" data-cue="Drag 'Regulatory pressure' up and watch compliance-driven work rise to the top. The ranking always follows what you choose to weight.">
+    <p data-instructor-explanation data-teaches="governance-scoreboard">The scoreboard turns governance from a vague maturity idea into observable controls.</p>
+
+<section id="governance-scoreboard" class="governed-visual" data-visual-type="heat-grid" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Read the weak controls first, then ask which decision or evidence could fail because of each gap.</p>
+<div data-ac="scoreboard" id="opening-03" data-opening-decision data-required="opening-decision" data-purposeful-interaction="governance-health-read" data-component-source="component-gallery" data-title="Score and rank the capital candidates" data-kind="Interactive &middot; simulation" data-cue="Drag 'Regulatory pressure' up and watch compliance-driven work rise to the top. The ranking always follows what you choose to weight.">
       <script type="application/json">
       {"criteria":[
         {"key":"risk","label":"Reduces failure risk","weight":5},
@@ -126,6 +148,8 @@
        ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> Tailoring should remove low-value effort, not remove accountability.</p>
+</section>
   </div>
 
   <!-- ===================== SECTION 2 ===================== -->
@@ -179,7 +203,11 @@
 
     <p>Integration is easiest to feel when you poke it. Scope is one input. Add a couple of blocks to the Millpond job and watch the schedule, the cost, and the risk all move at once. That simultaneous movement is the thing integration manages, and the reason a scope change goes through change control instead of a quiet edit.</p>
 
-    <div data-ac="ripple" data-title="Move one thing, watch the rest react" data-kind="Interactive &middot; simulation" data-cue="You cannot move scope on its own. Every output responds. The integrator keeps all three honest, together.">
+    <p data-instructor-explanation data-teaches="change-ripple-network">The network view shows why integration is a coordination job rather than a document bundle.</p>
+
+<section id="change-ripple-network" class="governed-visual" data-visual-type="network-diagram" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Start with one proposed change and trace every schedule, cost, scope, risk, and approval consequence it creates.</p>
+<div data-ac="ripple" data-title="Move one thing, watch the rest react" data-kind="Interactive &middot; simulation" data-cue="You cannot move scope on its own. Every output responds. The integrator keeps all three honest, together.">
       <script type="application/json">
       {"driver":{"label":"Scope added","unit":"blocks","min":0,"max":6,"start":0},
        "baseNote":"Add scope and watch schedule, cost, and risk all react at once.",
@@ -190,6 +218,8 @@
        ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> A change is not controlled until every affected commitment and owner is visible.</p>
+</section>
   </div>
 
   <!-- ===================== SECTION 3 ===================== -->
@@ -221,7 +251,10 @@
       </script>
     </div>
 
-    <div data-ac="order" data-title="Tailor it in the right order" data-kind="Quiz &middot; ordering" data-cue="Nudge each row until the sequence matches how you would actually right-size a job.">
+    <p data-instructor-explanation data-teaches="integrated-change-order">Order the integration steps so analysis and authorization occur before the baseline changes. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="order" id="integrated-change-order" data-quiz-type="ordering" data-required="knowledge-check-2" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Tailor it in the right order" data-kind="Quiz &middot; ordering" data-cue="Nudge each row until the sequence matches how you would actually right-size a job.">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"q":"Order the steps for tailoring the process to a job, first to last.",
        "items":["Judge the size, risk, and complexity","Start from the full standard process","Cut what does not earn its place","Keep the controls the risk demands","Write down what you tailored and why"],
@@ -283,12 +316,90 @@
     </div>
   </div>
 
-  <div class="navrow">
+
+  <section class="sec retrofit-evidence" aria-labelledby="evidence-03">
+    <span class="tag">Professional evidence</span>
+    <h2 id="evidence-03">Build the governance and tailoring record</h2>
+    <p>This is the record you should be able to carry into utility work. Keep it short enough to review and specific enough that another person can understand the decision, the assumptions, and the evidence still missing.</p>
+    <section class="artifact-builder" data-artifact="governance-tailoring-record" data-required="work-product">
+      <label for="governance-tailoring-record-text"><b>Governance and tailoring record</b><span>Record the sponsor, decision gates, change authority, required evidence, reporting cadence, and the controls intentionally tailored out with a reason.</span></label>
+      <textarea id="governance-tailoring-record-text" rows="7" placeholder="Write a concise, reviewable record. Do not enter sensitive utility information."></textarea>
+    </section>
+    <section class="final-check" data-final-applied-check data-required="final-applied-check" data-artifact-ref="governance-tailoring-record">
+      <label for="governance-tailoring-record-check"><b>Final applied check</b><span>Which statement proves tailoring has not weakened governance?</span></label>
+      <select id="governance-tailoring-record-check">
+        <option value="">Choose the evidence standard</option>
+        <option value="weak">The preferred result is recorded, even if assumptions remain implicit.</option>
+        <option value="ready">Every material decision still has an owner, evidence threshold, and retained record.</option>
+      </select>
+      <p id="governance-tailoring-record-feedback" aria-live="polite">Choose an answer after drafting the record.</p>
+    </section>
+    <div class="completion-requirements" aria-labelledby="requirements-03">
+      <h3 id="requirements-03">Visible completion requirements</h3>
+      <ul>
+        <li data-requirement="opening-decision">Complete the opening decision.</li>
+        <li data-requirement="knowledge-check-1">Complete the first knowledge check.</li>
+        <li data-requirement="knowledge-check-2">Complete the second knowledge check.</li>
+        <li data-requirement="work-product">Draft the governance and tailoring record.</li>
+        <li data-requirement="final-applied-check">Pass the final applied check.</li>
+      </ul>
+      <button type="button" class="btn" data-complete disabled>Complete this chapter</button>
+    </div>
+  </section>
+
+  <section class="sec module-faq" data-module-faq aria-labelledby="faq-03">
+    <span class="tag">Questions people actually ask</span>
+    <h2 id="faq-03">Chapter 03 FAQ</h2>
+    <details><summary>Is governance the same as project administration?</summary><p>No. Administration moves information and records. Governance establishes who can decide, what evidence is required, and when a commitment may change.</p></details>
+      <details><summary>What does a PMO add on a small utility?</summary><p>It can provide proportionate templates, coaching, portfolio visibility, and escalation without becoming a large department.</p></details>
+      <details><summary>How do I know whether a gate is useful?</summary><p>A useful gate occurs before an expensive or irreversible commitment and has a named decision maker plus evidence criteria.</p></details>
+      <details><summary>Can tailoring remove a required approval?</summary><p>Only if the governing authority permits it. Tailoring can simplify the path, but it cannot invent authority or waive a legal, funding, safety, or contractual requirement.</p></details>
+      <details><summary>What is the simplest integration test?</summary><p>Ask whether a proposed change has been traced across scope, schedule, cost, risk, quality, procurement, operations, and the people authorized to accept the consequences.</p></details>
+  </section>
+
+  <section class="sec evidence-boundary" data-evidence-boundary aria-labelledby="boundary-03">
+    <span class="tag">Evidence boundary</span>
+    <h2 id="boundary-03">What this lesson can and cannot decide</h2>
+    <p>The Millpond examples and calculators are instructional models. They help you structure judgment, but they do not replace the current contract, adopted utility policy, funding conditions, applicable law, approved design basis, or a qualified professional review. Verify every live decision against controlled local evidence.</p>
+    <div class="source-links"><a href="https://www.pmi.org/standards/about">PMI standards</a>
+      <a href="https://www.gao.gov/products/gao-16-89g">GAO Schedule Assessment Guide</a>
+      <a href="https://www.gao.gov/products/gao-20-195g">GAO Cost Estimating and Assessment Guide</a></div>
+  </section>
+
+  <section id="owos-course-community" class="sec connected-learning" aria-labelledby="connected-03">
+    <span class="tag">Connected learning</span>
+    <h2 id="connected-03">Compare the decision, not just the answer</h2>
+    <p>Use the Community drawer to compare assumptions, evidence, and role perspectives without posting controlled project information.</p>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" hidden aria-labelledby="graph-title-03">
+    <div class="drawer-head"><h2 id="graph-title-03">Chapter 03 knowledge graph</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> governance</p>
+      <p data-graph-kind="source"><b>Source:</b> integrated change</p>
+      <p data-graph-kind="role"><b>Roles:</b> sponsor and PMO</p>
+      <p data-graph-kind="competency"><b>Competency:</b> tailoring</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> decision rights control commitments</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" hidden aria-labelledby="community-title-03">
+    <div class="drawer-head"><h2 id="community-title-03">Chapter 03 community</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <label data-community-feature="search">Search discussion <input type="search" placeholder="Search this chapter"></label>
+      <div data-community-feature="filters"><button type="button">Assumptions</button> <button type="button">Evidence</button> <button type="button">Role views</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this decision pattern</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Reply to the decision basis and name the evidence you would need.</p></div>
+      <p data-community-feature="presence"><b>Presence:</b> Peer discussion is available when the course platform is connected.</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor treatment:</b> Strong contributions separate source, assumption, recommendation, and authority.</p>
+    </div>
+  </aside>
+
+  <div class="navrow footnav">
     <a href="module-02-delivery-and-life-cycles.html">&#8592; Chapter 02 &middot; Delivery and life cycles</a>
     <a class="btn" href="module-04-scope-and-requirements.html">Chapter 04 &middot; Scope and requirements &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -298,5 +409,39 @@
 </footer>
 
 <script src="../../../core/components/academy.js"></script>
+<script>
+(function(){
+  var lastTrigger=null;
+  function openDrawer(kind,trigger){
+    var drawer=document.querySelector('[data-drawer="'+kind+'"]');
+    if(!drawer)return;
+    lastTrigger=trigger;drawer.hidden=false;
+    var close=drawer.querySelector('[data-close-drawer]');if(close)close.focus();
+  }
+  document.querySelectorAll('[data-open-graph]').forEach(function(b){b.addEventListener('click',function(){openDrawer('graph',b);});});
+  document.querySelectorAll('[data-open-community]').forEach(function(b){b.addEventListener('click',function(){openDrawer('community',b);});});
+  document.querySelectorAll('[data-close-drawer]').forEach(function(b){b.addEventListener('click',function(){b.closest('[data-drawer]').hidden=true;if(lastTrigger)lastTrigger.focus();});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var open=document.querySelector('[data-drawer]:not([hidden])');if(open){open.hidden=true;if(lastTrigger)lastTrigger.focus();}}});
+  var text=document.getElementById('governance-tailoring-record-text');
+  var check=document.getElementById('governance-tailoring-record-check');
+  var feedback=document.getElementById('governance-tailoring-record-feedback');
+  var complete=document.querySelector('[data-complete]');
+  function assess(){
+    var drafted=text&&text.value.trim().length>=40;
+    var ready=check&&check.value==='ready';
+    if(feedback){
+      if(!check.value)feedback.textContent='Choose an answer after drafting the record.';
+      else if(!ready)feedback.textContent='Not yet. A preferred result without explicit assumptions and evidence is not reviewable. Retry.';
+      else if(!drafted)feedback.textContent='That evidence standard is right. Add at least a short decision record before completion.';
+      else feedback.textContent='Ready for working review. The record and evidence standard are both present.';
+    }
+    if(complete)complete.disabled=!(drafted&&ready);
+  }
+  if(text){text.addEventListener('input',assess);}
+  if(check){check.addEventListener('change',assess);}
+  assess();
+})();
+</script>
+<div id="tt" role="tooltip"></div>
 </body>
 </html>

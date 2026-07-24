@@ -5,11 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 12 &middot; Teams, stakeholders and communication &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 12 of the Project Management masterclass. Building and leading the team (Tuckman, RACI), stakeholder analysis with the power-interest grid and public involvement, and communications planning including why channels explode with team size.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-12-teams-stakeholders-communication">
+<meta name="owos-release-state" content="working-review">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../core/components/academy.css">
+<link rel="stylesheet" href="project-retrofit.css">
 </head>
 <body>
 
@@ -19,11 +23,12 @@
     <span class="owos-wm">One Water <b>OS</b></span>
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
+  <span class="lesson-actions"><a href="#lesson-start">Start</a><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button></span>
   <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 12</b></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 12 &middot; People and leadership</span>
   <h1>The team, the <span>stakeholders</span>, and the message</h1>
@@ -36,7 +41,7 @@
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job and its people</p>
@@ -68,27 +73,53 @@
       </script>
     </div>
 
-    <p>Even a performing team stalls when nobody knows who owns what. A <span class="term" data-term="RACI" data-def="A chart that assigns four roles to each task: Responsible (does the work), Accountable (owns the outcome, only one person), Consulted (gives two-way input), Informed (kept updated one-way).">RACI</span> chart fixes that by tagging every task with who is Responsible, Accountable, Consulted, and Informed. The key rule: exactly one Accountable per task. Sort a few.</p>
+    <p>Even a performing team stalls when nobody knows who owns what. A <span class="term" data-term="RACI" data-def="A chart that assigns four roles to each task: Responsible (does the work), Accountable (owns the outcome, only one person), Consulted (gives two-way input), Informed (kept updated one-way).">RACI</span> chart fixes that by tagging every task with who is Responsible, Accountable, Consulted, and Informed. The key rule is exactly one Accountable person per task. The chart helps, but the real test happens in conversation. People must be able to say what they own, what they decide, and when they need someone else's input.</p>
 
-    <div data-ac="classify" data-title="Which RACI role?" data-kind="Quiz &middot; classify" data-cue="Responsible does it, Accountable owns it (only one), Consulted gives input, Informed just gets updates.">
+    <p data-instructor-explanation data-teaches="pm12-role-conversation">Listen to three short Millpond conversations. In each one, choose the project manager's response. A good response does more than name a RACI letter. It clarifies the decision, the owner, and the next exchange between people.</p>
+
+    <div id="pm12-role-conversation" data-ac="examsim" data-quiz-type="role-conversation" data-quiz-source="applied-assessment-contract" data-purposeful-interaction="role-conversation-practice" data-component-source="shared-component-library" data-required="applied-interaction" data-retry="Name the decision, one accountable owner, and the required consultation before trying again." data-title="The responsibility conversation" data-kind="Applied conversation &middot; choose the response" data-cue="Answer as the project manager. Clarify ownership without turning every issue into a committee decision.">
+      <span class="sr-only" aria-live="polite">Conversation feedback appears after each response.</span>
       <script type="application/json">
-      {"buckets":["Responsible","Accountable","Consulted","Informed"],
-       "items":[
-        ["The crew foreman who actually lays the pipe",0,"Does the hands-on work. Responsible."],
-        ["The project manager who answers for the whole job",1,"Owns the outcome, one person. Accountable."],
-        ["The hydraulic engineer you ask before a design change",2,"Two-way input sought. Consulted."],
-        ["The finance office that just needs the monthly status",3,"Kept updated, one-way. Informed."]
-       ]}
+      {"questions":[
+        {"q":"The superintendent says, “The engineer keeps commenting on means and methods, so I no longer know who decides how the crew installs the pipe.” What do you say?",
+         "options":[
+          ["“You remain Responsible for the installation method within the contract. The engineer is Consulted on design intent and acceptance. I am Accountable for resolving any boundary conflict.”",1],
+          ["“Let both of them decide together so nobody feels excluded.”",0],
+          ["“The engineer designed it, so the engineer owns field production.”",0],
+          ["“Keep working and we will sort out the roles at closeout.”",0]
+         ],
+         "why":"This response separates execution, technical consultation, and accountability. Shared conversation is useful, but shared accountability usually means nobody can tell who must close the issue."},
+        {"q":"The public-information lead says, “Operations changed tomorrow's shutdown window, but nobody told me. Residents already received the old notice.” What do you say?",
+         "options":[
+          ["“Operations must be Consulted before the window is locked, the project manager owns the approved window, and you are Responsible for issuing the controlled notice. We will correct the notice now and repair that handoff.”",1],
+          ["“Send both times and let residents decide which one applies.”",0],
+          ["“Operations owns the notice because they changed the window.”",0],
+          ["“Do not issue another notice. Too much communication creates confusion.”",0]
+         ],
+         "why":"The problem is not one person's attitude. It is a broken handoff between an operating decision, an accountable approval, and a public message. The response repairs the handoff and the immediate notice."},
+        {"q":"The sponsor says, “I want every department head to approve the traffic plan before we proceed.” What is your response?",
+         "options":[
+          ["“We need one Accountable approver. We will identify the departments that must be Consulted, record their input, and bring unresolved conflicts to you instead of requiring unanimous approval.”",1],
+          ["“Agreed. More approvers always reduce project risk.”",0],
+          ["“The contractor should approve it because the contractor performs the work.”",0],
+          ["“We do not need stakeholder input on traffic.”",0]
+         ],
+         "why":"Consultation and approval are different jobs. One accountable approver keeps the decision clear while the right specialists still shape it."}
+      ]}
       </script>
     </div>
+
+    <p>Notice the pattern. The useful answer names a real decision and then assigns the four roles around it. “Engineering is Accountable” is too broad. “The design manager is Accountable for approving the revised crossing detail before it is issued for construction” can be acted on and checked.</p>
   </div>
 
   <!-- ===================== SECTION 2 ===================== -->
   <div class="sec">
     <span class="tag">2 / 3</span>
     <h2>Stakeholders: who can make or break it</h2>
-    <p>A <span class="term" data-term="Stakeholder" data-def="Anyone who can affect the project or is affected by it: the council, the regulator, residents, businesses, partner agencies, and your own team.">stakeholder</span> is anyone who can affect the project or is affected by it. You cannot engage them all the same way, so you map them by two things: how much <b>power</b> they have over the project, and how much <b>interest</b> they take in it. That is the same matrix idea from the risk chapter, applied to people. Tap each Millpond stakeholder.</p>
+    <p data-instructor-explanation data-teaches="pm12-stakeholder-map">A <span class="term" data-term="Stakeholder" data-def="Anyone who can affect the project or is affected by it: the council, the regulator, residents, businesses, partner agencies, and your own team.">stakeholder</span> is anyone who can affect the project or is affected by it. You cannot engage them all the same way, so you map them by two things: how much <b>power</b> they have over the project, and how much <b>interest</b> they take in it. Tap each Millpond stakeholder. Notice that the position suggests an engagement intensity, but the detailed strategy still depends on the real decision and relationship.</p>
 
+    <section id="pm12-stakeholder-map" data-visual-type="two-by-two" data-component-source="shared-component-library">
+    <p data-reading-guide><b>How to read it:</b> power rises from bottom to top and interest rises from left to right. Select a numbered stakeholder to see the corresponding engagement posture.</p>
     <div data-ac="grid" data-title="The Millpond stakeholder map" data-kind="Interactive &middot; power-interest grid" data-cue="High power plus high interest gets managed closely. High power but low interest just needs to stay satisfied so they do not turn into a blocker.">
       <script type="application/json">
       {"xLabel":"Interest","yLabel":"Power",
@@ -107,35 +138,62 @@
        ]}
       </script>
     </div>
+    <p data-learner-conclusion><b>Conclusion:</b> engagement effort follows practical influence and project impact, not job title alone.</p>
+    </section>
 
-    <p>On a public water job, the residents in the bottom-right, interested but with little formal power, are the ones most often mishandled. Ignore them and a routine main replacement becomes a packed council meeting. Keep them genuinely informed and they become your advocates. That is what <b>public involvement</b> is really for.</p>
+    <p>On a public water job, the residents in the bottom-right, interested but with little formal power, are the ones most often mishandled. Ignore them and a routine main replacement becomes a packed council meeting. Keep them genuinely informed and they can become your advocates. That is what <b>public involvement</b> is really for.</p>
+
+    <p>The map does not assign a message by itself. You still have to choose a strategy that fits the stakeholder's power, interest, impact, and history with the utility. Work through the school principal's situation before you move on.</p>
+
+    <div data-ac="decide" data-purposeful-interaction="stakeholder-strategy-decision" data-title="Choose the school strategy" data-kind="Decision room &middot; stakeholder strategy" data-cue="The principal has operational knowledge and community influence. Choose a strategy that uses both.">
+      <script type="application/json">
+      {"flow":["School arrival","Lane closure","Parent notice","Council attention"],
+       "q":"The Millpond trench will narrow the school entrance for nine mornings. The principal has high interest, moderate formal power, and direct access to parents and the council member. What engagement strategy fits?",
+       "options":[
+        {"label":"Send the standard weekly email","result":"Too passive. The principal is not merely a recipient. The school controls arrival operations and can help design a workable traffic plan."},
+        {"label":"Co-design the morning traffic plan and give the principal a named escalation contact","result":"Best fit. This uses the principal's operating knowledge, gives the school a reliable path when field conditions change, and turns a likely surprise into a managed relationship."},
+        {"label":"Wait for a complaint, then schedule a public meeting","result":"Too late. Once parents arrive to an unexpected closure, the issue has moved from coordination to trust repair."},
+        {"label":"Ask the contractor to handle all school communication","result":"Incomplete. The contractor can support daily field coordination, but the utility remains accountable for the public commitment and escalation path."}
+       ]}
+      </script>
+    </div>
+
+    <p>The strongest strategy is not “more communication.” It is a specific relationship: involve the principal in the traffic decision, agree on what will be communicated, name who can resolve a morning problem, and keep the utility accountable for the promise.</p>
   </div>
 
   <!-- ===================== SECTION 3 ===================== -->
   <div class="sec">
     <span class="tag">3 / 3</span>
     <h2>Communication: why it gets hard so fast</h2>
-    <p>Here is a number every project leader should feel in their bones. The paths of communication in a team are not proportional to its size, they grow much faster. Add people and the channels explode. Watch it.</p>
+    <p data-instructor-explanation data-teaches="pm12-channel-network">Here is a number every project leader should understand. The paths of communication in a team are not proportional to its size, they grow much faster. Move the team-size control and watch the network fill in. The visual counts every possible pair, which explains why adding one person adds several new coordination paths rather than one.</p>
 
+    <section id="pm12-channel-network" data-visual-type="network-diagram" data-component-source="shared-component-library">
+    <p data-reading-guide><b>How to read it:</b> every dot is a person and every line is a possible one-to-one communication channel. Increase the team size and compare the line count.</p>
     <div data-ac="channels" data-title="Communication channels by team size" data-kind="Interactive &middot; simulation" data-cue="Drag from a small team to a big one. Six people is 15 channels; double to twelve and it is 66. This is why big teams need structure, not more meetings.">
       <script type="application/json">
       {"min":2,"max":24,"start":6}
       </script>
     </div>
+    <p data-learner-conclusion><b>Conclusion:</b> larger teams need planned routes, owners, and cadences because informal all-to-all communication becomes unmanageable.</p>
+    </section>
 
     <p>Because you cannot let everyone talk to everyone, you plan communication deliberately: who needs what, how often, and in which direction. Some is <b>push</b> (you send it: status reports, notices), some is <b>pull</b> (they fetch it: a project website, a shared drive), and some is <b>interactive</b> (two-way: meetings, calls). Match the method to the message, and set a cadence people can rely on.</p>
 
-    <div data-ac="mc" data-title="Pick the channel" data-kind="Quiz &middot; multiple choice">
+    <p>A four-hour shutdown requires more than choosing one channel. Build the communication set that covers direct notice, confirmation, field change, and a place for questions. Select every action that belongs in the plan.</p>
+
+    <div data-ac="multi" data-title="Build the shutdown communication set" data-kind="Strategy check &middot; choose the complete set">
       <script type="application/json">
-      {"q":"You need to notify 3,000 residents that their water will be shut off for four hours next Tuesday. What communication method fits?",
+      {"q":"Which actions belong in the Millpond shutdown communication plan? Choose all that apply.",
        "options":[
-        ["Push: a direct notice (mailer, door hanger, text) sent to every affected address",1],
-        ["Pull: post it on the project website and hope they check",0],
-        ["Interactive: hold a public meeting the night before",0],
-        ["Nothing: it is only four hours",0]
+        ["Send direct notices to every affected address through the approved channels",true],
+        ["Confirm the final window with operations before the controlled notice is released",true],
+        ["Give customer service and the field supervisor the same approved message and escalation contact",true],
+        ["Post the notice only on the project website",false],
+        ["Define how an extension, cancellation, or emergency change will be communicated",true],
+        ["Assume the contractor will answer every resident question",false]
        ],
-       "right":"Correct. A time-critical notice that everyone must receive is push communication, sent directly. Pull (a website) reaches only those who look, and a meeting reaches only those who attend.",
-       "wrong":"Not quite. When everyone must get a specific, time-critical message, you push it directly to each address. A website is pull (only the curious see it) and a meeting is interactive (only attendees hear it)."}
+       "ok":"That is the complete set. It controls the message before release, reaches the affected people, aligns the people who answer questions, and plans for change.",
+       "no":"The complete set needs direct notice, an operations confirmation, one approved message for customer service and the field, and a change path. A website can support the plan, but it cannot carry a time-critical shutdown notice by itself."}
       </script>
     </div>
 
@@ -144,39 +202,47 @@
       <p>Two habits prevent most people problems. <b>Map the stakeholders before you need them</b> (know who to manage closely and who to keep satisfied), and <b>structure communication instead of letting it sprawl.</b> A ten-person job free-for-all is 45 channels of noise; a planned one is a handful of clear ones.</p>
     </div>
 
-    <div data-ac="truefalse" data-title="Myth check" data-kind="Quiz &middot; true or false">
-      <script type="application/json">
-      {"items":[
-        ["A team's storming stage is a sign the project is failing.",false,"No. Storming is a normal, necessary stage. A leader moves the team through it; suppressing it just delays it."],
-        ["Communication channels grow in proportion to team size.",false,"No. They grow as n(n-1)/2, far faster. Doubling a team nearly quadruples the channels."],
-        ["High-power, low-interest stakeholders should be kept satisfied.",true,"Right. Keep them satisfied and informed enough that they have no reason to intervene."]
-      ]}
-      </script>
-    </div>
+    <p>The complete set is deliberately smaller than “tell everyone everything.” It controls one promise, gives it to the people who need it, and creates a route for exceptions. That is a communication plan. A larger mailing list is not.</p>
   </div>
 
-  <!-- ===================== REVIEW ===================== -->
+  <!-- ===================== WORK PRODUCT ===================== -->
   <div class="sec">
-    <h2>Lock it in</h2>
-    <p>Flip through the key terms from this chapter.</p>
+    <h2>Write one stakeholder engagement brief</h2>
+    <p>Choose one stakeholder who can materially affect a utility project. Do not write “keep informed.” Write the actual decision, concern, message, channel, cadence, owner, and escalation route. The output should be clear enough that another project manager could carry the relationship for a week without inventing the strategy again.</p>
 
-    <div data-ac="flip" data-title="Key terms" data-kind="Quiz &middot; flip cards" data-cue="Tap a card to see the meaning. Any that surprise you are the ones to reread.">
+    <div data-ac="artifactbuilder" data-artifact="stakeholder-engagement-brief" data-purposeful-interaction="stakeholder-engagement-brief-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Stakeholder engagement brief" data-kind="Work product &middot; relationship strategy" data-cue="Build the strategy around a real decision and a real person or role, not a generic audience label.">
       <script type="application/json">
-      {"cards":[
-        ["Forming to performing","The stages a team moves through: forming, storming, norming, performing."],
-        ["RACI","Responsible, Accountable, Consulted, Informed. One Accountable per task."],
-        ["Stakeholder","Anyone who can affect the project or is affected by it."],
-        ["Power-interest grid","Maps stakeholders to decide how to engage each one."],
-        ["Communication channels","n(n-1)/2. They explode as the team grows."],
-        ["Push / pull / interactive","Send it, let them fetch it, or talk two-way. Match to the message."]
-      ]}
+      {"key":"pm12-stakeholder-engagement-brief",
+       "notice":"Use a role or non-sensitive example unless your utility has approved this browser for project information.",
+       "previewLabel":"Stakeholder strategy preview",
+       "fields":[
+        {"id":"stakeholder","label":"Stakeholder and relationship","help":"Name the role, what they affect, what affects them, and the current level of trust.","placeholder":"Example: School principal..."},
+        {"id":"decision","label":"Decision or project consequence","help":"Name the specific decision, disruption, approval, or commitment around which engagement is required.","placeholder":"Example: Morning lane-closure plan..."},
+        {"id":"strategy","label":"Engagement strategy","help":"State whether you will involve, consult, satisfy, inform, or monitor, and explain why.","placeholder":"Example: Co-design the arrival plan..."},
+        {"id":"message","label":"Message and evidence","help":"Write what this stakeholder needs to know and which schedule, plan, test, or authority supports it.","placeholder":"Example: Nine morning closures..."},
+        {"id":"cadence","label":"Channel and cadence","help":"Name the method, timing, sender, and trigger for an extra update.","placeholder":"Example: Thursday call plus daily field text..."},
+        {"id":"escalation","label":"Owner and escalation route","help":"Name who owns the relationship, who can decide, and where an unresolved issue goes.","placeholder":"Example: Public involvement lead..."}
+       ],
+       "template":"STAKEHOLDER ENGAGEMENT BRIEF\n\nStakeholder and relationship\n{stakeholder}\n\nDecision or consequence\n{decision}\n\nEngagement strategy\n{strategy}\n\nMessage and evidence\n{message}\n\nChannel and cadence\n{cadence}\n\nOwner and escalation route\n{escalation}"}
       </script>
     </div>
 
-    <div data-ac="reflect">
+    <p>Read the preview as if you were the stakeholder. Can you tell what is changing, why it matters to you, when you will hear from the project, and who can solve a problem? Then read it as the project sponsor. Can you tell who owns the relationship and when escalation is required? If both answers are yes, the brief is doing useful work.</p>
+
+    <p data-instructor-explanation data-teaches="pm12-artifact-check">Review the brief as a handoff between project leadership and the person who will manage the relationship. Select the elements that make the strategy executable. A generic instruction such as “communicate regularly” is not enough because it leaves the decision, owner, timing, and escalation route unspecified.</p>
+    <div id="pm12-artifact-check" data-ac="multi" data-quiz-type="stakeholder-brief-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="stakeholder-engagement-brief" data-required="final-check" data-retry="Return to the brief, make the relationship strategy executable, and check again." data-title="Final stakeholder-brief gate" data-kind="Final applied check &middot; strategy review">
+      <span class="sr-only" aria-live="polite">Final stakeholder-brief feedback appears after checking the selected items.</span>
       <script type="application/json">
-      {"q":"Think of a project that went sideways on people, not on the technical work. Was it a stakeholder you misread, a role nobody owned, or communication that either sprawled or went silent?",
-       "a":"Most project failures blamed on schedule or budget were really people failures underneath: a powerful stakeholder who was surprised because nobody kept them satisfied, a task that slipped because its Accountable was never named, or a community that organized against a routine job because it was informed too late. The technical work is often the easy part. The discipline is mapping the stakeholders before the job starts, naming one owner for every deliverable, and planning communication as deliberately as you plan the schedule, because on a public utility project, the meeting that sinks you is rarely about the pipe."}
+      {"q":"Which elements make the stakeholder engagement brief executable? Choose all that apply.",
+       "options":[
+        ["A specific stakeholder and project decision",true],
+        ["An engagement strategy tied to power, interest, and impact",true],
+        ["A controlled message, channel, cadence, and owner",true],
+        ["A defined escalation route",true],
+        ["The instruction to communicate more often without naming who or why",false]
+       ],
+       "ok":"The brief names the relationship, decision, strategy, message, owner, timing, and escalation route.",
+       "no":"An executable brief needs a specific relationship and decision, a justified strategy, a controlled message, an owner, a cadence, and an escalation route."}
       </script>
     </div>
   </div>
@@ -196,12 +262,95 @@
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec" data-module-faq>
+    <h2>Questions people ask about the people side</h2>
+    <details>
+      <summary>Does every task really need a full RACI chart?</summary>
+      <p>No. Use RACI where ownership or handoffs are genuinely unclear or consequential. A small field task may need one named owner and a clear acceptance point, not a four-column chart. The value is clarity, not paperwork.</p>
+    </details>
+    <details>
+      <summary>Can the same person be Responsible and Accountable?</summary>
+      <p>Yes, especially on a small project. The important rule is that the Accountable role is singular and has the authority to own the outcome. On a small valve replacement, the project manager may both prepare and own the shutdown plan. On a large program, those roles are more likely to be separated.</p>
+    </details>
+    <details>
+      <summary>What if a stakeholder has little formal power but can create major delay?</summary>
+      <p>Then the map should reflect their practical influence, not just their title. Residents near Millpond may not issue a permit, but organized complaints can change work hours or trigger council intervention. Map the consequence they can create and engage them accordingly.</p>
+    </details>
+    <details>
+      <summary>Is more communication always safer?</summary>
+      <p>No. More uncontrolled messages can create conflicting promises. Safer communication means one approved fact pattern, a clear audience, an appropriate channel, a reliable cadence, and an exception route. Three aligned messages are better than thirty improvised ones.</p>
+    </details>
+    <details>
+      <summary>Who should own communication with an upset stakeholder?</summary>
+      <p>Give the relationship one named owner who has access to the people with decision authority. That person does not need to answer every technical question personally. They need to keep the promise, coordinate the answer, and make sure the stakeholder is not passed from office to office.</p>
+    </details>
+  </section>
+
+  <section class="sec role-strip" aria-labelledby="pm12-role-title">
+    <h2 id="pm12-role-title">What changes by role</h2>
+    <div class="role-grid">
+      <article data-lens="foundation"><b>Foundation</b><p>Name the decision, the stakeholder, and the difference between doing, owning, advising, and receiving information.</p></article>
+      <article data-lens="practitioner"><b>Practitioner</b><p>Run the role conversation, map practical influence, and build the message, cadence, owner, and escalation route.</p></article>
+      <article data-lens="leader"><b>Leader</b><p>Resolve competing authority, protect one accountable owner, and respond early when trust begins to erode.</p></article>
+    </div>
+  </section>
+
+  <section class="sec evidence-card" data-evidence-boundary>
+    <h2>Evidence boundary</h2>
+    <p>The Millpond conversations are instructional scenarios. Real stakeholder commitments must use current project facts, approved public-information procedures, accessibility and language requirements, emergency protocols, and the utility's authorized spokespersons.</p>
+    <ul>
+      <li><a href="https://www.epa.gov/waterresilience/water-utility-public-awareness-kit">United States Environmental Protection Agency water-utility public-awareness kit</a></li>
+      <li><a href="https://www.epa.gov/ccr">United States Environmental Protection Agency consumer-confidence-report information</a></li>
+      <li><a href="https://www.epa.gov/sites/default/files/2015-07/documents/developing_risk_communication_plans_for_drinking_water_contamination_incidents.pdf">United States Environmental Protection Agency drinking-water risk-communication planning guide</a></li>
+    </ul>
+  </section>
+
+  <section class="sec completion-card" aria-labelledby="pm12-completion-title">
+    <h2 id="pm12-completion-title">Completion evidence</h2>
+    <ul class="requirement-list">
+      <li data-requirement="opening-decision">Open with the Millpond people and communication condition.</li>
+      <li data-requirement="applied-interaction">Complete the responsibility conversation.</li>
+      <li data-requirement="work-product">Complete the stakeholder engagement brief.</li>
+      <li data-requirement="final-check">Pass the final stakeholder-brief gate.</li>
+    </ul>
+    <button type="button" class="btn" data-complete disabled>Complete Module 12</button>
+    <span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm12-graph-title">
+    <div class="drawer-head"><h2 id="pm12-graph-title">Module 12 graph</h2><button type="button" data-close-drawer aria-label="Close graph">Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> accountable relationship around a project decision</p>
+      <p data-graph-kind="source"><b>Source:</b> role map, stakeholder register, approved message, and project evidence</p>
+      <p data-graph-kind="role"><b>Role:</b> sponsor, project manager, operator, contractor, resident, regulator, and public-information lead</p>
+      <p data-graph-kind="competency"><b>Competency:</b> select and defend a stakeholder engagement strategy</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> decision to stakeholder impact to message to owner to escalation</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm12-community-title">
+    <div class="drawer-head"><h2 id="pm12-community-title">Project delivery community</h2><button type="button" data-close-drawer aria-label="Close community">Close</button></div>
+    <div class="drawer-body community-tools">
+      <label data-community-feature="search">Search discussions<input type="search" placeholder="Stakeholder, RACI, shutdown"></label>
+      <div data-community-feature="filters"><button type="button">Teams</button><button type="button">Public involvement</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this discussion</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare how utilities manage school, resident, regulator, and council relationships.</p></div>
+      <p data-community-feature="presence">Practitioners reviewing this topic: project managers, operators, public-information leads</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor note:</b> discuss the strategy without naming private individuals or active disputes.</p>
+    </div>
+  </aside>
+
+  <div id="owos-course-community" class="connected-learning" tabindex="-1">
+    <b>Continue the stakeholder conversation</b>
+    <p>Use Graph to inspect the decision and relationship chain. Use Community to compare engagement strategies across utility settings.</p>
+  </div>
+  <div id="tt" role="tooltip" hidden></div>
+
+  <div class="navrow footnav">
     <a href="module-11-risk-uncertainty.html">&#8592; Chapter 11 &middot; Risk and uncertainty</a>
     <a class="btn" href="module-13-leadership-negotiation-ethics.html">Chapter 13 &middot; Leadership, negotiation and ethics &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -211,5 +360,6 @@
 </footer>
 
 <script src="../../../core/components/academy.js"></script>
+<script src="project-retrofit.js"></script>
 </body>
 </html>

@@ -5,11 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 05 &middot; Scheduling and the Critical Path &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 5 of the Project Management masterclass. Building a schedule and finding what really drives the finish date: the Gantt, dependencies and lag, the Critical Path Method (float, forward and backward pass), and the cost-loaded S-curve.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-05-scheduling-critical-path">
+<meta name="owos-release-state" content="working">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../core/components/academy.css">
+<style>
+.course-actions{margin-left:auto;display:flex;gap:.45rem;align-items:center}.course-actions a,.course-actions button{border:1px solid #bfd6e5;background:#fff;color:#123047;border-radius:999px;padding:.45rem .72rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.role-views,.artifact-builder,.final-check,.completion-requirements,.governed-visual,.module-faq details,.evidence-boundary,.connected-learning{border:1px solid #d7e3ec;border-radius:16px;background:#fff;padding:1rem;margin:1rem 0}.role-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.role-views article{background:#f4f8fb;border-radius:12px;padding:.85rem}.artifact-builder label,.final-check label{display:grid;gap:.35rem}.artifact-builder textarea,.final-check select,.course-drawer input{width:100%;box-sizing:border-box;margin-top:.6rem;padding:.75rem;border:1px solid #9eb4c4;border-radius:10px;font:inherit}.reading-guide,.learner-conclusion{background:#f4f8fb;border-left:4px solid #0a78ba;padding:.8rem 1rem}.source-links{display:flex;flex-wrap:wrap;gap:.6rem}.source-links a{font-weight:700}.course-drawer{position:fixed;inset:0 0 0 auto;width:min(430px,100%);z-index:1000;background:#fff;box-shadow:-18px 0 48px rgba(8,35,55,.25);overflow:auto}.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#123b5d;color:#fff;padding:1rem}.drawer-head h2{color:#fff;margin:0;font-size:1.15rem}.drawer-head button{background:#fff;color:#123047;border:0;border-radius:999px;padding:.5rem .8rem}.drawer-body{display:grid;gap:.8rem;padding:1rem}.drawer-body [data-community-feature]{border:1px solid #d7e3ec;border-radius:10px;padding:.75rem}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}#tt{position:fixed;left:-9999px}.module-faq details summary{cursor:pointer;font-weight:800}.module-faq details p{margin-bottom:0}
+@media (max-width:760px){.course-actions{width:100%;margin:0;flex-wrap:wrap}.role-views{grid-template-columns:1fr}.owos-nav{flex-wrap:wrap}.governed-visual,.artifact-builder,.final-check,.completion-requirements{padding:.8rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -20,10 +29,11 @@
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 05</b></span>
+  <div class="course-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></div>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 05 &middot; Scope and schedule</span>
   <h1>The schedule and the <span>critical path</span></h1>
@@ -35,6 +45,11 @@
     <button data-lens="l">Leader</button>
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
+  <section class="role-views" aria-label="Role-sensitive views">
+    <article data-lens="foundation"><b>Foundation</b><p>Learn the plain-language distinction and use it on the Millpond example.</p></article>
+    <article data-lens="practitioner"><b>Practitioner</b><p>Make the decision, retain the evidence, and surface the assumption that could change it.</p></article>
+    <article data-lens="leader"><b>Leader</b><p>Confirm authority, consequence, and the threshold for approving or escalating the decision.</p></article>
+  </section>
 
   <div class="casebox">
     <span class="pin">&#9873;</span>
@@ -58,7 +73,7 @@
     <h2>The Gantt: the schedule you can see</h2>
     <p>A schedule is built from <span class="term" data-term="Activity" data-def="A single piece of work in the schedule, with a duration and a place in the sequence. For example, excavate the trench.">activities</span>, each with a <span class="term" data-term="Duration" data-def="How long an activity takes to do, once it starts. Not the same as when it happens.">duration</span>, connected by <span class="term" data-term="Dependency" data-def="A rule that one activity cannot happen until another does. It is the logic that links the schedule together.">dependencies</span> (what waits on what). A <span class="term" data-term="Milestone" data-def="A zero-duration marker for an important moment, like permit approved or main in service. It marks a point, it is not work itself.">milestone</span> marks an important moment. Drawn out over time, that is a <span class="term" data-term="Gantt chart" data-def="A bar chart of the schedule: each activity is a bar, positioned by when it happens and sized by how long it takes.">Gantt chart</span>. Here is the Millpond schedule. Click any bar to see its details.</p>
 
-    <div data-ac="gantt" data-title="Millpond Road schedule" data-kind="Interactive &middot; Gantt + critical path" data-cue="The gold bars are the critical path, the chain that sets the finish date. We get to those in Section 3. For now, click any bar to read its dates.">
+    <div data-ac="gantt" id="opening-05" data-opening-decision data-required="opening-decision" data-purposeful-interaction="schedule-logic-read" data-component-source="component-gallery" data-title="Millpond Road schedule" data-kind="Interactive &middot; Gantt + critical path" data-cue="The gold bars are the critical path, the chain that sets the finish date. We get to those in Section 3. For now, click any bar to read its dates.">
       <script type="application/json">
       {"unit":"weeks","tasks":[
         {"id":"s","name":"Survey & design","dur":6,"deps":[]},
@@ -87,7 +102,10 @@
     <h2>Dependencies and lag: the logic that links it</h2>
     <p>Dependencies come in a few types. Most are <span class="term" data-term="Finish-to-Start (FS)" data-def="The most common dependency: an activity cannot start until the one before it finishes. Excavate, then lay pipe.">Finish-to-Start (FS)</span>: one thing must finish before the next starts. But not all. <span class="term" data-term="Start-to-Start (SS)" data-def="Two activities that can run together, once the first has started. Paving can begin once excavation has started, following behind.">Start-to-Start (SS)</span> lets work run in parallel, and <span class="term" data-term="Finish-to-Finish (FF)" data-def="Two activities that must finish together. Inspection wraps up when the construction it inspects wraps up.">Finish-to-Finish (FF)</span> ties two finishes together. Sort a few.</p>
 
-    <div data-ac="classify" data-title="Which dependency type?" data-kind="Quiz &middot; classify" data-cue="FS is one after another. SS is starting together. FF is finishing together.">
+    <p data-instructor-explanation data-teaches="dependency-classification">Classify each dependency by the real handoff between activities. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="classify" id="dependency-classification" data-quiz-type="classification" data-required="knowledge-check-1" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Which dependency type?" data-kind="Quiz &middot; classify" data-cue="FS is one after another. SS is starting together. FF is finishing together.">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"buckets":["Finish-to-Start","Start-to-Start","Finish-to-Finish"],
        "items":[
@@ -150,7 +168,10 @@
 
     <p>On Millpond, the critical path does not run through the pipe crew. It runs through the <b>14-week material procurement</b>. The permits, which everyone frets about, actually finish with five weeks of float to spare. Test your read of it.</p>
 
-    <div data-ac="estimate" data-title="What happens if a critical task slips?" data-kind="Interactive &middot; estimate" data-cue="Zero float means a one-to-one slip. That is exactly what makes the critical path critical.">
+    <p data-instructor-explanation data-teaches="float-estimate">Estimate float from the logic, then compare it with the calculated result. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="estimate" id="float-estimate" data-quiz-type="numeric-estimate" data-required="knowledge-check-2" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="What happens if a critical task slips?" data-kind="Interactive &middot; estimate" data-cue="Zero float means a one-to-one slip. That is exactly what makes the critical path critical.">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"q":"The long-lead materials are on the critical path with zero float. If the vendor slips delivery by 3 weeks, how many weeks does the whole project finish slip?",
        "min":0,"max":8,"step":1,"start":0,"answer":3,"tol":0,"unit":"weeks",
@@ -174,7 +195,11 @@
 
     <p>Now try it. Shorten a task with the steppers and watch the finish move, or not. Crash a <b>gold</b> task and the end date drops. Crash a <b>blue</b> one and nothing happens to the finish, that task just gains float. Push hard enough on one chain and the critical path jumps to another.</p>
 
-    <div data-ac="ganttedit" data-title="What-if: crash the schedule yourself" data-kind="Interactive &middot; simulation" data-cue="Try cutting the 14-week procurement down a few weeks and watch the finish fall, then watch the critical path hand off to the permit chain once procurement is no longer the longest.">
+    <p data-instructor-explanation data-teaches="editable-gantt-network">The editable Gantt exposes the logic behind bars that otherwise look like a calendar picture.</p>
+
+<section id="editable-gantt-network" class="governed-visual" data-visual-type="network-diagram" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Trace every predecessor before changing a duration. Watch whether the controlling chain and finish date move together.</p>
+<div data-ac="ganttedit" data-title="What-if: crash the schedule yourself" data-kind="Interactive &middot; simulation" data-cue="Try cutting the 14-week procurement down a few weeks and watch the finish fall, then watch the critical path hand off to the permit chain once procurement is no longer the longest.">
       <script type="application/json">
       {"unit":"weeks","tasks":[
         {"id":"s","name":"Survey & design","dur":6,"deps":[]},
@@ -189,6 +214,8 @@
       ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> A schedule is credible because of its logic, not because the bars are neatly drawn.</p>
+</section>
 
     <div class="lv l leadcall">
       <p class="h">Leader's call</p>
@@ -202,7 +229,11 @@
     <h2>Loading cost onto the schedule: the S-curve</h2>
     <p>Once the schedule is set, you spread each activity's cost across the weeks it runs. That is a <span class="term" data-term="Cost-loaded schedule" data-def="A schedule where each activity carries its cost, spread over its duration. Add it all up over time and you get the project's planned cash flow.">cost-loaded schedule</span>, and adding it all up over time gives the <span class="term" data-term="S-curve" data-def="The cumulative-spend curve of a project. It is slow at the start, steep through construction, and flattens at the end, so it looks like a stretched S.">S-curve</span>. It is slow at first (design, procurement), steep through construction, and flattens at the end. That shape is your planned cash flow, and later it becomes the baseline you measure earned value against.</p>
 
-    <div data-ac="scurve" data-title="Millpond cost-loaded cash flow" data-kind="Chart &middot; S-curve" data-cue="Light bars are what you spend each month. The blue line is the running total. Notice the gentle start, the steep climb during construction, and the flat tail.">
+    <p data-instructor-explanation data-teaches="cost-loaded-s-curve">The curve connects schedule timing to cash flow and management attention.</p>
+
+<section id="cost-loaded-s-curve" class="governed-visual" data-visual-type="line-s-curve" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Read planned cumulative spending over time and compare the steepest section with the period of greatest field demand.</p>
+<div data-ac="scurve" data-title="Millpond cost-loaded cash flow" data-kind="Chart &middot; S-curve" data-cue="Light bars are what you spend each month. The blue line is the running total. Notice the gentle start, the steep climb during construction, and the flat tail.">
       <script type="application/json">
       {"totalLabel":"cumulative spend","periods":[
         {"label":"M1","spend":40},{"label":"M2","spend":60},{"label":"M3","spend":90},
@@ -211,6 +242,8 @@
       ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> A cost-loaded schedule makes the timing of financial exposure visible.</p>
+</section>
 
     <div class="lv f">
       <p>Two reasons this matters beyond the picture. First, finance needs it: a utility has to know when the cash goes out to plan draws and rate impacts, and a lumpy or front-loaded curve is a warning sign. Second, it is the foundation for tracking. When you compare what you planned to spend (this curve) with what you have actually earned and spent, you get earned value, the subject of a later chapter.</p>
@@ -269,12 +302,90 @@
     </div>
   </div>
 
-  <div class="navrow">
+
+  <section class="sec retrofit-evidence" aria-labelledby="evidence-05">
+    <span class="tag">Professional evidence</span>
+    <h2 id="evidence-05">Build the schedule basis memo</h2>
+    <p>This is the record you should be able to carry into utility work. Keep it short enough to review and specific enough that another person can understand the decision, the assumptions, and the evidence still missing.</p>
+    <section class="artifact-builder" data-artifact="schedule-basis-memo" data-required="work-product">
+      <label for="schedule-basis-memo-text"><b>Schedule basis memo</b><span>Record the data date, calendar, logic assumptions, critical path, near-critical paths, material constraints, and the evidence supporting the promised finish.</span></label>
+      <textarea id="schedule-basis-memo-text" rows="7" placeholder="Write a concise, reviewable record. Do not enter sensitive utility information."></textarea>
+    </section>
+    <section class="final-check" data-final-applied-check data-required="final-applied-check" data-artifact-ref="schedule-basis-memo">
+      <label for="schedule-basis-memo-check"><b>Final applied check</b><span>Which statement makes the schedule basis suitable for a status decision?</span></label>
+      <select id="schedule-basis-memo-check">
+        <option value="">Choose the evidence standard</option>
+        <option value="weak">The preferred result is recorded, even if assumptions remain implicit.</option>
+        <option value="ready">The logic, calendars, constraints, data date, and critical path are explicit and reviewable.</option>
+      </select>
+      <p id="schedule-basis-memo-feedback" aria-live="polite">Choose an answer after drafting the record.</p>
+    </section>
+    <div class="completion-requirements" aria-labelledby="requirements-05">
+      <h3 id="requirements-05">Visible completion requirements</h3>
+      <ul>
+        <li data-requirement="opening-decision">Complete the opening decision.</li>
+        <li data-requirement="knowledge-check-1">Complete the first knowledge check.</li>
+        <li data-requirement="knowledge-check-2">Complete the second knowledge check.</li>
+        <li data-requirement="work-product">Draft the schedule basis memo.</li>
+        <li data-requirement="final-applied-check">Pass the final applied check.</li>
+      </ul>
+      <button type="button" class="btn" data-complete disabled>Complete this chapter</button>
+    </div>
+  </section>
+
+  <section class="sec module-faq" data-module-faq aria-labelledby="faq-05">
+    <span class="tag">Questions people actually ask</span>
+    <h2 id="faq-05">Chapter 05 FAQ</h2>
+    <details><summary>Is every zero-float activity equally important?</summary><p>Every critical activity can affect the finish, but risk also depends on uncertainty, remaining duration, interfaces, and the credibility of the logic.</p></details>
+      <details><summary>Can the critical path change?</summary><p>Yes. Progress, delays, resequencing, and duration changes can move the controlling path. Recalculate it after meaningful updates.</p></details>
+      <details><summary>Why can shortening a task fail to shorten the project?</summary><p>The task may have float or another parallel path may still control the finish.</p></details>
+      <details><summary>What does lag represent?</summary><p>Lag is intentional waiting between linked activities, such as cure time. It should be explicit and justified rather than hidden inside a task duration.</p></details>
+      <details><summary>Is an S-curve proof that the schedule is realistic?</summary><p>No. It visualizes planned or actual cumulative value, but it inherits every weakness in the underlying scope, logic, durations, and cost loading.</p></details>
+  </section>
+
+  <section class="sec evidence-boundary" data-evidence-boundary aria-labelledby="boundary-05">
+    <span class="tag">Evidence boundary</span>
+    <h2 id="boundary-05">What this lesson can and cannot decide</h2>
+    <p>The Millpond examples and calculators are instructional models. They help you structure judgment, but they do not replace the current contract, adopted utility policy, funding conditions, applicable law, approved design basis, or a qualified professional review. Verify every live decision against controlled local evidence.</p>
+    <div class="source-links"><a href="https://www.gao.gov/products/gao-16-89g">GAO Schedule Assessment Guide</a>
+      <a href="https://www.pmi.org/standards/about">PMI standards</a>
+      <a href="https://www.gao.gov/products/gao-20-195g">GAO Cost Estimating and Assessment Guide</a></div>
+  </section>
+
+  <section id="owos-course-community" class="sec connected-learning" aria-labelledby="connected-05">
+    <span class="tag">Connected learning</span>
+    <h2 id="connected-05">Compare the decision, not just the answer</h2>
+    <p>Use the Community drawer to compare assumptions, evidence, and role perspectives without posting controlled project information.</p>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" hidden aria-labelledby="graph-title-05">
+    <div class="drawer-head"><h2 id="graph-title-05">Chapter 05 knowledge graph</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> critical path</p>
+      <p data-graph-kind="source"><b>Source:</b> schedule basis</p>
+      <p data-graph-kind="role"><b>Roles:</b> scheduler and project manager</p>
+      <p data-graph-kind="competency"><b>Competency:</b> schedule control</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> logic determines finish</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" hidden aria-labelledby="community-title-05">
+    <div class="drawer-head"><h2 id="community-title-05">Chapter 05 community</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <label data-community-feature="search">Search discussion <input type="search" placeholder="Search this chapter"></label>
+      <div data-community-feature="filters"><button type="button">Assumptions</button> <button type="button">Evidence</button> <button type="button">Role views</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this decision pattern</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Reply to the decision basis and name the evidence you would need.</p></div>
+      <p data-community-feature="presence"><b>Presence:</b> Peer discussion is available when the course platform is connected.</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor treatment:</b> Strong contributions separate source, assumption, recommendation, and authority.</p>
+    </div>
+  </aside>
+
+  <div class="navrow footnav">
     <a href="module-04-scope-and-requirements.html">&#8592; Chapter 04 &middot; Scope and requirements</a>
     <a class="btn" href="module-06-advanced-scheduling.html">Chapter 06 &middot; Advanced scheduling &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -284,5 +395,39 @@
 </footer>
 
 <script src="../../../core/components/academy.js"></script>
+<script>
+(function(){
+  var lastTrigger=null;
+  function openDrawer(kind,trigger){
+    var drawer=document.querySelector('[data-drawer="'+kind+'"]');
+    if(!drawer)return;
+    lastTrigger=trigger;drawer.hidden=false;
+    var close=drawer.querySelector('[data-close-drawer]');if(close)close.focus();
+  }
+  document.querySelectorAll('[data-open-graph]').forEach(function(b){b.addEventListener('click',function(){openDrawer('graph',b);});});
+  document.querySelectorAll('[data-open-community]').forEach(function(b){b.addEventListener('click',function(){openDrawer('community',b);});});
+  document.querySelectorAll('[data-close-drawer]').forEach(function(b){b.addEventListener('click',function(){b.closest('[data-drawer]').hidden=true;if(lastTrigger)lastTrigger.focus();});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var open=document.querySelector('[data-drawer]:not([hidden])');if(open){open.hidden=true;if(lastTrigger)lastTrigger.focus();}}});
+  var text=document.getElementById('schedule-basis-memo-text');
+  var check=document.getElementById('schedule-basis-memo-check');
+  var feedback=document.getElementById('schedule-basis-memo-feedback');
+  var complete=document.querySelector('[data-complete]');
+  function assess(){
+    var drafted=text&&text.value.trim().length>=40;
+    var ready=check&&check.value==='ready';
+    if(feedback){
+      if(!check.value)feedback.textContent='Choose an answer after drafting the record.';
+      else if(!ready)feedback.textContent='Not yet. A preferred result without explicit assumptions and evidence is not reviewable. Retry.';
+      else if(!drafted)feedback.textContent='That evidence standard is right. Add at least a short decision record before completion.';
+      else feedback.textContent='Ready for working review. The record and evidence standard are both present.';
+    }
+    if(complete)complete.disabled=!(drafted&&ready);
+  }
+  if(text){text.addEventListener('input',assess);}
+  if(check){check.addEventListener('change',assess);}
+  assess();
+})();
+</script>
+<div id="tt" role="tooltip"></div>
 </body>
 </html>

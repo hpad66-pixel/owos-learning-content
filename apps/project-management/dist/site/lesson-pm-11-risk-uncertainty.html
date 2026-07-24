@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 11 &middot; Risk and uncertainty &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 11 of the Project Management masterclass. Risk fundamentals, the probability-impact matrix, quantitative risk (EMV, decision trees, Monte Carlo), risk responses and reserves, and managing uncertainty and building resilience.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-11-risk-uncertainty">
+<meta name="owos-release-state" content="working-review">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,38 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+/* Project Management retrofit controls. The field-delivery teaching surface remains in academy.css. */
+.lesson-actions{display:flex;gap:6px;align-items:center;margin-left:auto}
+.lesson-actions a,.lesson-actions button{border:1px solid var(--line-2);border-radius:999px;background:#fff;padding:6px 10px;color:var(--ink-2);font:700 10px var(--fm);text-decoration:none;cursor:pointer}
+.lesson-actions a:hover,.lesson-actions button:hover,.lesson-actions a:focus-visible,.lesson-actions button:focus-visible{border-color:var(--brand);color:var(--brand);outline:2px solid var(--brand-100);outline-offset:2px}
+.owos-nav .crumb{margin-left:12px}
+[data-visual-type]{margin:24px 0;padding:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface-2)}
+[data-reading-guide],[data-learner-conclusion]{margin:0;padding:10px 12px;border-radius:11px;font-size:13.5px;line-height:1.55}
+[data-reading-guide]{border:1px solid var(--brand-100);background:var(--brand-50);color:var(--ink)}
+[data-learner-conclusion]{border:1px solid #bfe0d4;background:var(--green-50);color:#086b50}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.role-grid article{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.role-grid b{color:var(--ink)}.role-grid p{margin:5px 0 0;font-size:13px;line-height:1.5}
+.evidence-card ul,.requirement-list{padding-left:20px}.evidence-card li,.requirement-list li{margin:7px 0}
+.evidence-card a{color:var(--brand-700)}
+.completion-card{border-color:var(--brand-100);background:var(--brand-50)}
+.completion-status{display:inline-block;margin-left:10px;font:600 11px var(--fm);color:var(--ink-3)}
+.requirement-list li.done{color:var(--green);font-weight:700}
+.course-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:120;background:#fff;box-shadow:-14px 0 38px rgba(15,23,40,.2);transform:translateX(105%);visibility:hidden;transition:transform .22s ease,visibility 0s linear .22s}
+.course-drawer.open{transform:translateX(0);visibility:visible;transition:transform .22s ease}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--brand-800);color:#fff}
+.drawer-head h2{margin:0;color:#fff;font-size:1.15rem}.drawer-head button{border:1px solid rgba(255,255,255,.65);border-radius:8px;background:transparent;padding:7px 10px;color:#fff;font-weight:700;cursor:pointer}
+.drawer-body{height:calc(100% - 70px);overflow:auto;padding:18px}.drawer-body>p,.drawer-body>div,.drawer-body>label,.drawer-body>button{display:block;margin:0 0 11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--ink-2)}
+.community-tools input{display:block;width:100%;margin-top:7px;border:1px solid var(--line-2);border-radius:8px;padding:8px;font:inherit}.community-tools button{border:1px solid var(--line-2);border-radius:8px;background:#fff;padding:7px 10px;color:var(--ink-2);font-weight:700;cursor:pointer;margin:3px}
+.connected-learning{margin:28px 0 18px;padding:16px 18px;border:1px solid var(--brand-100);border-radius:14px;background:var(--brand-50)}.connected-learning b{color:var(--ink)}.connected-learning p{margin:5px 0 0}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+body.drawer-open{overflow:hidden}
+@media(max-width:900px){.lesson-actions{order:3;width:100%;justify-content:flex-end}.owos-nav{height:auto;min-height:64px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.wrap{padding-top:34px}}
+@media(max-width:700px){.role-grid{grid-template-columns:1fr}.lesson-actions{justify-content:flex-start}.owos-nav .crumb{margin-left:auto}[data-visual-type]{padding:8px}.completion-status{display:block;margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){.course-drawer{transition:none}}
+
+</style>
 </head>
 <body>
 
@@ -589,10 +625,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 11</b></span>
+  <span class="lesson-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 11 &middot; Quality and risk</span>
   <h1>Risk: managing what <span>might</span> happen</h1>
@@ -605,7 +642,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">The job we are de-risking</p>
@@ -644,8 +681,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   <div class="sec">
     <span class="tag">2 / 5</span>
     <h2>Qualitative: score and rank</h2>
-    <p>Before you spend a dollar analyzing risks, you sort them fast on two simple questions: how <b>likely</b> is it, and how <b>bad</b> if it happens? That is <span class="term" data-term="Qualitative risk analysis" data-def="A quick assessment of each risk by probability and impact, usually on a simple scale, to rank them and decide which deserve deeper analysis or action.">qualitative analysis</span>, and it lives on a probability-impact matrix. Tap each Millpond risk to see where it lands and what to do about it.</p>
+    <p data-instructor-explanation data-teaches="pm11-risk-grid">Before you spend a dollar analyzing risks, you sort them fast on two simple questions: how <b>likely</b> is it, and how <b>bad</b> if it happens? That is <span class="term" data-term="Qualitative risk analysis" data-def="A quick assessment of each risk by probability and impact, usually on a simple scale, to rank them and decide which deserve deeper analysis or action.">qualitative analysis</span>, and it lives on a probability-impact matrix. Tap each Millpond risk to see where it lands. Read the upper-right corner first because that is where likely and severe risks demand action.</p>
 
+    <div id="pm11-risk-grid" data-visual-type="heat-grid" data-component-source="component-gallery">
+      <p data-reading-guide><b>How to read it:</b> likelihood increases from left to right and impact increases from bottom to top. Select each risk and compare its location with the response shown.</p>
     <div data-ac="grid" data-title="The Millpond risk matrix" data-kind="Interactive &middot; probability-impact grid" data-cue="Top-right is where your attention goes first: likely and severe. Bottom-left you simply watch. The matrix turns a long list into a short action plan.">
       <script type="application/json">
       {"xLabel":"Likelihood","yLabel":"Impact",
@@ -664,6 +703,8 @@ input[type=range]{width:100%;accent-color:var(--brand)}
        ]}
       </script>
     </div>
+      <p data-learner-conclusion>The matrix does not calculate certainty. It concentrates attention on the risks whose combination of likelihood and consequence warrants action first.</p>
+    </div>
   </div>
 
   <!-- ===================== SECTION 3 ===================== -->
@@ -672,7 +713,9 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <h2>Quantitative: put a dollar on it</h2>
     <p>For the risks that matter, you go further and attach real numbers. The workhorse is <span class="term" data-term="EMV" data-def="Expected Monetary Value = probability times impact. A 30% chance of a $200k hit has an EMV of $60k. It lets you compare risks and decisions on a common dollar footing.">Expected Monetary Value (EMV)</span>: probability times impact. It sounds abstract until you use it to make a decision. Work one out.</p>
 
-    <div data-ac="estimate" data-title="Compute the EMV" data-kind="Quiz &middot; estimate" data-cue="EMV is just probability times impact. Nothing fancier.">
+    <p data-instructor-explanation data-teaches="pm11-emv-check">Use the estimate check to turn the probability and cost into one comparable exposure. Move the value to your answer, check it, and use the feedback to repair the multiplication if needed.</p>
+    <div id="pm11-emv-check" data-ac="estimate" data-quiz-type="estimate" data-quiz-source="quiz-gallery" data-required="knowledge-check" data-retry="Multiply the probability as a decimal by the dollar impact, then try again." data-title="Compute the EMV" data-kind="Quiz &middot; estimate" data-cue="EMV is just probability times impact. Nothing fancier.">
+      <span class="sr-only" aria-live="polite">Expected Monetary Value feedback appears after checking the estimate.</span>
       <script type="application/json">
       {"q":"The utility-conflict risk has a 30% chance of costing $200,000. Drag to its Expected Monetary Value, then check.",
        "min":0,"max":200000,"step":10000,"start":0,"answer":60000,"tol":0,"unit":"$",
@@ -680,7 +723,9 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       </script>
     </div>
 
-    <div data-ac="mc" data-title="Use EMV to decide" data-kind="Quiz &middot; multiple choice">
+    <p data-instructor-explanation data-teaches="pm11-emv-decision">Now use the calculated exposure in a real decision. Compare the certain prevention cost with the risk-weighted loss, choose the defensible action, and read the explanation before moving on.</p>
+    <div id="pm11-emv-decision" data-ac="mc" data-quiz-type="multiple-choice" data-quiz-source="quiz-gallery" data-required="knowledge-check" data-retry="Compare the $40,000 prevention cost with the $60,000 expected exposure, then choose again." data-title="Use EMV to decide" data-kind="Quiz &middot; multiple choice">
+      <span class="sr-only" aria-live="polite">Risk-decision feedback appears after selecting an answer.</span>
       <script type="application/json">
       {"q":"You can pay $40,000 now to pothole and reroute around the suspected utility conflict, removing the risk. The risk untreated is a 30% chance of a $200,000 hit (EMV $60,000). What does EMV say?",
        "options":[
@@ -702,6 +747,13 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="tag">4 / 5</span>
     <h2>Responses and reserves</h2>
     <p>Once a risk is understood, you choose a response. For threats there are four: <b>avoid</b> (remove the cause), <b>transfer</b> (shift it to someone else), <b>mitigate</b> (reduce the probability or impact), or <b>accept</b> (live with it, with a plan). Opportunities have mirror images (exploit, enhance, share, accept). Match each move.</p>
+
+    <p data-instructor-explanation data-teaches="pm11-response-table">Use this comparison before sorting the examples. Read across each row from what changes to the Millpond example. The key distinction is whether the cause disappears, the financial burden moves, the exposure shrinks, or the team deliberately lives with it.</p>
+    <div id="pm11-response-table" data-visual-type="comparison-table" data-component-source="component-gallery">
+      <p data-reading-guide><b>How to read it:</b> start with the response verb, then test what happens to the original uncertainty.</p>
+      <div style="overflow:auto"><table><thead><tr><th>Response</th><th>What changes</th><th>Millpond example</th></tr></thead><tbody><tr><td>Avoid</td><td>Remove the cause</td><td>Reroute around the conflict</td></tr><tr><td>Transfer</td><td>Shift financial exposure</td><td>Use insurance or a bond</td></tr><tr><td>Mitigate</td><td>Reduce likelihood or impact</td><td>Order valves early</td></tr><tr><td>Accept</td><td>Retain and monitor exposure</td><td>Watch a minor specification risk</td></tr></tbody></table></div>
+      <p data-learner-conclusion>A response is defensible only when the team can say exactly what it changes and who still owns the remaining exposure.</p>
+    </div>
 
     <div data-ac="classify" data-title="Which threat response?" data-kind="Quiz &middot; classify" data-cue="Avoid removes it, transfer shifts it, mitigate shrinks it, accept lives with it.">
       <script type="application/json">
@@ -769,6 +821,26 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
+  <section class="sec">
+    <h2>Build the risk decision record</h2>
+    <p>Use one Millpond risk, or a non-sensitive risk from your own work. First run the response gate. Then write the compact record that an owner, sponsor, and reviewer can use without reconstructing your reasoning from memory.</p>
+    <p data-instructor-explanation data-teaches="pm11-response-gate">The gate tests the sequence of a defensible response. Step through the source, exposure, authority, and residual-risk checks. Notice that a response is not complete merely because somebody named a mitigation.</p>
+    <div id="pm11-response-gate" data-ac="applicability" data-purposeful-interaction="risk-response-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-quiz-type="scenario-gate" data-quiz-source="applied-assessment-contract" data-retry="Run every gate and identify the evidence or authority that is still missing." data-title="Risk response gate" data-kind="Interactive decision gate">
+      <span class="sr-only" aria-live="polite">Risk-response gate feedback appears as each gate is run.</span>
+      <script type="application/json">{"scenarios":[{"label":"Utility conflict","authority":"Millpond risk register and project authority","facts":"A utility conflict has a 30 percent probability and a $200,000 impact. Potholing costs $40,000.","gates":[{"label":"Defined event","state":"pass","detail":"The uncertain event and affected work are specific."},{"label":"Exposure","state":"pass","detail":"Probability, impact, and Expected Monetary Value are visible."},{"label":"Authorized response","state":"review","detail":"The project manager must confirm who can authorize the prevention spend."},{"label":"Residual risk","state":"review","detail":"The record must state what uncertainty remains after potholing."}],"result":"MITIGATE WITH AUTHORITY AND RESIDUAL RISK RECORDED.","resultClass":"review","basis":"Do not close the risk until the approved response and remaining exposure are visible."}],"boundary":"This teaching gate structures a risk discussion. The approved project plan, contract, delegated authority, and current evidence govern a real decision."}</script>
+    </div>
+
+    <div data-ac="artifactbuilder" data-artifact="risk-decision-record" data-purposeful-interaction="risk-decision-record-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Risk decision record" data-kind="Work product &middot; risk decision record" data-cue="Write the event, exposure, response, owner, trigger, and residual risk.">
+      <script type="application/json">{"key":"pm11-risk-decision-record","notice":"Use non-sensitive instructional text. Transfer a real risk decision into the utility's controlled project system.","fields":[{"id":"event","label":"Risk event and cause","help":"Write the uncertain event and cause in one testable sentence.","placeholder":"If the unknown utility crosses the alignment..."},{"id":"exposure","label":"Probability and impact","help":"Record the basis, probability, consequence, and Expected Monetary Value where useful.","placeholder":"30 percent chance of..."},{"id":"response","label":"Approved response","help":"Name avoid, transfer, mitigate, or accept and the specific action.","placeholder":"Mitigate by..."},{"id":"owner","label":"Owner and authority","help":"Name who owns the response and who can authorize the cost or change.","placeholder":"Owner... Authority..."},{"id":"trigger","label":"Trigger and review date","help":"State what event causes action and when the risk will be reviewed.","placeholder":"Trigger... Review..."},{"id":"residual","label":"Residual risk and reserve","help":"State what remains after the response and which reserve or contingency applies.","placeholder":"After response, the remaining exposure is..."}],"template":"RISK DECISION RECORD\n\nEvent and cause\n{event}\n\nExposure\n{exposure}\n\nApproved response\n{response}\n\nOwner and authority\n{owner}\n\nTrigger and review\n{trigger}\n\nResidual risk and reserve\n{residual}"}</script>
+    </div>
+
+    <p data-instructor-explanation data-teaches="pm11-final-check">Use the final check against the record you produced. Select only the elements that make the decision traceable and actionable. If the record relies on memory, return to the builder and repair it.</p>
+    <div id="pm11-final-check" data-ac="multi" data-quiz-type="risk-record-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="risk-decision-record" data-required="final-check" data-retry="Add the missing exposure, authority, trigger, or residual-risk evidence and check again." data-title="Final risk-record gate" data-kind="Final applied check">
+      <span class="sr-only" aria-live="polite">Final risk-record feedback appears after checking the selected items.</span>
+      <script type="application/json">{"q":"Which elements must be visible before the risk decision record is ready for review?","options":[["A defined uncertain event and consequence",true],["The probability and impact basis",true],["A named response owner and authority",true],["A trigger, review point, and residual risk",true],["A promise that the team will remember it",false]],"ok":"The record connects the uncertainty, exposure, authorized action, and remaining risk.","no":"A defensible record needs the event, exposure, authority, action, trigger, and residual risk. Memory is not a control."}</script>
+    </div>
+  </section>
+
   <!-- ===================== RECAP ===================== -->
   <div class="sec">
     <h2>What to carry out of this chapter</h2>
@@ -785,12 +857,43 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec" data-module-faq>
+    <h2>Questions people ask about project risk</h2>
+    <details><summary>When does a risk become an issue?</summary><p>A risk is uncertain. An issue has happened. If the long-lead valve misses its promised ship date, move it from the risk register into the issue and action process while retaining the original risk history.</p></details>
+    <details><summary>Does a high risk score prove the project should stop?</summary><p>No. The score tells you where attention is needed. A high-scoring trench conflict may be manageable through potholing, redesign, reserve, or a different alignment. The decision still depends on evidence, authority, and alternatives.</p></details>
+    <details><summary>Why use Expected Monetary Value when the loss will never equal the average?</summary><p>Expected Monetary Value is a comparison tool across repeated or portfolio decisions. The Millpond conflict will cost either little or much, not exactly $60,000. The $60,000 helps compare prevention, reserve, and competing exposures.</p></details>
+    <details><summary>Can contingency reserve cover an unidentified surprise?</summary><p>Contingency normally covers identified uncertainty inside the baseline. A genuinely unidentified surprise may require management reserve or a new authorized change, depending on the utility's controls.</p></details>
+    <details><summary>Who owns a project risk?</summary><p>The named owner is the person accountable for watching the trigger and carrying out the response. That does not automatically give the owner authority to spend money or change the baseline, so the record must name both ownership and decision authority.</p></details>
+  </section>
+
+  <section class="sec role-strip" aria-labelledby="pm11-role-title">
+    <h2 id="pm11-role-title">What changes by role</h2>
+    <div class="role-grid"><article data-lens="foundation"><b>Foundation</b><p>Separate risks from issues and read probability, impact, response, and reserve.</p></article><article data-lens="practitioner"><b>Practitioner</b><p>Quantify exposure, assign owners, set triggers, and monitor residual risk.</p></article><article data-lens="leader"><b>Leader</b><p>Set risk appetite, authorize reserves, and protect honest escalation before exposure becomes loss.</p></article></div>
+  </section>
+
+  <section class="sec evidence-card" data-evidence-boundary>
+    <h2>Evidence boundary</h2>
+    <p>This lesson teaches general project-risk methods through the instructional Millpond scenario. A real project's approved risk-management plan, delegated authority, contract, cost basis, schedule, and current field evidence govern the decision. The examples do not predict an actual loss.</p>
+    <ul><li><a href="https://www.pmi.org/standards">Project Management Institute standards</a></li><li><a href="SYLLABUS.md">Project Delivery course syllabus</a></li><li><a href="COURSE-EXPERIENCE-BRIEF.md">Project Delivery experience brief</a></li></ul>
+  </section>
+
+  <section class="sec completion-card" aria-labelledby="pm11-completion-title">
+    <h2 id="pm11-completion-title">Completion evidence</h2>
+    <ul class="requirement-list"><li data-requirement="opening-decision">Review the Millpond risk situation.</li><li data-requirement="knowledge-check">Complete the Expected Monetary Value checks.</li><li data-requirement="applied-interaction">Run the risk-response gate.</li><li data-requirement="work-product">Complete the risk decision record.</li><li data-requirement="final-check">Pass the final risk-record gate.</li></ul>
+    <button type="button" class="btn" data-complete disabled>Complete Module 11</button><span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm11-graph-title"><div class="drawer-head"><h2 id="pm11-graph-title">Module 11 graph</h2><button type="button" data-close-drawer aria-label="Close graph">Close</button></div><div class="drawer-body"><p data-graph-kind="concept"><b>Concept:</b> risk exposure and resilience</p><p data-graph-kind="source"><b>Source:</b> risk register, estimate, schedule, and field evidence</p><p data-graph-kind="role"><b>Role:</b> owner, project manager, sponsor, and response owner</p><p data-graph-kind="competency"><b>Competency:</b> select and document a proportionate response</p><p data-graph-kind="relationship"><b>Relationship:</b> uncertain event to exposure to response to residual risk</p></div></aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true" aria-labelledby="pm11-community-title"><div class="drawer-head"><h2 id="pm11-community-title">Project delivery community</h2><button type="button" data-close-drawer aria-label="Close community">Close</button></div><div class="drawer-body community-tools"><label data-community-feature="search">Search discussions<input type="search" placeholder="Risk, reserve, trigger"></label><div data-community-feature="filters"><button type="button">Risk</button><button type="button">Reserves</button></div><button type="button" data-community-feature="bookmarks">Bookmark this discussion</button><div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare how utility teams define triggers and residual risk.</p></div><p data-community-feature="presence">Practitioners reviewing this topic: project managers, estimators, sponsors</p><p data-community-feature="instructor-treatment"><b>Instructor note:</b> discuss methods without posting controlled project risks.</p></div></aside>
+  <div id="owos-course-community" class="connected-learning" tabindex="-1"><b>Continue the risk conversation</b><p>Use Graph to follow the exposure-to-response chain. Use Community to compare methods without exposing controlled project information.</p></div>
+  <div id="tt" role="tooltip" hidden></div>
+
+  <div class="navrow footnav">
     <a href="lesson-pm-10-quality-management.html">&#8592; Chapter 10 &middot; Quality management</a>
     <a class="btn" href="lesson-pm-12-teams-stakeholders-communication.html">Chapter 12 &middot; Teams, stakeholders and communication &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1107,10 +1210,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2135,6 +2242,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2144,8 +2270,96 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  var lastTrigger=null;
+
+  function drawer(kind){
+    return document.querySelector('[data-drawer="'+kind+'"]');
+  }
+
+  function closeDrawer(panel){
+    if(!panel)return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden","true");
+    document.body.classList.remove("drawer-open");
+    if(lastTrigger)lastTrigger.focus();
+  }
+
+  function openDrawer(kind,trigger){
+    var panel=drawer(kind);
+    if(!panel)return;
+    document.querySelectorAll("[data-drawer].open").forEach(function(other){
+      other.classList.remove("open");
+      other.setAttribute("aria-hidden","true");
+    });
+    lastTrigger=trigger;
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden","false");
+    document.body.classList.add("drawer-open");
+    var close=panel.querySelector("[data-close-drawer]");
+    if(close)close.focus();
+  }
+
+  function requirementComplete(value){
+    var target=document.querySelector('[data-required="'+value+'"]');
+    if(!target)return false;
+    if(value==="opening-decision")return true;
+    if(value==="applied-interaction"){
+      if(target.querySelector(".exdone.on"))return true;
+      var run=target.querySelector("[data-run]");
+      return !!(run&&run.disabled);
+    }
+    if(value==="work-product"){
+      var textareas=target.querySelectorAll("textarea");
+      if(textareas.length)return Array.prototype.every.call(textareas,function(field){return field.value.trim().length>0;});
+      var rows=target.querySelectorAll(".at-item");
+      return rows.length>0&&Array.prototype.every.call(rows,function(row){return row.getAttribute("data-state")==="3";});
+    }
+    if(value==="final-check")return !!target.querySelector(".ac-fb.on.ok");
+    return false;
+  }
+
+  function updateCompletion(){
+    var values=["opening-decision","applied-interaction","work-product","final-check"];
+    var all=true;
+    values.forEach(function(value){
+      var done=requirementComplete(value);
+      all=all&&done;
+      var row=document.querySelector('[data-requirement="'+value+'"]');
+      if(row)row.classList.toggle("done",done);
+    });
+    var button=document.querySelector("[data-complete]");
+    var status=document.querySelector("[data-completion-status]");
+    var nextStatus=all?"All required evidence is complete.":"Complete the required evidence above.";
+    if(button&&button.disabled===all)button.disabled=!all;
+    if(status&&status.textContent!==nextStatus)status.textContent=nextStatus;
+  }
+
+  document.querySelectorAll("[data-open-graph]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("graph",button);});
+  });
+  document.querySelectorAll("[data-open-community]").forEach(function(button){
+    button.addEventListener("click",function(){openDrawer("community",button);});
+  });
+  document.querySelectorAll("[data-close-drawer]").forEach(function(button){
+    button.addEventListener("click",function(){closeDrawer(button.closest("[data-drawer]"));});
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape")closeDrawer(document.querySelector("[data-drawer].open"));
+  });
+  document.addEventListener("input",updateCompletion);
+  document.addEventListener("click",function(){window.setTimeout(updateCompletion,0);});
+  new MutationObserver(updateCompletion).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","data-state","disabled"]});
+  updateCompletion();
 })();
 
 </script>

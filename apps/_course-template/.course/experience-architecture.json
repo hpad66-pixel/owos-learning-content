@@ -1,0 +1,32 @@
+{
+  "minimum_archetypes": 3,
+  "full_module_conformance": {
+    "lesson_directory": "curriculum",
+    "brief_directory": "curriculum/design-briefs",
+    "qa_directory": "qa",
+    "script_directory": "curriculum/scripts",
+    "contract": ".course/full-module-contract.json",
+    "script_policy": "if-present"
+  },
+  "thresholds": {
+    "maximum_archetype_share": 0.33,
+    "maximum_identical_quiz_sequence_count": 2,
+    "maximum_identical_interaction_signature_count": 2,
+    "maximum_adjacent_structural_similarity": 0.82,
+    "maximum_repeated_faq_question_count": 2,
+    "maximum_repeated_instructor_paragraph_count": 3,
+    "factory_pattern_share": 0.4
+  },
+  "lessons": {
+    "module-01-example.html": {
+      "archetype": "replace-with-learning-archetype",
+      "signature_mechanism": "replace-with-subject-specific-mechanism",
+      "opening": "replace-with-opening-pattern",
+      "work_product_mode": "replace-with-work-product",
+      "evidence": {
+        "brief": "curriculum/design-briefs/module-01-example.md",
+        "qa": "qa/module-01-example-quality-control-report.md"
+      }
+    }
+  }
+}

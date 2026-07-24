@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 02 &middot; Delivery and life cycles &middot; One Water OS Academy</title>
 <meta name="description" content="Chapter 2 of the Project Management masterclass. How work gets delivered: predictive to adaptive life cycles, phase gates, and the four delivery methods (DBB, DB, CMAR, PDB), worked through one real lift station job.">
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-02-delivery-and-life-cycles">
+<meta name="owos-release-state" content="working">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,7 @@
   --sh-lg:0 4px 6px -2px rgba(15,23,40,.05),0 16px 40px -12px rgba(15,23,40,.16);
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--f);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;padding-top:64px}
 h1,h2,h3{color:var(--ink);font-weight:800;letter-spacing:-.022em;line-height:1.14}
 h1{font-size:clamp(32px,4.2vw,48px);letter-spacing:-.028em;line-height:1.09;margin:0 0 14px}h1 span{color:var(--brand)}
@@ -579,6 +583,12 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 @media (prefers-reduced-motion:reduce){.fin,.lphase{transition:none}}
 
 </style>
+<style>
+.course-actions{margin-left:auto;display:flex;gap:.45rem;align-items:center}.course-actions a,.course-actions button{border:1px solid #bfd6e5;background:#fff;color:#123047;border-radius:999px;padding:.45rem .72rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.role-views,.artifact-builder,.final-check,.completion-requirements,.governed-visual,.module-faq details,.evidence-boundary,.connected-learning{border:1px solid #d7e3ec;border-radius:16px;background:#fff;padding:1rem;margin:1rem 0}.role-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.role-views article{background:#f4f8fb;border-radius:12px;padding:.85rem}.artifact-builder label,.final-check label{display:grid;gap:.35rem}.artifact-builder textarea,.final-check select,.course-drawer input{width:100%;box-sizing:border-box;margin-top:.6rem;padding:.75rem;border:1px solid #9eb4c4;border-radius:10px;font:inherit}.reading-guide,.learner-conclusion{background:#f4f8fb;border-left:4px solid #0a78ba;padding:.8rem 1rem}.source-links{display:flex;flex-wrap:wrap;gap:.6rem}.source-links a{font-weight:700}.course-drawer{position:fixed;inset:0 0 0 auto;width:min(430px,100%);z-index:1000;background:#fff;box-shadow:-18px 0 48px rgba(8,35,55,.25);overflow:auto}.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#123b5d;color:#fff;padding:1rem}.drawer-head h2{color:#fff;margin:0;font-size:1.15rem}.drawer-head button{background:#fff;color:#123047;border:0;border-radius:999px;padding:.5rem .8rem}.drawer-body{display:grid;gap:.8rem;padding:1rem}.drawer-body [data-community-feature]{border:1px solid #d7e3ec;border-radius:10px;padding:.75rem}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}#tt{position:fixed;left:-9999px}.module-faq details summary{cursor:pointer;font-weight:800}.module-faq details p{margin-bottom:0}
+@media (max-width:760px){.course-actions{width:100%;margin:0;flex-wrap:wrap}.role-views{grid-template-columns:1fr}.owos-nav{flex-wrap:wrap}.governed-visual,.artifact-builder,.final-check,.completion-requirements{padding:.8rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
 
@@ -589,10 +599,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="course-project-management.html">Masterclass</a> / <b>Ch 02</b></span>
+  <div class="course-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></div>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 02 &middot; Fundamentals</span>
   <h1>How work gets <span>delivered</span>, and how it flows</h1>
@@ -604,6 +615,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <button data-lens="l">Leader</button>
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core so you can move fast. Leader shows only the call you have to get right. Try the buttons, the page changes.</p>
+  <section class="role-views" aria-label="Role-sensitive views">
+    <article data-lens="foundation"><b>Foundation</b><p>Learn the plain-language distinction and use it on the Millpond example.</p></article>
+    <article data-lens="practitioner"><b>Practitioner</b><p>Make the decision, retain the evidence, and surface the assumption that could change it.</p></article>
+    <article data-lens="leader"><b>Leader</b><p>Confirm authority, consequence, and the threshold for approving or escalating the decision.</p></article>
+  </section>
 
   <div class="casebox">
     <span class="pin">&#9873;</span>
@@ -663,7 +679,7 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       <p>Match the life cycle to how much you actually know. Forcing a fixed, plan-it-all-up-front approach onto the uncertain part of a job is how you buy a pile of change orders.</p>
     </div>
 
-    <div data-ac="spectrum" data-title="Where does this work sit?" data-kind="Interactive &middot; spectrum" data-cue="Millpond's pumps and wet well sit near the left. Its controls tie-in sits near the right. Most jobs live in the middle.">
+    <div data-ac="spectrum" id="opening-02" data-opening-decision data-required="opening-decision" data-purposeful-interaction="life-cycle-position" data-component-source="component-gallery" data-title="Where does this work sit?" data-kind="Interactive &middot; spectrum" data-cue="Millpond's pumps and wet well sit near the left. Its controls tie-in sits near the right. Most jobs live in the middle.">
       <script type="application/json">
       {"left":"Predictive (plan it all first)","right":"Adaptive (work in loops)","start":25,
        "zones":[
@@ -694,7 +710,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
     <p>Walk the predictive line on the Millpond job below. Watch how money and risk climb as you pass each gate, which is exactly why the gate before an expensive phase is worth taking seriously.</p>
 
-    <div data-ac="process" data-title="Walk Millpond through a predictive life cycle" data-kind="Interactive &middot; phase-gate" data-cue="Click each phase. The gate is where you confirm the work is ready before you spend the next, larger pile of money.">
+    <p data-instructor-explanation data-teaches="delivery-gates">The gate flow shows where uncertainty should be reduced before money and construction authority increase.</p>
+
+<section id="delivery-gates" class="governed-visual" data-visual-type="phase-gate" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Read left to right and stop at each gate. Ask what evidence is needed before the next commitment becomes expensive.</p>
+<div data-ac="process" data-title="Walk Millpond through a predictive life cycle" data-kind="Interactive &middot; phase-gate" data-cue="Click each phase. The gate is where you confirm the work is ready before you spend the next, larger pile of money.">
       <script type="application/json">
       {"gate":true,"phases":[
         {"title":"Plan","sub":"decide it is worth doing","detail":"<b>Plan.</b> Confirm the need, the budget, and the rough scope. At Millpond, this is where you agree the station is failing badly enough to rebuild rather than patch, and you set a not-to-exceed budget for the program."},
@@ -705,6 +725,8 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> A gate is useful only when evidence can still change the decision.</p>
+</section>
 
     <h3>Why the gate matters: the cost of catching it late</h3>
     <p>Those gates are not paperwork. They exist because the cost to fix a problem grows fast the later you find it. A missed detail on the Millpond controls is cheap to fix on paper, painful once steel is in the ground, and brutal after the station is running. Click through the stages and watch the multiplier climb.</p>
@@ -729,7 +751,11 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     <p><span class="term" data-term="DBB" data-def="Design-Bid-Build: the owner hires a designer to complete the drawings, then bids the finished design to contractors, and the low bidder builds it. Three steps, separate contracts.">Design-Bid-Build (DBB)</span> is the traditional path: design it fully, bid it, build it, in three separate steps. <span class="term" data-term="DB" data-def="Design-Build: one firm holds a single contract for both design and construction, so there is one point of responsibility.">Design-Build (DB)</span> puts design and construction under one contract with one firm. <span class="term" data-term="CMAR" data-def="Construction Manager at Risk: the builder joins during design as an advisor, then commits to a Guaranteed Maximum Price and builds it. Two contracts, but early builder input.">Construction Manager at Risk (CMAR)</span> brings the builder in early to advise during design, then that builder commits to a price and constructs it. <span class="term" data-term="PDB" data-def="Progressive Design-Build: a design-build team is hired early on qualifications, the design and price are developed together and openly, then the team progresses into construction.">Progressive Design-Build (PDB)</span> is a design-build team hired early on qualifications, developing the design and price with you step by step.</p>
     <p>One more term you will see in those contracts: a <span class="term" data-term="GMP" data-def="Guaranteed Maximum Price: a cap the builder commits to. Costs above it are the builder's problem; savings below it are usually shared or returned to the owner.">Guaranteed Maximum Price (GMP)</span> is a cap the builder promises not to exceed. It shows up in CMAR and PDB.</p>
 
-    <div data-ac="table" data-title="Compare the four" data-kind="Interactive &middot; comparison table" data-cue="Click any method name for how it would play out on the Millpond job.">
+    <p data-instructor-explanation data-teaches="delivery-comparison">The table exposes the tradeoffs hidden behind delivery-method labels.</p>
+
+<section id="delivery-comparison" class="governed-visual" data-visual-type="comparison-table" data-component-source="component-gallery">
+  <p class="reading-guide" data-reading-guide><b>How to read it:</b> Compare control, speed, price timing, and owner capacity across methods instead of searching for one universally best method.</p>
+<div data-ac="table" data-title="Compare the four" data-kind="Interactive &middot; comparison table" data-cue="Click any method name for how it would play out on the Millpond job.">
       <script type="application/json">
       {"headers":["Method","Owner control of design","Speed","Price certainty early","Builder input in design"],
        "rows":[
@@ -744,6 +770,8 @@ input[type=range]{width:100%;accent-color:var(--brand)}
        ]}
       </script>
     </div>
+  <p class="learner-conclusion" data-learner-conclusion><b>What this proves:</b> The best method is the one that fits the work, authority, market, and owner capability.</p>
+</section>
 
     <h3>The rules you actually work under</h3>
     <p>Delivery choice is not a free pick. In Florida, how you buy design and how you buy construction are governed separately, and that shapes what is even on the table.</p>
@@ -805,7 +833,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 
     <h3>Check what stuck</h3>
 
-    <div data-ac="order" data-title="Put the choice in order" data-kind="Quiz &middot; ordering" data-cue="Nudge each row until the sequence matches how you should actually work the decision.">
+    <p data-instructor-explanation data-teaches="delivery-selection-order">Put the selection steps in the order that keeps drivers and legal authority ahead of preference. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="order" id="delivery-selection-order" data-quiz-type="ordering" data-required="knowledge-check-1" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Put the choice in order" data-kind="Quiz &middot; ordering" data-cue="Nudge each row until the sequence matches how you should actually work the decision.">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"q":"Order the steps for choosing a delivery method, first to last.",
        "items":["Name your top driver","Rate how clear the scope is","Check your own staff capacity","Check your procurement rules","Match the method and write down why"],
@@ -814,7 +845,10 @@ input[type=range]{width:100%;accent-color:var(--brand)}
       </script>
     </div>
 
-    <div data-ac="classify" data-title="Predictive or adaptive?" data-kind="Quiz &middot; classify" data-cue="Ask: is the scope known and stable, or will it change as we learn?">
+    <p data-instructor-explanation data-teaches="life-cycle-classification">Classify each work package by how much can be known before execution begins. Read the explanatory feedback before retrying so the correction becomes part of the method.</p>
+
+<div data-ac="classify" id="life-cycle-classification" data-quiz-type="classification" data-required="knowledge-check-2" data-quiz-source="quiz-gallery" data-retry="Review the explanation, revise the reasoning, and retry." data-title="Predictive or adaptive?" data-kind="Quiz &middot; classify" data-cue="Ask: is the scope known and stable, or will it change as we learn?">
+      <span class="sr-only" aria-live="polite">Feedback appears after you answer.</span>
       <script type="application/json">
       {"buckets":["Predictive","Adaptive"],
        "items":[
@@ -872,12 +906,90 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     </div>
   </div>
 
-  <div class="navrow">
+
+  <section class="sec retrofit-evidence" aria-labelledby="evidence-02">
+    <span class="tag">Professional evidence</span>
+    <h2 id="evidence-02">Build the delivery method decision record</h2>
+    <p>This is the record you should be able to carry into utility work. Keep it short enough to review and specific enough that another person can understand the decision, the assumptions, and the evidence still missing.</p>
+    <section class="artifact-builder" data-artifact="delivery-method-record" data-required="work-product">
+      <label for="delivery-method-record-text"><b>Delivery method decision record</b><span>Record the dominant driver, scope uncertainty, owner capacity, procurement authority, selected life cycle, selected delivery method, and why the combination fits.</span></label>
+      <textarea id="delivery-method-record-text" rows="7" placeholder="Write a concise, reviewable record. Do not enter sensitive utility information."></textarea>
+    </section>
+    <section class="final-check" data-final-applied-check data-required="final-applied-check" data-artifact-ref="delivery-method-record">
+      <label for="delivery-method-record-check"><b>Final applied check</b><span>Which statement makes the delivery record defensible?</span></label>
+      <select id="delivery-method-record-check">
+        <option value="">Choose the evidence standard</option>
+        <option value="weak">The preferred result is recorded, even if assumptions remain implicit.</option>
+        <option value="ready">The method follows the project facts and authority, with the tradeoff written down.</option>
+      </select>
+      <p id="delivery-method-record-feedback" aria-live="polite">Choose an answer after drafting the record.</p>
+    </section>
+    <div class="completion-requirements" aria-labelledby="requirements-02">
+      <h3 id="requirements-02">Visible completion requirements</h3>
+      <ul>
+        <li data-requirement="opening-decision">Complete the opening decision.</li>
+        <li data-requirement="knowledge-check-1">Complete the first knowledge check.</li>
+        <li data-requirement="knowledge-check-2">Complete the second knowledge check.</li>
+        <li data-requirement="work-product">Draft the delivery method decision record.</li>
+        <li data-requirement="final-applied-check">Pass the final applied check.</li>
+      </ul>
+      <button type="button" class="btn" data-complete disabled>Complete this chapter</button>
+    </div>
+  </section>
+
+  <section class="sec module-faq" data-module-faq aria-labelledby="faq-02">
+    <span class="tag">Questions people actually ask</span>
+    <h2 id="faq-02">Chapter 02 FAQ</h2>
+    <details><summary>Are life cycle and delivery method the same thing?</summary><p>No. The life cycle describes how the work is planned and learned. The delivery method describes the contractual relationships used to design and build it.</p></details>
+      <details><summary>Is Design-Build always faster?</summary><p>It can overlap design and construction, but actual speed depends on approvals, owner decisions, procurement, permitting, and the quality of the performance requirements.</p></details>
+      <details><summary>When is adaptive work useful on a capital project?</summary><p>Use short learning loops where conditions or interfaces cannot be known confidently in advance, while keeping safety, compliance, and construction controls explicit.</p></details>
+      <details><summary>Can a utility choose any delivery method it prefers?</summary><p>No. State law, local procurement rules, funding conditions, and delegated authority can limit the available choices.</p></details>
+      <details><summary>Why write down the selection rationale?</summary><p>Because the rationale preserves the decision when staff changes and lets later reviewers distinguish a deliberate tradeoff from habit.</p></details>
+  </section>
+
+  <section class="sec evidence-boundary" data-evidence-boundary aria-labelledby="boundary-02">
+    <span class="tag">Evidence boundary</span>
+    <h2 id="boundary-02">What this lesson can and cannot decide</h2>
+    <p>The Millpond examples and calculators are instructional models. They help you structure judgment, but they do not replace the current contract, adopted utility policy, funding conditions, applicable law, approved design basis, or a qualified professional review. Verify every live decision against controlled local evidence.</p>
+    <div class="source-links"><a href="https://www.fhwa.dot.gov/construction/contracts/acm/">FHWA Alternative Contracting Methods</a>
+      <a href="https://www.flsenate.gov/Laws/Statutes/2025/287.055">Florida Consultants' Competitive Negotiation Act</a>
+      <a href="https://www.pmi.org/standards/about">PMI standards</a></div>
+  </section>
+
+  <section id="owos-course-community" class="sec connected-learning" aria-labelledby="connected-02">
+    <span class="tag">Connected learning</span>
+    <h2 id="connected-02">Compare the decision, not just the answer</h2>
+    <p>Use the Community drawer to compare assumptions, evidence, and role perspectives without posting controlled project information.</p>
+  </section>
+
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" hidden aria-labelledby="graph-title-02">
+    <div class="drawer-head"><h2 id="graph-title-02">Chapter 02 knowledge graph</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <p data-graph-kind="concept"><b>Concept:</b> life cycle</p>
+      <p data-graph-kind="source"><b>Source:</b> delivery method</p>
+      <p data-graph-kind="role"><b>Roles:</b> project manager</p>
+      <p data-graph-kind="competency"><b>Competency:</b> delivery selection</p>
+      <p data-graph-kind="relationship"><b>Relationship:</b> uncertainty and authority constrain choice</p>
+    </div>
+  </aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" hidden aria-labelledby="community-title-02">
+    <div class="drawer-head"><h2 id="community-title-02">Chapter 02 community</h2><button type="button" data-close-drawer>Close</button></div>
+    <div class="drawer-body">
+      <label data-community-feature="search">Search discussion <input type="search" placeholder="Search this chapter"></label>
+      <div data-community-feature="filters"><button type="button">Assumptions</button> <button type="button">Evidence</button> <button type="button">Role views</button></div>
+      <button type="button" data-community-feature="bookmarks">Bookmark this decision pattern</button>
+      <div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Reply to the decision basis and name the evidence you would need.</p></div>
+      <p data-community-feature="presence"><b>Presence:</b> Peer discussion is available when the course platform is connected.</p>
+      <p data-community-feature="instructor-treatment"><b>Instructor treatment:</b> Strong contributions separate source, assumption, recommendation, and authority.</p>
+    </div>
+  </aside>
+
+  <div class="navrow footnav">
     <a href="lesson-pm-01-what-is-a-project.html">&#8592; Chapter 01 &middot; What a project is</a>
     <a class="btn" href="lesson-pm-03-governance-integration-tailoring.html">Chapter 03 &middot; Governance, integration and tailoring &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -1194,10 +1306,14 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     rng.addEventListener('input',upd);upd();
   };
 
-  R.table=function(el){var c=cfgOf(el);var rows=c.rows||[];
+  R.table=function(el){var c=cfgOf(el);var headers=c.headers||c.cols||[];
+    var rows=(c.rows||[]).map(function(row){
+      if(Array.isArray(row))return {name:row[0]||'',cells:row.slice(1),detail:''};
+      return row||{name:'',cells:[],detail:''};
+    });
     function cell(cv){if(Array.isArray(cv))return '<span class="lvl '+cv[0]+'">'+cv[1]+'</span>';return cv;}
     var b=shell(el,'<div class="cmpwrap"><table class="cmp"><thead><tr>'+
-      (c.headers||[]).map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+      headers.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
       rows.map(function(r,i){return '<tr data-i="'+i+'"><td class="m">'+r.name+'</td>'+
         (r.cells||[]).map(function(cv){return '<td>'+cell(cv)+'</td>';}).join('')+'</tr>';}).join('')+
       '</tbody></table></div><div class="cmpdetail" data-detail></div>');
@@ -2222,6 +2338,25 @@ input[type=range]{width:100%;accent-color:var(--brand)}
   };
 
   /* ---- boot ---- */
+  function initDrawerKeyboard(){
+    var lastTrigger=null;
+    document.addEventListener('click',function(event){
+      var trigger=event.target.closest('[data-open-graph],[data-open-community],#openGraphHero');
+      if(trigger)lastTrigger=trigger;
+    },true);
+    document.addEventListener('keydown',function(event){
+      if(event.key!=='Escape')return;
+      document.querySelectorAll('[data-drawer]').forEach(function(drawer){
+        var isVisible=!drawer.hidden||drawer.classList.contains('open')||drawer.getAttribute('aria-hidden')==='false';
+        if(!isVisible)return;
+        drawer.hidden=true;
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+      });
+      document.body.classList.remove('drawer-open');
+      if(lastTrigger)lastTrigger.focus();
+    });
+  }
   function boot(){
     injectDroobi();
     document.querySelectorAll('[data-ac]').forEach(function(el){
@@ -2231,10 +2366,45 @@ input[type=range]{width:100%;accent-color:var(--brand)}
     });
     initTooltips();
     initChrome();
+    initDrawerKeyboard();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 
 </script>
+<script>
+(function(){
+  var lastTrigger=null;
+  function openDrawer(kind,trigger){
+    var drawer=document.querySelector('[data-drawer="'+kind+'"]');
+    if(!drawer)return;
+    lastTrigger=trigger;drawer.hidden=false;
+    var close=drawer.querySelector('[data-close-drawer]');if(close)close.focus();
+  }
+  document.querySelectorAll('[data-open-graph]').forEach(function(b){b.addEventListener('click',function(){openDrawer('graph',b);});});
+  document.querySelectorAll('[data-open-community]').forEach(function(b){b.addEventListener('click',function(){openDrawer('community',b);});});
+  document.querySelectorAll('[data-close-drawer]').forEach(function(b){b.addEventListener('click',function(){b.closest('[data-drawer]').hidden=true;if(lastTrigger)lastTrigger.focus();});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var open=document.querySelector('[data-drawer]:not([hidden])');if(open){open.hidden=true;if(lastTrigger)lastTrigger.focus();}}});
+  var text=document.getElementById('delivery-method-record-text');
+  var check=document.getElementById('delivery-method-record-check');
+  var feedback=document.getElementById('delivery-method-record-feedback');
+  var complete=document.querySelector('[data-complete]');
+  function assess(){
+    var drafted=text&&text.value.trim().length>=40;
+    var ready=check&&check.value==='ready';
+    if(feedback){
+      if(!check.value)feedback.textContent='Choose an answer after drafting the record.';
+      else if(!ready)feedback.textContent='Not yet. A preferred result without explicit assumptions and evidence is not reviewable. Retry.';
+      else if(!drafted)feedback.textContent='That evidence standard is right. Add at least a short decision record before completion.';
+      else feedback.textContent='Ready for working review. The record and evidence standard are both present.';
+    }
+    if(complete)complete.disabled=!(drafted&&ready);
+  }
+  if(text){text.addEventListener('input',assess);}
+  if(check){check.addEventListener('change',assess);}
+  assess();
+})();
+</script>
+<div id="tt" role="tooltip"></div>
 </body>
 </html>

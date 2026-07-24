@@ -4,12 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Chapter 19 &middot; Program and portfolio management &middot; One Water OS Academy</title>
+<meta name="owos-course-id" content="owos-master-project-delivery-001">
+<meta name="owos-learning-object" content="pm-19-program-portfolio">
+<meta name="owos-release-state" content="working-review">
 <meta name="description" content="Chapter 19 of the Project Management masterclass. Program management and benefit realization, portfolio prioritization, resource leveling across projects, and organizational project management maturity.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 5C32 5 12 30 12 43a20 20 0 0 0 40 0C52 30 32 5 32 5Z' fill='%230A78BA'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../core/components/academy.css">
+<link rel="stylesheet" href="project-retrofit.css">
 </head>
 <body>
 
@@ -20,10 +24,11 @@
     <span class="owos-pw">Academy &middot; <em>PM</em></span>
   </a>
   <span class="crumb"><a href="masterclass-project-management.html">Masterclass</a> / <b>Ch 19</b></span>
+  <span class="lesson-actions"><button type="button" data-open-graph>Graph</button><button type="button" data-open-community>Community</button><a href="#lesson-start">Start</a></span>
 </nav>
 <div id="rprog"></div>
 
-<div class="wrap">
+<main class="wrap" id="lesson-start">
 
   <span class="hpill"><span class="d"></span> Chapter 19 &middot; Above the project</span>
   <h1>Program and <span>portfolio</span> management</h1>
@@ -36,7 +41,7 @@
   </div>
   <p class="lenshint">Full is the whole lesson. Plain trims to the core. Leader shows only the call you have to get right. Try the buttons, the page changes. Hover any dotted term for a plain definition.</p>
 
-  <div class="casebox">
+  <div class="casebox" data-opening-decision data-required="opening-decision">
     <span class="pin">&#9873;</span>
     <div>
       <p class="h">Zooming out from one job</p>
@@ -267,12 +272,37 @@
     </div>
   </div>
 
-  <div class="navrow">
+  <section class="sec">
+    <h2>Write the portfolio recommendation</h2>
+    <p data-instructor-explanation data-teaches="pm19-priority-map">Use the map to separate urgency from strategic value. A compliance or safety project can demand action even when its financial return looks modest, while a high-value discretionary project may wait because the portfolio lacks money or people.</p>
+    <div id="pm19-priority-map" data-visual-type="two-by-two" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> urgency rises vertically and strategic value rises horizontally. Confirm mandatory constraints before comparing discretionary projects.</p><div style="overflow:auto"><table><thead><tr><th></th><th>Lower strategic value</th><th>Higher strategic value</th></tr></thead><tbody><tr><th>Higher urgency</th><td>Fund the minimum safe or compliant response</td><td>Fund and protect capacity</td></tr><tr><th>Lower urgency</th><td>Defer, reshape, or stop</td><td>Sequence when funding and resources permit</td></tr></tbody></table></div><p data-learner-conclusion>Portfolio priority combines obligation, consequence, value, readiness, funding, and delivery capacity.</p></div>
+    <p data-instructor-explanation data-teaches="pm19-capacity-grid">Read the capacity grid by shared role, not by project. Red in the inspector row means several individually reasonable schedules cannot all be true at the same time.</p>
+    <div id="pm19-capacity-grid" data-visual-type="heat-grid" data-component-source="component-gallery"><p data-reading-guide><b>How to read it:</b> scan each scarce role across projects and compare demand with real weekly capacity.</p><div style="overflow:auto"><table><thead><tr><th>Shared role</th><th>Project A</th><th>Project B</th><th>Project C</th><th>Decision</th></tr></thead><tbody><tr><td>Inspectors</td><td>High</td><td>High</td><td>High</td><td>Level starts</td></tr><tr><td>Operators</td><td>Medium</td><td>Low</td><td>High</td><td>Protect tie-in windows</td></tr><tr><td>Procurement</td><td>High</td><td>Medium</td><td>High</td><td>Sequence solicitations</td></tr></tbody></table></div><p data-learner-conclusion>Resource leveling changes timing because a portfolio cannot spend the same person's week three times.</p></div>
+    <p data-instructor-explanation data-teaches="pm19-portfolio-gate">Run the portfolio gate before writing the recommendation. It checks obligation, scoring basis, capacity, funding, and the benefits that depend on coordinated projects.</p>
+    <div id="pm19-portfolio-gate" data-ac="applicability" data-purposeful-interaction="portfolio-investment-gate" data-component-source="shared-component-library" data-required="applied-interaction" data-quiz-type="portfolio-gate" data-quiz-source="applied-assessment-contract" data-retry="Run every gate and identify the missing obligation, score, capacity, funding, or benefit dependency." data-title="Portfolio investment gate" data-kind="Interactive decision gate"><span class="sr-only" aria-live="polite">Portfolio-gate feedback appears as each gate is run.</span><script type="application/json">{"scenarios":[{"label":"Annual capital plan","authority":"Utility board and approved capital-planning policy","facts":"Demand exceeds available funding and several projects need the same inspectors.","gates":[{"label":"Mandatory obligations","state":"review","detail":"Confirm current compliance, safety, and service obligations first."},{"label":"Transparent scoring","state":"pass","detail":"Weights and evidence are visible before project scoring."},{"label":"Delivery capacity","state":"review","detail":"Inspector and operator demand exceeds available weeks."},{"label":"Program benefit","state":"review","detail":"Related projects must be sequenced to deliver the pressure-zone benefit."}],"result":"RESEQUENCE BEFORE RECOMMENDING THE FUNDED PLAN.","resultClass":"review","basis":"A funded list without delivery capacity is not an executable portfolio."}],"boundary":"This teaching gate does not approve a capital plan. Current policy, finance, obligations, and authorized governance decide."}</script></div>
+    <div data-ac="artifactbuilder" data-artifact="portfolio-recommendation" data-purposeful-interaction="portfolio-recommendation-builder" data-component-source="shared-component-library" data-required="work-product" data-title="Portfolio recommendation" data-kind="Work product &middot; investment recommendation"><script type="application/json">{"key":"pm19-portfolio-recommendation","notice":"Use non-sensitive instructional text. A real capital recommendation belongs in approved planning and governance records.","fields":[{"id":"objective","label":"Portfolio objective and constraints","help":"Name service goals, obligations, funding, and capacity.","placeholder":"This plan must..."},{"id":"criteria","label":"Criteria and weights","help":"State the approved scoring basis and evidence.","placeholder":"Risk... compliance..."},{"id":"programs","label":"Program dependencies","help":"Name projects whose benefit depends on coordinated delivery.","placeholder":"Benefit arrives when..."},{"id":"capacity","label":"Resource and market capacity","help":"State scarce roles, contractors, and feasible timing.","placeholder":"Inspectors..."},{"id":"recommendation","label":"Fund, sequence, defer, or stop","help":"Give the recommendation and reason for each material choice.","placeholder":"Fund... defer..."},{"id":"review","label":"Review triggers","help":"State what change would reopen the decision.","placeholder":"Revisit if..."}],"template":"PORTFOLIO RECOMMENDATION\n\nObjective and constraints\n{objective}\n\nCriteria and weights\n{criteria}\n\nProgram dependencies\n{programs}\n\nCapacity\n{capacity}\n\nRecommendation\n{recommendation}\n\nReview triggers\n{review}"}</script></div>
+    <p data-instructor-explanation data-teaches="pm19-final-check">Use the final check to test whether the recommendation is executable, not merely attractive on a scoring sheet.</p>
+    <div id="pm19-final-check" data-ac="multi" data-quiz-type="portfolio-brief-gate" data-quiz-source="applied-assessment-contract" data-final-applied-check data-artifact-ref="portfolio-recommendation" data-required="final-check" data-retry="Add the missing objective, criteria, dependencies, capacity, recommendation, or review trigger and check again." data-title="Final portfolio-recommendation gate" data-kind="Final applied check"><span class="sr-only" aria-live="polite">Final portfolio feedback appears after checking the selected items.</span><script type="application/json">{"q":"What must the portfolio recommendation show?","options":[["Objectives, obligations, and constraints",true],["Transparent criteria and weights",true],["Program dependencies and delivery capacity",true],["Fund, sequence, defer, or stop decisions with review triggers",true],["A ranked list that ignores available people",false]],"ok":"The recommendation connects strategy, obligation, capacity, and decision.","no":"Repair the constraints, criteria, dependencies, capacity, decisions, and review triggers."}</script></div>
+  </section>
+  <section class="sec" data-module-faq><h2>Questions people ask about programs and portfolios</h2>
+    <details><summary>What is the simplest difference between a project, program, and portfolio?</summary><p>A project delivers one defined result. A program coordinates related projects to realize a shared benefit. A portfolio chooses and balances all approved work against strategy and constraints.</p></details>
+    <details><summary>Should the highest-scoring project always be funded first?</summary><p>No. Mandatory obligations, readiness, dependencies, funding restrictions, risk concentration, and delivery capacity can change the sequence.</p></details>
+    <details><summary>Does resource leveling mean adding staff?</summary><p>No. Leveling moves work to fit available capacity. Adding qualified capacity is a separate decision with cost, time, and market limits.</p></details>
+    <details><summary>Why publish the scoring weights?</summary><p>The weights express policy choices. Agreeing them before project scores are known makes the comparison more transparent and reduces project-by-project bargaining.</p></details>
+    <details><summary>When should a project be stopped instead of deferred?</summary><p>Stop when the need no longer exists, the benefit cannot be realized, the project conflicts with strategy, or a better response replaces it. Defer when the case remains sound but timing or capacity does not.</p></details>
+  </section>
+  <section class="sec role-strip"><h2>What changes by role</h2><div class="role-grid"><article data-lens="foundation"><b>Foundation</b><p>Separate project, program, and portfolio decisions.</p></article><article data-lens="practitioner"><b>Practitioner</b><p>Build scores, dependencies, capacity views, and executable sequences.</p></article><article data-lens="leader"><b>Leader</b><p>Set transparent priorities and make the stop, defer, or capacity decisions.</p></article></div></section>
+  <section class="sec evidence-card" data-evidence-boundary><h2>Evidence boundary</h2><p>This lesson uses instructional projects and simplified scoring. A real capital plan follows current utility strategy, obligations, finance, rate impacts, grant restrictions, asset evidence, delivery capacity, and authorized governance.</p><ul><li><a href="https://www.pmi.org/standards">Project Management Institute standards</a></li><li><a href="SYLLABUS.md">Project Delivery course syllabus</a></li><li><a href="COURSE-EXPERIENCE-BRIEF.md">Project Delivery experience brief</a></li></ul></section>
+  <section class="sec completion-card"><h2>Completion evidence</h2><ul class="requirement-list"><li data-requirement="opening-decision">Review the portfolio constraint.</li><li data-requirement="applied-interaction">Run the portfolio investment gate.</li><li data-requirement="work-product">Complete the portfolio recommendation.</li><li data-requirement="final-check">Pass the final portfolio gate.</li></ul><button type="button" class="btn" data-complete disabled>Complete Module 19</button><span class="completion-status" data-completion-status aria-live="polite">Complete the required evidence above.</span></section>
+  <aside class="course-drawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Module 19 graph</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body"><p data-graph-kind="concept"><b>Concept:</b> portfolio choice and program benefit</p><p data-graph-kind="source"><b>Source:</b> strategy, obligation, score, funding, capacity</p><p data-graph-kind="role"><b>Role:</b> board, executive, program manager, resource owner</p><p data-graph-kind="competency"><b>Competency:</b> recommend an executable capital portfolio</p><p data-graph-kind="relationship"><b>Relationship:</b> objective to project choice to capacity to benefit</p></div></aside>
+  <aside class="course-drawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Project delivery community</h2><button type="button" data-close-drawer>Close</button></div><div class="drawer-body community-tools"><label data-community-feature="search">Search discussions<input type="search" placeholder="Portfolio, program, capacity"></label><div data-community-feature="filters"><button type="button">Portfolio</button><button type="button">Capacity</button></div><button type="button" data-community-feature="bookmarks">Bookmark this discussion</button><div data-community-feature="threaded-replies"><b>Threaded replies</b><p>Compare transparent prioritization methods.</p></div><p data-community-feature="presence">Practitioners reviewing: capital planners, program managers, finance leaders</p><p data-community-feature="instructor-treatment"><b>Instructor note:</b> do not post nonpublic capital-plan details.</p></div></aside>
+  <div id="owos-course-community" class="connected-learning" tabindex="-1"><b>Continue the portfolio conversation</b><p>Use Graph to follow strategy into executable choices. Use Community to compare methods safely.</p></div><div id="tt" role="tooltip" hidden></div>
+  <div class="navrow footnav">
     <a href="module-18-asset-management-digital-resilience.html">&#8592; Chapter 18 &middot; Asset management and resilience</a>
     <a class="btn" href="module-20-capstone-agentic-pm.html">Chapter 20 &middot; Capstone with Droobi &#8594;</a>
   </div>
 
-</div>
+</main>
 
 <footer class="foot">
   <div class="in">
@@ -282,5 +312,6 @@
 </footer>
 
 <script src="../../../core/components/academy.js"></script>
+<script src="project-retrofit.js"></script>
 </body>
 </html>

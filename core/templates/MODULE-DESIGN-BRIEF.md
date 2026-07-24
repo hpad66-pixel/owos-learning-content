@@ -35,14 +35,18 @@
 
 | Element | Selection |
 | --- | --- |
+| Lesson archetype | |
+| Signature mechanism | |
+| Course visual language applied here | |
+| Intended learner feeling | |
 | Narrative architecture | |
 | Mental model | |
 | Purposeful interaction 1 | |
 | Purposeful interaction 2 | |
-| Visual types, minimum four | |
+| Explanatory visuals, normally two to five | |
 | Visual pacing plan and any prose exception | |
 | Original editorial illustration, when appropriate | |
-| Quiz sequence, minimum three types | |
+| Assessment sequence and cognitive jobs | |
 | Distributed assessment locations | |
 | Final applied work-product check | |
 | Role-sensitive treatment | |
@@ -63,6 +67,15 @@
 | Major component | What the learner sees | What the learner does | What to notice | Utility meaning | Debrief needed |
 | --- | --- | --- | --- | --- | --- |
 | | | | | | |
+
+## Written-first review
+
+- Approximate conversational teaching words:
+- Worked utility example and marker:
+- Misconception addressed:
+- Boundary or non-example:
+- Component debriefs:
+- What remains if every video and animation is removed:
 
 ## Visual pacing review
 
@@ -105,12 +118,16 @@
 ## Diversity check
 
 - Adjacent module reviewed:
+- Course Experience Brief reviewed:
+- Lesson archetype differs from adjacent modules:
+- Signature mechanism is unique to this lesson:
 - Opening pattern intentionally different:
 - Dominant visual intentionally different:
 - Interaction pair intentionally different:
 - Quiz sequence intentionally different:
 - Work-product format intentionally different:
 - Any justified repetition:
+- Course-level distinctiveness result:
 
 ## Approval
 

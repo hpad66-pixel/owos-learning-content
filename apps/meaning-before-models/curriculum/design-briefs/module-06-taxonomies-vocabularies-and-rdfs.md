@@ -1,5 +1,10 @@
 # OWOS Module Design Brief: Taxonomies, Vocabularies, and RDFS
 
+Retrofit implementation: classification studio using `comparison-table`, `tree`, and
+`failure-propagation-chain`. The assessment sequence is `definition-route`, `hierarchy-repair`,
+`domain-range-diagnosis`, and `classification-defense`. The learner repairs subclass, instance, and
+part relationships and tests domain and range. The work product is a Governed Vocabulary Sheet.
+
 ## Identity
 | Field | Decision |
 | --- | --- |

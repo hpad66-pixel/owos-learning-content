@@ -1,7 +1,7 @@
 ---
 module_id: mbm001:07
 course_id: owos-course-semantic-data-ai-001
-version: production-candidate-1
+version: semantic-fieldbook-retrofit-1
 review_date: 2026-07-23
 reviewer: Codex repository review
 score: 86
@@ -11,6 +11,12 @@ release_status: blocked
 ---
 
 # Module Quality-Control Report: Ontology Engineering in Plain Language
+
+## Retrofit implementation review
+- Rebuilt as a competency-question modeling workshop.
+- Verified mechanisms: bounded ontology-slice construction and unsafe-equivalence change review.
+- Verified work product: Ontology Decision Record with tests, exclusions, reuse decision, and change trigger.
+- Score remains conditional pending ontology-practitioner, novice, accessibility, and device reviews.
 
 ## Decision
 - Working-review result: Conditional production candidate.
