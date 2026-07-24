@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="e1944952447f3db6448c8d72b1039e9ba5540a44e2db3e575b4ccb0d2dc494e5">
+  <meta name="owos-package-checksum" content="023673fec7d16ed64d561a0aea5a9f04fea19040666b29aeeb9f13ba67ddbad9">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -990,6 +990,66 @@ footer {
   font-size: .9rem;
 }
 
+.docket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.docket-card {
+  border: 1px solid #b9c9d3;
+  border-top: 5px solid var(--orange);
+  background: #fffdf8;
+  padding: 1rem;
+  border-radius: .35rem;
+}
+
+.docket-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.docket-source {
+  color: #6d3d12;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.docket-card dl div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: .5rem;
+  border-top: 1px solid #dce5e9;
+  padding: .4rem 0;
+}
+
+.docket-card dt { font-weight: 800; }
+.docket-card dd { margin: 0; }
+.docket-card.passed { border-color: #15865f; background: #eefaf5; }
+.docket-card.failed { border-color: #b94343; background: #fff3f0; }
+
+.graph-lab-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.6fr); gap: 1rem; align-items: start; }
+.source-shelf, .graph-stage, .question-console { border: 1px solid var(--line); border-radius: 18px; padding: 1rem; background: #f8fafc; }
+.source-shelf { display: grid; gap: .65rem; }
+.source-shelf h4, .question-console h4 { margin: 0; }
+.source-packet { width: 100%; text-align: left; display: grid; gap: .25rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .75rem; color: #172033; cursor: pointer; }
+.source-packet span, .source-packet small { color: #526077; }
+.source-packet.active { border-color: #0f766e; background: #ecfdf5; box-shadow: inset 4px 0 #0f766e; }
+.graph-stage { min-height: 24rem; background: #101c2d; color: #f8fafc; border-color: #253957; }
+.graph-stage-header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .7rem; border-bottom: 1px solid #3a4b65; }
+.graph-stage-header span { color: #9ee7dc; font-size: .88rem; }
+.statement-ledger { display: grid; gap: .48rem; padding-top: .8rem; }
+.ledger-statement { display: grid; grid-template-columns: 8rem 1fr; gap: .65rem; padding: .56rem; border-radius: 9px; background: #172943; }
+.ledger-statement span { color: #fbbf24; font-size: .78rem; font-weight: 800; }
+.ledger-statement code { color: #f8fafc; white-space: normal; }
+.empty-state { color: #cbd5e1; }
+.question-console { margin-top: 1rem; }
+.question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+.graph-question { display: grid; gap: .35rem; text-align: left; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .8rem; color: #172033; cursor: pointer; }
+.graph-question.answered { border-color: #0f766e; background: #ecfdf5; }
+.query-result { margin-top: .8rem; padding: .9rem; border-left: 5px solid #f59e0b; background: #fff7ed; color: #3b2615; display: grid; gap: .3rem; }
+
 @media (max-width: 760px) {
   .shell {
     width: min(100% - 24px, 1140px);
@@ -1051,6 +1111,32 @@ footer {
   .route-grid,
   .repair-fields {
     grid-template-columns: 1fr;
+  }
+
+  .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-lab-layout,
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-stage {
+    min-height: 0;
+  }
+
+  .ledger-statement {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-card:last-child {
+    grid-column: auto;
+  }
+
+  .docket-card dl div {
+    grid-template-columns: 1fr;
+    gap: .1rem;
   }
 
   .match-row,
@@ -1841,6 +1927,109 @@ footer {
       feedback.className = `feedback ${correct ? "good" : "bad"}`;
       if (correct) mark(bench.dataset.completion);
     });
+  });
+
+  document.querySelectorAll("[data-identity-adjudication]").forEach((docket) => {
+    const records = [...docket.querySelectorAll("[data-docket-record]")];
+    const feedback = docket.querySelector("[data-feedback]");
+    docket.querySelector("[data-check-docket]")?.addEventListener("click", () => {
+      let correct = 0;
+      records.forEach((record) => {
+        const passed = record.querySelector("select").value === record.dataset.answer;
+        record.classList.toggle("passed", passed);
+        record.classList.toggle("failed", !passed);
+        record.querySelector("[data-item-feedback]").textContent = passed
+          ? `Finding accepted. ${record.dataset.explanation}`
+          : "That finding does not fit the evidence. Separate the physical asset from records about it, and preserve contradictions.";
+        if (passed) correct += 1;
+      });
+      if (correct === records.length) {
+        feedback.textContent = "Docket complete. Approved identity, related records, and the unresolved conflict remain visibly different.";
+        feedback.className = "feedback good";
+        mark(docket.dataset.completion);
+      } else {
+        feedback.textContent = `${correct} of ${records.length} findings are supported. Review the evidence and retry.`;
+        feedback.className = "feedback bad";
+      }
+    });
+    docket.querySelector("[data-reset-docket]")?.addEventListener("click", () => {
+      records.forEach((record) => {
+        record.querySelector("select").value = "";
+        record.classList.remove("passed", "failed");
+        record.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "Review all five records.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-graph-growth-lab]").forEach((lab) => {
+    const sources = JSON.parse(lab.dataset.sourceStatements || "[]");
+    const loaded = new Set();
+    const tested = new Set();
+    const ledger = lab.querySelector("[data-statement-ledger]");
+    const count = lab.querySelector("[data-graph-count]");
+    const result = lab.querySelector("[data-query-result]");
+    const feedback = lab.querySelector("[data-feedback]");
+
+    function renderLedger() {
+      const statements = sources.filter((source) => loaded.has(source.source))
+        .flatMap((source) => source.statements.map((statement) => ({ ...statement, source: source.source })));
+      count.textContent = `${statements.length} statements loaded from ${loaded.size} source packets`;
+      ledger.innerHTML = statements.length
+        ? statements.map((statement) => `<article class="ledger-statement"><span>${statement.source}</span><code>${statement.subject} → ${statement.predicate} → ${statement.object}</code></article>`).join("")
+        : '<p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p>';
+      lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+        const active = loaded.has(button.dataset.sourcePacket);
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        const source = button.dataset.sourcePacket;
+        loaded.has(source) ? loaded.delete(source) : loaded.add(source);
+        tested.clear();
+        lab.querySelectorAll("[data-graph-question]").forEach((question) => question.classList.remove("answered"));
+        result.textContent = "The graph changed. Test the competency questions again.";
+        renderLedger();
+      });
+    });
+
+    lab.querySelectorAll("[data-graph-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const requires = JSON.parse(button.dataset.requires || "[]");
+        const missing = requires.filter((source) => !loaded.has(source));
+        tested.add(button.dataset.graphQuestion);
+        if (missing.length) {
+          result.innerHTML = `<strong>Not answerable yet.</strong><span>Missing reviewed statements from: ${missing.join(", ")}.</span>`;
+          button.classList.remove("answered");
+        } else {
+          result.innerHTML = `<strong>${button.dataset.answer}</strong><span>Evidence path: ${button.dataset.path}</span>`;
+          button.classList.add("answered");
+        }
+        const allAnswerable = [...lab.querySelectorAll("[data-graph-question]")].every((question) => {
+          const needed = JSON.parse(question.dataset.requires || "[]");
+          return tested.has(question.dataset.graphQuestion) && needed.every((source) => loaded.has(source));
+        });
+        feedback.textContent = allAnswerable
+          ? "All three questions are answerable through explicit, source-bounded paths."
+          : "Keep growing the graph until every question has a complete evidence path.";
+        feedback.className = `feedback ${allAnswerable ? "good" : ""}`;
+        if (allAnswerable) mark(lab.dataset.completion);
+      });
+    });
+
+    lab.querySelector("[data-reset-graph]")?.addEventListener("click", () => {
+      loaded.clear();
+      tested.clear();
+      result.textContent = "No question tested yet.";
+      lab.querySelectorAll("[data-graph-question]").forEach((button) => button.classList.remove("answered"));
+      renderLedger();
+    });
+    renderLedger();
   });
 
   document.querySelectorAll("[data-work-product]").forEach((form) => {

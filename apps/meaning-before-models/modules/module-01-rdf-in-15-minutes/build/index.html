@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="1.0.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="11eb2966db7cfda9f9055561cc6c1c336e628e874a537734ab416766caa9b72b">
+  <meta name="owos-package-checksum" content="c61ffe8fad4b8e9d5004bf8b6b002a14153c549aca3895ec67ae0295fdca23ef">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -325,6 +325,264 @@ textarea:focus-visible {
 
 .callout p {
   margin: 0;
+}
+
+.match-grid,
+.multi-grid,
+.triage-grid {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.match-row select,
+.triage-card select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.correct-field {
+  border-color: var(--good) !important;
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, .12);
+}
+
+.incorrect-field {
+  border-color: var(--bad) !important;
+}
+
+.multi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.select-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.select-option input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.select-option.selected-correct {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.select-option.selected-incorrect {
+  border-color: var(--bad);
+  background: #fff3f1;
+}
+
+.signature-component {
+  border-color: #8db9b5;
+  box-shadow: 0 18px 50px rgba(20, 125, 136, .13);
+}
+
+.triage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.triage-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #ffffff, #f4faf8);
+}
+
+.triage-card h4 {
+  margin: 4px 0 6px;
+  font-size: 1.08rem;
+}
+
+.triage-card p {
+  color: var(--muted);
+}
+
+.triage-number,
+.failure-label {
+  color: var(--teal);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.triage-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.triage-card.incorrect-card {
+  border-color: #d69a93;
+}
+
+.item-feedback {
+  min-height: 42px;
+  margin-top: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.failure-lab {
+  display: grid;
+  grid-template-columns: minmax(210px, .38fr) minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.failure-trigger {
+  grid-column: 1;
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.failure-trigger span {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.failure-trigger.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.failure-result {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.failure-result[hidden] {
+  display: none;
+}
+
+.failure-result ol {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 24px;
+}
+
+.failure-result p {
+  color: #e4f0f5;
+}
+
+.route-grid,
+.repair-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.route-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-card,
+.repair-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfdfc;
+}
+
+.route-card h4 {
+  margin: 5px 0;
+}
+
+.route-card .button.active {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.repair-card {
+  border-left: 6px solid #9eb8b8;
+}
+
+.repair-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.repair-card.incorrect-card {
+  border-color: var(--bad);
+  background: #fff8f7;
+}
+
+.broken-statement {
+  margin: 10px 0 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #102a43;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.repair-fields {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 14px;
+}
+
+.repair-fields label {
+  display: grid;
+  gap: 6px;
+  font-weight: 750;
+}
+
+.repair-fields select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+}
+
+.good-text {
+  color: var(--good);
+}
+
+.bad-text {
+  color: var(--bad);
 }
 
 .learning-visual {
@@ -732,6 +990,66 @@ footer {
   font-size: .9rem;
 }
 
+.docket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.docket-card {
+  border: 1px solid #b9c9d3;
+  border-top: 5px solid var(--orange);
+  background: #fffdf8;
+  padding: 1rem;
+  border-radius: .35rem;
+}
+
+.docket-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.docket-source {
+  color: #6d3d12;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.docket-card dl div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: .5rem;
+  border-top: 1px solid #dce5e9;
+  padding: .4rem 0;
+}
+
+.docket-card dt { font-weight: 800; }
+.docket-card dd { margin: 0; }
+.docket-card.passed { border-color: #15865f; background: #eefaf5; }
+.docket-card.failed { border-color: #b94343; background: #fff3f0; }
+
+.graph-lab-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.6fr); gap: 1rem; align-items: start; }
+.source-shelf, .graph-stage, .question-console { border: 1px solid var(--line); border-radius: 18px; padding: 1rem; background: #f8fafc; }
+.source-shelf { display: grid; gap: .65rem; }
+.source-shelf h4, .question-console h4 { margin: 0; }
+.source-packet { width: 100%; text-align: left; display: grid; gap: .25rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .75rem; color: #172033; cursor: pointer; }
+.source-packet span, .source-packet small { color: #526077; }
+.source-packet.active { border-color: #0f766e; background: #ecfdf5; box-shadow: inset 4px 0 #0f766e; }
+.graph-stage { min-height: 24rem; background: #101c2d; color: #f8fafc; border-color: #253957; }
+.graph-stage-header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .7rem; border-bottom: 1px solid #3a4b65; }
+.graph-stage-header span { color: #9ee7dc; font-size: .88rem; }
+.statement-ledger { display: grid; gap: .48rem; padding-top: .8rem; }
+.ledger-statement { display: grid; grid-template-columns: 8rem 1fr; gap: .65rem; padding: .56rem; border-radius: 9px; background: #172943; }
+.ledger-statement span { color: #fbbf24; font-size: .78rem; font-weight: 800; }
+.ledger-statement code { color: #f8fafc; white-space: normal; }
+.empty-state { color: #cbd5e1; }
+.question-console { margin-top: 1rem; }
+.question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+.graph-question { display: grid; gap: .35rem; text-align: left; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .8rem; color: #172033; cursor: pointer; }
+.graph-question.answered { border-color: #0f766e; background: #ecfdf5; }
+.query-result { margin-top: .8rem; padding: .9rem; border-left: 5px solid #f59e0b; background: #fff7ed; color: #3b2615; display: grid; gap: .3rem; }
+
 @media (max-width: 760px) {
   .shell {
     width: min(100% - 24px, 1140px);
@@ -787,8 +1105,53 @@ footer {
   .flip-grid,
   .path-strip,
   .field-grid,
-  .connected {
+  .connected,
+  .multi-grid,
+  .triage-grid,
+  .route-grid,
+  .repair-fields {
     grid-template-columns: 1fr;
+  }
+
+  .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-lab-layout,
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-stage {
+    min-height: 0;
+  }
+
+  .ledger-statement {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-card:last-child {
+    grid-column: auto;
+  }
+
+  .docket-card dl div {
+    grid-template-columns: 1fr;
+    gap: .1rem;
+  }
+
+  .match-row,
+  .failure-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-trigger,
+  .failure-result {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .failure-result {
+    min-height: 0;
   }
 
   .component-header {
@@ -1053,7 +1416,7 @@ footer {
 <section class="component" id="mbm01-relationship-card"
   data-purposeful-interaction="applied-work-product"
   data-component-source="structured-module-package">
-  <header class="component-header"><h3>Relationship Card</h3><span class="kind">Professional work product</span></header>
+  <header class="component-header"><h3>Professional Work Product</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">Draft one useful utility relationship and identify the source and operational question.</p>
     <form class="work-product" data-work-product="mbm01-relationship-card"
@@ -1063,7 +1426,7 @@ footer {
       data-incorrect-feedback="Complete all five fields. Use one subject, one directed predicate, one object, one source, and one utility question.">
       <div class="field-grid"><label>Subject<input name="subject" required></label><label>Predicate<input name="predicate" required></label><label>Object<input name="object" required></label><label>Authoritative source<input name="source" required></label></div>
       <label>Utility question this relationship helps answer<textarea name="question" rows="3" required></textarea></label>
-      <button class="button primary" type="submit">Save Relationship Card</button>
+      <button class="button primary" type="submit">Save Work Product</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -1191,6 +1554,51 @@ footer {
     });
   });
 
+  document.querySelectorAll("[data-matching]").forEach((group) => {
+    group.querySelector("[data-check-matching]")?.addEventListener("click", () => {
+      const rows = [...group.querySelectorAll("[data-match-answer]")];
+      const feedback = group.querySelector("[data-feedback]");
+      let correctCount = 0;
+      rows.forEach((field) => {
+        const correct = field.value === field.dataset.matchAnswer;
+        field.classList.toggle("correct-field", correct);
+        field.classList.toggle("incorrect-field", !correct);
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === rows.length;
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : `${group.dataset.incorrectFeedback} ${correctCount} of ${rows.length} are correctly matched.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-multi-select]").forEach((group) => {
+    group.querySelector("[data-check-multi]")?.addEventListener("click", () => {
+      const options = [...group.querySelectorAll("[data-multi-option]")];
+      const feedback = group.querySelector("[data-feedback]");
+      const correct = options.every(
+        (option) => option.checked === (option.dataset.correct === "true")
+      );
+      options.forEach((option) => {
+        option.closest(".select-option")?.classList.toggle(
+          "selected-correct",
+          option.checked && option.dataset.correct === "true"
+        );
+        option.closest(".select-option")?.classList.toggle(
+          "selected-incorrect",
+          option.checked && option.dataset.correct !== "true"
+        );
+      });
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
   document.querySelectorAll("[data-triple-builder]").forEach((builder) => {
     const selects = [...builder.querySelectorAll("select")];
     const correct = JSON.parse(builder.dataset.correct);
@@ -1260,6 +1668,219 @@ footer {
       feedback.textContent = "Path reset. Begin with edge 1.";
       feedback.className = "feedback";
     });
+  });
+
+  document.querySelectorAll("[data-artifact-classifier]").forEach((desk) => {
+    const items = [...desk.querySelectorAll("[data-triage-item]")];
+    const feedback = desk.querySelector("[data-feedback]");
+    desk.querySelector("[data-check-triage]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      items.forEach((item) => {
+        const field = item.querySelector("select");
+        const correct = field.value === item.dataset.answer;
+        const itemFeedback = item.querySelector("[data-item-feedback]");
+        item.classList.toggle("correct-card", correct);
+        item.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Correct. ${item.dataset.explanation}`
+          : `Try again. Ask what primary job this artifact performs here. ${item.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === items.length;
+      feedback.textContent = correct
+        ? "The desk is organized. The same event now has distinct structures, classifications, meanings, mappings, and runtime controls."
+        : `${correctCount} of ${items.length} artifacts are correctly placed. Use the explanation under each artifact and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(desk.dataset.completion);
+    });
+    desk.querySelector("[data-reset-triage]")?.addEventListener("click", () => {
+      items.forEach((item) => {
+        item.querySelector("select").value = "";
+        item.classList.remove("correct-card", "incorrect-card");
+        item.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "The triage desk is reset.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-failure-trace]").forEach((lab) => {
+    const triggers = [...lab.querySelectorAll("[data-failure-trigger]")];
+    const visited = new Set();
+    const feedback = lab.querySelector("[data-feedback]");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const job = trigger.dataset.failureTrigger;
+        visited.add(job);
+        triggers.forEach((item) => {
+          item.classList.toggle("active", item === trigger);
+          item.setAttribute("aria-pressed", String(item === trigger));
+        });
+        lab.querySelectorAll("[data-failure-result]").forEach((result) => {
+          result.hidden = result.dataset.failureResult !== job;
+        });
+        feedback.textContent =
+          visited.size === triggers.length
+            ? "All five paths inspected. The symptom appears in the answer, but the first repair belongs at the first broken job."
+            : `${visited.size} of ${triggers.length} failure paths inspected.`;
+        feedback.className = "feedback good";
+        if (visited.size === triggers.length) mark(lab.dataset.completion);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-object-router]").forEach((router) => {
+    const items = [...router.querySelectorAll("[data-route-item]")];
+    const feedback = router.querySelector("[data-feedback]");
+    items.forEach((item) => {
+      item.querySelectorAll("[data-route-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          item.querySelectorAll("[data-route-choice]").forEach((choice) => choice.classList.remove("active"));
+          button.classList.add("active");
+          const correct = button.dataset.routeChoice === item.dataset.answer;
+          item.dataset.complete = String(correct);
+          const itemFeedback = item.querySelector("[data-item-feedback]");
+          itemFeedback.textContent = correct
+            ? `Correct. ${item.dataset.explanation}`
+            : `Try the other branch. ${item.dataset.explanation}`;
+          itemFeedback.className = `item-feedback ${correct ? "good-text" : "bad-text"}`;
+          if (items.every((candidate) => candidate.dataset.complete === "true")) {
+            feedback.textContent = "Every object is correctly routed. Resource objects continue relationships; literals carry values.";
+            feedback.className = "feedback good";
+            mark(router.dataset.completion);
+          }
+        });
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-triple-repair-bench]").forEach((bench) => {
+    const cards = [...bench.querySelectorAll("[data-repair-card]")];
+    const feedback = bench.querySelector("[data-feedback]");
+    bench.querySelector("[data-check-repairs]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      cards.forEach((card) => {
+        const defectCorrect = card.querySelector("[data-defect-field]").value === card.dataset.defect;
+        const repairCorrect = card.querySelector("[data-repair-field]").value === card.dataset.repair;
+        const correct = defectCorrect && repairCorrect;
+        const itemFeedback = card.querySelector("[data-item-feedback]");
+        card.classList.toggle("correct-card", correct);
+        card.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Repair accepted. ${card.dataset.explanation}`
+          : `Inspect both the failed position and the smallest repair. ${card.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === cards.length;
+      feedback.textContent = correct
+        ? "All four statements are repaired without claiming more than their evidence supports."
+        : `${correctCount} of ${cards.length} repairs pass review. Read each explanation and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(bench.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-identity-adjudication]").forEach((docket) => {
+    const records = [...docket.querySelectorAll("[data-docket-record]")];
+    const feedback = docket.querySelector("[data-feedback]");
+    docket.querySelector("[data-check-docket]")?.addEventListener("click", () => {
+      let correct = 0;
+      records.forEach((record) => {
+        const passed = record.querySelector("select").value === record.dataset.answer;
+        record.classList.toggle("passed", passed);
+        record.classList.toggle("failed", !passed);
+        record.querySelector("[data-item-feedback]").textContent = passed
+          ? `Finding accepted. ${record.dataset.explanation}`
+          : "That finding does not fit the evidence. Separate the physical asset from records about it, and preserve contradictions.";
+        if (passed) correct += 1;
+      });
+      if (correct === records.length) {
+        feedback.textContent = "Docket complete. Approved identity, related records, and the unresolved conflict remain visibly different.";
+        feedback.className = "feedback good";
+        mark(docket.dataset.completion);
+      } else {
+        feedback.textContent = `${correct} of ${records.length} findings are supported. Review the evidence and retry.`;
+        feedback.className = "feedback bad";
+      }
+    });
+    docket.querySelector("[data-reset-docket]")?.addEventListener("click", () => {
+      records.forEach((record) => {
+        record.querySelector("select").value = "";
+        record.classList.remove("passed", "failed");
+        record.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "Review all five records.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-graph-growth-lab]").forEach((lab) => {
+    const sources = JSON.parse(lab.dataset.sourceStatements || "[]");
+    const loaded = new Set();
+    const tested = new Set();
+    const ledger = lab.querySelector("[data-statement-ledger]");
+    const count = lab.querySelector("[data-graph-count]");
+    const result = lab.querySelector("[data-query-result]");
+    const feedback = lab.querySelector("[data-feedback]");
+
+    function renderLedger() {
+      const statements = sources.filter((source) => loaded.has(source.source))
+        .flatMap((source) => source.statements.map((statement) => ({ ...statement, source: source.source })));
+      count.textContent = `${statements.length} statements loaded from ${loaded.size} source packets`;
+      ledger.innerHTML = statements.length
+        ? statements.map((statement) => `<article class="ledger-statement"><span>${statement.source}</span><code>${statement.subject} → ${statement.predicate} → ${statement.object}</code></article>`).join("")
+        : '<p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p>';
+      lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+        const active = loaded.has(button.dataset.sourcePacket);
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        const source = button.dataset.sourcePacket;
+        loaded.has(source) ? loaded.delete(source) : loaded.add(source);
+        tested.clear();
+        lab.querySelectorAll("[data-graph-question]").forEach((question) => question.classList.remove("answered"));
+        result.textContent = "The graph changed. Test the competency questions again.";
+        renderLedger();
+      });
+    });
+
+    lab.querySelectorAll("[data-graph-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const requires = JSON.parse(button.dataset.requires || "[]");
+        const missing = requires.filter((source) => !loaded.has(source));
+        tested.add(button.dataset.graphQuestion);
+        if (missing.length) {
+          result.innerHTML = `<strong>Not answerable yet.</strong><span>Missing reviewed statements from: ${missing.join(", ")}.</span>`;
+          button.classList.remove("answered");
+        } else {
+          result.innerHTML = `<strong>${button.dataset.answer}</strong><span>Evidence path: ${button.dataset.path}</span>`;
+          button.classList.add("answered");
+        }
+        const allAnswerable = [...lab.querySelectorAll("[data-graph-question]")].every((question) => {
+          const needed = JSON.parse(question.dataset.requires || "[]");
+          return tested.has(question.dataset.graphQuestion) && needed.every((source) => loaded.has(source));
+        });
+        feedback.textContent = allAnswerable
+          ? "All three questions are answerable through explicit, source-bounded paths."
+          : "Keep growing the graph until every question has a complete evidence path.";
+        feedback.className = `feedback ${allAnswerable ? "good" : ""}`;
+        if (allAnswerable) mark(lab.dataset.completion);
+      });
+    });
+
+    lab.querySelector("[data-reset-graph]")?.addEventListener("click", () => {
+      loaded.clear();
+      tested.clear();
+      result.textContent = "No question tested yet.";
+      lab.querySelectorAll("[data-graph-question]").forEach((button) => button.classList.remove("answered"));
+      renderLedger();
+    });
+    renderLedger();
   });
 
   document.querySelectorAll("[data-work-product]").forEach((form) => {

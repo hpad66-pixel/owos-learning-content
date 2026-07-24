@@ -1016,6 +1016,27 @@ footer {
 .docket-card.passed { border-color: #15865f; background: #eefaf5; }
 .docket-card.failed { border-color: #b94343; background: #fff3f0; }
 
+.graph-lab-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.6fr); gap: 1rem; align-items: start; }
+.source-shelf, .graph-stage, .question-console { border: 1px solid var(--line); border-radius: 18px; padding: 1rem; background: #f8fafc; }
+.source-shelf { display: grid; gap: .65rem; }
+.source-shelf h4, .question-console h4 { margin: 0; }
+.source-packet { width: 100%; text-align: left; display: grid; gap: .25rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .75rem; color: #172033; cursor: pointer; }
+.source-packet span, .source-packet small { color: #526077; }
+.source-packet.active { border-color: #0f766e; background: #ecfdf5; box-shadow: inset 4px 0 #0f766e; }
+.graph-stage { min-height: 24rem; background: #101c2d; color: #f8fafc; border-color: #253957; }
+.graph-stage-header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .7rem; border-bottom: 1px solid #3a4b65; }
+.graph-stage-header span { color: #9ee7dc; font-size: .88rem; }
+.statement-ledger { display: grid; gap: .48rem; padding-top: .8rem; }
+.ledger-statement { display: grid; grid-template-columns: 8rem 1fr; gap: .65rem; padding: .56rem; border-radius: 9px; background: #172943; }
+.ledger-statement span { color: #fbbf24; font-size: .78rem; font-weight: 800; }
+.ledger-statement code { color: #f8fafc; white-space: normal; }
+.empty-state { color: #cbd5e1; }
+.question-console { margin-top: 1rem; }
+.question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+.graph-question { display: grid; gap: .35rem; text-align: left; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .8rem; color: #172033; cursor: pointer; }
+.graph-question.answered { border-color: #0f766e; background: #ecfdf5; }
+.query-result { margin-top: .8rem; padding: .9rem; border-left: 5px solid #f59e0b; background: #fff7ed; color: #3b2615; display: grid; gap: .3rem; }
+
 @media (max-width: 760px) {
   .shell {
     width: min(100% - 24px, 1140px);
@@ -1080,6 +1101,19 @@ footer {
   }
 
   .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-lab-layout,
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-stage {
+    min-height: 0;
+  }
+
+  .ledger-statement {
     grid-template-columns: 1fr;
   }
 

@@ -1,0 +1,85 @@
+schema_version: 1
+module_id: mbm001:04
+interactions:
+  - interaction_id: mbm04-graph-growth
+    component: graph-growth-lab
+    title: Thirty-Statement Graph Growth Laboratory
+    teaching_purpose: Grow a source-bounded graph and make three competency questions become answerable through explicit paths.
+    instructions: Load the five reviewed source packets. Test the questions before and after each addition. Finish by answering all three from the complete thirty-statement graph.
+    completion_id: graph-growth
+    config:
+      sources:
+        - source: GIS named source group
+          summary: Assets, locations, zones, premises, catchments, and outfalls
+          statements:
+            - {subject: Pump_P104, predicate: serves, object: Pressure_Zone_3}
+            - {subject: Pump_P104, predicate: locatedAt, object: North_High_Service}
+            - {subject: Pressure_Zone_3, predicate: contains, object: Premise_882}
+            - {subject: Pressure_Zone_3, predicate: contains, object: Premise_901}
+            - {subject: Catchment_5, predicate: drainsTo, object: Outfall_12}
+            - {subject: Outfall_12, predicate: locatedAt, object: River_Mile_18}
+        - source: Customer named source group
+          summary: Premises, accounts, service status, and customer class
+          statements:
+            - {subject: Premise_882, predicate: hasAccount, object: Account_882}
+            - {subject: Premise_901, predicate: hasAccount, object: Account_901}
+            - {subject: Account_882, predicate: hasStatus, object: Active}
+            - {subject: Account_901, predicate: hasStatus, object: Inactive}
+            - {subject: Account_882, predicate: hasClass, object: Hospital}
+            - {subject: Account_901, predicate: hasClass, object: Residential}
+        - source: Maintenance named source group
+          summary: Work, assets, conditions, crews, and due dates
+          statements:
+            - {subject: Work_Order_4821, predicate: concerns, object: Pump_P104}
+            - {subject: Work_Order_4821, predicate: reports, object: Seal_Leak}
+            - {subject: Work_Order_4821, predicate: assignedTo, object: Crew_6}
+            - {subject: Work_Order_4821, predicate: hasStatus, object: Open}
+            - {subject: Work_Order_4821, predicate: dueOn, object: "2026-07-29"}
+            - {subject: Crew_6, predicate: qualifiedFor, object: Pump_Maintenance}
+        - source: Operations named source group
+          summary: Telemetry, events, observations, and operating state
+          statements:
+            - {subject: Point_P104_RUN, predicate: monitors, object: Pump_P104}
+            - {subject: Pressure_Event_77, predicate: affects, object: Pressure_Zone_3}
+            - {subject: Observation_551, predicate: observedProperty, object: Discharge_Pressure}
+            - {subject: Observation_551, predicate: featureOfInterest, object: Pump_P104}
+            - {subject: Observation_551, predicate: hasValue, object: "41 psi"}
+            - {subject: Pressure_Event_77, predicate: startedAt, object: "2026-07-24T02:10"}
+        - source: Stormwater and permit named source group
+          summary: Inspections, catchments, outfalls, permits, and maintenance
+          statements:
+            - {subject: Inspection_55, predicate: occurredAt, object: Catchment_5}
+            - {subject: Inspection_55, predicate: found, object: Debris_Blockage}
+            - {subject: Permit_8, predicate: appliesTo, object: Outfall_12}
+            - {subject: Permit_8, predicate: requires, object: Followup_Inspection}
+            - {subject: Task_91, predicate: addresses, object: Debris_Blockage}
+            - {subject: Task_91, predicate: hasStatus, object: Scheduled}
+      questions:
+        - label: Customer exposure
+          question: Which active critical account is in the zone served by Pump P-104?
+          requires: [GIS named source group, Customer named source group]
+          answer: Account 882, classified as Hospital, is active in Pressure Zone 3.
+          path: [Pump_P104 serves Pressure_Zone_3, Pressure_Zone_3 contains Premise_882, Premise_882 hasAccount Account_882, Account_882 hasStatus Active, Account_882 hasClass Hospital]
+        - label: Maintenance consequence
+          question: Which open work order concerns the pump serving the affected zone?
+          requires: [GIS named source group, Maintenance named source group, Operations named source group]
+          answer: Work Order 4821 is open, concerns Pump P-104, and reports a seal leak.
+          path: [Pressure_Event_77 affects Pressure_Zone_3, Pump_P104 serves Pressure_Zone_3, Work_Order_4821 concerns Pump_P104, Work_Order_4821 hasStatus Open]
+        - label: Stormwater response
+          question: Which permit and scheduled task connect to the catchment inspection?
+          requires: [GIS named source group, Stormwater and permit named source group]
+          answer: Permit 8 applies to Outfall 12, and Task 91 addresses the debris blockage found by Inspection 55.
+          path: [Inspection_55 occurredAt Catchment_5, Catchment_5 drainsTo Outfall_12, Permit_8 appliesTo Outfall_12, Inspection_55 found Debris_Blockage, Task_91 addresses Debris_Blockage]
+  - interaction_id: mbm04-path-defense
+    component: path-tracer
+    title: Customer Exposure Path Defense
+    teaching_purpose: Trace the exact statements supporting one cross-system answer.
+    instructions: Select each edge in order. Explain the contribution of every statement before accepting the final answer.
+    completion_id: path-defense
+    config:
+      nodes: [Pump P-104, Pressure Zone 3, Premise 882, Customer Account 882, Active Hospital Account]
+      edges:
+        - {predicate: serves, explanation: The reviewed GIS statement connects the physical pump to its pressure zone.}
+        - {predicate: contains, explanation: The zone boundary contains the served premise.}
+        - {predicate: hasAccount, explanation: The customer source connects the premise to its service account.}
+        - {predicate: qualifiesAs, explanation: Account status and class support the bounded active critical-account result.}

@@ -1,0 +1,76 @@
+schema_version: 1
+module_id: mbm001:04
+assessments:
+  - assessment_id: mbm04-opening-edge
+    type: multiple-choice
+    cognitive_job: identify the missing cross-system relationship
+    prompt: GIS knows Pump P-104 serves Zone 3, and the customer system knows Premise 882 has Account 882. What is still needed for the customer-exposure path?
+    options:
+      - {text: A shared governed statement connecting Zone 3 to Premise 882, correct: true}
+      - {text: A prettier dashboard, correct: false}
+      - {text: A duplicate copy of every source table, correct: false}
+    feedback: {correct: Correct. The contains relationship closes the path between the source domains., incorrect: The records need an explicit reviewed relationship, not merely another display or copy.}
+    completion_id: opening-edge
+  - assessment_id: mbm04-graph-literacy
+    type: flip-cards
+    cognitive_job: retrieve the distinctions among node edge path and visualization
+    prompt: Say each meaning aloud, then turn the card.
+    cards:
+      - {front: Node, back: A resource or value participating in graph statements.}
+      - {front: Edge, back: The directed predicate relationship from a subject to an object.}
+      - {front: Path, back: A sequence of connected statements followed to answer a question.}
+      - {front: Visualization, back: A human-readable projection of graph content, not the graph itself.}
+    feedback: {correct: You can now separate graph content from the picture used to inspect it.}
+    completion_id: graph-literacy
+  - assessment_id: mbm04-relationship-match
+    type: matching
+    cognitive_job: pair utility records with precise graph relationships
+    prompt: Match each source statement to the relationship that lets the graph grow.
+    targets: [serves, concerns, contains, drainsTo]
+    pairs:
+      - {prompt: Pump P-104 to Pressure Zone 3, answer: serves}
+      - {prompt: Work Order 4821 to Pump P-104, answer: concerns}
+      - {prompt: Pressure Zone 3 to Premise 882, answer: contains}
+      - {prompt: Catchment 5 to Outfall 12, answer: drainsTo}
+    feedback: {correct: Correct. Precise predicates make the route readable and reusable., incorrect: Read each relationship from subject to object and choose the verb that preserves its direction.}
+    completion_id: relationship-match
+  - assessment_id: mbm04-boundary-check
+    type: multi-select
+    cognitive_job: distinguish source grouping from governance claims
+    prompt: Which statements about named source groups are defensible?
+    options:
+      - {text: They can organize statements under a graph name, correct: true}
+      - {text: They can help preserve and query source boundaries, correct: true}
+      - {text: Their presence automatically proves every statement is true, correct: false}
+      - {text: They still require provenance authority time and access controls, correct: true}
+      - {text: They eliminate the need for correction procedures, correct: false}
+    feedback: {correct: Correct. Organization and addressability help, but governance remains necessary., incorrect: Do not confuse a named container with proof, permission, or permanent correctness.}
+    completion_id: boundary-check
+  - assessment_id: mbm04-transfer-decision
+    type: multiple-choice
+    cognitive_job: choose when graph investment is proportionate
+    prompt: Which task most strongly justifies an RDF knowledge graph?
+    options:
+      - {text: Add two numbers already governed in one table, correct: false}
+      - {text: Repeatedly trace changing paths across assets locations customers work permits and evidence, correct: true}
+      - {text: Replace every operational source system, correct: false}
+    feedback: {correct: Correct. Relationship-intensive changing questions are where the graph can create material value., incorrect: Use the graph where reusable cross-domain relationships drive the task, not for every calculation or source replacement.}
+    completion_id: transfer-decision
+  - assessment_id: mbm04-mini-graph
+    type: applied-work-product
+    title: Utility Mini-Graph
+    cognitive_job: define and defend one bounded source-aware graph
+    prompt: Record the question, source groups, nodes, relationships, answer path, failure test, authority, and explicit limit.
+    required_fields: [competency_question, source_groups, governed_nodes, explicit_relationships, answer_path, missing_edge_test, source_authority, unsupported_boundary]
+    field_labels:
+      competency_question: Competency question
+      source_groups: Named source groups
+      governed_nodes: Governed nodes and identifiers
+      explicit_relationships: Directed relationships
+      answer_path: Exact supporting path
+      missing_edge_test: Edge removal and resulting unsupported answer
+      source_authority: Source authority time and review state
+      unsupported_boundary: What this mini-graph cannot claim or authorize
+    textarea_fields: [competency_question, source_groups, governed_nodes, explicit_relationships, answer_path, missing_edge_test, source_authority, unsupported_boundary]
+    feedback: {correct: Your Utility Mini-Graph makes its question sources path failure test authority and unsupported boundary reviewable., incorrect: Complete every field with specific nodes relationships sources and limits.}
+    completion_id: mini-graph

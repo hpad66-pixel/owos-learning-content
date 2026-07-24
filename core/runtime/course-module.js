@@ -341,6 +341,75 @@
     });
   });
 
+  document.querySelectorAll("[data-graph-growth-lab]").forEach((lab) => {
+    const sources = JSON.parse(lab.dataset.sourceStatements || "[]");
+    const loaded = new Set();
+    const tested = new Set();
+    const ledger = lab.querySelector("[data-statement-ledger]");
+    const count = lab.querySelector("[data-graph-count]");
+    const result = lab.querySelector("[data-query-result]");
+    const feedback = lab.querySelector("[data-feedback]");
+
+    function renderLedger() {
+      const statements = sources.filter((source) => loaded.has(source.source))
+        .flatMap((source) => source.statements.map((statement) => ({ ...statement, source: source.source })));
+      count.textContent = `${statements.length} statements loaded from ${loaded.size} source packets`;
+      ledger.innerHTML = statements.length
+        ? statements.map((statement) => `<article class="ledger-statement"><span>${statement.source}</span><code>${statement.subject} → ${statement.predicate} → ${statement.object}</code></article>`).join("")
+        : '<p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p>';
+      lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+        const active = loaded.has(button.dataset.sourcePacket);
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        const source = button.dataset.sourcePacket;
+        loaded.has(source) ? loaded.delete(source) : loaded.add(source);
+        tested.clear();
+        lab.querySelectorAll("[data-graph-question]").forEach((question) => question.classList.remove("answered"));
+        result.textContent = "The graph changed. Test the competency questions again.";
+        renderLedger();
+      });
+    });
+
+    lab.querySelectorAll("[data-graph-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const requires = JSON.parse(button.dataset.requires || "[]");
+        const missing = requires.filter((source) => !loaded.has(source));
+        tested.add(button.dataset.graphQuestion);
+        if (missing.length) {
+          result.innerHTML = `<strong>Not answerable yet.</strong><span>Missing reviewed statements from: ${missing.join(", ")}.</span>`;
+          button.classList.remove("answered");
+        } else {
+          result.innerHTML = `<strong>${button.dataset.answer}</strong><span>Evidence path: ${button.dataset.path}</span>`;
+          button.classList.add("answered");
+        }
+        const allAnswerable = [...lab.querySelectorAll("[data-graph-question]")].every((question) => {
+          const needed = JSON.parse(question.dataset.requires || "[]");
+          return tested.has(question.dataset.graphQuestion) && needed.every((source) => loaded.has(source));
+        });
+        feedback.textContent = allAnswerable
+          ? "All three questions are answerable through explicit, source-bounded paths."
+          : "Keep growing the graph until every question has a complete evidence path.";
+        feedback.className = `feedback ${allAnswerable ? "good" : ""}`;
+        if (allAnswerable) mark(lab.dataset.completion);
+      });
+    });
+
+    lab.querySelector("[data-reset-graph]")?.addEventListener("click", () => {
+      loaded.clear();
+      tested.clear();
+      result.textContent = "No question tested yet.";
+      lab.querySelectorAll("[data-graph-question]").forEach((button) => button.classList.remove("answered"));
+      renderLedger();
+    });
+    renderLedger();
+  });
+
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();

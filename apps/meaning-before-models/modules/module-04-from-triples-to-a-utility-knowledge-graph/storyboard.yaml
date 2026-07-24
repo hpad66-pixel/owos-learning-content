@@ -1,0 +1,83 @@
+schema_version: 1
+module_id: mbm001:04
+version: 0.2.0
+status: approved
+approvals:
+  narrative: approved_for_production
+  visuals: approved_for_production
+  interactions: approved_for_production
+  assessments: approved_for_production
+  owner: approved_under_standing_authorization
+beats:
+  - beat_id: source-islands
+    learner_question: Why can five systems hold the records but still fail to answer one question?
+    instructor_purpose: Expose the missing cross-system path.
+    teaching_text_refs: [source-islands]
+    visual_refs: [mbm04-source-islands]
+    interaction_refs: []
+    assessment_refs: [mbm04-opening-edge]
+    intended_realization: Local records do not create a cross-domain route.
+    transition: Separate the graph from its display.
+  - beat_id: graph-not-picture
+    learner_question: Is the node-link picture the graph?
+    instructor_purpose: Define the machine-readable graph as statements.
+    teaching_text_refs: [graph-not-picture]
+    visual_refs: [mbm04-ledger-view]
+    interaction_refs: []
+    assessment_refs: [mbm04-graph-literacy]
+    intended_realization: The diagram is a projection of the underlying triples.
+    transition: Show how reviewed identities join statements.
+  - beat_id: shared-nodes
+    learner_question: What lets statements from different sources connect?
+    instructor_purpose: Reuse governed identity as the meeting point.
+    teaching_text_refs: [shared-nodes]
+    visual_refs: [mbm04-shared-node-map]
+    interaction_refs: []
+    assessment_refs: [mbm04-relationship-match]
+    intended_realization: Shared governed nodes create traversable paths.
+    transition: Grow the graph from reviewed packets.
+  - beat_id: growth-lab
+    learner_question: When does the graph contain enough evidence to answer the question?
+    instructor_purpose: Make graph growth and missing evidence executable.
+    teaching_text_refs: [growth-lab]
+    visual_refs: []
+    interaction_refs: [mbm04-graph-growth]
+    assessment_refs: []
+    intended_realization: Questions unlock through explicit source-bounded paths.
+    transition: Defend one exact path.
+  - beat_id: answer-path
+    learner_question: Which statements support the customer-exposure answer?
+    instructor_purpose: Trace the answer edge by edge.
+    teaching_text_refs: [answer-path]
+    visual_refs: [mbm04-answer-path]
+    interaction_refs: [mbm04-path-defense]
+    assessment_refs: []
+    intended_realization: A cross-domain answer emerges from several reviewable edges.
+    transition: Preserve source grouping.
+  - beat_id: source-groups
+    learner_question: What does a named graph provide and what does it not provide?
+    instructor_purpose: Separate graph organization from truth and authority.
+    teaching_text_refs: [source-groups]
+    visual_refs: [mbm04-source-groups]
+    interaction_refs: []
+    assessment_refs: [mbm04-boundary-check]
+    intended_realization: Source groups support organization and attribution but require governance.
+    transition: Transfer the method across One Water.
+  - beat_id: transfer
+    learner_question: Where do graph relationships create enough value to justify the work?
+    instructor_purpose: Apply the pattern to wastewater and stormwater and identify when RDF is unnecessary.
+    teaching_text_refs: [one-water-transfer]
+    visual_refs: []
+    interaction_refs: []
+    assessment_refs: [mbm04-transfer-decision]
+    intended_realization: Use graphs where relationships materially drive the question.
+    transition: Produce a bounded graph artifact.
+  - beat_id: mini-graph
+    learner_question: Can another team inspect the sources path and limits of the answer?
+    instructor_purpose: Produce the Utility Mini-Graph.
+    teaching_text_refs: [mini-graph]
+    visual_refs: []
+    interaction_refs: [mbm04-mini-graph]
+    assessment_refs: [mbm04-mini-graph]
+    intended_realization: A useful mini-graph records question sources path failure test and boundary.
+    transition: Module 05 separates the five meaning layers around this graph.

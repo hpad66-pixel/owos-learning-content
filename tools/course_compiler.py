@@ -42,6 +42,7 @@ SUPPORTED_INTERACTIONS = {
     "object-router",
     "triple-repair-bench",
     "identity-adjudication",
+    "graph-growth-lab",
 }
 SUPPORTED_ASSESSMENTS = {
     "multiple-choice",
@@ -776,6 +777,46 @@ def render_identity_adjudication(interaction: dict[str, Any]) -> str:
 </section>"""
 
 
+def render_graph_growth_lab(interaction: dict[str, Any]) -> str:
+    sources = interaction["config"]["sources"]
+    packets = "".join(
+        f'<button class="source-packet" type="button" data-source-packet="{esc(source["source"])}">'
+        f'<strong>{esc(source["source"])}</strong><span>{esc(source["summary"])}</span>'
+        f'<small>{len(source["statements"])} reviewed statements</small></button>'
+        for source in sources
+    )
+    questions = "".join(
+        f'<button class="graph-question" type="button" data-graph-question="{esc(item["question"])}" '
+        f'data-requires="{esc(json.dumps(item["requires"], separators=(",", ":")))}" '
+        f'data-answer="{esc(item["answer"])}" data-path="{esc(" → ".join(item["path"]))}">'
+        f'<strong>{esc(item["label"])}</strong><span>{esc(item["question"])}</span></button>'
+        for item in interaction["config"]["questions"]
+    )
+    return f"""
+<section class="component signature-component graph-growth-lab" id="{esc(interaction['interaction_id'])}"
+  data-graph-growth-lab data-purposeful-interaction="graph-growth-lab"
+  data-component-source="structured-module-package" data-completion="{esc(interaction['completion_id'])}"
+  data-source-statements="{esc(json.dumps(sources, separators=(',', ':')))}">
+  <header class="component-header"><h3>{esc(interaction['title'])}</h3><span class="kind">Relationship discovery laboratory</span></header>
+  <div class="component-body"><p class="component-intro">{esc(interaction['instructions'])}</p>
+    <div class="graph-lab-layout">
+      <aside class="source-shelf"><h4>Reviewed source packets</h4>{packets}</aside>
+      <div class="graph-stage"><div class="graph-stage-header"><strong>Machine-readable statement ledger</strong>
+        <span data-graph-count>0 statements loaded</span></div>
+        <div class="statement-ledger" data-statement-ledger><p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p></div>
+      </div>
+    </div>
+    <div class="question-console"><h4>Competency questions</h4>
+      <p>Try each question as the graph grows. It unlocks only when every required source packet is present.</p>
+      <div class="question-grid">{questions}</div>
+      <article class="query-result" data-query-result aria-live="polite">No question tested yet.</article>
+    </div>
+    <div class="button-row"><button class="button" type="button" data-reset-graph>Reset graph</button></div>
+    <div class="feedback" data-feedback aria-live="polite">Load source packets, then test all three questions.</div>
+  </div>
+</section>"""
+
+
 def render_object_router(interaction: dict[str, Any]) -> str:
     cards = []
     for index, item in enumerate(interaction["config"]["items"]):
@@ -936,6 +977,8 @@ def render_block(
             return render_failure_trace(interaction)
         if interaction["component"] == "identity-adjudication":
             return render_identity_adjudication(interaction)
+        if interaction["component"] == "graph-growth-lab":
+            return render_graph_growth_lab(interaction)
         if interaction["component"] == "object-router":
             return render_object_router(interaction)
         return render_triple_repair_bench(interaction)

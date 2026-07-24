@@ -1,0 +1,124 @@
+schema_version: 1
+module:
+  course_id: owos-course-semantic-data-ai-001
+  module_id: mbm001:04
+  slug: module-04-from-triples-to-a-utility-knowledge-graph
+  title: From Triples to a Utility Knowledge Graph
+  eyebrow: Meaning Before Models, Module 04
+  promise: Grow reviewed utility statements into a bounded graph, test cross-domain questions, and defend the exact evidence path behind an answer.
+  duration: 65 to 80 minutes
+  level: Foundation with optional Practitioner and Leader depth
+  archetype: relationship-discovery-laboratory
+  signature_mechanism: thirty-statement-graph-growth-laboratory
+  source_version: 0.2.0-structured-candidate
+learning:
+  audience: [Utility professionals and leaders, Data GIS IT OT analytics governance and AI practitioners]
+  outcomes:
+    - Explain when separate triples form a connected RDF graph.
+    - Distinguish the machine-readable graph from a node-link visualization.
+    - Use shared governed identities to trace cross-system paths.
+    - Test whether a competency question is answerable from the loaded statements.
+    - Preserve source groups and unsupported boundaries in a Utility Mini-Graph.
+  prior_knowledge: The learner can repair triples and use reviewed cross-system identities.
+  misconception: A graph database or node-link picture is automatically a governed knowledge graph.
+  transfer_task: Connect stormwater inspection, catchment, outfall, permit, and maintenance records.
+sections:
+  - section_id: source-islands
+    title: The records exist. The answer path does not.
+    kind: Relationship opening
+    blocks:
+      - type: prose
+        paragraphs:
+          - A Riverbend operations leader asks, "Which customer accounts are in the pressure zone served by Pump P-104, and which open work order could affect that service?" Geographic Information System records know the pump and zone. The customer system knows accounts and premises. Work management knows the repair. Each system can answer its own local question. None can yet show the complete route.
+          - The missing thing is not another dashboard. It is a reviewed chain of statements that reuses the same governed identities across source boundaries. Until those statements meet, the utility has records but no defensible cross-domain path.
+      - {type: visual, visual_id: mbm04-source-islands}
+      - {type: assessment, assessment_id: mbm04-opening-edge}
+  - section_id: graph-not-picture
+    title: The graph is the statements, not the drawing
+    kind: Representation distinction
+    blocks:
+      - type: prose
+        paragraphs:
+          - In the Resource Description Framework, an RDF graph is a set of triples. A node-link diagram can help a person inspect those triples, but moving a circle on the screen does not change the graph. Adding, removing, or changing a statement does.
+          - This distinction matters because a beautiful picture can hide weak identifiers, missing sources, vague predicates, or unsupported claims. Machine-readable statements need stable identifiers and explicit relationships. The display is only one projection of that underlying content.
+      - {type: visual, visual_id: mbm04-ledger-view}
+      - {type: assessment, assessment_id: mbm04-graph-literacy}
+  - section_id: shared-nodes
+    title: Reviewed identities let separate statements meet
+    kind: Shared-node route
+    blocks:
+      - type: prose
+        paragraphs:
+          - Module 03 resolved which identifier denotes Pump P-104. That reviewed identity now becomes a meeting point. A geographic statement can say the pump serves Zone 3. A maintenance statement can say Work Order 4821 concerns the same pump. Neither source gives up its own record. The relationships join through the governed asset identity.
+          - A shared label is not enough. The node must represent the same governed thing within the graph's scope. Once that condition is satisfied, every new statement can extend an existing path instead of creating another disconnected island.
+      - {type: visual, visual_id: mbm04-shared-node-map}
+      - {type: assessment, assessment_id: mbm04-relationship-match}
+  - section_id: growth-lab
+    title: Grow the graph only until the questions become answerable
+    kind: Graph Growth Laboratory
+    blocks:
+      - type: prose
+        paragraphs:
+          - The laboratory begins with no statements loaded. Select each reviewed source packet and watch its triples enter the machine-readable ledger. The source label stays beside every statement, because connected does not mean source-free.
+          - Test all three competency questions as you work. A failed test tells you which source packet is missing. It does not prove the real-world answer is false. It proves only that this bounded graph cannot yet support the answer.
+      - {type: interaction, interaction_id: mbm04-graph-growth}
+      - {type: callout, title: Stop when the graph can do its job, text: A useful graph is scoped by competency questions, evidence, authority, risk, and operating cost. It is not a contest to collect the most nodes.}
+  - section_id: answer-path
+    title: Illuminate the exact route behind one answer
+    kind: Evidence path defense
+    blocks:
+      - type: prose
+        paragraphs:
+          - A graph answer is reviewable when you can name the path that supports it. For the customer exposure question, begin with Pump P-104, follow serves to Zone 3, contains to Premise 882, and hasAccount to Customer Account 882. Each edge answers one small part of the larger question.
+          - Trace the path in order. Notice that no individual record contains the final answer. The answer emerges from several explicit statements that share governed nodes.
+      - {type: visual, visual_id: mbm04-answer-path}
+      - {type: interaction, interaction_id: mbm04-path-defense}
+  - section_id: source-groups
+    title: Named source groups preserve where statements came from
+    kind: Practitioner view
+    blocks:
+      - type: prose
+        paragraphs:
+          - An RDF dataset can organize graph content into a default graph and named graphs. In this lesson, the geographic, customer, maintenance, operational, and regulatory packets act as named source groups. That organization can help a query select, compare, or discuss particular graph content.
+          - A named graph is not a truth stamp. The utility still needs provenance, effective time, authority, access control, review state, and correction procedures. Grouping statements makes source boundaries addressable. Governance determines how those groups may be trusted and used.
+      - {type: visual, visual_id: mbm04-source-groups}
+      - {type: assessment, assessment_id: mbm04-boundary-check}
+  - section_id: one-water-transfer
+    title: Transfer the route to wastewater and stormwater
+    kind: One Water transfer
+    blocks:
+      - type: prose
+        paragraphs:
+          - In wastewater, a response team may trace Lift Station 7 flowsTo Sewer Segment 44, Sewer Segment 44 upstreamOf Overflow Location 2, and Crew 6 assignedTo Incident 991. In stormwater, Inspection 55 occurredAt Catchment 5, Catchment 5 drainsTo Outfall 12, and Permit 8 appliesTo Outfall 12.
+          - The graph is valuable when relationships are the question. If a single trusted table already answers the task, adding RDF may be unnecessary. Leaders should fund the graph where cross-system paths, shared meaning, provenance, reuse, or changing questions justify the added engineering and governance.
+      - {type: assessment, assessment_id: mbm04-transfer-decision}
+      - {type: callout, title: Leader view, text: Ask which high-value questions repeatedly fail at system boundaries. Those questions define the first useful graph scope better than "build the enterprise graph."}
+  - section_id: mini-graph
+    title: Build a mini-graph another team can challenge
+    kind: Professional application
+    blocks:
+      - type: prose
+        paragraphs:
+          - Choose one bounded utility question. Record the source groups, governed nodes, explicit relationships, and the path that supports an answer. Then remove one edge mentally and state which answer becomes unsupported.
+          - Name what your mini-graph cannot claim. This final boundary is part of the artifact, not a disclaimer added later. It keeps a useful answer from quietly becoming an unlimited assertion.
+      - {type: work_product, work_product_id: mbm04-mini-graph}
+      - type: faq
+        items:
+          - question: Does every relationship belong in one graph?
+            answer: No. Include relationships that serve approved questions and uses. Separate domains or source groups may remain federated, restricted, or outside the graph.
+          - question: Is a graph database automatically a knowledge graph?
+            answer: No. A graph database stores graph-shaped data. A governed knowledge graph also needs shared meaning, identifiers, source controls, provenance, validation, ownership, and bounded uses.
+          - question: How large can a graph become?
+            answer: Technically, very large. The better design question is whether its partitions, mappings, queries, controls, and operating costs still serve the approved workload.
+          - question: Does a missing path mean the answer is false?
+            answer: Usually not. Under the open-world assumption, the graph may simply lack a required statement or source. Report unsupported or unknown unless a closed rule justifies false.
+          - question: Why keep source groups after connecting the graph?
+            answer: Source groups preserve attribution and let the utility apply different authority, freshness, access, and review policies to different statements.
+          - question: When is RDF unnecessary?
+            answer: If one governed source and a straightforward table query answer the stable task, RDF may add cost without enough value. Use it when explicit reusable relationships materially improve the work.
+      - type: evidence
+        statement: Riverbend Water, its records, and all answers are instructional. W3C RDF sources define RDF graphs, triples, datasets, and named graphs. They do not establish Riverbend's source authority, real asset state, customer exposure, or operational permission.
+        source_refs: [w3c-rdf12-concepts, w3c-rdf12-schema]
+completion:
+  required_ids: [opening-edge, graph-literacy, relationship-match, graph-growth, path-defense, boundary-check, transfer-decision, mini-graph]
+  rule: Complete the opening edge decision, graph literacy cards, relationship match, full graph-growth laboratory, evidence path, source-boundary check, transfer decision, and Utility Mini-Graph.

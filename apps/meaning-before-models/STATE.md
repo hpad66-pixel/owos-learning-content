@@ -6,9 +6,8 @@ Updated: 2026-07-24
 
 Progressive structured production from Module 01 through Module 19 under standing owner
 authorization for governed production and live-review publication. The Module 05 benchmark governs
-capability and quality, not page composition. Modules 01 and 05 are compiled structured lessons and
-have replaced their curriculum and distributable outputs. Modules 02, 03, and 04 are the first
-sequential production batch.
+capability and quality, not page composition. Modules 01 through 05 are compiled structured lessons
+and have replaced their curriculum and distributable outputs.
 
 ## Approved
 
@@ -124,11 +123,6 @@ override a blocked hard gate.
 - Credential approval
 - Final credential-bearing release approval
 
-## Next action
-
-Publish and verify Module 03's structured live-review replacement, then begin Module 04 in the
-approved progressive sequence.
-
 ## Progressive Module 03 structured result
 
 - Authoritative source: `modules/module-03-which-pump-do-you-mean/`
@@ -147,6 +141,32 @@ approved progressive sequence.
 - Whole-course compiler, conformance, distinctiveness, structured-authoring, release-manifest, and
   formatting gates pass
 - Curriculum, module build, and distributable Module 03 carry the same package checksum
+
+## Progressive Module 04 structured result
+
+- Authoritative source: `modules/module-04-from-triples-to-a-utility-knowledge-graph/`
+- Lesson archetype: relationship discovery laboratory
+- Compiler contract: `owos-course-compiler/1`
+- Compiler implementation: 1.1.0
+- Final package checksum: `32327f933b3f1637a8ef6f47ce254e8c3552296bddbbc6627df6788c3bd76d33`
+- Five original explanatory visual assets with five distinct visual types
+- Thirty-Statement Graph Growth Laboratory with five named source groups and three executable
+  competency questions
+- Four-edge Customer Exposure Path Defense
+- Distributed multiple-choice, flip-card, matching, multi-select, transfer, and applied checks
+- Utility Mini-Graph professional work product
+- Browser QA passed desktop, tablet, and phone with zero runtime errors, zero overflow, all thirty
+  statements loaded, all three questions answered, working drawers, focus return, and reduced-motion
+  compliance
+- Packaged Module 03 regression passed desktop, tablet, and phone with zero failures
+- Whole-course compiler, conformance, distinctiveness, structured-authoring, release-manifest, and
+  formatting gates pass
+- Curriculum, module build, and distributable Module 04 carry the same package checksum
+
+## Next action
+
+Publish and verify Module 04's structured live-review replacement, then begin Module 06 in the
+approved progressive sequence because Module 05 is already the approved structured benchmark.
 
 ## Revised Module 05 structured result
 

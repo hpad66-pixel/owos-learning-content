@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RDF in 15 Minutes | One Water OS Academy</title>
-  <meta name="description" content="See how one named relationship becomes a machine-readable path across utility systems.">
+  <title>From Triples to a Utility Knowledge Graph | One Water OS Academy</title>
+  <meta name="description" content="Grow reviewed utility statements into a bounded graph, test cross-domain questions, and defend the exact evidence path behind an answer.">
   <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
-  <meta name="owos-learning-object" content="mbm001:01">
-  <meta name="owos-release-state" content="live-review">
-  <meta name="owos-source-version" content="1.0.0-structured-candidate">
+  <meta name="owos-learning-object" content="mbm001:04">
+  <meta name="owos-release-state" content="structured working candidate">
+  <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="c61ffe8fad4b8e9d5004bf8b6b002a14153c549aca3895ec67ae0295fdca23ef">
+  <meta name="owos-package-checksum" content="32327f933b3f1637a8ef6f47ce254e8c3552296bddbbc6627df6788c3bd76d33">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1187,12 +1187,12 @@ footer {
 }
 </style>
 </head>
-<body data-module-id="mbm001:01" data-source-version="1.0.0-structured-candidate"
-  data-required-ids="[&quot;opening-choice&quot;,&quot;triple-built&quot;,&quot;term-cards&quot;,&quot;path-traced&quot;,&quot;path-claim&quot;,&quot;relationship-card&quot;]">
+<body data-module-id="mbm001:04" data-source-version="0.2.0-structured-candidate"
+  data-required-ids="[&quot;opening-edge&quot;,&quot;graph-literacy&quot;,&quot;relationship-match&quot;,&quot;graph-growth&quot;,&quot;path-defense&quot;,&quot;boundary-check&quot;,&quot;transfer-decision&quot;,&quot;mini-graph&quot;]">
   <a class="skip-link" href="#lesson-start">Skip to lesson</a>
   <header class="topbar">
     <div class="shell topbar-inner">
-      <a class="brand" href="course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <a class="brand" href="../../curriculum/course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
       <nav class="top-actions" aria-label="Lesson tools">
         <button class="button" type="button" data-open-drawer="graph">Graph</button>
         <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
@@ -1203,230 +1203,349 @@ footer {
   <main id="lesson-start">
     <section class="hero">
       <div class="shell">
-        <span class="eyebrow">Meaning Before Models, Module 01</span>
-        <h1>RDF in 15 Minutes</h1>
-        <p>See how one named relationship becomes a machine-readable path across utility systems.</p>
-        <div class="hero-meta"><span>15 to 25 minutes</span><span>Foundation</span><span>guided construction</span></div>
+        <span class="eyebrow">Meaning Before Models, Module 04</span>
+        <h1>From Triples to a Utility Knowledge Graph</h1>
+        <p>Grow reviewed utility statements into a bounded graph, test cross-domain questions, and defend the exact evidence path behind an answer.</p>
+        <div class="hero-meta"><span>65 to 80 minutes</span><span>Foundation with optional Practitioner and Leader depth</span><span>relationship discovery laboratory</span></div>
       </div>
     </section>
-    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening-choice">Opening Choice</div>
-<div class="progress-item" data-completion-id="triple-built">Triple Built</div>
-<div class="progress-item" data-completion-id="term-cards">Term Cards</div>
-<div class="progress-item" data-completion-id="path-traced">Path Traced</div>
-<div class="progress-item" data-completion-id="path-claim">Path Claim</div>
-<div class="progress-item" data-completion-id="relationship-card">Relationship Card</div></section>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening-edge">Opening Edge</div>
+<div class="progress-item" data-completion-id="graph-literacy">Graph Literacy</div>
+<div class="progress-item" data-completion-id="relationship-match">Relationship Match</div>
+<div class="progress-item" data-completion-id="graph-growth">Graph Growth</div>
+<div class="progress-item" data-completion-id="path-defense">Path Defense</div>
+<div class="progress-item" data-completion-id="boundary-check">Boundary Check</div>
+<div class="progress-item" data-completion-id="transfer-decision">Transfer Decision</div>
+<div class="progress-item" data-completion-id="mini-graph">Mini Graph</div></section>
     <div class="shell">
       <section class="lesson-section">
         <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
-        <div class="prose"><ul><li>Identify the subject, predicate, and object in a utility statement.</li><li>Explain why relationship direction changes meaning.</li><li>Connect several triples into one evidence path.</li><li>Separate an explicit graph claim from a proven real-world fact.</li><li>Draft one source-bounded utility relationship.</li></ul><p><strong>Misconception we will change:</strong> More records automatically give a machine more understanding.</p></div>
+        <div class="prose"><ul><li>Explain when separate triples form a connected RDF graph.</li><li>Distinguish the machine-readable graph from a node-link visualization.</li><li>Use shared governed identities to trace cross-system paths.</li><li>Test whether a competency question is answerable from the loaded statements.</li><li>Preserve source groups and unsupported boundaries in a Utility Mini-Graph.</li></ul><p><strong>Misconception we will change:</strong> A graph database or node-link picture is automatically a governed knowledge graph.</p></div>
       </section>
 
-<section class="lesson-section" id="opening">
+<section class="lesson-section" id="source-islands">
   <header class="section-heading">
     <span class="section-number">01</span>
-    <div><span class="kind">Utility scene</span><h2>The data is present. The relationship is missing.</h2></div>
+    <div><span class="kind">Relationship opening</span><h2>The records exist. The answer path does not.</h2></div>
   </header>
-  <div class="prose"><p>A pump alarm appears at 2:00 a.m. The screen says Pump P-104. The operator can see a pressure reading, a work order, a map, and customer records, but none of those records states the complete answer the operator needs.</p><p>The useful question is not, &quot;How much data do we have?&quot; It is, &quot;What does this pump serve, and what is connected to that service area?&quot; Water, wastewater, and stormwater teams ask that same relationship question in different forms.</p></div>
+  <div class="prose"><p>A Riverbend operations leader asks, &quot;Which customer accounts are in the pressure zone served by Pump P-104, and which open work order could affect that service?&quot; Geographic Information System records know the pump and zone. The customer system knows accounts and premises. Work management knows the repair. Each system can answer its own local question. None can yet show the complete route.</p><p>The missing thing is not another dashboard. It is a reviewed chain of statements that reuses the same governed identities across source boundaries. Until those statements meet, the utility has records but no defensible cross-domain path.</p></div>
 
-<figure class="learning-visual" id="mbm01-utility-scene"
-  data-visual-type="editorial-utility-scene"
+<figure class="learning-visual" id="mbm04-source-islands"
+  data-visual-type="source-island-editorial-scene"
   data-component-source="structured-module-package">
-  <h3>The relationship hiding inside the alarm</h3>
-  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin at the control-room alarm, follow the orange relationship through the pump and pressure zone, then inspect the separate systems that contribute evidence.</div>
+  <h3>Five systems hold records but no cross-domain route</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start with the question at the top then inspect each isolated source island and the missing route between them</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-01-rdf-in-15-minutes-utility-relationship-scene.svg" alt="A control-room alarm for Pump P-104 connects through a named serves relationship to Pressure Zone 3, with GIS, work-order, and customer records surrounding the physical water system.">
+    <img src="../visuals/source-islands.svg" alt="GIS customer maintenance operations and permit source islands contain local records but do not connect to answer one utility question">
   </div>
-  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> More readings do not create meaning by themselves. A named relationship connects the event to an operational consequence.</figcaption>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Data can be present while the relationship needed for the question is absent</figcaption>
 </figure>
 
-<section class="component" id="mbm01-opening-choice" data-choice-group
+<section class="component" id="mbm04-opening-edge" data-choice-group
   data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
   data-quiz-source="structured-module-package"
-  data-completion="opening-choice"
-  data-correct-feedback="Correct. The statement names two things and the directed relationship between them."
-  data-incorrect-feedback="Choose the statement that explicitly says how one utility thing relates to another.">
-  <header class="component-header"><h3>Which statement gives a machine one reusable piece of meaning?</h3><span class="kind">Decision check</span></header>
+  data-completion="opening-edge"
+  data-correct-feedback="Correct. The contains relationship closes the path between the source domains."
+  data-incorrect-feedback="The records need an explicit reviewed relationship">
+  <header class="component-header"><h3>GIS knows Pump P-104 serves Zone 3, and the customer system knows Premise 882 has Account 882. What is still needed for the customer-exposure path?</h3><span class="kind">Decision check</span></header>
   <div class="component-body">
     <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
-    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">Pump P-104 serves Pressure Zone 3.</button>
-<button class="choice" type="button" data-choice data-correct="false">P-104, Zone 3, alarm, 2:00 a.m.</button>
-<button class="choice" type="button" data-choice data-correct="false">Open the pump dashboard.</button>
-<button class="choice" type="button" data-choice data-correct="false">The pump probably affects nearby customers.</button></div>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">A shared governed statement connecting Zone 3 to Premise 882</button>
+<button class="choice" type="button" data-choice data-correct="false">A prettier dashboard</button>
+<button class="choice" type="button" data-choice data-correct="false">A duplicate copy of every source table</button></div>
     <button class="button primary" type="button" data-check-choice>Check my answer</button>
     <div class="feedback" data-feedback aria-live="polite"></div>
   </div>
 </section>
-<aside class="callout"><h3>What to notice</h3><p>The alarm reports an event. The relationship explains why that event may matter somewhere else. Those are different jobs.</p></aside>
 </section>
-<section class="lesson-section" id="triple">
+<section class="lesson-section" id="graph-not-picture">
   <header class="section-heading">
     <span class="section-number">02</span>
-    <div><span class="kind">Build the triple</span><h2>One statement has three jobs</h2></div>
+    <div><span class="kind">Representation distinction</span><h2>The graph is the statements, not the drawing</h2></div>
   </header>
-  <div class="prose"><p>Resource Description Framework, shortened to RDF, represents information as small statements called triples. The subject is the thing you are describing. The predicate names the relationship. The object is the thing or value on the other end.</p><p>&quot;Pump P-104 serves Pressure Zone 3&quot; becomes Pump_P104, serves, Pressure_Zone_3. The structure is simple. The hard work is agreeing on identity, relationship meaning, source, and authority.</p></div>
+  <div class="prose"><p>In the Resource Description Framework, an RDF graph is a set of triples. A node-link diagram can help a person inspect those triples, but moving a circle on the screen does not change the graph. Adding, removing, or changing a statement does.</p><p>This distinction matters because a beautiful picture can hide weak identifiers, missing sources, vague predicates, or unsupported claims. Machine-readable statements need stable identifiers and explicit relationships. The display is only one projection of that underlying content.</p></div>
 
-<figure class="learning-visual" id="mbm01-triple-anatomy"
-  data-visual-type="explanatory-diagram"
+<figure class="learning-visual" id="mbm04-ledger-view"
+  data-visual-type="ledger-to-visualization-comparison"
   data-component-source="structured-module-package">
-  <h3>The anatomy of one RDF triple</h3>
-  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start with the blue subject card, cross the orange directed predicate, and finish at the green object card. Then compare the reversed statement below.</div>
+  <h3>The statement ledger is the graph and the picture is one view</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the machine-readable statements on the left then follow the projection arrow to the movable node-link view</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-01-rdf-in-15-minutes-triple-anatomy.svg" alt="A three-part RDF statement shows Pump P-104 as subject, serves as predicate, and Pressure Zone 3 as object, followed by an incorrect reversed statement.">
+    <img src="../visuals/ledger-view.svg" alt="RDF triples appear in a machine-readable ledger on the left and as one node-link visualization on the right">
   </div>
-  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Read a triple from left to right. Reversing the ends without changing the predicate creates a different and usually incorrect claim.</figcaption>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Changing a statement changes the graph while rearranging a diagram does not</figcaption>
 </figure>
 
-<section class="component" id="mbm01-triple-builder" data-triple-builder
-  data-purposeful-interaction="triple-builder"
-  data-component-source="structured-module-package"
-  data-completion="triple-built"
-  data-correct="[&quot;Pump_P104&quot;,&quot;serves&quot;,&quot;Pressure_Zone_3&quot;]"
-  data-minimum-explanation="18">
-  <header class="component-header"><h3>Build it, reverse it, explain it</h3><span class="kind">Triple construction</span></header>
-  <div class="component-body">
-    <p class="component-intro">Choose the subject, predicate, and object. Check the triple, reverse it, then explain why the reversed claim fails.</p>
-    <div class="triple-builder">
-      <label>Subject<select><option value="">Choose</option><option value="Pump_P104">Pump_P104</option><option value="Pressure_Zone_3">Pressure_Zone_3</option><option value="Outfall_12">Outfall_12</option></select></label>
-      <span class="triple-arrow" aria-hidden="true">→</span>
-      <label>Predicate<select><option value="">Choose</option><option value="serves">serves</option><option value="drains">drains</option><option value="located_in">located_in</option></select></label>
-      <span class="triple-arrow" aria-hidden="true">→</span>
-      <label>Object<select><option value="">Choose</option><option value="Pressure_Zone_3">Pressure_Zone_3</option><option value="Pump_P104">Pump_P104</option><option value="Catchment_5">Catchment_5</option></select></label>
-    </div>
-    <div class="triple-output" data-triple-output aria-live="polite">Choose all three positions.</div>
-    <div class="button-row">
-      <button class="button primary" type="button" data-check-triple>Check triple</button>
-      <button class="button" type="button" data-reverse disabled>Reverse the ends</button>
-    </div>
-    <label class="work-product">Why does the reversed statement change the meaning?
-      <textarea rows="3" placeholder="Explain the direction change"></textarea>
-    </label>
-    <button class="button good" type="button" data-finish-triple>Finish construction</button>
-    <div class="feedback" data-feedback aria-live="polite"></div>
-  </div>
-</section>
-
-<section class="component" id="mbm01-term-cards" data-flip-group
+<section class="component" id="mbm04-graph-literacy" data-flip-group
   data-purposeful-interaction="flip-cards" data-quiz-type="flip-cards"
   data-quiz-source="structured-module-package"
-  data-completion="term-cards"
-  data-correct-feedback="All four meanings reviewed. Now use them in the graph path.">
-  <header class="component-header"><h3>Say the job of each RDF position before revealing the answer.</h3><span class="kind">Flip-card retrieval</span></header>
+  data-completion="graph-literacy"
+  data-correct-feedback="You can now separate graph content from the picture used to inspect it.">
+  <header class="component-header"><h3>Say each meaning aloud, then turn the card.</h3><span class="kind">Flip-card retrieval</span></header>
   <div class="component-body">
     <p class="component-intro">Say the answer before selecting each card. Select all four cards to complete this retrieval check.</p>
     <div class="flip-grid">
 <button class="flip-card" type="button" data-flip-card aria-pressed="false">
   <span class="flip-card-inner">
-    <span class="flip-face flip-front">Subject</span>
-    <span class="flip-face flip-back">The thing the statement describes. In the example, Pump P-104.</span>
+    <span class="flip-face flip-front">Node</span>
+    <span class="flip-face flip-back">A resource or value participating in graph statements.</span>
   </span>
 </button>
 
 <button class="flip-card" type="button" data-flip-card aria-pressed="false">
   <span class="flip-card-inner">
-    <span class="flip-face flip-front">Predicate</span>
-    <span class="flip-face flip-back">The named, directed relationship. In the example, serves.</span>
+    <span class="flip-face flip-front">Edge</span>
+    <span class="flip-face flip-back">The directed predicate relationship from a subject to an object.</span>
   </span>
 </button>
 
 <button class="flip-card" type="button" data-flip-card aria-pressed="false">
   <span class="flip-card-inner">
-    <span class="flip-face flip-front">Object</span>
-    <span class="flip-face flip-back">The thing or value on the other end. In the example, Pressure Zone 3.</span>
+    <span class="flip-face flip-front">Path</span>
+    <span class="flip-face flip-back">A sequence of connected statements followed to answer a question.</span>
   </span>
 </button>
 
 <button class="flip-card" type="button" data-flip-card aria-pressed="false">
   <span class="flip-card-inner">
-    <span class="flip-face flip-front">Triple</span>
-    <span class="flip-face flip-back">One complete subject, predicate, object statement.</span>
+    <span class="flip-face flip-front">Visualization</span>
+    <span class="flip-face flip-back">A human-readable projection of graph content</span>
   </span>
 </button></div>
     <div class="feedback" data-feedback aria-live="polite"></div>
   </div>
 </section>
-<aside class="callout"><h3>Boundary</h3><p>Writing a triple makes a claim explicit. It does not prove that the claim is current, authoritative, or true.</p></aside>
 </section>
-<section class="lesson-section" id="graph">
+<section class="lesson-section" id="shared-nodes">
   <header class="section-heading">
     <span class="section-number">03</span>
-    <div><span class="kind">Connect the graph</span><h2>Repeated statements become a path</h2></div>
+    <div><span class="kind">Shared-node route</span><h2>Reviewed identities let separate statements meet</h2></div>
   </header>
-  <div class="prose"><p>Add two more statements. Pressure Zone 3 contains Premise 88. Premise 88 is linked to Service Account 901. The shared things connect the statements into a path.</p><p>A machine can follow that path because every edge is named and directed. The circles and lines are a visual explanation. The graph itself is the underlying set of statements and identifiers.</p></div>
+  <div class="prose"><p>Module 03 resolved which identifier denotes Pump P-104. That reviewed identity now becomes a meeting point. A geographic statement can say the pump serves Zone 3. A maintenance statement can say Work Order 4821 concerns the same pump. Neither source gives up its own record. The relationships join through the governed asset identity.</p><p>A shared label is not enough. The node must represent the same governed thing within the graph&#x27;s scope. Once that condition is satisfied, every new statement can extend an existing path instead of creating another disconnected island.</p></div>
 
-<figure class="learning-visual" id="mbm01-graph-growth"
-  data-visual-type="graph-growth-diagram"
+<figure class="learning-visual" id="mbm04-shared-node-map"
+  data-visual-type="shared-node-route-map"
   data-component-source="structured-module-package">
-  <h3>Three triples become one answer path</h3>
-  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the three source statements at the top, then follow their shared nodes into the single path below from Pump P-104 to Service Account 901.</div>
+  <h3>Reviewed identities create meeting points across sources</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow each colored source statement into the governed center and then to the traversable route</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-01-rdf-in-15-minutes-graph-growth.svg" alt="Three RDF triples share Pressure Zone 3 and Premise 88, forming a path from Pump P-104 to Service Account 901.">
+    <img src="../visuals/shared-node-map.svg" alt="GIS maintenance operations and customer statements meet through governed Pump P-104 and Zone 3 identities">
   </div>
-  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The answer crosses operational, spatial, and customer records. Every edge must remain named, directed, and supportable.</figcaption>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Statements connect because they refer to the same reviewed thing rather than merely sharing text</figcaption>
 </figure>
 
-<section class="component" id="mbm01-path-tracer" data-path-tracer
+<section class="component" id="mbm04-relationship-match" data-matching
+  data-purposeful-interaction="matching" data-quiz-type="matching"
+  data-quiz-source="structured-module-package"
+  data-completion="relationship-match"
+  data-correct-feedback="Correct. Precise predicates make the route readable and reusable."
+  data-incorrect-feedback="Read each relationship from subject to object and choose the verb that preserves its direction.">
+  <header class="component-header"><h3>Match each source statement to the relationship that lets the graph grow.</h3><span class="kind">Relationship matching</span></header>
+  <div class="component-body">
+    <p class="component-intro">Match each ordinary-language question to the job that answers it. Check all rows together, then revise any row that needs another look.</p>
+    <div class="match-grid">
+<label class="match-row">
+  <span>Pump P-104 to Pressure Zone 3</span>
+  <select data-match-answer="serves"><option value="">Choose a meaning job</option><option value="serves">serves</option><option value="concerns">concerns</option><option value="contains">contains</option><option value="drainsTo">drainsTo</option></select>
+</label>
+<label class="match-row">
+  <span>Work Order 4821 to Pump P-104</span>
+  <select data-match-answer="concerns"><option value="">Choose a meaning job</option><option value="serves">serves</option><option value="concerns">concerns</option><option value="contains">contains</option><option value="drainsTo">drainsTo</option></select>
+</label>
+<label class="match-row">
+  <span>Pressure Zone 3 to Premise 882</span>
+  <select data-match-answer="contains"><option value="">Choose a meaning job</option><option value="serves">serves</option><option value="concerns">concerns</option><option value="contains">contains</option><option value="drainsTo">drainsTo</option></select>
+</label>
+<label class="match-row">
+  <span>Catchment 5 to Outfall 12</span>
+  <select data-match-answer="drainsTo"><option value="">Choose a meaning job</option><option value="serves">serves</option><option value="concerns">concerns</option><option value="contains">contains</option><option value="drainsTo">drainsTo</option></select>
+</label></div>
+    <button class="button primary" type="button" data-check-matching>Check the matches</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="growth-lab">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Graph Growth Laboratory</span><h2>Grow the graph only until the questions become answerable</h2></div>
+  </header>
+  <div class="prose"><p>The laboratory begins with no statements loaded. Select each reviewed source packet and watch its triples enter the machine-readable ledger. The source label stays beside every statement, because connected does not mean source-free.</p><p>Test all three competency questions as you work. A failed test tells you which source packet is missing. It does not prove the real-world answer is false. It proves only that this bounded graph cannot yet support the answer.</p></div>
+
+<section class="component signature-component graph-growth-lab" id="mbm04-graph-growth"
+  data-graph-growth-lab data-purposeful-interaction="graph-growth-lab"
+  data-component-source="structured-module-package" data-completion="graph-growth"
+  data-source-statements="[{&quot;source&quot;:&quot;GIS named source group&quot;,&quot;summary&quot;:&quot;Assets, locations, zones, premises, catchments, and outfalls&quot;,&quot;statements&quot;:[{&quot;subject&quot;:&quot;Pump_P104&quot;,&quot;predicate&quot;:&quot;serves&quot;,&quot;object&quot;:&quot;Pressure_Zone_3&quot;},{&quot;subject&quot;:&quot;Pump_P104&quot;,&quot;predicate&quot;:&quot;locatedAt&quot;,&quot;object&quot;:&quot;North_High_Service&quot;},{&quot;subject&quot;:&quot;Pressure_Zone_3&quot;,&quot;predicate&quot;:&quot;contains&quot;,&quot;object&quot;:&quot;Premise_882&quot;},{&quot;subject&quot;:&quot;Pressure_Zone_3&quot;,&quot;predicate&quot;:&quot;contains&quot;,&quot;object&quot;:&quot;Premise_901&quot;},{&quot;subject&quot;:&quot;Catchment_5&quot;,&quot;predicate&quot;:&quot;drainsTo&quot;,&quot;object&quot;:&quot;Outfall_12&quot;},{&quot;subject&quot;:&quot;Outfall_12&quot;,&quot;predicate&quot;:&quot;locatedAt&quot;,&quot;object&quot;:&quot;River_Mile_18&quot;}]},{&quot;source&quot;:&quot;Customer named source group&quot;,&quot;summary&quot;:&quot;Premises, accounts, service status, and customer class&quot;,&quot;statements&quot;:[{&quot;subject&quot;:&quot;Premise_882&quot;,&quot;predicate&quot;:&quot;hasAccount&quot;,&quot;object&quot;:&quot;Account_882&quot;},{&quot;subject&quot;:&quot;Premise_901&quot;,&quot;predicate&quot;:&quot;hasAccount&quot;,&quot;object&quot;:&quot;Account_901&quot;},{&quot;subject&quot;:&quot;Account_882&quot;,&quot;predicate&quot;:&quot;hasStatus&quot;,&quot;object&quot;:&quot;Active&quot;},{&quot;subject&quot;:&quot;Account_901&quot;,&quot;predicate&quot;:&quot;hasStatus&quot;,&quot;object&quot;:&quot;Inactive&quot;},{&quot;subject&quot;:&quot;Account_882&quot;,&quot;predicate&quot;:&quot;hasClass&quot;,&quot;object&quot;:&quot;Hospital&quot;},{&quot;subject&quot;:&quot;Account_901&quot;,&quot;predicate&quot;:&quot;hasClass&quot;,&quot;object&quot;:&quot;Residential&quot;}]},{&quot;source&quot;:&quot;Maintenance named source group&quot;,&quot;summary&quot;:&quot;Work, assets, conditions, crews, and due dates&quot;,&quot;statements&quot;:[{&quot;subject&quot;:&quot;Work_Order_4821&quot;,&quot;predicate&quot;:&quot;concerns&quot;,&quot;object&quot;:&quot;Pump_P104&quot;},{&quot;subject&quot;:&quot;Work_Order_4821&quot;,&quot;predicate&quot;:&quot;reports&quot;,&quot;object&quot;:&quot;Seal_Leak&quot;},{&quot;subject&quot;:&quot;Work_Order_4821&quot;,&quot;predicate&quot;:&quot;assignedTo&quot;,&quot;object&quot;:&quot;Crew_6&quot;},{&quot;subject&quot;:&quot;Work_Order_4821&quot;,&quot;predicate&quot;:&quot;hasStatus&quot;,&quot;object&quot;:&quot;Open&quot;},{&quot;subject&quot;:&quot;Work_Order_4821&quot;,&quot;predicate&quot;:&quot;dueOn&quot;,&quot;object&quot;:&quot;2026-07-29&quot;},{&quot;subject&quot;:&quot;Crew_6&quot;,&quot;predicate&quot;:&quot;qualifiedFor&quot;,&quot;object&quot;:&quot;Pump_Maintenance&quot;}]},{&quot;source&quot;:&quot;Operations named source group&quot;,&quot;summary&quot;:&quot;Telemetry, events, observations, and operating state&quot;,&quot;statements&quot;:[{&quot;subject&quot;:&quot;Point_P104_RUN&quot;,&quot;predicate&quot;:&quot;monitors&quot;,&quot;object&quot;:&quot;Pump_P104&quot;},{&quot;subject&quot;:&quot;Pressure_Event_77&quot;,&quot;predicate&quot;:&quot;affects&quot;,&quot;object&quot;:&quot;Pressure_Zone_3&quot;},{&quot;subject&quot;:&quot;Observation_551&quot;,&quot;predicate&quot;:&quot;observedProperty&quot;,&quot;object&quot;:&quot;Discharge_Pressure&quot;},{&quot;subject&quot;:&quot;Observation_551&quot;,&quot;predicate&quot;:&quot;featureOfInterest&quot;,&quot;object&quot;:&quot;Pump_P104&quot;},{&quot;subject&quot;:&quot;Observation_551&quot;,&quot;predicate&quot;:&quot;hasValue&quot;,&quot;object&quot;:&quot;41 psi&quot;},{&quot;subject&quot;:&quot;Pressure_Event_77&quot;,&quot;predicate&quot;:&quot;startedAt&quot;,&quot;object&quot;:&quot;2026-07-24T02:10&quot;}]},{&quot;source&quot;:&quot;Stormwater and permit named source group&quot;,&quot;summary&quot;:&quot;Inspections, catchments, outfalls, permits, and maintenance&quot;,&quot;statements&quot;:[{&quot;subject&quot;:&quot;Inspection_55&quot;,&quot;predicate&quot;:&quot;occurredAt&quot;,&quot;object&quot;:&quot;Catchment_5&quot;},{&quot;subject&quot;:&quot;Inspection_55&quot;,&quot;predicate&quot;:&quot;found&quot;,&quot;object&quot;:&quot;Debris_Blockage&quot;},{&quot;subject&quot;:&quot;Permit_8&quot;,&quot;predicate&quot;:&quot;appliesTo&quot;,&quot;object&quot;:&quot;Outfall_12&quot;},{&quot;subject&quot;:&quot;Permit_8&quot;,&quot;predicate&quot;:&quot;requires&quot;,&quot;object&quot;:&quot;Followup_Inspection&quot;},{&quot;subject&quot;:&quot;Task_91&quot;,&quot;predicate&quot;:&quot;addresses&quot;,&quot;object&quot;:&quot;Debris_Blockage&quot;},{&quot;subject&quot;:&quot;Task_91&quot;,&quot;predicate&quot;:&quot;hasStatus&quot;,&quot;object&quot;:&quot;Scheduled&quot;}]}]">
+  <header class="component-header"><h3>Thirty-Statement Graph Growth Laboratory</h3><span class="kind">Relationship discovery laboratory</span></header>
+  <div class="component-body"><p class="component-intro">Load the five reviewed source packets. Test the questions before and after each addition. Finish by answering all three from the complete thirty-statement graph.</p>
+    <div class="graph-lab-layout">
+      <aside class="source-shelf"><h4>Reviewed source packets</h4><button class="source-packet" type="button" data-source-packet="GIS named source group"><strong>GIS named source group</strong><span>Assets, locations, zones, premises, catchments, and outfalls</span><small>6 reviewed statements</small></button><button class="source-packet" type="button" data-source-packet="Customer named source group"><strong>Customer named source group</strong><span>Premises, accounts, service status, and customer class</span><small>6 reviewed statements</small></button><button class="source-packet" type="button" data-source-packet="Maintenance named source group"><strong>Maintenance named source group</strong><span>Work, assets, conditions, crews, and due dates</span><small>6 reviewed statements</small></button><button class="source-packet" type="button" data-source-packet="Operations named source group"><strong>Operations named source group</strong><span>Telemetry, events, observations, and operating state</span><small>6 reviewed statements</small></button><button class="source-packet" type="button" data-source-packet="Stormwater and permit named source group"><strong>Stormwater and permit named source group</strong><span>Inspections, catchments, outfalls, permits, and maintenance</span><small>6 reviewed statements</small></button></aside>
+      <div class="graph-stage"><div class="graph-stage-header"><strong>Machine-readable statement ledger</strong>
+        <span data-graph-count>0 statements loaded</span></div>
+        <div class="statement-ledger" data-statement-ledger><p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p></div>
+      </div>
+    </div>
+    <div class="question-console"><h4>Competency questions</h4>
+      <p>Try each question as the graph grows. It unlocks only when every required source packet is present.</p>
+      <div class="question-grid"><button class="graph-question" type="button" data-graph-question="Which active critical account is in the zone served by Pump P-104?" data-requires="[&quot;GIS named source group&quot;,&quot;Customer named source group&quot;]" data-answer="Account 882, classified as Hospital, is active in Pressure Zone 3." data-path="Pump_P104 serves Pressure_Zone_3 → Pressure_Zone_3 contains Premise_882 → Premise_882 hasAccount Account_882 → Account_882 hasStatus Active → Account_882 hasClass Hospital"><strong>Customer exposure</strong><span>Which active critical account is in the zone served by Pump P-104?</span></button><button class="graph-question" type="button" data-graph-question="Which open work order concerns the pump serving the affected zone?" data-requires="[&quot;GIS named source group&quot;,&quot;Maintenance named source group&quot;,&quot;Operations named source group&quot;]" data-answer="Work Order 4821 is open, concerns Pump P-104, and reports a seal leak." data-path="Pressure_Event_77 affects Pressure_Zone_3 → Pump_P104 serves Pressure_Zone_3 → Work_Order_4821 concerns Pump_P104 → Work_Order_4821 hasStatus Open"><strong>Maintenance consequence</strong><span>Which open work order concerns the pump serving the affected zone?</span></button><button class="graph-question" type="button" data-graph-question="Which permit and scheduled task connect to the catchment inspection?" data-requires="[&quot;GIS named source group&quot;,&quot;Stormwater and permit named source group&quot;]" data-answer="Permit 8 applies to Outfall 12, and Task 91 addresses the debris blockage found by Inspection 55." data-path="Inspection_55 occurredAt Catchment_5 → Catchment_5 drainsTo Outfall_12 → Permit_8 appliesTo Outfall_12 → Inspection_55 found Debris_Blockage → Task_91 addresses Debris_Blockage"><strong>Stormwater response</strong><span>Which permit and scheduled task connect to the catchment inspection?</span></button></div>
+      <article class="query-result" data-query-result aria-live="polite">No question tested yet.</article>
+    </div>
+    <div class="button-row"><button class="button" type="button" data-reset-graph>Reset graph</button></div>
+    <div class="feedback" data-feedback aria-live="polite">Load source packets, then test all three questions.</div>
+  </div>
+</section>
+<aside class="callout"><h3>Stop when the graph can do its job</h3><p>A useful graph is scoped by competency questions</p></aside>
+</section>
+<section class="lesson-section" id="answer-path">
+  <header class="section-heading">
+    <span class="section-number">05</span>
+    <div><span class="kind">Evidence path defense</span><h2>Illuminate the exact route behind one answer</h2></div>
+  </header>
+  <div class="prose"><p>A graph answer is reviewable when you can name the path that supports it. For the customer exposure question, begin with Pump P-104, follow serves to Zone 3, contains to Premise 882, and hasAccount to Customer Account 882. Each edge answers one small part of the larger question.</p><p>Trace the path in order. Notice that no individual record contains the final answer. The answer emerges from several explicit statements that share governed nodes.</p></div>
+
+<figure class="learning-visual" id="mbm04-answer-path"
+  data-visual-type="illuminated-answer-path"
+  data-component-source="structured-module-package">
+  <h3>One answer is supported by an exact sequence of edges</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin at Pump P-104 and follow every gold edge to the bounded answer while checking the source label below</div>
+  <div class="visual-frame">
+    <img src="../visuals/answer-path.svg" alt="Pump P-104 connects through Zone 3 Premise 882 and Account 882 to an active hospital account with every predicate and source shown">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The customer result emerges from four explicit edges rather than one hidden join</figcaption>
+</figure>
+
+<section class="component" id="mbm04-path-defense" data-path-tracer
   data-purposeful-interaction="path-tracer"
   data-component-source="structured-module-package"
-  data-completion="path-traced">
-  <header class="component-header"><h3>Trace the evidence path</h3><span class="kind">Evidence path</span></header>
+  data-completion="path-defense">
+  <header class="component-header"><h3>Customer Exposure Path Defense</h3><span class="kind">Evidence path</span></header>
   <div class="component-body">
-    <p class="component-intro">Select the three edges in order. Read what each edge adds before moving to the next.</p>
+    <p class="component-intro">Select each edge in order. Explain the contribution of every statement before accepting the final answer.</p>
     <div class="path-strip">
-<button class="edge-button" type="button" data-edge-index="0" data-explanation="The asset-to-zone relationship comes from the approved utility network model.">
+<button class="edge-button" type="button" data-edge-index="0" data-explanation="The reviewed GIS statement connects the physical pump to its pressure zone.">
   <strong>1. Pump P-104 → serves → Pressure Zone 3</strong>
-  <span>The asset-to-zone relationship comes from the approved utility network model.</span>
+  <span>The reviewed GIS statement connects the physical pump to its pressure zone.</span>
 </button>
-<button class="edge-button" type="button" data-edge-index="1" data-explanation="The spatial relationship connects the pressure zone to a served premise.">
-  <strong>2. Pressure Zone 3 → contains → Premise 88</strong>
-  <span>The spatial relationship connects the pressure zone to a served premise.</span>
+<button class="edge-button" type="button" data-edge-index="1" data-explanation="The zone boundary contains the served premise.">
+  <strong>2. Pressure Zone 3 → contains → Premise 882</strong>
+  <span>The zone boundary contains the served premise.</span>
 </button>
-<button class="edge-button" type="button" data-edge-index="2" data-explanation="The customer system links the premise to the service account.">
-  <strong>3. Premise 88 → has_service_account → Service Account 901</strong>
-  <span>The customer system links the premise to the service account.</span>
+<button class="edge-button" type="button" data-edge-index="2" data-explanation="The customer source connects the premise to its service account.">
+  <strong>3. Premise 882 → hasAccount → Customer Account 882</strong>
+  <span>The customer source connects the premise to its service account.</span>
+</button>
+<button class="edge-button" type="button" data-edge-index="3" data-explanation="Account status and class support the bounded active critical-account result.">
+  <strong>4. Customer Account 882 → qualifiesAs → Active Hospital Account</strong>
+  <span>Account status and class support the bounded active critical-account result.</span>
 </button></div>
     <div class="button-row"><button class="button" type="button" data-reset-path>Reset path</button></div>
     <div class="feedback" data-feedback aria-live="polite">Begin with edge 1.</div>
   </div>
 </section>
+</section>
+<section class="lesson-section" id="source-groups">
+  <header class="section-heading">
+    <span class="section-number">06</span>
+    <div><span class="kind">Practitioner view</span><h2>Named source groups preserve where statements came from</h2></div>
+  </header>
+  <div class="prose"><p>An RDF dataset can organize graph content into a default graph and named graphs. In this lesson, the geographic, customer, maintenance, operational, and regulatory packets act as named source groups. That organization can help a query select, compare, or discuss particular graph content.</p><p>A named graph is not a truth stamp. The utility still needs provenance, effective time, authority, access control, review state, and correction procedures. Grouping statements makes source boundaries addressable. Governance determines how those groups may be trusted and used.</p></div>
 
-<section class="component" id="mbm01-path-claim" data-choice-group
-  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+<figure class="learning-visual" id="mbm04-source-groups"
+  data-visual-type="rdf-dataset-source-group-map"
+  data-component-source="structured-module-package">
+  <h3>Thirty statements remain organized in five named source groups</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the five graph containers inside the dataset then inspect the governance controls surrounding them</div>
+  <div class="visual-frame">
+    <img src="../visuals/source-groups.svg" alt="Five colored named graph containers sit inside an RDF dataset with provenance authority time access and correction controls below">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Source grouping helps attribution but does not replace governance controls</figcaption>
+</figure>
+
+<section class="component" id="mbm04-boundary-check" data-multi-select
+  data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
   data-quiz-source="structured-module-package"
-  data-completion="path-claim"
-  data-correct-feedback="Correct. The path supports a connection. It does not prove causation or authorize an action."
-  data-incorrect-feedback="Choose the claim that repeats only the relationships present in the graph.">
-  <header class="component-header"><h3>What can the completed path support?</h3><span class="kind">Decision check</span></header>
+  data-completion="boundary-check"
+  data-correct-feedback="Correct. Organization and addressability help"
+  data-incorrect-feedback="Do not confuse a named container with proof">
+  <header class="component-header"><h3>Which statements about named source groups are defensible?</h3><span class="kind">Context boundary check</span></header>
   <div class="component-body">
-    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
-    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Pump P-104 caused every complaint from Service Account 901.</button>
-<button class="choice" type="button" data-choice data-correct="true">Service Account 901 is linked to a premise in the pressure zone served by Pump P-104.</button>
-<button class="choice" type="button" data-choice data-correct="false">The utility should automatically notify the account holder.</button></div>
-    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
+    <div class="multi-grid">
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>They can organize statements under a graph name</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>They can help preserve and query source boundaries</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>Their presence automatically proves every statement is true</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>They still require provenance authority time and access controls</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>They eliminate the need for correction procedures</span>
+</label></div>
+    <button class="button primary" type="button" data-check-multi>Check the packet</button>
     <div class="feedback" data-feedback aria-live="polite"></div>
   </div>
 </section>
 </section>
-<section class="lesson-section" id="transfer">
+<section class="lesson-section" id="one-water-transfer">
   <header class="section-heading">
-    <span class="section-number">04</span>
-    <div><span class="kind">Professional application</span><h2>Take one relationship back to work</h2></div>
+    <span class="section-number">07</span>
+    <div><span class="kind">One Water transfer</span><h2>Transfer the route to wastewater and stormwater</h2></div>
   </header>
-  <div class="prose"><p>Do not begin by modeling the whole enterprise. Start with one relationship that answers a recurring question. Name the subject, predicate, object, source, and the question the relationship supports.</p><p>Use a real water, wastewater, or stormwater example. Another team should be able to find the source, challenge the claim, and understand exactly what the relationship means.</p></div>
+  <div class="prose"><p>In wastewater, a response team may trace Lift Station 7 flowsTo Sewer Segment 44, Sewer Segment 44 upstreamOf Overflow Location 2, and Crew 6 assignedTo Incident 991. In stormwater, Inspection 55 occurredAt Catchment 5, Catchment 5 drainsTo Outfall 12, and Permit 8 appliesTo Outfall 12.</p><p>The graph is valuable when relationships are the question. If a single trusted table already answers the task, adding RDF may be unnecessary. Leaders should fund the graph where cross-system paths, shared meaning, provenance, reuse, or changing questions justify the added engineering and governance.</p></div>
 
-<section class="component" id="mbm01-relationship-card"
+<section class="component" id="mbm04-transfer-decision" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="transfer-decision"
+  data-correct-feedback="Correct. Relationship-intensive changing questions are where the graph can create material value."
+  data-incorrect-feedback="Use the graph where reusable cross-domain relationships drive the task">
+  <header class="component-header"><h3>Which task most strongly justifies an RDF knowledge graph?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Add two numbers already governed in one table</button>
+<button class="choice" type="button" data-choice data-correct="true">Repeatedly trace changing paths across assets locations customers work permits and evidence</button>
+<button class="choice" type="button" data-choice data-correct="false">Replace every operational source system</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Leader view</h3><p>Ask which high-value questions repeatedly fail at system boundaries. Those questions define the first useful graph scope better than &quot;build the enterprise graph.&quot;</p></aside>
+</section>
+<section class="lesson-section" id="mini-graph">
+  <header class="section-heading">
+    <span class="section-number">08</span>
+    <div><span class="kind">Professional application</span><h2>Build a mini-graph another team can challenge</h2></div>
+  </header>
+  <div class="prose"><p>Choose one bounded utility question. Record the source groups, governed nodes, explicit relationships, and the path that supports an answer. Then remove one edge mentally and state which answer becomes unsupported.</p><p>Name what your mini-graph cannot claim. This final boundary is part of the artifact, not a disclaimer added later. It keeps a useful answer from quietly becoming an unlimited assertion.</p></div>
+
+<section class="component" id="mbm04-mini-graph"
   data-purposeful-interaction="applied-work-product"
   data-component-source="structured-module-package">
-  <header class="component-header"><h3>Professional Work Product</h3><span class="kind">Professional work product</span></header>
+  <header class="component-header"><h3>Utility Mini-Graph</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
-    <p class="component-intro">Draft one useful utility relationship and identify the source and operational question.</p>
-    <form class="work-product" data-work-product="mbm01-relationship-card"
-      data-artifact="mbm01-relationship-card"
-      data-completion="relationship-card"
-      data-correct-feedback="Your card contains one inspectable relationship and the question it helps answer."
-      data-incorrect-feedback="Complete all five fields. Use one subject, one directed predicate, one object, one source, and one utility question.">
-      <div class="field-grid"><label>Subject<input name="subject" required></label><label>Predicate<input name="predicate" required></label><label>Object<input name="object" required></label><label>Authoritative source<input name="source" required></label></div>
-      <label>Utility question this relationship helps answer<textarea name="question" rows="3" required></textarea></label>
-      <button class="button primary" type="submit">Save Work Product</button>
+    <p class="component-intro">Record the question, source groups, nodes, relationships, answer path, failure test, authority, and explicit limit.</p>
+    <form class="work-product" data-work-product="mbm04-mini-graph"
+      data-artifact="mbm04-mini-graph"
+      data-completion="mini-graph"
+      data-correct-feedback="Your Utility Mini-Graph makes its question sources path failure test authority and unsupported boundary reviewable."
+      data-incorrect-feedback="Complete every field with specific nodes relationships sources and limits.">
+      <div class="field-grid"><label>Competency question<textarea name="competency_question" rows="3" required></textarea></label><label>Named source groups<textarea name="source_groups" rows="3" required></textarea></label><label>Governed nodes and identifiers<textarea name="governed_nodes" rows="3" required></textarea></label><label>Directed relationships<textarea name="explicit_relationships" rows="3" required></textarea></label><label>Exact supporting path<textarea name="answer_path" rows="3" required></textarea></label><label>Edge removal and resulting unsupported answer<textarea name="missing_edge_test" rows="3" required></textarea></label><label>Source authority time and review state<textarea name="source_authority" rows="3" required></textarea></label></div>
+      <label>What this mini-graph cannot claim or authorize<textarea name="unsupported_boundary" rows="3" required></textarea></label>
+      <button class="button primary" type="submit">Save Utility Mini-Graph</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -1435,17 +1554,18 @@ footer {
 
 <section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
   <h3 id="faq-heading">Questions people actually ask</h3>
-  <details><summary>Is RDF a database?</summary><p>No. RDF is a standard model for expressing information as triples. The triples may be stored in a graph database, generated from tables, exchanged as files, or exposed through an application interface.</p></details>
-<details><summary>Is the graph the circles-and-lines picture?</summary><p>No. The picture is one view. The graph is the underlying set of identified things and directed, named relationships.</p></details>
-<details><summary>Why not use a spreadsheet?</summary><p>For one small local task, a spreadsheet may be enough. RDF becomes useful when the same pump, zone, premise, procedure, customer, and permit must connect across systems through reusable meanings.</p></details>
-<details><summary>Can the object be a number or date?</summary><p>Yes. An object may be another identified resource or a literal value such as a number, date, or text string.</p></details>
-<details><summary>Does a triple prove the statement is true?</summary><p>No. It makes the claim explicit. Trust still depends on source, mapping, effective time, authority, review, and validation.</p></details>
+  <details><summary>Does every relationship belong in one graph?</summary><p>No. Include relationships that serve approved questions and uses. Separate domains or source groups may remain federated, restricted, or outside the graph.</p></details>
+<details><summary>Is a graph database automatically a knowledge graph?</summary><p>No. A graph database stores graph-shaped data. A governed knowledge graph also needs shared meaning, identifiers, source controls, provenance, validation, ownership, and bounded uses.</p></details>
+<details><summary>How large can a graph become?</summary><p>Technically, very large. The better design question is whether its partitions, mappings, queries, controls, and operating costs still serve the approved workload.</p></details>
+<details><summary>Does a missing path mean the answer is false?</summary><p>Usually not. Under the open-world assumption, the graph may simply lack a required statement or source. Report unsupported or unknown unless a closed rule justifies false.</p></details>
+<details><summary>Why keep source groups after connecting the graph?</summary><p>Source groups preserve attribution and let the utility apply different authority, freshness, access, and review policies to different statements.</p></details>
+<details><summary>When is RDF unnecessary?</summary><p>If one governed source and a straightforward table query answer the stable task, RDF may add cost without enough value. Use it when explicit reusable relationships materially improve the work.</p></details>
 </section>
 
 <section class="evidence" data-evidence-boundary>
   <h3>Evidence boundary</h3>
-  <p>Pump P-104, Pressure Zone 3, Premise 88, and Service Account 901 are instructional examples. RDF definitions are grounded in World Wide Web Consortium standards. The scenario does not establish an operational fact or authorize an action.</p>
-  <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Syntax</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/rdf12-primer/">RDF 1.2 Primer</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>, World Wide Web Consortium</li></ul>
+  <p>Riverbend Water, its records, and all answers are instructional. W3C RDF sources define RDF graphs, triples, datasets, and named graphs. They do not establish Riverbend&#x27;s source authority, real asset state, customer exposure, or operational permission.</p>
+  <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Data Model</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/rdf12-schema/">RDF 1.2 Schema</a>, World Wide Web Consortium</li></ul>
 </section>
 </section>
       <section id="owos-course-community" class="connected">
@@ -1454,7 +1574,7 @@ footer {
       </section>
       <section class="completion">
         <h2>Complete the working candidate</h2>
-        <p>Complete both interactions, both concept checks, the opening decision, and the Relationship Card.</p>
+        <p>Complete the opening edge decision, graph literacy cards, relationship match, full graph-growth laboratory, evidence path, source-boundary check, transfer decision, and Utility Mini-Graph.</p>
         <button class="button good" type="button" data-complete-module disabled>Complete module</button>
         <p data-completion-status aria-live="polite"></p>
       </section>
@@ -1464,13 +1584,13 @@ footer {
   <aside class="drawer" data-drawer="graph" aria-hidden="true">
     <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
     <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
-    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Syntax</h3><p>Definition of the RDF data model and triples</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>RDF 1.2 Primer</h3><p>Plain-language RDF examples and graph explanation</p><a href="https://www.w3.org/TR/rdf12-primer/">Open source</a></article><article><h3>RDF 1.1 Turtle</h3><p>Serialization reference used in the following module</p><a href="https://www.w3.org/TR/turtle/">Open source</a></article></div>
+    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>RDF graphs triples datasets graph names and literals</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>RDF 1.2 Schema</h3><p>RDF vocabulary and graph-based schema context</p><a href="https://www.w3.org/TR/rdf12-schema/">Open source</a></article></div>
   </aside>
   <aside class="drawer" data-drawer="glossary" aria-hidden="true">
     <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <div class="glossary-list"><article><h3>Resource Description Framework (RDF)</h3><p>A World Wide Web Consortium framework for representing information as subject, predicate, object statements.</p></article><article><h3>triple</h3><p>One complete statement with a subject, predicate, and object.</p></article><article><h3>subject</h3><p>The identified thing the statement describes.</p></article><article><h3>predicate</h3><p>The named, directed relationship between the subject and object.</p></article><article><h3>object</h3><p>The identified thing or literal value on the other end of the predicate.</p></article><article><h3>graph</h3><p>A connected set of identified nodes and directed, named relationships.</p></article></div>
+    <div class="glossary-list"><article><h3>RDF graph</h3><p>A set of Resource Description Framework triples.</p></article><article><h3>node</h3><p>A resource or value that participates in graph statements.</p></article><article><h3>edge</h3><p>A directed predicate relationship from a subject to an object.</p></article><article><h3>path</h3><p>A sequence of connected statements followed through a graph.</p></article><article><h3>shared node</h3><p>A governed resource identity reused by statements so separate paths can meet.</p></article><article><h3>graph visualization</h3><p>A human-readable display of graph content rather than the graph itself.</p></article><article><h3>RDF dataset</h3><p>A collection containing a default graph and zero or more named graphs.</p></article><article><h3>named graph</h3><p>An RDF graph associated with a graph name inside a dataset.</p></article><article><h3>competency question</h3><p>A specific question used to test whether a model or graph contains the required concepts and relationships.</p></article><article><h3>source group</h3><p>A bounded collection of statements kept attributable to a particular source or governance context.</p></article></div>
   </aside>
-  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 1.0.0-structured-candidate. No credential or operational authority.</div></footer>
+  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-structured-candidate. No credential or operational authority.</div></footer>
   <script>(() => {
   "use strict";
 
