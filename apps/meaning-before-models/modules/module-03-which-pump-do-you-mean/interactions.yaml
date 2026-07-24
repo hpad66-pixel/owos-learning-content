@@ -1,0 +1,29 @@
+schema_version: 1
+module_id: mbm001:03
+interactions:
+  - interaction_id: mbm03-identity-docket
+    component: identity-adjudication
+    title: Identity Evidence Docket
+    teaching_purpose: Separate approved asset identity, records about the asset, and unresolved candidates.
+    instructions: Review location, equipment role, date, and source. Record the finding each evidence card supports.
+    completion_id: identity-docket
+    config:
+      findings: [Same physical asset, Related record, Unresolved candidate]
+      records:
+        - {source: GIS asset register, identifier: GIS-8831 / P-104, location: North High Service Station, equipment: Vertical turbine duty pump, date: 2026-07-18, answer: Same physical asset, explanation: The governed asset record aligns on location, equipment role, serial number, and commissioning history.}
+        - {source: Maintenance system, identifier: PUMP-104, location: North High Service Station, equipment: Vertical turbine duty pump, date: 2026-07-20, answer: Same physical asset, explanation: Equipment attributes and service history corroborate the GIS asset mapping.}
+        - {source: SCADA point register, identifier: P104_RUN, location: North High Service Station, equipment: Run-status telemetry point, date: 2026-07-24, answer: Related record, explanation: The point monitors the pump but is not the physical pump.}
+        - {source: Work management, identifier: WO-4821, location: North High Service Station, equipment: Seal replacement work order, date: 2026-07-22, answer: Related record, explanation: The work order concerns the pump and retains its own identity.}
+        - {source: Operator field note, identifier: P-104 bypass, location: South Booster yard, equipment: Temporary diesel bypass pump, date: 2026-07-23, answer: Unresolved candidate, explanation: The location and equipment type contradict the proposed permanent-pump identity.}
+  - interaction_id: mbm03-false-merge-trace
+    component: failure-trace
+    title: False-Merge Blast Radius
+    teaching_purpose: Show how one unsupported equivalence contaminates several downstream uses.
+    instructions: Open every consequence path. Identify the first repair and accountable owner before looking at the final symptom.
+    completion_id: false-merge-paths
+    config:
+      paths:
+        - {job: Maintenance history, missing: Temporary bypass work appears on the permanent pump, steps: [Unsupported identity mapping joins two assets, Work orders and failure codes combine, Planner schedules the wrong maintenance], repair: Withdraw the mapping and reassign affected work records after review, owner: Asset Data Steward}
+        - {job: Operations, missing: Two alarm histories appear to describe one duty pump, steps: [Telemetry relationships converge on one identity, Runtime hours and starts are combined, Operator receives a misleading condition summary], repair: Separate identities and revalidate telemetry-to-asset mappings, owner: Operational Technology Asset Owner}
+        - {job: Reliability analytics, missing: Failure rate is calculated from fabricated combined history, steps: [Two maintenance histories merge, Exposure hours and failures lose asset boundaries, Reliability ranking changes], repair: Correct identity and recompute affected metrics with provenance, owner: Reliability Engineering}
+        - {job: Agent recommendation, missing: Agent recommends work on the wrong equipment and location, steps: [Graph retrieval follows false equivalence, Context packet combines incompatible evidence, Draft action cites the wrong isolation conditions], repair: Block action, correct identity, rebuild context, and require human review, owner: Application Product Owner}

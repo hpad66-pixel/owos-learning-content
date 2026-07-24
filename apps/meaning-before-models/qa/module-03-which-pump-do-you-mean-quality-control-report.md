@@ -1,95 +1,40 @@
----
-module_id: mbm001:03
-course_id: owos-course-semantic-data-ai-001
-version: semantic-fieldbook-retrofit-1
-review_date: 2026-07-23
-reviewer: Codex repository review
-score: 86
-score_out_of: 100
-working_status: conditional_candidate
-release_status: blocked
----
+# Module 03 Quality-Control Report
 
-# Module Quality-Control Report: Which Pump Do You Mean?
-
-## Retrofit implementation review
-- Rebuilt as a forensic identity review using five conflicting P-104 records.
-- Verified mechanisms: evidence adjudication, provenance trace, and false-merge blast radius.
-- Verified work product: approved crosswalk plus preserved conflict queue.
-- Score remains conditional because the identity evidence pattern requires utility-practitioner and independent technical review.
+Date: 2026-07-24
+Candidate: Which Pump Do You Mean?
+Publication scope: authorized live review
 
 ## Decision
-- Working-review result: Conditional production candidate.
-- Release result: Blocked.
-- Score: 86 out of 100.
-- One-sentence reason: Repository-verifiable implementation is complete; human and runtime gates remain.
 
-## Scored quality review
-| Area | Weight | Score | Evidence checked | Missing or required revision |
-| --- | ---: | ---: | --- | --- |
-| Plain-English instructor teaching | 12 | 11 | Instructor explanations before all major components | Novice pilot |
-| Learning design and sequence | 12 | 11 | Decision, model, mechanism, boundary, artifact | Human review |
-| Explanatory graphics and visual reasoning | 12 | 10 | Four traced visual types | Rendered inspection |
-| Interactions and simulations | 12 | 10 | Mechanism, boundary selection, artifact | Browser walkthrough |
-| Utility relevance and practitioner credibility | 10 | 8 | Named utility scenario | Practitioner review |
-| Assessments and feedback | 10 | 10 | Four quiz types and retry | Learner observation |
-| Professional work product | 5 | 5 | Identity Crosswalk and Conflict Queue | Practitioner review |
-| Accuracy, evidence, and citations | 10 | 8 | W3C sources and boundary | Independent factual review |
-| Accessibility, responsive behavior, and reduced motion | 10 | 7 | Static labels, CSS, focus code | Manual accessibility |
-| Platform integration and release controls | 7 | 6 | IDs, local persistence, blocked release | Authenticated events |
-| **Total** | **100** | **86** | Repository evidence | Human gates remain |
+Automated production and rendered-browser gates passed. The structured candidate may replace its
+legacy live-review HTML. Independent factual, practitioner, accessibility, and novice reviews remain
+open and may not be represented as complete.
 
-## Hard gates
-| Gate | Status | Evidence | Required before pass |
-| --- | --- | --- | --- |
-| Accuracy and evidence | conditional | W3C links and explicit limits | Independent review |
-| Learning design | passed | Complete lesson contract | Hardeep working review |
-| Utility-practitioner review | blocked | Not yet performed | Qualified practitioner review |
-| Technical and accessibility review | conditional | Static checks only | Browser, device, keyboard, screen-reader, contrast |
-| Release control | blocked | Candidate metadata | Explicit release approval |
+## Evidence
 
-## Automated checks
-| Check | Result | Evidence |
-| --- | --- | --- |
-| Lesson contract | passed | Full-module conformance validator |
-| JavaScript and component configuration | passed static check | Shared runtime and governed sources |
-| Deterministic assessment | passed by code inspection | Explicit answers and criteria |
-| Distributed quiz placement and feedback | passed | Four quiz types across lesson |
-| Instructor explanation coverage | passed | Every governed component traced |
-| Module-specific FAQ coverage and answer quality | passed repository check | Five questions |
-| Graphic teaching coverage | passed | Reading guides and conclusions |
-| Visual pacing and editorial illustration | passed repository check | Design brief trace |
-| Header Graph, Community, and Start actions, side drawers, and bottom connected-learning section | passed repository check | Required markers |
-| Explicit bottom connected-learning anchor and rendered DOM order | passed | Anchor before navigation |
-| Dark-surface contrast guard | passed static check | Light text rules |
-| Prohibited language and punctuation | passed | Validator scan |
-| Repository scan and formatting | passed | Course regression suite |
+| Area | Result |
+| --- | --- |
+| Structured source | passed |
+| Conversational teaching | passed, eight authored sections |
+| Distinct visual reasoning | passed, five original visual classes |
+| Signature interaction | passed, five-record Identity Evidence Docket |
+| Cause-and-effect simulation | passed, four-path False-Merge Blast Radius |
+| Distributed assessment | passed, multiple-choice, multi-select, matching, transfer |
+| Work product | passed, Identity Crosswalk and Conflict Queue |
+| Browser behavior | passed on desktop, tablet, and phone |
+| Runtime and completion | passed with zero console errors |
+| Responsive and reduced motion | passed automated |
 
-## Manual review still required
-- [ ] Desktop visual review
-- [ ] Mobile visual and touch review
-- [ ] Keyboard-only walkthrough
-- [ ] Screen-reader walkthrough
-- [ ] Reduced-motion walkthrough
-- [ ] Dense-text and visual-pacing walkthrough
-- [ ] Graph and Community drawer, close, focus-return, and bottom-section walkthrough
-- [ ] Dark blue, navy, and gradient contrast walkthrough
-- [ ] Quiz discoverability and section-placement walkthrough
-- [ ] FAQ accuracy, plain-language, utility-example, disclosure, and mobile walkthrough
-- [ ] Utility-practitioner review
-- [ ] Novice-learner comprehension pilot
-- [ ] Live learner-event and enrollment verification
-- [ ] Final source and citation review
-- [ ] Release approval
+## Distinctive grammar
 
-## Required revisions
-1. Complete factual and practitioner review.
-2. Complete rendered accessibility and device review.
-3. Obtain explicit release approval.
+This is a forensic evidence room using source cards, contradiction marks, an adjudication docket,
+blast-radius paths, and a steward ledger. It does not reuse Module 02's syntax repair bench or Module
+05's five-layer decision-room composition.
 
-## Approval record
-| Decision | Reviewer | Date | Note |
-| --- | --- | --- | --- |
-| Working-review acceptance | pending Hardeep Anand | | |
-| Production benchmark | working benchmark | 2026-07-23 | Module 05 capability level |
-| Release | blocked | | |
+## Human safeguards
+
+- Independent RDF, OWL identity, and provenance review
+- Utility asset, GIS, maintenance, operational technology, and governance practitioner review
+- Human keyboard, screen-reader, zoom, contrast, and physical-device review
+- Novice comprehension pilot
+- Final release approval after live review

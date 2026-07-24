@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Anatomy of a Triple | One Water OS Academy</title>
-  <meta name="description" content="Learn what belongs in each RDF position, then repair statements that look plausible but lose identity, direction, or value meaning.">
+  <title>Which Pump Do You Mean? | One Water OS Academy</title>
+  <meta name="description" content="Decide when records identify the same physical utility asset, when they merely concern it, and when the evidence requires a steward hold.">
   <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
-  <meta name="owos-learning-object" content="mbm001:02">
-  <meta name="owos-release-state" content="live-review">
+  <meta name="owos-learning-object" content="mbm001:03">
+  <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="a52f97606645820cba5e82f09d7a9b2c127497efa9c124dde1c6b17ba16789bf">
+  <meta name="owos-package-checksum" content="6f3b9d4ece6b9eb6cdea364186b78f73ddd5758d8face0347cb948a50b32c950">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1153,12 +1153,12 @@ footer {
 }
 </style>
 </head>
-<body data-module-id="mbm001:02" data-source-version="0.2.0-structured-candidate"
-  data-required-ids="[&quot;opening-repair&quot;,&quot;identity-check&quot;,&quot;object-router&quot;,&quot;literal-check&quot;,&quot;repair-bench&quot;,&quot;repair-boundary&quot;,&quot;serialization-check&quot;,&quot;transfer-check&quot;,&quot;triple-deck&quot;]">
+<body data-module-id="mbm001:03" data-source-version="0.2.0-structured-candidate"
+  data-required-ids="[&quot;opening-hold&quot;,&quot;evidence-check&quot;,&quot;role-check&quot;,&quot;identity-docket&quot;,&quot;false-merge-paths&quot;,&quot;control-check&quot;,&quot;transfer-check&quot;,&quot;identity-crosswalk&quot;]">
   <a class="skip-link" href="#lesson-start">Skip to lesson</a>
   <header class="topbar">
     <div class="shell topbar-inner">
-      <a class="brand" href="course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <a class="brand" href="../../curriculum/course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
       <nav class="top-actions" aria-label="Lesson tools">
         <button class="button" type="button" data-open-drawer="graph">Graph</button>
         <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
@@ -1169,378 +1169,369 @@ footer {
   <main id="lesson-start">
     <section class="hero">
       <div class="shell">
-        <span class="eyebrow">Meaning Before Models, Module 02</span>
-        <h1>The Anatomy of a Triple</h1>
-        <p>Learn what belongs in each RDF position, then repair statements that look plausible but lose identity, direction, or value meaning.</p>
-        <div class="hero-meta"><span>45 to 65 minutes</span><span>Foundation with optional Practitioner depth</span><span>syntax workbench</span></div>
+        <span class="eyebrow">Meaning Before Models, Module 03</span>
+        <h1>Which Pump Do You Mean?</h1>
+        <p>Decide when records identify the same physical utility asset, when they merely concern it, and when the evidence requires a steward hold.</p>
+        <div class="hero-meta"><span>55 to 70 minutes</span><span>Foundation with optional Practitioner and Leader depth</span><span>forensic identity review</span></div>
       </div>
     </section>
-    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening-repair">Opening Repair</div>
-<div class="progress-item" data-completion-id="identity-check">Identity Check</div>
-<div class="progress-item" data-completion-id="object-router">Object Router</div>
-<div class="progress-item" data-completion-id="literal-check">Literal Check</div>
-<div class="progress-item" data-completion-id="repair-bench">Repair Bench</div>
-<div class="progress-item" data-completion-id="repair-boundary">Repair Boundary</div>
-<div class="progress-item" data-completion-id="serialization-check">Serialization Check</div>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening-hold">Opening Hold</div>
+<div class="progress-item" data-completion-id="evidence-check">Evidence Check</div>
+<div class="progress-item" data-completion-id="role-check">Role Check</div>
+<div class="progress-item" data-completion-id="identity-docket">Identity Docket</div>
+<div class="progress-item" data-completion-id="false-merge-paths">False Merge Paths</div>
+<div class="progress-item" data-completion-id="control-check">Control Check</div>
 <div class="progress-item" data-completion-id="transfer-check">Transfer Check</div>
-<div class="progress-item" data-completion-id="triple-deck">Triple Deck</div></section>
+<div class="progress-item" data-completion-id="identity-crosswalk">Identity Crosswalk</div></section>
     <div class="shell">
       <section class="lesson-section">
         <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
-        <div class="prose"><ul><li>Distinguish an identifier from a human-readable label.</li><li>Decide whether an RDF object should be another resource or a literal value.</li><li>Explain why datatypes, units, direction, source, and time preserve evidence.</li><li>Repair reversed, overloaded, free-text, and incorrectly typed triples.</li><li>Read the same graph statement in plain language and a small Turtle excerpt.</li></ul><p><strong>Misconception we will change:</strong> A triple is merely a three-column row whose cells may contain any convenient text.</p></div>
+        <div class="prose"><ul><li>Distinguish matching labels from approved identity.</li><li>Separate a physical asset from sensors, work orders, drawings, and names that concern it.</li><li>Judge supporting and contradicting evidence before approving a crosswalk.</li><li>Trace how one false equivalence changes downstream utility answers.</li><li>Produce an Identity Crosswalk and Conflict Queue with named review authority.</li></ul><p><strong>Misconception we will change:</strong> Matching asset names prove that records describe the same physical thing.</p></div>
       </section>
 
-<section class="lesson-section" id="ambiguous-result">
+<section class="lesson-section" id="evidence-wall">
   <header class="section-heading">
     <span class="section-number">01</span>
-    <div><span class="kind">Forensic opening</span><h2>Three filled positions can still lose the evidence</h2></div>
+    <div><span class="kind">Forensic opening</span><h2>Five records say P-104. They do not yet say one pump.</h2></div>
   </header>
-  <div class="prose"><p>A wastewater laboratory result reaches an overflow-response dashboard as &quot;Outfall 12 | has result | 7.2.&quot; The row is tidy. The claim is not. Is Outfall 12 the monitored asset or a sampling location? Is 7.2 pH, dissolved oxygen, turbidity, or another measure? Is the value text or a number? When was it observed, and which record supports it?</p><p>RDF gives us three positions, but it does not rescue careless choices inside those positions. Precision begins when identity, relationship direction, and value type are explicit enough for another system and another person to inspect.</p></div>
+  <div class="prose"><p>At Riverbend Water, a supervisor asks for every open work order and alarm associated with Pump P-104. Five systems return something. The Supervisory Control and Data Acquisition system reports P104 at North High Service. The geographic map lists P-104 at North Booster. The maintenance system lists PUMP-104 with a seal replacement. A drawing labels a duty pump P-104. An operator calls a nearby temporary bypass pump P-104 because that is how the crew has always referred to it.</p><p>The repeated label feels reassuring. It is only a candidate signal. Locations differ, equipment descriptions differ, dates differ, and one name comes from conversation rather than an authoritative register. If you merge first and investigate later, you have already changed what every connected system may claim.</p></div>
 
-<figure class="learning-visual" id="mbm02-forensic-strip"
-  data-visual-type="laboratory-forensic-strip"
+<figure class="learning-visual" id="mbm03-evidence-wall"
+  data-visual-type="forensic-evidence-wall"
   data-component-source="structured-module-package">
-  <h3>What the three-cell result forgot</h3>
-  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the original row on the left, then follow each evidence question to the repaired observation pattern.</div>
+  <h3>Five records enter the room separately</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read each source card from left to right and compare location equipment role and date</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-02-anatomy-of-a-triple-forensic-strip.svg" alt="A row saying Outfall 12 has result 7.2 is annotated with missing identity, measured property, datatype, time, and source, then expanded into reviewed statements.">
+    <img src="../visuals/evidence-wall.svg" alt="Five P-104 record cards from GIS maintenance SCADA work management and an operator note show conflicting locations and roles">
   </div>
-  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Three filled positions do not guarantee a defensible claim.</figcaption>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Five matching labels do not prove one physical asset</figcaption>
 </figure>
 
-<section class="component" id="mbm02-opening-repair" data-choice-group
+<section class="component" id="mbm03-opening-hold" data-choice-group
   data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
   data-quiz-source="structured-module-package"
-  data-completion="opening-repair"
-  data-correct-feedback="Correct. The observation"
-  data-incorrect-feedback="Choose the statement that separates the observation">
-  <header class="component-header"><h3>Which statement is the strongest starting repair?</h3><span class="kind">Decision check</span></header>
+  data-completion="opening-hold"
+  data-correct-feedback="Correct. The conflict remains visible while evidence is gathered."
+  data-incorrect-feedback="A familiar label cannot override contradictory location evidence.">
+  <header class="component-header"><h3>A spreadsheet says P-104 but places it at South Booster Station. What is the strongest first decision?</h3><span class="kind">Decision check</span></header>
   <div class="component-body">
     <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
-    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Outfall 12 has result &quot;7.2&quot;</button>
-<button class="choice" type="button" data-choice data-correct="true">Observation 771 observedProperty pH and numericValue 7.2 as a decimal</button>
-<button class="choice" type="button" data-choice data-correct="false">7.2 has outfall Outfall 12</button></div>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Merge it because the label matches</button>
+<button class="choice" type="button" data-choice data-correct="true">Preserve it as a candidate and request corroborating evidence</button>
+<button class="choice" type="button" data-choice data-correct="false">Delete it because it conflicts</button></div>
     <button class="button primary" type="button" data-check-choice>Check my answer</button>
     <div class="feedback" data-feedback aria-live="polite"></div>
   </div>
 </section>
-<aside class="callout"><h3>What this lesson adds</h3><p>Module 01 taught the shape of a relationship. Module 02 teaches the evidence discipline inside each position.</p></aside>
+<aside class="callout"><h3>The disciplined first move</h3><p>Preserve each source identifier and its evidence. Create a candidate relationship. Do not erase the disagreement by choosing the most familiar label.</p></aside>
 </section>
-<section class="lesson-section" id="identifier-label">
+<section class="lesson-section" id="evidence-bridge">
   <header class="section-heading">
     <span class="section-number">02</span>
-    <div><span class="kind">Specimen review</span><h2>The identifier is not the label</h2></div>
+    <div><span class="kind">Evidence bridge</span><h2>Identity is a reviewed conclusion built from several clues</h2></div>
   </header>
-  <div class="prose"><p>People need readable names. Machines need stable identity. A utility may call the same asset &quot;Outfall 12,&quot; &quot;OF-12,&quot; or &quot;North Creek discharge point&quot; in different interfaces. Those labels help people, but they should not silently become three different things.</p><p>An IRI is an identifier used in RDF. Prefixes such as `util:` are compact writing conveniences for longer IRIs. A label is a separate statement about the identified resource. If the label changes, the resource does not have to change.</p></div>
+  <div class="prose"><p>A source identifier is the name one system uses. A canonical identifier is the governed identifier your cross-system process uses after review. The crosswalk between them is an approved mapping, not a string replacement.</p><p>Useful evidence includes stable equipment attributes, physical location, system role, installation history, manufacturer and serial information, network position, and source authority. Exact text can help. Fuzzy text can help. Neither is sufficient when stronger evidence contradicts the match.</p></div>
 
-<figure class="learning-visual" id="mbm02-identifier-label"
-  data-visual-type="identifier-label-specimen"
+<figure class="learning-visual" id="mbm03-evidence-bridge"
+  data-visual-type="identity-evidence-bridge"
   data-component-source="structured-module-package">
-  <h3>One identifier, several human names</h3>
-  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin with the stable identifier, compare three labels, and inspect the rename-safe relationships.</div>
+  <h3>Evidence must cross before identity is approved</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start with two source identifiers follow the evidence cables and stop at the steward approval gate</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-02-anatomy-of-a-triple-identifier-label.svg" alt="One Outfall 12 identifier connects to three different labels while its watershed relationship remains unchanged.">
+    <img src="../visuals/evidence-bridge.svg" alt="Source identifiers connect through serial location role history time and authority evidence to a steward gate and one canonical asset">
   </div>
-  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A label may change without creating a new resource.</figcaption>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A crosswalk is an evidence-backed approval rather than a text replacement</figcaption>
 </figure>
 
-<section class="component" id="mbm02-identity-check" data-choice-group
-  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
-  data-quiz-source="structured-module-package"
-  data-completion="identity-check"
-  data-correct-feedback="Correct. Labels may change while the identifier continues to denote the same resource."
-  data-incorrect-feedback="Keep identity separate from the text people display.">
-  <header class="component-header"><h3>The label changes from &quot;Outfall 12&quot; to &quot;North Creek discharge point.&quot; What should remain stable?</h3><span class="kind">Decision check</span></header>
-  <div class="component-body">
-    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
-    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">The resource identifier</button>
-<button class="choice" type="button" data-choice data-correct="false">Every character in the label</button>
-<button class="choice" type="button" data-choice data-correct="false">The numeric result</button></div>
-    <button class="button primary" type="button" data-check-choice>Check my answer</button>
-    <div class="feedback" data-feedback aria-live="polite"></div>
-  </div>
-</section>
-<aside class="callout"><h3>Leader view</h3><p>Identifier governance affects every downstream join, graph path, mapping, and answer. It is not merely a developer naming preference.</p></aside>
-</section>
-<section class="lesson-section" id="object-fork">
-  <header class="section-heading">
-    <span class="section-number">03</span>
-    <div><span class="kind">Object routing</span><h2>The object has two very different destinations</h2></div>
-  </header>
-  <div class="prose"><p>The subject and predicate identify resources. The object may identify another resource, or it may be a literal value. That fork changes what the statement can do next.</p><p>In &quot;Outfall 12 locatedIn Watershed 4,&quot; the object is another identified resource that can participate in more relationships. In &quot;Observation 771 numericValue 7.2,&quot; the object is a literal value. A literal can carry a datatype or language information, but it is not the next reusable utility thing in a graph path.</p></div>
-
-<figure class="learning-visual" id="mbm02-object-fork"
-  data-visual-type="branching-decision-map"
-  data-component-source="structured-module-package">
-  <h3>The RDF object fork</h3>
-  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start at the object position, follow the resource branch and literal branch, then compare what each enables.</div>
-  <div class="visual-frame">
-    <img src="meaning-before-models-module-02-anatomy-of-a-triple-object-fork.svg" alt="The RDF object position splits into another-resource examples and typed-literal examples with their different downstream uses.">
-  </div>
-  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Resource objects continue graph relationships; literals carry values.</figcaption>
-</figure>
-
-<section class="component signature-component" id="mbm02-object-router" data-object-router
-  data-purposeful-interaction="object-router" data-component-source="structured-module-package"
-  data-completion="object-router">
-  <header class="component-header"><h3>Route the object</h3><span class="kind">Object fork</span></header>
-  <div class="component-body">
-    <p class="component-intro">For each statement, decide whether the object should identify another resource or carry a literal value.</p>
-    <div class="route-grid">
-<article class="route-card" data-route-item data-answer="Resource"
-  data-explanation="Watershed 4 is an identified utility domain thing that can have more relationships.">
-  <span class="triage-number">01</span>
-  <h4>Outfall 12 locatedIn Watershed 4</h4>
-  <p>What kind of object is Watershed 4?</p>
-  <div class="button-row">
-    <button class="button" type="button" data-route-choice="Resource">Another resource</button>
-    <button class="button" type="button" data-route-choice="Literal">Literal value</button>
-  </div>
-  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
-</article>
-<article class="route-card" data-route-item data-answer="Literal"
-  data-explanation="The decimal is a value rather than the next identified node.">
-  <span class="triage-number">02</span>
-  <h4>Observation 771 numericValue 7.2</h4>
-  <p>What kind of object is 7.2?</p>
-  <div class="button-row">
-    <button class="button" type="button" data-route-choice="Resource">Another resource</button>
-    <button class="button" type="button" data-route-choice="Literal">Literal value</button>
-  </div>
-  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
-</article>
-<article class="route-card" data-route-item data-answer="Resource"
-  data-explanation="The crew is an identified organizational resource.">
-  <span class="triage-number">03</span>
-  <h4>Work Order 55 assignedTo Crew Alpha</h4>
-  <p>What kind of object is Crew Alpha?</p>
-  <div class="button-row">
-    <button class="button" type="button" data-route-choice="Resource">Another resource</button>
-    <button class="button" type="button" data-route-choice="Literal">Literal value</button>
-  </div>
-  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
-</article>
-<article class="route-card" data-route-item data-answer="Literal"
-  data-explanation="The timestamp is a typed date-time value.">
-  <span class="triage-number">04</span>
-  <h4>Inspection 88 observedAt 2026-07-24T09:30</h4>
-  <p>What kind of object is the timestamp?</p>
-  <div class="button-row">
-    <button class="button" type="button" data-route-choice="Resource">Another resource</button>
-    <button class="button" type="button" data-route-choice="Literal">Literal value</button>
-  </div>
-  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
-</article></div>
-    <div class="feedback" data-feedback aria-live="polite">Route every object.</div>
-  </div>
-</section>
-</section>
-<section class="lesson-section" id="typed-literal">
-  <header class="section-heading">
-    <span class="section-number">04</span>
-    <div><span class="kind">Measurement anatomy</span><h2>A number is not enough</h2></div>
-  </header>
-  <div class="prose"><p>The characters 7.2 can be stored as text, interpreted as a decimal number, or embedded in a sentence. Those are different data choices. A datatype states how the lexical form maps to a value. Measurement meaning usually also needs an identified measure, a unit relationship when applicable, observation time, and source.</p><p>Do not pack every detail into one string such as &quot;pH 7.2 at Outfall 12 on Tuesday.&quot; Separate statements preserve the observation, measured property, numeric value, time, location, and source so each can be queried and reviewed.</p></div>
-
-<figure class="learning-visual" id="mbm02-typed-literal"
-  data-visual-type="measurement-instrument-panel"
-  data-component-source="structured-module-package">
-  <h3>The evidence anatomy of 7.2</h3>
-  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Inspect the center value, then read the five surrounding evidence instruments clockwise.</div>
-  <div class="visual-frame">
-    <img src="meaning-before-models-module-02-anatomy-of-a-triple-typed-literal.svg" alt="A central decimal value 7.2 is surrounded by datatype, measured property, time, source, and unit evidence.">
-  </div>
-  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Type, measured property, time, source, and applicable unit turn characters into reviewable evidence.</figcaption>
-</figure>
-
-<section class="component" id="mbm02-literal-check" data-multi-select
+<section class="component" id="mbm03-evidence-check" data-multi-select
   data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
   data-quiz-source="structured-module-package"
-  data-completion="literal-check"
-  data-correct-feedback="Correct. Type"
-  data-incorrect-feedback="Select evidence that changes interpretation or reviewability">
-  <header class="component-header"><h3>Which elements make 7.2 usable as a reviewed observation?</h3><span class="kind">Context boundary check</span></header>
+  data-completion="evidence-check"
+  data-correct-feedback="Correct. Corroboration combines attributes"
+  data-incorrect-feedback="Select evidence that distinguishes the real equipment">
+  <header class="component-header"><h3>Which evidence can materially strengthen a physical-asset identity decision?</h3><span class="kind">Context boundary check</span></header>
   <div class="component-body">
     <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
     <div class="multi-grid">
 <label class="select-option">
   <input type="checkbox" data-multi-option data-correct="true">
-  <span>A decimal datatype</span>
+  <span>Matching serial or manufacturer identifier within a governed scope</span>
 </label>
 
 <label class="select-option">
   <input type="checkbox" data-multi-option data-correct="true">
-  <span>The identified measured property</span>
+  <span>Consistent installation location and network role</span>
 </label>
 
 <label class="select-option">
   <input type="checkbox" data-multi-option data-correct="true">
-  <span>Observation time and source</span>
-</label>
-
-<label class="select-option">
-  <input type="checkbox" data-multi-option data-correct="true">
-  <span>A unit relationship when the measure requires one</span>
+  <span>Commissioning and replacement history</span>
 </label>
 
 <label class="select-option">
   <input type="checkbox" data-multi-option data-correct="false">
-  <span>More decorative text</span>
+  <span>The same short label typed by two people</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Source authority and effective date</span>
 </label></div>
     <button class="button primary" type="button" data-check-multi>Check the packet</button>
     <div class="feedback" data-feedback aria-live="polite"></div>
   </div>
 </section>
 </section>
-<section class="lesson-section" id="repair-bench">
+<section class="lesson-section" id="record-roles">
   <header class="section-heading">
-    <span class="section-number">05</span>
-    <div><span class="kind">Triple Evidence Bench</span><h2>Repair the smallest broken part</h2></div>
+    <span class="section-number">03</span>
+    <div><span class="kind">Relationship distinction</span><h2>A record about the pump is not another copy of the pump</h2></div>
   </header>
-  <div class="prose"><p>The workbench contains four statements that look reasonable at first glance. One reverses direction. One uses a display label as identity. One overloads a value into free text. One stores a number without a numeric datatype.</p><p>Diagnose the first defect and choose the smallest repair that preserves the intended claim. A good repair makes the evidence more precise without pretending that the triple proves the source is current or authoritative.</p></div>
+  <div class="prose"><p>The physical pump is one domain thing. A telemetry point monitors it. A work order concerns it. A drawing depicts it. A nickname labels it. Those records should connect to the asset through different relationships.</p><p>Treating all five records as equivalent resources collapses useful distinctions. An alarm is not a pump. A work order is not a pump. Their identifiers can remain independent while explicit relationships make the graph traversable.</p></div>
 
-<section class="component signature-component" id="mbm02-triple-repair-bench" data-triple-repair-bench
-  data-purposeful-interaction="triple-repair-bench" data-component-source="structured-module-package"
-  data-completion="repair-bench">
-  <header class="component-header"><h3>The Triple Evidence Bench</h3><span class="kind">Triple Evidence Bench</span></header>
-  <div class="component-body">
-    <p class="component-intro">Identify what failed, choose the smallest repair, review the explanation, and retry until all four statements pass.</p>
-    <div class="repair-grid">
-<article class="repair-card" data-repair-card data-defect="Direction"
-  data-repair="Outfall_12 locatedIn Watershed_4" data-explanation="The repaired direction places the outfall in the watershed.">
-  <span class="triage-number">BENCH 01</span>
-  <p class="broken-statement">Watershed_4 locatedIn Outfall_12</p>
-  <div class="repair-fields">
-    <label>What failed?<select data-defect-field><option value="">Choose the defect</option><option value="Direction">Direction</option><option value="Identity">Identity</option><option value="Overloaded text">Overloaded text</option><option value="Datatype">Datatype</option></select></label>
-    <label>Smallest defensible repair<select data-repair-field><option value="">Choose the repair</option><option value="Outfall_12 locatedIn Watershed_4">Outfall_12 locatedIn Watershed_4</option><option value="Watershed_4 containsLabel Outfall_12">Watershed_4 containsLabel Outfall_12</option><option value="Keep the original">Keep the original</option></select></label>
-  </div>
-  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
-</article>
-<article class="repair-card" data-repair-card data-defect="Identity"
-  data-repair="Identify Outfall_12 and keep the phrase as a label" data-explanation="Stable identity and human-readable labeling perform separate jobs.">
-  <span class="triage-number">BENCH 02</span>
-  <p class="broken-statement">&quot;North Creek discharge point&quot; locatedIn Watershed_4</p>
-  <div class="repair-fields">
-    <label>What failed?<select data-defect-field><option value="">Choose the defect</option><option value="Direction">Direction</option><option value="Identity">Identity</option><option value="Overloaded text">Overloaded text</option><option value="Datatype">Datatype</option></select></label>
-    <label>Smallest defensible repair<select data-repair-field><option value="">Choose the repair</option><option value="Identify Outfall_12 and keep the phrase as a label">Identify Outfall_12 and keep the phrase as a label</option><option value="Delete the phrase">Delete the phrase</option><option value="Use every label as a new subject">Use every label as a new subject</option></select></label>
-  </div>
-  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
-</article>
-<article class="repair-card" data-repair-card data-defect="Overloaded text"
-  data-repair="Separate measure, numeric value, and observed time" data-explanation="Separate statements make each evidence element queryable and reviewable.">
-  <span class="triage-number">BENCH 03</span>
-  <p class="broken-statement">Observation_771 result &quot;pH 7.2 at 09:30&quot;</p>
-  <div class="repair-fields">
-    <label>What failed?<select data-defect-field><option value="">Choose the defect</option><option value="Direction">Direction</option><option value="Identity">Identity</option><option value="Overloaded text">Overloaded text</option><option value="Datatype">Datatype</option></select></label>
-    <label>Smallest defensible repair<select data-repair-field><option value="">Choose the repair</option><option value="Separate measure, numeric value, and observed time">Separate measure, numeric value, and observed time</option><option value="Add more words to the string">Add more words to the string</option><option value="Remove the time">Remove the time</option></select></label>
-  </div>
-  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
-</article>
-<article class="repair-card" data-repair-card data-defect="Datatype"
-  data-repair="Store 7.2 as a decimal literal" data-explanation="A decimal datatype distinguishes the numeric value from the string of characters.">
-  <span class="triage-number">BENCH 04</span>
-  <p class="broken-statement">Observation_771 numericValue &quot;7.2&quot;</p>
-  <div class="repair-fields">
-    <label>What failed?<select data-defect-field><option value="">Choose the defect</option><option value="Direction">Direction</option><option value="Identity">Identity</option><option value="Overloaded text">Overloaded text</option><option value="Datatype">Datatype</option></select></label>
-    <label>Smallest defensible repair<select data-repair-field><option value="">Choose the repair</option><option value="Store 7.2 as a decimal literal">Store 7.2 as a decimal literal</option><option value="Keep it as display text">Keep it as display text</option><option value="Turn Observation_771 into a number">Turn Observation_771 into a number</option></select></label>
-  </div>
-  <div class="item-feedback" data-item-feedback aria-live="polite"></div>
-</article></div>
-    <button class="button primary" type="button" data-check-repairs>Review all repairs</button>
-    <div class="feedback" data-feedback aria-live="polite"></div>
-  </div>
-</section>
-
-<section class="component" id="mbm02-repair-boundary" data-choice-group
-  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
-  data-quiz-source="structured-module-package"
-  data-completion="repair-boundary"
-  data-correct-feedback="Correct. Precision improves the claim but does not establish truth"
-  data-incorrect-feedback="Separate precise representation from proof of real-world truth.">
-  <header class="component-header"><h3>What does a repaired triple prove?</h3><span class="kind">Decision check</span></header>
-  <div class="component-body">
-    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
-    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">The source is automatically true and current</button>
-<button class="choice" type="button" data-choice data-correct="true">The intended claim is represented more precisely</button>
-<button class="choice" type="button" data-choice data-correct="false">No human review is needed</button></div>
-    <button class="button primary" type="button" data-check-choice>Check my answer</button>
-    <div class="feedback" data-feedback aria-live="polite"></div>
-  </div>
-</section>
-</section>
-<section class="lesson-section" id="serialization">
-  <header class="section-heading">
-    <span class="section-number">06</span>
-    <div><span class="kind">Translation strip</span><h2>Turtle changes the notation, not the graph</h2></div>
-  </header>
-  <div class="prose"><p>RDF is an abstract data model. Turtle is one concrete syntax for writing RDF graphs. Prefix declarations shorten IRIs, semicolons can reuse a subject, and typed-literal notation makes values readable. Those conveniences do not create a new graph.</p><p>Read the translation strip from the plain-language claim to the directed graph and then to Turtle. The same subject, predicate, and object survive all three views. On the common route, you need to recognize the correspondence, not memorize every Turtle rule.</p></div>
-
-<figure class="learning-visual" id="mbm02-serialization-strip"
-  data-visual-type="serialization-translation-strip"
+<figure class="learning-visual" id="mbm03-record-role-network"
+  data-visual-type="record-role-network"
   data-component-source="structured-module-package">
-  <h3>One graph, three views</h3>
-  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the claim, follow the directed graph, then align each term with the Turtle line.</div>
+  <h3>The pump sits at the center but the records keep their identities</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin at the center asset then read each incoming relationship and the distinct record it connects</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-02-anatomy-of-a-triple-serialization-strip.svg" alt="The statement Outfall 12 located in Watershed 4 appears as plain language, a directed graph, and an equivalent Turtle triple.">
+    <img src="../visuals/record-role-network.svg" alt="Pump P-104 connects to a SCADA point through monitors a work order through concerns a drawing through depicts and a nickname through labels">
   </div>
-  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Serialization changes notation, not the underlying subject, predicate, and object.</figcaption>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A record about a pump is not another copy of the pump</figcaption>
 </figure>
 
-<section class="component" id="mbm02-serialization-check" data-choice-group
+<section class="component" id="mbm03-role-check" data-matching
+  data-purposeful-interaction="matching" data-quiz-type="matching"
+  data-quiz-source="structured-module-package"
+  data-completion="role-check"
+  data-correct-feedback="Correct. Each record retains its identity and connects through a specific relationship."
+  data-incorrect-feedback="Do not collapse a sensor">
+  <header class="component-header"><h3>Match each record to the relationship it should have with Pump P-104.</h3><span class="kind">Relationship matching</span></header>
+  <div class="component-body">
+    <p class="component-intro">Match each ordinary-language question to the job that answers it. Check all rows together, then revise any row that needs another look.</p>
+    <div class="match-grid">
+<label class="match-row">
+  <span>SCADA run-status point</span>
+  <select data-match-answer="monitors"><option value="">Choose a meaning job</option><option value="monitors">monitors</option><option value="concerns">concerns</option><option value="depicts">depicts</option><option value="labels">labels</option></select>
+</label>
+<label class="match-row">
+  <span>Work order WO-4821</span>
+  <select data-match-answer="concerns"><option value="">Choose a meaning job</option><option value="monitors">monitors</option><option value="concerns">concerns</option><option value="depicts">depicts</option><option value="labels">labels</option></select>
+</label>
+<label class="match-row">
+  <span>As-built drawing D-17</span>
+  <select data-match-answer="depicts"><option value="">Choose a meaning job</option><option value="monitors">monitors</option><option value="concerns">concerns</option><option value="depicts">depicts</option><option value="labels">labels</option></select>
+</label>
+<label class="match-row">
+  <span>High Service Pump 1</span>
+  <select data-match-answer="labels"><option value="">Choose a meaning job</option><option value="monitors">monitors</option><option value="concerns">concerns</option><option value="depicts">depicts</option><option value="labels">labels</option></select>
+</label></div>
+    <button class="button primary" type="button" data-check-matching>Check the matches</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="identity-docket">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Identity Evidence Docket</span><h2>Adjudicate the five records without hiding the conflict</h2></div>
+  </header>
+  <div class="prose"><p>Review each evidence card. Record same physical asset only when the record identifier denotes the pump itself and the evidence supports the mapping. Record related record when the item concerns, monitors, or depicts the pump. Record unresolved candidate when contradictory evidence prevents a defensible conclusion.</p><p>The goal is not to maximize the match rate. The goal is to make every approved mapping reviewable and every unresolved case visible.</p></div>
+
+<section class="component signature-component identity-docket" id="mbm03-identity-docket"
+  data-identity-adjudication data-purposeful-interaction="identity-adjudication"
+  data-component-source="structured-module-package" data-completion="identity-docket">
+  <header class="component-header"><h3>Identity Evidence Docket</h3><span class="kind">Identity evidence docket</span></header>
+  <div class="component-body"><p class="component-intro">Review location, equipment role, date, and source. Record the finding each evidence card supports.</p>
+  <div class="docket-grid"><article class="docket-card" data-docket-record data-answer="Same physical asset"
+  data-explanation="The governed asset record aligns on location">
+  <span class="docket-source">GIS asset register</span><h4>GIS-8831 / P-104</h4>
+  <dl><div><dt>Location</dt><dd>North High Service Station</dd></div>
+  <div><dt>Equipment</dt><dd>Vertical turbine duty pump</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-18</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="docket-card" data-docket-record data-answer="Same physical asset"
+  data-explanation="Equipment attributes and service history corroborate the GIS asset mapping.">
+  <span class="docket-source">Maintenance system</span><h4>PUMP-104</h4>
+  <dl><div><dt>Location</dt><dd>North High Service Station</dd></div>
+  <div><dt>Equipment</dt><dd>Vertical turbine duty pump</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-20</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="docket-card" data-docket-record data-answer="Related record"
+  data-explanation="The point monitors the pump but is not the physical pump.">
+  <span class="docket-source">SCADA point register</span><h4>P104_RUN</h4>
+  <dl><div><dt>Location</dt><dd>North High Service Station</dd></div>
+  <div><dt>Equipment</dt><dd>Run-status telemetry point</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-24</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="docket-card" data-docket-record data-answer="Related record"
+  data-explanation="The work order concerns the pump and retains its own identity.">
+  <span class="docket-source">Work management</span><h4>WO-4821</h4>
+  <dl><div><dt>Location</dt><dd>North High Service Station</dd></div>
+  <div><dt>Equipment</dt><dd>Seal replacement work order</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-22</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="docket-card" data-docket-record data-answer="Unresolved candidate"
+  data-explanation="The location and equipment type contradict the proposed permanent-pump identity.">
+  <span class="docket-source">Operator field note</span><h4>P-104 bypass</h4>
+  <dl><div><dt>Location</dt><dd>South Booster yard</dd></div>
+  <div><dt>Equipment</dt><dd>Temporary diesel bypass pump</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-23</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div>
+  <div class="button-row"><button class="button primary" type="button" data-check-docket>Submit findings</button>
+  <button class="button" type="button" data-reset-docket>Clear docket</button></div>
+  <div class="feedback" data-feedback aria-live="polite">Review all five records.</div></div>
+</section>
+<aside class="callout"><h3>A hold is a useful result</h3><p>Unresolved does not mean failed. It means the system preserved uncertainty instead of converting it into a false fact.</p></aside>
+</section>
+<section class="lesson-section" id="false-merge">
+  <header class="section-heading">
+    <span class="section-number">05</span>
+    <div><span class="kind">Blast-radius laboratory</span><h2>One false merge travels farther than the source record</h2></div>
+  </header>
+  <div class="prose"><p>Suppose the temporary bypass pump is incorrectly declared identical to the permanent high-service pump. The error now crosses every relationship attached to either identifier. Maintenance history appears on the wrong asset. Alarm summaries combine two pieces of equipment. Reliability metrics use a fabricated operating history. An agent may recommend work based on the wrong duty and isolation conditions.</p><p>{&#x27;Select every path below. Notice that the first visible symptom changes, but the first repair is the same&#x27;: &#x27;withdraw the unsupported identity mapping, preserve the conflict, and route it to accountable review.&#x27;}</p></div>
+
+<figure class="learning-visual" id="mbm03-blast-radius"
+  data-visual-type="false-merge-blast-radius"
+  data-component-source="structured-module-package">
+  <h3>One false equivalence creates four contaminated answer paths</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start at the red false merge then follow each orange path to its downstream decision</div>
+  <div class="visual-frame">
+    <img src="../visuals/blast-radius.svg" alt="A false merge between a permanent pump and bypass pump branches into maintenance operations reliability and agent recommendation errors">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Correct identity before repairing downstream symptoms</figcaption>
+</figure>
+
+<section class="component signature-component" id="mbm03-false-merge-trace" data-failure-trace
+  data-purposeful-interaction="failure-trace"
+  data-component-source="structured-module-package"
+  data-completion="false-merge-paths">
+  <header class="component-header"><h3>False-Merge Blast Radius</h3><span class="kind">Failure propagation laboratory</span></header>
+  <div class="component-body">
+    <p class="component-intro">Open every consequence path. Identify the first repair and accountable owner before looking at the final symptom.</p>
+    <div class="failure-lab">
+<button class="failure-trigger" type="button" data-failure-trigger="Maintenance history">
+  <strong>Maintenance history</strong><span>Temporary bypass work appears on the permanent pump</span>
+</button>
+<article class="failure-result" data-failure-result="Maintenance history" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Unsupported identity mapping joins two assets</li><li>Work orders and failure codes combine</li><li>Planner schedules the wrong maintenance</li></ol>
+  <p><strong>First repair:</strong> Withdraw the mapping and reassign affected work records after review</p>
+  <p><strong>Accountable role:</strong> Asset Data Steward</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Operations">
+  <strong>Operations</strong><span>Two alarm histories appear to describe one duty pump</span>
+</button>
+<article class="failure-result" data-failure-result="Operations" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Telemetry relationships converge on one identity</li><li>Runtime hours and starts are combined</li><li>Operator receives a misleading condition summary</li></ol>
+  <p><strong>First repair:</strong> Separate identities and revalidate telemetry-to-asset mappings</p>
+  <p><strong>Accountable role:</strong> Operational Technology Asset Owner</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Reliability analytics">
+  <strong>Reliability analytics</strong><span>Failure rate is calculated from fabricated combined history</span>
+</button>
+<article class="failure-result" data-failure-result="Reliability analytics" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Two maintenance histories merge</li><li>Exposure hours and failures lose asset boundaries</li><li>Reliability ranking changes</li></ol>
+  <p><strong>First repair:</strong> Correct identity and recompute affected metrics with provenance</p>
+  <p><strong>Accountable role:</strong> Reliability Engineering</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Agent recommendation">
+  <strong>Agent recommendation</strong><span>Agent recommends work on the wrong equipment and location</span>
+</button>
+<article class="failure-result" data-failure-result="Agent recommendation" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Graph retrieval follows false equivalence</li><li>Context packet combines incompatible evidence</li><li>Draft action cites the wrong isolation conditions</li></ol>
+  <p><strong>First repair:</strong> Block action</p>
+  <p><strong>Accountable role:</strong> Application Product Owner</p>
+</article></div>
+    <div class="feedback" data-feedback aria-live="polite">Inspect all five failure paths.</div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="stewardship">
+  <header class="section-heading">
+    <span class="section-number">06</span>
+    <div><span class="kind">Accountability</span><h2>A matching algorithm proposes. A named role approves.</h2></div>
+  </header>
+  <div class="prose"><p>Software can produce candidates and confidence signals. It can compare strings, coordinates, equipment attributes, and graph neighborhoods. The utility still needs a policy for which sources are authoritative, which conflicts require escalation, who may approve a mapping, and how corrections propagate.</p><p>Leaders should ask where unresolved candidates wait, how long they wait, who owns the queue, and which operational uses are blocked until review. A confidence score without a decision policy is not governance.</p></div>
+
+<figure class="learning-visual" id="mbm03-steward-ledger"
+  data-visual-type="steward-conflict-ledger"
+  data-component-source="structured-module-package">
+  <h3>Candidate approval hold and correction have named owners</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read across each ledger row from status to evidence owner and next action</div>
+  <div class="visual-frame">
+    <img src="../visuals/steward-ledger.svg" alt="A ledger compares approved held escalated and corrected identity cases with evidence owners and actions">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Algorithms propose candidates while governed roles approve hold or correct them</figcaption>
+</figure>
+
+<section class="component" id="mbm03-control-check" data-choice-group
   data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
   data-quiz-source="structured-module-package"
-  data-completion="serialization-check"
-  data-correct-feedback="Correct. Turtle encodes the graph; it does not replace the graph model."
-  data-incorrect-feedback="Compare the subject">
-  <header class="component-header"><h3>What changes when the same triple is written in Turtle?</h3><span class="kind">Decision check</span></header>
+  data-completion="control-check"
+  data-correct-feedback="Correct. Review and conflict preservation occur before the mapping is reused."
+  data-incorrect-feedback="Place the control at the first governed identity decision">
+  <header class="component-header"><h3>Where should the first control sit?</h3><span class="kind">Decision check</span></header>
   <div class="component-body">
     <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
-    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">The underlying relationship changes</button>
-<button class="choice" type="button" data-choice data-correct="true">The notation changes while the graph statement is preserved</button>
-<button class="choice" type="button" data-choice data-correct="false">The object must become text</button></div>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Only on the final dashboard</button>
+<button class="choice" type="button" data-choice data-correct="true">At identity mapping approval with a preserved steward conflict queue</button>
+<button class="choice" type="button" data-choice data-correct="false">In every employee&#x27;s memory</button></div>
     <button class="button primary" type="button" data-check-choice>Check my answer</button>
     <div class="feedback" data-feedback aria-live="polite"></div>
   </div>
 </section>
 </section>
-<section class="lesson-section" id="transfer-and-deck">
+<section class="lesson-section" id="transfer">
   <header class="section-heading">
     <span class="section-number">07</span>
-    <div><span class="kind">Professional application</span><h2>Build a reviewed set another team can challenge</h2></div>
+    <div><span class="kind">Transfer cases</span><h2>The same identity discipline works across One Water</h2></div>
   </header>
-  <div class="prose"><p>Transfer the method to a stormwater inspection and a water work order. Identify the utility things, choose a directed predicate, decide whether the object is a resource or literal, type each value, and name the source.</p><p>Your Reviewed Triple Deck contains five statements with different evidence jobs. It must include a resource-to-resource relationship, a typed number, a date or time, a label separated from identity, a source note, and one boundary explaining what the deck does not prove.</p></div>
+  <div class="prose"><p>In wastewater, Lift Station 7 in the maintenance system may not be the retired LS-7 point still visible in an old telemetry archive. In stormwater, Outfall 12 may not be the monitoring location called OF-12 in a laboratory spreadsheet. Similar labels start the investigation. Location, role, time, source, and steward authority finish it.</p><p>RDF can express that two identifiers denote the same resource, that one record concerns another resource, or that a candidate awaits review. The graph preserves the result. It does not manufacture the evidence or replace the accountable decision.</p></div>
 
-<section class="component" id="mbm02-transfer-check" data-choice-group
+<section class="component" id="mbm03-transfer-check" data-choice-group
   data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
   data-quiz-source="structured-module-package"
   data-completion="transfer-check"
-  data-correct-feedback="Correct. The date remains a value with an explicit datatype."
-  data-incorrect-feedback="Keep the inspection as the resource and represent the date as a typed value.">
-  <header class="component-header"><h3>A stormwater inspection records &quot;2026-07-24&quot; as plain display text. What is the smallest useful repair?</h3><span class="kind">Decision check</span></header>
+  data-correct-feedback="Correct. Preserve both the candidate identity and the plausible related-record interpretation."
+  data-incorrect-feedback="The coordinate conflict prevents immediate equivalence.">
+  <header class="component-header"><h3>A laboratory location OF-12 and GIS asset Outfall 12 share a label but have coordinates 300 meters apart. What should the graph say first?</h3><span class="kind">Decision check</span></header>
   <div class="component-body">
     <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
-    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">Store it as a date-typed literal and retain the inspection relationship</button>
-<button class="choice" type="button" data-choice data-correct="false">Create a new asset named 2026-07-24</button>
-<button class="choice" type="button" data-choice data-correct="false">Remove the date</button></div>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">They are the same outfall</button>
+<button class="choice" type="button" data-choice data-correct="true">OF-12 is an unresolved candidate that may be a monitoring location related to Outfall 12</button>
+<button class="choice" type="button" data-choice data-correct="false">Coordinates never matter</button></div>
     <button class="button primary" type="button" data-check-choice>Check my answer</button>
     <div class="feedback" data-feedback aria-live="polite"></div>
   </div>
 </section>
+<aside class="callout"><h3>Leader view</h3><p>Identity debt behaves like integration debt. Every unowned alias and silent merge increases the cost and risk of later analytics</p></aside>
+</section>
+<section class="lesson-section" id="crosswalk">
+  <header class="section-heading">
+    <span class="section-number">08</span>
+    <div><span class="kind">Professional application</span><h2>Create an identity file another team can challenge</h2></div>
+  </header>
+  <div class="prose"><p>Record one approved mapping and one unresolved candidate. Name the supporting and contradicting evidence. Identify the authoritative source, reviewer, next action, and decision boundary.</p><p>Be specific. &quot;The names match&quot; is not enough. &quot;GIS asset 8831 and maintenance asset PUMP-104 share serial 88K21, installation location, and commissioning record; Asset Steward approved on 2026-07-24&quot; is reviewable.</p></div>
 
-<section class="component" id="mbm02-triple-deck"
+<section class="component" id="mbm03-identity-crosswalk"
   data-purposeful-interaction="applied-work-product"
   data-component-source="structured-module-package">
-  <header class="component-header"><h3>Reviewed Triple Deck</h3><span class="kind">Professional work product</span></header>
+  <header class="component-header"><h3>Identity Crosswalk and Conflict Queue</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
-    <p class="component-intro">Record five reviewed triples, identifier conventions, typed values, source, reviewer note, and the boundary of what the deck proves.</p>
-    <form class="work-product" data-work-product="mbm02-triple-deck"
-      data-artifact="mbm02-triple-deck"
-      data-completion="triple-deck"
-      data-correct-feedback="Your deck contains varied precise statements"
-      data-incorrect-feedback="Complete every statement and review field with specific">
-      <div class="field-grid"><label>Resource-to-resource triple<textarea name="resource_relationship" rows="3" required></textarea></label><label>Triple with a typed number<textarea name="typed_number" rows="3" required></textarea></label><label>Triple with a date or time<textarea name="typed_time" rows="3" required></textarea></label><label>Identifier and separate label statement<textarea name="label_statement" rows="3" required></textarea></label><label>Source record or system<textarea name="source_note" rows="3" required></textarea></label><label>Reviewer note<textarea name="review_note" rows="3" required></textarea></label></div>
-      <label>What this deck does not prove<textarea name="evidence_boundary" rows="3" required></textarea></label>
-      <button class="button primary" type="submit">Save Reviewed Triple Deck</button>
+    <p class="component-intro">Record the mapping, evidence, contradiction, authority, review route, and limit so another team can challenge the decision.</p>
+    <form class="work-product" data-work-product="mbm03-identity-crosswalk"
+      data-artifact="mbm03-identity-crosswalk"
+      data-completion="identity-crosswalk"
+      data-correct-feedback="Your identity file preserves an approved mapping"
+      data-incorrect-feedback="Complete every mapping and conflict field with specific">
+      <div class="field-grid"><label>Approved source identifier<input name="source_identifier" required></label><label>Canonical asset identifier<input name="canonical_identifier" required></label><label>Supporting evidence<textarea name="supporting_evidence" rows="3" required></textarea></label><label>Unresolved source identifier<input name="conflict_identifier" required></label><label>Contradicting evidence or missing proof<textarea name="contradicting_evidence" rows="3" required></textarea></label><label>Authoritative source and effective date<textarea name="authoritative_source" rows="3" required></textarea></label><label>Reviewer, owner, and next action<textarea name="reviewer_next_action" rows="3" required></textarea></label></div>
+      <label>What this identity file does not authorize<textarea name="decision_boundary" rows="3" required></textarea></label>
+      <button class="button primary" type="submit">Save Identity Crosswalk and Conflict Queue</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -1549,18 +1540,18 @@ footer {
 
 <section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
   <h3 id="faq-heading">Questions people actually ask</h3>
-  <details><summary>Is an IRI the same as a web page address?</summary><p>An IRI is an identifier. It may be designed so it can be looked up on the Web, but RDF uses it first as a globally scoped name for a resource.</p></details>
-<details><summary>Can the subject be a literal value?</summary><p>In ordinary asserted RDF triples, the subject identifies a resource rather than being a literal. The object position is where literal values appear.</p></details>
-<details><summary>Is a label the asset identifier?</summary><p>No. A label is human-readable text describing an identified resource. Labels can change or vary by language while the identifier remains stable.</p></details>
-<details><summary>Does a datatype include the engineering unit?</summary><p>Not usually. A datatype distinguishes values such as decimal, date, boolean, or string. Measurement units are commonly represented through additional vocabulary and relationships.</p></details>
-<details><summary>Do I need to learn Turtle to understand RDF?</summary><p>No. Turtle helps people read and exchange RDF, but the graph model is the underlying meaning. This lesson teaches recognition before syntax fluency.</p></details>
-<details><summary>Does a corrected triple prove the result is true?</summary><p>No. It makes the claim precise. Source, time, authority, mapping, validation, and review still govern trust.</p></details>
+  <details><summary>Does canonical mean the record is always correct?</summary><p>No. Canonical means it is the governed reference used by a bounded process. It still needs ownership, correction, versioning, and evidence.</p></details>
+<details><summary>Is an exact identifier match enough?</summary><p>It may be strong evidence when identifiers are governed and unique within a known scope. Across unrelated systems, the same text may still refer to different things.</p></details>
+<details><summary>Should every conflict be resolved immediately?</summary><p>No. Preserve the conflict and prioritize it by operational risk and intended use. A mapping needed for switching operations deserves a different response from one used only for historical reporting.</p></details>
+<details><summary>Is a work order the same entity as the asset it concerns?</summary><p>No. The work order is its own resource. Connect it to the asset with a relationship such as concerns or performedOn.</p></details>
+<details><summary>Can artificial intelligence approve identity automatically?</summary><p>A model can propose candidates and summarize evidence. Approval authority depends on utility policy, risk, evidence, and accountable human review.</p></details>
+<details><summary>What happens after a mapping is corrected?</summary><p>The utility should identify affected queries, reports, models, agents, and decisions, then recompute or review them under the corrected identity.</p></details>
 </section>
 
 <section class="evidence" data-evidence-boundary>
   <h3>Evidence boundary</h3>
-  <p>Outfall 12, Observation 771, values, and work orders are instructional examples. RDF term, triple, IRI, literal, datatype, and Turtle explanations are grounded in W3C specifications. Advanced RDF 1.2 triple terms remain outside this common route.</p>
-  <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Data Model</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/rdf12-primer/">RDF 1.2 Primer</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>, World Wide Web Consortium</li></ul>
+  <p>Riverbend Water, Pump P-104, identifiers, locations, and records are instructional. W3C RDF and OWL sources explain identity-capable graph statements and semantics. W3C PROV-O supports provenance modeling. No standard determines Riverbend&#x27;s authoritative source, match threshold, or approval role.</p>
+  <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Data Model</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/owl2-primer/">OWL 2 Web Ontology Language Primer</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/prov-o/">PROV-O The PROV Ontology</a>, World Wide Web Consortium</li></ul>
 </section>
 </section>
       <section id="owos-course-community" class="connected">
@@ -1569,7 +1560,7 @@ footer {
       </section>
       <section class="completion">
         <h2>Complete the working candidate</h2>
-        <p>Complete every position check, both syntax-workbench mechanisms, the transfer decision, and the Reviewed Triple Deck.</p>
+        <p>Complete the evidence hold, evidence and role checks, five-record docket, every false-merge path, governance and transfer decisions, and Identity Crosswalk and Conflict Queue.</p>
         <button class="button good" type="button" data-complete-module disabled>Complete module</button>
         <p data-completion-status aria-live="polite"></p>
       </section>
@@ -1579,11 +1570,11 @@ footer {
   <aside class="drawer" data-drawer="graph" aria-hidden="true">
     <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
     <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
-    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>RDF triples</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>RDF 1.2 Primer</h3><p>Introductory graph and syntax examples</p><a href="https://www.w3.org/TR/rdf12-primer/">Open source</a></article><article><h3>RDF 1.1 Turtle</h3><p>Stable Turtle syntax reference</p><a href="https://www.w3.org/TR/turtle/">Open source</a></article></div>
+    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>RDF resources</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>OWL 2 Web Ontology Language Primer</h3><p>Identity-capable ontology semantics and sameAs caution context</p><a href="https://www.w3.org/TR/owl2-primer/">Open source</a></article><article><h3>PROV-O The PROV Ontology</h3><p>Entity activity agent and provenance relationships</p><a href="https://www.w3.org/TR/prov-o/">Open source</a></article></div>
   </aside>
   <aside class="drawer" data-drawer="glossary" aria-hidden="true">
     <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <div class="glossary-list"><article><h3>RDF term</h3><p>A value that may appear in an RDF triple position under the RDF data model.</p></article><article><h3>IRI</h3><p>A globally scoped identifier used to denote a resource in RDF.</p></article><article><h3>resource</h3><p>A thing in the domain that an RDF term denotes.</p></article><article><h3>literal</h3><p>A value such as a string</p></article><article><h3>datatype</h3><p>An identifier defining how a literal&#x27;s lexical form maps to a value.</p></article><article><h3>label</h3><p>Human-readable text describing an identified resource.</p></article><article><h3>lexical form</h3><p>The character sequence used to write a literal value.</p></article><article><h3>prefix</h3><p>A syntax convenience that abbreviates a namespace IRI in serializations such as Turtle.</p></article><article><h3>Turtle</h3><p>A compact textual syntax for writing RDF graphs.</p></article><article><h3>serialization</h3><p>A concrete notation used to encode and exchange an RDF graph or dataset.</p></article></div>
+    <div class="glossary-list"><article><h3>source identifier</h3><p>The identifier a particular source system uses for a record or resource.</p></article><article><h3>canonical identifier</h3><p>A governed reference identifier used by a bounded cross-system process after review.</p></article><article><h3>identity candidate</h3><p>A proposed relationship that still requires evidence and approval.</p></article><article><h3>crosswalk</h3><p>A reviewed mapping between source identifiers and a governed identity.</p></article><article><h3>equivalence</h3><p>A claim that two identifiers denote the same thing under the stated semantics.</p></article><article><h3>corroborating evidence</h3><p>Independent evidence that supports the same identity conclusion.</p></article><article><h3>contradicting evidence</h3><p>Evidence that conflicts with or weakens a proposed identity conclusion.</p></article><article><h3>provenance</h3><p>Information about where a record or claim came from and how it was produced or changed.</p></article><article><h3>conflict queue</h3><p>A governed list of unresolved identity candidates awaiting review or additional evidence.</p></article><article><h3>blast radius</h3><p>The downstream systems</p></article></div>
   </aside>
   <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-structured-candidate. No credential or operational authority.</div></footer>
   <script>(() => {

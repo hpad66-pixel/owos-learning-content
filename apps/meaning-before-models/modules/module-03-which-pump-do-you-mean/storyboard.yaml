@@ -1,0 +1,83 @@
+schema_version: 1
+module_id: mbm001:03
+version: 0.2.0
+status: approved
+approvals:
+  narrative: approved_for_production
+  visuals: approved_for_production
+  interactions: approved_for_production
+  assessments: approved_for_production
+  owner: approved_under_standing_authorization
+beats:
+  - beat_id: evidence-wall
+    learner_question: Do five records labeled P-104 describe one physical pump?
+    instructor_purpose: Confront similarity and contradiction without implying equivalence.
+    teaching_text_refs: [evidence-wall]
+    visual_refs: [mbm03-evidence-wall]
+    interaction_refs: []
+    assessment_refs: [mbm03-opening-hold]
+    intended_realization: Matching labels create candidates, not proof.
+    transition: Identify which evidence could support a reviewed crossing.
+  - beat_id: evidence-bridge
+    learner_question: What evidence can turn a candidate into an approved crosswalk?
+    instructor_purpose: Separate string signals from corroborating asset evidence and authority.
+    teaching_text_refs: [evidence-bridge]
+    visual_refs: [mbm03-evidence-bridge]
+    interaction_refs: []
+    assessment_refs: [mbm03-evidence-check]
+    intended_realization: Identity approval combines attributes, location, history, time, source, and accountable review.
+    transition: Distinguish the pump from records about it.
+  - beat_id: record-roles
+    learner_question: Is a sensor or work order another representation of the pump itself?
+    instructor_purpose: Preserve distinct resources and connect them through precise relationships.
+    teaching_text_refs: [record-roles]
+    visual_refs: [mbm03-record-role-network]
+    interaction_refs: []
+    assessment_refs: [mbm03-role-check]
+    intended_realization: Related records keep their identities while explicit predicates connect them to the asset.
+    transition: Apply all three findings to the source records.
+  - beat_id: docket
+    learner_question: Which records identify the asset, concern it, or remain unresolved?
+    instructor_purpose: Adjudicate all five records with evidence-specific feedback.
+    teaching_text_refs: [identity-docket]
+    visual_refs: []
+    interaction_refs: [mbm03-identity-docket]
+    assessment_refs: []
+    intended_realization: A visible hold is safer and more useful than a forced match.
+    transition: Deliberately merge the wrong candidate and inspect the damage.
+  - beat_id: blast-radius
+    learner_question: What changes downstream when one unsupported equivalence is accepted?
+    instructor_purpose: Trace maintenance, operational, analytical, and agentic consequences.
+    teaching_text_refs: [false-merge]
+    visual_refs: [mbm03-blast-radius]
+    interaction_refs: [mbm03-false-merge-trace]
+    assessment_refs: []
+    intended_realization: Repair the identity at its source before treating downstream symptoms.
+    transition: Place approval and correction authority.
+  - beat_id: stewardship
+    learner_question: Who may approve, hold, escalate, and correct an identity mapping?
+    instructor_purpose: Make algorithmic proposal and human accountability visibly different.
+    teaching_text_refs: [stewardship]
+    visual_refs: [mbm03-steward-ledger]
+    interaction_refs: []
+    assessment_refs: [mbm03-control-check]
+    intended_realization: A confidence score requires a governed decision policy and named owner.
+    transition: Transfer the method to wastewater and stormwater.
+  - beat_id: transfer
+    learner_question: Can the same method resolve lift-station and outfall ambiguity?
+    instructor_purpose: Test the identity boundary outside the worked water example.
+    teaching_text_refs: [transfer]
+    visual_refs: []
+    interaction_refs: []
+    assessment_refs: [mbm03-transfer-check]
+    intended_realization: Location, role, time, source, and authority matter across One Water.
+    transition: Document a mapping and a conflict for review.
+  - beat_id: crosswalk
+    learner_question: Can another team inspect and challenge the identity decision?
+    instructor_purpose: Produce the Identity Crosswalk and Conflict Queue.
+    teaching_text_refs: [crosswalk]
+    visual_refs: []
+    interaction_refs: [mbm03-identity-crosswalk]
+    assessment_refs: [mbm03-identity-crosswalk]
+    intended_realization: Governed identity includes approved mappings, unresolved conflicts, evidence, owners, and limits.
+    transition: Module 04 uses reviewed identities to grow a utility knowledge graph.

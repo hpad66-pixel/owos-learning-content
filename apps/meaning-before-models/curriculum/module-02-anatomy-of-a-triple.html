@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="90252084463b38b10169ac6090dd6193226f62d346ef17f57d76cf886da474c0">
+  <meta name="owos-package-checksum" content="a52f97606645820cba5e82f09d7a9b2c127497efa9c124dde1c6b17ba16789bf">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -990,6 +990,45 @@ footer {
   font-size: .9rem;
 }
 
+.docket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.docket-card {
+  border: 1px solid #b9c9d3;
+  border-top: 5px solid var(--orange);
+  background: #fffdf8;
+  padding: 1rem;
+  border-radius: .35rem;
+}
+
+.docket-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.docket-source {
+  color: #6d3d12;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.docket-card dl div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: .5rem;
+  border-top: 1px solid #dce5e9;
+  padding: .4rem 0;
+}
+
+.docket-card dt { font-weight: 800; }
+.docket-card dd { margin: 0; }
+.docket-card.passed { border-color: #15865f; background: #eefaf5; }
+.docket-card.failed { border-color: #b94343; background: #fff3f0; }
+
 @media (max-width: 760px) {
   .shell {
     width: min(100% - 24px, 1140px);
@@ -1051,6 +1090,19 @@ footer {
   .route-grid,
   .repair-fields {
     grid-template-columns: 1fr;
+  }
+
+  .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-card:last-child {
+    grid-column: auto;
+  }
+
+  .docket-card dl div {
+    grid-template-columns: 1fr;
+    gap: .1rem;
   }
 
   .match-row,
@@ -1840,6 +1892,40 @@ footer {
         : `${correctCount} of ${cards.length} repairs pass review. Read each explanation and retry.`;
       feedback.className = `feedback ${correct ? "good" : "bad"}`;
       if (correct) mark(bench.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-identity-adjudication]").forEach((docket) => {
+    const records = [...docket.querySelectorAll("[data-docket-record]")];
+    const feedback = docket.querySelector("[data-feedback]");
+    docket.querySelector("[data-check-docket]")?.addEventListener("click", () => {
+      let correct = 0;
+      records.forEach((record) => {
+        const passed = record.querySelector("select").value === record.dataset.answer;
+        record.classList.toggle("passed", passed);
+        record.classList.toggle("failed", !passed);
+        record.querySelector("[data-item-feedback]").textContent = passed
+          ? `Finding accepted. ${record.dataset.explanation}`
+          : "That finding does not fit the evidence. Separate the physical asset from records about it, and preserve contradictions.";
+        if (passed) correct += 1;
+      });
+      if (correct === records.length) {
+        feedback.textContent = "Docket complete. Approved identity, related records, and the unresolved conflict remain visibly different.";
+        feedback.className = "feedback good";
+        mark(docket.dataset.completion);
+      } else {
+        feedback.textContent = `${correct} of ${records.length} findings are supported. Review the evidence and retry.`;
+        feedback.className = "feedback bad";
+      }
+    });
+    docket.querySelector("[data-reset-docket]")?.addEventListener("click", () => {
+      records.forEach((record) => {
+        record.querySelector("select").value = "";
+        record.classList.remove("passed", "failed");
+        record.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "Review all five records.";
+      feedback.className = "feedback";
     });
   });
 

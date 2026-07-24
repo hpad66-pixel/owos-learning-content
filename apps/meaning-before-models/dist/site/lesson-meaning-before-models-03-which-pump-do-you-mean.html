@@ -1,78 +1,1981 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Module 03: Which Pump Do You Mean? | One Water OS Academy</title>
-<meta name="description" content="Adjudicate five Pump P-104 records and see how one wrong identity claim contaminates downstream utility answers.">
-<meta name="owos-course-id" content="owos-course-semantic-data-ai-001"><meta name="owos-learning-object" content="mbm001:03"><meta name="owos-release-state" content="live-review">
-<meta name="owos-lesson-archetype" content="forensic-identity-review"><meta name="owos-signature-mechanism" content="adjudicate-five-p104-records"><meta name="owos-opening-pattern" content="five-record-evidence-board"><meta name="owos-work-product-mode" content="crosswalk-and-conflict-queue">
-<link rel="icon" href="data:,"><link rel="stylesheet" href="meaning-before-models-fieldbook.css"></head>
-<body data-module="module-03" data-lens="foundation"><div class="reading" aria-hidden="true"></div>
-<header class="top"><div class="wrap topin"><a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meaning Before Models / 03</span><nav class="topactions" aria-label="Lesson actions"><button class="btn" type="button" data-open-graph>Graph</button><button class="btn" type="button" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav></div></header>
-<main>
-<section class="wrap hero"><span class="eyebrow">Forensic identity review · Module 03</span><h1>Which Pump Do You Mean?</h1><p>Five records all say P-104. That does not prove they describe one pump. In this lesson you will treat matching labels as evidence, not as identity, and decide what can safely be connected.</p><div class="meta"><span>65 minutes</span><span>Evidence judgment</span><span>Identity bridge</span><span>Crosswalk and conflict queue</span></div><div class="lenses" role="tablist" aria-label="Instructional view"><button class="on" type="button" data-lens="foundation" role="tab" aria-selected="true">Foundation</button><button type="button" data-lens="practitioner" role="tab" aria-selected="false">Practitioner</button><button type="button" data-lens="leader" role="tab" aria-selected="false">Leader</button></div></section>
-<div class="wrap lesson" id="lesson-start">
-<div class="requirements"><div class="req" data-requirement="opening"><i></i>Hold the first match</div><div class="req" data-requirement="adjudicate"><i></i>Adjudicate five records</div><div class="req" data-requirement="propagate"><i></i>Run the error propagation</div><div class="req" data-requirement="artifact"><i></i>Save the crosswalk</div><div class="req" data-requirement="applied"><i></i>Pass identity review</div></div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Which Pump Do You Mean? | One Water OS Academy</title>
+  <meta name="description" content="Decide when records identify the same physical utility asset, when they merely concern it, and when the evidence requires a steward hold.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:03">
+  <meta name="owos-release-state" content="live-review">
+  <meta name="owos-source-version" content="0.2.0-structured-candidate">
+  <meta name="owos-compiler-version" content="1.1.0">
+  <meta name="owos-package-checksum" content="6f3b9d4ece6b9eb6cdea364186b78f73ddd5758d8face0347cb948a50b32c950">
+  <style>:root {
+  color-scheme: light;
+  --ink: #17324d;
+  --muted: #526d7d;
+  --paper: #ffffff;
+  --wash: #eef6f5;
+  --line: #cddddd;
+  --navy: #102a43;
+  --teal: #147d88;
+  --teal-soft: #dff2ee;
+  --orange: #e8752f;
+  --orange-soft: #fff1e6;
+  --good: #157347;
+  --bad: #a63d32;
+  --shadow: 0 20px 60px rgba(23, 50, 77, .12);
+  --radius: 24px;
+}
 
-<section class="chapter">
-  <div class="chapter-head"><span class="chapter-index">01</span><div><span class="kind">Evidence intake</span><h2>Five systems, one familiar label</h2></div></div>
-  <div class="teaching"><p>A maintenance planner opens a work order for Pump P-104. The geographic map has P-104 at North Pump Station. The control system has a tag called P104_RUN. A drawing labels a pump P-104. An old spreadsheet lists P-104 at South Booster Station.</p><p>The easy move is to join the five records on the label. The responsible move is to ask what evidence establishes that they refer to the same physical asset. A <span class="term" data-def="An identifier assigned within one source system and preserved when records are connected.">source identifier</span> tells you how one system knows the record. A <span class="term" data-def="A stable identifier chosen to represent one governed entity across connected records.">canonical identifier</span> is useful only after the identity decision has been governed. It is not a magic string that makes the records agree.</p></div>
-  <div class="view foundation"><p>Matching names create candidates. Location, equipment characteristics, drawings, dates, and approved crosswalks help prove or reject a match.</p></div><div class="view practitioner"><p>Preserve source identifiers, match methods, confidence, effective dates, and the reviewer who approved an equivalence relationship.</p></div><div class="view leader"><p>Fund identity stewardship as operational control. A false merge can contaminate maintenance, risk, customer exposure, and capital planning at once.</p></div>
-  <div class="coach" data-instructor-explanation data-teaches="opening-hold identity-board"><strong>Do not merge yet</strong><p>Choose what you would do with the spreadsheet row before seeing the other evidence. Then read the board by source, location, equipment signature, and date. The label is intentionally the least useful column.</p></div>
-  <div class="panel" id="opening-hold" data-opening-decision data-required="opening" data-quiz data-quiz-type="evidence-hold" data-quiz-source="quiz-gallery" data-correct-feedback="Correct. Preserve the record as a candidate and investigate before asserting identity." data-retry="A matching label is not enough to assert that two records identify one physical pump."><div class="panel-head">First decision <span class="kind">Evidence judgment</span></div><div class="panel-body"><h3>The spreadsheet says P-104 but places it at South Booster Station. What do you do?</h3><div class="choice-grid"><button class="choice" type="button" data-correct="0">Merge it because the label matches.</button><button class="choice" type="button" data-correct="1">Hold it as a candidate and request more evidence.</button><button class="choice" type="button" data-correct="0">Delete it because it is old.</button><button class="choice" type="button" data-correct="0">Let the language model choose the most likely pump.</button></div><button class="btn primary" type="button" data-check-quiz>Record decision</button><div class="feedback" aria-live="polite"></div></div></div>
-  <div class="panel" id="identity-board" data-visual-type="identity-bridge" data-component-source="component-gallery"><div class="panel-head">P-104 identity evidence board <span class="kind">Shared identity bridge</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Compare every source record with the proposed asset identity. Exact labels are one clue. Location, manufacturer serial number, motor rating, installation date, and drawing references are stronger when they agree.</div><div class="comparison-scroll"><table><thead><tr><th>Source</th><th>Local ID</th><th>Location</th><th>Equipment evidence</th><th>Initial status</th></tr></thead><tbody><tr><td>Enterprise asset management</td><td>P-104</td><td>North Pump Station</td><td>Serial A771, 125 hp</td><td>Candidate anchor</td></tr><tr><td>Geographic information system</td><td>PSN-P04</td><td>North Pump Station</td><td>Asset key EA-7781</td><td>Strong candidate</td></tr><tr><td>Control system</td><td>P104_RUN</td><td>North Pump Station</td><td>Panel 4, motor 125 hp</td><td>Strong candidate</td></tr><tr><td>Drawing M-17</td><td>P-104</td><td>North Pump Station</td><td>Serial A771</td><td>Strong candidate</td></tr><tr><td>Legacy sheet</td><td>P-104</td><td>South Booster Station</td><td>Serial B204, 75 hp</td><td>Conflict</td></tr></tbody></table></div><div class="conclusion" data-learner-conclusion><b>What the bridge shows:</b> Four records converge through independent evidence. The fifth shares a label but contradicts the asset’s location and equipment signature.</div></div></div>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7faf9;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--teal);
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.shell {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(16, 42, 67, .96);
+  color: #ffffff;
+  backdrop-filter: blur(14px);
+}
+
+.topbar-inner {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.top-actions,
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  min-height: 44px;
+  border: 1px solid #b8cfce;
+  border-radius: 999px;
+  padding: 10px 17px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--teal);
+}
+
+.button:focus-visible,
+.choice:focus-visible,
+.flip-card:focus-visible,
+.edge-button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.button.primary {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.button.good {
+  border-color: var(--good);
+  background: var(--good);
+  color: #ffffff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 9vw, 110px) 0 70px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 117, 47, .22), transparent 24%),
+    radial-gradient(circle at 12% 70%, rgba(100, 215, 207, .18), transparent 28%),
+    var(--navy);
+  color: #ffffff;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -5% -58% 35%;
+  height: 520px;
+  border: 2px solid rgba(255, 255, 255, .13);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.eyebrow,
+.kind {
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 12px 0 14px;
+  font-size: clamp(2.65rem, 7vw, 5.8rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #d9e8ef;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-meta span {
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: .9rem;
+}
+
+.progress-panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: -30px auto 52px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: var(--shadow);
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.progress-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid #9eb8b8;
+  border-radius: 50%;
+}
+
+.progress-item.done {
+  background: var(--teal-soft);
+  color: var(--ink);
+}
+
+.progress-item.done::before {
+  border-color: var(--good);
+  background: var(--good);
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.lesson-section {
+  margin: 0 auto 34px;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 14px 40px rgba(23, 50, 77, .06);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 26px;
+}
+
+.section-number {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.section-heading h2 {
+  margin: 2px 0 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.prose {
+  max-width: 790px;
+  margin: 0 auto 26px;
+  color: #28485f;
+  font-size: 1.06rem;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.callout {
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 20px 24px;
+  border-left: 6px solid var(--orange);
+  border-radius: 0 16px 16px 0;
+  background: var(--orange-soft);
+}
+
+.callout h3 {
+  margin: 0 0 5px;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.match-grid,
+.multi-grid,
+.triage-grid {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.match-row select,
+.triage-card select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.correct-field {
+  border-color: var(--good) !important;
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, .12);
+}
+
+.incorrect-field {
+  border-color: var(--bad) !important;
+}
+
+.multi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.select-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.select-option input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.select-option.selected-correct {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.select-option.selected-incorrect {
+  border-color: var(--bad);
+  background: #fff3f1;
+}
+
+.signature-component {
+  border-color: #8db9b5;
+  box-shadow: 0 18px 50px rgba(20, 125, 136, .13);
+}
+
+.triage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.triage-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #ffffff, #f4faf8);
+}
+
+.triage-card h4 {
+  margin: 4px 0 6px;
+  font-size: 1.08rem;
+}
+
+.triage-card p {
+  color: var(--muted);
+}
+
+.triage-number,
+.failure-label {
+  color: var(--teal);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.triage-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.triage-card.incorrect-card {
+  border-color: #d69a93;
+}
+
+.item-feedback {
+  min-height: 42px;
+  margin-top: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.failure-lab {
+  display: grid;
+  grid-template-columns: minmax(210px, .38fr) minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.failure-trigger {
+  grid-column: 1;
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.failure-trigger span {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.failure-trigger.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.failure-result {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.failure-result[hidden] {
+  display: none;
+}
+
+.failure-result ol {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 24px;
+}
+
+.failure-result p {
+  color: #e4f0f5;
+}
+
+.route-grid,
+.repair-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.route-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-card,
+.repair-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfdfc;
+}
+
+.route-card h4 {
+  margin: 5px 0;
+}
+
+.route-card .button.active {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.repair-card {
+  border-left: 6px solid #9eb8b8;
+}
+
+.repair-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.repair-card.incorrect-card {
+  border-color: var(--bad);
+  background: #fff8f7;
+}
+
+.broken-statement {
+  margin: 10px 0 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #102a43;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.repair-fields {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 14px;
+}
+
+.repair-fields label {
+  display: grid;
+  gap: 6px;
+  font-weight: 750;
+}
+
+.repair-fields select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+}
+
+.good-text {
+  color: var(--good);
+}
+
+.bad-text {
+  color: var(--bad);
+}
+
+.learning-visual {
+  margin: 34px 0;
+}
+
+.learning-visual h3 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+
+.reading-guide,
+.conclusion {
+  max-width: 880px;
+  margin: 12px auto;
+  padding: 16px 19px;
+  border-radius: 14px;
+}
+
+.reading-guide {
+  border: 1px solid #c9dddd;
+  background: var(--wash);
+}
+
+.conclusion {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.visual-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f7faf9;
+  box-shadow: var(--shadow);
+}
+
+.visual-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.component {
+  margin: 34px 0;
+  border: 1px solid #c8d9d9;
+  border-radius: 22px;
+  background: #fbfdfc;
+  overflow: hidden;
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.component-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.component-header .kind {
+  color: #ffb982;
+}
+
+.component-body {
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.component-intro {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.choice-grid {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.choice {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 17px;
+  border: 2px solid #cadbda;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice.selected {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.choice.correct {
+  border-color: var(--good);
+  background: #e5f4ec;
+}
+
+.choice.incorrect {
+  border-color: var(--bad);
+  background: #fae9e7;
+}
+
+.feedback {
+  min-height: 28px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.triple-builder {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.triple-builder label,
+.field-grid label,
+.work-product label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.triple-builder select,
+.field-grid input,
+.work-product input,
+.work-product textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #cadbda;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.triple-arrow {
+  padding-bottom: 12px;
+  color: var(--orange);
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.triple-output {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.flip-card {
+  min-height: 170px;
+  border: 0;
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.flip-card-inner {
+  position: relative;
+  display: grid;
+  min-height: 170px;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+}
+
+.flip-card.revealed .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border: 2px solid #bdd5d3;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  font-weight: 650;
+}
+
+.path-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.edge-button {
+  min-height: 108px;
+  border: 2px solid #c9dddd;
+  border-radius: 17px;
+  padding: 15px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.edge-button.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.edge-button strong,
+.edge-button span {
+  display: block;
+}
+
+.edge-button span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.work-product {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.artifact-preview {
+  min-height: 130px;
+  margin: 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.faq-list details {
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.faq-list summary {
+  padding: 16px 18px;
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+.evidence {
+  padding: 26px;
+  border-radius: 20px;
+  background: #e9eff2;
+}
+
+.evidence h3 {
+  margin-top: 0;
+}
+
+.connected {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 38px 0;
+}
+
+.connected article {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.connected h3 {
+  margin: 8px 0;
+  color: #ffffff;
+}
+
+.connected p {
+  color: #d9e8ef;
+}
+
+.completion {
+  margin: 36px 0 70px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  background: rgba(5, 19, 31, .56);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  width: min(520px, 100%);
+  height: 100dvh;
+  padding: 26px;
+  overflow: auto;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: -24px 0 70px rgba(5, 19, 31, .24);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-scrim.open {
+  display: block;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer h2 {
+  margin: 0;
+}
+
+.glossary-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.glossary-list article {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--wash);
+}
+
+.glossary-list h3 {
+  margin: 0 0 4px;
+}
+
+.glossary-list p {
+  margin: 0;
+}
+
+footer {
+  padding: 25px 0;
+  background: var(--navy);
+  color: #d9e8ef;
+  font-size: .9rem;
+}
+
+.docket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.docket-card {
+  border: 1px solid #b9c9d3;
+  border-top: 5px solid var(--orange);
+  background: #fffdf8;
+  padding: 1rem;
+  border-radius: .35rem;
+}
+
+.docket-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.docket-source {
+  color: #6d3d12;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.docket-card dl div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: .5rem;
+  border-top: 1px solid #dce5e9;
+  padding: .4rem 0;
+}
+
+.docket-card dt { font-weight: 800; }
+.docket-card dd { margin: 0; }
+.docket-card.passed { border-color: #15865f; background: #eefaf5; }
+.docket-card.failed { border-color: #b94343; background: #fff3f0; }
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 24px, 1140px);
+  }
+
+  .topbar-inner {
+    min-height: 58px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .top-actions .button {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: .82rem;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .progress-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-section {
+    padding: 25px 18px;
+    border-radius: 19px;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .section-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .triple-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .triple-arrow {
+    padding: 0;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .flip-grid,
+  .path-strip,
+  .field-grid,
+  .connected,
+  .multi-grid,
+  .triage-grid,
+  .route-grid,
+  .repair-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-card:last-child {
+    grid-column: auto;
+  }
+
+  .docket-card dl div {
+    grid-template-columns: 1fr;
+    gap: .1rem;
+  }
+
+  .match-row,
+  .failure-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-trigger,
+  .failure-result {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .failure-result {
+    min-height: 0;
+  }
+
+  .component-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .flip-card.revealed .flip-card-inner {
+    transform: none;
+  }
+
+  .flip-card.revealed .flip-front {
+    display: none;
+  }
+
+  .flip-back {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-module-id="mbm001:03" data-source-version="0.2.0-structured-candidate"
+  data-required-ids="[&quot;opening-hold&quot;,&quot;evidence-check&quot;,&quot;role-check&quot;,&quot;identity-docket&quot;,&quot;false-merge-paths&quot;,&quot;control-check&quot;,&quot;transfer-check&quot;,&quot;identity-crosswalk&quot;]">
+  <a class="skip-link" href="#lesson-start">Skip to lesson</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <nav class="top-actions" aria-label="Lesson tools">
+        <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
+        <a class="button primary" href="#lesson-start">Start</a>
+      </nav>
+    </div>
+  </header>
+  <main id="lesson-start">
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">Meaning Before Models, Module 03</span>
+        <h1>Which Pump Do You Mean?</h1>
+        <p>Decide when records identify the same physical utility asset, when they merely concern it, and when the evidence requires a steward hold.</p>
+        <div class="hero-meta"><span>55 to 70 minutes</span><span>Foundation with optional Practitioner and Leader depth</span><span>forensic identity review</span></div>
+      </div>
+    </section>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening-hold">Opening Hold</div>
+<div class="progress-item" data-completion-id="evidence-check">Evidence Check</div>
+<div class="progress-item" data-completion-id="role-check">Role Check</div>
+<div class="progress-item" data-completion-id="identity-docket">Identity Docket</div>
+<div class="progress-item" data-completion-id="false-merge-paths">False Merge Paths</div>
+<div class="progress-item" data-completion-id="control-check">Control Check</div>
+<div class="progress-item" data-completion-id="transfer-check">Transfer Check</div>
+<div class="progress-item" data-completion-id="identity-crosswalk">Identity Crosswalk</div></section>
+    <div class="shell">
+      <section class="lesson-section">
+        <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
+        <div class="prose"><ul><li>Distinguish matching labels from approved identity.</li><li>Separate a physical asset from sensors, work orders, drawings, and names that concern it.</li><li>Judge supporting and contradicting evidence before approving a crosswalk.</li><li>Trace how one false equivalence changes downstream utility answers.</li><li>Produce an Identity Crosswalk and Conflict Queue with named review authority.</li></ul><p><strong>Misconception we will change:</strong> Matching asset names prove that records describe the same physical thing.</p></div>
+      </section>
+
+<section class="lesson-section" id="evidence-wall">
+  <header class="section-heading">
+    <span class="section-number">01</span>
+    <div><span class="kind">Forensic opening</span><h2>Five records say P-104. They do not yet say one pump.</h2></div>
+  </header>
+  <div class="prose"><p>At Riverbend Water, a supervisor asks for every open work order and alarm associated with Pump P-104. Five systems return something. The Supervisory Control and Data Acquisition system reports P104 at North High Service. The geographic map lists P-104 at North Booster. The maintenance system lists PUMP-104 with a seal replacement. A drawing labels a duty pump P-104. An operator calls a nearby temporary bypass pump P-104 because that is how the crew has always referred to it.</p><p>The repeated label feels reassuring. It is only a candidate signal. Locations differ, equipment descriptions differ, dates differ, and one name comes from conversation rather than an authoritative register. If you merge first and investigate later, you have already changed what every connected system may claim.</p></div>
+
+<figure class="learning-visual" id="mbm03-evidence-wall"
+  data-visual-type="forensic-evidence-wall"
+  data-component-source="structured-module-package">
+  <h3>Five records enter the room separately</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read each source card from left to right and compare location equipment role and date</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-03-which-pump-do-you-mean-evidence-wall.svg" alt="Five P-104 record cards from GIS maintenance SCADA work management and an operator note show conflicting locations and roles">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Five matching labels do not prove one physical asset</figcaption>
+</figure>
+
+<section class="component" id="mbm03-opening-hold" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="opening-hold"
+  data-correct-feedback="Correct. The conflict remains visible while evidence is gathered."
+  data-incorrect-feedback="A familiar label cannot override contradictory location evidence.">
+  <header class="component-header"><h3>A spreadsheet says P-104 but places it at South Booster Station. What is the strongest first decision?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Merge it because the label matches</button>
+<button class="choice" type="button" data-choice data-correct="true">Preserve it as a candidate and request corroborating evidence</button>
+<button class="choice" type="button" data-choice data-correct="false">Delete it because it conflicts</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>The disciplined first move</h3><p>Preserve each source identifier and its evidence. Create a candidate relationship. Do not erase the disagreement by choosing the most familiar label.</p></aside>
+</section>
+<section class="lesson-section" id="evidence-bridge">
+  <header class="section-heading">
+    <span class="section-number">02</span>
+    <div><span class="kind">Evidence bridge</span><h2>Identity is a reviewed conclusion built from several clues</h2></div>
+  </header>
+  <div class="prose"><p>A source identifier is the name one system uses. A canonical identifier is the governed identifier your cross-system process uses after review. The crosswalk between them is an approved mapping, not a string replacement.</p><p>Useful evidence includes stable equipment attributes, physical location, system role, installation history, manufacturer and serial information, network position, and source authority. Exact text can help. Fuzzy text can help. Neither is sufficient when stronger evidence contradicts the match.</p></div>
+
+<figure class="learning-visual" id="mbm03-evidence-bridge"
+  data-visual-type="identity-evidence-bridge"
+  data-component-source="structured-module-package">
+  <h3>Evidence must cross before identity is approved</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start with two source identifiers follow the evidence cables and stop at the steward approval gate</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-03-which-pump-do-you-mean-evidence-bridge.svg" alt="Source identifiers connect through serial location role history time and authority evidence to a steward gate and one canonical asset">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A crosswalk is an evidence-backed approval rather than a text replacement</figcaption>
+</figure>
+
+<section class="component" id="mbm03-evidence-check" data-multi-select
+  data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
+  data-quiz-source="structured-module-package"
+  data-completion="evidence-check"
+  data-correct-feedback="Correct. Corroboration combines attributes"
+  data-incorrect-feedback="Select evidence that distinguishes the real equipment">
+  <header class="component-header"><h3>Which evidence can materially strengthen a physical-asset identity decision?</h3><span class="kind">Context boundary check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
+    <div class="multi-grid">
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Matching serial or manufacturer identifier within a governed scope</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Consistent installation location and network role</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Commissioning and replacement history</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>The same short label typed by two people</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Source authority and effective date</span>
+</label></div>
+    <button class="button primary" type="button" data-check-multi>Check the packet</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="record-roles">
+  <header class="section-heading">
+    <span class="section-number">03</span>
+    <div><span class="kind">Relationship distinction</span><h2>A record about the pump is not another copy of the pump</h2></div>
+  </header>
+  <div class="prose"><p>The physical pump is one domain thing. A telemetry point monitors it. A work order concerns it. A drawing depicts it. A nickname labels it. Those records should connect to the asset through different relationships.</p><p>Treating all five records as equivalent resources collapses useful distinctions. An alarm is not a pump. A work order is not a pump. Their identifiers can remain independent while explicit relationships make the graph traversable.</p></div>
+
+<figure class="learning-visual" id="mbm03-record-role-network"
+  data-visual-type="record-role-network"
+  data-component-source="structured-module-package">
+  <h3>The pump sits at the center but the records keep their identities</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin at the center asset then read each incoming relationship and the distinct record it connects</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-03-which-pump-do-you-mean-record-role-network.svg" alt="Pump P-104 connects to a SCADA point through monitors a work order through concerns a drawing through depicts and a nickname through labels">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A record about a pump is not another copy of the pump</figcaption>
+</figure>
+
+<section class="component" id="mbm03-role-check" data-matching
+  data-purposeful-interaction="matching" data-quiz-type="matching"
+  data-quiz-source="structured-module-package"
+  data-completion="role-check"
+  data-correct-feedback="Correct. Each record retains its identity and connects through a specific relationship."
+  data-incorrect-feedback="Do not collapse a sensor">
+  <header class="component-header"><h3>Match each record to the relationship it should have with Pump P-104.</h3><span class="kind">Relationship matching</span></header>
+  <div class="component-body">
+    <p class="component-intro">Match each ordinary-language question to the job that answers it. Check all rows together, then revise any row that needs another look.</p>
+    <div class="match-grid">
+<label class="match-row">
+  <span>SCADA run-status point</span>
+  <select data-match-answer="monitors"><option value="">Choose a meaning job</option><option value="monitors">monitors</option><option value="concerns">concerns</option><option value="depicts">depicts</option><option value="labels">labels</option></select>
+</label>
+<label class="match-row">
+  <span>Work order WO-4821</span>
+  <select data-match-answer="concerns"><option value="">Choose a meaning job</option><option value="monitors">monitors</option><option value="concerns">concerns</option><option value="depicts">depicts</option><option value="labels">labels</option></select>
+</label>
+<label class="match-row">
+  <span>As-built drawing D-17</span>
+  <select data-match-answer="depicts"><option value="">Choose a meaning job</option><option value="monitors">monitors</option><option value="concerns">concerns</option><option value="depicts">depicts</option><option value="labels">labels</option></select>
+</label>
+<label class="match-row">
+  <span>High Service Pump 1</span>
+  <select data-match-answer="labels"><option value="">Choose a meaning job</option><option value="monitors">monitors</option><option value="concerns">concerns</option><option value="depicts">depicts</option><option value="labels">labels</option></select>
+</label></div>
+    <button class="button primary" type="button" data-check-matching>Check the matches</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="identity-docket">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Identity Evidence Docket</span><h2>Adjudicate the five records without hiding the conflict</h2></div>
+  </header>
+  <div class="prose"><p>Review each evidence card. Record same physical asset only when the record identifier denotes the pump itself and the evidence supports the mapping. Record related record when the item concerns, monitors, or depicts the pump. Record unresolved candidate when contradictory evidence prevents a defensible conclusion.</p><p>The goal is not to maximize the match rate. The goal is to make every approved mapping reviewable and every unresolved case visible.</p></div>
+
+<section class="component signature-component identity-docket" id="mbm03-identity-docket"
+  data-identity-adjudication data-purposeful-interaction="identity-adjudication"
+  data-component-source="structured-module-package" data-completion="identity-docket">
+  <header class="component-header"><h3>Identity Evidence Docket</h3><span class="kind">Identity evidence docket</span></header>
+  <div class="component-body"><p class="component-intro">Review location, equipment role, date, and source. Record the finding each evidence card supports.</p>
+  <div class="docket-grid"><article class="docket-card" data-docket-record data-answer="Same physical asset"
+  data-explanation="The governed asset record aligns on location">
+  <span class="docket-source">GIS asset register</span><h4>GIS-8831 / P-104</h4>
+  <dl><div><dt>Location</dt><dd>North High Service Station</dd></div>
+  <div><dt>Equipment</dt><dd>Vertical turbine duty pump</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-18</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="docket-card" data-docket-record data-answer="Same physical asset"
+  data-explanation="Equipment attributes and service history corroborate the GIS asset mapping.">
+  <span class="docket-source">Maintenance system</span><h4>PUMP-104</h4>
+  <dl><div><dt>Location</dt><dd>North High Service Station</dd></div>
+  <div><dt>Equipment</dt><dd>Vertical turbine duty pump</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-20</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="docket-card" data-docket-record data-answer="Related record"
+  data-explanation="The point monitors the pump but is not the physical pump.">
+  <span class="docket-source">SCADA point register</span><h4>P104_RUN</h4>
+  <dl><div><dt>Location</dt><dd>North High Service Station</dd></div>
+  <div><dt>Equipment</dt><dd>Run-status telemetry point</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-24</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="docket-card" data-docket-record data-answer="Related record"
+  data-explanation="The work order concerns the pump and retains its own identity.">
+  <span class="docket-source">Work management</span><h4>WO-4821</h4>
+  <dl><div><dt>Location</dt><dd>North High Service Station</dd></div>
+  <div><dt>Equipment</dt><dd>Seal replacement work order</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-22</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="docket-card" data-docket-record data-answer="Unresolved candidate"
+  data-explanation="The location and equipment type contradict the proposed permanent-pump identity.">
+  <span class="docket-source">Operator field note</span><h4>P-104 bypass</h4>
+  <dl><div><dt>Location</dt><dd>South Booster yard</dd></div>
+  <div><dt>Equipment</dt><dd>Temporary diesel bypass pump</dd></div>
+  <div><dt>Evidence date</dt><dd>2026-07-23</dd></div></dl>
+  <label>Finding<select><option value="">Record a finding</option><option value="Same physical asset">Same physical asset</option><option value="Related record">Related record</option><option value="Unresolved candidate">Unresolved candidate</option></select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div>
+  <div class="button-row"><button class="button primary" type="button" data-check-docket>Submit findings</button>
+  <button class="button" type="button" data-reset-docket>Clear docket</button></div>
+  <div class="feedback" data-feedback aria-live="polite">Review all five records.</div></div>
+</section>
+<aside class="callout"><h3>A hold is a useful result</h3><p>Unresolved does not mean failed. It means the system preserved uncertainty instead of converting it into a false fact.</p></aside>
+</section>
+<section class="lesson-section" id="false-merge">
+  <header class="section-heading">
+    <span class="section-number">05</span>
+    <div><span class="kind">Blast-radius laboratory</span><h2>One false merge travels farther than the source record</h2></div>
+  </header>
+  <div class="prose"><p>Suppose the temporary bypass pump is incorrectly declared identical to the permanent high-service pump. The error now crosses every relationship attached to either identifier. Maintenance history appears on the wrong asset. Alarm summaries combine two pieces of equipment. Reliability metrics use a fabricated operating history. An agent may recommend work based on the wrong duty and isolation conditions.</p><p>{&#x27;Select every path below. Notice that the first visible symptom changes, but the first repair is the same&#x27;: &#x27;withdraw the unsupported identity mapping, preserve the conflict, and route it to accountable review.&#x27;}</p></div>
+
+<figure class="learning-visual" id="mbm03-blast-radius"
+  data-visual-type="false-merge-blast-radius"
+  data-component-source="structured-module-package">
+  <h3>One false equivalence creates four contaminated answer paths</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start at the red false merge then follow each orange path to its downstream decision</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-03-which-pump-do-you-mean-blast-radius.svg" alt="A false merge between a permanent pump and bypass pump branches into maintenance operations reliability and agent recommendation errors">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Correct identity before repairing downstream symptoms</figcaption>
+</figure>
+
+<section class="component signature-component" id="mbm03-false-merge-trace" data-failure-trace
+  data-purposeful-interaction="failure-trace"
+  data-component-source="structured-module-package"
+  data-completion="false-merge-paths">
+  <header class="component-header"><h3>False-Merge Blast Radius</h3><span class="kind">Failure propagation laboratory</span></header>
+  <div class="component-body">
+    <p class="component-intro">Open every consequence path. Identify the first repair and accountable owner before looking at the final symptom.</p>
+    <div class="failure-lab">
+<button class="failure-trigger" type="button" data-failure-trigger="Maintenance history">
+  <strong>Maintenance history</strong><span>Temporary bypass work appears on the permanent pump</span>
+</button>
+<article class="failure-result" data-failure-result="Maintenance history" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Unsupported identity mapping joins two assets</li><li>Work orders and failure codes combine</li><li>Planner schedules the wrong maintenance</li></ol>
+  <p><strong>First repair:</strong> Withdraw the mapping and reassign affected work records after review</p>
+  <p><strong>Accountable role:</strong> Asset Data Steward</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Operations">
+  <strong>Operations</strong><span>Two alarm histories appear to describe one duty pump</span>
+</button>
+<article class="failure-result" data-failure-result="Operations" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Telemetry relationships converge on one identity</li><li>Runtime hours and starts are combined</li><li>Operator receives a misleading condition summary</li></ol>
+  <p><strong>First repair:</strong> Separate identities and revalidate telemetry-to-asset mappings</p>
+  <p><strong>Accountable role:</strong> Operational Technology Asset Owner</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Reliability analytics">
+  <strong>Reliability analytics</strong><span>Failure rate is calculated from fabricated combined history</span>
+</button>
+<article class="failure-result" data-failure-result="Reliability analytics" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Two maintenance histories merge</li><li>Exposure hours and failures lose asset boundaries</li><li>Reliability ranking changes</li></ol>
+  <p><strong>First repair:</strong> Correct identity and recompute affected metrics with provenance</p>
+  <p><strong>Accountable role:</strong> Reliability Engineering</p>
+</article>
+<button class="failure-trigger" type="button" data-failure-trigger="Agent recommendation">
+  <strong>Agent recommendation</strong><span>Agent recommends work on the wrong equipment and location</span>
+</button>
+<article class="failure-result" data-failure-result="Agent recommendation" hidden>
+  <p class="failure-label">Follow the consequence</p>
+  <ol><li>Graph retrieval follows false equivalence</li><li>Context packet combines incompatible evidence</li><li>Draft action cites the wrong isolation conditions</li></ol>
+  <p><strong>First repair:</strong> Block action</p>
+  <p><strong>Accountable role:</strong> Application Product Owner</p>
+</article></div>
+    <div class="feedback" data-feedback aria-live="polite">Inspect all five failure paths.</div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="stewardship">
+  <header class="section-heading">
+    <span class="section-number">06</span>
+    <div><span class="kind">Accountability</span><h2>A matching algorithm proposes. A named role approves.</h2></div>
+  </header>
+  <div class="prose"><p>Software can produce candidates and confidence signals. It can compare strings, coordinates, equipment attributes, and graph neighborhoods. The utility still needs a policy for which sources are authoritative, which conflicts require escalation, who may approve a mapping, and how corrections propagate.</p><p>Leaders should ask where unresolved candidates wait, how long they wait, who owns the queue, and which operational uses are blocked until review. A confidence score without a decision policy is not governance.</p></div>
+
+<figure class="learning-visual" id="mbm03-steward-ledger"
+  data-visual-type="steward-conflict-ledger"
+  data-component-source="structured-module-package">
+  <h3>Candidate approval hold and correction have named owners</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read across each ledger row from status to evidence owner and next action</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-03-which-pump-do-you-mean-steward-ledger.svg" alt="A ledger compares approved held escalated and corrected identity cases with evidence owners and actions">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Algorithms propose candidates while governed roles approve hold or correct them</figcaption>
+</figure>
+
+<section class="component" id="mbm03-control-check" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="control-check"
+  data-correct-feedback="Correct. Review and conflict preservation occur before the mapping is reused."
+  data-incorrect-feedback="Place the control at the first governed identity decision">
+  <header class="component-header"><h3>Where should the first control sit?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">Only on the final dashboard</button>
+<button class="choice" type="button" data-choice data-correct="true">At identity mapping approval with a preserved steward conflict queue</button>
+<button class="choice" type="button" data-choice data-correct="false">In every employee&#x27;s memory</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="transfer">
+  <header class="section-heading">
+    <span class="section-number">07</span>
+    <div><span class="kind">Transfer cases</span><h2>The same identity discipline works across One Water</h2></div>
+  </header>
+  <div class="prose"><p>In wastewater, Lift Station 7 in the maintenance system may not be the retired LS-7 point still visible in an old telemetry archive. In stormwater, Outfall 12 may not be the monitoring location called OF-12 in a laboratory spreadsheet. Similar labels start the investigation. Location, role, time, source, and steward authority finish it.</p><p>RDF can express that two identifiers denote the same resource, that one record concerns another resource, or that a candidate awaits review. The graph preserves the result. It does not manufacture the evidence or replace the accountable decision.</p></div>
+
+<section class="component" id="mbm03-transfer-check" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="transfer-check"
+  data-correct-feedback="Correct. Preserve both the candidate identity and the plausible related-record interpretation."
+  data-incorrect-feedback="The coordinate conflict prevents immediate equivalence.">
+  <header class="component-header"><h3>A laboratory location OF-12 and GIS asset Outfall 12 share a label but have coordinates 300 meters apart. What should the graph say first?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="false">They are the same outfall</button>
+<button class="choice" type="button" data-choice data-correct="true">OF-12 is an unresolved candidate that may be a monitoring location related to Outfall 12</button>
+<button class="choice" type="button" data-choice data-correct="false">Coordinates never matter</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Leader view</h3><p>Identity debt behaves like integration debt. Every unowned alias and silent merge increases the cost and risk of later analytics</p></aside>
+</section>
+<section class="lesson-section" id="crosswalk">
+  <header class="section-heading">
+    <span class="section-number">08</span>
+    <div><span class="kind">Professional application</span><h2>Create an identity file another team can challenge</h2></div>
+  </header>
+  <div class="prose"><p>Record one approved mapping and one unresolved candidate. Name the supporting and contradicting evidence. Identify the authoritative source, reviewer, next action, and decision boundary.</p><p>Be specific. &quot;The names match&quot; is not enough. &quot;GIS asset 8831 and maintenance asset PUMP-104 share serial 88K21, installation location, and commissioning record; Asset Steward approved on 2026-07-24&quot; is reviewable.</p></div>
+
+<section class="component" id="mbm03-identity-crosswalk"
+  data-purposeful-interaction="applied-work-product"
+  data-component-source="structured-module-package">
+  <header class="component-header"><h3>Identity Crosswalk and Conflict Queue</h3><span class="kind">Professional work product</span></header>
+  <div class="component-body">
+    <p class="component-intro">Record the mapping, evidence, contradiction, authority, review route, and limit so another team can challenge the decision.</p>
+    <form class="work-product" data-work-product="mbm03-identity-crosswalk"
+      data-artifact="mbm03-identity-crosswalk"
+      data-completion="identity-crosswalk"
+      data-correct-feedback="Your identity file preserves an approved mapping"
+      data-incorrect-feedback="Complete every mapping and conflict field with specific">
+      <div class="field-grid"><label>Approved source identifier<input name="source_identifier" required></label><label>Canonical asset identifier<input name="canonical_identifier" required></label><label>Supporting evidence<textarea name="supporting_evidence" rows="3" required></textarea></label><label>Unresolved source identifier<input name="conflict_identifier" required></label><label>Contradicting evidence or missing proof<textarea name="contradicting_evidence" rows="3" required></textarea></label><label>Authoritative source and effective date<textarea name="authoritative_source" rows="3" required></textarea></label><label>Reviewer, owner, and next action<textarea name="reviewer_next_action" rows="3" required></textarea></label></div>
+      <label>What this identity file does not authorize<textarea name="decision_boundary" rows="3" required></textarea></label>
+      <button class="button primary" type="submit">Save Identity Crosswalk and Conflict Queue</button>
+      <div class="feedback" data-feedback aria-live="polite"></div>
+      <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
+    </form>
+  </div>
 </section>
 
-<section class="chapter">
-  <div class="chapter-head"><span class="chapter-index">02</span><div><span class="kind">Adjudication room</span><h2>Same as, related to, or unresolved?</h2></div></div>
-  <div class="teaching" data-worked-example><p>An <span class="term" data-def="A claim that two identifiers refer to the same real-world entity.">identity assertion</span> is stronger than a loose connection. If two identifiers are asserted to be the same entity, statements about either can be combined. That is useful and dangerous.</p><p>Sometimes the correct relationship is not “same as.” A control-system tag may <i>monitor</i> a pump. A work order may <i>concern</i> a pump. A photograph may <i>depict</i> a pump. These records relate to the asset without becoming the asset. The <span class="term" data-def="The documented evidence and rule used to compare two candidate records.">match method</span> should state how that conclusion was reached.</p><p>The remaining cases belong in a <span class="term" data-def="A governed list of unresolved or conflicting records that require human review.">conflict queue</span>. Unknown is a valid state. It is safer than a false <span class="term" data-def="A strong statement that two identifiers denote the same entity.">equivalence</span> that quietly spreads. Record an <span class="term" data-def="The date or interval during which an identity mapping is approved for use.">effective date</span> when equipment replacement or source changes can alter the match.</p></div>
-  <div class="coach" data-instructor-explanation data-teaches="evidence-provenance adjudication-lab"><strong>Follow the evidence, not the label</strong><p>The provenance view shows where each candidate came from and who reviewed it. In the lab, assign one of three outcomes: same physical pump, related record, or unresolved conflict. Every choice produces an explanation.</p></div>
-  <div class="panel" id="evidence-provenance" data-visual-type="provenance-network" data-component-source="component-gallery"><div class="panel-head">How an identity decision becomes traceable <span class="kind">Provenance network</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Move from source records to comparison activity, then to reviewer and resulting assertion. The assertion should never appear without the evidence and decision that produced it.</div><div class="status-strip"><div class="status"><b>Entities</b>Five source records</div><div class="status"><b>Activity</b>Identity comparison</div><div class="status"><b>Agent</b>Asset steward and operator</div><div class="status"><b>Result</b>Approved mapping or conflict</div></div><div class="conclusion" data-learner-conclusion><b>What the network clarifies:</b> Identity is a reviewable claim with provenance, not an invisible join condition.</div></div></div>
-  <div class="panel" id="adjudication-lab" data-purposeful-interaction="five-record-identity-adjudication" data-required="adjudicate" data-component-source="meaning-before-models-course-library" data-quiz-type="identity-adjudication" data-quiz-source="applied-assessment-contract" data-retry="Use same only for the physical-asset records, related for records about the pump, and unresolved for contradictory evidence."><div class="panel-head">Identity adjudication file <span class="kind">Forensic simulation</span></div><div class="panel-body"><div class="lane-grid" data-cases>
-    <article class="card" data-answer="same"><b>GIS PSN-P04</b><p>North station, EA-7781, approved 2025 survey.</p><select><option value="">Verdict</option><option value="same">Same physical pump</option><option value="related">Related record</option><option value="conflict">Unresolved conflict</option></select></article>
-    <article class="card" data-answer="same"><b>SCADA P104_RUN</b><p>North station, Panel 4, 125 hp, commissioning test.</p><select><option value="">Verdict</option><option value="same">Same physical pump</option><option value="related">Related record</option><option value="conflict">Unresolved conflict</option></select></article>
-    <article class="card" data-answer="related"><b>Work order WO-19</b><p>References EA-7781 and bearing inspection.</p><select><option value="">Verdict</option><option value="same">Same physical pump</option><option value="related">Related record</option><option value="conflict">Unresolved conflict</option></select></article>
-    <article class="card" data-answer="related"><b>Photo IMG-88</b><p>Depicts serial A771 during repair.</p><select><option value="">Verdict</option><option value="same">Same physical pump</option><option value="related">Related record</option><option value="conflict">Unresolved conflict</option></select></article>
-    <article class="card" data-answer="conflict"><b>Legacy P-104</b><p>South station, serial B204, 75 hp.</p><select><option value="">Verdict</option><option value="same">Same physical pump</option><option value="related">Related record</option><option value="conflict">Unresolved conflict</option></select></article>
-  </div><button class="btn good" type="button" data-check-cases>Issue verdicts</button><div class="feedback" aria-live="polite"></div></div></div>
+<section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
+  <h3 id="faq-heading">Questions people actually ask</h3>
+  <details><summary>Does canonical mean the record is always correct?</summary><p>No. Canonical means it is the governed reference used by a bounded process. It still needs ownership, correction, versioning, and evidence.</p></details>
+<details><summary>Is an exact identifier match enough?</summary><p>It may be strong evidence when identifiers are governed and unique within a known scope. Across unrelated systems, the same text may still refer to different things.</p></details>
+<details><summary>Should every conflict be resolved immediately?</summary><p>No. Preserve the conflict and prioritize it by operational risk and intended use. A mapping needed for switching operations deserves a different response from one used only for historical reporting.</p></details>
+<details><summary>Is a work order the same entity as the asset it concerns?</summary><p>No. The work order is its own resource. Connect it to the asset with a relationship such as concerns or performedOn.</p></details>
+<details><summary>Can artificial intelligence approve identity automatically?</summary><p>A model can propose candidates and summarize evidence. Approval authority depends on utility policy, risk, evidence, and accountable human review.</p></details>
+<details><summary>What happens after a mapping is corrected?</summary><p>The utility should identify affected queries, reports, models, agents, and decisions, then recompute or review them under the corrected identity.</p></details>
 </section>
 
-<section class="chapter">
-  <div class="chapter-head"><span class="chapter-index">03</span><div><span class="kind">Blast-radius test</span><h2>One false merge changes more than one screen</h2></div></div>
-  <div class="teaching"><p>Suppose the legacy South Booster Station record is merged into the North Pump Station asset. Its 75-horsepower motor, maintenance history, and service area now appear to describe the North pump. A query for open work may return the wrong work order. A risk model may combine two failure histories. A customer-exposure path may attach the wrong zone.</p><p>This is the <span class="term" data-def="The set of downstream records, queries, decisions, and applications affected by one identity decision.">blast radius</span> of identity. Graph connections make useful knowledge travel. They also make bad identity assertions travel.</p></div>
-  <div class="coach" data-instructor-explanation data-teaches="identity-failure propagation-check"><strong>Run both versions</strong><p>Switch between held conflict and false merge. Read each downstream consequence in order. Then decide which control stops the error closest to its source.</p></div>
-  <div class="panel" id="identity-failure" data-visual-type="failure-propagation-chain" data-component-source="component-gallery"><div class="panel-head">False equivalence propagation <span class="kind">Failure-propagation chain</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Begin with the identity assertion. Each later card consumes the contaminated result without knowing that the original match was weak.</div><div class="status-strip" data-blast><div class="status"><b>1. Identity</b><span>Conflict held</span></div><div class="status"><b>2. Maintenance</b><span>North history only</span></div><div class="status"><b>3. Risk</b><span>Correct equipment profile</span></div><div class="status"><b>4. Exposure</b><span>Correct zone path</span></div></div><div class="toolbar"><button class="btn good" type="button" data-mode="held">Hold conflict</button><button class="btn warn" type="button" data-mode="merged">Force false merge</button></div><div class="conclusion" data-learner-conclusion><b>What the chain proves:</b> Review identity before graph traversal, reasoning, analytics, or agent action can reuse it.</div></div></div>
-  <div class="panel" id="propagation-check" data-purposeful-interaction="identity-error-blast-radius" data-required="propagate" data-component-source="meaning-before-models-course-library" data-quiz-type="control-placement" data-quiz-source="applied-assessment-contract" data-retry="Choose the control that reviews and preserves the identity conflict before downstream reuse."><div class="panel-head">Control placement <span class="kind">Consequence judgment</span></div><div class="panel-body"><div class="choice-grid"><button class="choice" type="button" data-control="0">Add a warning to the final dashboard.</button><button class="choice" type="button" data-control="1">Require evidence-backed mapping approval and preserve unresolved records in a steward queue.</button><button class="choice" type="button" data-control="0">Ask every user to remember the label conflict.</button></div><button class="btn primary" type="button" data-check-control>Place the control</button><div class="feedback" aria-live="polite"></div></div></div>
+<section class="evidence" data-evidence-boundary>
+  <h3>Evidence boundary</h3>
+  <p>Riverbend Water, Pump P-104, identifiers, locations, and records are instructional. W3C RDF and OWL sources explain identity-capable graph statements and semantics. W3C PROV-O supports provenance modeling. No standard determines Riverbend&#x27;s authoritative source, match threshold, or approval role.</p>
+  <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Data Model</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/owl2-primer/">OWL 2 Web Ontology Language Primer</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/prov-o/">PROV-O The PROV Ontology</a>, World Wide Web Consortium</li></ul>
 </section>
-
-<section class="chapter narrow">
-  <div class="chapter-head"><span class="chapter-index">04</span><div><span class="kind">Professional record</span><h2>Create the identity crosswalk and conflict queue</h2></div></div>
-  <div class="teaching"><p>A useful crosswalk records both approval and uncertainty. Include the source system, local identifier, proposed canonical identifier, relationship type, evidence, reviewer, effective date, and status. Do not erase the source identifier after mapping it. You need that lineage when a record changes or a decision is challenged.</p></div>
-  <div class="coach" data-instructor-explanation data-teaches="identity-crosswalk final-identity-check"><strong>Document one approved mapping and one conflict</strong><p>The artifact is intentionally split. The first half records what can be connected. The second preserves what must not yet be merged. The final review requires evidence and a named decision owner.</p></div>
-  <div class="panel" id="identity-crosswalk"><div class="panel-head">Identity Crosswalk and Conflict Queue <span class="kind">Professional work product</span></div><div class="panel-body artifact-grid"><form data-artifact="identity-crosswalk" data-required="artifact"><label>Approved source identifier<input name="approved_source_id" required></label><label>Canonical asset identifier<input name="canonical_id" required></label><label>Evidence supporting the mapping<textarea name="approved_evidence" rows="3" required></textarea></label><label>Conflicting source identifier<input name="conflict_id" required></label><label>Conflict and evidence gap<textarea name="conflict_reason" rows="3" required></textarea></label><label>Reviewer, owner, and next action<textarea name="review_route" rows="3" required></textarea></label><button class="btn primary" type="submit">Save crosswalk record</button><div class="feedback" aria-live="polite"></div></form><pre data-artifact-preview>Complete both the mapping and the conflict queue.</pre></div></div>
-  <div class="panel" id="final-identity-check" data-final-applied-check data-artifact-ref="identity-crosswalk" data-required="applied" data-quiz-type="applied-review" data-quiz-source="applied-assessment-contract" data-retry="Record one evidence-backed mapping, one unresolved conflict, and the responsible review route."><div class="panel-head">Identity review <span class="kind">Applied assessment</span></div><div class="panel-body"><button class="btn good" type="button" data-final-check="identity-crosswalk" data-required="applied">Review the identity file</button><div class="feedback" aria-live="polite"></div></div></div>
 </section>
+      <section id="owos-course-community" class="connected">
+        <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+      </section>
+      <section class="completion">
+        <h2>Complete the working candidate</h2>
+        <p>Complete the evidence hold, evidence and role checks, five-record docket, every false-merge path, governance and transfer decisions, and Identity Crosswalk and Conflict Queue.</p>
+        <button class="button good" type="button" data-complete-module disabled>Complete module</button>
+        <p data-completion-status aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <div class="drawer-scrim" data-drawer-scrim></div>
+  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+    <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>RDF resources</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>OWL 2 Web Ontology Language Primer</h3><p>Identity-capable ontology semantics and sameAs caution context</p><a href="https://www.w3.org/TR/owl2-primer/">Open source</a></article><article><h3>PROV-O The PROV Ontology</h3><p>Entity activity agent and provenance relationships</p><a href="https://www.w3.org/TR/prov-o/">Open source</a></article></div>
+  </aside>
+  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article><h3>source identifier</h3><p>The identifier a particular source system uses for a record or resource.</p></article><article><h3>canonical identifier</h3><p>A governed reference identifier used by a bounded cross-system process after review.</p></article><article><h3>identity candidate</h3><p>A proposed relationship that still requires evidence and approval.</p></article><article><h3>crosswalk</h3><p>A reviewed mapping between source identifiers and a governed identity.</p></article><article><h3>equivalence</h3><p>A claim that two identifiers denote the same thing under the stated semantics.</p></article><article><h3>corroborating evidence</h3><p>Independent evidence that supports the same identity conclusion.</p></article><article><h3>contradicting evidence</h3><p>Evidence that conflicts with or weakens a proposed identity conclusion.</p></article><article><h3>provenance</h3><p>Information about where a record or claim came from and how it was produced or changed.</p></article><article><h3>conflict queue</h3><p>A governed list of unresolved identity candidates awaiting review or additional evidence.</p></article><article><h3>blast radius</h3><p>The downstream systems</p></article></div>
+  </aside>
+  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-structured-candidate. No credential or operational authority.</div></footer>
+  <script>(() => {
+  "use strict";
 
-<section class="chapter faq" data-module-faq><div class="chapter-head"><span class="chapter-index">?</span><div><span class="kind">Identity FAQ</span><h2>Questions that arise during matching</h2></div></div>
-<details><summary>Why not use the asset tag as the universal identity?</summary><p>An asset tag may be reused, mistyped, changed during replacement, or scoped only within one facility. Keep it as evidence and a source identifier. Approve a cross-system mapping only when the utility can support the match.</p></details>
-<details><summary>Can two systems disagree without either being wrong?</summary><p>Yes. A control system may identify a motor-control tag while the asset system identifies the physical pump. Those records are related, but they are not the same entity. The model should represent the distinction.</p></details>
-<details><summary>Who should approve identity mappings?</summary><p>The answer depends on the asset and decision. A pump mapping may need the asset steward, an operator familiar with the station, and the geographic or control-system owner. The approval route should be documented rather than assumed.</p></details>
-<details><summary>What happens when a pump is replaced?</summary><p>The old and new pumps should usually have different physical-asset identities, even if the functional position remains P-104. Model the replacement event and preserve effective dates so historical work stays attached to the correct equipment.</p></details>
-<details><summary>Should a low-confidence match enter the graph?</summary><p>It can enter as a candidate claim with status, provenance, and restricted use. It should not be promoted to an unrestricted identity equivalence until the required evidence and approval exist.</p></details></section>
-<section class="evidence" data-evidence-boundary><h2>Evidence boundary</h2><p>All P-104 records are instructional. The lesson teaches identity governance and RDF relationship distinctions. It does not establish a specific matching algorithm or utility policy.</p><ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF Concepts</a></li><li><a href="https://www.w3.org/TR/owl2-primer/">OWL 2 Primer</a></li><li><a href="https://www.w3.org/TR/prov-o/">PROV-O</a></li></ul></section>
-<section id="owos-course-community" class="connected"><article><span class="kind">Knowledge Graph</span><h3>Inspect identity relationships</h3><p>Trace identity claims to source records, reviewers, and downstream competencies.</p><button class="btn" type="button" data-open-graph>Open Graph</button></article><article><span class="kind">Community</span><h3>Compare conflict patterns</h3><p>Discuss labels that appear to match across local systems.</p><button class="btn" type="button" data-open-community>Open Community</button></article></section>
-<div class="panel"><div class="panel-body"><button class="btn good" type="button" data-complete disabled>Complete lesson</button><p id="live" aria-live="polite">Complete all five requirements.</p></div></div>
-<nav class="footnav"><a class="btn" href="lesson-meaning-before-models-02-anatomy-of-a-triple.html">Previous</a><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="lesson-meaning-before-models-04-from-triples-to-a-utility-knowledge-graph.html">Next: Utility Knowledge Graph</a></nav>
-</div></main>
-<div class="drawer-scrim" data-close-drawer></div>
-<aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><div class="stack"><button type="button" data-graph-kind="concept"><b>Concept:</b> governed identity</button><button type="button" data-graph-kind="source"><b>Source:</b> five local records</button><button type="button" data-graph-kind="relationship"><b>Relationship:</b> identifies, monitors, concerns, depicts</button><button type="button" data-graph-kind="role"><b>Role:</b> asset steward</button><button type="button" data-graph-kind="competency"><b>Competency:</b> adjudicate identity evidence</button></div></div></aside>
-<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" type="button" data-close-drawer>Close</button></div><div class="drawer-body"><label data-community-feature="search">Search identity discussions<input type="search"></label><div class="toolbar" data-community-feature="filters"><button class="btn">Asset</button><button class="btn">GIS</button><button class="btn">SCADA</button></div><p data-community-feature="presence">Working-review presence is simulated locally.</p><article class="card" data-community-feature="instructor-treatment"><h3>Instructor prompt</h3><p>Which label in your utility is most likely to identify two different things?</p><button class="btn" data-community-feature="bookmarks">Bookmark</button><div data-community-feature="threaded-replies"><p><b>Course member:</b> Station names differ between operations and the geographic map.</p></div></article></div></aside>
-<div id="tt" role="tooltip"></div><footer class="footer"><div class="wrap">Retrofit working candidate. No release, credential, graph publication, or operational authority claim.</div></footer>
-<script src="meaning-before-models-fieldbook.js"></script><script>
-(() => {
- document.querySelector("[data-check-cases]").addEventListener("click",()=>{const cards=[...document.querySelectorAll("[data-cases] article")];const ok=cards.every(c=>c.querySelector("select").value===c.dataset.answer);const f=document.querySelector("#adjudication-lab .feedback");f.textContent=ok?"Verdicts accepted. Identity, related records, and unresolved conflict remain distinct.":"Recheck at least one verdict. A work order or photograph relates to the pump but is not the pump.";f.className=`feedback ${ok?"good":"bad"}`;if(ok)MBM.mark("adjudicate");});
- const text={held:["Conflict held","North history only","Correct equipment profile","Correct zone path"],merged:["Two pumps collapsed","Work histories mixed","75 hp and 125 hp combined","Wrong service area attached"]};
- document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>document.querySelectorAll("[data-blast] span").forEach((s,i)=>s.textContent=text[b.dataset.mode][i])));
- document.querySelectorAll("[data-control]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-control]").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");}));
- document.querySelector("[data-check-control]").addEventListener("click",()=>{const ok=document.querySelector("[data-control].selected")?.dataset.control==="1";const f=document.querySelector("#propagation-check .feedback");f.textContent=ok?"Correct. The control stops an unsupported identity claim before downstream reuse.":"Place the control at the identity decision, not at the final dashboard.";f.className=`feedback ${ok?"good":"bad"}`;if(ok)MBM.mark("propagate");});
+  const required = JSON.parse(document.body.dataset.requiredIds || "[]");
+  const stateKey = `owos-module:${document.body.dataset.moduleId}:${document.body.dataset.sourceVersion}`;
+  const completed = new Set();
+  let lastDrawerTrigger = null;
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(stateKey) || "[]");
+    saved.forEach((id) => completed.add(id));
+  } catch {
+    localStorage.removeItem(stateKey);
+  }
+
+  function saveState() {
+    localStorage.setItem(stateKey, JSON.stringify([...completed].sort()));
+  }
+
+  function refreshCompletion() {
+    document.querySelectorAll("[data-completion-id]").forEach((item) => {
+      item.classList.toggle("done", completed.has(item.dataset.completionId));
+    });
+    const ready = required.every((id) => completed.has(id));
+    const button = document.querySelector("[data-complete-module]");
+    const status = document.querySelector("[data-completion-status]");
+    if (button) button.disabled = !ready;
+    if (status) {
+      const count = required.filter((id) => completed.has(id)).length;
+      status.textContent = ready
+        ? "All required evidence is complete. You can complete this working candidate."
+        : `${count} of ${required.length} required activities complete.`;
+    }
+  }
+
+  function mark(id) {
+    if (!id) return;
+    completed.add(id);
+    saveState();
+    refreshCompletion();
+  }
+
+  document.querySelectorAll("[data-choice-group]").forEach((group) => {
+    let selected = null;
+    group.querySelectorAll("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        group.querySelectorAll("[data-choice]").forEach((item) => item.classList.remove("selected"));
+        button.classList.add("selected");
+        selected = button;
+      });
+    });
+    group.querySelector("[data-check-choice]")?.addEventListener("click", () => {
+      const feedback = group.querySelector("[data-feedback]");
+      if (!selected) {
+        feedback.textContent = "Choose one response first.";
+        feedback.className = "feedback bad";
+        return;
+      }
+      const correct = selected.dataset.correct === "true";
+      selected.classList.add(correct ? "correct" : "incorrect");
+      feedback.textContent = correct ? group.dataset.correctFeedback : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-flip-group]").forEach((group) => {
+    const cards = [...group.querySelectorAll("[data-flip-card]")];
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const revealed = !card.classList.contains("revealed");
+        card.classList.toggle("revealed", revealed);
+        card.setAttribute("aria-pressed", String(revealed));
+        if (cards.every((item) => item.classList.contains("revealed"))) {
+          mark(group.dataset.completion);
+          const feedback = group.querySelector("[data-feedback]");
+          feedback.textContent = group.dataset.correctFeedback;
+          feedback.className = "feedback good";
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-matching]").forEach((group) => {
+    group.querySelector("[data-check-matching]")?.addEventListener("click", () => {
+      const rows = [...group.querySelectorAll("[data-match-answer]")];
+      const feedback = group.querySelector("[data-feedback]");
+      let correctCount = 0;
+      rows.forEach((field) => {
+        const correct = field.value === field.dataset.matchAnswer;
+        field.classList.toggle("correct-field", correct);
+        field.classList.toggle("incorrect-field", !correct);
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === rows.length;
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : `${group.dataset.incorrectFeedback} ${correctCount} of ${rows.length} are correctly matched.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-multi-select]").forEach((group) => {
+    group.querySelector("[data-check-multi]")?.addEventListener("click", () => {
+      const options = [...group.querySelectorAll("[data-multi-option]")];
+      const feedback = group.querySelector("[data-feedback]");
+      const correct = options.every(
+        (option) => option.checked === (option.dataset.correct === "true")
+      );
+      options.forEach((option) => {
+        option.closest(".select-option")?.classList.toggle(
+          "selected-correct",
+          option.checked && option.dataset.correct === "true"
+        );
+        option.closest(".select-option")?.classList.toggle(
+          "selected-incorrect",
+          option.checked && option.dataset.correct !== "true"
+        );
+      });
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-triple-builder]").forEach((builder) => {
+    const selects = [...builder.querySelectorAll("select")];
+    const correct = JSON.parse(builder.dataset.correct);
+    const output = builder.querySelector("[data-triple-output]");
+    const feedback = builder.querySelector("[data-feedback]");
+    const reverseButton = builder.querySelector("[data-reverse]");
+    let built = false;
+    let reversed = false;
+
+    builder.querySelector("[data-check-triple]").addEventListener("click", () => {
+      const values = selects.map((field) => field.value);
+      output.textContent = values.every(Boolean) ? values.join("  →  ") : "Choose all three positions.";
+      built = values.every((value, index) => value === correct[index]);
+      reverseButton.disabled = !built;
+      feedback.textContent = built
+        ? "Correct. Now reverse the ends and inspect what the statement says."
+        : "Use Pump_P104 as subject, serves as predicate, and Pressure_Zone_3 as object.";
+      feedback.className = `feedback ${built ? "good" : "bad"}`;
+    });
+
+    reverseButton.addEventListener("click", () => {
+      const first = selects[0].value;
+      selects[0].value = selects[2].value;
+      selects[2].value = first;
+      reversed = true;
+      output.textContent = selects.map((field) => field.value).join("  →  ");
+      feedback.textContent = "The words are familiar, but the direction now says the pressure zone serves the pump.";
+      feedback.className = "feedback bad";
+    });
+
+    builder.querySelector("[data-finish-triple]").addEventListener("click", () => {
+      const explanation = builder.querySelector("textarea").value.trim();
+      const enough = explanation.length >= Number(builder.dataset.minimumExplanation);
+      if (built && reversed && enough) {
+        mark(builder.dataset.completion);
+        feedback.textContent = "Complete. You showed that direction carries meaning.";
+        feedback.className = "feedback good";
+      } else {
+        feedback.textContent = "Build the correct triple, reverse it, and explain the changed meaning in one full sentence.";
+        feedback.className = "feedback bad";
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-path-tracer]").forEach((tracer) => {
+    const edges = [...tracer.querySelectorAll("[data-edge-index]")];
+    const feedback = tracer.querySelector("[data-feedback]");
+    let expected = 0;
+    edges.forEach((edge) => {
+      edge.addEventListener("click", () => {
+        const index = Number(edge.dataset.edgeIndex);
+        if (index !== expected) {
+          feedback.textContent = `Start with edge ${expected + 1}. A path only works when its relationships connect in order.`;
+          feedback.className = "feedback bad";
+          return;
+        }
+        edge.classList.add("active");
+        expected += 1;
+        feedback.textContent = edge.dataset.explanation;
+        feedback.className = "feedback good";
+        if (expected === edges.length) mark(tracer.dataset.completion);
+      });
+    });
+    tracer.querySelector("[data-reset-path]").addEventListener("click", () => {
+      expected = 0;
+      edges.forEach((edge) => edge.classList.remove("active"));
+      feedback.textContent = "Path reset. Begin with edge 1.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-artifact-classifier]").forEach((desk) => {
+    const items = [...desk.querySelectorAll("[data-triage-item]")];
+    const feedback = desk.querySelector("[data-feedback]");
+    desk.querySelector("[data-check-triage]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      items.forEach((item) => {
+        const field = item.querySelector("select");
+        const correct = field.value === item.dataset.answer;
+        const itemFeedback = item.querySelector("[data-item-feedback]");
+        item.classList.toggle("correct-card", correct);
+        item.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Correct. ${item.dataset.explanation}`
+          : `Try again. Ask what primary job this artifact performs here. ${item.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === items.length;
+      feedback.textContent = correct
+        ? "The desk is organized. The same event now has distinct structures, classifications, meanings, mappings, and runtime controls."
+        : `${correctCount} of ${items.length} artifacts are correctly placed. Use the explanation under each artifact and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(desk.dataset.completion);
+    });
+    desk.querySelector("[data-reset-triage]")?.addEventListener("click", () => {
+      items.forEach((item) => {
+        item.querySelector("select").value = "";
+        item.classList.remove("correct-card", "incorrect-card");
+        item.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "The triage desk is reset.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-failure-trace]").forEach((lab) => {
+    const triggers = [...lab.querySelectorAll("[data-failure-trigger]")];
+    const visited = new Set();
+    const feedback = lab.querySelector("[data-feedback]");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const job = trigger.dataset.failureTrigger;
+        visited.add(job);
+        triggers.forEach((item) => {
+          item.classList.toggle("active", item === trigger);
+          item.setAttribute("aria-pressed", String(item === trigger));
+        });
+        lab.querySelectorAll("[data-failure-result]").forEach((result) => {
+          result.hidden = result.dataset.failureResult !== job;
+        });
+        feedback.textContent =
+          visited.size === triggers.length
+            ? "All five paths inspected. The symptom appears in the answer, but the first repair belongs at the first broken job."
+            : `${visited.size} of ${triggers.length} failure paths inspected.`;
+        feedback.className = "feedback good";
+        if (visited.size === triggers.length) mark(lab.dataset.completion);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-object-router]").forEach((router) => {
+    const items = [...router.querySelectorAll("[data-route-item]")];
+    const feedback = router.querySelector("[data-feedback]");
+    items.forEach((item) => {
+      item.querySelectorAll("[data-route-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          item.querySelectorAll("[data-route-choice]").forEach((choice) => choice.classList.remove("active"));
+          button.classList.add("active");
+          const correct = button.dataset.routeChoice === item.dataset.answer;
+          item.dataset.complete = String(correct);
+          const itemFeedback = item.querySelector("[data-item-feedback]");
+          itemFeedback.textContent = correct
+            ? `Correct. ${item.dataset.explanation}`
+            : `Try the other branch. ${item.dataset.explanation}`;
+          itemFeedback.className = `item-feedback ${correct ? "good-text" : "bad-text"}`;
+          if (items.every((candidate) => candidate.dataset.complete === "true")) {
+            feedback.textContent = "Every object is correctly routed. Resource objects continue relationships; literals carry values.";
+            feedback.className = "feedback good";
+            mark(router.dataset.completion);
+          }
+        });
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-triple-repair-bench]").forEach((bench) => {
+    const cards = [...bench.querySelectorAll("[data-repair-card]")];
+    const feedback = bench.querySelector("[data-feedback]");
+    bench.querySelector("[data-check-repairs]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      cards.forEach((card) => {
+        const defectCorrect = card.querySelector("[data-defect-field]").value === card.dataset.defect;
+        const repairCorrect = card.querySelector("[data-repair-field]").value === card.dataset.repair;
+        const correct = defectCorrect && repairCorrect;
+        const itemFeedback = card.querySelector("[data-item-feedback]");
+        card.classList.toggle("correct-card", correct);
+        card.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Repair accepted. ${card.dataset.explanation}`
+          : `Inspect both the failed position and the smallest repair. ${card.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === cards.length;
+      feedback.textContent = correct
+        ? "All four statements are repaired without claiming more than their evidence supports."
+        : `${correctCount} of ${cards.length} repairs pass review. Read each explanation and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(bench.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-identity-adjudication]").forEach((docket) => {
+    const records = [...docket.querySelectorAll("[data-docket-record]")];
+    const feedback = docket.querySelector("[data-feedback]");
+    docket.querySelector("[data-check-docket]")?.addEventListener("click", () => {
+      let correct = 0;
+      records.forEach((record) => {
+        const passed = record.querySelector("select").value === record.dataset.answer;
+        record.classList.toggle("passed", passed);
+        record.classList.toggle("failed", !passed);
+        record.querySelector("[data-item-feedback]").textContent = passed
+          ? `Finding accepted. ${record.dataset.explanation}`
+          : "That finding does not fit the evidence. Separate the physical asset from records about it, and preserve contradictions.";
+        if (passed) correct += 1;
+      });
+      if (correct === records.length) {
+        feedback.textContent = "Docket complete. Approved identity, related records, and the unresolved conflict remain visibly different.";
+        feedback.className = "feedback good";
+        mark(docket.dataset.completion);
+      } else {
+        feedback.textContent = `${correct} of ${records.length} findings are supported. Review the evidence and retry.`;
+        feedback.className = "feedback bad";
+      }
+    });
+    docket.querySelector("[data-reset-docket]")?.addEventListener("click", () => {
+      records.forEach((record) => {
+        record.querySelector("select").value = "";
+        record.classList.remove("passed", "failed");
+        record.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "Review all five records.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-work-product]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = [...form.querySelectorAll("[required]")];
+      const complete = fields.every((field) => field.value.trim());
+      const feedback = form.querySelector("[data-feedback]");
+      if (!complete) {
+        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.className = "feedback bad";
+        return;
+      }
+      const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
+      localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
+      feedback.textContent = form.dataset.correctFeedback;
+      feedback.className = "feedback good";
+      mark(form.dataset.completion);
+    });
+  });
+
+  function openDrawer(name, trigger) {
+    const drawer = document.querySelector(`[data-drawer="${name}"]`);
+    if (!drawer) return;
+    lastDrawerTrigger = trigger;
+    document.querySelector("[data-drawer-scrim]").classList.add("open");
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    drawer.querySelector("button, a, input")?.focus();
+  }
+
+  function closeDrawers() {
+    document.querySelector("[data-drawer-scrim]").classList.remove("open");
+    document.querySelectorAll("[data-drawer]").forEach((drawer) => {
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    });
+    lastDrawerTrigger?.focus();
+  }
+
+  document.querySelectorAll("[data-open-drawer]").forEach((button) => {
+    button.addEventListener("click", () => openDrawer(button.dataset.openDrawer, button));
+  });
+  document.querySelectorAll("[data-close-drawer], [data-drawer-scrim]").forEach((button) => {
+    button.addEventListener("click", closeDrawers);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDrawers();
+  });
+
+  document.querySelector("[data-complete-module]")?.addEventListener("click", () => {
+    const status = document.querySelector("[data-completion-status]");
+    status.textContent = "Working candidate completed locally. This does not issue a credential or operational authority.";
+  });
+
+  refreshCompletion();
 })();
-</script></body></html>
+</script>
+</body>
+</html>

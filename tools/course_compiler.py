@@ -41,6 +41,7 @@ SUPPORTED_INTERACTIONS = {
     "failure-trace",
     "object-router",
     "triple-repair-bench",
+    "identity-adjudication",
 }
 SUPPORTED_ASSESSMENTS = {
     "multiple-choice",
@@ -745,6 +746,36 @@ def render_failure_trace(interaction: dict[str, Any]) -> str:
 </section>"""
 
 
+def render_identity_adjudication(interaction: dict[str, Any]) -> str:
+    config = interaction["config"]
+    cards = []
+    for item in config["records"]:
+        options = '<option value="">Record a finding</option>' + "".join(
+            f'<option value="{esc(finding)}">{esc(finding)}</option>' for finding in config["findings"]
+        )
+        cards.append(
+            f"""<article class="docket-card" data-docket-record data-answer="{esc(item['answer'])}"
+  data-explanation="{esc(item['explanation'])}">
+  <span class="docket-source">{esc(item['source'])}</span><h4>{esc(item['identifier'])}</h4>
+  <dl><div><dt>Location</dt><dd>{esc(item['location'])}</dd></div>
+  <div><dt>Equipment</dt><dd>{esc(item['equipment'])}</dd></div>
+  <div><dt>Evidence date</dt><dd>{esc(item['date'])}</dd></div></dl>
+  <label>Finding<select>{options}</select></label>
+  <div class="item-feedback" data-item-feedback aria-live="polite"></div></article>"""
+        )
+    return f"""
+<section class="component signature-component identity-docket" id="{esc(interaction['interaction_id'])}"
+  data-identity-adjudication data-purposeful-interaction="identity-adjudication"
+  data-component-source="structured-module-package" data-completion="{esc(interaction['completion_id'])}">
+  <header class="component-header"><h3>{esc(interaction['title'])}</h3><span class="kind">Identity evidence docket</span></header>
+  <div class="component-body"><p class="component-intro">{esc(interaction['instructions'])}</p>
+  <div class="docket-grid">{''.join(cards)}</div>
+  <div class="button-row"><button class="button primary" type="button" data-check-docket>Submit findings</button>
+  <button class="button" type="button" data-reset-docket>Clear docket</button></div>
+  <div class="feedback" data-feedback aria-live="polite">Review all five records.</div></div>
+</section>"""
+
+
 def render_object_router(interaction: dict[str, Any]) -> str:
     cards = []
     for index, item in enumerate(interaction["config"]["items"]):
@@ -903,6 +934,8 @@ def render_block(
             return render_artifact_classifier(interaction)
         if interaction["component"] == "failure-trace":
             return render_failure_trace(interaction)
+        if interaction["component"] == "identity-adjudication":
+            return render_identity_adjudication(interaction)
         if interaction["component"] == "object-router":
             return render_object_router(interaction)
         return render_triple_repair_bench(interaction)

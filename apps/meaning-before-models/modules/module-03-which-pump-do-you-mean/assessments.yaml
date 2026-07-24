@@ -1,0 +1,75 @@
+schema_version: 1
+module_id: mbm001:03
+assessments:
+  - assessment_id: mbm03-opening-hold
+    type: multiple-choice
+    cognitive_job: resist an unsupported merge
+    prompt: A spreadsheet says P-104 but places it at South Booster Station. What is the strongest first decision?
+    options:
+      - {text: Merge it because the label matches, correct: false}
+      - {text: Preserve it as a candidate and request corroborating evidence, correct: true}
+      - {text: Delete it because it conflicts, correct: false}
+    feedback: {correct: Correct. The conflict remains visible while evidence is gathered., incorrect: A familiar label cannot override contradictory location evidence.}
+    completion_id: opening-hold
+  - assessment_id: mbm03-evidence-check
+    type: multi-select
+    cognitive_job: select corroborating identity evidence
+    prompt: Which evidence can materially strengthen a physical-asset identity decision?
+    options:
+      - {text: Matching serial or manufacturer identifier within a governed scope, correct: true}
+      - {text: Consistent installation location and network role, correct: true}
+      - {text: Commissioning and replacement history, correct: true}
+      - {text: The same short label typed by two people, correct: false}
+      - {text: Source authority and effective date, correct: true}
+    feedback: {correct: Correct. Corroboration combines attributes, place, history, time, and authority., incorrect: Select evidence that distinguishes the real equipment, not repetition of a convenient label.}
+    completion_id: evidence-check
+  - assessment_id: mbm03-role-check
+    type: matching
+    cognitive_job: distinguish asset and related-record relationships
+    prompt: Match each record to the relationship it should have with Pump P-104.
+    targets: [monitors, concerns, depicts, labels]
+    pairs:
+      - {prompt: SCADA run-status point, answer: monitors}
+      - {prompt: Work order WO-4821, answer: concerns}
+      - {prompt: As-built drawing D-17, answer: depicts}
+      - {prompt: "High Service Pump 1", answer: labels}
+    feedback: {correct: Correct. Each record retains its identity and connects through a specific relationship., incorrect: Do not collapse a sensor, work order, drawing, or label into the physical pump.}
+    completion_id: role-check
+  - assessment_id: mbm03-control-check
+    type: multiple-choice
+    cognitive_job: place governance before downstream reuse
+    prompt: Where should the first control sit?
+    options:
+      - {text: Only on the final dashboard, correct: false}
+      - {text: At identity mapping approval with a preserved steward conflict queue, correct: true}
+      - {text: In every employee's memory, correct: false}
+    feedback: {correct: Correct. Review and conflict preservation occur before the mapping is reused., incorrect: Place the control at the first governed identity decision, not only at the final symptom.}
+    completion_id: control-check
+  - assessment_id: mbm03-transfer-check
+    type: multiple-choice
+    cognitive_job: transfer identity discipline to stormwater
+    prompt: A laboratory location OF-12 and GIS asset Outfall 12 share a label but have coordinates 300 meters apart. What should the graph say first?
+    options:
+      - {text: They are the same outfall, correct: false}
+      - {text: OF-12 is an unresolved candidate that may be a monitoring location related to Outfall 12, correct: true}
+      - {text: Coordinates never matter, correct: false}
+    feedback: {correct: Correct. Preserve both the candidate identity and the plausible related-record interpretation., incorrect: The coordinate conflict prevents immediate equivalence.}
+    completion_id: transfer-check
+  - assessment_id: mbm03-identity-crosswalk
+    type: applied-work-product
+    title: Identity Crosswalk and Conflict Queue
+    cognitive_job: document one approved mapping and one unresolved identity candidate
+    prompt: Record the mapping, evidence, contradiction, authority, review route, and limit so another team can challenge the decision.
+    required_fields: [source_identifier, canonical_identifier, supporting_evidence, conflict_identifier, contradicting_evidence, authoritative_source, reviewer_next_action, decision_boundary]
+    field_labels:
+      source_identifier: Approved source identifier
+      canonical_identifier: Canonical asset identifier
+      supporting_evidence: Supporting evidence
+      conflict_identifier: Unresolved source identifier
+      contradicting_evidence: Contradicting evidence or missing proof
+      authoritative_source: Authoritative source and effective date
+      reviewer_next_action: Reviewer, owner, and next action
+      decision_boundary: What this identity file does not authorize
+    textarea_fields: [supporting_evidence, contradicting_evidence, authoritative_source, reviewer_next_action, decision_boundary]
+    feedback: {correct: Your identity file preserves an approved mapping, unresolved conflict, evidence, authority, review route, and decision boundary., incorrect: Complete every mapping and conflict field with specific, reviewable evidence.}
+    completion_id: identity-crosswalk

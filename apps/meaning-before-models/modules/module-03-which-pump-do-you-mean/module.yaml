@@ -1,0 +1,125 @@
+schema_version: 1
+module:
+  course_id: owos-course-semantic-data-ai-001
+  module_id: mbm001:03
+  slug: module-03-which-pump-do-you-mean
+  title: Which Pump Do You Mean?
+  eyebrow: Meaning Before Models, Module 03
+  promise: Decide when records identify the same physical utility asset, when they merely concern it, and when the evidence requires a steward hold.
+  duration: 55 to 70 minutes
+  level: Foundation with optional Practitioner and Leader depth
+  archetype: forensic-identity-review
+  signature_mechanism: five-record-identity-evidence-docket
+  source_version: 0.2.0-structured-candidate
+learning:
+  audience: [Utility professionals and leaders, Data GIS IT OT analytics governance and AI practitioners]
+  outcomes:
+    - Distinguish matching labels from approved identity.
+    - Separate a physical asset from sensors, work orders, drawings, and names that concern it.
+    - Judge supporting and contradicting evidence before approving a crosswalk.
+    - Trace how one false equivalence changes downstream utility answers.
+    - Produce an Identity Crosswalk and Conflict Queue with named review authority.
+  prior_knowledge: The learner understands identifiers and labels from Module 02.
+  misconception: Matching asset names prove that records describe the same physical thing.
+  transfer_task: Adjudicate a wastewater lift-station conflict and a stormwater outfall conflict.
+sections:
+  - section_id: evidence-wall
+    title: Five records say P-104. They do not yet say one pump.
+    kind: Forensic opening
+    blocks:
+      - type: prose
+        paragraphs:
+          - At Riverbend Water, a supervisor asks for every open work order and alarm associated with Pump P-104. Five systems return something. The Supervisory Control and Data Acquisition system reports P104 at North High Service. The geographic map lists P-104 at North Booster. The maintenance system lists PUMP-104 with a seal replacement. A drawing labels a duty pump P-104. An operator calls a nearby temporary bypass pump P-104 because that is how the crew has always referred to it.
+          - The repeated label feels reassuring. It is only a candidate signal. Locations differ, equipment descriptions differ, dates differ, and one name comes from conversation rather than an authoritative register. If you merge first and investigate later, you have already changed what every connected system may claim.
+      - {type: visual, visual_id: mbm03-evidence-wall}
+      - {type: assessment, assessment_id: mbm03-opening-hold}
+      - {type: callout, title: The disciplined first move, text: Preserve each source identifier and its evidence. Create a candidate relationship. Do not erase the disagreement by choosing the most familiar label.}
+  - section_id: evidence-bridge
+    title: Identity is a reviewed conclusion built from several clues
+    kind: Evidence bridge
+    blocks:
+      - type: prose
+        paragraphs:
+          - A source identifier is the name one system uses. A canonical identifier is the governed identifier your cross-system process uses after review. The crosswalk between them is an approved mapping, not a string replacement.
+          - Useful evidence includes stable equipment attributes, physical location, system role, installation history, manufacturer and serial information, network position, and source authority. Exact text can help. Fuzzy text can help. Neither is sufficient when stronger evidence contradicts the match.
+      - {type: visual, visual_id: mbm03-evidence-bridge}
+      - {type: assessment, assessment_id: mbm03-evidence-check}
+  - section_id: record-roles
+    title: A record about the pump is not another copy of the pump
+    kind: Relationship distinction
+    blocks:
+      - type: prose
+        paragraphs:
+          - The physical pump is one domain thing. A telemetry point monitors it. A work order concerns it. A drawing depicts it. A nickname labels it. Those records should connect to the asset through different relationships.
+          - Treating all five records as equivalent resources collapses useful distinctions. An alarm is not a pump. A work order is not a pump. Their identifiers can remain independent while explicit relationships make the graph traversable.
+      - {type: visual, visual_id: mbm03-record-role-network}
+      - {type: assessment, assessment_id: mbm03-role-check}
+  - section_id: identity-docket
+    title: Adjudicate the five records without hiding the conflict
+    kind: Identity Evidence Docket
+    blocks:
+      - type: prose
+        paragraphs:
+          - Review each evidence card. Record same physical asset only when the record identifier denotes the pump itself and the evidence supports the mapping. Record related record when the item concerns, monitors, or depicts the pump. Record unresolved candidate when contradictory evidence prevents a defensible conclusion.
+          - The goal is not to maximize the match rate. The goal is to make every approved mapping reviewable and every unresolved case visible.
+      - {type: interaction, interaction_id: mbm03-identity-docket}
+      - {type: callout, title: A hold is a useful result, text: Unresolved does not mean failed. It means the system preserved uncertainty instead of converting it into a false fact.}
+  - section_id: false-merge
+    title: One false merge travels farther than the source record
+    kind: Blast-radius laboratory
+    blocks:
+      - type: prose
+        paragraphs:
+          - Suppose the temporary bypass pump is incorrectly declared identical to the permanent high-service pump. The error now crosses every relationship attached to either identifier. Maintenance history appears on the wrong asset. Alarm summaries combine two pieces of equipment. Reliability metrics use a fabricated operating history. An agent may recommend work based on the wrong duty and isolation conditions.
+          - Select every path below. Notice that the first visible symptom changes, but the first repair is the same: withdraw the unsupported identity mapping, preserve the conflict, and route it to accountable review.
+      - {type: visual, visual_id: mbm03-blast-radius}
+      - {type: interaction, interaction_id: mbm03-false-merge-trace}
+  - section_id: stewardship
+    title: A matching algorithm proposes. A named role approves.
+    kind: Accountability
+    blocks:
+      - type: prose
+        paragraphs:
+          - Software can produce candidates and confidence signals. It can compare strings, coordinates, equipment attributes, and graph neighborhoods. The utility still needs a policy for which sources are authoritative, which conflicts require escalation, who may approve a mapping, and how corrections propagate.
+          - Leaders should ask where unresolved candidates wait, how long they wait, who owns the queue, and which operational uses are blocked until review. A confidence score without a decision policy is not governance.
+      - {type: visual, visual_id: mbm03-steward-ledger}
+      - {type: assessment, assessment_id: mbm03-control-check}
+  - section_id: transfer
+    title: The same identity discipline works across One Water
+    kind: Transfer cases
+    blocks:
+      - type: prose
+        paragraphs:
+          - In wastewater, Lift Station 7 in the maintenance system may not be the retired LS-7 point still visible in an old telemetry archive. In stormwater, Outfall 12 may not be the monitoring location called OF-12 in a laboratory spreadsheet. Similar labels start the investigation. Location, role, time, source, and steward authority finish it.
+          - RDF can express that two identifiers denote the same resource, that one record concerns another resource, or that a candidate awaits review. The graph preserves the result. It does not manufacture the evidence or replace the accountable decision.
+      - {type: assessment, assessment_id: mbm03-transfer-check}
+      - {type: callout, title: Leader view, text: Identity debt behaves like integration debt. Every unowned alias and silent merge increases the cost and risk of later analytics, automation, and AI.}
+  - section_id: crosswalk
+    title: Create an identity file another team can challenge
+    kind: Professional application
+    blocks:
+      - type: prose
+        paragraphs:
+          - Record one approved mapping and one unresolved candidate. Name the supporting and contradicting evidence. Identify the authoritative source, reviewer, next action, and decision boundary.
+          - Be specific. "The names match" is not enough. "GIS asset 8831 and maintenance asset PUMP-104 share serial 88K21, installation location, and commissioning record; Asset Steward approved on 2026-07-24" is reviewable.
+      - {type: work_product, work_product_id: mbm03-identity-crosswalk}
+      - type: faq
+        items:
+          - question: Does canonical mean the record is always correct?
+            answer: No. Canonical means it is the governed reference used by a bounded process. It still needs ownership, correction, versioning, and evidence.
+          - question: Is an exact identifier match enough?
+            answer: It may be strong evidence when identifiers are governed and unique within a known scope. Across unrelated systems, the same text may still refer to different things.
+          - question: Should every conflict be resolved immediately?
+            answer: No. Preserve the conflict and prioritize it by operational risk and intended use. A mapping needed for switching operations deserves a different response from one used only for historical reporting.
+          - question: Is a work order the same entity as the asset it concerns?
+            answer: No. The work order is its own resource. Connect it to the asset with a relationship such as concerns or performedOn.
+          - question: Can artificial intelligence approve identity automatically?
+            answer: A model can propose candidates and summarize evidence. Approval authority depends on utility policy, risk, evidence, and accountable human review.
+          - question: What happens after a mapping is corrected?
+            answer: The utility should identify affected queries, reports, models, agents, and decisions, then recompute or review them under the corrected identity.
+      - type: evidence
+        statement: Riverbend Water, Pump P-104, identifiers, locations, and records are instructional. W3C RDF and OWL sources explain identity-capable graph statements and semantics. W3C PROV-O supports provenance modeling. No standard determines Riverbend's authoritative source, match threshold, or approval role.
+        source_refs: [w3c-rdf12-concepts, w3c-owl2-primer, w3c-prov-o]
+completion:
+  required_ids: [opening-hold, evidence-check, role-check, identity-docket, false-merge-paths, control-check, transfer-check, identity-crosswalk]
+  rule: Complete the evidence hold, evidence and role checks, five-record docket, every false-merge path, governance and transfer decisions, and Identity Crosswalk and Conflict Queue.
