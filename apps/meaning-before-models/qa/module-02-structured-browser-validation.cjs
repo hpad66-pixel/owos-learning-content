@@ -23,6 +23,12 @@ async function inspect(browser, mode) {
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto(lesson, {waitUntil: "load"});
   await page.waitForSelector("main");
+  await page.evaluate(async () => {
+    await Promise.all([...document.images].map((image) => {
+      if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+      return image.decode();
+    }));
+  });
 
   const graph = page.getByRole("button", {name: "Graph"}).first();
   await graph.click();
