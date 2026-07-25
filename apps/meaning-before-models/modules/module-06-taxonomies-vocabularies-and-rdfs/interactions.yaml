@@ -1,0 +1,17 @@
+schema_version: 1
+module_id: mbm001:06
+interactions:
+  - interaction_id: mbm06-hierarchy-repair
+    component: hierarchy-repair
+    title: Hierarchy Consequence Laboratory
+    teaching_purpose: Repair schema statements after predicting their class-membership consequences.
+    instructions: For each statement, choose Accept, Repair, or Reject. Use the explanation to inspect what RDFS would imply.
+    completion_id: hierarchy-repair
+    config:
+      choices: [Accept, Repair, Reject]
+      cases:
+        - {statement: VerticalTurbinePump subClassOf Pump, consequence: P-104 typed as VerticalTurbinePump is also a Pump., answer: Accept, explanation: This is the intended upward classification.}
+        - {statement: Pump_P104 subClassOf Pump, consequence: One physical pump is incorrectly modeled as a class., answer: Repair, explanation: State Pump_P104 rdf:type Pump instead.}
+        - {statement: concerns domain WorkOrder, consequence: Every subject using concerns is inferred to be a WorkOrder., answer: Accept, explanation: Accept only when that broad semantic commitment is intended.}
+        - {statement: locatedAt range Pump, consequence: Every object of locatedAt is inferred to be a Pump., answer: Reject, explanation: The object should be a location class, not Pump.}
+        - {statement: criticalAsset subPropertyOf hasClassification, consequence: Every criticalAsset relationship is also a classification relationship., answer: Repair, explanation: Use a property such as hasCriticalityClassification with a clear range.}

@@ -1,0 +1,30 @@
+schema_version: 1
+module_id: mbm001:06
+assessments:
+  - {assessment_id: mbm06-opening, type: multiple-choice, cognitive_job: preserve scoped meanings, prompt: "Four teams use asset differently. What is the strongest first move?", options: [{text: Record each scope definition owner and example, correct: true}, {text: Delete three meanings immediately, correct: false}, {text: Let every system silently redefine the term, correct: false}], feedback: {correct: Correct. Harmonization starts with explicit scope and consequences., incorrect: Preserve and compare the meanings before choosing alignments.}, completion_id: opening}
+  - assessment_id: mbm06-terms
+    type: flip-cards
+    cognitive_job: retrieve foundational classification terms
+    prompt: Say the definition before turning each card.
+    cards: [{front: Class, back: A category of things.}, {front: Instance, back: One identified member of a class.}, {front: Property, back: A named relationship or characteristic.}, {front: Taxonomy, back: A governed broader and narrower classification arrangement.}]
+    feedback: {correct: You can now keep categories individual things relationships and hierarchies separate.}
+    completion_id: terms
+  - assessment_id: mbm06-hierarchy-match
+    type: matching
+    cognitive_job: match items to classification roles
+    prompt: Match each item to its correct role.
+    targets: [Class, Instance, Property, Definition]
+    pairs: [{prompt: Pump, answer: Class}, {prompt: Pump P-104, answer: Instance}, {prompt: serves, answer: Property}, {prompt: Equipment that imparts energy to water, answer: Definition}]
+    feedback: {correct: Correct. The hierarchy now has clean semantic roles., incorrect: Separate the category the individual the relationship and the explanatory text.}
+    completion_id: hierarchy-match
+  - {assessment_id: mbm06-boundary, type: multiple-choice, cognitive_job: distinguish inference from validation, prompt: "A property range says Location. What does RDFS do?", options: [{text: It can infer that objects of the property are Locations, correct: true}, {text: It rejects every nonconforming record like a form validator, correct: false}, {text: It proves the recorded location is physically correct, correct: false}], feedback: {correct: Correct. Range participates in semantic inference., incorrect: RDFS semantics do not perform SHACL validation or prove reality.}, completion_id: boundary}
+  - assessment_id: mbm06-vocabulary-sheet
+    type: applied-work-product
+    title: Governed Vocabulary and Taxonomy Sheet
+    cognitive_job: release one governed term and hierarchy
+    prompt: Record the term definition hierarchy examples exclusions properties consequence owner release and validation boundary.
+    required_fields: [term_definition, hierarchy, examples_exclusions, properties, semantic_consequence, owner, release_state, validation_boundary]
+    field_labels: {term_definition: Preferred term and definition, hierarchy: Broader and narrower classes, examples_exclusions: Examples and exclusions, properties: Relevant properties, semantic_consequence: Intended RDFS consequence, owner: Accountable owner, release_state: Version effective date and state, validation_boundary: What RDFS does not validate}
+    textarea_fields: [term_definition, hierarchy, examples_exclusions, properties, semantic_consequence, owner, release_state, validation_boundary]
+    feedback: {correct: Your vocabulary sheet is scoped owned versioned and semantically explicit., incorrect: Complete every field with reviewable language and a clear validation boundary.}
+    completion_id: vocabulary-sheet

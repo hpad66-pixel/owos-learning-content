@@ -1,44 +1,2037 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 08: Ask the Graph with SPARQL | One Water OS Academy</title>
-<meta name="description" content="Build and execute a SPARQL query clause by clause against a small utility graph, then interpret the evidence path.">
-<meta name="owos-course-id" content="owos-course-semantic-data-ai-001"><meta name="owos-learning-object" content="mbm001:08"><meta name="owos-release-state" content="live-review">
-<meta name="owos-lesson-archetype" content="query-laboratory"><meta name="owos-signature-mechanism" content="build-and-execute-sparql-clause-by-clause"><meta name="owos-opening-pattern" content="dashboard-cannot-follow-path"><meta name="owos-work-product-mode" content="question-to-query-sheet">
-<link rel="icon" href="data:,"><link rel="stylesheet" href="meaning-before-models-fieldbook.css"></head>
-<body data-module="module-08" data-lens="foundation"><div class="reading"></div>
-<header class="top"><div class="wrap topin"><a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meaning Before Models / 08</span><nav class="topactions"><button class="btn" data-open-graph>Graph</button><button class="btn" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav></div></header>
-<main><section class="wrap hero"><span class="eyebrow">Query laboratory · Module 08</span><h1>Ask the Graph with SPARQL</h1><p>SPARQL is pronounced “sparkle.” The name is unfamiliar. The job is familiar: describe the relationship pattern you want the graph to find, choose what to return, and inspect the path behind the result.</p><div class="meta"><span>85 minutes</span><span>Query and interpret</span><span>Live clause bench</span><span>Question-to-Query Sheet</span></div><div class="lenses" role="tablist"><button class="on" data-lens="foundation" role="tab" aria-selected="true">Foundation</button><button data-lens="practitioner" role="tab" aria-selected="false">Practitioner</button><button data-lens="leader" role="tab" aria-selected="false">Leader</button></div></section>
-<div class="wrap lesson" id="lesson-start"><div class="requirements"><div class="req" data-requirement="opening"><i></i>Choose a graph question</div><div class="req" data-requirement="query"><i></i>Build and execute SPARQL</div><div class="req" data-requirement="interpret"><i></i>Interpret missing and optional data</div><div class="req" data-requirement="artifact"><i></i>Save the query sheet</div><div class="req" data-requirement="applied"><i></i>Pass query review</div></div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask the Graph with SPARQL | One Water OS Academy</title>
+  <meta name="description" content="Turn a utility question into a graph pattern, interpret its bindings, and trace the result to evidence.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:08">
+  <meta name="owos-release-state" content="live-review">
+  <meta name="owos-source-version" content="0.2.0-structured-candidate">
+  <meta name="owos-compiler-version" content="1.1.0">
+  <meta name="owos-package-checksum" content="d676b05c491a13d3707406f489063502358b0f27e0f7dafe64141e8a9b319640">
+  <style>:root {
+  color-scheme: light;
+  --ink: #17324d;
+  --muted: #526d7d;
+  --paper: #ffffff;
+  --wash: #eef6f5;
+  --line: #cddddd;
+  --navy: #102a43;
+  --teal: #147d88;
+  --teal-soft: #dff2ee;
+  --orange: #e8752f;
+  --orange-soft: #fff1e6;
+  --good: #157347;
+  --bad: #a63d32;
+  --shadow: 0 20px 60px rgba(23, 50, 77, .12);
+  --radius: 24px;
+}
 
-<section class="chapter"><div class="chapter-head"><span class="chapter-index">?</span><div><span class="kind">Question before syntax</span><h2>The dashboard has the rows, but not the path</h2></div></div>
-<div class="teaching"><p>A dashboard lists pumps with open work orders. Customer service asks a different question: “Which critical-facility accounts are served by premises in a pressure zone affected by Pump P-104?” The answer crosses assets, zones, premises, accounts, and classifications.</p><p>Structured Query Language is excellent for relational tables. SPARQL Protocol and RDF Query Language, or <span class="term" data-def="The W3C query language and protocol for RDF graphs.">SPARQL</span>, expresses graph patterns directly. This is not a contest between query languages. Use the language that fits the data model and the question.</p></div>
-<div class="view foundation"><p>Write the question in ordinary language and draw the relationship path before touching query syntax.</p></div><div class="view practitioner"><p>Specify prefixes, variables, graph patterns, filters, optional patterns, named graphs, endpoints, and expected evidence.</p></div><div class="view leader"><p>Ask whether the query is governed, reusable, tested, and connected to decision authority. A technically correct result can still be used beyond its approved purpose.</p></div>
-<div class="coach" data-instructor-explanation data-teaches="opening-query question-path"><strong>Choose a relationship question</strong><p>Select the question that benefits from graph traversal. Then read the path from Pump P-104 to account classification. Each edge will become one triple pattern in the query.</p></div>
-<div class="panel" id="opening-query" data-opening-decision data-required="opening" data-quiz data-quiz-type="query-fit" data-quiz-source="quiz-gallery" data-correct-feedback="Correct. The question depends on a multi-edge relationship path across domains." data-retry="Choose the question whose answer depends on following several named relationships."><div class="panel-head">Opening query decision <span class="kind">Fit judgment</span></div><div class="panel-body"><div class="choice-grid"><button class="choice" data-correct="0">What was yesterday’s total pump runtime?</button><button class="choice" data-correct="1">Which critical-facility accounts connect through premises and Zone 3 to Pump P-104?</button><button class="choice" data-correct="0">How many rows are in the work-order table?</button></div><button class="btn primary" data-check-quiz>Choose question</button><div class="feedback" aria-live="polite"></div></div></div>
-<div class="panel" id="question-path" data-visual-type="network-diagram" data-component-source="component-gallery"><div class="panel-head">Question as a graph pattern <span class="kind">Network / wire diagram</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with the known pump. Every blank you want the graph to find becomes a variable. Every labelled edge becomes a triple pattern inside WHERE.</div><div class="graph-canvas"><button class="graph-card" style="left:2%;top:14%">Pump P-104</button><button class="graph-card" style="left:31%;top:14%">?zone</button><button class="graph-card" style="left:31%;top:67%">?premise</button><button class="graph-card" style="left:62%;top:67%">?account</button><button class="graph-card" style="right:2%;top:14%">Critical Facility</button><svg viewBox="0 0 900 370"><line class="graph-edge" x1="145" y1="70" x2="330" y2="70"/><line class="graph-edge" x1="415" y1="100" x2="415" y2="255"/><line class="graph-edge" x1="505" y1="288" x2="625" y2="288"/><line class="graph-edge" x1="710" y1="255" x2="800" y2="100"/></svg></div><div class="conclusion" data-learner-conclusion><b>What the path shows:</b> SPARQL does not search for nearby words. It matches the directed relationship pattern you declare.</div></div></div></section>
+* {
+  box-sizing: border-box;
+}
 
-<section class="chapter"><div class="chapter-head"><span class="chapter-index">{ }</span><div><span class="kind">Clause bench</span><h2>Build the query in the same order you reason about it</h2></div></div>
-<div class="teaching" data-worked-example><p><span class="term" data-def="A SPARQL query form that returns bindings for selected variables.">SELECT</span> names what the result table should return. A <span class="term" data-def="A placeholder beginning with ? that can bind to matching graph terms.">variable</span> such as <code>?account</code> stands for a value the query will discover.</p><p><span class="term" data-def="The SPARQL clause containing the graph pattern that solutions must match.">WHERE</span> contains one or more <span class="term" data-def="A subject-predicate-object pattern in which one or more positions may be variables.">triple patterns</span>. Shared variables join the patterns. If <code>?premise</code> appears in the zone pattern and the account pattern, it carries the connection between them.</p><p>A <span class="term" data-def="A SPARQL expression that keeps only solutions meeting a condition.">FILTER</span> narrows solutions, for example by event time or status. <span class="term" data-def="A SPARQL pattern that adds information when present without rejecting the entire solution when absent.">OPTIONAL</span> asks for useful but non-required information.</p></div>
-<div class="coach" data-instructor-explanation data-teaches="clause-flow sparql-console"><strong>Assemble one clause at a time</strong><p>The process visual shows what each clause contributes. In the console, add SELECT, then four triple patterns, then the critical-facility condition. Execute only after the query is complete. The simulated result is deterministic and tied to the visible mini-graph.</p></div>
-<div class="panel" id="clause-flow" data-visual-type="interactive-process" data-component-source="component-gallery"><div class="panel-head">Question-to-query flow <span class="kind">Governed process stepper</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> SELECT defines the returned columns. WHERE defines the path. FILTER or type patterns narrow it. OPTIONAL enriches it without making the enrichment mandatory.</div><div class="status-strip"><div class="status"><b>SELECT</b>Return account and premise</div><div class="status"><b>WHERE 1</b>Pump serves zone</div><div class="status"><b>WHERE 2</b>Zone contains premise</div><div class="status"><b>WHERE 3</b>Account serves premise</div><div class="status"><b>WHERE 4</b>Account classified critical</div></div><div class="conclusion" data-learner-conclusion><b>What the flow clarifies:</b> Query clauses mirror the question’s relationship pattern. Syntax follows the reasoning.</div></div></div>
-<div class="panel" id="sparql-console" data-purposeful-interaction="clause-by-clause-sparql-execution" data-required="query" data-component-source="meaning-before-models-course-library" data-quiz-type="query-execution" data-quiz-source="applied-assessment-contract" data-retry="Add SELECT and all four required graph patterns before executing the query."><div class="panel-head">SPARQL execution console <span class="kind">Course-specific query mechanism</span></div><div class="panel-body"><div class="toolbar"><button class="btn" data-clause="select">Add SELECT</button><button class="btn" data-clause="zone">Add pump-zone pattern</button><button class="btn" data-clause="premise">Add zone-premise pattern</button><button class="btn" data-clause="account">Add premise-account pattern</button><button class="btn" data-clause="class">Add critical-facility pattern</button></div><pre data-query-output>PREFIX ex: &lt;https://example.org/utility/&gt;
-# Add clauses from the bench.</pre><button class="btn good" data-run-query>Execute query</button><div class="feedback" aria-live="polite"></div><div class="comparison-scroll" data-results hidden><table><thead><tr><th>account</th><th>premise</th><th>evidence path</th></tr></thead><tbody><tr><td>Account_901</td><td>Premise_88</td><td>P104 → Zone3 → Premise88 ← Account901</td></tr><tr><td>Account_944</td><td>Premise_102</td><td>P104 → Zone3 → Premise102 ← Account944</td></tr></tbody></table></div></div></div></section>
+html {
+  scroll-behavior: smooth;
+}
 
-<section class="chapter narrow"><div class="chapter-head"><span class="chapter-index">∅</span><div><span class="kind">Result interpretation</span><h2>Missing optional data is not the same as no match</h2></div></div>
-<div class="teaching"><p>If the query requires an email address and one critical-facility account lacks one, that entire account may disappear from the results. If the email is optional, the account can remain with an unbound email variable. The choice reflects the question, not a preference for more rows.</p><p>A <span class="term" data-def="A SPARQL expression that follows one or more predicates across a graph without spelling out every intermediate variable.">property path</span> can express repeated or alternative relationships. Use it when the path semantics are understood. <span class="term" data-def="A query pattern that sends part of a SPARQL query to another endpoint.">Federation</span> can query another SPARQL service through SERVICE, subject to security, availability, performance, and governance.</p></div>
-<div class="coach" data-instructor-explanation data-teaches="required-optional optional-test"><strong>Compare the two result contracts</strong><p>The table shows how required and optional patterns treat a missing email. Then choose the query behavior that fits an exposure list where the account must remain visible even when contact data is incomplete.</p></div>
-<div class="panel" id="required-optional" data-visual-type="comparison-table" data-component-source="component-gallery"><div class="panel-head">Required versus OPTIONAL <span class="kind">Governed comparison table</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Hold the graph constant. Change only whether email is required. Compare which accounts survive and what the blank value means.</div><div class="comparison-scroll"><table><thead><tr><th>Pattern</th><th>Account has no email</th><th>Interpretation</th></tr></thead><tbody><tr><th>Required email pattern</th><td>Account may be absent from results</td><td>The complete solution did not match</td></tr><tr><th>OPTIONAL email pattern</th><td>Account remains; email is unbound</td><td>The core path matched; enrichment is missing</td></tr></tbody></table></div><div class="conclusion" data-learner-conclusion><b>What the comparison proves:</b> Query design affects who appears in an operational result. OPTIONAL is a semantic decision, not just syntax.</div></div></div>
-<div class="panel" id="optional-test" data-purposeful-interaction="required-versus-optional-result-test" data-required="interpret" data-component-source="meaning-before-models-course-library" data-quiz-type="result-interpretation" data-quiz-source="quiz-gallery" data-retry="Keep the account path required and make contact enrichment optional."><div class="panel-head">Result contract decision <span class="kind">Interpretation check</span></div><div class="panel-body"><div class="choice-grid"><button class="choice" data-optional="1">Return every matching critical-facility account; include email when present.</button><button class="choice" data-optional="0">Remove every account that lacks email from the exposure result.</button></div><button class="btn primary" data-check-optional>Confirm query behavior</button><div class="feedback" aria-live="polite"></div></div></div></section>
+body {
+  margin: 0;
+  background: #f7faf9;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
 
-<section class="chapter"><div class="chapter-head"><span class="chapter-index">Log</span><div><span class="kind">Professional artifact</span><h2>Create a Question-to-Query Sheet</h2></div></div><div class="teaching"><p>A query sheet should capture the ordinary question, expected graph pattern, selected variables, filters, optional information, source or named-graph boundaries, expected result, test cases, and reviewer. It lets a domain expert review intent without reading every punctuation mark.</p></div><div class="coach" data-instructor-explanation data-teaches="query-sheet final-query-check"><strong>Write the question and the proof of answer</strong><p>Include one positive test and one negative or missing-data test. The final review checks whether the query could return a technically valid result that still violates the question’s intent.</p></div>
-<div class="panel" id="query-sheet"><div class="panel-head">Question-to-Query Sheet <span class="kind">Professional work product</span></div><div class="panel-body artifact-grid"><form data-artifact="question-query-sheet" data-required="artifact"><label>Ordinary utility question<textarea name="question" required></textarea></label><label>Known entities and variables<textarea name="variables" required></textarea></label><label>Required triple patterns<textarea name="patterns" rows="4" required></textarea></label><label>Filters and optional information<textarea name="conditions" required></textarea></label><label>Source or named-graph boundary<textarea name="sources" required></textarea></label><label>Expected result and evidence path<textarea name="expected" required></textarea></label><label>Positive and negative test cases<textarea name="tests" required></textarea></label><button class="btn primary" type="submit">Save query sheet</button><div class="feedback" aria-live="polite"></div></form><pre data-artifact-preview>Complete the query review record.</pre></div></div>
-<div class="panel" id="final-query-check" data-final-applied-check data-artifact-ref="question-query-sheet" data-required="applied" data-quiz-type="query-defense" data-quiz-source="applied-assessment-contract" data-retry="Include the ordinary question, pattern, variables, conditions, sources, expected evidence, and tests."><div class="panel-head">Query review <span class="kind">Applied assessment</span></div><div class="panel-body"><button class="btn good" data-final-check="question-query-sheet" data-required="applied">Defend the query</button><div class="feedback" aria-live="polite"></div></div></div></section>
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
 
-<section class="chapter faq" data-module-faq><div class="chapter-head"><span class="chapter-index">?</span><div><span class="kind">SPARQL FAQ</span><h2>Questions new query authors ask</h2></div></div>
-<details><summary>Is SPARQL harder than SQL?</summary><p>Both require practice. SQL describes operations over relational structures. SPARQL matches graph patterns. The clearer language depends on the data model and the question.</p></details><details><summary>Does SPARQL infer facts?</summary><p>SPARQL queries the graph available to the endpoint. That graph may include inferred statements if a reasoning regime has produced or exposes them. The query language alone does not decide which inferences are valid.</p></details><details><summary>Can SPARQL query data that stays in another system?</summary><p>Yes, through virtual mappings, federation, or services when the architecture supports it. Performance, security, source capability, and governance determine whether that pattern is appropriate.</p></details><details><summary>What does an empty result mean?</summary><p>It means no solution matched the declared pattern in the queried dataset. It does not prove the real-world thing does not exist. Data, mappings, graph selection, permissions, or query logic may be incomplete.</p></details><details><summary>Should leaders learn SPARQL syntax?</summary><p>Leaders do not need to become query developers. They should understand graph-pattern questions, evidence paths, result boundaries, and why optional or inferred data changes decisions.</p></details></section>
-<section class="evidence" data-evidence-boundary><h2>Evidence boundary</h2><p>The console uses a deterministic instructional mini-graph, not a live utility endpoint. Production queries require source, access, performance, and technical review.</p><ul><li><a href="https://www.w3.org/TR/sparql12-query/">SPARQL Query</a></li><li><a href="https://www.w3.org/TR/sparql12-protocol/">SPARQL Protocol</a></li><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF Concepts</a></li></ul></section>
-<section id="owos-course-community" class="connected"><article><span class="kind">Knowledge Graph</span><h3>Inspect query concepts</h3><button class="btn" data-open-graph>Open Graph</button></article><article><span class="kind">Community</span><h3>Compare graph questions</h3><button class="btn" data-open-community>Open Community</button></article></section><div class="panel"><div class="panel-body"><button class="btn good" data-complete disabled>Complete lesson</button><p id="live" aria-live="polite">Complete all five requirements.</p></div></div><nav class="footnav"><a class="btn" href="lesson-meaning-before-models-07-ontology-engineering-in-plain-language.html">Previous</a><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="lesson-meaning-before-models-09-reasoning-and-inference-with-owl.html">Next: Reasoning with OWL</a></nav></div></main>
-<div class="drawer-scrim" data-close-drawer></div><aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" data-close-drawer>Close</button></div><div class="drawer-body"><div class="stack"><button data-graph-kind="concept"><b>Concept:</b> SPARQL graph pattern</button><button data-graph-kind="source"><b>Source:</b> W3C SPARQL</button><button data-graph-kind="relationship"><b>Relationship:</b> clause matches path</button><button data-graph-kind="role"><b>Role:</b> query reviewer</button><button data-graph-kind="competency"><b>Competency:</b> build and interpret query</button></div></div></aside>
-<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" data-close-drawer>Close</button></div><div class="drawer-body"><label data-community-feature="search">Search query discussions<input type="search"></label><div class="toolbar" data-community-feature="filters"><button class="btn">Patterns</button><button class="btn">Optional</button><button class="btn">Evidence</button></div><p data-community-feature="presence">Working-review presence is simulated locally.</p><article class="card" data-community-feature="instructor-treatment"><h3>Instructor prompt</h3><p>Which question becomes clearer when written as a relationship path?</p><button class="btn" data-community-feature="bookmarks">Bookmark</button><div data-community-feature="threaded-replies"><p><b>Course member:</b> Which permit condition applied to an outfall inspection when it occurred?</p></div></article></div></aside>
-<div id="tt" role="tooltip"></div><footer class="footer"><div class="wrap">Retrofit working candidate. No release, credential, graph publication, or operational authority claim.</div></footer><script src="meaning-before-models-fieldbook.js"></script><script>
-(()=>{const clauses={select:"SELECT ?account ?premise WHERE {",zone:"  ex:Pump_P104 ex:serves ?zone .",premise:"  ?zone ex:contains ?premise .",account:"  ?account ex:servesPremise ?premise .",class:"  ?account a ex:CriticalFacilityAccount .\\n}"},added=new Set();document.querySelectorAll("[data-clause]").forEach(b=>b.addEventListener("click",()=>{added.add(b.dataset.clause);const order=["select","zone","premise","account","class"];document.querySelector("[data-query-output]").textContent="PREFIX ex: <https://example.org/utility/>\\n"+order.filter(k=>added.has(k)).map(k=>clauses[k]).join("\\n");}));document.querySelector("[data-run-query]").addEventListener("click",()=>{const ok=added.size===5,f=document.querySelector("#sparql-console .feedback");f.textContent=ok?"Query executed against the instructional graph. Two accounts match the declared path.":"The query is incomplete. Add SELECT and all four graph patterns.";f.className=`feedback ${ok?"good":"bad"}`;document.querySelector("[data-results]").hidden=!ok;if(ok)MBM.mark("query");});document.querySelectorAll("[data-optional]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-optional]").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");}));document.querySelector("[data-check-optional]").addEventListener("click",()=>{const ok=document.querySelector("[data-optional].selected")?.dataset.optional==="1",f=document.querySelector("#optional-test .feedback");f.textContent=ok?"Correct. Keep the exposure path required and treat contact data as optional enrichment.":"Required contact data would silently remove matching accounts that lack email.";f.className=`feedback ${ok?"good":"bad"}`;if(ok)MBM.mark("interpret");});})();
-</script></body></html>
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--teal);
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.shell {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(16, 42, 67, .96);
+  color: #ffffff;
+  backdrop-filter: blur(14px);
+}
+
+.topbar-inner {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.top-actions,
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  min-height: 44px;
+  border: 1px solid #b8cfce;
+  border-radius: 999px;
+  padding: 10px 17px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--teal);
+}
+
+.button:focus-visible,
+.choice:focus-visible,
+.flip-card:focus-visible,
+.edge-button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.button.primary {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.button.good {
+  border-color: var(--good);
+  background: var(--good);
+  color: #ffffff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 9vw, 110px) 0 70px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 117, 47, .22), transparent 24%),
+    radial-gradient(circle at 12% 70%, rgba(100, 215, 207, .18), transparent 28%),
+    var(--navy);
+  color: #ffffff;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -5% -58% 35%;
+  height: 520px;
+  border: 2px solid rgba(255, 255, 255, .13);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.eyebrow,
+.kind {
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 12px 0 14px;
+  font-size: clamp(2.65rem, 7vw, 5.8rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #d9e8ef;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-meta span {
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: .9rem;
+}
+
+.progress-panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: -30px auto 52px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: var(--shadow);
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.progress-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid #9eb8b8;
+  border-radius: 50%;
+}
+
+.progress-item.done {
+  background: var(--teal-soft);
+  color: var(--ink);
+}
+
+.progress-item.done::before {
+  border-color: var(--good);
+  background: var(--good);
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.lesson-section {
+  margin: 0 auto 34px;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 14px 40px rgba(23, 50, 77, .06);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 26px;
+}
+
+.section-number {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.section-heading h2 {
+  margin: 2px 0 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.prose {
+  max-width: 790px;
+  margin: 0 auto 26px;
+  color: #28485f;
+  font-size: 1.06rem;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.callout {
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 20px 24px;
+  border-left: 6px solid var(--orange);
+  border-radius: 0 16px 16px 0;
+  background: var(--orange-soft);
+}
+
+.callout h3 {
+  margin: 0 0 5px;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.match-grid,
+.multi-grid,
+.triage-grid {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.match-row select,
+.triage-card select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.correct-field {
+  border-color: var(--good) !important;
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, .12);
+}
+
+.incorrect-field {
+  border-color: var(--bad) !important;
+}
+
+.multi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.select-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.select-option input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.select-option.selected-correct {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.select-option.selected-incorrect {
+  border-color: var(--bad);
+  background: #fff3f1;
+}
+
+.signature-component {
+  border-color: #8db9b5;
+  box-shadow: 0 18px 50px rgba(20, 125, 136, .13);
+}
+
+.triage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.triage-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #ffffff, #f4faf8);
+}
+
+.triage-card h4 {
+  margin: 4px 0 6px;
+  font-size: 1.08rem;
+}
+
+.triage-card p {
+  color: var(--muted);
+}
+
+.triage-number,
+.failure-label {
+  color: var(--teal);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.triage-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.triage-card.incorrect-card {
+  border-color: #d69a93;
+}
+
+.item-feedback {
+  min-height: 42px;
+  margin-top: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.failure-lab {
+  display: grid;
+  grid-template-columns: minmax(210px, .38fr) minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.failure-trigger {
+  grid-column: 1;
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.failure-trigger span {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.failure-trigger.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.failure-result {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.failure-result[hidden] {
+  display: none;
+}
+
+.failure-result ol {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 24px;
+}
+
+.failure-result p {
+  color: #e4f0f5;
+}
+
+.route-grid,
+.repair-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.route-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-card,
+.repair-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfdfc;
+}
+
+.route-card h4 {
+  margin: 5px 0;
+}
+
+.route-card .button.active {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.repair-card {
+  border-left: 6px solid #9eb8b8;
+}
+
+.repair-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.repair-card.incorrect-card {
+  border-color: var(--bad);
+  background: #fff8f7;
+}
+
+.broken-statement {
+  margin: 10px 0 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #102a43;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.repair-fields {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 14px;
+}
+
+.repair-fields label {
+  display: grid;
+  gap: 6px;
+  font-weight: 750;
+}
+
+.repair-fields select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+}
+
+.good-text {
+  color: var(--good);
+}
+
+.bad-text {
+  color: var(--bad);
+}
+
+.learning-visual {
+  margin: 34px 0;
+}
+
+.learning-visual h3 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+
+.reading-guide,
+.conclusion {
+  max-width: 880px;
+  margin: 12px auto;
+  padding: 16px 19px;
+  border-radius: 14px;
+}
+
+.reading-guide {
+  border: 1px solid #c9dddd;
+  background: var(--wash);
+}
+
+.conclusion {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.visual-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f7faf9;
+  box-shadow: var(--shadow);
+}
+
+.visual-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.component {
+  margin: 34px 0;
+  border: 1px solid #c8d9d9;
+  border-radius: 22px;
+  background: #fbfdfc;
+  overflow: hidden;
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.component-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.component-header .kind {
+  color: #ffb982;
+}
+
+.component-body {
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.component-intro {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.choice-grid {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.choice {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 17px;
+  border: 2px solid #cadbda;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice.selected {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.choice.correct {
+  border-color: var(--good);
+  background: #e5f4ec;
+}
+
+.choice.incorrect {
+  border-color: var(--bad);
+  background: #fae9e7;
+}
+
+.feedback {
+  min-height: 28px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.triple-builder {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.triple-builder label,
+.field-grid label,
+.work-product label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.triple-builder select,
+.field-grid input,
+.work-product input,
+.work-product textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #cadbda;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.triple-arrow {
+  padding-bottom: 12px;
+  color: var(--orange);
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.triple-output {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.flip-card {
+  min-height: 170px;
+  border: 0;
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.flip-card-inner {
+  position: relative;
+  display: grid;
+  min-height: 170px;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+}
+
+.flip-card.revealed .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border: 2px solid #bdd5d3;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  font-weight: 650;
+}
+
+.path-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.edge-button {
+  min-height: 108px;
+  border: 2px solid #c9dddd;
+  border-radius: 17px;
+  padding: 15px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.edge-button.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.edge-button strong,
+.edge-button span {
+  display: block;
+}
+
+.edge-button span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.work-product {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.artifact-preview {
+  min-height: 130px;
+  margin: 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.faq-list details {
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.faq-list summary {
+  padding: 16px 18px;
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+.evidence {
+  padding: 26px;
+  border-radius: 20px;
+  background: #e9eff2;
+}
+
+.evidence h3 {
+  margin-top: 0;
+}
+
+.connected {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 38px 0;
+}
+
+.connected article {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.connected h3 {
+  margin: 8px 0;
+  color: #ffffff;
+}
+
+.connected p {
+  color: #d9e8ef;
+}
+
+.completion {
+  margin: 36px 0 70px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  background: rgba(5, 19, 31, .56);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  width: min(520px, 100%);
+  height: 100dvh;
+  padding: 26px;
+  overflow: auto;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: -24px 0 70px rgba(5, 19, 31, .24);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-scrim.open {
+  display: block;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer h2 {
+  margin: 0;
+}
+
+.glossary-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.glossary-list article {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--wash);
+}
+
+.glossary-list h3 {
+  margin: 0 0 4px;
+}
+
+.glossary-list p {
+  margin: 0;
+}
+
+footer {
+  padding: 25px 0;
+  background: var(--navy);
+  color: #d9e8ef;
+  font-size: .9rem;
+}
+
+.docket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.docket-card {
+  border: 1px solid #b9c9d3;
+  border-top: 5px solid var(--orange);
+  background: #fffdf8;
+  padding: 1rem;
+  border-radius: .35rem;
+}
+
+.docket-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.docket-source {
+  color: #6d3d12;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.docket-card dl div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: .5rem;
+  border-top: 1px solid #dce5e9;
+  padding: .4rem 0;
+}
+
+.docket-card dt { font-weight: 800; }
+.docket-card dd { margin: 0; }
+.docket-card.passed { border-color: #15865f; background: #eefaf5; }
+.docket-card.failed { border-color: #b94343; background: #fff3f0; }
+
+.graph-lab-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.6fr); gap: 1rem; align-items: start; }
+.source-shelf, .graph-stage, .question-console { border: 1px solid var(--line); border-radius: 18px; padding: 1rem; background: #f8fafc; }
+.source-shelf { display: grid; gap: .65rem; }
+.source-shelf h4, .question-console h4 { margin: 0; }
+.source-packet { width: 100%; text-align: left; display: grid; gap: .25rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .75rem; color: #172033; cursor: pointer; }
+.source-packet span, .source-packet small { color: #526077; }
+.source-packet.active { border-color: #0f766e; background: #ecfdf5; box-shadow: inset 4px 0 #0f766e; }
+.graph-stage { min-height: 24rem; background: #101c2d; color: #f8fafc; border-color: #253957; }
+.graph-stage-header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .7rem; border-bottom: 1px solid #3a4b65; }
+.graph-stage-header span { color: #9ee7dc; font-size: .88rem; }
+.statement-ledger { display: grid; gap: .48rem; padding-top: .8rem; }
+.ledger-statement { display: grid; grid-template-columns: 8rem 1fr; gap: .65rem; padding: .56rem; border-radius: 9px; background: #172943; }
+.ledger-statement span { color: #fbbf24; font-size: .78rem; font-weight: 800; }
+.ledger-statement code { color: #f8fafc; white-space: normal; }
+.empty-state { color: #cbd5e1; }
+.question-console { margin-top: 1rem; }
+.question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+.graph-question { display: grid; gap: .35rem; text-align: left; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .8rem; color: #172033; cursor: pointer; }
+.graph-question.answered { border-color: #0f766e; background: #ecfdf5; }
+.query-result { margin-top: .8rem; padding: .9rem; border-left: 5px solid #f59e0b; background: #fff7ed; color: #3b2615; display: grid; gap: .3rem; }
+.canvas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; margin-bottom: 1rem; }
+.canvas-card { border: 1px solid var(--line); border-radius: 14px; padding: .9rem; background: #fff; }
+.canvas-card h4 { margin-top: 0; }
+.query-lab { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr); gap: 1rem; }
+.query-clause-shelf { display: grid; gap: .6rem; }
+.query-clause { display: grid; gap: .35rem; text-align: left; padding: .75rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; color: #172033; }
+.query-clause.selected { border-color: #0f766e; background: #ecfdf5; }
+.query-clause code { white-space: normal; color: #526077; }
+.query-console { border-radius: 16px; padding: 1rem; background: #101c2d; color: #f8fafc; min-height: 18rem; }
+.query-console pre { white-space: pre-wrap; color: #9ee7dc; }
+.query-effect { margin-top: 1rem; padding: .8rem; border-left: 4px solid #fbbf24; background: #172943; }
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 24px, 1140px);
+  }
+
+  .topbar-inner {
+    min-height: 58px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .top-actions .button {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: .82rem;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .progress-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-section {
+    padding: 25px 18px;
+    border-radius: 19px;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .section-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .triple-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .triple-arrow {
+    padding: 0;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .flip-grid,
+  .path-strip,
+  .field-grid,
+  .connected,
+  .multi-grid,
+  .triage-grid,
+  .route-grid,
+  .repair-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-lab-layout,
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-stage {
+    min-height: 0;
+  }
+
+  .ledger-statement {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-grid,
+  .query-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-card:last-child {
+    grid-column: auto;
+  }
+
+  .docket-card dl div {
+    grid-template-columns: 1fr;
+    gap: .1rem;
+  }
+
+  .match-row,
+  .failure-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-trigger,
+  .failure-result {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .failure-result {
+    min-height: 0;
+  }
+
+  .component-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .flip-card.revealed .flip-card-inner {
+    transform: none;
+  }
+
+  .flip-card.revealed .flip-front {
+    display: none;
+  }
+
+  .flip-back {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-module-id="mbm001:08" data-source-version="0.2.0-structured-candidate"
+  data-required-ids="[&quot;opening&quot;,&quot;pattern-match&quot;,&quot;sparql-builder&quot;,&quot;interpret&quot;,&quot;boundary&quot;,&quot;query-sheet&quot;]">
+  <a class="skip-link" href="#lesson-start">Skip to lesson</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <nav class="top-actions" aria-label="Lesson tools">
+        <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
+        <a class="button primary" href="#lesson-start">Start</a>
+      </nav>
+    </div>
+  </header>
+  <main id="lesson-start">
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">Meaning Before Models, Module 08</span>
+        <h1>Ask the Graph with SPARQL</h1>
+        <p>Turn a utility question into a graph pattern, interpret its bindings, and trace the result to evidence.</p>
+        <div class="hero-meta"><span>65 to 80 minutes</span><span>Foundation with optional Practitioner and Leader depth</span><span>synchronized query laboratory</span></div>
+      </div>
+    </section>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening">Opening</div>
+<div class="progress-item" data-completion-id="pattern-match">Pattern Match</div>
+<div class="progress-item" data-completion-id="sparql-builder">Sparql Builder</div>
+<div class="progress-item" data-completion-id="interpret">Interpret</div>
+<div class="progress-item" data-completion-id="boundary">Boundary</div>
+<div class="progress-item" data-completion-id="query-sheet">Query Sheet</div></section>
+    <div class="shell">
+      <section class="lesson-section">
+        <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
+        <div class="prose"><ul><li>Pronounce and explain SPARQL</li><li>Read variables and triple patterns</li><li>Assemble and modify a small query</li><li>Interpret result bindings</li><li>Trace rows to source statements</li></ul><p><strong>Misconception we will change:</strong> SPARQL is SQL with new punctuation or a reasoning engine.</p></div>
+      </section>
+
+<section class="lesson-section" id="dashboard-dead-end">
+  <header class="section-heading">
+    <span class="section-number">01</span>
+    <div><span class="kind">Query opening</span><h2>The dashboard shows records. The question asks for a path.</h2></div>
+  </header>
+  <div class="prose"><p>A dashboard lists Pressure Event 77, Pump P-104, customer accounts, and open work. The leader asks which active hospital account lies in the affected zone and which work order concerns the serving pump. The records are visible, but the dashboard was not modeled to traverse that path.</p><p>SPARQL, pronounced &quot;sparkle,&quot; is the standard query language for RDF graphs. You describe the pattern the answer must match. The engine returns bindings for the variables that satisfy that pattern.</p></div>
+
+<figure class="learning-visual" id="mbm08-dashboard-dead-end"
+  data-visual-type="dashboard-to-graph-dead-end"
+  data-component-source="structured-module-package">
+  <h3>Visible records do not automatically answer a relationship path</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Compare the disconnected dashboard panels with the connected graph question</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-08-ask-the-graph-with-sparql-dashboard-dead-end.svg" alt="Dashboard tiles stop before a graph path connecting event pump zone account and work order">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Use a graph pattern when the relationship route is the query</figcaption>
+</figure>
+
+<section class="component" id="mbm08-opening" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="opening"
+  data-correct-feedback="Correct. The pattern states the required route explicitly."
+  data-incorrect-feedback="The question requires a machine-readable relationship pattern.">
+  <header class="component-header"><h3>What should describe the affected-customer path?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">A graph pattern with shared variables</button>
+<button class="choice" type="button" data-choice data-correct="false">A screenshot of each source</button>
+<button class="choice" type="button" data-choice data-correct="false">An unreviewed language-model guess</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="stencil">
+  <header class="section-heading">
+    <span class="section-number">02</span>
+    <div><span class="kind">Variable stencil</span><h2>A graph pattern works like a stencil</h2></div>
+  </header>
+  <div class="prose"><p>In a triple pattern, a variable begins with a question mark. ?pump serves ?zone means &quot;find pump and zone values that make this statement match.&quot; Fixed identifiers and vocabulary terms constrain the pattern.</p><p>Several triple patterns share variables. That shared variable is the join point. You already understand the path from Module 04. SPARQL gives you a standard way to ask for it.</p></div>
+
+<figure class="learning-visual" id="mbm08-variable-stencil"
+  data-visual-type="sparql-variable-stencil"
+  data-component-source="structured-module-package">
+  <h3>Variables create openings for matching graph terms</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the triple pattern then follow each position to its matched role below</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-08-ask-the-graph-with-sparql-variable-stencil.svg" alt="The pattern question-mark pump serves question-mark zone binds Pump P-104 and Zone 3">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Variables bind graph values rather than asking the model to guess</figcaption>
+</figure>
+
+<section class="component" id="mbm08-pattern-match" data-matching
+  data-purposeful-interaction="matching" data-quiz-type="matching"
+  data-quiz-source="structured-module-package"
+  data-completion="pattern-match"
+  data-correct-feedback="Correct. The stencil now has outputs anchors relationships and joins."
+  data-incorrect-feedback="Read how each token participates in the graph pattern.">
+  <header class="component-header"><h3>Match each query element to its job.</h3><span class="kind">Relationship matching</span></header>
+  <div class="component-body">
+    <p class="component-intro">Match each ordinary-language question to the job that answers it. Check all rows together, then revise any row that needs another look.</p>
+    <div class="match-grid">
+<label class="match-row">
+  <span>?account in SELECT</span>
+  <select data-match-answer="Returned variable"><option value="">Choose a meaning job</option><option value="Returned variable">Returned variable</option><option value="Fixed identifier">Fixed identifier</option><option value="Predicate">Predicate</option><option value="Shared join variable">Shared join variable</option></select>
+</label>
+<label class="match-row">
+  <span>:Event77</span>
+  <select data-match-answer="Fixed identifier"><option value="">Choose a meaning job</option><option value="Returned variable">Returned variable</option><option value="Fixed identifier">Fixed identifier</option><option value="Predicate">Predicate</option><option value="Shared join variable">Shared join variable</option></select>
+</label>
+<label class="match-row">
+  <span>:affects</span>
+  <select data-match-answer="Predicate"><option value="">Choose a meaning job</option><option value="Returned variable">Returned variable</option><option value="Fixed identifier">Fixed identifier</option><option value="Predicate">Predicate</option><option value="Shared join variable">Shared join variable</option></select>
+</label>
+<label class="match-row">
+  <span>?zone repeated in two patterns</span>
+  <select data-match-answer="Shared join variable"><option value="">Choose a meaning job</option><option value="Returned variable">Returned variable</option><option value="Fixed identifier">Fixed identifier</option><option value="Predicate">Predicate</option><option value="Shared join variable">Shared join variable</option></select>
+</label></div>
+    <button class="button primary" type="button" data-check-matching>Check the matches</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="builder">
+  <header class="section-heading">
+    <span class="section-number">03</span>
+    <div><span class="kind">SPARQL Query Laboratory</span><h2>Assemble the query while the path illuminates</h2></div>
+  </header>
+  <div class="prose"><p>Add each clause in order. SELECT names the values you want returned. WHERE contains the required graph patterns. FILTER applies a condition. OPTIONAL requests information without discarding a row when that information is absent. LIMIT caps the displayed result count.</p><p>Watch the explanation after every clause. SPARQL is not inventing relationships. It is matching the graph statements available under the configured dataset and entailment regime.</p></div>
+
+<figure class="learning-visual" id="mbm08-query-overlay"
+  data-visual-type="synchronized-query-path-overlay"
+  data-component-source="structured-module-package">
+  <h3>Query clauses illuminate the matching graph edges</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Compare each query line on the left with its matching edge on the right</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-08-ask-the-graph-with-sparql-query-overlay.svg" alt="SPARQL clauses on the left align with event zone premise and account graph edges on the right">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Shared variables connect clauses into one route</figcaption>
+</figure>
+<section class="component signature-component" id="mbm08-sparql-builder" data-sparql-builder
+ data-purposeful-interaction="sparql-builder" data-component-source="structured-module-package" data-completion="sparql-builder">
+ <header class="component-header"><h3>Affected-Customer SPARQL Laboratory</h3><span class="kind">SPARQL query laboratory</span></header>
+ <div class="component-body"><p class="component-intro">Select the clauses in order. Read the graph effect after every addition before continuing.</p>
+ <div class="query-lab"><div class="query-clause-shelf"><button class="query-clause" type="button" data-query-clause="0" data-code="SELECT ?account ?class ?work" data-effect="The result table opens three columns for the account classification and work order."><strong>1. SELECT variables</strong><code>SELECT ?account ?class ?work</code></button><button class="query-clause" type="button" data-query-clause="1" data-code="WHERE {" data-effect="The required graph pattern begins. No rows can bind until its statements match."><strong>2. WHERE opens the pattern</strong><code>WHERE {</code></button><button class="query-clause" type="button" data-query-clause="2" data-code="  :Event77 :affects ?zone .
+  ?pump :serves ?zone .
+  ?zone :contains ?premise ." data-effect="Event zone pump and premise nodes illuminate as shared variables bind."><strong>3. Follow the exposure path</strong><code>  :Event77 :affects ?zone .
+  ?pump :serves ?zone .
+  ?zone :contains ?premise .</code></button><button class="query-clause" type="button" data-query-clause="3" data-code="  ?premise :hasAccount ?account .
+  ?account :hasClass ?class .
+  ?work :concerns ?pump ." data-effect="Account class and work order complete the cross-domain route."><strong>4. Bind account and work</strong><code>  ?premise :hasAccount ?account .
+  ?account :hasClass ?class .
+  ?work :concerns ?pump .</code></button><button class="query-clause" type="button" data-query-clause="4" data-code="  ?account :hasStatus :Active .
+  FILTER(?class = :Hospital)" data-effect="Only active hospital accounts remain eligible."><strong>5. Filter active accounts</strong><code>  ?account :hasStatus :Active .
+  FILTER(?class = :Hospital)</code></button><button class="query-clause" type="button" data-query-clause="5" data-code="  OPTIONAL { ?account :hasPhone ?phone }
+} LIMIT 25" data-effect="Phone may bind when present without removing an otherwise valid row. The displayed results are capped at 25."><strong>6. Add optional contact</strong><code>  OPTIONAL { ?account :hasPhone ?phone }
+} LIMIT 25</code></button></div><div class="query-console"><pre data-query-code># Select clause 1 to begin</pre>
+ <div class="query-effect" data-query-effect aria-live="polite">The graph pattern will illuminate here.</div></div></div>
+ <button class="button" type="button" data-reset-query>Reset query</button><div class="feedback" data-feedback aria-live="polite">Assemble every clause in order.</div></div></section>
+</section>
+<section class="lesson-section" id="bindings">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Evidence table</span><h2>A result row is a set of variable bindings</h2></div>
+  </header>
+  <div class="prose"><p>{&#x27;One row may bind ?account to Account 882, ?class to Hospital, and ?work to Work Order 4821. The result is useful because the supporting statements can be shown&#x27;: &#x27;the event affects the zone, the pump serves the zone, the zone contains the premise, and the account belongs to that premise.&#x27;}</p><p>A missing optional phone number does not remove the row. A failed required pattern does. That difference is part of query meaning and should be reviewed like any other business rule.</p></div>
+
+<figure class="learning-visual" id="mbm08-binding-table"
+  data-visual-type="query-binding-provenance-table"
+  data-component-source="structured-module-package">
+  <h3>One result row carries an evidence receipt</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the binding row then follow the arrow to its source statement receipt</div>
+  <div class="visual-frame">
+    <img src="meaning-before-models-module-08-ask-the-graph-with-sparql-binding-table.svg" alt="A SPARQL result row for account class and work order links to four supporting source statements while phone is unbound">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Optional absence can leave a valid row while evidence remains visible</figcaption>
+</figure>
+
+<section class="component" id="mbm08-interpret" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="interpret"
+  data-correct-feedback="Correct. OPTIONAL preserves the row when that pattern is absent."
+  data-incorrect-feedback="Optional absence does not remove the required match or create data.">
+  <header class="component-header"><h3>A valid row has no phone value from an OPTIONAL pattern. What happens?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">The row remains and phone is unbound</button>
+<button class="choice" type="button" data-choice data-correct="false">The row is automatically false</button>
+<button class="choice" type="button" data-choice data-correct="false">SPARQL invents a phone number</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="boundaries">
+  <header class="section-heading">
+    <span class="section-number">05</span>
+    <div><span class="kind">Practitioner and leader view</span><h2>Query, inference, validation, and federation are separate controls</h2></div>
+  </header>
+  <div class="prose"><p>SPARQL matches graph patterns. A configured reasoner may make inferred statements available, but the query language does not itself decide ontology entailments. SHACL validates declared shapes separately.</p><p>SPARQL can use SERVICE to query a configured remote endpoint. That still requires endpoint availability, credentials, permissions, network policy, query planning, and performance controls. &quot;Federated&quot; does not mean unrestricted.</p></div>
+
+<section class="component" id="mbm08-boundary" data-multi-select
+  data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
+  data-quiz-source="structured-module-package"
+  data-completion="boundary"
+  data-correct-feedback="Correct. Query inference validation and federation remain distinct."
+  data-incorrect-feedback="Keep the query language separate from adjacent configured capabilities.">
+  <header class="component-header"><h3>Which statements are defensible?</h3><span class="kind">Context boundary check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
+    <div class="multi-grid">
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>SPARQL matches RDF graph patterns</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>A configured reasoner may expose inferred statements to a query</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>SPARQL alone validates SHACL shapes</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Federation requires configured endpoints and permissions</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>No rows always proves the real-world answer is false</span>
+</label></div>
+    <button class="button primary" type="button" data-check-multi>Check the packet</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Leader view</h3><p>Govern reusable queries as products. Record their question</p></aside>
+</section>
+<section class="lesson-section" id="query-sheet">
+  <header class="section-heading">
+    <span class="section-number">06</span>
+    <div><span class="kind">Professional application</span><h2>Write a query another person can read before running</h2></div>
+  </header>
+  <div class="prose"><p>Choose a water, wastewater, or stormwater question. Write the variables and triple patterns in plain language before adding syntax. State which information is required, optional, and filtered.</p><p>Record the expected bindings and evidence path. If the result could change because a source, ontology, or time window changes, name that dependency.</p></div>
+
+<section class="component" id="mbm08-query-sheet"
+  data-purposeful-interaction="applied-work-product"
+  data-component-source="structured-module-package">
+  <header class="component-header"><h3>Question-to-Query Sheet</h3><span class="kind">Professional work product</span></header>
+  <div class="component-body">
+    <p class="component-intro">Record the question variables patterns filter optional data expected bindings evidence sources and limitations.</p>
+    <form class="work-product" data-work-product="mbm08-query-sheet"
+      data-artifact="mbm08-query-sheet"
+      data-completion="query-sheet"
+      data-correct-feedback="Your Question-to-Query Sheet makes the pattern outputs evidence and limits reviewable."
+      data-incorrect-feedback="Complete every field with a readable pattern and explicit dependencies.">
+      <div class="field-grid"><label>Utility competency question<textarea name="utility_question" rows="3" required></textarea></label><label>Returned and join variables<textarea name="variables" rows="3" required></textarea></label><label>Required triple patterns<textarea name="graph_pattern" rows="3" required></textarea></label><label>Filter condition<textarea name="filter" rows="3" required></textarea></label><label>Optional patterns<textarea name="optional_data" rows="3" required></textarea></label><label>Expected result bindings<textarea name="expected_bindings" rows="3" required></textarea></label><label>Dataset source groups and evidence path<textarea name="evidence_sources" rows="3" required></textarea></label></div>
+      <label>Time permission entailment and no-result boundaries<textarea name="limitations" rows="3" required></textarea></label>
+      <button class="button primary" type="submit">Save Question-to-Query Sheet</button>
+      <div class="feedback" data-feedback aria-live="polite"></div>
+      <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
+    </form>
+  </div>
+</section>
+
+<section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
+  <h3 id="faq-heading">Questions people actually ask</h3>
+  <details><summary>Is SPARQL harder than SQL?</summary><p>It is different. SQL usually starts from tables and joins. SPARQL starts from graph patterns. Small readable patterns are approachable without becoming a programmer.</p></details>
+<details><summary>Does SPARQL infer facts?</summary><p>SPARQL matches available graph patterns. A separate configured entailment regime may expose inferred statements to the query.</p></details>
+<details><summary>Can SPARQL query data that stays elsewhere?</summary><p>Yes through mappings federation or services when the architecture supports it. Connections permissions and performance controls remain necessary.</p></details>
+<details><summary>What does OPTIONAL do?</summary><p>It requests a pattern without removing the whole row when that pattern is absent.</p></details>
+<details><summary>Why did my query return no rows?</summary><p>A required pattern may be absent mismatched or outside the selected dataset. No rows does not automatically mean the real-world condition is false.</p></details>
+</section>
+
+<section class="evidence" data-evidence-boundary>
+  <h3>Evidence boundary</h3>
+  <p>Riverbend queries and results are instructional. The W3C SPARQL Recommendation defines graph pattern querying. It does not establish source truth, permissions, inference configuration, or operational authority.</p>
+  <ul><li><a href="https://www.w3.org/TR/sparql11-query/">SPARQL 1.1 Query Language</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Data Model</a>, World Wide Web Consortium</li></ul>
+</section>
+</section>
+      <section id="owos-course-community" class="connected">
+        <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+      </section>
+      <section class="completion">
+        <h2>Complete the working candidate</h2>
+        <p>Complete the opening decision, pattern match, clause-by-clause query laboratory, result interpretation, boundary check, and Question-to-Query Sheet.</p>
+        <button class="button good" type="button" data-complete-module disabled>Complete module</button>
+        <p data-completion-status aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <div class="drawer-scrim" data-drawer-scrim></div>
+  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+    <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <div class="glossary-list"><article><h3>SPARQL 1.1 Query Language</h3><p>SELECT WHERE graph patterns variables FILTER OPTIONAL SERVICE and results</p><a href="https://www.w3.org/TR/sparql11-query/">Open source</a></article><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>RDF graphs triples and datasets</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article></div>
+  </aside>
+  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article><h3>SPARQL</h3><p>The standard query language and protocol family for RDF graph data.</p></article><article><h3>variable</h3><p>A placeholder that can bind to a matching graph term.</p></article><article><h3>triple pattern</h3><p>A subject predicate object pattern that may contain variables.</p></article><article><h3>graph pattern</h3><p>One or more patterns combined to describe a match.</p></article><article><h3>binding</h3><p>A value assigned to a query variable by a match.</p></article><article><h3>SELECT</h3><p>The query form that returns variable bindings.</p></article><article><h3>FILTER</h3><p>A condition applied to candidate query solutions.</p></article><article><h3>OPTIONAL</h3><p>A pattern that may add bindings without requiring a match for the row to remain.</p></article><article><h3>federation</h3><p>Querying across configured graph endpoints or mapped sources.</p></article></div>
+  </aside>
+  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-structured-candidate. No credential or operational authority.</div></footer>
+  <script>(() => {
+  "use strict";
+
+  const required = JSON.parse(document.body.dataset.requiredIds || "[]");
+  const stateKey = `owos-module:${document.body.dataset.moduleId}:${document.body.dataset.sourceVersion}`;
+  const completed = new Set();
+  let lastDrawerTrigger = null;
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(stateKey) || "[]");
+    saved.forEach((id) => completed.add(id));
+  } catch {
+    localStorage.removeItem(stateKey);
+  }
+
+  function saveState() {
+    localStorage.setItem(stateKey, JSON.stringify([...completed].sort()));
+  }
+
+  function refreshCompletion() {
+    document.querySelectorAll("[data-completion-id]").forEach((item) => {
+      item.classList.toggle("done", completed.has(item.dataset.completionId));
+    });
+    const ready = required.every((id) => completed.has(id));
+    const button = document.querySelector("[data-complete-module]");
+    const status = document.querySelector("[data-completion-status]");
+    if (button) button.disabled = !ready;
+    if (status) {
+      const count = required.filter((id) => completed.has(id)).length;
+      status.textContent = ready
+        ? "All required evidence is complete. You can complete this working candidate."
+        : `${count} of ${required.length} required activities complete.`;
+    }
+  }
+
+  function mark(id) {
+    if (!id) return;
+    completed.add(id);
+    saveState();
+    refreshCompletion();
+  }
+
+  document.querySelectorAll("[data-choice-group]").forEach((group) => {
+    let selected = null;
+    group.querySelectorAll("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        group.querySelectorAll("[data-choice]").forEach((item) => item.classList.remove("selected"));
+        button.classList.add("selected");
+        selected = button;
+      });
+    });
+    group.querySelector("[data-check-choice]")?.addEventListener("click", () => {
+      const feedback = group.querySelector("[data-feedback]");
+      if (!selected) {
+        feedback.textContent = "Choose one response first.";
+        feedback.className = "feedback bad";
+        return;
+      }
+      const correct = selected.dataset.correct === "true";
+      selected.classList.add(correct ? "correct" : "incorrect");
+      feedback.textContent = correct ? group.dataset.correctFeedback : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-flip-group]").forEach((group) => {
+    const cards = [...group.querySelectorAll("[data-flip-card]")];
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const revealed = !card.classList.contains("revealed");
+        card.classList.toggle("revealed", revealed);
+        card.setAttribute("aria-pressed", String(revealed));
+        if (cards.every((item) => item.classList.contains("revealed"))) {
+          mark(group.dataset.completion);
+          const feedback = group.querySelector("[data-feedback]");
+          feedback.textContent = group.dataset.correctFeedback;
+          feedback.className = "feedback good";
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-matching]").forEach((group) => {
+    group.querySelector("[data-check-matching]")?.addEventListener("click", () => {
+      const rows = [...group.querySelectorAll("[data-match-answer]")];
+      const feedback = group.querySelector("[data-feedback]");
+      let correctCount = 0;
+      rows.forEach((field) => {
+        const correct = field.value === field.dataset.matchAnswer;
+        field.classList.toggle("correct-field", correct);
+        field.classList.toggle("incorrect-field", !correct);
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === rows.length;
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : `${group.dataset.incorrectFeedback} ${correctCount} of ${rows.length} are correctly matched.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-multi-select]").forEach((group) => {
+    group.querySelector("[data-check-multi]")?.addEventListener("click", () => {
+      const options = [...group.querySelectorAll("[data-multi-option]")];
+      const feedback = group.querySelector("[data-feedback]");
+      const correct = options.every(
+        (option) => option.checked === (option.dataset.correct === "true")
+      );
+      options.forEach((option) => {
+        option.closest(".select-option")?.classList.toggle(
+          "selected-correct",
+          option.checked && option.dataset.correct === "true"
+        );
+        option.closest(".select-option")?.classList.toggle(
+          "selected-incorrect",
+          option.checked && option.dataset.correct !== "true"
+        );
+      });
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-triple-builder]").forEach((builder) => {
+    const selects = [...builder.querySelectorAll("select")];
+    const correct = JSON.parse(builder.dataset.correct);
+    const output = builder.querySelector("[data-triple-output]");
+    const feedback = builder.querySelector("[data-feedback]");
+    const reverseButton = builder.querySelector("[data-reverse]");
+    let built = false;
+    let reversed = false;
+
+    builder.querySelector("[data-check-triple]").addEventListener("click", () => {
+      const values = selects.map((field) => field.value);
+      output.textContent = values.every(Boolean) ? values.join("  →  ") : "Choose all three positions.";
+      built = values.every((value, index) => value === correct[index]);
+      reverseButton.disabled = !built;
+      feedback.textContent = built
+        ? "Correct. Now reverse the ends and inspect what the statement says."
+        : "Use Pump_P104 as subject, serves as predicate, and Pressure_Zone_3 as object.";
+      feedback.className = `feedback ${built ? "good" : "bad"}`;
+    });
+
+    reverseButton.addEventListener("click", () => {
+      const first = selects[0].value;
+      selects[0].value = selects[2].value;
+      selects[2].value = first;
+      reversed = true;
+      output.textContent = selects.map((field) => field.value).join("  →  ");
+      feedback.textContent = "The words are familiar, but the direction now says the pressure zone serves the pump.";
+      feedback.className = "feedback bad";
+    });
+
+    builder.querySelector("[data-finish-triple]").addEventListener("click", () => {
+      const explanation = builder.querySelector("textarea").value.trim();
+      const enough = explanation.length >= Number(builder.dataset.minimumExplanation);
+      if (built && reversed && enough) {
+        mark(builder.dataset.completion);
+        feedback.textContent = "Complete. You showed that direction carries meaning.";
+        feedback.className = "feedback good";
+      } else {
+        feedback.textContent = "Build the correct triple, reverse it, and explain the changed meaning in one full sentence.";
+        feedback.className = "feedback bad";
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-path-tracer]").forEach((tracer) => {
+    const edges = [...tracer.querySelectorAll("[data-edge-index]")];
+    const feedback = tracer.querySelector("[data-feedback]");
+    let expected = 0;
+    edges.forEach((edge) => {
+      edge.addEventListener("click", () => {
+        const index = Number(edge.dataset.edgeIndex);
+        if (index !== expected) {
+          feedback.textContent = `Start with edge ${expected + 1}. A path only works when its relationships connect in order.`;
+          feedback.className = "feedback bad";
+          return;
+        }
+        edge.classList.add("active");
+        expected += 1;
+        feedback.textContent = edge.dataset.explanation;
+        feedback.className = "feedback good";
+        if (expected === edges.length) mark(tracer.dataset.completion);
+      });
+    });
+    tracer.querySelector("[data-reset-path]").addEventListener("click", () => {
+      expected = 0;
+      edges.forEach((edge) => edge.classList.remove("active"));
+      feedback.textContent = "Path reset. Begin with edge 1.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-artifact-classifier]").forEach((desk) => {
+    const items = [...desk.querySelectorAll("[data-triage-item]")];
+    const feedback = desk.querySelector("[data-feedback]");
+    desk.querySelector("[data-check-triage]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      items.forEach((item) => {
+        const field = item.querySelector("select");
+        const correct = field.value === item.dataset.answer;
+        const itemFeedback = item.querySelector("[data-item-feedback]");
+        item.classList.toggle("correct-card", correct);
+        item.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Correct. ${item.dataset.explanation}`
+          : `Try again. Ask what primary job this artifact performs here. ${item.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === items.length;
+      feedback.textContent = correct
+        ? "The desk is organized. The same event now has distinct structures, classifications, meanings, mappings, and runtime controls."
+        : `${correctCount} of ${items.length} artifacts are correctly placed. Use the explanation under each artifact and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(desk.dataset.completion);
+    });
+    desk.querySelector("[data-reset-triage]")?.addEventListener("click", () => {
+      items.forEach((item) => {
+        item.querySelector("select").value = "";
+        item.classList.remove("correct-card", "incorrect-card");
+        item.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "The triage desk is reset.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-failure-trace]").forEach((lab) => {
+    const triggers = [...lab.querySelectorAll("[data-failure-trigger]")];
+    const visited = new Set();
+    const feedback = lab.querySelector("[data-feedback]");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const job = trigger.dataset.failureTrigger;
+        visited.add(job);
+        triggers.forEach((item) => {
+          item.classList.toggle("active", item === trigger);
+          item.setAttribute("aria-pressed", String(item === trigger));
+        });
+        lab.querySelectorAll("[data-failure-result]").forEach((result) => {
+          result.hidden = result.dataset.failureResult !== job;
+        });
+        feedback.textContent =
+          visited.size === triggers.length
+            ? "All five paths inspected. The symptom appears in the answer, but the first repair belongs at the first broken job."
+            : `${visited.size} of ${triggers.length} failure paths inspected.`;
+        feedback.className = "feedback good";
+        if (visited.size === triggers.length) mark(lab.dataset.completion);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-object-router]").forEach((router) => {
+    const items = [...router.querySelectorAll("[data-route-item]")];
+    const feedback = router.querySelector("[data-feedback]");
+    items.forEach((item) => {
+      item.querySelectorAll("[data-route-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          item.querySelectorAll("[data-route-choice]").forEach((choice) => choice.classList.remove("active"));
+          button.classList.add("active");
+          const correct = button.dataset.routeChoice === item.dataset.answer;
+          item.dataset.complete = String(correct);
+          const itemFeedback = item.querySelector("[data-item-feedback]");
+          itemFeedback.textContent = correct
+            ? `Correct. ${item.dataset.explanation}`
+            : `Try the other branch. ${item.dataset.explanation}`;
+          itemFeedback.className = `item-feedback ${correct ? "good-text" : "bad-text"}`;
+          if (items.every((candidate) => candidate.dataset.complete === "true")) {
+            feedback.textContent = "Every object is correctly routed. Resource objects continue relationships; literals carry values.";
+            feedback.className = "feedback good";
+            mark(router.dataset.completion);
+          }
+        });
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-triple-repair-bench]").forEach((bench) => {
+    const cards = [...bench.querySelectorAll("[data-repair-card]")];
+    const feedback = bench.querySelector("[data-feedback]");
+    bench.querySelector("[data-check-repairs]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      cards.forEach((card) => {
+        const defectCorrect = card.querySelector("[data-defect-field]").value === card.dataset.defect;
+        const repairCorrect = card.querySelector("[data-repair-field]").value === card.dataset.repair;
+        const correct = defectCorrect && repairCorrect;
+        const itemFeedback = card.querySelector("[data-item-feedback]");
+        card.classList.toggle("correct-card", correct);
+        card.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Repair accepted. ${card.dataset.explanation}`
+          : `Inspect both the failed position and the smallest repair. ${card.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === cards.length;
+      feedback.textContent = correct
+        ? "All four statements are repaired without claiming more than their evidence supports."
+        : `${correctCount} of ${cards.length} repairs pass review. Read each explanation and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(bench.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-identity-adjudication]").forEach((docket) => {
+    const records = [...docket.querySelectorAll("[data-docket-record]")];
+    const feedback = docket.querySelector("[data-feedback]");
+    docket.querySelector("[data-check-docket]")?.addEventListener("click", () => {
+      let correct = 0;
+      records.forEach((record) => {
+        const passed = record.querySelector("select").value === record.dataset.answer;
+        record.classList.toggle("passed", passed);
+        record.classList.toggle("failed", !passed);
+        record.querySelector("[data-item-feedback]").textContent = passed
+          ? `Finding accepted. ${record.dataset.explanation}`
+          : "That finding does not fit the evidence. Separate the physical asset from records about it, and preserve contradictions.";
+        if (passed) correct += 1;
+      });
+      if (correct === records.length) {
+        feedback.textContent = "Docket complete. Approved identity, related records, and the unresolved conflict remain visibly different.";
+        feedback.className = "feedback good";
+        mark(docket.dataset.completion);
+      } else {
+        feedback.textContent = `${correct} of ${records.length} findings are supported. Review the evidence and retry.`;
+        feedback.className = "feedback bad";
+      }
+    });
+    docket.querySelector("[data-reset-docket]")?.addEventListener("click", () => {
+      records.forEach((record) => {
+        record.querySelector("select").value = "";
+        record.classList.remove("passed", "failed");
+        record.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "Review all five records.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-graph-growth-lab]").forEach((lab) => {
+    const sources = JSON.parse(lab.dataset.sourceStatements || "[]");
+    const loaded = new Set();
+    const tested = new Set();
+    const ledger = lab.querySelector("[data-statement-ledger]");
+    const count = lab.querySelector("[data-graph-count]");
+    const result = lab.querySelector("[data-query-result]");
+    const feedback = lab.querySelector("[data-feedback]");
+
+    function renderLedger() {
+      const statements = sources.filter((source) => loaded.has(source.source))
+        .flatMap((source) => source.statements.map((statement) => ({ ...statement, source: source.source })));
+      count.textContent = `${statements.length} statements loaded from ${loaded.size} source packets`;
+      ledger.innerHTML = statements.length
+        ? statements.map((statement) => `<article class="ledger-statement"><span>${statement.source}</span><code>${statement.subject} → ${statement.predicate} → ${statement.object}</code></article>`).join("")
+        : '<p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p>';
+      lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+        const active = loaded.has(button.dataset.sourcePacket);
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        const source = button.dataset.sourcePacket;
+        loaded.has(source) ? loaded.delete(source) : loaded.add(source);
+        tested.clear();
+        lab.querySelectorAll("[data-graph-question]").forEach((question) => question.classList.remove("answered"));
+        result.textContent = "The graph changed. Test the competency questions again.";
+        renderLedger();
+      });
+    });
+
+    lab.querySelectorAll("[data-graph-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const requires = JSON.parse(button.dataset.requires || "[]");
+        const missing = requires.filter((source) => !loaded.has(source));
+        tested.add(button.dataset.graphQuestion);
+        if (missing.length) {
+          result.innerHTML = `<strong>Not answerable yet.</strong><span>Missing reviewed statements from: ${missing.join(", ")}.</span>`;
+          button.classList.remove("answered");
+        } else {
+          result.innerHTML = `<strong>${button.dataset.answer}</strong><span>Evidence path: ${button.dataset.path}</span>`;
+          button.classList.add("answered");
+        }
+        const allAnswerable = [...lab.querySelectorAll("[data-graph-question]")].every((question) => {
+          const needed = JSON.parse(question.dataset.requires || "[]");
+          return tested.has(question.dataset.graphQuestion) && needed.every((source) => loaded.has(source));
+        });
+        feedback.textContent = allAnswerable
+          ? "All three questions are answerable through explicit, source-bounded paths."
+          : "Keep growing the graph until every question has a complete evidence path.";
+        feedback.className = `feedback ${allAnswerable ? "good" : ""}`;
+        if (allAnswerable) mark(lab.dataset.completion);
+      });
+    });
+
+    lab.querySelector("[data-reset-graph]")?.addEventListener("click", () => {
+      loaded.clear();
+      tested.clear();
+      result.textContent = "No question tested yet.";
+      lab.querySelectorAll("[data-graph-question]").forEach((button) => button.classList.remove("answered"));
+      renderLedger();
+    });
+    renderLedger();
+  });
+
+  document.querySelectorAll("[data-hierarchy-repair]").forEach((lab) => {
+    const cases = [...lab.querySelectorAll("[data-hierarchy-case]")];
+    const feedback = lab.querySelector("[data-feedback]");
+    cases.forEach((card) => card.querySelectorAll("[data-hierarchy-choice]").forEach((button) => button.addEventListener("click", () => {
+      const correct = button.dataset.hierarchyChoice === card.dataset.answer;
+      card.querySelectorAll("button").forEach((item) => item.classList.toggle("selected", item === button));
+      card.dataset.passed = String(correct);
+      card.querySelector("[data-item-feedback]").textContent = correct ? card.dataset.explanation : `Review the semantic consequence. ${card.dataset.explanation}`;
+      const passed = cases.filter((item) => item.dataset.passed === "true").length;
+      feedback.textContent = passed === cases.length ? "The hierarchy now preserves the intended utility meanings." : `${passed} of ${cases.length} decisions are defensible.`;
+      if (passed === cases.length) mark(lab.dataset.completion);
+    })));
+  });
+
+  document.querySelectorAll("[data-ontology-canvas]").forEach((canvas) => {
+    canvas.querySelector("[data-check-canvas]")?.addEventListener("click", () => {
+      const fields = [...canvas.querySelectorAll("[data-canvas-answer]")];
+      let correct = 0;
+      fields.forEach((field) => {
+        const passed = field.value === field.dataset.canvasAnswer;
+        field.closest(".canvas-card").querySelector("[data-item-feedback]").textContent = passed
+          ? field.closest(".canvas-card").querySelector("[data-item-feedback]").dataset.explanation
+          : "Recheck the competency question, scope, and evidence boundary.";
+        if (passed) correct += 1;
+      });
+      const feedback = canvas.querySelector("[data-feedback]");
+      feedback.textContent = correct === fields.length ? "The ontology slice is bounded, testable, and ready for domain review." : `${correct} of ${fields.length} modeling decisions pass.`;
+      feedback.className = `feedback ${correct === fields.length ? "good" : "bad"}`;
+      if (correct === fields.length) mark(canvas.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-sparql-builder]").forEach((lab) => {
+    const clauses = [...lab.querySelectorAll("[data-query-clause]")];
+    const selected = [];
+    const code = lab.querySelector("[data-query-code]");
+    const effect = lab.querySelector("[data-query-effect]");
+    const feedback = lab.querySelector("[data-feedback]");
+    clauses.forEach((button, index) => button.addEventListener("click", () => {
+      if (index !== selected.length) {
+        effect.textContent = `Clause ${index + 1} cannot run yet. Add clause ${selected.length + 1} first.`;
+        return;
+      }
+      selected.push(button.dataset.code);
+      button.classList.add("selected");
+      button.disabled = true;
+      code.textContent = selected.join("\n");
+      effect.textContent = button.dataset.effect;
+      feedback.textContent = selected.length === clauses.length ? "The complete query pattern returns source-traceable bindings." : `Clause ${selected.length} added. Continue in order.`;
+      if (selected.length === clauses.length) mark(lab.dataset.completion);
+    }));
+    lab.querySelector("[data-reset-query]")?.addEventListener("click", () => {
+      selected.length = 0;
+      clauses.forEach((button) => { button.disabled = false; button.classList.remove("selected"); });
+      code.textContent = "# Select clause 1 to begin";
+      effect.textContent = "The graph pattern will illuminate here.";
+    });
+  });
+
+  document.querySelectorAll("[data-work-product]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = [...form.querySelectorAll("[required]")];
+      const complete = fields.every((field) => field.value.trim());
+      const feedback = form.querySelector("[data-feedback]");
+      if (!complete) {
+        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.className = "feedback bad";
+        return;
+      }
+      const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
+      localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
+      feedback.textContent = form.dataset.correctFeedback;
+      feedback.className = "feedback good";
+      mark(form.dataset.completion);
+    });
+  });
+
+  function openDrawer(name, trigger) {
+    const drawer = document.querySelector(`[data-drawer="${name}"]`);
+    if (!drawer) return;
+    lastDrawerTrigger = trigger;
+    document.querySelector("[data-drawer-scrim]").classList.add("open");
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    drawer.querySelector("button, a, input")?.focus();
+  }
+
+  function closeDrawers() {
+    document.querySelector("[data-drawer-scrim]").classList.remove("open");
+    document.querySelectorAll("[data-drawer]").forEach((drawer) => {
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    });
+    lastDrawerTrigger?.focus();
+  }
+
+  document.querySelectorAll("[data-open-drawer]").forEach((button) => {
+    button.addEventListener("click", () => openDrawer(button.dataset.openDrawer, button));
+  });
+  document.querySelectorAll("[data-close-drawer], [data-drawer-scrim]").forEach((button) => {
+    button.addEventListener("click", closeDrawers);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDrawers();
+  });
+
+  document.querySelector("[data-complete-module]")?.addEventListener("click", () => {
+    const status = document.querySelector("[data-completion-status]");
+    status.textContent = "Working candidate completed locally. This does not issue a credential or operational authority.";
+  });
+
+  refreshCompletion();
+})();
+</script>
+</body>
+</html>

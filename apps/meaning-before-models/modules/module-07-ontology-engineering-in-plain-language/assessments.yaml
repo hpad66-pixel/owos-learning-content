@@ -1,0 +1,30 @@
+schema_version: 1
+module_id: mbm001:07
+assessments:
+  - {assessment_id: mbm07-opening, type: multiple-choice, cognitive_job: choose a modeling starting point, prompt: "The team disagrees on active customer. What should anchor the workshop?", options: [{text: A consequential competency question with time and scope, correct: true}, {text: The longest existing glossary, correct: false}, {text: The loudest department, correct: false}], feedback: {correct: Correct. The question and consequence define the modeling job., incorrect: Begin with the decision the model must support.}, completion_id: opening}
+  - assessment_id: mbm07-question-check
+    type: multi-select
+    cognitive_job: derive required concepts
+    prompt: Which concepts are required to answer which active hospital accounts are exposed to Pressure Event 77?
+    options: [{text: Pressure event and affected zone, correct: true}, {text: Served premise and service agreement, correct: true}, {text: Account status and criticality class, correct: true}, {text: Every historic payment, correct: false}, {text: Every customer preference, correct: false}]
+    feedback: {correct: Correct. The selected concepts form a bounded answer path., incorrect: Choose only what the approved exposure question requires.}
+    completion_id: question-check
+  - {assessment_id: mbm07-reuse, type: multiple-choice, cognitive_job: evaluate ontology reuse, prompt: "When should an external concept be reused?", options: [{text: When meaning governance version and use fit are reviewed, correct: true}, {text: Whenever its ontology is famous, correct: false}, {text: Without recording the source version, correct: false}], feedback: {correct: Correct. Reuse is a governed fit decision., incorrect: Reputation does not replace semantic fit and lifecycle review.}, completion_id: reuse}
+  - assessment_id: mbm07-release
+    type: matching
+    cognitive_job: match lifecycle controls to roles
+    prompt: Match each release job to its strongest reviewer.
+    targets: [Domain expert, Technical reviewer, Data steward, Product owner]
+    pairs: [{prompt: Approve the operational definition, answer: Domain expert}, {prompt: Check formal semantic behavior, answer: Technical reviewer}, {prompt: Verify mappings and identifiers, answer: Data steward}, {prompt: Approve intended application use, answer: Product owner}]
+    feedback: {correct: Correct. Meaning formal behavior data connection and use have distinct accountability., incorrect: Assign each review to the role with the relevant authority.}
+    completion_id: release
+  - assessment_id: mbm07-decision-record
+    type: applied-work-product
+    title: Ontology Decision Record
+    cognitive_job: document a bounded ontology slice and its rationale
+    prompt: Record the question boundary concepts relationships exclusions unresolved issues reuse tests owner version and change route.
+    required_fields: [competency_questions, boundary, concepts_relationships, exclusions, unresolved_issues, reuse_tests, owner_version, change_route]
+    field_labels: {competency_questions: Competency questions, boundary: Included use and boundary, concepts_relationships: Concepts and relationships, exclusions: Explicit exclusions, unresolved_issues: Escalated meanings, reuse_tests: Reuse alignment and test cases, owner_version: Owner version and effective date, change_route: Review deprecation and correction route}
+    textarea_fields: [competency_questions, boundary, concepts_relationships, exclusions, unresolved_issues, reuse_tests, owner_version, change_route]
+    feedback: {correct: Your ontology decision record makes scope rationale tests ownership and change visible., incorrect: Complete every field with specific modeling decisions and review evidence.}
+    completion_id: decision-record

@@ -1,0 +1,60 @@
+schema_version: 1
+module_id: mbm001:08
+version: 0.2.0
+status: approved
+approvals: {narrative: approved_for_production, visuals: approved_for_production, interactions: approved_for_production, assessments: approved_for_production, owner: approved_under_standing_authorization}
+beats:
+  - beat_id: opening
+    learner_question: Why can the dashboard show records but not answer the path question?
+    instructor_purpose: Motivate graph pattern querying.
+    teaching_text_refs: [dashboard-dead-end]
+    visual_refs: [mbm08-dashboard-dead-end]
+    interaction_refs: []
+    assessment_refs: [mbm08-opening]
+    intended_realization: A relationship question needs a pattern over the graph.
+    transition: Treat variables as stencil openings.
+  - beat_id: stencil
+    learner_question: What does a variable match?
+    instructor_purpose: Connect triple patterns to familiar graph paths.
+    teaching_text_refs: [stencil]
+    visual_refs: [mbm08-variable-stencil]
+    interaction_refs: []
+    assessment_refs: [mbm08-pattern-match]
+    intended_realization: Shared variables connect triple patterns.
+    transition: Assemble a complete query.
+  - beat_id: builder
+    learner_question: What does each clause add?
+    instructor_purpose: Synchronize query syntax and graph meaning.
+    teaching_text_refs: [builder]
+    visual_refs: [mbm08-query-overlay]
+    interaction_refs: [mbm08-sparql-builder]
+    assessment_refs: []
+    intended_realization: Clauses express visible constraints and outputs.
+    transition: Interpret bindings.
+  - beat_id: bindings
+    learner_question: What does one result row mean?
+    instructor_purpose: Trace bindings to evidence.
+    teaching_text_refs: [bindings]
+    visual_refs: [mbm08-binding-table]
+    interaction_refs: []
+    assessment_refs: [mbm08-interpret]
+    intended_realization: Results bind variables through supporting statements.
+    transition: Separate adjacent controls.
+  - beat_id: boundaries
+    learner_question: What does SPARQL not do by itself?
+    instructor_purpose: Separate query inference validation and federation.
+    teaching_text_refs: [boundaries]
+    visual_refs: []
+    interaction_refs: []
+    assessment_refs: [mbm08-boundary]
+    intended_realization: Querying is one controlled capability.
+    transition: Document a reusable query.
+  - beat_id: artifact
+    learner_question: Can another person inspect the query before running it?
+    instructor_purpose: Produce the Question-to-Query Sheet.
+    teaching_text_refs: [query-sheet]
+    visual_refs: []
+    interaction_refs: [mbm08-query-sheet]
+    assessment_refs: [mbm08-query-sheet]
+    intended_realization: Governed queries expose pattern evidence and dependencies.
+    transition: Module 09 distinguishes asserted and inferred statements.

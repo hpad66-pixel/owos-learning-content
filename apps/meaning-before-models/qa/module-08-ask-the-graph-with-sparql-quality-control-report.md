@@ -1,95 +1,28 @@
----
-module_id: mbm001:08
-course_id: owos-course-semantic-data-ai-001
-version: semantic-fieldbook-retrofit-1
-review_date: 2026-07-23
-reviewer: Codex repository review
-score: 86
-score_out_of: 100
-working_status: conditional_candidate
-release_status: blocked
----
+# Module 08 Quality-Control Report
 
-# Module Quality-Control Report: Ask the Graph with SPARQL
-
-## Retrofit implementation review
-- Rebuilt as a query laboratory with a deterministic instructional mini-graph.
-- Verified mechanisms: clause-by-clause SPARQL execution and required-versus-OPTIONAL result test.
-- Verified work product: Question-to-Query Sheet with source boundaries and positive and negative tests.
-- Score remains conditional pending independent SPARQL review, browser interaction review, and novice testing.
+Date: 2026-07-24
+Candidate: Ask the Graph with SPARQL
+Publication scope: authorized live review
 
 ## Decision
-- Working-review result: Conditional production candidate.
-- Release result: Blocked.
-- Score: 86 out of 100.
-- One-sentence reason: Repository-verifiable implementation is complete; human and runtime gates remain.
 
-## Scored quality review
-| Area | Weight | Score | Evidence checked | Missing or required revision |
-| --- | ---: | ---: | --- | --- |
-| Plain-English instructor teaching | 12 | 11 | Instructor explanations before all major components | Novice pilot |
-| Learning design and sequence | 12 | 11 | Decision, model, mechanism, boundary, artifact | Human review |
-| Explanatory graphics and visual reasoning | 12 | 10 | Four traced visual types | Rendered inspection |
-| Interactions and simulations | 12 | 10 | Mechanism, boundary selection, artifact | Browser walkthrough |
-| Utility relevance and practitioner credibility | 10 | 8 | Named utility scenario | Practitioner review |
-| Assessments and feedback | 10 | 10 | Four quiz types and retry | Learner observation |
-| Professional work product | 5 | 5 | Question-to-Query Sheet | Practitioner review |
-| Accuracy, evidence, and citations | 10 | 8 | W3C sources and boundary | Independent factual review |
-| Accessibility, responsive behavior, and reduced motion | 10 | 7 | Static labels, CSS, focus code | Manual accessibility |
-| Platform integration and release controls | 7 | 6 | IDs, local persistence, blocked release | Authenticated events |
-| **Total** | **100** | **86** | Repository evidence | Human gates remain |
+Automated structured-source, compiler, visual, interaction, responsive, and completion gates passed.
+The candidate may replace its legacy live-review HTML. Independent factual, practitioner,
+accessibility, and novice reviews remain open.
 
-## Hard gates
-| Gate | Status | Evidence | Required before pass |
-| --- | --- | --- | --- |
-| Accuracy and evidence | conditional | W3C links and explicit limits | Independent review |
-| Learning design | passed | Complete lesson contract | Hardeep working review |
-| Utility-practitioner review | blocked | Not yet performed | Qualified practitioner review |
-| Technical and accessibility review | conditional | Static checks only | Browser, device, keyboard, screen-reader, contrast |
-| Release control | blocked | Candidate metadata | Explicit release approval |
+## Evidence
 
-## Automated checks
-| Check | Result | Evidence |
-| --- | --- | --- |
-| Lesson contract | passed | Full-module conformance validator |
-| JavaScript and component configuration | passed static check | Shared runtime and governed sources |
-| Deterministic assessment | passed by code inspection | Explicit answers and criteria |
-| Distributed quiz placement and feedback | passed | Four quiz types across lesson |
-| Instructor explanation coverage | passed | Every governed component traced |
-| Module-specific FAQ coverage and answer quality | passed repository check | Five questions |
-| Graphic teaching coverage | passed | Reading guides and conclusions |
-| Visual pacing and editorial illustration | passed repository check | Design brief trace |
-| Header Graph, Community, and Start actions, side drawers, and bottom connected-learning section | passed repository check | Required markers |
-| Explicit bottom connected-learning anchor and rendered DOM order | passed | Anchor before navigation |
-| Dark-surface contrast guard | passed static check | Light text rules |
-| Prohibited language and punctuation | passed | Validator scan |
-| Repository scan and formatting | passed | Course regression suite |
+| Area | Result |
+| --- | --- |
+| Conversational instruction | passed, six authored sections |
+| Original visual explanations | passed, four distinct classes |
+| Signature mechanism | passed, six-clause synchronized SPARQL Laboratory |
+| Assessment | passed, decision, matching, query, multi-select, applied work |
+| Work product | passed, Question-to-Query Sheet |
+| Browser QA | passed desktop, tablet, phone |
+| Runtime, overflow, reduced motion | zero errors, zero overflow, 0.01 ms phone motion |
 
-## Manual review still required
-- [ ] Desktop visual review
-- [ ] Mobile visual and touch review
-- [ ] Keyboard-only walkthrough
-- [ ] Screen-reader walkthrough
-- [ ] Reduced-motion walkthrough
-- [ ] Dense-text and visual-pacing walkthrough
-- [ ] Graph and Community drawer, close, focus-return, and bottom-section walkthrough
-- [ ] Dark blue, navy, and gradient contrast walkthrough
-- [ ] Quiz discoverability and section-placement walkthrough
-- [ ] FAQ accuracy, plain-language, utility-example, disclosure, and mobile walkthrough
-- [ ] Utility-practitioner review
-- [ ] Novice-learner comprehension pilot
-- [ ] Live learner-event and enrollment verification
-- [ ] Final source and citation review
-- [ ] Release approval
+## Hard safeguards
 
-## Required revisions
-1. Complete factual and practitioner review.
-2. Complete rendered accessibility and device review.
-3. Obtain explicit release approval.
-
-## Approval record
-| Decision | Reviewer | Date | Note |
-| --- | --- | --- | --- |
-| Working-review acceptance | pending Hardeep Anand | | |
-| Production benchmark | working benchmark | 2026-07-23 | Module 05 capability level |
-| Release | blocked | | |
+SPARQL factual review, utility query-practice review, screen-reader and physical-device review,
+novice pilot, and final credential-bearing release remain pending.

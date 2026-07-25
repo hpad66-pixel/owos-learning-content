@@ -1,0 +1,18 @@
+schema_version: 1
+module_id: mbm001:07
+interactions:
+  - interaction_id: mbm07-ontology-canvas
+    component: ontology-canvas
+    title: Bounded Ontology Workshop
+    teaching_purpose: Convert one competency question into explicit inclusion exclusion and escalation decisions.
+    instructions: Decide whether each candidate belongs in the active-customer-exposure slice. Review the consequence, not just the familiar label.
+    completion_id: ontology-canvas
+    config:
+      choices: [Include, Exclude, Escalate]
+      decisions:
+        - {question: Active service agreement, purpose: Establishes a current governed service relationship., answer: Include, explanation: The question requires a time-bounded service relationship.}
+        - {question: Served premise, purpose: Connects the agreement to a physical location inside the zone., answer: Include, explanation: Exposure follows the served location.}
+        - {question: Payment history, purpose: Describes billing behavior over time., answer: Exclude, explanation: It is outside the bounded exposure question.}
+        - {question: Critical-customer classification, purpose: Identifies hospital and other priority service classes., answer: Include, explanation: The competency question explicitly asks for critical customers.}
+        - {question: Occupancy status, purpose: May affect emergency contact assumptions but authority is unresolved., answer: Escalate, explanation: Domain authority and evidence need resolution before inclusion.}
+        - {question: Every customer preference, purpose: Covers channels language and marketing choices., answer: Exclude, explanation: Those details are not required by this decision.}

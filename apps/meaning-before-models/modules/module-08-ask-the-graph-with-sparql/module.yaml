@@ -1,0 +1,92 @@
+schema_version: 1
+module:
+  course_id: owos-course-semantic-data-ai-001
+  module_id: mbm001:08
+  slug: module-08-ask-the-graph-with-sparql
+  title: Ask the Graph with SPARQL
+  eyebrow: Meaning Before Models, Module 08
+  promise: Turn a utility question into a graph pattern, interpret its bindings, and trace the result to evidence.
+  duration: 65 to 80 minutes
+  level: Foundation with optional Practitioner and Leader depth
+  archetype: synchronized-query-laboratory
+  signature_mechanism: clause-by-clause-sparql-builder
+  source_version: 0.2.0-structured-candidate
+learning:
+  audience: [Utility professionals and leaders, Data GIS IT OT analytics governance and AI practitioners]
+  outcomes: [Pronounce and explain SPARQL, Read variables and triple patterns, Assemble and modify a small query, Interpret result bindings, Trace rows to source statements]
+  prior_knowledge: The learner understands graph paths classes properties and bounded ontology concepts.
+  misconception: SPARQL is SQL with new punctuation or a reasoning engine.
+  transfer_task: Modify an affected-customer query to find overdue outfall inspections.
+sections:
+  - section_id: dashboard-dead-end
+    title: The dashboard shows records. The question asks for a path.
+    kind: Query opening
+    blocks:
+      - type: prose
+        paragraphs:
+          - A dashboard lists Pressure Event 77, Pump P-104, customer accounts, and open work. The leader asks which active hospital account lies in the affected zone and which work order concerns the serving pump. The records are visible, but the dashboard was not modeled to traverse that path.
+          - SPARQL, pronounced "sparkle," is the standard query language for RDF graphs. You describe the pattern the answer must match. The engine returns bindings for the variables that satisfy that pattern.
+      - {type: visual, visual_id: mbm08-dashboard-dead-end}
+      - {type: assessment, assessment_id: mbm08-opening}
+  - section_id: stencil
+    title: A graph pattern works like a stencil
+    kind: Variable stencil
+    blocks:
+      - type: prose
+        paragraphs:
+          - In a triple pattern, a variable begins with a question mark. ?pump serves ?zone means "find pump and zone values that make this statement match." Fixed identifiers and vocabulary terms constrain the pattern.
+          - Several triple patterns share variables. That shared variable is the join point. You already understand the path from Module 04. SPARQL gives you a standard way to ask for it.
+      - {type: visual, visual_id: mbm08-variable-stencil}
+      - {type: assessment, assessment_id: mbm08-pattern-match}
+  - section_id: builder
+    title: Assemble the query while the path illuminates
+    kind: SPARQL Query Laboratory
+    blocks:
+      - type: prose
+        paragraphs:
+          - Add each clause in order. SELECT names the values you want returned. WHERE contains the required graph patterns. FILTER applies a condition. OPTIONAL requests information without discarding a row when that information is absent. LIMIT caps the displayed result count.
+          - Watch the explanation after every clause. SPARQL is not inventing relationships. It is matching the graph statements available under the configured dataset and entailment regime.
+      - {type: visual, visual_id: mbm08-query-overlay}
+      - {type: interaction, interaction_id: mbm08-sparql-builder}
+  - section_id: bindings
+    title: A result row is a set of variable bindings
+    kind: Evidence table
+    blocks:
+      - type: prose
+        paragraphs:
+          - One row may bind ?account to Account 882, ?class to Hospital, and ?work to Work Order 4821. The result is useful because the supporting statements can be shown: the event affects the zone, the pump serves the zone, the zone contains the premise, and the account belongs to that premise.
+          - A missing optional phone number does not remove the row. A failed required pattern does. That difference is part of query meaning and should be reviewed like any other business rule.
+      - {type: visual, visual_id: mbm08-binding-table}
+      - {type: assessment, assessment_id: mbm08-interpret}
+  - section_id: boundaries
+    title: Query, inference, validation, and federation are separate controls
+    kind: Practitioner and leader view
+    blocks:
+      - type: prose
+        paragraphs:
+          - SPARQL matches graph patterns. A configured reasoner may make inferred statements available, but the query language does not itself decide ontology entailments. SHACL validates declared shapes separately.
+          - SPARQL can use SERVICE to query a configured remote endpoint. That still requires endpoint availability, credentials, permissions, network policy, query planning, and performance controls. "Federated" does not mean unrestricted.
+      - {type: assessment, assessment_id: mbm08-boundary}
+      - {type: callout, title: Leader view, text: Govern reusable queries as products. Record their question, dataset, vocabulary version, entailment setting, permissions, expected evidence, owner, and tests.}
+  - section_id: query-sheet
+    title: Write a query another person can read before running
+    kind: Professional application
+    blocks:
+      - type: prose
+        paragraphs:
+          - Choose a water, wastewater, or stormwater question. Write the variables and triple patterns in plain language before adding syntax. State which information is required, optional, and filtered.
+          - Record the expected bindings and evidence path. If the result could change because a source, ontology, or time window changes, name that dependency.
+      - {type: work_product, work_product_id: mbm08-query-sheet}
+      - type: faq
+        items:
+          - {question: "Is SPARQL harder than SQL?", answer: It is different. SQL usually starts from tables and joins. SPARQL starts from graph patterns. Small readable patterns are approachable without becoming a programmer.}
+          - {question: "Does SPARQL infer facts?", answer: SPARQL matches available graph patterns. A separate configured entailment regime may expose inferred statements to the query.}
+          - {question: "Can SPARQL query data that stays elsewhere?", answer: Yes through mappings federation or services when the architecture supports it. Connections permissions and performance controls remain necessary.}
+          - {question: "What does OPTIONAL do?", answer: It requests a pattern without removing the whole row when that pattern is absent.}
+          - {question: "Why did my query return no rows?", answer: A required pattern may be absent mismatched or outside the selected dataset. No rows does not automatically mean the real-world condition is false.}
+      - type: evidence
+        statement: Riverbend queries and results are instructional. The W3C SPARQL Recommendation defines graph pattern querying. It does not establish source truth, permissions, inference configuration, or operational authority.
+        source_refs: [w3c-sparql11, w3c-rdf-concepts]
+completion:
+  required_ids: [opening, pattern-match, sparql-builder, interpret, boundary, query-sheet]
+  rule: Complete the opening decision, pattern match, clause-by-clause query laboratory, result interpretation, boundary check, and Question-to-Query Sheet.

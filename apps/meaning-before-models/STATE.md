@@ -165,8 +165,41 @@ override a blocked hard gate.
 
 ## Next action
 
-Begin Module 06 in the approved progressive sequence because Module 05 is already the approved
-structured benchmark.
+Publish and verify the Modules 06 to 08 structured batch, then begin Module 09.
+
+## Progressive Modules 06 to 08 structured batch
+
+### Module 06
+
+- Archetype: classification studio
+- Signature mechanism: five-case Hierarchy Consequence Laboratory
+- Four original visual types and Governed Vocabulary and Taxonomy Sheet
+- Package checksum: `428735201e76e2ada26ed297eea243d7a626efcc6011779d53165c3fba24a091`
+
+### Module 07
+
+- Archetype: facilitated modeling workshop
+- Signature mechanism: six-decision Bounded Ontology Workshop
+- Four original visual types and Ontology Decision Record
+- Package checksum: `8c37d4b51f883003952e9ed9a716764ea8bbcae12eeeb97b4c3167d2723f1ff7`
+
+### Module 08
+
+- Archetype: synchronized query laboratory
+- Signature mechanism: six-clause Affected-Customer SPARQL Laboratory
+- Four original visual types and Question-to-Query Sheet
+- Package checksum: `d676b05c491a13d3707406f489063502358b0f27e0f7dafe64141e8a9b319640`
+
+### Batch evidence
+
+- Nine local and nine packaged browser runs passed across desktop, tablet, and phone.
+- All twelve visual assets loaded and all twelve visual classes are distinct.
+- All interactions, distributed assessments, artifacts, drawers, focus return, and completion paths
+  passed with zero runtime errors and zero horizontal overflow.
+- Phone reduced-motion maximum was 0.01 milliseconds.
+- Whole-course compiler, conformance, distinctiveness, structured-authoring, release-manifest, and
+  formatting gates passed.
+- The release manifest contains 61 checksum-controlled files.
 
 ## Module 04 publication evidence
 

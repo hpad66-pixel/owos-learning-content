@@ -410,6 +410,65 @@
     renderLedger();
   });
 
+  document.querySelectorAll("[data-hierarchy-repair]").forEach((lab) => {
+    const cases = [...lab.querySelectorAll("[data-hierarchy-case]")];
+    const feedback = lab.querySelector("[data-feedback]");
+    cases.forEach((card) => card.querySelectorAll("[data-hierarchy-choice]").forEach((button) => button.addEventListener("click", () => {
+      const correct = button.dataset.hierarchyChoice === card.dataset.answer;
+      card.querySelectorAll("button").forEach((item) => item.classList.toggle("selected", item === button));
+      card.dataset.passed = String(correct);
+      card.querySelector("[data-item-feedback]").textContent = correct ? card.dataset.explanation : `Review the semantic consequence. ${card.dataset.explanation}`;
+      const passed = cases.filter((item) => item.dataset.passed === "true").length;
+      feedback.textContent = passed === cases.length ? "The hierarchy now preserves the intended utility meanings." : `${passed} of ${cases.length} decisions are defensible.`;
+      if (passed === cases.length) mark(lab.dataset.completion);
+    })));
+  });
+
+  document.querySelectorAll("[data-ontology-canvas]").forEach((canvas) => {
+    canvas.querySelector("[data-check-canvas]")?.addEventListener("click", () => {
+      const fields = [...canvas.querySelectorAll("[data-canvas-answer]")];
+      let correct = 0;
+      fields.forEach((field) => {
+        const passed = field.value === field.dataset.canvasAnswer;
+        field.closest(".canvas-card").querySelector("[data-item-feedback]").textContent = passed
+          ? field.closest(".canvas-card").querySelector("[data-item-feedback]").dataset.explanation
+          : "Recheck the competency question, scope, and evidence boundary.";
+        if (passed) correct += 1;
+      });
+      const feedback = canvas.querySelector("[data-feedback]");
+      feedback.textContent = correct === fields.length ? "The ontology slice is bounded, testable, and ready for domain review." : `${correct} of ${fields.length} modeling decisions pass.`;
+      feedback.className = `feedback ${correct === fields.length ? "good" : "bad"}`;
+      if (correct === fields.length) mark(canvas.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-sparql-builder]").forEach((lab) => {
+    const clauses = [...lab.querySelectorAll("[data-query-clause]")];
+    const selected = [];
+    const code = lab.querySelector("[data-query-code]");
+    const effect = lab.querySelector("[data-query-effect]");
+    const feedback = lab.querySelector("[data-feedback]");
+    clauses.forEach((button, index) => button.addEventListener("click", () => {
+      if (index !== selected.length) {
+        effect.textContent = `Clause ${index + 1} cannot run yet. Add clause ${selected.length + 1} first.`;
+        return;
+      }
+      selected.push(button.dataset.code);
+      button.classList.add("selected");
+      button.disabled = true;
+      code.textContent = selected.join("\n");
+      effect.textContent = button.dataset.effect;
+      feedback.textContent = selected.length === clauses.length ? "The complete query pattern returns source-traceable bindings." : `Clause ${selected.length} added. Continue in order.`;
+      if (selected.length === clauses.length) mark(lab.dataset.completion);
+    }));
+    lab.querySelector("[data-reset-query]")?.addEventListener("click", () => {
+      selected.length = 0;
+      clauses.forEach((button) => { button.disabled = false; button.classList.remove("selected"); });
+      code.textContent = "# Select clause 1 to begin";
+      effect.textContent = "The graph pattern will illuminate here.";
+    });
+  });
+
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();

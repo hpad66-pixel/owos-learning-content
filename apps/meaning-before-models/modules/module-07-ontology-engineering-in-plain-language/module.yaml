@@ -1,0 +1,92 @@
+schema_version: 1
+module:
+  course_id: owos-course-semantic-data-ai-001
+  module_id: mbm001:07
+  slug: module-07-ontology-engineering-in-plain-language
+  title: Ontology Engineering in Plain Language
+  eyebrow: Meaning Before Models, Module 07
+  promise: Turn a utility question into a bounded, testable, reviewable ontology slice.
+  duration: 65 to 80 minutes
+  level: Foundation with optional Practitioner and Leader depth
+  archetype: facilitated-modeling-workshop
+  signature_mechanism: bounded-ontology-workshop
+  source_version: 0.2.0-structured-candidate
+learning:
+  audience: [Utility professionals and leaders, Data GIS IT OT analytics governance and AI practitioners]
+  outcomes: [Begin with competency questions, Define concepts relationships and boundaries, Test the model with examples and counterexamples, Evaluate reuse and alignment, Produce an ontology decision record]
+  prior_knowledge: The learner understands classes properties definitions and hierarchies.
+  misconception: Ontology engineering means documenting everything the utility knows.
+  transfer_task: Model active customer exposure for a wastewater service interruption.
+sections:
+  - section_id: definition-conflict
+    title: The team agrees on the words and disagrees on the decision
+    kind: Workshop opening
+    blocks:
+      - type: prose
+        paragraphs:
+          - Customer service says active means an open account. Billing says it means a billable agreement. Operations says a premise currently receiving service. Emergency management needs a contactable occupied location inside the affected zone. One label is carrying four decisions.
+          - Do not begin by voting on a universal definition. Begin with the question the utility must answer, the date and jurisdiction, and the consequence of being wrong.
+      - {type: visual, visual_id: mbm07-conflict-board}
+      - {type: assessment, assessment_id: mbm07-opening}
+  - section_id: competency-questions
+    title: Competency questions define what the model must support
+    kind: Question funnel
+    blocks:
+      - type: prose
+        paragraphs:
+          - A competency question is a plain-language test for the model. "Which active critical customers are exposed to Pressure Event 77?" requires customer, service agreement, served premise, pressure zone, event, status, time, and criticality.
+          - It does not automatically require every customer preference, payment history, meter register, or engineering drawing. Those may matter elsewhere. Scope follows the approved question.
+      - {type: visual, visual_id: mbm07-question-funnel}
+      - {type: assessment, assessment_id: mbm07-question-check}
+  - section_id: scope-canvas
+    title: Include, exclude, and escalate meanings deliberately
+    kind: Bounded Ontology Workshop
+    blocks:
+      - type: prose
+        paragraphs:
+          - Review each candidate meaning. Include it when the competency question requires it and the term can be defined. Exclude it when it belongs outside this module. Escalate it when domain authority or evidence is unresolved.
+          - The goal is not the largest model. It is the smallest defensible slice that answers the questions, survives examples, and makes unresolved choices visible.
+      - {type: visual, visual_id: mbm07-scope-canvas}
+      - {type: interaction, interaction_id: mbm07-ontology-canvas}
+  - section_id: reuse-test
+    title: Reuse what fits. Do not inherit meanings blindly.
+    kind: Practitioner view
+    blocks:
+      - type: prose
+        paragraphs:
+          - An upper ontology can provide broad organizing concepts. A domain ontology can provide reusable industry meaning. An application profile can select and constrain what one implementation needs. Alignment records how concepts correspond.
+          - Reuse saves work only when definitions, commitments, identifiers, licensing, governance, and change cadence fit. Importing a respected ontology does not make every class relevant or correct for your question.
+      - {type: assessment, assessment_id: mbm07-reuse}
+      - {type: callout, title: Practitioner view, text: Record every reuse and alignment decision with the source version, mapping rationale, known mismatch, and test case.}
+  - section_id: release-loop
+    title: Draft, test, review, version, and release
+    kind: Model lifecycle
+    blocks:
+      - type: prose
+        paragraphs:
+          - Test the slice against positive examples, counterexamples, edge cases, and the original competency questions. A model that cannot distinguish an inactive account from an active service agreement is not ready for exposure decisions.
+          - Domain experts approve meaning. Technical reviewers check formal behavior. Data stewards check mappings and identifiers. Product owners approve the intended use. Publish versions, deprecations, migration notes, and correction routes.
+      - {type: visual, visual_id: mbm07-release-loop}
+      - {type: assessment, assessment_id: mbm07-release}
+  - section_id: decision-record
+    title: Produce a decision record another team can reopen
+    kind: Professional application
+    blocks:
+      - type: prose
+        paragraphs:
+          - Document the question, model boundary, included concepts and relationships, exclusions, unresolved issues, reuse choices, examples, owner, and version.
+          - A good decision record explains why the slice is shaped this way. It gives a future team enough evidence to challenge, extend, or retire it without reconstructing the workshop from memory.
+      - {type: work_product, work_product_id: mbm07-decision-record}
+      - type: faq
+        items:
+          - {question: "Can an ontology be wrong?", answer: Yes. Definitions can be unclear, relationships can create unintended consequences, and scope can fail the competency questions. Test and review it.}
+          - {question: "How much should we model?", answer: Model enough to answer approved questions and support intended reuse. Record exclusions and expand through governed changes.}
+          - {question: "Should we reuse an industry ontology?", answer: Evaluate semantic fit, governance, versioning, licensing, and implementation cost. Reuse selectively rather than importing prestige.}
+          - {question: "Is a glossary an ontology?", answer: A glossary supplies definitions. An ontology also represents concepts, relationships, and selected formal semantics.}
+          - {question: "Does the ontology move data?", answer: No. Mappings, queries, services, and applications connect the ontology to operational data.}
+      - type: evidence
+        statement: Riverbend examples are instructional. W3C RDF and OWL sources define formal modeling capabilities. Ontology scope, ownership, reuse, and release decisions remain organizational responsibilities.
+        source_refs: [w3c-owl-primer, w3c-rdf-concepts]
+completion:
+  required_ids: [opening, question-check, ontology-canvas, reuse, release, decision-record]
+  rule: Complete the opening decision, competency-question check, ontology workshop, reuse and release decisions, and ontology decision record.

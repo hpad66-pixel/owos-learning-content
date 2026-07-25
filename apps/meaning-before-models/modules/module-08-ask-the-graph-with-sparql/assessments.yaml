@@ -1,0 +1,30 @@
+schema_version: 1
+module_id: mbm001:08
+assessments:
+  - {assessment_id: mbm08-opening, type: multiple-choice, cognitive_job: identify graph pattern need, prompt: "What should describe the affected-customer path?", options: [{text: A graph pattern with shared variables, correct: true}, {text: A screenshot of each source, correct: false}, {text: An unreviewed language-model guess, correct: false}], feedback: {correct: Correct. The pattern states the required route explicitly., incorrect: The question requires a machine-readable relationship pattern.}, completion_id: opening}
+  - assessment_id: mbm08-pattern-match
+    type: matching
+    cognitive_job: connect variables to graph roles
+    prompt: Match each query element to its job.
+    targets: [Returned variable, Fixed identifier, Predicate, Shared join variable]
+    pairs: [{prompt: "?account in SELECT", answer: Returned variable}, {prompt: ":Event77", answer: Fixed identifier}, {prompt: ":affects", answer: Predicate}, {prompt: "?zone repeated in two patterns", answer: Shared join variable}]
+    feedback: {correct: Correct. The stencil now has outputs anchors relationships and joins., incorrect: Read how each token participates in the graph pattern.}
+    completion_id: pattern-match
+  - {assessment_id: mbm08-interpret, type: multiple-choice, cognitive_job: interpret optional bindings, prompt: "A valid row has no phone value from an OPTIONAL pattern. What happens?", options: [{text: The row remains and phone is unbound, correct: true}, {text: The row is automatically false, correct: false}, {text: SPARQL invents a phone number, correct: false}], feedback: {correct: Correct. OPTIONAL preserves the row when that pattern is absent., incorrect: Optional absence does not remove the required match or create data.}, completion_id: interpret}
+  - assessment_id: mbm08-boundary
+    type: multi-select
+    cognitive_job: separate query capability boundaries
+    prompt: Which statements are defensible?
+    options: [{text: SPARQL matches RDF graph patterns, correct: true}, {text: A configured reasoner may expose inferred statements to a query, correct: true}, {text: SPARQL alone validates SHACL shapes, correct: false}, {text: Federation requires configured endpoints and permissions, correct: true}, {text: No rows always proves the real-world answer is false, correct: false}]
+    feedback: {correct: Correct. Query inference validation and federation remain distinct., incorrect: Keep the query language separate from adjacent configured capabilities.}
+    completion_id: boundary
+  - assessment_id: mbm08-query-sheet
+    type: applied-work-product
+    title: Question-to-Query Sheet
+    cognitive_job: document a governed graph-pattern query
+    prompt: Record the question variables patterns filter optional data expected bindings evidence sources and limitations.
+    required_fields: [utility_question, variables, graph_pattern, filter, optional_data, expected_bindings, evidence_sources, limitations]
+    field_labels: {utility_question: Utility competency question, variables: Returned and join variables, graph_pattern: Required triple patterns, filter: Filter condition, optional_data: Optional patterns, expected_bindings: Expected result bindings, evidence_sources: Dataset source groups and evidence path, limitations: Time permission entailment and no-result boundaries}
+    textarea_fields: [utility_question, variables, graph_pattern, filter, optional_data, expected_bindings, evidence_sources, limitations]
+    feedback: {correct: Your Question-to-Query Sheet makes the pattern outputs evidence and limits reviewable., incorrect: Complete every field with a readable pattern and explicit dependencies.}
+    completion_id: query-sheet

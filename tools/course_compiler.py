@@ -43,6 +43,9 @@ SUPPORTED_INTERACTIONS = {
     "triple-repair-bench",
     "identity-adjudication",
     "graph-growth-lab",
+    "hierarchy-repair",
+    "ontology-canvas",
+    "sparql-builder",
 }
 SUPPORTED_ASSESSMENTS = {
     "multiple-choice",
@@ -817,6 +820,52 @@ def render_graph_growth_lab(interaction: dict[str, Any]) -> str:
 </section>"""
 
 
+def render_hierarchy_repair(interaction: dict[str, Any]) -> str:
+    cases = "".join(
+        f'<article class="repair-card" data-hierarchy-case data-answer="{esc(item["answer"])}" data-explanation="{esc(item["explanation"])}">'
+        f'<h4>{esc(item["statement"])}</h4><p>{esc(item["consequence"])}</p><div class="button-row">'
+        + "".join(f'<button class="button" type="button" data-hierarchy-choice="{esc(choice)}">{esc(choice)}</button>' for choice in interaction["config"]["choices"])
+        + '</div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article>'
+        for item in interaction["config"]["cases"]
+    )
+    return f"""<section class="component signature-component" id="{esc(interaction['interaction_id'])}" data-hierarchy-repair
+ data-purposeful-interaction="hierarchy-repair" data-component-source="structured-module-package" data-completion="{esc(interaction['completion_id'])}">
+ <header class="component-header"><h3>{esc(interaction['title'])}</h3><span class="kind">Hierarchy consequence laboratory</span></header>
+ <div class="component-body"><p class="component-intro">{esc(interaction['instructions'])}</p><div class="repair-grid">{cases}</div>
+ <div class="feedback" data-feedback aria-live="polite">Review every classification statement.</div></div></section>"""
+
+
+def render_ontology_canvas(interaction: dict[str, Any]) -> str:
+    questions = "".join(
+        f'<article class="canvas-card"><h4>{esc(item["question"])}</h4><p>{esc(item["purpose"])}</p>'
+        f'<label>Decision<select data-canvas-answer="{esc(item["answer"])}"><option value="">Choose</option>'
+        + "".join(f'<option value="{esc(choice)}">{esc(choice)}</option>' for choice in interaction["config"]["choices"])
+        + f'</select></label><div class="item-feedback" data-item-feedback data-explanation="{esc(item["explanation"])}"></div></article>'
+        for item in interaction["config"]["decisions"]
+    )
+    return f"""<section class="component signature-component" id="{esc(interaction['interaction_id'])}" data-ontology-canvas
+ data-purposeful-interaction="ontology-canvas" data-component-source="structured-module-package" data-completion="{esc(interaction['completion_id'])}">
+ <header class="component-header"><h3>{esc(interaction['title'])}</h3><span class="kind">Bounded modeling workshop</span></header>
+ <div class="component-body"><p class="component-intro">{esc(interaction['instructions'])}</p><div class="canvas-grid">{questions}</div>
+ <button class="button primary" type="button" data-check-canvas>Review ontology slice</button>
+ <div class="feedback" data-feedback aria-live="polite"></div></div></section>"""
+
+
+def render_sparql_builder(interaction: dict[str, Any]) -> str:
+    clauses = "".join(
+        f'<button class="query-clause" type="button" data-query-clause="{index}" data-code="{esc(item["code"])}" '
+        f'data-effect="{esc(item["effect"])}"><strong>{index + 1}. {esc(item["label"])}</strong><code>{esc(item["code"])}</code></button>'
+        for index, item in enumerate(interaction["config"]["clauses"])
+    )
+    return f"""<section class="component signature-component" id="{esc(interaction['interaction_id'])}" data-sparql-builder
+ data-purposeful-interaction="sparql-builder" data-component-source="structured-module-package" data-completion="{esc(interaction['completion_id'])}">
+ <header class="component-header"><h3>{esc(interaction['title'])}</h3><span class="kind">SPARQL query laboratory</span></header>
+ <div class="component-body"><p class="component-intro">{esc(interaction['instructions'])}</p>
+ <div class="query-lab"><div class="query-clause-shelf">{clauses}</div><div class="query-console"><pre data-query-code># Select clause 1 to begin</pre>
+ <div class="query-effect" data-query-effect aria-live="polite">The graph pattern will illuminate here.</div></div></div>
+ <button class="button" type="button" data-reset-query>Reset query</button><div class="feedback" data-feedback aria-live="polite">Assemble every clause in order.</div></div></section>"""
+
+
 def render_object_router(interaction: dict[str, Any]) -> str:
     cards = []
     for index, item in enumerate(interaction["config"]["items"]):
@@ -979,6 +1028,12 @@ def render_block(
             return render_identity_adjudication(interaction)
         if interaction["component"] == "graph-growth-lab":
             return render_graph_growth_lab(interaction)
+        if interaction["component"] == "hierarchy-repair":
+            return render_hierarchy_repair(interaction)
+        if interaction["component"] == "ontology-canvas":
+            return render_ontology_canvas(interaction)
+        if interaction["component"] == "sparql-builder":
+            return render_sparql_builder(interaction)
         if interaction["component"] == "object-router":
             return render_object_router(interaction)
         return render_triple_repair_bench(interaction)

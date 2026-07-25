@@ -1,0 +1,92 @@
+schema_version: 1
+module:
+  course_id: owos-course-semantic-data-ai-001
+  module_id: mbm001:06
+  slug: module-06-taxonomies-vocabularies-and-rdfs
+  title: Taxonomies, Vocabularies, and RDF Schema
+  eyebrow: Meaning Before Models, Module 06
+  promise: Govern utility terms and hierarchies, then predict what RDF Schema statements will imply.
+  duration: 60 to 75 minutes
+  level: Foundation with optional Practitioner and Leader depth
+  archetype: classification-studio
+  signature_mechanism: hierarchy-consequence-laboratory
+  source_version: 0.2.0-structured-candidate
+learning:
+  audience: [Utility professionals and leaders, Data GIS IT OT analytics governance and AI practitioners]
+  outcomes: [Separate vocabulary taxonomy RDF Schema and validation jobs, Distinguish classes instances and properties, Repair subclass domain and range statements, Define ownership and change control, Produce a governed vocabulary sheet]
+  prior_knowledge: The learner can distinguish the five meaning layers.
+  misconception: A taxonomy RDF Schema and validation shape perform the same job.
+  transfer_task: Repair a stormwater inspection hierarchy with overlapping classes.
+sections:
+  - section_id: four-assets
+    title: Four departments say asset. They do not mean the same boundary.
+    kind: Classification opening
+    blocks:
+      - type: prose
+        paragraphs:
+          - Operations calls a telemetry point an asset. Finance means a capitalized item. Maintenance means equipment that can receive work. Geographic Information System staff include mains, valves, facilities, and sometimes service locations. None of those teams is necessarily careless. They are working inside different scopes.
+          - Start by recording each term, definition, owner, scope, and example. Do not force one word into one universal meaning before you understand the work it performs.
+      - {type: visual, visual_id: mbm06-four-jobs}
+      - {type: assessment, assessment_id: mbm06-opening}
+  - section_id: class-instance
+    title: A class is a category. An instance is one thing in it.
+    kind: Specimen cabinet
+    blocks:
+      - type: prose
+        paragraphs:
+          - Pump is a class. Pump P-104 is an instance of that class. Vertical Turbine Pump can be a more specific class beneath Pump. The physical P-104 does not become a subclass merely because it sits below Pump on a slide.
+          - A property expresses a relationship or characteristic. serves can connect Pump P-104 to Pressure Zone 3. preferredLabel can attach readable text. Keep categories, individual things, and relationships visibly different.
+      - {type: visual, visual_id: mbm06-class-instance}
+      - {type: assessment, assessment_id: mbm06-terms}
+  - section_id: taxonomy
+    title: A taxonomy arranges useful classifications
+    kind: Classification tree
+    blocks:
+      - type: prose
+        paragraphs:
+          - A taxonomy answers where a term belongs in a hierarchy. Pump can contain Rotodynamic Pump, which can contain Centrifugal Pump. One thing may belong to more than one class when the meanings are compatible and governed.
+          - The hierarchy should serve a question. If maintenance needs equipment type while emergency planning needs criticality class, two coordinated classification dimensions may be clearer than one forced tree.
+      - {type: visual, visual_id: mbm06-taxonomy-tree}
+      - {type: assessment, assessment_id: mbm06-hierarchy-match}
+  - section_id: rdfs-consequences
+    title: RDF Schema declarations have semantic consequences
+    kind: Hierarchy Consequence Laboratory
+    blocks:
+      - type: prose
+        paragraphs:
+          - RDF Schema, usually shortened to RDFS, can say one class is a subclass of another, one property is a subproperty of another, and a property's subjects or objects belong to declared classes. Those statements let software derive additional class membership.
+          - That is why a careless domain declaration can surprise you. If concerns has domain WorkOrder, then anything used as the subject of concerns is inferred to be a WorkOrder. RDFS did not run a form check. It applied the declared meaning.
+      - {type: visual, visual_id: mbm06-consequence-map}
+      - {type: interaction, interaction_id: mbm06-hierarchy-repair}
+  - section_id: governance
+    title: Definitions need owners, examples, and releases
+    kind: Leader and practitioner view
+    blocks:
+      - type: prose
+        paragraphs:
+          - A definition becomes operational only when people can find its owner, scope, examples, exclusions, effective version, and change route. Publish the vocabulary like a maintained product, not a workshop souvenir.
+          - Keep validation separate. RDFS can describe and imply meaning. Module 10 will use SHACL to check declared structural expectations. A valid shape result still will not prove that a real pump is located where the record says it is.
+      - {type: assessment, assessment_id: mbm06-boundary}
+      - {type: callout, title: Leader view, text: Ask who may approve a definition change, which systems depend on it, and how affected queries and agents are retested.}
+  - section_id: vocabulary-sheet
+    title: Release a vocabulary another team can use and challenge
+    kind: Professional application
+    blocks:
+      - type: prose
+        paragraphs:
+          - Choose one utility term with competing meanings. Record its preferred definition, narrower classes, examples, exclusions, and properties. Name the owner and release state.
+          - Add one semantic consequence and one validation boundary. That final distinction prevents future teams from treating an inference declaration as a data-quality check.
+      - {type: work_product, work_product_id: mbm06-vocabulary-sheet}
+      - type: faq
+        items:
+          - {question: "Can one thing belong to several classes?", answer: Yes. Pump P-104 may be a Vertical Turbine Pump and a Critical Asset when both classifications are defined and supported.}
+          - {question: "Who owns a definition?", answer: Name an accountable domain owner and a review group. Ownership should follow the operational meaning and its consequences.}
+          - {question: "Does RDFS validate data?", answer: No. RDFS describes semantic relationships and supports inference. SHACL is designed for declared graph validation.}
+          - {question: "Is every list a taxonomy?", answer: No. A controlled list becomes a taxonomy when governed broader and narrower relationships organize its terms.}
+          - {question: "What is the danger of a broad domain declaration?", answer: Every subject using that property may be inferred to belong to the domain class, including records you did not expect.}
+      - type: evidence
+        statement: Riverbend examples are instructional. W3C RDF Schema defines the vocabulary and semantic conditions taught here. It does not decide utility ownership, terminology policy, or real-world truth.
+        source_refs: [w3c-rdfs, w3c-rdf-concepts]
+completion:
+  required_ids: [opening, terms, hierarchy-match, hierarchy-repair, boundary, vocabulary-sheet]
+  rule: Complete the opening distinction, term retrieval, hierarchy matching, repair laboratory, boundary decision, and governed vocabulary sheet.

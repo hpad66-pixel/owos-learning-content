@@ -1,0 +1,17 @@
+schema_version: 1
+module_id: mbm001:08
+interactions:
+  - interaction_id: mbm08-sparql-builder
+    component: sparql-builder
+    title: Affected-Customer SPARQL Laboratory
+    teaching_purpose: Assemble a readable query and connect every clause to its graph effect.
+    instructions: Select the clauses in order. Read the graph effect after every addition before continuing.
+    completion_id: sparql-builder
+    config:
+      clauses:
+        - {label: SELECT variables, code: "SELECT ?account ?class ?work", effect: The result table opens three columns for the account classification and work order.}
+        - {label: WHERE opens the pattern, code: "WHERE {", effect: The required graph pattern begins. No rows can bind until its statements match.}
+        - {label: Follow the exposure path, code: "  :Event77 :affects ?zone .\n  ?pump :serves ?zone .\n  ?zone :contains ?premise .", effect: Event zone pump and premise nodes illuminate as shared variables bind.}
+        - {label: Bind account and work, code: "  ?premise :hasAccount ?account .\n  ?account :hasClass ?class .\n  ?work :concerns ?pump .", effect: Account class and work order complete the cross-domain route.}
+        - {label: Filter active accounts, code: "  ?account :hasStatus :Active .\n  FILTER(?class = :Hospital)", effect: Only active hospital accounts remain eligible.}
+        - {label: Add optional contact, code: "  OPTIONAL { ?account :hasPhone ?phone }\n} LIMIT 25", effect: Phone may bind when present without removing an otherwise valid row. The displayed results are capped at 25.}

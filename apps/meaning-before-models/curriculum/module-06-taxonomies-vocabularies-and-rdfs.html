@@ -1,47 +1,2024 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 06: Taxonomies, Vocabularies, and RDFS | One Water OS Academy</title>
-<meta name="description" content="Repair a broken utility hierarchy and distinguish controlled terms, classes, instances, properties, domains, and ranges.">
-<meta name="owos-course-id" content="owos-course-semantic-data-ai-001"><meta name="owos-learning-object" content="mbm001:06"><meta name="owos-release-state" content="retrofit-working-candidate">
-<meta name="owos-lesson-archetype" content="classification-studio"><meta name="owos-signature-mechanism" content="repair-broken-utility-hierarchy"><meta name="owos-opening-pattern" content="five-conflicting-uses-of-asset"><meta name="owos-work-product-mode" content="governed-vocabulary-sheet">
-<link rel="icon" href="data:,"><link rel="stylesheet" href="meaning-fieldbook.css"></head>
-<body data-module="module-06" data-lens="foundation"><div class="reading"></div>
-<header class="top"><div class="wrap topin"><a class="brand" href="course-meaning-before-models.html"><span class="logo">OW</span><span>One Water OS Academy</span></a><span class="crumb">Meaning Before Models / 06</span><nav class="topactions"><button class="btn" data-open-graph>Graph</button><button class="btn" data-open-community>Community</button><a class="btn primary" href="#lesson-start">Start</a></nav></div></header>
-<main><section class="wrap hero"><span class="eyebrow">Classification studio · Module 06</span><h1>Taxonomies, Vocabularies, and RDFS</h1><p>One team uses “asset” for pumps and pipes. Another includes software. Finance includes land. Operations sometimes uses it for anything with a tag. Before a machine can classify utility knowledge, people must decide what their terms include and exclude.</p><div class="meta"><span>65 minutes</span><span>Classify and correct</span><span>Hierarchy repair</span><span>Governed Vocabulary Sheet</span></div><div class="lenses" role="tablist"><button class="on" data-lens="foundation" role="tab" aria-selected="true">Foundation</button><button data-lens="practitioner" role="tab" aria-selected="false">Practitioner</button><button data-lens="leader" role="tab" aria-selected="false">Leader</button></div></section>
-<div class="wrap lesson" id="lesson-start"><div class="requirements"><div class="req" data-requirement="opening"><i></i>Choose a definition route</div><div class="req" data-requirement="repair"><i></i>Repair the hierarchy</div><div class="req" data-requirement="test"><i></i>Test domain and range</div><div class="req" data-requirement="artifact"><i></i>Save the vocabulary sheet</div><div class="req" data-requirement="applied"><i></i>Pass classification review</div></div>
-<section class="chapter narrow"><div class="chapter-head"><span class="chapter-index">Word</span><div><span class="kind">Definition dispute</span><h2>Do not settle “asset” by counting votes</h2></div></div>
-<div class="teaching"><p>A controlled vocabulary gives approved terms and definitions for a defined use. A <span class="term" data-def="A managed list of terms with preferred labels, definitions, synonyms, owners, and status.">controlled vocabulary</span> can say that “lift station” is preferred and “sewage pump station” is an alternative label in a particular organization.</p><p>A <span class="term" data-def="A classification arrangement that places broader and narrower categories into a hierarchy.">taxonomy</span> adds broader and narrower categories. Pump may sit under Rotating Equipment, which sits under Physical Asset. The hierarchy supports search, reporting, and consistent classification. It does not by itself describe every relationship a pump can have.</p></div>
-<div class="view foundation"><p>Ask what the term means, which examples belong, and which near-misses do not.</p></div><div class="view practitioner"><p>Record preferred label, alternative labels, definition, broader class, owner, status, and version.</p></div><div class="view leader"><p>Create a decision forum for contested terms. Do not let the loudest application owner define enterprise meaning by default.</p></div>
-<div class="coach" data-instructor-explanation data-teaches="opening-route vocab-comparison"><strong>Choose the governance move</strong><p>Select the response that creates a reviewable definition instead of another local convention. Then compare vocabulary, taxonomy, and RDF Schema by the job each performs.</p></div>
-<div class="panel" id="opening-route" data-opening-decision data-required="opening" data-quiz data-quiz-type="definition-route" data-quiz-source="quiz-gallery" data-correct-feedback="Correct. Start with purpose, examples, exclusions, owner, and review rather than a universal word fight." data-retry="Choose the route that produces an owned, testable definition for a stated use."><div class="panel-head">Opening studio decision <span class="kind">Definition judgment</span></div><div class="panel-body"><div class="choice-grid"><button class="choice" data-correct="0">Use the definition from the newest system.</button><button class="choice" data-correct="1">State the use, compare examples and exclusions, assign an owner, and approve a governed definition.</button><button class="choice" data-correct="0">Keep every definition under one identical label.</button></div><button class="btn primary" data-check-quiz>Choose route</button><div class="feedback" aria-live="polite"></div></div></div>
-<div class="panel" id="vocab-comparison" data-visual-type="comparison-table" data-component-source="component-gallery"><div class="panel-head">Three classification jobs <span class="kind">Governed comparison table</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Begin with a term list, add hierarchy, then add machine-readable classes and properties. Each step adds a capability without erasing the earlier governance work.</div><div class="comparison-scroll"><table><thead><tr><th>Tool</th><th>Primary job</th><th>Utility example</th><th>Does not automatically do</th></tr></thead><tbody><tr><th>Vocabulary</th><td>Control labels and definitions</td><td>Preferred name for sanitary sewer overflow</td><td>Express rich relationships</td></tr><tr><th>Taxonomy</th><td>Arrange broader and narrower classes</td><td>Pump under Rotating Equipment</td><td>Validate records or infer all meaning</td></tr><tr><th>RDF Schema</th><td>Describe classes, properties, and simple hierarchies</td><td>CentrifugalPump subclass of Pump</td><td>Prove truth or replace detailed ontology rules</td></tr></tbody></table></div><div class="conclusion" data-learner-conclusion><b>What the table clarifies:</b> A taxonomy organizes categories. RDF Schema makes selected classification and property meaning machine-readable.</div></div></div></section>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taxonomies, Vocabularies, and RDF Schema | One Water OS Academy</title>
+  <meta name="description" content="Govern utility terms and hierarchies, then predict what RDF Schema statements will imply.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:06">
+  <meta name="owos-release-state" content="structured working candidate">
+  <meta name="owos-source-version" content="0.2.0-structured-candidate">
+  <meta name="owos-compiler-version" content="1.1.0">
+  <meta name="owos-package-checksum" content="428735201e76e2ada26ed297eea243d7a626efcc6011779d53165c3fba24a091">
+  <style>:root {
+  color-scheme: light;
+  --ink: #17324d;
+  --muted: #526d7d;
+  --paper: #ffffff;
+  --wash: #eef6f5;
+  --line: #cddddd;
+  --navy: #102a43;
+  --teal: #147d88;
+  --teal-soft: #dff2ee;
+  --orange: #e8752f;
+  --orange-soft: #fff1e6;
+  --good: #157347;
+  --bad: #a63d32;
+  --shadow: 0 20px 60px rgba(23, 50, 77, .12);
+  --radius: 24px;
+}
 
-<section class="chapter"><div class="chapter-head"><span class="chapter-index">Tree</span><div><span class="kind">Hierarchy repair</span><h2>A class is not an instance, and a part is not a subclass</h2></div></div>
-<div class="teaching" data-worked-example><p>A <span class="term" data-def="A category of things that share a governed meaning, such as Pump or Outfall.">class</span> is a category. An <span class="term" data-def="A particular thing that belongs to a class, such as Pump P-104.">instance</span> is one member of that category. Pump is a class. Pump P-104 is an instance.</p><p>A <span class="term" data-def="A relationship stating that every member of one class is also a member of a broader class.">subclass</span> relationship means every member of the narrower class is also a member of the broader class. Every Centrifugal Pump is a Pump. A motor is not a subclass of Pump; it can be a component of a pump assembly. Confusing “is a kind of” with “is part of” creates a broken hierarchy.</p><p>RDF Schema (RDFS) supplies terms for <span class="term" data-def="A category of resources in RDF Schema.">rdfs:Class</span>, <span class="term" data-def="A property connecting a narrower class to a broader class.">rdfs:subClassOf</span>, labels, comments, domains, ranges, and property hierarchies.</p></div>
-<div class="coach" data-instructor-explanation data-teaches="class-tree hierarchy-repair"><strong>Read branches as “is a kind of”</strong><p>Every upward branch in the tree must pass that sentence test. Then repair the cards. If “Motor is a kind of Pump” sounds wrong, use a component relationship rather than subclass.</p></div>
-<div class="panel" id="class-tree" data-visual-type="tree" data-component-source="component-gallery"><div class="panel-head">Utility class tree <span class="kind">Tree / WBS</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Move upward using “is a kind of.” Centrifugal Pump is a kind of Pump. Pump is a kind of Physical Asset. Pump P-104 sits below the class as an instance, not as another subclass.</div><ul class="tree"><li><b>Physical Asset</b><ul><li><b>Rotating Equipment</b><ul><li><b>Pump</b><ul><li>Centrifugal Pump</li><li>Positive Displacement Pump</li></ul></li></ul></li><li><b>Conveyance Asset</b><ul><li>Pipe</li><li>Channel</li></ul></li></ul></li></ul><div class="conclusion" data-learner-conclusion><b>What the tree shows:</b> Hierarchy answers category questions. Components, locations, service areas, and owners require different properties.</div></div></div>
-<div class="panel" id="hierarchy-repair" data-purposeful-interaction="broken-utility-hierarchy-repair" data-required="repair" data-component-source="meaning-before-models-course-library" data-quiz-type="hierarchy-repair" data-quiz-source="applied-assessment-contract" data-retry="Use subclass only for “is a kind of,” instance for a particular asset, and component for part-whole."><div class="panel-head">Hierarchy repair cards <span class="kind">Classification simulation</span></div><div class="panel-body"><div class="bench" data-hierarchy>
-<label class="card" data-answer="instance">Pump P-104 → Pump<select><option></option><option value="subclass">Subclass</option><option value="instance">Instance of</option><option value="part">Part of</option></select></label>
-<label class="card" data-answer="subclass">Centrifugal Pump → Pump<select><option></option><option value="subclass">Subclass</option><option value="instance">Instance of</option><option value="part">Part of</option></select></label>
-<label class="card" data-answer="part">Motor M-22 → Pump Assembly P-104<select><option></option><option value="subclass">Subclass</option><option value="instance">Instance of</option><option value="part">Part of</option></select></label>
-<label class="card" data-answer="instance">Outfall 12 → Stormwater Outfall<select><option></option><option value="subclass">Subclass</option><option value="instance">Instance of</option><option value="part">Part of</option></select></label>
-</div><button class="btn good" data-check-hierarchy>Check repairs</button><div class="feedback" aria-live="polite"></div></div></div></section>
+* {
+  box-sizing: border-box;
+}
 
-<section class="chapter"><div class="chapter-head"><span class="chapter-index">Rule</span><div><span class="kind">Property test</span><h2>Domain and range describe expected kinds of things</h2></div></div>
-<div class="teaching"><p>A property’s <span class="term" data-def="The class of resources a property is intended to describe as subjects.">domain</span> says what kind of subject normally uses it. Its <span class="term" data-def="The class or datatype expected as the object of a property.">range</span> says what kind of object or value normally appears on the other end.</p><p>For “serves pressure zone,” the domain might be Pumping Asset and the range Pressure Zone. Be careful: in RDFS, domain and range can support classification inferences. They are not simply database validation constraints. Shapes Constraint Language later handles explicit record validation.</p></div>
-<div class="coach" data-instructor-explanation data-teaches="bad-hierarchy-chain property-test"><strong>Watch the category error spread</strong><p>The cause chain shows what happens when Motor is incorrectly made a subclass of Pump. Then test three property uses. Choose whether each use fits the declared domain and range.</p></div>
-<div class="panel" id="bad-hierarchy-chain" data-visual-type="failure-propagation-chain" data-component-source="component-gallery"><div class="panel-head">Bad hierarchy propagation <span class="kind">Failure-propagation chain</span></div><div class="panel-body"><div class="reading-guide" data-reading-guide><b>How to read it:</b> Start with the wrong subclass statement. Follow the inferred classifications into search, reporting, and agent context.</div><div class="status-strip"><div class="status"><b>Wrong model</b>Motor subclass of Pump</div><div class="status"><b>Inference</b>Every motor becomes a pump</div><div class="status"><b>Search</b>Pump inventory includes motors</div><div class="status"><b>Decision</b>Counts and maintenance context become misleading</div></div><div class="conclusion" data-learner-conclusion><b>What the chain proves:</b> A small classification error can be reused widely. Test hierarchies with ordinary sentences and real instances.</div></div></div>
-<div class="panel" id="property-test" data-purposeful-interaction="rdfs-domain-range-test" data-required="test" data-component-source="meaning-before-models-course-library" data-quiz-type="domain-range-diagnosis" data-quiz-source="quiz-gallery" data-retry="The property serves_zone expects a Pumping Asset subject and Pressure Zone object."><div class="panel-head">Domain and range clinic <span class="kind">Diagnosis</span></div><div class="panel-body"><div class="choice-grid"><button class="choice" data-fit="1">Pump P-104 serves_zone Zone 3</button><button class="choice" data-fit="0">Zone 3 serves_zone Pump P-104</button><button class="choice" data-fit="0">Procedure PR-7 serves_zone “current”</button></div><button class="btn primary" data-check-property>Check property uses</button><div class="feedback" aria-live="polite"></div></div></div></section>
+html {
+  scroll-behavior: smooth;
+}
 
-<section class="chapter narrow"><div class="chapter-head"><span class="chapter-index">Sheet</span><div><span class="kind">Professional artifact</span><h2>Create a governed vocabulary sheet</h2></div></div><div class="teaching"><p>Choose one contested utility term. Record the preferred label, plain definition, included examples, exclusions, broader class, relevant properties, owner, version, and review trigger. A useful definition changes how records are classified or decisions are made.</p></div><div class="coach" data-instructor-explanation data-teaches="vocabulary-sheet final-vocabulary-check"><strong>Write the boundary, not a dictionary slogan</strong><p>Use examples and exclusions to make the definition testable. The review checks whether another staff member could classify Pump P-104 or Outfall 12 consistently.</p></div>
-<div class="panel" id="vocabulary-sheet"><div class="panel-head">Governed Vocabulary Sheet <span class="kind">Professional work product</span></div><div class="panel-body artifact-grid"><form data-artifact="vocabulary-sheet" data-required="artifact"><label>Preferred term<input name="term" required></label><label>Plain definition<textarea name="definition" required></textarea></label><label>Included examples<textarea name="examples" required></textarea></label><label>Explicit exclusions<textarea name="exclusions" required></textarea></label><label>Broader class and key properties<textarea name="structure" required></textarea></label><label>Owner, version, and review trigger<textarea name="governance" required></textarea></label><button class="btn primary" type="submit">Save vocabulary sheet</button><div class="feedback" aria-live="polite"></div></form><pre data-artifact-preview>Complete the governed term record.</pre></div></div>
-<div class="panel" id="final-vocabulary-check" data-final-applied-check data-artifact-ref="vocabulary-sheet" data-required="applied" data-quiz-type="classification-defense" data-quiz-source="applied-assessment-contract" data-retry="Include a testable definition, examples, exclusions, class or property context, and governance."><div class="panel-head">Classification defense <span class="kind">Applied assessment</span></div><div class="panel-body"><button class="btn good" data-final-check="vocabulary-sheet" data-required="applied">Review the term</button><div class="feedback" aria-live="polite"></div></div></div></section>
+body {
+  margin: 0;
+  background: #f7faf9;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
 
-<section class="chapter faq" data-module-faq><div class="chapter-head"><span class="chapter-index">?</span><div><span class="kind">Classification FAQ</span><h2>Questions about vocabularies and RDFS</h2></div></div>
-<details><summary>Can one thing belong to several classes?</summary><p>Yes. Pump P-104 can be a Centrifugal Pump, Critical Asset, and Electrically Powered Equipment if the classifications are defined and supported.</p></details><details><summary>Who owns a definition used by several departments?</summary><p>Use a named domain owner and a cross-functional review forum. Local system owners contribute requirements, but shared meaning needs an explicit decision right.</p></details><details><summary>Does RDFS validate records?</summary><p>Not in the same way as a form or database constraint. RDFS describes classes and properties and can support inference. SHACL is designed for explicit graph-shape validation.</p></details><details><summary>Is “motor part of pump” a taxonomy relationship?</summary><p>No. A taxonomy normally expresses broader and narrower categories. Part-of is a separate semantic relationship.</p></details><details><summary>How detailed should the taxonomy become?</summary><p>Detailed enough to support real search, reporting, policy, or operational questions. Stop when added categories have no governed use or owner.</p></details></section>
-<section class="evidence" data-evidence-boundary><h2>Evidence boundary</h2><p>The hierarchy is instructional. Local utility definitions require domain review and version control.</p><ul><li><a href="https://www.w3.org/TR/rdf-schema/">RDF Schema</a></li><li><a href="https://www.w3.org/TR/skos-reference/">SKOS Reference</a></li><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF Concepts</a></li></ul></section>
-<section id="owos-course-community" class="connected"><article><span class="kind">Knowledge Graph</span><h3>Inspect classification concepts</h3><button class="btn" data-open-graph>Open Graph</button></article><article><span class="kind">Community</span><h3>Compare contested terms</h3><button class="btn" data-open-community>Open Community</button></article></section><div class="panel"><div class="panel-body"><button class="btn good" data-complete disabled>Complete lesson</button><p id="live" aria-live="polite">Complete all five requirements.</p></div></div><nav class="footnav"><a class="btn" href="module-05-five-layers-of-meaning.html">Previous</a><a class="btn" href="course-meaning-before-models.html">All modules</a><a class="btn primary" href="module-07-ontology-engineering-in-plain-language.html">Next: Ontology Engineering</a></nav></div></main>
-<div class="drawer-scrim" data-close-drawer></div><aside class="drawer" id="graphDrawer" data-drawer="graph" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Lesson Graph</h2><button class="btn" data-close-drawer>Close</button></div><div class="drawer-body"><div class="stack"><button data-graph-kind="concept"><b>Concept:</b> vocabulary and RDFS</button><button data-graph-kind="source"><b>Source:</b> RDFS and SKOS</button><button data-graph-kind="relationship"><b>Relationship:</b> subclass and instance</button><button data-graph-kind="role"><b>Role:</b> vocabulary steward</button><button data-graph-kind="competency"><b>Competency:</b> repair a hierarchy</button></div></div></aside>
-<aside class="drawer" id="communityDrawer" data-drawer="community" data-component-source="shared-component-library" aria-hidden="true"><div class="drawer-head"><h2>Learning Community</h2><button class="btn" data-close-drawer>Close</button></div><div class="drawer-body"><label data-community-feature="search">Search terms<input type="search"></label><div class="toolbar" data-community-feature="filters"><button class="btn">Assets</button><button class="btn">Events</button><button class="btn">Customers</button></div><p data-community-feature="presence">Working-review presence is simulated locally.</p><article class="card" data-community-feature="instructor-treatment"><h3>Instructor prompt</h3><p>Which everyday utility term creates the most classification disagreement?</p><button class="btn" data-community-feature="bookmarks">Bookmark</button><div data-community-feature="threaded-replies"><p><b>Course member:</b> “Failure” means alarm, loss of function, or work-order code depending on the team.</p></div></article></div></aside>
-<div id="tt" role="tooltip"></div><footer class="footer"><div class="wrap">Retrofit working candidate. No release, credential, graph publication, or operational authority claim.</div></footer><script src="meaning-fieldbook.js"></script><script>
-(()=>{document.querySelector("[data-check-hierarchy]").addEventListener("click",()=>{const cards=[...document.querySelectorAll("[data-hierarchy] label")],ok=cards.every(c=>c.querySelector("select").value===c.dataset.answer),f=document.querySelector("#hierarchy-repair .feedback");f.textContent=ok?"Hierarchy repaired. Subclass, instance, and part relationships are distinct.":"Use the sentence tests: is a kind of, is one example of, or is part of.";f.className=`feedback ${ok?"good":"bad"}`;if(ok)MBM.mark("repair");});document.querySelectorAll("[data-fit]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-fit]").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");}));document.querySelector("[data-check-property]").addEventListener("click",()=>{const ok=document.querySelector("[data-fit].selected")?.dataset.fit==="1",f=document.querySelector("#property-test .feedback");f.textContent=ok?"Correct. The subject and object fit the declared property meaning.":"Check direction and expected subject and object classes.";f.className=`feedback ${ok?"good":"bad"}`;if(ok)MBM.mark("test");});})();
-</script></body></html>
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--teal);
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.shell {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(16, 42, 67, .96);
+  color: #ffffff;
+  backdrop-filter: blur(14px);
+}
+
+.topbar-inner {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.top-actions,
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  min-height: 44px;
+  border: 1px solid #b8cfce;
+  border-radius: 999px;
+  padding: 10px 17px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--teal);
+}
+
+.button:focus-visible,
+.choice:focus-visible,
+.flip-card:focus-visible,
+.edge-button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.button.primary {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.button.good {
+  border-color: var(--good);
+  background: var(--good);
+  color: #ffffff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 9vw, 110px) 0 70px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 117, 47, .22), transparent 24%),
+    radial-gradient(circle at 12% 70%, rgba(100, 215, 207, .18), transparent 28%),
+    var(--navy);
+  color: #ffffff;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -5% -58% 35%;
+  height: 520px;
+  border: 2px solid rgba(255, 255, 255, .13);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.eyebrow,
+.kind {
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 12px 0 14px;
+  font-size: clamp(2.65rem, 7vw, 5.8rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #d9e8ef;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-meta span {
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: .9rem;
+}
+
+.progress-panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: -30px auto 52px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: var(--shadow);
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.progress-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid #9eb8b8;
+  border-radius: 50%;
+}
+
+.progress-item.done {
+  background: var(--teal-soft);
+  color: var(--ink);
+}
+
+.progress-item.done::before {
+  border-color: var(--good);
+  background: var(--good);
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.lesson-section {
+  margin: 0 auto 34px;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 14px 40px rgba(23, 50, 77, .06);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 26px;
+}
+
+.section-number {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.section-heading h2 {
+  margin: 2px 0 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.prose {
+  max-width: 790px;
+  margin: 0 auto 26px;
+  color: #28485f;
+  font-size: 1.06rem;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.callout {
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 20px 24px;
+  border-left: 6px solid var(--orange);
+  border-radius: 0 16px 16px 0;
+  background: var(--orange-soft);
+}
+
+.callout h3 {
+  margin: 0 0 5px;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.match-grid,
+.multi-grid,
+.triage-grid {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.match-row select,
+.triage-card select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.correct-field {
+  border-color: var(--good) !important;
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, .12);
+}
+
+.incorrect-field {
+  border-color: var(--bad) !important;
+}
+
+.multi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.select-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.select-option input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.select-option.selected-correct {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.select-option.selected-incorrect {
+  border-color: var(--bad);
+  background: #fff3f1;
+}
+
+.signature-component {
+  border-color: #8db9b5;
+  box-shadow: 0 18px 50px rgba(20, 125, 136, .13);
+}
+
+.triage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.triage-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #ffffff, #f4faf8);
+}
+
+.triage-card h4 {
+  margin: 4px 0 6px;
+  font-size: 1.08rem;
+}
+
+.triage-card p {
+  color: var(--muted);
+}
+
+.triage-number,
+.failure-label {
+  color: var(--teal);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.triage-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.triage-card.incorrect-card {
+  border-color: #d69a93;
+}
+
+.item-feedback {
+  min-height: 42px;
+  margin-top: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.failure-lab {
+  display: grid;
+  grid-template-columns: minmax(210px, .38fr) minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.failure-trigger {
+  grid-column: 1;
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.failure-trigger span {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.failure-trigger.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.failure-result {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.failure-result[hidden] {
+  display: none;
+}
+
+.failure-result ol {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 24px;
+}
+
+.failure-result p {
+  color: #e4f0f5;
+}
+
+.route-grid,
+.repair-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.route-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-card,
+.repair-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfdfc;
+}
+
+.route-card h4 {
+  margin: 5px 0;
+}
+
+.route-card .button.active {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.repair-card {
+  border-left: 6px solid #9eb8b8;
+}
+
+.repair-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.repair-card.incorrect-card {
+  border-color: var(--bad);
+  background: #fff8f7;
+}
+
+.broken-statement {
+  margin: 10px 0 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #102a43;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.repair-fields {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 14px;
+}
+
+.repair-fields label {
+  display: grid;
+  gap: 6px;
+  font-weight: 750;
+}
+
+.repair-fields select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+}
+
+.good-text {
+  color: var(--good);
+}
+
+.bad-text {
+  color: var(--bad);
+}
+
+.learning-visual {
+  margin: 34px 0;
+}
+
+.learning-visual h3 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+
+.reading-guide,
+.conclusion {
+  max-width: 880px;
+  margin: 12px auto;
+  padding: 16px 19px;
+  border-radius: 14px;
+}
+
+.reading-guide {
+  border: 1px solid #c9dddd;
+  background: var(--wash);
+}
+
+.conclusion {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.visual-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f7faf9;
+  box-shadow: var(--shadow);
+}
+
+.visual-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.component {
+  margin: 34px 0;
+  border: 1px solid #c8d9d9;
+  border-radius: 22px;
+  background: #fbfdfc;
+  overflow: hidden;
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.component-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.component-header .kind {
+  color: #ffb982;
+}
+
+.component-body {
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.component-intro {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.choice-grid {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.choice {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 17px;
+  border: 2px solid #cadbda;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice.selected {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.choice.correct {
+  border-color: var(--good);
+  background: #e5f4ec;
+}
+
+.choice.incorrect {
+  border-color: var(--bad);
+  background: #fae9e7;
+}
+
+.feedback {
+  min-height: 28px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.triple-builder {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.triple-builder label,
+.field-grid label,
+.work-product label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.triple-builder select,
+.field-grid input,
+.work-product input,
+.work-product textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #cadbda;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.triple-arrow {
+  padding-bottom: 12px;
+  color: var(--orange);
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.triple-output {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.flip-card {
+  min-height: 170px;
+  border: 0;
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.flip-card-inner {
+  position: relative;
+  display: grid;
+  min-height: 170px;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+}
+
+.flip-card.revealed .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border: 2px solid #bdd5d3;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  font-weight: 650;
+}
+
+.path-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.edge-button {
+  min-height: 108px;
+  border: 2px solid #c9dddd;
+  border-radius: 17px;
+  padding: 15px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.edge-button.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.edge-button strong,
+.edge-button span {
+  display: block;
+}
+
+.edge-button span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.work-product {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.artifact-preview {
+  min-height: 130px;
+  margin: 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.faq-list details {
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.faq-list summary {
+  padding: 16px 18px;
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+.evidence {
+  padding: 26px;
+  border-radius: 20px;
+  background: #e9eff2;
+}
+
+.evidence h3 {
+  margin-top: 0;
+}
+
+.connected {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 38px 0;
+}
+
+.connected article {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.connected h3 {
+  margin: 8px 0;
+  color: #ffffff;
+}
+
+.connected p {
+  color: #d9e8ef;
+}
+
+.completion {
+  margin: 36px 0 70px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  background: rgba(5, 19, 31, .56);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  width: min(520px, 100%);
+  height: 100dvh;
+  padding: 26px;
+  overflow: auto;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: -24px 0 70px rgba(5, 19, 31, .24);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-scrim.open {
+  display: block;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer h2 {
+  margin: 0;
+}
+
+.glossary-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.glossary-list article {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--wash);
+}
+
+.glossary-list h3 {
+  margin: 0 0 4px;
+}
+
+.glossary-list p {
+  margin: 0;
+}
+
+footer {
+  padding: 25px 0;
+  background: var(--navy);
+  color: #d9e8ef;
+  font-size: .9rem;
+}
+
+.docket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.docket-card {
+  border: 1px solid #b9c9d3;
+  border-top: 5px solid var(--orange);
+  background: #fffdf8;
+  padding: 1rem;
+  border-radius: .35rem;
+}
+
+.docket-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.docket-source {
+  color: #6d3d12;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.docket-card dl div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: .5rem;
+  border-top: 1px solid #dce5e9;
+  padding: .4rem 0;
+}
+
+.docket-card dt { font-weight: 800; }
+.docket-card dd { margin: 0; }
+.docket-card.passed { border-color: #15865f; background: #eefaf5; }
+.docket-card.failed { border-color: #b94343; background: #fff3f0; }
+
+.graph-lab-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.6fr); gap: 1rem; align-items: start; }
+.source-shelf, .graph-stage, .question-console { border: 1px solid var(--line); border-radius: 18px; padding: 1rem; background: #f8fafc; }
+.source-shelf { display: grid; gap: .65rem; }
+.source-shelf h4, .question-console h4 { margin: 0; }
+.source-packet { width: 100%; text-align: left; display: grid; gap: .25rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .75rem; color: #172033; cursor: pointer; }
+.source-packet span, .source-packet small { color: #526077; }
+.source-packet.active { border-color: #0f766e; background: #ecfdf5; box-shadow: inset 4px 0 #0f766e; }
+.graph-stage { min-height: 24rem; background: #101c2d; color: #f8fafc; border-color: #253957; }
+.graph-stage-header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .7rem; border-bottom: 1px solid #3a4b65; }
+.graph-stage-header span { color: #9ee7dc; font-size: .88rem; }
+.statement-ledger { display: grid; gap: .48rem; padding-top: .8rem; }
+.ledger-statement { display: grid; grid-template-columns: 8rem 1fr; gap: .65rem; padding: .56rem; border-radius: 9px; background: #172943; }
+.ledger-statement span { color: #fbbf24; font-size: .78rem; font-weight: 800; }
+.ledger-statement code { color: #f8fafc; white-space: normal; }
+.empty-state { color: #cbd5e1; }
+.question-console { margin-top: 1rem; }
+.question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+.graph-question { display: grid; gap: .35rem; text-align: left; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .8rem; color: #172033; cursor: pointer; }
+.graph-question.answered { border-color: #0f766e; background: #ecfdf5; }
+.query-result { margin-top: .8rem; padding: .9rem; border-left: 5px solid #f59e0b; background: #fff7ed; color: #3b2615; display: grid; gap: .3rem; }
+.canvas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; margin-bottom: 1rem; }
+.canvas-card { border: 1px solid var(--line); border-radius: 14px; padding: .9rem; background: #fff; }
+.canvas-card h4 { margin-top: 0; }
+.query-lab { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr); gap: 1rem; }
+.query-clause-shelf { display: grid; gap: .6rem; }
+.query-clause { display: grid; gap: .35rem; text-align: left; padding: .75rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; color: #172033; }
+.query-clause.selected { border-color: #0f766e; background: #ecfdf5; }
+.query-clause code { white-space: normal; color: #526077; }
+.query-console { border-radius: 16px; padding: 1rem; background: #101c2d; color: #f8fafc; min-height: 18rem; }
+.query-console pre { white-space: pre-wrap; color: #9ee7dc; }
+.query-effect { margin-top: 1rem; padding: .8rem; border-left: 4px solid #fbbf24; background: #172943; }
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 24px, 1140px);
+  }
+
+  .topbar-inner {
+    min-height: 58px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .top-actions .button {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: .82rem;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .progress-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-section {
+    padding: 25px 18px;
+    border-radius: 19px;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .section-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .triple-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .triple-arrow {
+    padding: 0;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .flip-grid,
+  .path-strip,
+  .field-grid,
+  .connected,
+  .multi-grid,
+  .triage-grid,
+  .route-grid,
+  .repair-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-lab-layout,
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-stage {
+    min-height: 0;
+  }
+
+  .ledger-statement {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-grid,
+  .query-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-card:last-child {
+    grid-column: auto;
+  }
+
+  .docket-card dl div {
+    grid-template-columns: 1fr;
+    gap: .1rem;
+  }
+
+  .match-row,
+  .failure-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-trigger,
+  .failure-result {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .failure-result {
+    min-height: 0;
+  }
+
+  .component-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .flip-card.revealed .flip-card-inner {
+    transform: none;
+  }
+
+  .flip-card.revealed .flip-front {
+    display: none;
+  }
+
+  .flip-back {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-module-id="mbm001:06" data-source-version="0.2.0-structured-candidate"
+  data-required-ids="[&quot;opening&quot;,&quot;terms&quot;,&quot;hierarchy-match&quot;,&quot;hierarchy-repair&quot;,&quot;boundary&quot;,&quot;vocabulary-sheet&quot;]">
+  <a class="skip-link" href="#lesson-start">Skip to lesson</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <nav class="top-actions" aria-label="Lesson tools">
+        <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
+        <a class="button primary" href="#lesson-start">Start</a>
+      </nav>
+    </div>
+  </header>
+  <main id="lesson-start">
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">Meaning Before Models, Module 06</span>
+        <h1>Taxonomies, Vocabularies, and RDF Schema</h1>
+        <p>Govern utility terms and hierarchies, then predict what RDF Schema statements will imply.</p>
+        <div class="hero-meta"><span>60 to 75 minutes</span><span>Foundation with optional Practitioner and Leader depth</span><span>classification studio</span></div>
+      </div>
+    </section>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening">Opening</div>
+<div class="progress-item" data-completion-id="terms">Terms</div>
+<div class="progress-item" data-completion-id="hierarchy-match">Hierarchy Match</div>
+<div class="progress-item" data-completion-id="hierarchy-repair">Hierarchy Repair</div>
+<div class="progress-item" data-completion-id="boundary">Boundary</div>
+<div class="progress-item" data-completion-id="vocabulary-sheet">Vocabulary Sheet</div></section>
+    <div class="shell">
+      <section class="lesson-section">
+        <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
+        <div class="prose"><ul><li>Separate vocabulary taxonomy RDF Schema and validation jobs</li><li>Distinguish classes instances and properties</li><li>Repair subclass domain and range statements</li><li>Define ownership and change control</li><li>Produce a governed vocabulary sheet</li></ul><p><strong>Misconception we will change:</strong> A taxonomy RDF Schema and validation shape perform the same job.</p></div>
+      </section>
+
+<section class="lesson-section" id="four-assets">
+  <header class="section-heading">
+    <span class="section-number">01</span>
+    <div><span class="kind">Classification opening</span><h2>Four departments say asset. They do not mean the same boundary.</h2></div>
+  </header>
+  <div class="prose"><p>Operations calls a telemetry point an asset. Finance means a capitalized item. Maintenance means equipment that can receive work. Geographic Information System staff include mains, valves, facilities, and sometimes service locations. None of those teams is necessarily careless. They are working inside different scopes.</p><p>Start by recording each term, definition, owner, scope, and example. Do not force one word into one universal meaning before you understand the work it performs.</p></div>
+
+<figure class="learning-visual" id="mbm06-four-jobs"
+  data-visual-type="classification-job-drafting-table"
+  data-component-source="structured-module-package">
+  <h3>Four meaning jobs share terms but not responsibilities</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read each drafting column from its governing question to its output</div>
+  <div class="visual-frame">
+    <img src="../modules/module-06-taxonomies-vocabularies-and-rdfs/visuals/four-jobs.svg" alt="Four columns compare vocabulary taxonomy RDF Schema and SHACL by their different jobs">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Do not use one term for four controls</figcaption>
+</figure>
+
+<section class="component" id="mbm06-opening" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="opening"
+  data-correct-feedback="Correct. Harmonization starts with explicit scope and consequences."
+  data-incorrect-feedback="Preserve and compare the meanings before choosing alignments.">
+  <header class="component-header"><h3>Four teams use asset differently. What is the strongest first move?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">Record each scope definition owner and example</button>
+<button class="choice" type="button" data-choice data-correct="false">Delete three meanings immediately</button>
+<button class="choice" type="button" data-choice data-correct="false">Let every system silently redefine the term</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="class-instance">
+  <header class="section-heading">
+    <span class="section-number">02</span>
+    <div><span class="kind">Specimen cabinet</span><h2>A class is a category. An instance is one thing in it.</h2></div>
+  </header>
+  <div class="prose"><p>Pump is a class. Pump P-104 is an instance of that class. Vertical Turbine Pump can be a more specific class beneath Pump. The physical P-104 does not become a subclass merely because it sits below Pump on a slide.</p><p>A property expresses a relationship or characteristic. serves can connect Pump P-104 to Pressure Zone 3. preferredLabel can attach readable text. Keep categories, individual things, and relationships visibly different.</p></div>
+
+<figure class="learning-visual" id="mbm06-class-instance"
+  data-visual-type="classification-specimen-cabinet"
+  data-component-source="structured-module-package">
+  <h3>Classes instances and properties occupy different drawers</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Compare the three cabinet drawers and the example inside each</div>
+  <div class="visual-frame">
+    <img src="../modules/module-06-taxonomies-vocabularies-and-rdfs/visuals/class-instance.svg" alt="A specimen cabinet separates Pump class Pump P-104 instance and serves property">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> P-104 is an instance of Pump rather than a subclass</figcaption>
+</figure>
+
+<section class="component" id="mbm06-terms" data-flip-group
+  data-purposeful-interaction="flip-cards" data-quiz-type="flip-cards"
+  data-quiz-source="structured-module-package"
+  data-completion="terms"
+  data-correct-feedback="You can now keep categories individual things relationships and hierarchies separate.">
+  <header class="component-header"><h3>Say the definition before turning each card.</h3><span class="kind">Flip-card retrieval</span></header>
+  <div class="component-body">
+    <p class="component-intro">Say the answer before selecting each card. Select all four cards to complete this retrieval check.</p>
+    <div class="flip-grid">
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Class</span>
+    <span class="flip-face flip-back">A category of things.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Instance</span>
+    <span class="flip-face flip-back">One identified member of a class.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Property</span>
+    <span class="flip-face flip-back">A named relationship or characteristic.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Taxonomy</span>
+    <span class="flip-face flip-back">A governed broader and narrower classification arrangement.</span>
+  </span>
+</button></div>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="taxonomy">
+  <header class="section-heading">
+    <span class="section-number">03</span>
+    <div><span class="kind">Classification tree</span><h2>A taxonomy arranges useful classifications</h2></div>
+  </header>
+  <div class="prose"><p>A taxonomy answers where a term belongs in a hierarchy. Pump can contain Rotodynamic Pump, which can contain Centrifugal Pump. One thing may belong to more than one class when the meanings are compatible and governed.</p><p>The hierarchy should serve a question. If maintenance needs equipment type while emergency planning needs criticality class, two coordinated classification dimensions may be clearer than one forced tree.</p></div>
+
+<figure class="learning-visual" id="mbm06-taxonomy-tree"
+  data-visual-type="utility-taxonomy-tree"
+  data-component-source="structured-module-package">
+  <h3>Utility classes branch while P-104 belongs</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow class branches downward then inspect the circular P-104 instance beneath Pump</div>
+  <div class="visual-frame">
+    <img src="../modules/module-06-taxonomies-vocabularies-and-rdfs/visuals/taxonomy-tree.svg" alt="Utility Asset branches into water wastewater and stormwater classes while Pump P-104 appears as an instance">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Hierarchy and membership are not the same relationship</figcaption>
+</figure>
+
+<section class="component" id="mbm06-hierarchy-match" data-matching
+  data-purposeful-interaction="matching" data-quiz-type="matching"
+  data-quiz-source="structured-module-package"
+  data-completion="hierarchy-match"
+  data-correct-feedback="Correct. The hierarchy now has clean semantic roles."
+  data-incorrect-feedback="Separate the category the individual the relationship and the explanatory text.">
+  <header class="component-header"><h3>Match each item to its correct role.</h3><span class="kind">Relationship matching</span></header>
+  <div class="component-body">
+    <p class="component-intro">Match each ordinary-language question to the job that answers it. Check all rows together, then revise any row that needs another look.</p>
+    <div class="match-grid">
+<label class="match-row">
+  <span>Pump</span>
+  <select data-match-answer="Class"><option value="">Choose a meaning job</option><option value="Class">Class</option><option value="Instance">Instance</option><option value="Property">Property</option><option value="Definition">Definition</option></select>
+</label>
+<label class="match-row">
+  <span>Pump P-104</span>
+  <select data-match-answer="Instance"><option value="">Choose a meaning job</option><option value="Class">Class</option><option value="Instance">Instance</option><option value="Property">Property</option><option value="Definition">Definition</option></select>
+</label>
+<label class="match-row">
+  <span>serves</span>
+  <select data-match-answer="Property"><option value="">Choose a meaning job</option><option value="Class">Class</option><option value="Instance">Instance</option><option value="Property">Property</option><option value="Definition">Definition</option></select>
+</label>
+<label class="match-row">
+  <span>Equipment that imparts energy to water</span>
+  <select data-match-answer="Definition"><option value="">Choose a meaning job</option><option value="Class">Class</option><option value="Instance">Instance</option><option value="Property">Property</option><option value="Definition">Definition</option></select>
+</label></div>
+    <button class="button primary" type="button" data-check-matching>Check the matches</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="rdfs-consequences">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Hierarchy Consequence Laboratory</span><h2>RDF Schema declarations have semantic consequences</h2></div>
+  </header>
+  <div class="prose"><p>RDF Schema, usually shortened to RDFS, can say one class is a subclass of another, one property is a subproperty of another, and a property&#x27;s subjects or objects belong to declared classes. Those statements let software derive additional class membership.</p><p>That is why a careless domain declaration can surprise you. If concerns has domain WorkOrder, then anything used as the subject of concerns is inferred to be a WorkOrder. RDFS did not run a form check. It applied the declared meaning.</p></div>
+
+<figure class="learning-visual" id="mbm06-consequence-map"
+  data-visual-type="rdfs-semantic-consequence-map"
+  data-component-source="structured-module-package">
+  <h3>One broad domain declaration can classify an unexpected record</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read declaration data statement and inferred class from left to right then inspect what did not happen</div>
+  <div class="visual-frame">
+    <img src="../modules/module-06-taxonomies-vocabularies-and-rdfs/visuals/consequence-map.svg" alt="A domain declaration and data statement lead to an unexpected WorkOrder class inference">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Predict the inference before releasing the schema</figcaption>
+</figure>
+<section class="component signature-component" id="mbm06-hierarchy-repair" data-hierarchy-repair
+ data-purposeful-interaction="hierarchy-repair" data-component-source="structured-module-package" data-completion="hierarchy-repair">
+ <header class="component-header"><h3>Hierarchy Consequence Laboratory</h3><span class="kind">Hierarchy consequence laboratory</span></header>
+ <div class="component-body"><p class="component-intro">For each statement, choose Accept, Repair, or Reject. Use the explanation to inspect what RDFS would imply.</p><div class="repair-grid"><article class="repair-card" data-hierarchy-case data-answer="Accept" data-explanation="This is the intended upward classification."><h4>VerticalTurbinePump subClassOf Pump</h4><p>P-104 typed as VerticalTurbinePump is also a Pump.</p><div class="button-row"><button class="button" type="button" data-hierarchy-choice="Accept">Accept</button><button class="button" type="button" data-hierarchy-choice="Repair">Repair</button><button class="button" type="button" data-hierarchy-choice="Reject">Reject</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="repair-card" data-hierarchy-case data-answer="Repair" data-explanation="State Pump_P104 rdf:type Pump instead."><h4>Pump_P104 subClassOf Pump</h4><p>One physical pump is incorrectly modeled as a class.</p><div class="button-row"><button class="button" type="button" data-hierarchy-choice="Accept">Accept</button><button class="button" type="button" data-hierarchy-choice="Repair">Repair</button><button class="button" type="button" data-hierarchy-choice="Reject">Reject</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="repair-card" data-hierarchy-case data-answer="Accept" data-explanation="Accept only when that broad semantic commitment is intended."><h4>concerns domain WorkOrder</h4><p>Every subject using concerns is inferred to be a WorkOrder.</p><div class="button-row"><button class="button" type="button" data-hierarchy-choice="Accept">Accept</button><button class="button" type="button" data-hierarchy-choice="Repair">Repair</button><button class="button" type="button" data-hierarchy-choice="Reject">Reject</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="repair-card" data-hierarchy-case data-answer="Reject" data-explanation="The object should be a location class"><h4>locatedAt range Pump</h4><p>Every object of locatedAt is inferred to be a Pump.</p><div class="button-row"><button class="button" type="button" data-hierarchy-choice="Accept">Accept</button><button class="button" type="button" data-hierarchy-choice="Repair">Repair</button><button class="button" type="button" data-hierarchy-choice="Reject">Reject</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="repair-card" data-hierarchy-case data-answer="Repair" data-explanation="Use a property such as hasCriticalityClassification with a clear range."><h4>criticalAsset subPropertyOf hasClassification</h4><p>Every criticalAsset relationship is also a classification relationship.</p><div class="button-row"><button class="button" type="button" data-hierarchy-choice="Accept">Accept</button><button class="button" type="button" data-hierarchy-choice="Repair">Repair</button><button class="button" type="button" data-hierarchy-choice="Reject">Reject</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div>
+ <div class="feedback" data-feedback aria-live="polite">Review every classification statement.</div></div></section>
+</section>
+<section class="lesson-section" id="governance">
+  <header class="section-heading">
+    <span class="section-number">05</span>
+    <div><span class="kind">Leader and practitioner view</span><h2>Definitions need owners, examples, and releases</h2></div>
+  </header>
+  <div class="prose"><p>A definition becomes operational only when people can find its owner, scope, examples, exclusions, effective version, and change route. Publish the vocabulary like a maintained product, not a workshop souvenir.</p><p>Keep validation separate. RDFS can describe and imply meaning. Module 10 will use SHACL to check declared structural expectations. A valid shape result still will not prove that a real pump is located where the record says it is.</p></div>
+
+<section class="component" id="mbm06-boundary" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="boundary"
+  data-correct-feedback="Correct. Range participates in semantic inference."
+  data-incorrect-feedback="RDFS semantics do not perform SHACL validation or prove reality.">
+  <header class="component-header"><h3>A property range says Location. What does RDFS do?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">It can infer that objects of the property are Locations</button>
+<button class="choice" type="button" data-choice data-correct="false">It rejects every nonconforming record like a form validator</button>
+<button class="choice" type="button" data-choice data-correct="false">It proves the recorded location is physically correct</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Leader view</h3><p>Ask who may approve a definition change</p></aside>
+</section>
+<section class="lesson-section" id="vocabulary-sheet">
+  <header class="section-heading">
+    <span class="section-number">06</span>
+    <div><span class="kind">Professional application</span><h2>Release a vocabulary another team can use and challenge</h2></div>
+  </header>
+  <div class="prose"><p>Choose one utility term with competing meanings. Record its preferred definition, narrower classes, examples, exclusions, and properties. Name the owner and release state.</p><p>Add one semantic consequence and one validation boundary. That final distinction prevents future teams from treating an inference declaration as a data-quality check.</p></div>
+
+<section class="component" id="mbm06-vocabulary-sheet"
+  data-purposeful-interaction="applied-work-product"
+  data-component-source="structured-module-package">
+  <header class="component-header"><h3>Governed Vocabulary and Taxonomy Sheet</h3><span class="kind">Professional work product</span></header>
+  <div class="component-body">
+    <p class="component-intro">Record the term definition hierarchy examples exclusions properties consequence owner release and validation boundary.</p>
+    <form class="work-product" data-work-product="mbm06-vocabulary-sheet"
+      data-artifact="mbm06-vocabulary-sheet"
+      data-completion="vocabulary-sheet"
+      data-correct-feedback="Your vocabulary sheet is scoped owned versioned and semantically explicit."
+      data-incorrect-feedback="Complete every field with reviewable language and a clear validation boundary.">
+      <div class="field-grid"><label>Preferred term and definition<textarea name="term_definition" rows="3" required></textarea></label><label>Broader and narrower classes<textarea name="hierarchy" rows="3" required></textarea></label><label>Examples and exclusions<textarea name="examples_exclusions" rows="3" required></textarea></label><label>Relevant properties<textarea name="properties" rows="3" required></textarea></label><label>Intended RDFS consequence<textarea name="semantic_consequence" rows="3" required></textarea></label><label>Accountable owner<textarea name="owner" rows="3" required></textarea></label><label>Version effective date and state<textarea name="release_state" rows="3" required></textarea></label></div>
+      <label>What RDFS does not validate<textarea name="validation_boundary" rows="3" required></textarea></label>
+      <button class="button primary" type="submit">Save Governed Vocabulary and Taxonomy Sheet</button>
+      <div class="feedback" data-feedback aria-live="polite"></div>
+      <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
+    </form>
+  </div>
+</section>
+
+<section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
+  <h3 id="faq-heading">Questions people actually ask</h3>
+  <details><summary>Can one thing belong to several classes?</summary><p>Yes. Pump P-104 may be a Vertical Turbine Pump and a Critical Asset when both classifications are defined and supported.</p></details>
+<details><summary>Who owns a definition?</summary><p>Name an accountable domain owner and a review group. Ownership should follow the operational meaning and its consequences.</p></details>
+<details><summary>Does RDFS validate data?</summary><p>No. RDFS describes semantic relationships and supports inference. SHACL is designed for declared graph validation.</p></details>
+<details><summary>Is every list a taxonomy?</summary><p>No. A controlled list becomes a taxonomy when governed broader and narrower relationships organize its terms.</p></details>
+<details><summary>What is the danger of a broad domain declaration?</summary><p>Every subject using that property may be inferred to belong to the domain class</p></details>
+</section>
+
+<section class="evidence" data-evidence-boundary>
+  <h3>Evidence boundary</h3>
+  <p>Riverbend examples are instructional. W3C RDF Schema defines the vocabulary and semantic conditions taught here. It does not decide utility ownership, terminology policy, or real-world truth.</p>
+  <ul><li><a href="https://www.w3.org/TR/rdf12-schema/">RDF 1.2 Schema</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Data Model</a>, World Wide Web Consortium</li></ul>
+</section>
+</section>
+      <section id="owos-course-community" class="connected">
+        <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+      </section>
+      <section class="completion">
+        <h2>Complete the working candidate</h2>
+        <p>Complete the opening distinction, term retrieval, hierarchy matching, repair laboratory, boundary decision, and governed vocabulary sheet.</p>
+        <button class="button good" type="button" data-complete-module disabled>Complete module</button>
+        <p data-completion-status aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <div class="drawer-scrim" data-drawer-scrim></div>
+  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+    <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <div class="glossary-list"><article><h3>RDF 1.2 Schema</h3><p>classes properties subclass subproperty domain range labels and comments</p><a href="https://www.w3.org/TR/rdf12-schema/">Open source</a></article><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>RDF resources triples graphs and vocabularies</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article></div>
+  </aside>
+  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article><h3>controlled vocabulary</h3><p>An approved set of terms with governed meanings.</p></article><article><h3>taxonomy</h3><p>A governed broader and narrower classification arrangement.</p></article><article><h3>class</h3><p>A category of resources.</p></article><article><h3>instance</h3><p>One resource that belongs to a class.</p></article><article><h3>property</h3><p>A named relationship or characteristic.</p></article><article><h3>subclass</h3><p>A class whose members are also members of a broader class.</p></article><article><h3>domain</h3><p>A class inferred for subjects using a property.</p></article><article><h3>range</h3><p>A class inferred for objects used with a property.</p></article><article><h3>RDF Schema</h3><p>The RDF vocabulary for describing classes properties and semantic relationships.</p></article></div>
+  </aside>
+  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-structured-candidate. No credential or operational authority.</div></footer>
+  <script>(() => {
+  "use strict";
+
+  const required = JSON.parse(document.body.dataset.requiredIds || "[]");
+  const stateKey = `owos-module:${document.body.dataset.moduleId}:${document.body.dataset.sourceVersion}`;
+  const completed = new Set();
+  let lastDrawerTrigger = null;
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(stateKey) || "[]");
+    saved.forEach((id) => completed.add(id));
+  } catch {
+    localStorage.removeItem(stateKey);
+  }
+
+  function saveState() {
+    localStorage.setItem(stateKey, JSON.stringify([...completed].sort()));
+  }
+
+  function refreshCompletion() {
+    document.querySelectorAll("[data-completion-id]").forEach((item) => {
+      item.classList.toggle("done", completed.has(item.dataset.completionId));
+    });
+    const ready = required.every((id) => completed.has(id));
+    const button = document.querySelector("[data-complete-module]");
+    const status = document.querySelector("[data-completion-status]");
+    if (button) button.disabled = !ready;
+    if (status) {
+      const count = required.filter((id) => completed.has(id)).length;
+      status.textContent = ready
+        ? "All required evidence is complete. You can complete this working candidate."
+        : `${count} of ${required.length} required activities complete.`;
+    }
+  }
+
+  function mark(id) {
+    if (!id) return;
+    completed.add(id);
+    saveState();
+    refreshCompletion();
+  }
+
+  document.querySelectorAll("[data-choice-group]").forEach((group) => {
+    let selected = null;
+    group.querySelectorAll("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        group.querySelectorAll("[data-choice]").forEach((item) => item.classList.remove("selected"));
+        button.classList.add("selected");
+        selected = button;
+      });
+    });
+    group.querySelector("[data-check-choice]")?.addEventListener("click", () => {
+      const feedback = group.querySelector("[data-feedback]");
+      if (!selected) {
+        feedback.textContent = "Choose one response first.";
+        feedback.className = "feedback bad";
+        return;
+      }
+      const correct = selected.dataset.correct === "true";
+      selected.classList.add(correct ? "correct" : "incorrect");
+      feedback.textContent = correct ? group.dataset.correctFeedback : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-flip-group]").forEach((group) => {
+    const cards = [...group.querySelectorAll("[data-flip-card]")];
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const revealed = !card.classList.contains("revealed");
+        card.classList.toggle("revealed", revealed);
+        card.setAttribute("aria-pressed", String(revealed));
+        if (cards.every((item) => item.classList.contains("revealed"))) {
+          mark(group.dataset.completion);
+          const feedback = group.querySelector("[data-feedback]");
+          feedback.textContent = group.dataset.correctFeedback;
+          feedback.className = "feedback good";
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-matching]").forEach((group) => {
+    group.querySelector("[data-check-matching]")?.addEventListener("click", () => {
+      const rows = [...group.querySelectorAll("[data-match-answer]")];
+      const feedback = group.querySelector("[data-feedback]");
+      let correctCount = 0;
+      rows.forEach((field) => {
+        const correct = field.value === field.dataset.matchAnswer;
+        field.classList.toggle("correct-field", correct);
+        field.classList.toggle("incorrect-field", !correct);
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === rows.length;
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : `${group.dataset.incorrectFeedback} ${correctCount} of ${rows.length} are correctly matched.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-multi-select]").forEach((group) => {
+    group.querySelector("[data-check-multi]")?.addEventListener("click", () => {
+      const options = [...group.querySelectorAll("[data-multi-option]")];
+      const feedback = group.querySelector("[data-feedback]");
+      const correct = options.every(
+        (option) => option.checked === (option.dataset.correct === "true")
+      );
+      options.forEach((option) => {
+        option.closest(".select-option")?.classList.toggle(
+          "selected-correct",
+          option.checked && option.dataset.correct === "true"
+        );
+        option.closest(".select-option")?.classList.toggle(
+          "selected-incorrect",
+          option.checked && option.dataset.correct !== "true"
+        );
+      });
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-triple-builder]").forEach((builder) => {
+    const selects = [...builder.querySelectorAll("select")];
+    const correct = JSON.parse(builder.dataset.correct);
+    const output = builder.querySelector("[data-triple-output]");
+    const feedback = builder.querySelector("[data-feedback]");
+    const reverseButton = builder.querySelector("[data-reverse]");
+    let built = false;
+    let reversed = false;
+
+    builder.querySelector("[data-check-triple]").addEventListener("click", () => {
+      const values = selects.map((field) => field.value);
+      output.textContent = values.every(Boolean) ? values.join("  →  ") : "Choose all three positions.";
+      built = values.every((value, index) => value === correct[index]);
+      reverseButton.disabled = !built;
+      feedback.textContent = built
+        ? "Correct. Now reverse the ends and inspect what the statement says."
+        : "Use Pump_P104 as subject, serves as predicate, and Pressure_Zone_3 as object.";
+      feedback.className = `feedback ${built ? "good" : "bad"}`;
+    });
+
+    reverseButton.addEventListener("click", () => {
+      const first = selects[0].value;
+      selects[0].value = selects[2].value;
+      selects[2].value = first;
+      reversed = true;
+      output.textContent = selects.map((field) => field.value).join("  →  ");
+      feedback.textContent = "The words are familiar, but the direction now says the pressure zone serves the pump.";
+      feedback.className = "feedback bad";
+    });
+
+    builder.querySelector("[data-finish-triple]").addEventListener("click", () => {
+      const explanation = builder.querySelector("textarea").value.trim();
+      const enough = explanation.length >= Number(builder.dataset.minimumExplanation);
+      if (built && reversed && enough) {
+        mark(builder.dataset.completion);
+        feedback.textContent = "Complete. You showed that direction carries meaning.";
+        feedback.className = "feedback good";
+      } else {
+        feedback.textContent = "Build the correct triple, reverse it, and explain the changed meaning in one full sentence.";
+        feedback.className = "feedback bad";
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-path-tracer]").forEach((tracer) => {
+    const edges = [...tracer.querySelectorAll("[data-edge-index]")];
+    const feedback = tracer.querySelector("[data-feedback]");
+    let expected = 0;
+    edges.forEach((edge) => {
+      edge.addEventListener("click", () => {
+        const index = Number(edge.dataset.edgeIndex);
+        if (index !== expected) {
+          feedback.textContent = `Start with edge ${expected + 1}. A path only works when its relationships connect in order.`;
+          feedback.className = "feedback bad";
+          return;
+        }
+        edge.classList.add("active");
+        expected += 1;
+        feedback.textContent = edge.dataset.explanation;
+        feedback.className = "feedback good";
+        if (expected === edges.length) mark(tracer.dataset.completion);
+      });
+    });
+    tracer.querySelector("[data-reset-path]").addEventListener("click", () => {
+      expected = 0;
+      edges.forEach((edge) => edge.classList.remove("active"));
+      feedback.textContent = "Path reset. Begin with edge 1.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-artifact-classifier]").forEach((desk) => {
+    const items = [...desk.querySelectorAll("[data-triage-item]")];
+    const feedback = desk.querySelector("[data-feedback]");
+    desk.querySelector("[data-check-triage]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      items.forEach((item) => {
+        const field = item.querySelector("select");
+        const correct = field.value === item.dataset.answer;
+        const itemFeedback = item.querySelector("[data-item-feedback]");
+        item.classList.toggle("correct-card", correct);
+        item.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Correct. ${item.dataset.explanation}`
+          : `Try again. Ask what primary job this artifact performs here. ${item.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === items.length;
+      feedback.textContent = correct
+        ? "The desk is organized. The same event now has distinct structures, classifications, meanings, mappings, and runtime controls."
+        : `${correctCount} of ${items.length} artifacts are correctly placed. Use the explanation under each artifact and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(desk.dataset.completion);
+    });
+    desk.querySelector("[data-reset-triage]")?.addEventListener("click", () => {
+      items.forEach((item) => {
+        item.querySelector("select").value = "";
+        item.classList.remove("correct-card", "incorrect-card");
+        item.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "The triage desk is reset.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-failure-trace]").forEach((lab) => {
+    const triggers = [...lab.querySelectorAll("[data-failure-trigger]")];
+    const visited = new Set();
+    const feedback = lab.querySelector("[data-feedback]");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const job = trigger.dataset.failureTrigger;
+        visited.add(job);
+        triggers.forEach((item) => {
+          item.classList.toggle("active", item === trigger);
+          item.setAttribute("aria-pressed", String(item === trigger));
+        });
+        lab.querySelectorAll("[data-failure-result]").forEach((result) => {
+          result.hidden = result.dataset.failureResult !== job;
+        });
+        feedback.textContent =
+          visited.size === triggers.length
+            ? "All five paths inspected. The symptom appears in the answer, but the first repair belongs at the first broken job."
+            : `${visited.size} of ${triggers.length} failure paths inspected.`;
+        feedback.className = "feedback good";
+        if (visited.size === triggers.length) mark(lab.dataset.completion);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-object-router]").forEach((router) => {
+    const items = [...router.querySelectorAll("[data-route-item]")];
+    const feedback = router.querySelector("[data-feedback]");
+    items.forEach((item) => {
+      item.querySelectorAll("[data-route-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          item.querySelectorAll("[data-route-choice]").forEach((choice) => choice.classList.remove("active"));
+          button.classList.add("active");
+          const correct = button.dataset.routeChoice === item.dataset.answer;
+          item.dataset.complete = String(correct);
+          const itemFeedback = item.querySelector("[data-item-feedback]");
+          itemFeedback.textContent = correct
+            ? `Correct. ${item.dataset.explanation}`
+            : `Try the other branch. ${item.dataset.explanation}`;
+          itemFeedback.className = `item-feedback ${correct ? "good-text" : "bad-text"}`;
+          if (items.every((candidate) => candidate.dataset.complete === "true")) {
+            feedback.textContent = "Every object is correctly routed. Resource objects continue relationships; literals carry values.";
+            feedback.className = "feedback good";
+            mark(router.dataset.completion);
+          }
+        });
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-triple-repair-bench]").forEach((bench) => {
+    const cards = [...bench.querySelectorAll("[data-repair-card]")];
+    const feedback = bench.querySelector("[data-feedback]");
+    bench.querySelector("[data-check-repairs]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      cards.forEach((card) => {
+        const defectCorrect = card.querySelector("[data-defect-field]").value === card.dataset.defect;
+        const repairCorrect = card.querySelector("[data-repair-field]").value === card.dataset.repair;
+        const correct = defectCorrect && repairCorrect;
+        const itemFeedback = card.querySelector("[data-item-feedback]");
+        card.classList.toggle("correct-card", correct);
+        card.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Repair accepted. ${card.dataset.explanation}`
+          : `Inspect both the failed position and the smallest repair. ${card.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === cards.length;
+      feedback.textContent = correct
+        ? "All four statements are repaired without claiming more than their evidence supports."
+        : `${correctCount} of ${cards.length} repairs pass review. Read each explanation and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(bench.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-identity-adjudication]").forEach((docket) => {
+    const records = [...docket.querySelectorAll("[data-docket-record]")];
+    const feedback = docket.querySelector("[data-feedback]");
+    docket.querySelector("[data-check-docket]")?.addEventListener("click", () => {
+      let correct = 0;
+      records.forEach((record) => {
+        const passed = record.querySelector("select").value === record.dataset.answer;
+        record.classList.toggle("passed", passed);
+        record.classList.toggle("failed", !passed);
+        record.querySelector("[data-item-feedback]").textContent = passed
+          ? `Finding accepted. ${record.dataset.explanation}`
+          : "That finding does not fit the evidence. Separate the physical asset from records about it, and preserve contradictions.";
+        if (passed) correct += 1;
+      });
+      if (correct === records.length) {
+        feedback.textContent = "Docket complete. Approved identity, related records, and the unresolved conflict remain visibly different.";
+        feedback.className = "feedback good";
+        mark(docket.dataset.completion);
+      } else {
+        feedback.textContent = `${correct} of ${records.length} findings are supported. Review the evidence and retry.`;
+        feedback.className = "feedback bad";
+      }
+    });
+    docket.querySelector("[data-reset-docket]")?.addEventListener("click", () => {
+      records.forEach((record) => {
+        record.querySelector("select").value = "";
+        record.classList.remove("passed", "failed");
+        record.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "Review all five records.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-graph-growth-lab]").forEach((lab) => {
+    const sources = JSON.parse(lab.dataset.sourceStatements || "[]");
+    const loaded = new Set();
+    const tested = new Set();
+    const ledger = lab.querySelector("[data-statement-ledger]");
+    const count = lab.querySelector("[data-graph-count]");
+    const result = lab.querySelector("[data-query-result]");
+    const feedback = lab.querySelector("[data-feedback]");
+
+    function renderLedger() {
+      const statements = sources.filter((source) => loaded.has(source.source))
+        .flatMap((source) => source.statements.map((statement) => ({ ...statement, source: source.source })));
+      count.textContent = `${statements.length} statements loaded from ${loaded.size} source packets`;
+      ledger.innerHTML = statements.length
+        ? statements.map((statement) => `<article class="ledger-statement"><span>${statement.source}</span><code>${statement.subject} → ${statement.predicate} → ${statement.object}</code></article>`).join("")
+        : '<p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p>';
+      lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+        const active = loaded.has(button.dataset.sourcePacket);
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        const source = button.dataset.sourcePacket;
+        loaded.has(source) ? loaded.delete(source) : loaded.add(source);
+        tested.clear();
+        lab.querySelectorAll("[data-graph-question]").forEach((question) => question.classList.remove("answered"));
+        result.textContent = "The graph changed. Test the competency questions again.";
+        renderLedger();
+      });
+    });
+
+    lab.querySelectorAll("[data-graph-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const requires = JSON.parse(button.dataset.requires || "[]");
+        const missing = requires.filter((source) => !loaded.has(source));
+        tested.add(button.dataset.graphQuestion);
+        if (missing.length) {
+          result.innerHTML = `<strong>Not answerable yet.</strong><span>Missing reviewed statements from: ${missing.join(", ")}.</span>`;
+          button.classList.remove("answered");
+        } else {
+          result.innerHTML = `<strong>${button.dataset.answer}</strong><span>Evidence path: ${button.dataset.path}</span>`;
+          button.classList.add("answered");
+        }
+        const allAnswerable = [...lab.querySelectorAll("[data-graph-question]")].every((question) => {
+          const needed = JSON.parse(question.dataset.requires || "[]");
+          return tested.has(question.dataset.graphQuestion) && needed.every((source) => loaded.has(source));
+        });
+        feedback.textContent = allAnswerable
+          ? "All three questions are answerable through explicit, source-bounded paths."
+          : "Keep growing the graph until every question has a complete evidence path.";
+        feedback.className = `feedback ${allAnswerable ? "good" : ""}`;
+        if (allAnswerable) mark(lab.dataset.completion);
+      });
+    });
+
+    lab.querySelector("[data-reset-graph]")?.addEventListener("click", () => {
+      loaded.clear();
+      tested.clear();
+      result.textContent = "No question tested yet.";
+      lab.querySelectorAll("[data-graph-question]").forEach((button) => button.classList.remove("answered"));
+      renderLedger();
+    });
+    renderLedger();
+  });
+
+  document.querySelectorAll("[data-hierarchy-repair]").forEach((lab) => {
+    const cases = [...lab.querySelectorAll("[data-hierarchy-case]")];
+    const feedback = lab.querySelector("[data-feedback]");
+    cases.forEach((card) => card.querySelectorAll("[data-hierarchy-choice]").forEach((button) => button.addEventListener("click", () => {
+      const correct = button.dataset.hierarchyChoice === card.dataset.answer;
+      card.querySelectorAll("button").forEach((item) => item.classList.toggle("selected", item === button));
+      card.dataset.passed = String(correct);
+      card.querySelector("[data-item-feedback]").textContent = correct ? card.dataset.explanation : `Review the semantic consequence. ${card.dataset.explanation}`;
+      const passed = cases.filter((item) => item.dataset.passed === "true").length;
+      feedback.textContent = passed === cases.length ? "The hierarchy now preserves the intended utility meanings." : `${passed} of ${cases.length} decisions are defensible.`;
+      if (passed === cases.length) mark(lab.dataset.completion);
+    })));
+  });
+
+  document.querySelectorAll("[data-ontology-canvas]").forEach((canvas) => {
+    canvas.querySelector("[data-check-canvas]")?.addEventListener("click", () => {
+      const fields = [...canvas.querySelectorAll("[data-canvas-answer]")];
+      let correct = 0;
+      fields.forEach((field) => {
+        const passed = field.value === field.dataset.canvasAnswer;
+        field.closest(".canvas-card").querySelector("[data-item-feedback]").textContent = passed
+          ? field.closest(".canvas-card").querySelector("[data-item-feedback]").dataset.explanation
+          : "Recheck the competency question, scope, and evidence boundary.";
+        if (passed) correct += 1;
+      });
+      const feedback = canvas.querySelector("[data-feedback]");
+      feedback.textContent = correct === fields.length ? "The ontology slice is bounded, testable, and ready for domain review." : `${correct} of ${fields.length} modeling decisions pass.`;
+      feedback.className = `feedback ${correct === fields.length ? "good" : "bad"}`;
+      if (correct === fields.length) mark(canvas.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-sparql-builder]").forEach((lab) => {
+    const clauses = [...lab.querySelectorAll("[data-query-clause]")];
+    const selected = [];
+    const code = lab.querySelector("[data-query-code]");
+    const effect = lab.querySelector("[data-query-effect]");
+    const feedback = lab.querySelector("[data-feedback]");
+    clauses.forEach((button, index) => button.addEventListener("click", () => {
+      if (index !== selected.length) {
+        effect.textContent = `Clause ${index + 1} cannot run yet. Add clause ${selected.length + 1} first.`;
+        return;
+      }
+      selected.push(button.dataset.code);
+      button.classList.add("selected");
+      button.disabled = true;
+      code.textContent = selected.join("\n");
+      effect.textContent = button.dataset.effect;
+      feedback.textContent = selected.length === clauses.length ? "The complete query pattern returns source-traceable bindings." : `Clause ${selected.length} added. Continue in order.`;
+      if (selected.length === clauses.length) mark(lab.dataset.completion);
+    }));
+    lab.querySelector("[data-reset-query]")?.addEventListener("click", () => {
+      selected.length = 0;
+      clauses.forEach((button) => { button.disabled = false; button.classList.remove("selected"); });
+      code.textContent = "# Select clause 1 to begin";
+      effect.textContent = "The graph pattern will illuminate here.";
+    });
+  });
+
+  document.querySelectorAll("[data-work-product]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = [...form.querySelectorAll("[required]")];
+      const complete = fields.every((field) => field.value.trim());
+      const feedback = form.querySelector("[data-feedback]");
+      if (!complete) {
+        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.className = "feedback bad";
+        return;
+      }
+      const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
+      localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
+      feedback.textContent = form.dataset.correctFeedback;
+      feedback.className = "feedback good";
+      mark(form.dataset.completion);
+    });
+  });
+
+  function openDrawer(name, trigger) {
+    const drawer = document.querySelector(`[data-drawer="${name}"]`);
+    if (!drawer) return;
+    lastDrawerTrigger = trigger;
+    document.querySelector("[data-drawer-scrim]").classList.add("open");
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    drawer.querySelector("button, a, input")?.focus();
+  }
+
+  function closeDrawers() {
+    document.querySelector("[data-drawer-scrim]").classList.remove("open");
+    document.querySelectorAll("[data-drawer]").forEach((drawer) => {
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    });
+    lastDrawerTrigger?.focus();
+  }
+
+  document.querySelectorAll("[data-open-drawer]").forEach((button) => {
+    button.addEventListener("click", () => openDrawer(button.dataset.openDrawer, button));
+  });
+  document.querySelectorAll("[data-close-drawer], [data-drawer-scrim]").forEach((button) => {
+    button.addEventListener("click", closeDrawers);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDrawers();
+  });
+
+  document.querySelector("[data-complete-module]")?.addEventListener("click", () => {
+    const status = document.querySelector("[data-completion-status]");
+    status.textContent = "Working candidate completed locally. This does not issue a credential or operational authority.";
+  });
+
+  refreshCompletion();
+})();
+</script>
+</body>
+</html>
