@@ -298,6 +298,23 @@ verification.
 Commit and push the exact learning release, import that commit into the OWOS platform, run platform
 release checks, deploy production, and verify all three public pages and checksums.
 
+## Modules 12 to 14 publication evidence
+
+- Exact learning-content intake commit: `d2bc0470c2cdbbb8e6225e8b1069b8bd820f8b1d`
+- Platform production commit: `4b8f5a2320a45ba78ce23e4326471ec959054171`
+- Cloudflare production deployment: `e3a9f46b`
+- The custom-domain HTML for all three lessons returned HTTP 200 and matched the deployed platform
+  files byte for byte.
+- The final live browser suite passed nine of nine desktop, tablet, and phone runs.
+- Live runtime errors: zero. Horizontal overflow: zero. All twelve graphics loaded.
+- All six signature simulations, distributed assessments, drawers, focus return, work products,
+  and completion controls passed.
+- Phone reduced-motion maximum remained 0.01 milliseconds.
+
+## Next action
+
+Begin the approved structured production of Modules 15 to 17.
+
 ## Modules 09 to 11 publication evidence
 
 - Exact learning-content intake commit: `209977ef52010e2a16ee6124b2f092b62cf70f13`
