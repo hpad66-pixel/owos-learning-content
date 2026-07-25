@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:15",
+    "slug": "module-15-structured-and-unstructured-knowledge",
+    "title": "Structured and Unstructured Knowledge",
+    "eyebrow": "Meaning Before Models, Module 15",
+    "promise": "Move from document retrieval to reviewed enterprise knowledge without losing source, conflict, identity, time, or authority.",
+    "duration": "75 to 90 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "evidence-investigation",
+    "signature_mechanism": "promote-document-evidence-through-reviewed-knowledge-states",
+    "source_version": "0.2.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Data GIS IT OT engineering governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Distinguish source document passage retrieval extraction candidate claim reviewed assertion and governing claim",
+      "Compare keyword vector extraction and graph methods by job",
+      "Trace document-derived claims to exact source evidence",
+      "Preserve conflict through review and supersession",
+      "Design a governed evidence-promotion plan"
+    ],
+    "prior_knowledge": "The learner understands provenance, authority, Knowledge Spine services, mappings, and access patterns.",
+    "misconception": "A retrieved passage, embedding, or high-confidence extraction is approved enterprise knowledge.",
+    "transfer_task": "Reconcile a sewer-overflow procedure passage with sensor, maintenance, and permit evidence."
+  },
+  "sections": [
+    {
+      "section_id": "case",
+      "title": "The four artifacts disagree before any model answers",
+      "kind": "Evidence case file",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Lift Station 7 telemetry shows a high wet-well level at 09:14. A maintenance note says Pump B is out of service. Procedure OP-12 says start Pump B before escalation. The current permit clause requires a notification route not mentioned in the procedure.",
+            "Do not vote by format. The structured sensor row is not automatically more authoritative than the permit. The procedure is readable but may be superseded. The note is relevant but may be unreviewed. Keep each artifact, source, time, and authority visible."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm15-case-file"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm15-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "methods",
+      "title": "Search, similarity, extraction, and graph links preserve different things",
+      "kind": "Method comparison",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Keyword search finds exact terms. Vector similarity retrieves passages with related language. Extraction turns text into candidate entities, relationships, dates, and claims. Explicit graph assertions connect reviewed statements to identities and evidence.",
+            "These methods can work together. None of them makes a retrieved passage true or governing. A context engine should preserve the method, score, source locator, version, and access boundary."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm15-method-matrix"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm15-methods"
+        }
+      ]
+    },
+    {
+      "section_id": "promotion",
+      "title": "A passage earns controls one gate at a time",
+      "kind": "Document-to-Claim Promotion Rail",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The promotion rail begins with a source document and a located passage. Extraction creates a candidate claim. Identity resolution connects named things to governed resources. Review checks meaning and evidence. Approval assigns a scoped use and effective interval.",
+            "Move each item only to the next defensible state. If source, identity, or authority is missing, hold it rather than manufacturing certainty."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm15-promotion-rail"
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm15-promotion"
+        }
+      ]
+    },
+    {
+      "section_id": "states",
+      "title": "Representation and evidence state are separate questions",
+      "kind": "Evidence-state investigation",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The same sentence can exist as text, an embedding vector, an extracted candidate, an RDF statement, or an approved claim. Representation describes how software stores or accesses it. Evidence state describes what review and authority support its use.",
+            "Classify each artifact by evidence state. A graph triple can still be unreviewed. A document clause can be governing when the correct version, scope, and authority are established."
+          ]
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm15-state-classifier"
+        }
+      ]
+    },
+    {
+      "section_id": "conflict",
+      "title": "Approval does not require deleting disagreement",
+      "kind": "Conflict network",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Suppose the procedure says start Pump B, the maintenance record says Pump B is unavailable, and the permit requires notification. A reviewed decision can hold the start instruction for this incident while keeping all three claims and their provenance.",
+            "Record the conflict, chosen governing use, missing evidence, reviewer, effective interval, and supersession. That history supports audit and future correction."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm15-conflict-network"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm15-conflict"
+        }
+      ]
+    },
+    {
+      "section_id": "plan",
+      "title": "Design the promotion path before indexing everything",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Choose one document family, such as procedures, permits, inspection reports, or maintenance notes. Define the questions it may support and the claims that require human review.",
+            "Your plan should connect access, retrieval, extraction, identity, provenance, authority, retention, correction, and promotion tests. It should also name content that must never enter an agent's context."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm15-evidence-plan"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "Is unstructured content the same as dark data?",
+              "answer": "No. Unstructured describes form. Dark data is a business label for data that is poorly known or used. Do not assume a universal percentage."
+            },
+            {
+              "question": "Does an embedding contain the meaning of a document?",
+              "answer": "It encodes patterns useful for similarity retrieval. It does not preserve every statement, rule, source boundary, or authority decision."
+            },
+            {
+              "question": "When may an extracted sentence enter the graph?",
+              "answer": "It can enter as a candidate claim with source provenance. Governing use requires the review and authority policy for that claim."
+            },
+            {
+              "question": "Can artificial intelligence approve its own extraction?",
+              "answer": "It can assist checks, but approval authority must be assigned by policy and risk."
+            },
+            {
+              "question": "What happens when the source document changes?",
+              "answer": "Re-index or re-extract under version control, retain the prior evidence interval, run regression tests, and notify affected consumers."
+            },
+            {
+              "question": "What should happen to low-confidence candidates?",
+              "answer": "Hold, route, or exclude them according to policy. Do not silently promote them."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "Retrieval and extraction methods provide candidate evidence. Approval, authority, effective time, and governing use are organizational controls and are not conferred by similarity scores or RDF representation.",
+          "source_refs": [
+            "w3c-rdf",
+            "w3c-prov",
+            "w3c-webanno"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "methods",
+      "promotion",
+      "state-classifier",
+      "conflict",
+      "evidence-plan"
+    ],
+    "rule": "Complete the case decision, method match, promotion rail, evidence-state investigation, conflict check, and Evidence Plan."
+  }
+}

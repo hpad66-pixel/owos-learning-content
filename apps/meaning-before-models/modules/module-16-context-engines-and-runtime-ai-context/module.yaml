@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:16",
+    "slug": "module-16-context-engines-and-runtime-ai-context",
+    "title": "Context Engines and Runtime AI Context",
+    "eyebrow": "Meaning Before Models, Module 16",
+    "promise": "Assemble a task-specific context contract that supplies evidence, meaning, policy, time, permissions, workflow state, and output limits without pretending context guarantees correctness.",
+    "duration": "75 to 90 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "context-assembly-room",
+    "signature_mechanism": "assemble-runtime-packet-and-trigger-fail-closed-gates",
+    "source_version": "0.2.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Data GIS IT OT engineering governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Distinguish durable semantic assets, a context engine, and runtime AI context",
+      "Identify required optional prohibited stale and conflicting context elements",
+      "Trace every context element to source or runtime state",
+      "Apply least privilege and fail-closed workflow gates",
+      "Author and test a Runtime AI Context Contract"
+    ],
+    "prior_knowledge": "The learner understands meaning layers, provenance, mapping, access patterns, and evidence promotion.",
+    "misconception": "A long prompt, vector search, or large context window is the same as governed runtime context.",
+    "transfer_task": "Assemble context for an overflow-response recommendation under a current permit and approval workflow."
+  },
+  "sections": [
+    {
+      "section_id": "shifts",
+      "title": "The same words can describe two different tasks",
+      "kind": "Two-shift opening",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "At 08:00 a planner asks, 'What should we do about Overflow 21?' The planner needs causes, similar events, candidate work, and budget options. At 22:00 an operator asks the same words during an active event. The operator needs current telemetry, location, permit requirements, workflow state, permissions, and an escalation route.",
+            "Ontology definitions remain durable across both requests. Runtime context changes with user intent, identified entities, time, jurisdiction, role, state, and permitted action."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm16-packet-anatomy"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm16-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "engine",
+      "title": "A context engine assembles the packet; it is not the packet",
+      "kind": "Assembly process",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A context engine interprets intent, resolves identity, retrieves evidence, filters permissions, checks freshness, reconciles conflict, validates required elements, and assembles a response schema and tool boundary.",
+            "The runtime AI context is the resulting task package. Record where each element came from and why it was included or denied."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm16-engine-process"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm16-engine"
+        }
+      ]
+    },
+    {
+      "section_id": "console",
+      "title": "Assemble only what this task needs now",
+      "kind": "Runtime Context Assembly Console",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Read each element and decide whether it is Required, Optional, Prohibited, Stale, or Unresolved for the active overflow response. More context is not always better. Least privilege and task relevance reduce unnecessary exposure.",
+            "Correct every item before the packet can proceed. A missing permission or unresolved event identity must block action even when the model can write a fluent answer."
+          ]
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm16-context-console"
+        }
+      ]
+    },
+    {
+      "section_id": "receipts",
+      "title": "Every element needs a source and state receipt",
+      "kind": "Context provenance fan",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The event identity may come from incident management. Telemetry comes from operational technology with observation time. The permit clause comes from an approved document version. User permissions come from identity and access management. Workflow state comes from the incident process.",
+            "A useful receipt records source, locator, version, observation or effective time, review state, authority scope, access decision, and transformation."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm16-source-receipt"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm16-receipt"
+        }
+      ]
+    },
+    {
+      "section_id": "gate",
+      "title": "Fluent recommendation is still before approval and action",
+      "kind": "Fail-closed gate",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Separate retrieve, analyze, recommend, draft, approve, and act. Each transition can have a different permission. A context engine should withhold tools or return a hold state when required evidence, policy, freshness, or authorization is missing.",
+            "Choose the earliest gate that prevents the unsafe transition. Do not let generated prose silently cross from suggestion into operational action."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm16-permission-chain"
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm16-permission-gate"
+        }
+      ]
+    },
+    {
+      "section_id": "contract",
+      "title": "Make the runtime packet testable before connecting tools",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Choose one bounded task and define exactly what must, may, and must not enter context. Name freshness rules, conflict behavior, tool permissions, output schema, and stop conditions.",
+            "Include tests for a complete packet, stale evidence, denied content, conflicting authority, missing permission, and unavailable source. That is how a context contract becomes operational."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm16-context-contract"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "Is an ontology the context?",
+              "answer": "No. An ontology supplies durable shared meaning. Runtime context also includes the task, entities, evidence, policy, time, permissions, workflow, and output limits."
+            },
+            {
+              "question": "Is a context engine just vector search?",
+              "answer": "No. Retrieval may be one step. The engine also filters, validates, reconciles, applies permissions, and assembles the task packet."
+            },
+            {
+              "question": "Why not send every available document?",
+              "answer": "Irrelevant or unauthorized content increases exposure, conflict, cost, and ambiguity. Send the bounded evidence needed for the task."
+            },
+            {
+              "question": "Does better context stop hallucination?",
+              "answer": "It can reduce ambiguity and provide evidence, but it cannot guarantee complete or correct generation."
+            },
+            {
+              "question": "Why include workflow state?",
+              "answer": "The same evidence may permit analysis, a draft, an approval request, or an action depending on the current state."
+            },
+            {
+              "question": "Should context change by user role?",
+              "answer": "Yes, when permissions, detail, tools, or allowed actions differ. The underlying facts should remain evidence-based."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "Runtime context is a task-specific package assembled from governed sources and state. Better context may improve consistency but does not guarantee correctness or deterministic generation.",
+          "source_refs": [
+            "w3c-rdf",
+            "w3c-prov",
+            "w3c-shacl"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "engine",
+      "context-console",
+      "receipt",
+      "permission-gate",
+      "context-contract"
+    ],
+    "rule": "Complete the two-shift diagnosis, engine match, assembly console, receipt check, permission gate, and Context Contract."
+  }
+}

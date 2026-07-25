@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:15",
+  "interactions": [
+    {
+      "interaction_id": "mbm15-promotion",
+      "component": "evidence-promotion",
+      "title": "Document-to-Claim Promotion Rail",
+      "teaching_purpose": "Promote evidence only when the next gate is satisfied.",
+      "instructions": "Choose Source, Retrieved, Candidate, Reviewed, Approved, or Hold for each item.",
+      "completion_id": "promotion",
+      "config": {
+        "choices": [
+          "Source",
+          "Retrieved",
+          "Candidate",
+          "Reviewed",
+          "Approved",
+          "Hold"
+        ],
+        "cases": [
+          {
+            "label": "Original permit",
+            "claim": "Current signed permit PDF with checksum and effective interval.",
+            "evidence": "Authoritative publication and version are verified.",
+            "rule": "The document is preserved as the source artifact.",
+            "answer": "Source",
+            "explanation": "It is the controlled source from which passages may be located."
+          },
+          {
+            "label": "Search result",
+            "claim": "Page 42 passage returned for 'overflow notification'.",
+            "evidence": "Exact locator and retrieval query are recorded; no interpretation performed.",
+            "rule": "Retrieval identifies a passage but does not create a claim.",
+            "answer": "Retrieved",
+            "explanation": "The passage is retrieved evidence with traceable source location."
+          },
+          {
+            "label": "Extraction",
+            "claim": "Candidate: Overflow event requires regulator notice within two hours.",
+            "evidence": "Machine extraction links page 42; reviewer has not checked wording or scope.",
+            "rule": "Unreviewed extraction remains a candidate.",
+            "answer": "Candidate",
+            "explanation": "The claim is inspectable but not yet reviewed."
+          },
+          {
+            "label": "Reviewed meaning",
+            "claim": "Reviewer confirms the clause applies to qualifying sanitary sewer overflows.",
+            "evidence": "Identity, clause, jurisdiction, and effective version are verified.",
+            "rule": "Review establishes meaning but policy has not assigned this workflow's governing use.",
+            "answer": "Reviewed",
+            "explanation": "The evidence is reviewed but approval scope remains open."
+          },
+          {
+            "label": "Approved use",
+            "claim": "Approved claim may govern this incident-notification checklist.",
+            "evidence": "Authority, effective time, workflow, and reviewer are recorded.",
+            "rule": "Scoped approval permits governing use.",
+            "answer": "Approved",
+            "explanation": "The claim has a bounded approved use and evidence receipt."
+          },
+          {
+            "label": "Missing source",
+            "claim": "A summary says Pump B is always available.",
+            "evidence": "No source locator, version, or responsible author is available.",
+            "rule": "Do not promote unsupported summary language.",
+            "answer": "Hold",
+            "explanation": "The claim remains held until source and authority can be established."
+          }
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm15-state-classifier",
+      "component": "evidence-state-classifier",
+      "title": "Evidence-State Investigation",
+      "teaching_purpose": "Separate representation from review state.",
+      "instructions": "Classify each artifact as Document, Retrieval artifact, Candidate claim, Reviewed assertion, Governing claim, or Conflict.",
+      "completion_id": "state-classifier",
+      "config": {
+        "choices": [
+          "Document",
+          "Retrieval artifact",
+          "Candidate claim",
+          "Reviewed assertion",
+          "Governing claim",
+          "Conflict"
+        ],
+        "cases": [
+          {
+            "label": "Procedure file",
+            "claim": "OP-12 v4 PDF retained with checksum.",
+            "evidence": "The file is authoritative only within its approved scope and interval.",
+            "rule": "Classify the artifact, not its trustworthiness for every use.",
+            "answer": "Document",
+            "explanation": "It is a source document with governed metadata."
+          },
+          {
+            "label": "Embedding record",
+            "claim": "Vector 884 points to paragraph 17.",
+            "evidence": "Chunk text, model, source, and version are recorded.",
+            "rule": "A retrieval representation is not a claim.",
+            "answer": "Retrieval artifact",
+            "explanation": "The vector helps retrieve the source passage."
+          },
+          {
+            "label": "Extracted relationship",
+            "claim": "Pump B serves Lift Station 7.",
+            "evidence": "Extraction confidence 0.91; identity review pending.",
+            "rule": "Confidence does not replace identity and evidence review.",
+            "answer": "Candidate claim",
+            "explanation": "The relationship remains a candidate."
+          },
+          {
+            "label": "Steward-reviewed statement",
+            "claim": "Maintenance record confirms Pump B unavailable at 09:10.",
+            "evidence": "Source and identity reviewed; operating authority not yet assigned.",
+            "rule": "Review establishes evidence state without universal authority.",
+            "answer": "Reviewed assertion",
+            "explanation": "The statement is reviewed and source-bounded."
+          },
+          {
+            "label": "Permit requirement",
+            "claim": "Current clause governs notification for this event class.",
+            "evidence": "Approved version, jurisdiction, effective time, and use are confirmed.",
+            "rule": "The policy assigns this claim governing use.",
+            "answer": "Governing claim",
+            "explanation": "The claim is governing for the scoped decision."
+          },
+          {
+            "label": "Unresolved disagreement",
+            "claim": "Procedure says start Pump B; maintenance says unavailable.",
+            "evidence": "Both sources are retained and current for different subjects.",
+            "rule": "Do not collapse disagreement before accountable resolution.",
+            "answer": "Conflict",
+            "explanation": "The conflict remains visible with both evidence paths."
+          }
+        ]
+      }
+    }
+  ]
+}

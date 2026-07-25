@@ -55,6 +55,12 @@ SUPPORTED_INTERACTIONS = {
     "mapping-break-repair",
     "access-pattern-stress-test",
     "stale-copy-diagnosis",
+    "evidence-promotion",
+    "evidence-state-classifier",
+    "context-assembly",
+    "permission-gate",
+    "pipeline-rerun",
+    "pipeline-stage-diagnosis",
 }
 SUPPORTED_ASSESSMENTS = {
     "multiple-choice",
@@ -928,6 +934,30 @@ def render_stale_copy_diagnosis(interaction: dict[str, Any]) -> str:
     return render_decision_lab(interaction, "stale-copy-diagnosis", "Stale-copy failure rehearsal", "data-stale-case", "data-stale-choice")
 
 
+def render_evidence_promotion(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "evidence-promotion", "Document-to-claim promotion rail", "data-promotion-case", "data-promotion-choice")
+
+
+def render_evidence_state_classifier(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "evidence-state-classifier", "Evidence-state investigation", "data-evidence-state-case", "data-evidence-state-choice")
+
+
+def render_context_assembly(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "context-assembly", "Runtime context assembly console", "data-context-case", "data-context-choice")
+
+
+def render_permission_gate(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "permission-gate", "Fail-closed permission gate", "data-permission-case", "data-permission-choice")
+
+
+def render_pipeline_rerun(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "pipeline-rerun", "Synchronized answer-pipeline laboratory", "data-pipeline-case", "data-pipeline-choice")
+
+
+def render_pipeline_stage_diagnosis(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "pipeline-stage-diagnosis", "Repeatability microscope", "data-stage-case", "data-stage-choice")
+
+
 def render_object_router(interaction: dict[str, Any]) -> str:
     cards = []
     for index, item in enumerate(interaction["config"]["items"]):
@@ -1114,6 +1144,18 @@ def render_block(
             return render_access_pattern_stress_test(interaction)
         if interaction["component"] == "stale-copy-diagnosis":
             return render_stale_copy_diagnosis(interaction)
+        if interaction["component"] == "evidence-promotion":
+            return render_evidence_promotion(interaction)
+        if interaction["component"] == "evidence-state-classifier":
+            return render_evidence_state_classifier(interaction)
+        if interaction["component"] == "context-assembly":
+            return render_context_assembly(interaction)
+        if interaction["component"] == "permission-gate":
+            return render_permission_gate(interaction)
+        if interaction["component"] == "pipeline-rerun":
+            return render_pipeline_rerun(interaction)
+        if interaction["component"] == "pipeline-stage-diagnosis":
+            return render_pipeline_stage_diagnosis(interaction)
         if interaction["component"] == "object-router":
             return render_object_router(interaction)
         return render_triple_repair_bench(interaction)

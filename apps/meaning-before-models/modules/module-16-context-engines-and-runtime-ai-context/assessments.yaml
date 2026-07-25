@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:16",
+  "assessments": [
+    {
+      "assessment_id": "mbm16-opening",
+      "type": "multi-select",
+      "cognitive_job": "diagnose runtime coordinates",
+      "prompt": "Why do planner and operator packets differ?",
+      "options": [
+        {
+          "text": "Their task, time, role, workflow state, and permitted actions differ",
+          "correct": true
+        },
+        {
+          "text": "The ontology changes definitions every shift",
+          "correct": false
+        },
+        {
+          "text": "The model should receive all enterprise data",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The choice follows the stated operating boundary.",
+        "incorrect": "Review the source, control, and intended use before choosing again."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm16-engine",
+      "type": "matching",
+      "cognitive_job": "separate engine and packet",
+      "prompt": "Match each item to its role.",
+      "targets": [
+        "Durable meaning",
+        "Context-engine step",
+        "Runtime context",
+        "Output constraint"
+      ],
+      "pairs": [
+        {
+          "prompt": "Overflow is a type of Incident",
+          "answer": "Durable meaning"
+        },
+        {
+          "prompt": "Filter evidence by permission and freshness",
+          "answer": "Context-engine step"
+        },
+        {
+          "prompt": "Overflow 21, current readings, permit, role, state",
+          "answer": "Runtime context"
+        },
+        {
+          "prompt": "Return JSON with evidence citations and no tool call",
+          "answer": "Output constraint"
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Durable assets, assembly work, packet, and output boundary remain separate.",
+        "incorrect": "Separate reusable meaning, processing, task-specific inputs, and response limits."
+      },
+      "completion_id": "engine"
+    },
+    {
+      "assessment_id": "mbm16-receipt",
+      "type": "multi-select",
+      "cognitive_job": "trace context provenance",
+      "prompt": "Which fields belong in a context receipt?",
+      "options": [
+        {
+          "text": "Source, locator, and version",
+          "correct": true
+        },
+        {
+          "text": "Observation or effective time",
+          "correct": true
+        },
+        {
+          "text": "Authority and access decision",
+          "correct": true
+        },
+        {
+          "text": "Only the final generated paragraph",
+          "correct": false
+        },
+        {
+          "text": "Transformation and review state",
+          "correct": true
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Each context element remains attributable and reviewable.",
+        "incorrect": "Preserve source, time, authority, access, review, and transformation."
+      },
+      "completion_id": "receipt"
+    },
+    {
+      "assessment_id": "mbm16-context-contract",
+      "type": "applied-work-product",
+      "title": "Runtime AI Context Contract",
+      "cognitive_job": "specify a task-specific governed packet",
+      "prompt": "Define one runtime context contract and its fail-closed tests.",
+      "required_fields": [
+        "task",
+        "entities",
+        "evidence",
+        "definitions",
+        "policy_jurisdiction",
+        "time_freshness",
+        "permissions",
+        "workflow",
+        "conflicts",
+        "tools",
+        "output_schema",
+        "denied_content",
+        "fallback",
+        "owner",
+        "tests"
+      ],
+      "field_labels": {
+        "task": "User intent and bounded task",
+        "entities": "Resolved subject and related identities",
+        "evidence": "Required and optional evidence sources",
+        "definitions": "Ontology and semantic terms",
+        "policy_jurisdiction": "Applicable policy and jurisdiction",
+        "time_freshness": "As-of time effective time and thresholds",
+        "permissions": "User data and action scope",
+        "workflow": "Current state and permitted transitions",
+        "conflicts": "Reconciliation hold and escalation",
+        "tools": "Allowed denied and approval-gated tools",
+        "output_schema": "Format citations uncertainty and limits",
+        "denied_content": "Prohibited or unnecessary content",
+        "fallback": "Unavailable stale or incomplete behavior",
+        "owner": "Context policy and service owners",
+        "tests": "Complete stale denied conflict permission and outage tests"
+      },
+      "textarea_fields": [
+        "task",
+        "entities",
+        "evidence",
+        "definitions",
+        "policy_jurisdiction",
+        "time_freshness",
+        "permissions",
+        "workflow",
+        "conflicts",
+        "tools",
+        "output_schema",
+        "denied_content",
+        "fallback",
+        "owner",
+        "tests"
+      ],
+      "feedback": {
+        "correct": "Your context contract is task-specific, least-privilege, attributable, and fail-closed.",
+        "incorrect": "Complete the permissions, freshness, workflow, tool, output, conflict, and test boundaries."
+      },
+      "completion_id": "context-contract"
+    }
+  ]
+}

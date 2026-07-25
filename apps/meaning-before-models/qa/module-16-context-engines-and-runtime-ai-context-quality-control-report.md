@@ -88,3 +88,13 @@ release_status: blocked
 | Working-review acceptance | pending Hardeep Anand | | |
 | Production benchmark | working candidate | 2026-07-23 | Context assembly room |
 | Release | blocked | | Human gates remain |
+
+## Structured live-review replacement, 2026-07-24
+
+The structured context-assembly-room candidate supersedes the legacy rendered candidate for live
+review. It contains four original visual classes, a runtime-context assembly console, a fail-closed
+permission gate, distributed assessment with a unique quiz rhythm, a Runtime AI Context Contract,
+and module-specific FAQs. Nine local desktop, tablet, and phone browser runs passed with zero
+runtime errors, zero overflow, complete interaction paths, working drawers, focus return, and
+0.01-millisecond reduced motion on phone. Independent factual, practitioner, screen-reader,
+physical-device, and novice reviews remain pending.

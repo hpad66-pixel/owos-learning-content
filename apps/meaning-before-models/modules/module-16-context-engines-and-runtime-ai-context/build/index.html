@@ -1,0 +1,2067 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Context Engines and Runtime AI Context | One Water OS Academy</title>
+  <meta name="description" content="Assemble a task-specific context contract that supplies evidence, meaning, policy, time, permissions, workflow state, and output limits without pretending context guarantees correctness.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:16">
+  <meta name="owos-release-state" content="structured working candidate">
+  <meta name="owos-source-version" content="0.2.0-structured-candidate">
+  <meta name="owos-compiler-version" content="1.1.0">
+  <meta name="owos-package-checksum" content="a1f566b4f617229282e2f53213a018c2bbddc69862ce451a614fd2a2fbbb299e">
+  <style>:root {
+  color-scheme: light;
+  --ink: #17324d;
+  --muted: #526d7d;
+  --paper: #ffffff;
+  --wash: #eef6f5;
+  --line: #cddddd;
+  --navy: #102a43;
+  --teal: #147d88;
+  --teal-soft: #dff2ee;
+  --orange: #e8752f;
+  --orange-soft: #fff1e6;
+  --good: #157347;
+  --bad: #a63d32;
+  --shadow: 0 20px 60px rgba(23, 50, 77, .12);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7faf9;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--teal);
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.shell {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(16, 42, 67, .96);
+  color: #ffffff;
+  backdrop-filter: blur(14px);
+}
+
+.topbar-inner {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.top-actions,
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  min-height: 44px;
+  border: 1px solid #b8cfce;
+  border-radius: 999px;
+  padding: 10px 17px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--teal);
+}
+
+.button:focus-visible,
+.choice:focus-visible,
+.flip-card:focus-visible,
+.edge-button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.button.primary {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.button.good {
+  border-color: var(--good);
+  background: var(--good);
+  color: #ffffff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 9vw, 110px) 0 70px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 117, 47, .22), transparent 24%),
+    radial-gradient(circle at 12% 70%, rgba(100, 215, 207, .18), transparent 28%),
+    var(--navy);
+  color: #ffffff;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -5% -58% 35%;
+  height: 520px;
+  border: 2px solid rgba(255, 255, 255, .13);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.eyebrow,
+.kind {
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 12px 0 14px;
+  font-size: clamp(2.65rem, 7vw, 5.8rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #d9e8ef;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-meta span {
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: .9rem;
+}
+
+.progress-panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: -30px auto 52px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: var(--shadow);
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.progress-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid #9eb8b8;
+  border-radius: 50%;
+}
+
+.progress-item.done {
+  background: var(--teal-soft);
+  color: var(--ink);
+}
+
+.progress-item.done::before {
+  border-color: var(--good);
+  background: var(--good);
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.lesson-section {
+  margin: 0 auto 34px;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 14px 40px rgba(23, 50, 77, .06);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 26px;
+}
+
+.section-number {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.section-heading h2 {
+  margin: 2px 0 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.prose {
+  max-width: 790px;
+  margin: 0 auto 26px;
+  color: #28485f;
+  font-size: 1.06rem;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.callout {
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 20px 24px;
+  border-left: 6px solid var(--orange);
+  border-radius: 0 16px 16px 0;
+  background: var(--orange-soft);
+}
+
+.callout h3 {
+  margin: 0 0 5px;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.match-grid,
+.multi-grid,
+.triage-grid {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.match-row select,
+.triage-card select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.correct-field {
+  border-color: var(--good) !important;
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, .12);
+}
+
+.incorrect-field {
+  border-color: var(--bad) !important;
+}
+
+.multi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.select-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.select-option input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.select-option.selected-correct {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.select-option.selected-incorrect {
+  border-color: var(--bad);
+  background: #fff3f1;
+}
+
+.signature-component {
+  border-color: #8db9b5;
+  box-shadow: 0 18px 50px rgba(20, 125, 136, .13);
+}
+
+.triage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.triage-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #ffffff, #f4faf8);
+}
+
+.triage-card h4 {
+  margin: 4px 0 6px;
+  font-size: 1.08rem;
+}
+
+.triage-card p {
+  color: var(--muted);
+}
+
+.triage-number,
+.failure-label {
+  color: var(--teal);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.triage-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.triage-card.incorrect-card {
+  border-color: #d69a93;
+}
+
+.item-feedback {
+  min-height: 42px;
+  margin-top: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.failure-lab {
+  display: grid;
+  grid-template-columns: minmax(210px, .38fr) minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.failure-trigger {
+  grid-column: 1;
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.failure-trigger span {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.failure-trigger.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.failure-result {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.failure-result[hidden] {
+  display: none;
+}
+
+.failure-result ol {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 24px;
+}
+
+.failure-result p {
+  color: #e4f0f5;
+}
+
+.route-grid,
+.repair-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.route-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-card,
+.repair-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfdfc;
+}
+
+.route-card h4 {
+  margin: 5px 0;
+}
+
+.route-card .button.active {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.repair-card {
+  border-left: 6px solid #9eb8b8;
+}
+
+.repair-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.repair-card.incorrect-card {
+  border-color: var(--bad);
+  background: #fff8f7;
+}
+
+.broken-statement {
+  margin: 10px 0 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #102a43;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.repair-fields {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 14px;
+}
+
+.repair-fields label {
+  display: grid;
+  gap: 6px;
+  font-weight: 750;
+}
+
+.repair-fields select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+}
+
+.good-text {
+  color: var(--good);
+}
+
+.bad-text {
+  color: var(--bad);
+}
+
+.learning-visual {
+  margin: 34px 0;
+}
+
+.learning-visual h3 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+
+.reading-guide,
+.conclusion {
+  max-width: 880px;
+  margin: 12px auto;
+  padding: 16px 19px;
+  border-radius: 14px;
+}
+
+.reading-guide {
+  border: 1px solid #c9dddd;
+  background: var(--wash);
+}
+
+.conclusion {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.visual-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f7faf9;
+  box-shadow: var(--shadow);
+}
+
+.visual-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.component {
+  margin: 34px 0;
+  border: 1px solid #c8d9d9;
+  border-radius: 22px;
+  background: #fbfdfc;
+  overflow: hidden;
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.component-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.component-header .kind {
+  color: #ffb982;
+}
+
+.component-body {
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.component-intro {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.choice-grid {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.choice {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 17px;
+  border: 2px solid #cadbda;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice.selected {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.choice.correct {
+  border-color: var(--good);
+  background: #e5f4ec;
+}
+
+.choice.incorrect {
+  border-color: var(--bad);
+  background: #fae9e7;
+}
+
+.feedback {
+  min-height: 28px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.triple-builder {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.triple-builder label,
+.field-grid label,
+.work-product label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.triple-builder select,
+.field-grid input,
+.work-product input,
+.work-product textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #cadbda;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.triple-arrow {
+  padding-bottom: 12px;
+  color: var(--orange);
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.triple-output {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.flip-card {
+  min-height: 170px;
+  border: 0;
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.flip-card-inner {
+  position: relative;
+  display: grid;
+  min-height: 170px;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+}
+
+.flip-card.revealed .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border: 2px solid #bdd5d3;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  font-weight: 650;
+}
+
+.path-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.edge-button {
+  min-height: 108px;
+  border: 2px solid #c9dddd;
+  border-radius: 17px;
+  padding: 15px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.edge-button.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.edge-button strong,
+.edge-button span {
+  display: block;
+}
+
+.edge-button span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.work-product {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.artifact-preview {
+  min-height: 130px;
+  margin: 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.faq-list details {
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.faq-list summary {
+  padding: 16px 18px;
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+.evidence {
+  padding: 26px;
+  border-radius: 20px;
+  background: #e9eff2;
+}
+
+.evidence h3 {
+  margin-top: 0;
+}
+
+.connected {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 38px 0;
+}
+
+.connected article {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.connected h3 {
+  margin: 8px 0;
+  color: #ffffff;
+}
+
+.connected p {
+  color: #d9e8ef;
+}
+
+.completion {
+  margin: 36px 0 70px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  background: rgba(5, 19, 31, .56);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  width: min(520px, 100%);
+  height: 100dvh;
+  padding: 26px;
+  overflow: auto;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: -24px 0 70px rgba(5, 19, 31, .24);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-scrim.open {
+  display: block;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer h2 {
+  margin: 0;
+}
+
+.glossary-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.glossary-list article {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--wash);
+}
+
+.glossary-list h3 {
+  margin: 0 0 4px;
+}
+
+.glossary-list p {
+  margin: 0;
+}
+
+footer {
+  padding: 25px 0;
+  background: var(--navy);
+  color: #d9e8ef;
+  font-size: .9rem;
+}
+
+.docket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.docket-card {
+  border: 1px solid #b9c9d3;
+  border-top: 5px solid var(--orange);
+  background: #fffdf8;
+  padding: 1rem;
+  border-radius: .35rem;
+}
+
+.docket-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.docket-source {
+  color: #6d3d12;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.docket-card dl div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: .5rem;
+  border-top: 1px solid #dce5e9;
+  padding: .4rem 0;
+}
+
+.docket-card dt { font-weight: 800; }
+.docket-card dd { margin: 0; }
+.docket-card.passed { border-color: #15865f; background: #eefaf5; }
+.docket-card.failed { border-color: #b94343; background: #fff3f0; }
+
+.graph-lab-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.6fr); gap: 1rem; align-items: start; }
+.source-shelf, .graph-stage, .question-console { border: 1px solid var(--line); border-radius: 18px; padding: 1rem; background: #f8fafc; }
+.source-shelf { display: grid; gap: .65rem; }
+.source-shelf h4, .question-console h4 { margin: 0; }
+.source-packet { width: 100%; text-align: left; display: grid; gap: .25rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .75rem; color: #172033; cursor: pointer; }
+.source-packet span, .source-packet small { color: #526077; }
+.source-packet.active { border-color: #0f766e; background: #ecfdf5; box-shadow: inset 4px 0 #0f766e; }
+.graph-stage { min-height: 24rem; background: #101c2d; color: #f8fafc; border-color: #253957; }
+.graph-stage-header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .7rem; border-bottom: 1px solid #3a4b65; }
+.graph-stage-header span { color: #9ee7dc; font-size: .88rem; }
+.statement-ledger { display: grid; gap: .48rem; padding-top: .8rem; }
+.ledger-statement { display: grid; grid-template-columns: 8rem 1fr; gap: .65rem; padding: .56rem; border-radius: 9px; background: #172943; }
+.ledger-statement span { color: #fbbf24; font-size: .78rem; font-weight: 800; }
+.ledger-statement code { color: #f8fafc; white-space: normal; }
+.empty-state { color: #cbd5e1; }
+.question-console { margin-top: 1rem; }
+.question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+.graph-question { display: grid; gap: .35rem; text-align: left; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .8rem; color: #172033; cursor: pointer; }
+.graph-question.answered { border-color: #0f766e; background: #ecfdf5; }
+.query-result { margin-top: .8rem; padding: .9rem; border-left: 5px solid #f59e0b; background: #fff7ed; color: #3b2615; display: grid; gap: .3rem; }
+.canvas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; margin-bottom: 1rem; }
+.canvas-card { border: 1px solid var(--line); border-radius: 14px; padding: .9rem; background: #fff; }
+.canvas-card h4 { margin-top: 0; }
+.query-lab { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr); gap: 1rem; }
+.query-clause-shelf { display: grid; gap: .6rem; }
+.query-clause { display: grid; gap: .35rem; text-align: left; padding: .75rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; color: #172033; }
+.query-clause.selected { border-color: #0f766e; background: #ecfdf5; }
+.query-clause code { white-space: normal; color: #526077; }
+.query-console { border-radius: 16px; padding: 1rem; background: #101c2d; color: #f8fafc; min-height: 18rem; }
+.query-console pre { white-space: pre-wrap; color: #9ee7dc; }
+.query-effect { margin-top: 1rem; padding: .8rem; border-left: 4px solid #fbbf24; background: #172943; }
+.decision-case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.decision-case { border: 1px solid #aab9c5; border-radius: 16px; padding: 1rem; background: #fff; box-shadow: 0 10px 24px rgba(15, 32, 50, .06); }
+.decision-case h4 { margin: .35rem 0 .7rem; }
+.decision-case .case-label { color: #755019; font-size: .74rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.case-evidence, .case-rule { border-left: 4px solid #5f7891; background: #f2f6f8; padding: .75rem; margin: .65rem 0; }
+.case-rule { border-color: #c97626; background: #fff6e8; }
+.decision-case.passed { border-color: #15865f; box-shadow: inset 0 0 0 2px #b8ead6; }
+.decision-case.failed { border-color: #b94343; }
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 24px, 1140px);
+  }
+
+  .topbar-inner {
+    min-height: 58px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .top-actions .button {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: .82rem;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .progress-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-section {
+    padding: 25px 18px;
+    border-radius: 19px;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .section-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .triple-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .triple-arrow {
+    padding: 0;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .flip-grid,
+  .path-strip,
+  .field-grid,
+  .connected,
+  .multi-grid,
+  .triage-grid,
+  .route-grid,
+  .repair-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-lab-layout,
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-stage {
+    min-height: 0;
+  }
+
+  .ledger-statement {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-grid,
+  .query-lab,
+  .decision-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-card:last-child {
+    grid-column: auto;
+  }
+
+  .docket-card dl div {
+    grid-template-columns: 1fr;
+    gap: .1rem;
+  }
+
+  .match-row,
+  .failure-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-trigger,
+  .failure-result {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .failure-result {
+    min-height: 0;
+  }
+
+  .component-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .flip-card.revealed .flip-card-inner {
+    transform: none;
+  }
+
+  .flip-card.revealed .flip-front {
+    display: none;
+  }
+
+  .flip-back {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-module-id="mbm001:16" data-source-version="0.2.0-structured-candidate"
+  data-required-ids="[&quot;opening&quot;,&quot;engine&quot;,&quot;context-console&quot;,&quot;receipt&quot;,&quot;permission-gate&quot;,&quot;context-contract&quot;]">
+  <a class="skip-link" href="#lesson-start">Skip to lesson</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="../../curriculum/course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <nav class="top-actions" aria-label="Lesson tools">
+        <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
+        <a class="button primary" href="#lesson-start">Start</a>
+      </nav>
+    </div>
+  </header>
+  <main id="lesson-start">
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">Meaning Before Models, Module 16</span>
+        <h1>Context Engines and Runtime AI Context</h1>
+        <p>Assemble a task-specific context contract that supplies evidence, meaning, policy, time, permissions, workflow state, and output limits without pretending context guarantees correctness.</p>
+        <div class="hero-meta"><span>75 to 90 minutes</span><span>Foundation with Practitioner and Leader depth</span><span>context assembly room</span></div>
+      </div>
+    </section>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening">Opening</div>
+<div class="progress-item" data-completion-id="engine">Engine</div>
+<div class="progress-item" data-completion-id="context-console">Context Console</div>
+<div class="progress-item" data-completion-id="receipt">Receipt</div>
+<div class="progress-item" data-completion-id="permission-gate">Permission Gate</div>
+<div class="progress-item" data-completion-id="context-contract">Context Contract</div></section>
+    <div class="shell">
+      <section class="lesson-section">
+        <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
+        <div class="prose"><ul><li>Distinguish durable semantic assets, a context engine, and runtime AI context</li><li>Identify required optional prohibited stale and conflicting context elements</li><li>Trace every context element to source or runtime state</li><li>Apply least privilege and fail-closed workflow gates</li><li>Author and test a Runtime AI Context Contract</li></ul><p><strong>Misconception we will change:</strong> A long prompt, vector search, or large context window is the same as governed runtime context.</p></div>
+      </section>
+
+<section class="lesson-section" id="shifts">
+  <header class="section-heading">
+    <span class="section-number">01</span>
+    <div><span class="kind">Two-shift opening</span><h2>The same words can describe two different tasks</h2></div>
+  </header>
+  <div class="prose"><p>At 08:00 a planner asks, &#x27;What should we do about Overflow 21?&#x27; The planner needs causes, similar events, candidate work, and budget options. At 22:00 an operator asks the same words during an active event. The operator needs current telemetry, location, permit requirements, workflow state, permissions, and an escalation route.</p><p>Ontology definitions remain durable across both requests. Runtime context changes with user intent, identified entities, time, jurisdiction, role, state, and permitted action.</p></div>
+
+<figure class="learning-visual" id="mbm16-packet-anatomy"
+  data-visual-type="runtime-context-exploded-packet"
+  data-component-source="structured-module-package">
+  <h3>Runtime context combines durable meaning and task coordinates</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the durable left side, runtime right side, and central bounded task packet</div>
+  <div class="visual-frame">
+    <img src="../visuals/packet-anatomy.svg" alt="An exploded packet combines ontology and mappings with user intent, entity, evidence, policy, time, permission, workflow, tools, and output limits">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A large prompt is not a governed context contract</figcaption>
+</figure>
+
+<section class="component" id="mbm16-opening" data-multi-select
+  data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
+  data-quiz-source="structured-module-package"
+  data-completion="opening"
+  data-correct-feedback="Correct. The choice follows the stated operating boundary."
+  data-incorrect-feedback="Review the source, control, and intended use before choosing again.">
+  <header class="component-header"><h3>Why do planner and operator packets differ?</h3><span class="kind">Context boundary check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
+    <div class="multi-grid">
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Their task, time, role, workflow state, and permitted actions differ</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>The ontology changes definitions every shift</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>The model should receive all enterprise data</span>
+</label></div>
+    <button class="button primary" type="button" data-check-multi>Check the packet</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="engine">
+  <header class="section-heading">
+    <span class="section-number">02</span>
+    <div><span class="kind">Assembly process</span><h2>A context engine assembles the packet; it is not the packet</h2></div>
+  </header>
+  <div class="prose"><p>A context engine interprets intent, resolves identity, retrieves evidence, filters permissions, checks freshness, reconciles conflict, validates required elements, and assembles a response schema and tool boundary.</p><p>The runtime AI context is the resulting task package. Record where each element came from and why it was included or denied.</p></div>
+
+<figure class="learning-visual" id="mbm16-engine-process"
+  data-visual-type="context-engine-process-trace"
+  data-component-source="structured-module-package">
+  <h3>A context engine performs a governed assembly process</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow the six controlled stages from request to packet</div>
+  <div class="visual-frame">
+    <img src="../visuals/engine-process.svg" alt="A request moves through intent, identity, retrieval, permission filtering, freshness and conflict validation, and packet assembly">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The engine is not the packet itself</figcaption>
+</figure>
+
+<section class="component" id="mbm16-engine" data-matching
+  data-purposeful-interaction="matching" data-quiz-type="matching"
+  data-quiz-source="structured-module-package"
+  data-completion="engine"
+  data-correct-feedback="Correct. Durable assets, assembly work, packet, and output boundary remain separate."
+  data-incorrect-feedback="Separate reusable meaning, processing, task-specific inputs, and response limits.">
+  <header class="component-header"><h3>Match each item to its role.</h3><span class="kind">Relationship matching</span></header>
+  <div class="component-body">
+    <p class="component-intro">Match each ordinary-language question to the job that answers it. Check all rows together, then revise any row that needs another look.</p>
+    <div class="match-grid">
+<label class="match-row">
+  <span>Overflow is a type of Incident</span>
+  <select data-match-answer="Durable meaning"><option value="">Choose a meaning job</option><option value="Durable meaning">Durable meaning</option><option value="Context-engine step">Context-engine step</option><option value="Runtime context">Runtime context</option><option value="Output constraint">Output constraint</option></select>
+</label>
+<label class="match-row">
+  <span>Filter evidence by permission and freshness</span>
+  <select data-match-answer="Context-engine step"><option value="">Choose a meaning job</option><option value="Durable meaning">Durable meaning</option><option value="Context-engine step">Context-engine step</option><option value="Runtime context">Runtime context</option><option value="Output constraint">Output constraint</option></select>
+</label>
+<label class="match-row">
+  <span>Overflow 21, current readings, permit, role, state</span>
+  <select data-match-answer="Runtime context"><option value="">Choose a meaning job</option><option value="Durable meaning">Durable meaning</option><option value="Context-engine step">Context-engine step</option><option value="Runtime context">Runtime context</option><option value="Output constraint">Output constraint</option></select>
+</label>
+<label class="match-row">
+  <span>Return JSON with evidence citations and no tool call</span>
+  <select data-match-answer="Output constraint"><option value="">Choose a meaning job</option><option value="Durable meaning">Durable meaning</option><option value="Context-engine step">Context-engine step</option><option value="Runtime context">Runtime context</option><option value="Output constraint">Output constraint</option></select>
+</label></div>
+    <button class="button primary" type="button" data-check-matching>Check the matches</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="console">
+  <header class="section-heading">
+    <span class="section-number">03</span>
+    <div><span class="kind">Runtime Context Assembly Console</span><h2>Assemble only what this task needs now</h2></div>
+  </header>
+  <div class="prose"><p>Read each element and decide whether it is Required, Optional, Prohibited, Stale, or Unresolved for the active overflow response. More context is not always better. Least privilege and task relevance reduce unnecessary exposure.</p><p>Correct every item before the packet can proceed. A missing permission or unresolved event identity must block action even when the model can write a fluent answer.</p></div>
+<section class="component signature-component decision-lab" id="mbm16-context-console" data-context-assembly
+ data-purposeful-interaction="context-assembly" data-component-source="structured-module-package" data-completion="context-console">
+ <header class="component-header"><h3>Runtime Context Assembly Console</h3><span class="kind">Runtime context assembly console</span></header>
+ <div class="component-body"><p class="component-intro">Choose Required, Optional, Prohibited, Stale, or Unresolved for each element.</p>
+ <div class="decision-case-grid"><article class="decision-case" data-context-case data-answer="Unresolved" data-explanation="Hold the packet and route identity reconciliation."><span class="case-label">Event identity</span><h4>Overflow 21 resolves to two open incident records.</h4><div class="case-evidence">No approved merge or selection exists.</div><div class="case-rule"><strong>Declared control</strong><br>The task cannot act until the subject is unambiguous.</div><div class="button-row"><button class="button" type="button" data-context-choice="Required">Required</button><button class="button" type="button" data-context-choice="Optional">Optional</button><button class="button" type="button" data-context-choice="Prohibited">Prohibited</button><button class="button" type="button" data-context-choice="Stale">Stale</button><button class="button" type="button" data-context-choice="Unresolved">Unresolved</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-context-case data-answer="Required" data-explanation="The telemetry satisfies the declared freshness rule."><span class="case-label">Current telemetry</span><h4>Wet-well level observed 90 seconds ago with acceptable quality flag.</h4><div class="case-evidence">Active response policy requires readings under five minutes.</div><div class="case-rule"><strong>Declared control</strong><br>Current condition evidence is necessary for this task.</div><div class="button-row"><button class="button" type="button" data-context-choice="Required">Required</button><button class="button" type="button" data-context-choice="Optional">Optional</button><button class="button" type="button" data-context-choice="Prohibited">Prohibited</button><button class="button" type="button" data-context-choice="Stale">Stale</button><button class="button" type="button" data-context-choice="Unresolved">Unresolved</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-context-case data-answer="Required" data-explanation="The clause is required, scoped, and current."><span class="case-label">Permit clause</span><h4>Current approved clause for this jurisdiction and event type.</h4><div class="case-evidence">Version, effective interval, and authority are verified.</div><div class="case-rule"><strong>Declared control</strong><br>The response recommendation must include governing requirements.</div><div class="button-row"><button class="button" type="button" data-context-choice="Required">Required</button><button class="button" type="button" data-context-choice="Optional">Optional</button><button class="button" type="button" data-context-choice="Prohibited">Prohibited</button><button class="button" type="button" data-context-choice="Stale">Stale</button><button class="button" type="button" data-context-choice="Unresolved">Unresolved</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-context-case data-answer="Stale" data-explanation="Retain for history but exclude from current-state reasoning."><span class="case-label">Old telemetry</span><h4>Wet-well level from yesterday.</h4><div class="case-evidence">Source is valid but outside the five-minute response threshold.</div><div class="case-rule"><strong>Declared control</strong><br>Do not present old condition evidence as current.</div><div class="button-row"><button class="button" type="button" data-context-choice="Required">Required</button><button class="button" type="button" data-context-choice="Optional">Optional</button><button class="button" type="button" data-context-choice="Prohibited">Prohibited</button><button class="button" type="button" data-context-choice="Stale">Stale</button><button class="button" type="button" data-context-choice="Unresolved">Unresolved</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-context-case data-answer="Prohibited" data-explanation="The content must not enter the packet."><span class="case-label">Sealed personnel file</span><h4>Employee disciplinary note unrelated to the incident.</h4><div class="case-evidence">Restricted content with no task purpose.</div><div class="case-rule"><strong>Declared control</strong><br>Least privilege excludes unrelated sensitive content.</div><div class="button-row"><button class="button" type="button" data-context-choice="Required">Required</button><button class="button" type="button" data-context-choice="Optional">Optional</button><button class="button" type="button" data-context-choice="Prohibited">Prohibited</button><button class="button" type="button" data-context-choice="Stale">Stale</button><button class="button" type="button" data-context-choice="Unresolved">Unresolved</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-context-case data-answer="Optional" data-explanation="Include when the task scope requests near-term planning."><span class="case-label">Weather outlook</span><h4>Forecast rainfall for the next shift.</h4><div class="case-evidence">Reviewed source; may affect planning but not current permit applicability.</div><div class="case-rule"><strong>Declared control</strong><br>Useful supporting context is not mandatory for the immediate decision.</div><div class="button-row"><button class="button" type="button" data-context-choice="Required">Required</button><button class="button" type="button" data-context-choice="Optional">Optional</button><button class="button" type="button" data-context-choice="Prohibited">Prohibited</button><button class="button" type="button" data-context-choice="Stale">Stale</button><button class="button" type="button" data-context-choice="Unresolved">Unresolved</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div><div class="feedback" data-feedback aria-live="polite">Resolve every case and read its evidence explanation.</div></div></section>
+</section>
+<section class="lesson-section" id="receipts">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Context provenance fan</span><h2>Every element needs a source and state receipt</h2></div>
+  </header>
+  <div class="prose"><p>The event identity may come from incident management. Telemetry comes from operational technology with observation time. The permit clause comes from an approved document version. User permissions come from identity and access management. Workflow state comes from the incident process.</p><p>A useful receipt records source, locator, version, observation or effective time, review state, authority scope, access decision, and transformation.</p></div>
+
+<figure class="learning-visual" id="mbm16-source-receipt"
+  data-visual-type="context-provenance-fan"
+  data-component-source="structured-module-package">
+  <h3>Every context element carries a source and state receipt</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read from each source spoke into its packet element and receipt fields</div>
+  <div class="visual-frame">
+    <img src="../visuals/source-receipt.svg" alt="Telemetry, permit, identity, workflow, and permission sources fan into a context receipt with time, version, authority, review, and access">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Context remains attributable after assembly</figcaption>
+</figure>
+
+<section class="component" id="mbm16-receipt" data-multi-select
+  data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
+  data-quiz-source="structured-module-package"
+  data-completion="receipt"
+  data-correct-feedback="Correct. Each context element remains attributable and reviewable."
+  data-incorrect-feedback="Preserve source, time, authority, access, review, and transformation.">
+  <header class="component-header"><h3>Which fields belong in a context receipt?</h3><span class="kind">Context boundary check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
+    <div class="multi-grid">
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Source, locator, and version</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Observation or effective time</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Authority and access decision</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>Only the final generated paragraph</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Transformation and review state</span>
+</label></div>
+    <button class="button primary" type="button" data-check-multi>Check the packet</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="gate">
+  <header class="section-heading">
+    <span class="section-number">05</span>
+    <div><span class="kind">Fail-closed gate</span><h2>Fluent recommendation is still before approval and action</h2></div>
+  </header>
+  <div class="prose"><p>Separate retrieve, analyze, recommend, draft, approve, and act. Each transition can have a different permission. A context engine should withhold tools or return a hold state when required evidence, policy, freshness, or authorization is missing.</p><p>Choose the earliest gate that prevents the unsafe transition. Do not let generated prose silently cross from suggestion into operational action.</p></div>
+
+<figure class="learning-visual" id="mbm16-permission-chain"
+  data-visual-type="answer-to-action-fail-closed-chain"
+  data-component-source="structured-module-package">
+  <h3>Permission must interrupt the transition from answer to action</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow the stages and inspect the approval gate before action</div>
+  <div class="visual-frame">
+    <img src="../visuals/permission-chain.svg" alt="A chain moves from retrieve to analyze, recommend, draft, approve, and act with permission and human approval gates blocking unauthorized transitions">
+  </div>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Generated language cannot create authorization</figcaption>
+</figure>
+<section class="component signature-component decision-lab" id="mbm16-permission-gate" data-permission-gate
+ data-purposeful-interaction="permission-gate" data-component-source="structured-module-package" data-completion="permission-gate">
+ <header class="component-header"><h3>Fail-Closed Permission Gate</h3><span class="kind">Fail-closed permission gate</span></header>
+ <div class="component-body"><p class="component-intro">Choose Resolve identity, Refresh evidence, Apply policy, Verify permission, Request approval, or Hold action.</p>
+ <div class="decision-case-grid"><article class="decision-case" data-permission-case data-answer="Resolve identity" data-explanation="Entity ambiguity must be cleared first."><span class="case-label">Two events</span><h4>Agent cannot tell which Overflow 21 record the user means.</h4><div class="case-evidence">All later evidence would attach to an uncertain subject.</div><div class="case-rule"><strong>Declared control</strong><br>Stop before retrieval and recommendation.</div><div class="button-row"><button class="button" type="button" data-permission-choice="Resolve identity">Resolve identity</button><button class="button" type="button" data-permission-choice="Refresh evidence">Refresh evidence</button><button class="button" type="button" data-permission-choice="Apply policy">Apply policy</button><button class="button" type="button" data-permission-choice="Verify permission">Verify permission</button><button class="button" type="button" data-permission-choice="Request approval">Request approval</button><button class="button" type="button" data-permission-choice="Hold action">Hold action</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-permission-case data-answer="Refresh evidence" data-explanation="Refresh or expose the outage and hold current-state conclusions."><span class="case-label">Old sensor</span><h4>Only telemetry from two hours ago is available.</h4><div class="case-evidence">Policy requires less than five minutes for active response.</div><div class="case-rule"><strong>Declared control</strong><br>Do not analyze stale evidence as current.</div><div class="button-row"><button class="button" type="button" data-permission-choice="Resolve identity">Resolve identity</button><button class="button" type="button" data-permission-choice="Refresh evidence">Refresh evidence</button><button class="button" type="button" data-permission-choice="Apply policy">Apply policy</button><button class="button" type="button" data-permission-choice="Verify permission">Verify permission</button><button class="button" type="button" data-permission-choice="Request approval">Request approval</button><button class="button" type="button" data-permission-choice="Hold action">Hold action</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-permission-case data-answer="Apply policy" data-explanation="Filter and replace the inapplicable procedure before recommendation."><span class="case-label">Wrong jurisdiction</span><h4>Retrieved procedure applies to a neighboring utility.</h4><div class="case-evidence">Jurisdiction metadata reveals the mismatch.</div><div class="case-rule"><strong>Declared control</strong><br>Governing policy must match location and organization.</div><div class="button-row"><button class="button" type="button" data-permission-choice="Resolve identity">Resolve identity</button><button class="button" type="button" data-permission-choice="Refresh evidence">Refresh evidence</button><button class="button" type="button" data-permission-choice="Apply policy">Apply policy</button><button class="button" type="button" data-permission-choice="Verify permission">Verify permission</button><button class="button" type="button" data-permission-choice="Request approval">Request approval</button><button class="button" type="button" data-permission-choice="Hold action">Hold action</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-permission-case data-answer="Verify permission" data-explanation="Analysis permission does not authorize valve operation."><span class="case-label">Tool request</span><h4>User asks the agent to open a valve.</h4><div class="case-evidence">User role has analysis permission only.</div><div class="case-rule"><strong>Declared control</strong><br>Check tool and action scope before invocation.</div><div class="button-row"><button class="button" type="button" data-permission-choice="Resolve identity">Resolve identity</button><button class="button" type="button" data-permission-choice="Refresh evidence">Refresh evidence</button><button class="button" type="button" data-permission-choice="Apply policy">Apply policy</button><button class="button" type="button" data-permission-choice="Verify permission">Verify permission</button><button class="button" type="button" data-permission-choice="Request approval">Request approval</button><button class="button" type="button" data-permission-choice="Hold action">Hold action</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-permission-case data-answer="Request approval" data-explanation="The model may draft but cannot cross the approval gate."><span class="case-label">Notification draft</span><h4>Evidence supports a draft notice but policy requires supervisor signoff.</h4><div class="case-evidence">Workflow is at Draft, not Approved.</div><div class="case-rule"><strong>Declared control</strong><br>Preserve the draft and route the approval transition.</div><div class="button-row"><button class="button" type="button" data-permission-choice="Resolve identity">Resolve identity</button><button class="button" type="button" data-permission-choice="Refresh evidence">Refresh evidence</button><button class="button" type="button" data-permission-choice="Apply policy">Apply policy</button><button class="button" type="button" data-permission-choice="Verify permission">Verify permission</button><button class="button" type="button" data-permission-choice="Request approval">Request approval</button><button class="button" type="button" data-permission-choice="Hold action">Hold action</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-permission-case data-answer="Hold action" data-explanation="The action remains blocked with explicit missing conditions."><span class="case-label">Missing authority</span><h4>No accountable approver is available and event classification is disputed.</h4><div class="case-evidence">Required approval and governing state are unresolved.</div><div class="case-rule"><strong>Declared control</strong><br>Fail closed rather than inventing authority.</div><div class="button-row"><button class="button" type="button" data-permission-choice="Resolve identity">Resolve identity</button><button class="button" type="button" data-permission-choice="Refresh evidence">Refresh evidence</button><button class="button" type="button" data-permission-choice="Apply policy">Apply policy</button><button class="button" type="button" data-permission-choice="Verify permission">Verify permission</button><button class="button" type="button" data-permission-choice="Request approval">Request approval</button><button class="button" type="button" data-permission-choice="Hold action">Hold action</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div><div class="feedback" data-feedback aria-live="polite">Resolve every case and read its evidence explanation.</div></div></section>
+</section>
+<section class="lesson-section" id="contract">
+  <header class="section-heading">
+    <span class="section-number">06</span>
+    <div><span class="kind">Professional application</span><h2>Make the runtime packet testable before connecting tools</h2></div>
+  </header>
+  <div class="prose"><p>Choose one bounded task and define exactly what must, may, and must not enter context. Name freshness rules, conflict behavior, tool permissions, output schema, and stop conditions.</p><p>Include tests for a complete packet, stale evidence, denied content, conflicting authority, missing permission, and unavailable source. That is how a context contract becomes operational.</p></div>
+
+<section class="component" id="mbm16-context-contract"
+  data-purposeful-interaction="applied-work-product"
+  data-component-source="structured-module-package">
+  <header class="component-header"><h3>Runtime AI Context Contract</h3><span class="kind">Professional work product</span></header>
+  <div class="component-body">
+    <p class="component-intro">Define one runtime context contract and its fail-closed tests.</p>
+    <form class="work-product" data-work-product="mbm16-context-contract"
+      data-artifact="mbm16-context-contract"
+      data-completion="context-contract"
+      data-correct-feedback="Your context contract is task-specific, least-privilege, attributable, and fail-closed."
+      data-incorrect-feedback="Complete the permissions, freshness, workflow, tool, output, conflict, and test boundaries.">
+      <div class="field-grid"><label>User intent and bounded task<textarea name="task" rows="3" required></textarea></label><label>Resolved subject and related identities<textarea name="entities" rows="3" required></textarea></label><label>Required and optional evidence sources<textarea name="evidence" rows="3" required></textarea></label><label>Ontology and semantic terms<textarea name="definitions" rows="3" required></textarea></label><label>Applicable policy and jurisdiction<textarea name="policy_jurisdiction" rows="3" required></textarea></label><label>As-of time effective time and thresholds<textarea name="time_freshness" rows="3" required></textarea></label><label>User data and action scope<textarea name="permissions" rows="3" required></textarea></label><label>Current state and permitted transitions<textarea name="workflow" rows="3" required></textarea></label><label>Reconciliation hold and escalation<textarea name="conflicts" rows="3" required></textarea></label><label>Allowed denied and approval-gated tools<textarea name="tools" rows="3" required></textarea></label><label>Format citations uncertainty and limits<textarea name="output_schema" rows="3" required></textarea></label><label>Prohibited or unnecessary content<textarea name="denied_content" rows="3" required></textarea></label><label>Unavailable stale or incomplete behavior<textarea name="fallback" rows="3" required></textarea></label><label>Context policy and service owners<textarea name="owner" rows="3" required></textarea></label></div>
+      <label>Complete stale denied conflict permission and outage tests<textarea name="tests" rows="3" required></textarea></label>
+      <button class="button primary" type="submit">Save Runtime AI Context Contract</button>
+      <div class="feedback" data-feedback aria-live="polite"></div>
+      <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
+    </form>
+  </div>
+</section>
+
+<section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
+  <h3 id="faq-heading">Questions people actually ask</h3>
+  <details><summary>Is an ontology the context?</summary><p>No. An ontology supplies durable shared meaning. Runtime context also includes the task, entities, evidence, policy, time, permissions, workflow, and output limits.</p></details>
+<details><summary>Is a context engine just vector search?</summary><p>No. Retrieval may be one step. The engine also filters, validates, reconciles, applies permissions, and assembles the task packet.</p></details>
+<details><summary>Why not send every available document?</summary><p>Irrelevant or unauthorized content increases exposure, conflict, cost, and ambiguity. Send the bounded evidence needed for the task.</p></details>
+<details><summary>Does better context stop hallucination?</summary><p>It can reduce ambiguity and provide evidence, but it cannot guarantee complete or correct generation.</p></details>
+<details><summary>Why include workflow state?</summary><p>The same evidence may permit analysis, a draft, an approval request, or an action depending on the current state.</p></details>
+<details><summary>Should context change by user role?</summary><p>Yes, when permissions, detail, tools, or allowed actions differ. The underlying facts should remain evidence-based.</p></details>
+</section>
+
+<section class="evidence" data-evidence-boundary>
+  <h3>Evidence boundary</h3>
+  <p>Runtime context is a task-specific package assembled from governed sources and state. Better context may improve consistency but does not guarantee correctness or deterministic generation.</p>
+  <ul><li><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2 Concepts and Abstract Data Model</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/prov-o/">PROV-O: The PROV Ontology</a>, World Wide Web Consortium</li><li><a href="https://www.w3.org/TR/shacl/">Shapes Constraint Language</a>, World Wide Web Consortium</li></ul>
+</section>
+</section>
+      <section id="owos-course-community" class="connected">
+        <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+      </section>
+      <section class="completion">
+        <h2>Complete the working candidate</h2>
+        <p>Complete the two-shift diagnosis, engine match, assembly console, receipt check, permission gate, and Context Contract.</p>
+        <button class="button good" type="button" data-complete-module disabled>Complete module</button>
+        <p data-completion-status aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <div class="drawer-scrim" data-drawer-scrim></div>
+  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+    <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>Shared graph meaning and datasets</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>PROV-O: The PROV Ontology</h3><p>Context element provenance</p><a href="https://www.w3.org/TR/prov-o/">Open source</a></article><article><h3>Shapes Constraint Language</h3><p>Validation of declared graph constraints</p><a href="https://www.w3.org/TR/shacl/">Open source</a></article></div>
+  </aside>
+  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article><h3>AI context</h3><p>The task-specific package supplied to a model or agent at runtime.</p></article><article><h3>context engine</h3><p>A service that retrieves, filters, validates, reconciles, and assembles runtime context.</p></article><article><h3>least privilege</h3><p>Providing only the data and capabilities required for an authorized task.</p></article><article><h3>workflow state</h3><p>The current approved stage and permitted transitions in a process.</p></article><article><h3>fail closed</h3><p>Blocking or holding when required evidence, policy, or permission is missing.</p></article><article><h3>output schema</h3><p>A declared structure and constraint for the model response.</p></article></div>
+  </aside>
+  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-structured-candidate. No credential or operational authority.</div></footer>
+  <script>(() => {
+  "use strict";
+
+  const required = JSON.parse(document.body.dataset.requiredIds || "[]");
+  const stateKey = `owos-module:${document.body.dataset.moduleId}:${document.body.dataset.sourceVersion}`;
+  const completed = new Set();
+  let lastDrawerTrigger = null;
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(stateKey) || "[]");
+    saved.forEach((id) => completed.add(id));
+  } catch {
+    localStorage.removeItem(stateKey);
+  }
+
+  function saveState() {
+    localStorage.setItem(stateKey, JSON.stringify([...completed].sort()));
+  }
+
+  function refreshCompletion() {
+    document.querySelectorAll("[data-completion-id]").forEach((item) => {
+      item.classList.toggle("done", completed.has(item.dataset.completionId));
+    });
+    const ready = required.every((id) => completed.has(id));
+    const button = document.querySelector("[data-complete-module]");
+    const status = document.querySelector("[data-completion-status]");
+    if (button) button.disabled = !ready;
+    if (status) {
+      const count = required.filter((id) => completed.has(id)).length;
+      status.textContent = ready
+        ? "All required evidence is complete. You can complete this working candidate."
+        : `${count} of ${required.length} required activities complete.`;
+    }
+  }
+
+  function mark(id) {
+    if (!id) return;
+    completed.add(id);
+    saveState();
+    refreshCompletion();
+  }
+
+  document.querySelectorAll("[data-choice-group]").forEach((group) => {
+    let selected = null;
+    group.querySelectorAll("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        group.querySelectorAll("[data-choice]").forEach((item) => item.classList.remove("selected"));
+        button.classList.add("selected");
+        selected = button;
+      });
+    });
+    group.querySelector("[data-check-choice]")?.addEventListener("click", () => {
+      const feedback = group.querySelector("[data-feedback]");
+      if (!selected) {
+        feedback.textContent = "Choose one response first.";
+        feedback.className = "feedback bad";
+        return;
+      }
+      const correct = selected.dataset.correct === "true";
+      selected.classList.add(correct ? "correct" : "incorrect");
+      feedback.textContent = correct ? group.dataset.correctFeedback : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-flip-group]").forEach((group) => {
+    const cards = [...group.querySelectorAll("[data-flip-card]")];
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const revealed = !card.classList.contains("revealed");
+        card.classList.toggle("revealed", revealed);
+        card.setAttribute("aria-pressed", String(revealed));
+        if (cards.every((item) => item.classList.contains("revealed"))) {
+          mark(group.dataset.completion);
+          const feedback = group.querySelector("[data-feedback]");
+          feedback.textContent = group.dataset.correctFeedback;
+          feedback.className = "feedback good";
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-matching]").forEach((group) => {
+    group.querySelector("[data-check-matching]")?.addEventListener("click", () => {
+      const rows = [...group.querySelectorAll("[data-match-answer]")];
+      const feedback = group.querySelector("[data-feedback]");
+      let correctCount = 0;
+      rows.forEach((field) => {
+        const correct = field.value === field.dataset.matchAnswer;
+        field.classList.toggle("correct-field", correct);
+        field.classList.toggle("incorrect-field", !correct);
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === rows.length;
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : `${group.dataset.incorrectFeedback} ${correctCount} of ${rows.length} are correctly matched.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-multi-select]").forEach((group) => {
+    group.querySelector("[data-check-multi]")?.addEventListener("click", () => {
+      const options = [...group.querySelectorAll("[data-multi-option]")];
+      const feedback = group.querySelector("[data-feedback]");
+      const correct = options.every(
+        (option) => option.checked === (option.dataset.correct === "true")
+      );
+      options.forEach((option) => {
+        option.closest(".select-option")?.classList.toggle(
+          "selected-correct",
+          option.checked && option.dataset.correct === "true"
+        );
+        option.closest(".select-option")?.classList.toggle(
+          "selected-incorrect",
+          option.checked && option.dataset.correct !== "true"
+        );
+      });
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-triple-builder]").forEach((builder) => {
+    const selects = [...builder.querySelectorAll("select")];
+    const correct = JSON.parse(builder.dataset.correct);
+    const output = builder.querySelector("[data-triple-output]");
+    const feedback = builder.querySelector("[data-feedback]");
+    const reverseButton = builder.querySelector("[data-reverse]");
+    let built = false;
+    let reversed = false;
+
+    builder.querySelector("[data-check-triple]").addEventListener("click", () => {
+      const values = selects.map((field) => field.value);
+      output.textContent = values.every(Boolean) ? values.join("  →  ") : "Choose all three positions.";
+      built = values.every((value, index) => value === correct[index]);
+      reverseButton.disabled = !built;
+      feedback.textContent = built
+        ? "Correct. Now reverse the ends and inspect what the statement says."
+        : "Use Pump_P104 as subject, serves as predicate, and Pressure_Zone_3 as object.";
+      feedback.className = `feedback ${built ? "good" : "bad"}`;
+    });
+
+    reverseButton.addEventListener("click", () => {
+      const first = selects[0].value;
+      selects[0].value = selects[2].value;
+      selects[2].value = first;
+      reversed = true;
+      output.textContent = selects.map((field) => field.value).join("  →  ");
+      feedback.textContent = "The words are familiar, but the direction now says the pressure zone serves the pump.";
+      feedback.className = "feedback bad";
+    });
+
+    builder.querySelector("[data-finish-triple]").addEventListener("click", () => {
+      const explanation = builder.querySelector("textarea").value.trim();
+      const enough = explanation.length >= Number(builder.dataset.minimumExplanation);
+      if (built && reversed && enough) {
+        mark(builder.dataset.completion);
+        feedback.textContent = "Complete. You showed that direction carries meaning.";
+        feedback.className = "feedback good";
+      } else {
+        feedback.textContent = "Build the correct triple, reverse it, and explain the changed meaning in one full sentence.";
+        feedback.className = "feedback bad";
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-path-tracer]").forEach((tracer) => {
+    const edges = [...tracer.querySelectorAll("[data-edge-index]")];
+    const feedback = tracer.querySelector("[data-feedback]");
+    let expected = 0;
+    edges.forEach((edge) => {
+      edge.addEventListener("click", () => {
+        const index = Number(edge.dataset.edgeIndex);
+        if (index !== expected) {
+          feedback.textContent = `Start with edge ${expected + 1}. A path only works when its relationships connect in order.`;
+          feedback.className = "feedback bad";
+          return;
+        }
+        edge.classList.add("active");
+        expected += 1;
+        feedback.textContent = edge.dataset.explanation;
+        feedback.className = "feedback good";
+        if (expected === edges.length) mark(tracer.dataset.completion);
+      });
+    });
+    tracer.querySelector("[data-reset-path]").addEventListener("click", () => {
+      expected = 0;
+      edges.forEach((edge) => edge.classList.remove("active"));
+      feedback.textContent = "Path reset. Begin with edge 1.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-artifact-classifier]").forEach((desk) => {
+    const items = [...desk.querySelectorAll("[data-triage-item]")];
+    const feedback = desk.querySelector("[data-feedback]");
+    desk.querySelector("[data-check-triage]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      items.forEach((item) => {
+        const field = item.querySelector("select");
+        const correct = field.value === item.dataset.answer;
+        const itemFeedback = item.querySelector("[data-item-feedback]");
+        item.classList.toggle("correct-card", correct);
+        item.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Correct. ${item.dataset.explanation}`
+          : `Try again. Ask what primary job this artifact performs here. ${item.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === items.length;
+      feedback.textContent = correct
+        ? "The desk is organized. The same event now has distinct structures, classifications, meanings, mappings, and runtime controls."
+        : `${correctCount} of ${items.length} artifacts are correctly placed. Use the explanation under each artifact and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(desk.dataset.completion);
+    });
+    desk.querySelector("[data-reset-triage]")?.addEventListener("click", () => {
+      items.forEach((item) => {
+        item.querySelector("select").value = "";
+        item.classList.remove("correct-card", "incorrect-card");
+        item.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "The triage desk is reset.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-failure-trace]").forEach((lab) => {
+    const triggers = [...lab.querySelectorAll("[data-failure-trigger]")];
+    const visited = new Set();
+    const feedback = lab.querySelector("[data-feedback]");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const job = trigger.dataset.failureTrigger;
+        visited.add(job);
+        triggers.forEach((item) => {
+          item.classList.toggle("active", item === trigger);
+          item.setAttribute("aria-pressed", String(item === trigger));
+        });
+        lab.querySelectorAll("[data-failure-result]").forEach((result) => {
+          result.hidden = result.dataset.failureResult !== job;
+        });
+        feedback.textContent =
+          visited.size === triggers.length
+            ? "All five paths inspected. The symptom appears in the answer, but the first repair belongs at the first broken job."
+            : `${visited.size} of ${triggers.length} failure paths inspected.`;
+        feedback.className = "feedback good";
+        if (visited.size === triggers.length) mark(lab.dataset.completion);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-object-router]").forEach((router) => {
+    const items = [...router.querySelectorAll("[data-route-item]")];
+    const feedback = router.querySelector("[data-feedback]");
+    items.forEach((item) => {
+      item.querySelectorAll("[data-route-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          item.querySelectorAll("[data-route-choice]").forEach((choice) => choice.classList.remove("active"));
+          button.classList.add("active");
+          const correct = button.dataset.routeChoice === item.dataset.answer;
+          item.dataset.complete = String(correct);
+          const itemFeedback = item.querySelector("[data-item-feedback]");
+          itemFeedback.textContent = correct
+            ? `Correct. ${item.dataset.explanation}`
+            : `Try the other branch. ${item.dataset.explanation}`;
+          itemFeedback.className = `item-feedback ${correct ? "good-text" : "bad-text"}`;
+          if (items.every((candidate) => candidate.dataset.complete === "true")) {
+            feedback.textContent = "Every object is correctly routed. Resource objects continue relationships; literals carry values.";
+            feedback.className = "feedback good";
+            mark(router.dataset.completion);
+          }
+        });
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-triple-repair-bench]").forEach((bench) => {
+    const cards = [...bench.querySelectorAll("[data-repair-card]")];
+    const feedback = bench.querySelector("[data-feedback]");
+    bench.querySelector("[data-check-repairs]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      cards.forEach((card) => {
+        const defectCorrect = card.querySelector("[data-defect-field]").value === card.dataset.defect;
+        const repairCorrect = card.querySelector("[data-repair-field]").value === card.dataset.repair;
+        const correct = defectCorrect && repairCorrect;
+        const itemFeedback = card.querySelector("[data-item-feedback]");
+        card.classList.toggle("correct-card", correct);
+        card.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Repair accepted. ${card.dataset.explanation}`
+          : `Inspect both the failed position and the smallest repair. ${card.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === cards.length;
+      feedback.textContent = correct
+        ? "All four statements are repaired without claiming more than their evidence supports."
+        : `${correctCount} of ${cards.length} repairs pass review. Read each explanation and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(bench.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-identity-adjudication]").forEach((docket) => {
+    const records = [...docket.querySelectorAll("[data-docket-record]")];
+    const feedback = docket.querySelector("[data-feedback]");
+    docket.querySelector("[data-check-docket]")?.addEventListener("click", () => {
+      let correct = 0;
+      records.forEach((record) => {
+        const passed = record.querySelector("select").value === record.dataset.answer;
+        record.classList.toggle("passed", passed);
+        record.classList.toggle("failed", !passed);
+        record.querySelector("[data-item-feedback]").textContent = passed
+          ? `Finding accepted. ${record.dataset.explanation}`
+          : "That finding does not fit the evidence. Separate the physical asset from records about it, and preserve contradictions.";
+        if (passed) correct += 1;
+      });
+      if (correct === records.length) {
+        feedback.textContent = "Docket complete. Approved identity, related records, and the unresolved conflict remain visibly different.";
+        feedback.className = "feedback good";
+        mark(docket.dataset.completion);
+      } else {
+        feedback.textContent = `${correct} of ${records.length} findings are supported. Review the evidence and retry.`;
+        feedback.className = "feedback bad";
+      }
+    });
+    docket.querySelector("[data-reset-docket]")?.addEventListener("click", () => {
+      records.forEach((record) => {
+        record.querySelector("select").value = "";
+        record.classList.remove("passed", "failed");
+        record.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "Review all five records.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-graph-growth-lab]").forEach((lab) => {
+    const sources = JSON.parse(lab.dataset.sourceStatements || "[]");
+    const loaded = new Set();
+    const tested = new Set();
+    const ledger = lab.querySelector("[data-statement-ledger]");
+    const count = lab.querySelector("[data-graph-count]");
+    const result = lab.querySelector("[data-query-result]");
+    const feedback = lab.querySelector("[data-feedback]");
+
+    function renderLedger() {
+      const statements = sources.filter((source) => loaded.has(source.source))
+        .flatMap((source) => source.statements.map((statement) => ({ ...statement, source: source.source })));
+      count.textContent = `${statements.length} statements loaded from ${loaded.size} source packets`;
+      ledger.innerHTML = statements.length
+        ? statements.map((statement) => `<article class="ledger-statement"><span>${statement.source}</span><code>${statement.subject} → ${statement.predicate} → ${statement.object}</code></article>`).join("")
+        : '<p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p>';
+      lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+        const active = loaded.has(button.dataset.sourcePacket);
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        const source = button.dataset.sourcePacket;
+        loaded.has(source) ? loaded.delete(source) : loaded.add(source);
+        tested.clear();
+        lab.querySelectorAll("[data-graph-question]").forEach((question) => question.classList.remove("answered"));
+        result.textContent = "The graph changed. Test the competency questions again.";
+        renderLedger();
+      });
+    });
+
+    lab.querySelectorAll("[data-graph-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const requires = JSON.parse(button.dataset.requires || "[]");
+        const missing = requires.filter((source) => !loaded.has(source));
+        tested.add(button.dataset.graphQuestion);
+        if (missing.length) {
+          result.innerHTML = `<strong>Not answerable yet.</strong><span>Missing reviewed statements from: ${missing.join(", ")}.</span>`;
+          button.classList.remove("answered");
+        } else {
+          result.innerHTML = `<strong>${button.dataset.answer}</strong><span>Evidence path: ${button.dataset.path}</span>`;
+          button.classList.add("answered");
+        }
+        const allAnswerable = [...lab.querySelectorAll("[data-graph-question]")].every((question) => {
+          const needed = JSON.parse(question.dataset.requires || "[]");
+          return tested.has(question.dataset.graphQuestion) && needed.every((source) => loaded.has(source));
+        });
+        feedback.textContent = allAnswerable
+          ? "All three questions are answerable through explicit, source-bounded paths."
+          : "Keep growing the graph until every question has a complete evidence path.";
+        feedback.className = `feedback ${allAnswerable ? "good" : ""}`;
+        if (allAnswerable) mark(lab.dataset.completion);
+      });
+    });
+
+    lab.querySelector("[data-reset-graph]")?.addEventListener("click", () => {
+      loaded.clear();
+      tested.clear();
+      result.textContent = "No question tested yet.";
+      lab.querySelectorAll("[data-graph-question]").forEach((button) => button.classList.remove("answered"));
+      renderLedger();
+    });
+    renderLedger();
+  });
+
+  document.querySelectorAll("[data-hierarchy-repair]").forEach((lab) => {
+    const cases = [...lab.querySelectorAll("[data-hierarchy-case]")];
+    const feedback = lab.querySelector("[data-feedback]");
+    cases.forEach((card) => card.querySelectorAll("[data-hierarchy-choice]").forEach((button) => button.addEventListener("click", () => {
+      const correct = button.dataset.hierarchyChoice === card.dataset.answer;
+      card.querySelectorAll("button").forEach((item) => item.classList.toggle("selected", item === button));
+      card.dataset.passed = String(correct);
+      card.querySelector("[data-item-feedback]").textContent = correct ? card.dataset.explanation : `Review the semantic consequence. ${card.dataset.explanation}`;
+      const passed = cases.filter((item) => item.dataset.passed === "true").length;
+      feedback.textContent = passed === cases.length ? "The hierarchy now preserves the intended utility meanings." : `${passed} of ${cases.length} decisions are defensible.`;
+      if (passed === cases.length) mark(lab.dataset.completion);
+    })));
+  });
+
+  document.querySelectorAll("[data-ontology-canvas]").forEach((canvas) => {
+    canvas.querySelector("[data-check-canvas]")?.addEventListener("click", () => {
+      const fields = [...canvas.querySelectorAll("[data-canvas-answer]")];
+      let correct = 0;
+      fields.forEach((field) => {
+        const passed = field.value === field.dataset.canvasAnswer;
+        field.closest(".canvas-card").querySelector("[data-item-feedback]").textContent = passed
+          ? field.closest(".canvas-card").querySelector("[data-item-feedback]").dataset.explanation
+          : "Recheck the competency question, scope, and evidence boundary.";
+        if (passed) correct += 1;
+      });
+      const feedback = canvas.querySelector("[data-feedback]");
+      feedback.textContent = correct === fields.length ? "The ontology slice is bounded, testable, and ready for domain review." : `${correct} of ${fields.length} modeling decisions pass.`;
+      feedback.className = `feedback ${correct === fields.length ? "good" : "bad"}`;
+      if (correct === fields.length) mark(canvas.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-sparql-builder]").forEach((lab) => {
+    const clauses = [...lab.querySelectorAll("[data-query-clause]")];
+    const selected = [];
+    const code = lab.querySelector("[data-query-code]");
+    const effect = lab.querySelector("[data-query-effect]");
+    const feedback = lab.querySelector("[data-feedback]");
+    clauses.forEach((button, index) => button.addEventListener("click", () => {
+      if (index !== selected.length) {
+        effect.textContent = `Clause ${index + 1} cannot run yet. Add clause ${selected.length + 1} first.`;
+        return;
+      }
+      selected.push(button.dataset.code);
+      button.classList.add("selected");
+      button.disabled = true;
+      code.textContent = selected.join("\n");
+      effect.textContent = button.dataset.effect;
+      feedback.textContent = selected.length === clauses.length ? "The complete query pattern returns source-traceable bindings." : `Clause ${selected.length} added. Continue in order.`;
+      if (selected.length === clauses.length) mark(lab.dataset.completion);
+    }));
+    lab.querySelector("[data-reset-query]")?.addEventListener("click", () => {
+      selected.length = 0;
+      clauses.forEach((button) => { button.disabled = false; button.classList.remove("selected"); });
+      code.textContent = "# Select clause 1 to begin";
+      effect.textContent = "The graph pattern will illuminate here.";
+    });
+  });
+
+  [
+    ["[data-inference-court]", "[data-inference-case]", "[data-inference-choice]", "inferenceChoice", "The court has resolved every proposed inference."],
+    ["[data-shacl-clinic]", "[data-shacl-case]", "[data-shacl-choice]", "shaclChoice", "Every record now has a defensible validation disposition."],
+    ["[data-evidence-reconciliation]", "[data-evidence-case]", "[data-evidence-choice]", "evidenceChoice", "Every claim now has an explicit governing-use disposition."]
+    ,["[data-knowledge-spine-router]", "[data-spine-case]", "[data-spine-choice]", "spineChoice", "Every capability now sits in its defensible operating layer."]
+    ,["[data-accountability-handoff]", "[data-handoff-case]", "[data-handoff-choice]", "handoffChoice", "Every operating decision now has an accountable owner."]
+    ,["[data-mapping-workbench]", "[data-mapping-case]", "[data-mapping-choice]", "mappingChoice", "Every source field now resolves to a bounded semantic target."]
+    ,["[data-mapping-break-repair]", "[data-map-repair-case]", "[data-map-repair-choice]", "mapRepairChoice", "Every mapping defect now has a governed repair."]
+    ,["[data-access-pattern-stress-test]", "[data-access-case]", "[data-access-choice]", "accessChoice", "Every workload now has a defensible access pattern."]
+    ,["[data-stale-copy-diagnosis]", "[data-stale-case]", "[data-stale-choice]", "staleChoice", "Every stale-copy failure now has an effective control."]
+    ,["[data-evidence-promotion]", "[data-promotion-case]", "[data-promotion-choice]", "promotionChoice", "Every document item now has a defensible evidence state."]
+    ,["[data-evidence-state-classifier]", "[data-evidence-state-case]", "[data-evidence-state-choice]", "evidenceStateChoice", "Every artifact now retains the right evidence boundary."]
+    ,["[data-context-assembly]", "[data-context-case]", "[data-context-choice]", "contextChoice", "The runtime packet now contains every required control."]
+    ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
+    ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
+    ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
+  ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
+    document.querySelectorAll(labSelector).forEach((lab) => {
+      const cases = [...lab.querySelectorAll(caseSelector)];
+      const feedback = lab.querySelector("[data-feedback]");
+      cases.forEach((card) => card.querySelectorAll(choiceSelector).forEach((button) => button.addEventListener("click", () => {
+        const correct = button.dataset[choiceKey] === card.dataset.answer;
+        card.querySelectorAll(choiceSelector).forEach((item) => item.classList.toggle("selected", item === button));
+        card.classList.toggle("passed", correct);
+        card.classList.toggle("failed", !correct);
+        card.dataset.passed = String(correct);
+        card.querySelector("[data-item-feedback]").textContent = correct ? card.dataset.explanation : `Reopen the evidence and declared control. ${card.dataset.explanation}`;
+        const passed = cases.filter((item) => item.dataset.passed === "true").length;
+        feedback.textContent = passed === cases.length ? success : `${passed} of ${cases.length} cases resolved correctly.`;
+        feedback.className = `feedback ${passed === cases.length ? "good" : ""}`;
+        if (passed === cases.length) mark(lab.dataset.completion);
+      })));
+    });
+  });
+
+  document.querySelectorAll("[data-work-product]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = [...form.querySelectorAll("[required]")];
+      const complete = fields.every((field) => field.value.trim());
+      const feedback = form.querySelector("[data-feedback]");
+      if (!complete) {
+        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.className = "feedback bad";
+        return;
+      }
+      const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
+      localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
+      feedback.textContent = form.dataset.correctFeedback;
+      feedback.className = "feedback good";
+      mark(form.dataset.completion);
+    });
+  });
+
+  function openDrawer(name, trigger) {
+    const drawer = document.querySelector(`[data-drawer="${name}"]`);
+    if (!drawer) return;
+    lastDrawerTrigger = trigger;
+    document.querySelector("[data-drawer-scrim]").classList.add("open");
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    drawer.querySelector("button, a, input")?.focus();
+  }
+
+  function closeDrawers() {
+    document.querySelector("[data-drawer-scrim]").classList.remove("open");
+    document.querySelectorAll("[data-drawer]").forEach((drawer) => {
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    });
+    lastDrawerTrigger?.focus();
+  }
+
+  document.querySelectorAll("[data-open-drawer]").forEach((button) => {
+    button.addEventListener("click", () => openDrawer(button.dataset.openDrawer, button));
+  });
+  document.querySelectorAll("[data-close-drawer], [data-drawer-scrim]").forEach((button) => {
+    button.addEventListener("click", closeDrawers);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDrawers();
+  });
+
+  document.querySelector("[data-complete-module]")?.addEventListener("click", () => {
+    const status = document.querySelector("[data-completion-status]");
+    status.textContent = "Working candidate completed locally. This does not issue a credential or operational authority.";
+  });
+
+  refreshCompletion();
+})();
+</script>
+</body>
+</html>

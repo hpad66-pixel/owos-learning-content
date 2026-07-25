@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:17",
+    "slug": "module-17-bi-rag-graph-and-context-engines",
+    "title": "BI, RAG, Graph Retrieval, and Context Engines",
+    "eyebrow": "Meaning Before Models, Module 17",
+    "promise": "Compare complete answer pipelines, locate fixed and variable stages, and select an evidence and repeatability plan for a bounded utility question.",
+    "duration": "80 to 95 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "synchronized-pipeline-laboratory",
+    "signature_mechanism": "rerun-four-answer-paths-under-repeatability-microscope",
+    "source_version": "0.2.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Data GIS IT OT engineering governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Compare Business Intelligence document Retrieval-Augmented Generation graph retrieval and context-engine pipelines",
+      "Identify fixed configurable probabilistic external and unknown stages",
+      "Separate evidence stability selection stability and wording stability",
+      "Diagnose which stage changed an answer",
+      "Defend an answer architecture and repeatability plan"
+    ],
+    "prior_knowledge": "The learner understands SPARQL, Knowledge Spine services, access patterns, document evidence, and runtime context.",
+    "misconception": "Tables are deterministic, Retrieval-Augmented Generation always varies, and graph applications are automatically repeatable.",
+    "transfer_task": "Compare four answer paths for an upstream wastewater-overflow question."
+  },
+  "sections": [
+    {
+      "section_id": "question",
+      "title": "One question enters four configured systems",
+      "kind": "Pipeline opening",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The leader asks, 'Which upstream lift stations may contribute to Overflow 21, what evidence supports that answer, and what should the team review next?' A Business Intelligence dashboard, document Retrieval-Augmented Generation system, graph query, and context engine produce different outputs.",
+            "The technology label does not explain the difference. Compare source snapshots, mappings, query or retrieval rules, inference, validation, ranking, context, generation settings, external state, and permissions."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm17-four-lanes"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm17-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "jobs",
+      "title": "Each pipeline is good at a different job",
+      "kind": "Architecture fit",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Business Intelligence is strong for governed metrics, predefined joins, and repeatable reports. Document Retrieval-Augmented Generation retrieves passages and generates language grounded in them. Graph retrieval follows explicit named relationships and may include configured inference. A context engine assembles task-specific evidence, policy, permissions, state, and output constraints.",
+            "Real solutions often compose these jobs. Select the smallest complete architecture that meets evidence, latency, risk, cost, and governance needs."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm17-fit-map"
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm17-pipeline-lab"
+        }
+      ]
+    },
+    {
+      "section_id": "stages",
+      "title": "Repeatability belongs to stages, not brands",
+      "kind": "Stage matrix",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A fixed SQL query over a changing source can return different rows. A graph query with a changed ontology or entailment setting can change bindings. Retrieval can change when the index, ranking, or filters change. Generation can vary with sampling or model changes even when evidence stays fixed.",
+            "Label each stage fixed, configurable, probabilistic, external, or unknown. Then state which type of stability the use case needs."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm17-stage-matrix"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm17-stability"
+        }
+      ]
+    },
+    {
+      "section_id": "microscope",
+      "title": "Change one stage and diagnose the result",
+      "kind": "Repeatability microscope",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The laboratory shows five result changes. Decide whether the source snapshot, mapping or query, retrieval and ranking, context assembly, or generation stage caused each one.",
+            "The goal is not to eliminate every variation. It is to control the variation that matters, preserve evidence, and expose unknowns."
+          ]
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm17-stage-diagnosis"
+        }
+      ]
+    },
+    {
+      "section_id": "trace",
+      "title": "Stable evidence and stable wording are different promises",
+      "kind": "Dual trace",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Two generated summaries can use different wording while citing the same passages and reaching the same bounded conclusion. Conversely, identical wording can hide a changed source snapshot or stale cache.",
+            "Test evidence selection, factual claims, citations, graph bindings, wording, latency, blocked states, and action boundaries separately. A single exact-string test is rarely enough for a mixed pipeline."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm17-dual-trace"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm17-evaluation"
+        }
+      ]
+    },
+    {
+      "section_id": "map",
+      "title": "Write the repeatability promise another team can verify",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Choose one question and pipeline. Freeze or record every configuration that matters, including source snapshot, mappings, query, index, ranking, ontology, validation, context, model, decoding, cache, and external services.",
+            "Define expected evidence and allowed variation. Name what must block the answer and who owns evaluation and correction."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm17-repeatability-map"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "Are dashboard answers deterministic?",
+              "answer": "Only under a defined source snapshot, data model, query, filters, permissions, and runtime. Changing any of those can change the result."
+            },
+            {
+              "question": "Does Retrieval-Augmented Generation always produce different answers?",
+              "answer": "No. Retrieval and generation behavior depends on configuration, data, model, caching, and decoding. Some stages can be tightly controlled."
+            },
+            {
+              "question": "Can a graph application hallucinate?",
+              "answer": "A graph query returns matches under its data and configuration. A generative explanation layered on top can still vary or misstate evidence."
+            },
+            {
+              "question": "When is SPARQL better than SQL?",
+              "answer": "Use SPARQL when the question naturally follows named graph relationships across shared identifiers and semantic terms. SQL remains strong for tabular calculations and governed reports."
+            },
+            {
+              "question": "What does a context engine add?",
+              "answer": "It assembles task-specific evidence, policy, time, permissions, workflow state, and output limits across available sources."
+            },
+            {
+              "question": "Can stable citations guarantee a correct answer?",
+              "answer": "No. The cited evidence may be incomplete, misinterpreted, stale, or outside its authority scope."
+            },
+            {
+              "question": "What should be logged for a rerun?",
+              "answer": "Record inputs, source versions, mappings, query and retrieval settings, ontology, context, model, decoding, tool results, evidence receipt, and output."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "Pipeline behavior depends on the complete configuration and external state. No technology label alone guarantees deterministic, correct, complete, or authoritative answers.",
+          "source_refs": [
+            "w3c-sparql",
+            "w3c-rdf",
+            "w3c-prov"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "pipeline-lab",
+      "stability",
+      "stage-diagnosis",
+      "evaluation",
+      "repeatability-map"
+    ],
+    "rule": "Complete the pipeline diagnosis, architecture laboratory, stability match, stage microscope, evaluation check, and Repeatability Map."
+  }
+}

@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="8b6453019730c5c88a1d3fb09521b9c48b9783ff17fd86f7f80f90aed3ed58d4">
+  <meta name="owos-package-checksum" content="48a8dc5128c59ace0be30f128b4ef06e7169f6a59395136ee4c24859edb25ddb">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1975,6 +1975,12 @@ footer {
     ,["[data-mapping-break-repair]", "[data-map-repair-case]", "[data-map-repair-choice]", "mapRepairChoice", "Every mapping defect now has a governed repair."]
     ,["[data-access-pattern-stress-test]", "[data-access-case]", "[data-access-choice]", "accessChoice", "Every workload now has a defensible access pattern."]
     ,["[data-stale-copy-diagnosis]", "[data-stale-case]", "[data-stale-choice]", "staleChoice", "Every stale-copy failure now has an effective control."]
+    ,["[data-evidence-promotion]", "[data-promotion-case]", "[data-promotion-choice]", "promotionChoice", "Every document item now has a defensible evidence state."]
+    ,["[data-evidence-state-classifier]", "[data-evidence-state-case]", "[data-evidence-state-choice]", "evidenceStateChoice", "Every artifact now retains the right evidence boundary."]
+    ,["[data-context-assembly]", "[data-context-case]", "[data-context-choice]", "contextChoice", "The runtime packet now contains every required control."]
+    ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
+    ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
+    ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];

@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:16",
+  "interactions": [
+    {
+      "interaction_id": "mbm16-context-console",
+      "component": "context-assembly",
+      "title": "Runtime Context Assembly Console",
+      "teaching_purpose": "Classify task elements by runtime need and control state.",
+      "instructions": "Choose Required, Optional, Prohibited, Stale, or Unresolved for each element.",
+      "completion_id": "context-console",
+      "config": {
+        "choices": [
+          "Required",
+          "Optional",
+          "Prohibited",
+          "Stale",
+          "Unresolved"
+        ],
+        "cases": [
+          {
+            "label": "Event identity",
+            "claim": "Overflow 21 resolves to two open incident records.",
+            "evidence": "No approved merge or selection exists.",
+            "rule": "The task cannot act until the subject is unambiguous.",
+            "answer": "Unresolved",
+            "explanation": "Hold the packet and route identity reconciliation."
+          },
+          {
+            "label": "Current telemetry",
+            "claim": "Wet-well level observed 90 seconds ago with acceptable quality flag.",
+            "evidence": "Active response policy requires readings under five minutes.",
+            "rule": "Current condition evidence is necessary for this task.",
+            "answer": "Required",
+            "explanation": "The telemetry satisfies the declared freshness rule."
+          },
+          {
+            "label": "Permit clause",
+            "claim": "Current approved clause for this jurisdiction and event type.",
+            "evidence": "Version, effective interval, and authority are verified.",
+            "rule": "The response recommendation must include governing requirements.",
+            "answer": "Required",
+            "explanation": "The clause is required, scoped, and current."
+          },
+          {
+            "label": "Old telemetry",
+            "claim": "Wet-well level from yesterday.",
+            "evidence": "Source is valid but outside the five-minute response threshold.",
+            "rule": "Do not present old condition evidence as current.",
+            "answer": "Stale",
+            "explanation": "Retain for history but exclude from current-state reasoning."
+          },
+          {
+            "label": "Sealed personnel file",
+            "claim": "Employee disciplinary note unrelated to the incident.",
+            "evidence": "Restricted content with no task purpose.",
+            "rule": "Least privilege excludes unrelated sensitive content.",
+            "answer": "Prohibited",
+            "explanation": "The content must not enter the packet."
+          },
+          {
+            "label": "Weather outlook",
+            "claim": "Forecast rainfall for the next shift.",
+            "evidence": "Reviewed source; may affect planning but not current permit applicability.",
+            "rule": "Useful supporting context is not mandatory for the immediate decision.",
+            "answer": "Optional",
+            "explanation": "Include when the task scope requests near-term planning."
+          }
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm16-permission-gate",
+      "component": "permission-gate",
+      "title": "Fail-Closed Permission Gate",
+      "teaching_purpose": "Stop unsafe workflow transitions at the earliest effective gate.",
+      "instructions": "Choose Resolve identity, Refresh evidence, Apply policy, Verify permission, Request approval, or Hold action.",
+      "completion_id": "permission-gate",
+      "config": {
+        "choices": [
+          "Resolve identity",
+          "Refresh evidence",
+          "Apply policy",
+          "Verify permission",
+          "Request approval",
+          "Hold action"
+        ],
+        "cases": [
+          {
+            "label": "Two events",
+            "claim": "Agent cannot tell which Overflow 21 record the user means.",
+            "evidence": "All later evidence would attach to an uncertain subject.",
+            "rule": "Stop before retrieval and recommendation.",
+            "answer": "Resolve identity",
+            "explanation": "Entity ambiguity must be cleared first."
+          },
+          {
+            "label": "Old sensor",
+            "claim": "Only telemetry from two hours ago is available.",
+            "evidence": "Policy requires less than five minutes for active response.",
+            "rule": "Do not analyze stale evidence as current.",
+            "answer": "Refresh evidence",
+            "explanation": "Refresh or expose the outage and hold current-state conclusions."
+          },
+          {
+            "label": "Wrong jurisdiction",
+            "claim": "Retrieved procedure applies to a neighboring utility.",
+            "evidence": "Jurisdiction metadata reveals the mismatch.",
+            "rule": "Governing policy must match location and organization.",
+            "answer": "Apply policy",
+            "explanation": "Filter and replace the inapplicable procedure before recommendation."
+          },
+          {
+            "label": "Tool request",
+            "claim": "User asks the agent to open a valve.",
+            "evidence": "User role has analysis permission only.",
+            "rule": "Check tool and action scope before invocation.",
+            "answer": "Verify permission",
+            "explanation": "Analysis permission does not authorize valve operation."
+          },
+          {
+            "label": "Notification draft",
+            "claim": "Evidence supports a draft notice but policy requires supervisor signoff.",
+            "evidence": "Workflow is at Draft, not Approved.",
+            "rule": "Preserve the draft and route the approval transition.",
+            "answer": "Request approval",
+            "explanation": "The model may draft but cannot cross the approval gate."
+          },
+          {
+            "label": "Missing authority",
+            "claim": "No accountable approver is available and event classification is disputed.",
+            "evidence": "Required approval and governing state are unresolved.",
+            "rule": "Fail closed rather than inventing authority.",
+            "answer": "Hold action",
+            "explanation": "The action remains blocked with explicit missing conditions."
+          }
+        ]
+      }
+    }
+  ]
+}

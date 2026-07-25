@@ -88,3 +88,13 @@ release_status: blocked
 | Working-review acceptance | pending Hardeep Anand | | |
 | Production benchmark | working candidate | 2026-07-23 | Pipeline laboratory |
 | Release | blocked | | Human gates remain |
+
+## Structured live-review replacement, 2026-07-24
+
+The structured synchronized-pipeline candidate supersedes the legacy rendered candidate for live
+review. It contains four original visual classes, a pipeline rerun lab, a stage-diagnosis
+microscope, distributed assessment with a unique quiz rhythm, an Answer Repeatability Map, and
+module-specific FAQs. Nine local desktop, tablet, and phone browser runs passed with zero runtime
+errors, zero overflow, complete interaction paths, working drawers, focus return, and
+0.01-millisecond reduced motion on phone. Independent factual, practitioner, screen-reader,
+physical-device, and novice reviews remain pending.

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:17",
+  "interactions": [
+    {
+      "interaction_id": "mbm17-pipeline-lab",
+      "component": "pipeline-rerun",
+      "title": "Synchronized Answer-Pipeline Laboratory",
+      "teaching_purpose": "Select the answer architecture that fits each bounded job.",
+      "instructions": "Choose BI, Document RAG, Graph retrieval, Context engine, or Hybrid.",
+      "completion_id": "pipeline-lab",
+      "config": {
+        "choices": [
+          "BI",
+          "Document RAG",
+          "Graph retrieval",
+          "Context engine",
+          "Hybrid"
+        ],
+        "cases": [
+          {
+            "label": "Monthly metric",
+            "claim": "Report verified overflow count by district from governed warehouse tables.",
+            "evidence": "Defined measures, dimensions, source refresh, and access controls exist.",
+            "rule": "Use the predefined analytical model for a repeatable metric.",
+            "answer": "BI",
+            "explanation": "Business Intelligence fits governed tabular aggregation."
+          },
+          {
+            "label": "Procedure discovery",
+            "claim": "Find passages describing temporary bypass setup across approved procedures.",
+            "evidence": "The user needs source passages and a cited summary.",
+            "rule": "Retrieve documents and ground generated language in exact passages.",
+            "answer": "Document RAG",
+            "explanation": "Document Retrieval-Augmented Generation supports passage discovery and synthesis."
+          },
+          {
+            "label": "Upstream path",
+            "claim": "Find lift stations connected upstream of Overflow 21.",
+            "evidence": "Named network relationships and stable identifiers are available.",
+            "rule": "Traverse the explicit relationship path.",
+            "answer": "Graph retrieval",
+            "explanation": "Graph retrieval fits multi-hop relationship traversal."
+          },
+          {
+            "label": "Role-sensitive task",
+            "claim": "Package current evidence, permit, permission, workflow, and output schema for an operator.",
+            "evidence": "Sources already exist; task state determines inclusion and allowed action.",
+            "rule": "Assemble and validate runtime context.",
+            "answer": "Context engine",
+            "explanation": "The context engine produces the bounded task packet."
+          },
+          {
+            "label": "Incident briefing",
+            "claim": "Combine upstream path, recent metrics, cited procedure clauses, current policy, and a draft with no action.",
+            "evidence": "The answer requires several evidence and presentation jobs.",
+            "rule": "Compose governed stages and preserve each boundary.",
+            "answer": "Hybrid",
+            "explanation": "A hybrid uses graph, analytical, document, context, and generation stages deliberately."
+          }
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm17-stage-diagnosis",
+      "component": "pipeline-stage-diagnosis",
+      "title": "Repeatability Microscope",
+      "teaching_purpose": "Locate the stage responsible for changed evidence or expression.",
+      "instructions": "Choose Source snapshot, Mapping or query, Retrieval or ranking, Context assembly, or Generation.",
+      "completion_id": "stage-diagnosis",
+      "config": {
+        "choices": [
+          "Source snapshot",
+          "Mapping or query",
+          "Retrieval or ranking",
+          "Context assembly",
+          "Generation"
+        ],
+        "cases": [
+          {
+            "label": "New rows",
+            "claim": "Dashboard count increases after two late incidents arrive.",
+            "evidence": "SQL, filters, and permissions are unchanged; warehouse snapshot changed.",
+            "rule": "Identify the external data stage that changed.",
+            "answer": "Source snapshot",
+            "explanation": "The source snapshot changed the rows."
+          },
+          {
+            "label": "Different bindings",
+            "claim": "Graph result adds two stations after upstreamOf becomes transitive.",
+            "evidence": "Graph data is unchanged; ontology entailment configuration changed.",
+            "rule": "Semantic query behavior changed.",
+            "answer": "Mapping or query",
+            "explanation": "The entailment setting changed available graph matches."
+          },
+          {
+            "label": "Different passages",
+            "claim": "RAG cites new procedure sections after reranking model update.",
+            "evidence": "Documents and prompt are unchanged.",
+            "rule": "Selection changed before generation.",
+            "answer": "Retrieval or ranking",
+            "explanation": "The ranking stage changed the evidence set."
+          },
+          {
+            "label": "Blocked output",
+            "claim": "Operator packet is held after permission is removed.",
+            "evidence": "Evidence and model are unchanged; user authorization changed.",
+            "rule": "Runtime packet validation controls availability.",
+            "answer": "Context assembly",
+            "explanation": "Permission filtering changed the packet state."
+          },
+          {
+            "label": "Different wording",
+            "claim": "Two summaries phrase the same cited conclusion differently.",
+            "evidence": "Evidence set and context are identical; sampling is enabled.",
+            "rule": "Expression changed after evidence selection.",
+            "answer": "Generation",
+            "explanation": "The generation stage varied wording while evidence remained stable."
+          }
+        ]
+      }
+    }
+  ]
+}

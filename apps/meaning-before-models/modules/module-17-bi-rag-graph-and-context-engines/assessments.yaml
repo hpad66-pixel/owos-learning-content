@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:17",
+  "assessments": [
+    {
+      "assessment_id": "mbm17-opening",
+      "type": "multiple-choice",
+      "cognitive_job": "reject technology labels",
+      "prompt": "What should be compared when four systems answer differently?",
+      "options": [
+        {
+          "text": "The complete configured stages, evidence, external state, and permissions",
+          "correct": true
+        },
+        {
+          "text": "Only whether the system uses tables or graphs",
+          "correct": false
+        },
+        {
+          "text": "Only whether the final wording matches",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The choice follows the stated operating boundary.",
+        "incorrect": "Review the source, control, and intended use before choosing again."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm17-stability",
+      "type": "matching",
+      "cognitive_job": "separate stage behavior",
+      "prompt": "Match each behavior label to an example.",
+      "targets": [
+        "Fixed",
+        "Configurable",
+        "Probabilistic",
+        "External"
+      ],
+      "pairs": [
+        {
+          "prompt": "Version-pinned SPARQL text",
+          "answer": "Fixed"
+        },
+        {
+          "prompt": "Entailment profile selected at deployment",
+          "answer": "Configurable"
+        },
+        {
+          "prompt": "Sampling-enabled generated wording",
+          "answer": "Probabilistic"
+        },
+        {
+          "prompt": "Source API availability and current records",
+          "answer": "External"
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Repeatability can now be tested stage by stage.",
+        "incorrect": "Separate frozen artifacts, chosen settings, sampled behavior, and outside state."
+      },
+      "completion_id": "stability"
+    },
+    {
+      "assessment_id": "mbm17-evaluation",
+      "type": "flip-cards",
+      "cognitive_job": "design pipeline evaluation",
+      "prompt": "Predict the correct test boundary before turning each card.",
+      "cards": [
+        {
+          "front": "Retrieval stage",
+          "back": "Test eligible evidence, ranking, exclusions, and citations."
+        },
+        {
+          "front": "Query stage",
+          "back": "Test graph bindings, metric rows, time boundaries, and source snapshots."
+        },
+        {
+          "front": "Generation stage",
+          "back": "Test factual claims separately from permitted wording variation."
+        },
+        {
+          "front": "Operational control stage",
+          "back": "Test latency, denied permissions, stale evidence, and blocked states."
+        }
+      ],
+      "feedback": {
+        "correct": "The evaluation plan now tests evidence, claims, expression, performance, and controls separately."
+      },
+      "completion_id": "evaluation"
+    },
+    {
+      "assessment_id": "mbm17-repeatability-map",
+      "type": "applied-work-product",
+      "title": "Answer Repeatability Map",
+      "cognitive_job": "specify an evidence and repeatability contract",
+      "prompt": "Document one complete answer pipeline and its allowed variation.",
+      "required_fields": [
+        "question_use",
+        "pipeline",
+        "source_snapshot",
+        "mappings_query",
+        "retrieval_ranking",
+        "ontology_validation",
+        "context_contract",
+        "generation_settings",
+        "external_services",
+        "evidence_receipt",
+        "expected_stability",
+        "allowed_variation",
+        "evaluation",
+        "block_conditions",
+        "owners"
+      ],
+      "field_labels": {
+        "question_use": "Bounded question and decision use",
+        "pipeline": "Business Intelligence document RAG graph context or hybrid",
+        "source_snapshot": "Data versions freshness and cache",
+        "mappings_query": "Mappings joins query filters and parameters",
+        "retrieval_ranking": "Index chunking filters ranking and top-k",
+        "ontology_validation": "Ontology entailment and shape versions",
+        "context_contract": "Task identity policy time permission workflow and outputs",
+        "generation_settings": "Model prompt decoding and cache",
+        "external_services": "Availability versions and tool results",
+        "evidence_receipt": "Rows passages triples provenance and citations",
+        "expected_stability": "Evidence selection claim wording latency and state promises",
+        "allowed_variation": "Variation permitted by use",
+        "evaluation": "Test cases metrics thresholds and rerun log",
+        "block_conditions": "Missing stale conflicting denied or unavailable behavior",
+        "owners": "Pipeline evidence evaluation and correction owners"
+      },
+      "textarea_fields": [
+        "question_use",
+        "pipeline",
+        "source_snapshot",
+        "mappings_query",
+        "retrieval_ranking",
+        "ontology_validation",
+        "context_contract",
+        "generation_settings",
+        "external_services",
+        "evidence_receipt",
+        "expected_stability",
+        "allowed_variation",
+        "evaluation",
+        "block_conditions",
+        "owners"
+      ],
+      "feedback": {
+        "correct": "Your repeatability map makes each stage, evidence promise, allowed variation, and stop condition testable.",
+        "incorrect": "Complete the stage configurations, evidence receipt, stability promises, evaluation, and block conditions."
+      },
+      "completion_id": "repeatability-map"
+    }
+  ]
+}

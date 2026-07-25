@@ -298,6 +298,46 @@ verification.
 Commit and push the exact learning release, import that commit into the OWOS platform, run platform
 release checks, deploy production, and verify all three public pages and checksums.
 
+## Progressive Modules 15 to 17 structured batch
+
+### Module 15
+
+- Archetype: evidence investigation
+- Signature mechanisms: Evidence Promotion Laboratory and Evidence-State Investigation
+- Four original visual classes and Structured-Unstructured Evidence Plan
+- Package checksum: `46a05006e81c6d217283bbfde8530e553ec3e7bab71f7bf0a1aa59f76f5c9cfd`
+
+### Module 16
+
+- Archetype: context assembly room
+- Signature mechanisms: Runtime Context Assembly Console and Fail-Closed Permission Gate
+- Four original visual classes and Runtime AI Context Contract
+- Package checksum: `a1f566b4f617229282e2f53213a018c2bbddc69862ce451a614fd2a2fbbb299e`
+
+### Module 17
+
+- Archetype: synchronized pipeline laboratory
+- Signature mechanisms: Answer Pipeline Rerun Lab and Stage Diagnosis Microscope
+- Four original visual classes and Answer Repeatability Map
+- Package checksum: `8541e5a2f9592a765dd0f37ede6a7d6ab784327755bcc8124c336a7b37f7c1b2`
+
+### Batch evidence before publication
+
+- Nine local and nine packaged browser runs passed across desktop, tablet, and phone.
+- All twelve original visual assets loaded and all twelve visual classes are distinct.
+- All six lesson-specific simulations, distributed assessments, work products, drawers, focus
+  return, and completion paths passed.
+- Runtime errors: zero. Horizontal overflow: zero. Phone reduced-motion maximum: 0.01 milliseconds.
+- Compiler, lesson contracts, whole-course conformance, course distinctiveness,
+  structured-authoring, release-manifest, and formatting gates passed.
+- Seventeen of eighteen live lessons now use structured source packages.
+- The release manifest contains 97 checksum-controlled files.
+
+## Next action
+
+Commit and push the exact learning release, import that commit into the OWOS platform, run platform
+release checks, deploy production, and verify all three public pages and checksums.
+
 ## Modules 12 to 14 publication evidence
 
 - Exact learning-content intake commit: `d2bc0470c2cdbbb8e6225e8b1069b8bd820f8b1d`

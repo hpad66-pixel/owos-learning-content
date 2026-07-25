@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:15",
+  "assessments": [
+    {
+      "assessment_id": "mbm15-opening",
+      "type": "flip-cards",
+      "cognitive_job": "preserve conflict",
+      "prompt": "Predict what must remain visible before turning each evidence card.",
+      "cards": [
+        {
+          "front": "Two sources disagree",
+          "back": "Preserve both claims, both source paths, and the unresolved conflict."
+        },
+        {
+          "front": "A document has no effective date",
+          "back": "Mark time as missing and prevent time-sensitive governing use."
+        },
+        {
+          "front": "A passage is semantically similar",
+          "back": "Treat it as retrieved evidence, not as an approved graph assertion."
+        },
+        {
+          "front": "A reviewer approves one scoped use",
+          "back": "Record the reviewer, authority, scope, and effective interval without deleting history."
+        }
+      ],
+      "feedback": {
+        "correct": "You preserved conflict, time, evidence state, and scoped authority."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm15-methods",
+      "type": "matching",
+      "cognitive_job": "separate retrieval jobs",
+      "prompt": "Match each method to its primary job.",
+      "targets": [
+        "Keyword search",
+        "Vector similarity",
+        "Extraction",
+        "Graph assertion"
+      ],
+      "pairs": [
+        {
+          "prompt": "Find exact terms and filters",
+          "answer": "Keyword search"
+        },
+        {
+          "prompt": "Retrieve semantically related passages",
+          "answer": "Vector similarity"
+        },
+        {
+          "prompt": "Create candidate entities and claims",
+          "answer": "Extraction"
+        },
+        {
+          "prompt": "Connect a reviewed statement to identities and evidence",
+          "answer": "Graph assertion"
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Each method now has a visible job and limit.",
+        "incorrect": "Separate exact retrieval, approximate retrieval, candidate creation, and explicit semantic assertion."
+      },
+      "completion_id": "methods"
+    },
+    {
+      "assessment_id": "mbm15-conflict",
+      "type": "multi-select",
+      "cognitive_job": "govern conflicting evidence",
+      "prompt": "Which controls preserve a defensible conflict decision?",
+      "options": [
+        {
+          "text": "Retain both source paths",
+          "correct": true
+        },
+        {
+          "text": "Record governing use and effective interval",
+          "correct": true
+        },
+        {
+          "text": "Delete the losing statement",
+          "correct": false
+        },
+        {
+          "text": "Record missing evidence and reviewer",
+          "correct": true
+        },
+        {
+          "text": "Treat similarity score as authority",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The decision preserves history and scoped authority.",
+        "incorrect": "Keep the sources, conflict, use boundary, time, and accountable review."
+      },
+      "completion_id": "conflict"
+    },
+    {
+      "assessment_id": "mbm15-evidence-plan",
+      "type": "applied-work-product",
+      "title": "Structured-Unstructured Evidence Plan",
+      "cognitive_job": "design a governed document-to-knowledge path",
+      "prompt": "Define the complete evidence path for one document family.",
+      "required_fields": [
+        "questions",
+        "document_sources",
+        "access_controls",
+        "retrieval",
+        "chunking",
+        "extraction",
+        "identity",
+        "provenance",
+        "review",
+        "authority_time",
+        "conflict_policy",
+        "retention",
+        "promotion_tests",
+        "excluded_content"
+      ],
+      "field_labels": {
+        "questions": "Bounded questions",
+        "document_sources": "Source families versions and locators",
+        "access_controls": "Permissions sensitivity and denied content",
+        "retrieval": "Keyword vector hybrid or graph method",
+        "chunking": "Passage boundary and source preservation",
+        "extraction": "Candidate entities relationships and confidence handling",
+        "identity": "Entity linking and conflict route",
+        "provenance": "Source activity agent model and time",
+        "review": "Human and automated checks",
+        "authority_time": "Approval scope effective interval and supersession",
+        "conflict_policy": "Preserve reconcile hold and escalate",
+        "retention": "Index candidate and approved-claim lifecycle",
+        "promotion_tests": "Tests for each evidence state",
+        "excluded_content": "Content prohibited from runtime context"
+      },
+      "textarea_fields": [
+        "questions",
+        "document_sources",
+        "access_controls",
+        "retrieval",
+        "chunking",
+        "extraction",
+        "identity",
+        "provenance",
+        "review",
+        "authority_time",
+        "conflict_policy",
+        "retention",
+        "promotion_tests",
+        "excluded_content"
+      ],
+      "feedback": {
+        "correct": "Your evidence plan separates retrieval, candidate knowledge, review, and governing use.",
+        "incorrect": "Complete the source, promotion, authority, conflict, retention, and exclusion controls."
+      },
+      "completion_id": "evidence-plan"
+    }
+  ]
+}
