@@ -45,10 +45,10 @@ review, Module 19 handoff validation, and release approval.
 
 ## Next actions in prerequisite order
 
-1. Review and approve Module 20’s structured prototype in Author Studio, or return bounded findings.
-2. Return to Module 19, approve its design package, and produce it through structured authoring,
+1. Return to Module 19, approve its design package, and produce it through structured authoring,
    deterministic QA, owner review, and named human review.
-3. Revalidate the Module 19-to-Module 20 handoff.
+2. Revalidate the Module 19-to-Module 20 handoff against the existing Module 20 prototype.
+3. Review Module 20’s structured prototype in Author Studio and apply only bounded findings.
 4. Complete Module 20’s remaining responsive, accessibility, practitioner, factual, security,
    physical-device, credential, and coherence gates against one checksum.
 5. Reassemble and test the twenty-module landing page and connected curriculum.
