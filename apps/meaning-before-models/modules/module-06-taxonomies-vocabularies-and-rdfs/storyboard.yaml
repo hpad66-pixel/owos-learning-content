@@ -2,11 +2,82 @@ schema_version: 1
 module_id: mbm001:06
 version: 0.2.0
 status: approved
-approvals: {narrative: approved_for_production, visuals: approved_for_production, interactions: approved_for_production, assessments: approved_for_production, owner: approved_under_standing_authorization}
+approvals:
+  narrative: approved
+  visuals: approved
+  interactions: approved
+  assessments: approved
+  owner: approved
 beats:
-  - {beat_id: four-assets, learner_question: "Why do four departments mean different things by asset?", instructor_purpose: Preserve scope before harmonization., teaching_text_refs: [four-assets], visual_refs: [mbm06-four-jobs], interaction_refs: [], assessment_refs: [mbm06-opening], intended_realization: Definitions require scope and ownership., transition: Separate categories from individual things.}
-  - {beat_id: class-instance, learner_question: "Is P-104 a class or an instance?", instructor_purpose: Separate class instance and property., teaching_text_refs: [class-instance], visual_refs: [mbm06-class-instance], interaction_refs: [], assessment_refs: [mbm06-terms], intended_realization: Categories things and relationships have different roles., transition: Arrange classes into useful hierarchies.}
-  - {beat_id: taxonomy, learner_question: "Where should each classification sit?", instructor_purpose: Build a question-driven taxonomy., teaching_text_refs: [taxonomy], visual_refs: [mbm06-taxonomy-tree], interaction_refs: [], assessment_refs: [mbm06-hierarchy-match], intended_realization: A taxonomy organizes governed broader and narrower classes., transition: Examine formal semantic consequences.}
-  - {beat_id: rdfs, learner_question: "What will this schema statement imply?", instructor_purpose: Make subclass domain and range consequences visible., teaching_text_refs: [rdfs-consequences], visual_refs: [mbm06-consequence-map], interaction_refs: [mbm06-hierarchy-repair], assessment_refs: [], intended_realization: RDFS semantics are not validation constraints., transition: Assign governance and release control.}
-  - {beat_id: governance, learner_question: "Who controls a definition after the workshop?", instructor_purpose: Establish lifecycle and validation boundary., teaching_text_refs: [governance], visual_refs: [], interaction_refs: [], assessment_refs: [mbm06-boundary], intended_realization: Vocabulary is a governed product., transition: Publish a reviewable sheet.}
-  - {beat_id: artifact, learner_question: "Can another team apply and challenge the term?", instructor_purpose: Produce the governed vocabulary sheet., teaching_text_refs: [vocabulary-sheet], visual_refs: [], interaction_refs: [mbm06-vocabulary-sheet], assessment_refs: [mbm06-vocabulary-sheet], intended_realization: Definitions include examples exclusions ownership version and boundaries., transition: Module 07 turns questions into an ontology slice.}
+- beat_id: four-assets
+  learner_question: Why do four departments mean different things by asset?
+  instructor_purpose: Preserve scope before harmonization.
+  teaching_text_refs:
+  - four-assets
+  visual_refs:
+  - mbm06-four-jobs
+  interaction_refs: []
+  assessment_refs:
+  - mbm06-opening
+  intended_realization: Definitions require scope and ownership.
+  transition: Separate categories from individual things.
+- beat_id: class-instance
+  learner_question: Is P-104 a class or an instance?
+  instructor_purpose: Separate class instance and property.
+  teaching_text_refs:
+  - class-instance
+  visual_refs:
+  - mbm06-class-instance
+  interaction_refs: []
+  assessment_refs:
+  - mbm06-terms
+  intended_realization: Categories things and relationships have different roles.
+  transition: Arrange classes into useful hierarchies.
+- beat_id: taxonomy
+  learner_question: Where should each classification sit?
+  instructor_purpose: Build a question-driven taxonomy.
+  teaching_text_refs:
+  - taxonomy
+  visual_refs:
+  - mbm06-taxonomy-tree
+  interaction_refs: []
+  assessment_refs:
+  - mbm06-hierarchy-match
+  intended_realization: A taxonomy organizes governed broader and narrower classes.
+  transition: Examine formal semantic consequences.
+- beat_id: rdfs
+  learner_question: What will this schema statement imply?
+  instructor_purpose: Make subclass domain and range consequences visible.
+  teaching_text_refs:
+  - rdfs-consequences
+  visual_refs:
+  - mbm06-consequence-map
+  interaction_refs:
+  - mbm06-hierarchy-repair
+  assessment_refs: []
+  intended_realization: RDFS semantics are not validation constraints.
+  transition: Assign governance and release control.
+- beat_id: governance
+  learner_question: Who controls a definition after the workshop?
+  instructor_purpose: Establish lifecycle and validation boundary.
+  teaching_text_refs:
+  - governance
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs:
+  - mbm06-boundary
+  intended_realization: Vocabulary is a governed product.
+  transition: Publish a reviewable sheet.
+- beat_id: artifact
+  learner_question: Can another team apply and challenge the term?
+  instructor_purpose: Produce the governed vocabulary sheet.
+  teaching_text_refs:
+  - vocabulary-sheet
+  visual_refs: []
+  interaction_refs:
+  - mbm06-vocabulary-sheet
+  assessment_refs:
+  - mbm06-vocabulary-sheet
+  intended_realization: Definitions include examples exclusions ownership version
+    and boundaries.
+  transition: Module 07 turns questions into an ontology slice.

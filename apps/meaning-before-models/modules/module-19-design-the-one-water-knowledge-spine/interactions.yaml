@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:19",
+  "interactions": [
+    {
+      "interaction_id": "mbm19-boundary-lab",
+      "component": "pipeline-rerun",
+      "title": "Pilot Boundary Review",
+      "teaching_purpose": "Reduce an enterprise ambition to one governed decision.",
+      "instructions": "Choose KEEP, REVISE, or EXCLUDE for each proposed boundary.",
+      "completion_id": "boundary-lab",
+      "config": {
+        "choices": ["KEEP", "REVISE", "EXCLUDE"],
+        "cases": [
+          {"label": "Question", "claim": "Connect every utility decision to one enterprise graph.", "evidence": "No user, event, decision, or baseline is named.", "rule": "A pilot begins with one bounded operational question.", "answer": "REVISE", "explanation": "Replace enterprise ambition with the LS-7 evidence-review question."},
+          {"label": "Action", "claim": "Create one draft inspection work order after current evidence and supervisor approval.", "evidence": "The Module 18 contract bounds the tool, actor, approval, and postcondition.", "rule": "One controlled action can test the graph-to-action handoff.", "answer": "KEEP", "explanation": "This is sufficiently bounded for rehearsal."},
+          {"label": "Operations", "claim": "Change pump settings and dispatch a crew automatically.", "evidence": "The pilot has no production operational-control authority.", "rule": "High-consequence operational control is outside this pilot.", "answer": "EXCLUDE", "explanation": "Exclude operational control and dispatch."}
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm19-artifact-map",
+      "component": "pipeline-stage-diagnosis",
+      "title": "Prerequisite Artifact Map",
+      "teaching_purpose": "Place prior-course artifacts in their correct pilot-design role.",
+      "instructions": "Choose Meaning, Evidence, Context, Authority, or Measurement.",
+      "completion_id": "artifact-map",
+      "config": {
+        "choices": ["Meaning", "Evidence", "Context", "Authority", "Measurement"],
+        "cases": [
+          {"label": "Ontology and mappings", "claim": "Define shared concepts and connect them to governed source fields.", "evidence": "Modules 5 through 7 and 13.", "rule": "Shared semantics belong in the meaning boundary.", "answer": "Meaning", "explanation": "Ontology and mappings define and connect meaning."},
+          {"label": "Provenance and freshness", "claim": "Name source, authority, time, version, and supersession.", "evidence": "Module 11.", "rule": "Trust decisions require evidence state.", "answer": "Evidence", "explanation": "Provenance and freshness qualify evidence."},
+          {"label": "Runtime packet", "claim": "Package user, task, current evidence, policy, permissions, state, and limits.", "evidence": "Module 16.", "rule": "Task-specific inputs belong in runtime context.", "answer": "Context", "explanation": "The context engine assembles the bounded packet."},
+          {"label": "Agent Action Contract", "claim": "Control approval, tools, retries, verification, and audit.", "evidence": "Module 18.", "rule": "Grounding does not grant permission.", "answer": "Authority", "explanation": "The contract governs action authority and recovery."},
+          {"label": "Baseline and target", "claim": "Compare current evidence-assembly time with the ninety-day target.", "evidence": "Pilot decision brief.", "rule": "A pilot must reduce measurable uncertainty or effort.", "answer": "Measurement", "explanation": "Baseline and target make value testable."}
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm19-design-challenge",
+      "component": "pipeline-rerun",
+      "title": "Minimum Design Challenge",
+      "teaching_purpose": "Choose the least data movement that preserves meaning and evidence.",
+      "instructions": "Choose QUERY IN PLACE, INDEX, MATERIALIZE, or STOP.",
+      "completion_id": "design-challenge",
+      "config": {
+        "choices": ["QUERY IN PLACE", "INDEX", "MATERIALIZE", "STOP"],
+        "cases": [
+          {"label": "Current work orders", "claim": "The governed maintenance API meets availability and latency needs.", "evidence": "The source remains authoritative.", "rule": "Virtualize before copying when the workload permits.", "answer": "QUERY IN PLACE", "explanation": "Query the authoritative source through governed mapping."},
+          {"label": "Inspection reports", "claim": "Relevant passages must be retrieved with citations.", "evidence": "The original PDF remains authoritative.", "rule": "Index unstructured evidence without promoting every extraction to fact.", "answer": "INDEX", "explanation": "Index passages and preserve the document."},
+          {"label": "Rehearsed outage path", "claim": "A narrow path must remain available during an approved source outage.", "evidence": "Scope, synchronization, owner, expiry, and recovery are tested.", "rule": "Materialize only a justified hot path.", "answer": "MATERIALIZE", "explanation": "The bounded resilience case justifies a controlled copy."},
+          {"label": "Unknown identity", "claim": "Two LS-7 records cannot be reconciled.", "evidence": "Coordinates, ownership, and crosswalk evidence conflict.", "rule": "Do not build answers on unresolved critical identity.", "answer": "STOP", "explanation": "Escalate identity resolution before continuing."}
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm19-review-board",
+      "component": "pipeline-stage-diagnosis",
+      "title": "Knowledge Spine Pilot Review Board",
+      "teaching_purpose": "Defend the pilot against five independent review jobs.",
+      "instructions": "Choose the reviewer who owns each challenge.",
+      "completion_id": "review-board",
+      "config": {
+        "choices": ["Operations", "Semantics", "Cybersecurity", "Governance", "Finance"],
+        "cases": [
+          {"label": "Real work", "claim": "Does the question match the supervisor's actual decision and timing?", "evidence": "Workflow observation and practitioner review.", "rule": "Operational usefulness is judged by the work owner.", "answer": "Operations", "explanation": "Operations validates the decision context."},
+          {"label": "Meaning", "claim": "Can another team test identities, mappings, queries, shapes, and inference limits?", "evidence": "Versioned semantic artifacts and tests.", "rule": "Semantic claims must be explicit and testable.", "answer": "Semantics", "explanation": "The data and semantics reviewer owns this challenge."},
+          {"label": "Access", "claim": "Can credentials, tool scope, denied paths, and OT boundaries be enforced?", "evidence": "Threat model and control tests.", "rule": "Security gates cannot be averaged away.", "answer": "Cybersecurity", "explanation": "Cybersecurity validates access and control boundaries."},
+          {"label": "Accountability", "claim": "Who owns source authority, approvals, correction, and audit?", "evidence": "Named roles and escalation paths.", "rule": "Every governed decision needs accountable ownership.", "answer": "Governance", "explanation": "Governance owns accountability and correction."},
+          {"label": "Value", "claim": "What baseline changes and what evidence would justify scaling?", "evidence": "Cost, benefit, uncertainty, and stop thresholds.", "rule": "Investment follows measurable learning.", "answer": "Finance", "explanation": "Finance tests value and scale logic."}
+        ]
+      }
+    }
+  ]
+}

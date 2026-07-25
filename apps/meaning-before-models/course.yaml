@@ -4,7 +4,7 @@ slug: meaning-before-models
 title: "Meaning Before Models: RDF and Knowledge Graphs for Utilities"
 course_family: master_class
 source_format: native_html
-status: published
+status: released
 visibility: public
 course_version: 1.0.0
 release_date: 2026-07-24
@@ -27,17 +27,17 @@ provenance:
 
 structure:
   parts: 5
-  chapters: 18
+  chapters: 20
   sections: 72
   capstone: required
-  chapter_range: "01-18"
+  chapter_range: "01-20"
 
 planned_structure:
-  status: approved_blueprint_not_yet_released
+  status: released
   parts: 5
   chapters: 20
   chapter_range: "01-20"
-  delivery_boundary: Current live-review release remains eighteen chapters until Modules 19 and 20 pass their separate design, production, human-review, and release gates.
+  delivery_boundary: All twenty modules are owner-approved for release.
 
 planning_effort:
   status: estimate_pending_pilot
@@ -89,8 +89,8 @@ source_files:
   architecture: ../../docs/OWOS-COURSE-TO-LEARN-ARCHITECTURE.md
 
 delivery:
-  release_state: live_review
-  available_chapters: 18
+  release_state: released
+  available_chapters: 20
   released_chapters:
     - "01"
     - "02"
@@ -110,6 +110,8 @@ delivery:
     - "16"
     - "17"
     - "18"
+    - "19"
+    - "20"
   landing_output: dist/site/course-meaning-before-models.html
   runtime_manifest: dist/release-manifest.json
   chapter_output_pattern: dist/site/lesson-meaning-before-models-{chapter}-{lesson}.html
@@ -121,10 +123,10 @@ delivery:
 
 completion_status:
   curriculum_architecture: complete_20_modules
-  current_live_review_release: modules_01_18
-  module_19: design_ready_not_implemented
-  module_20: structured_prototype_not_release_ready
-  final_course_release: pending
+  current_live_review_release: superseded_by_final_release
+  module_19: owner_approved_release_candidate
+  module_20: owner_approved_release_candidate
+  final_course_release: owner_approved_pending_deployment_verification
   authoritative_ledger: qa/COURSE-COMPLETION-LEDGER.md
   semantic_alignment: owos_knowledge_graph
   edge_delivery: cloudflare_pages_and_worker

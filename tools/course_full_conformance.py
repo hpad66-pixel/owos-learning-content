@@ -422,7 +422,10 @@ def audit(course: Path, *, require_release_ready: bool = False) -> dict:
             ) as error:
                 lesson_errors.extend(str(error).splitlines())
             else:
-                if require_release_ready:
+                # Structured packages have already passed the compiler's release-ready
+                # storyboard, visual-provenance, QA-gate, and checksum validation above.
+                # The legacy Markdown QA parser applies only to legacy HTML lessons.
+                if require_release_ready and structured_package is None:
                     _validate_release_ready_qa(qa, lesson_errors)
                 if lesson_errors:
                     errors.extend(

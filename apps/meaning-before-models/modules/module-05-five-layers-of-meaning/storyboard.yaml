@@ -3,116 +3,134 @@ module_id: mbm001:05
 version: 0.2.0
 status: approved
 approvals:
-  narrative: approved_for_golden_build
-  visuals: approved_for_golden_build
-  interactions: approved_for_golden_build
-  assessments: approved_for_golden_build
-  owner: approved_for_golden_build
+  narrative: approved
+  visuals: approved
+  interactions: approved
+  assessments: approved
+  owner: approved
 beats:
-  - beat_id: pressure-event
-    learner_question: We have the data, so why can nobody defend the answer?
-    instructor_purpose: Open with a consequential utility decision and expose the difference between available records and governed meaning.
-    teaching_text_refs:
-      - opening-pressure-event
-      - opening-decision
-    visual_refs:
-      - mbm05-pressure-room
-    interaction_refs: []
-    assessment_refs:
-      - mbm05-opening-decision
-    intended_realization: More data and a dashboard do not settle definitions, mappings, time, permission, or authority.
-    transition: Separate the five questions before introducing the five technical terms.
-  - beat_id: five-questions
-    learner_question: What different jobs are hiding inside the word meaning?
-    instructor_purpose: Establish structure, classification, shared meaning, enterprise connection, and task packaging in ordinary language.
-    teaching_text_refs:
-      - five-ordinary-questions
-      - terms-after-jobs
-    visual_refs:
-      - mbm05-five-job-comparison
-    interaction_refs: []
-    assessment_refs:
-      - mbm05-job-question-match
-    intended_realization: The five terms are easier to distinguish when each is tied to the question it answers.
-    transition: Test the distinction using artifacts the learner already recognizes.
-  - beat_id: triage-desk
-    learner_question: Which job is this familiar utility artifact actually doing?
-    instructor_purpose: Convert abstract distinctions into concrete judgments about records, definitions, mappings, and controls.
-    teaching_text_refs:
-      - triage-instructions
-      - primary-job-boundary
-    visual_refs:
-      - mbm05-pressure-room
-    interaction_refs:
-      - mbm05-meaning-triage-desk
-    assessment_refs:
-      - mbm05-artifact-classification
-    intended_realization: File type does not reveal semantic purpose, and classification depends on the bounded decision.
-    transition: Follow one shared concept into the systems where its evidence lives.
-  - beat_id: semantic-bridge
-    learner_question: If the ontology defines the meaning, how does it reach a real customer record?
-    instructor_purpose: Distinguish reusable domain meaning from the mappings that resolve it to governed enterprise data.
-    teaching_text_refs:
-      - ontology-meaning
-      - semantic-layer-mapping
-      - mapping-drift
-    visual_refs:
-      - mbm05-semantic-bridge
-    interaction_refs: []
-    assessment_refs:
-      - mbm05-broken-boundary
-    intended_realization: A correct concept and an incorrect mapping can coexist, so both require separate tests and owners.
-    transition: Package only what this decision needs now.
-  - beat_id: context-packet
-    learner_question: Why not give the model every record we can retrieve?
-    instructor_purpose: Explain AI context as a bounded runtime package and distinguish it from the context engine that assembles it.
-    teaching_text_refs:
-      - context-package
-      - context-engine
-      - relevance-permission-time
-    visual_refs:
-      - mbm05-context-packet
-    interaction_refs: []
-    assessment_refs:
-      - mbm05-context-omission-excess
-    intended_realization: Useful context combines relevant evidence with definitions, policy, time, permission, conflicts, and limits.
-    transition: Observe how each missing job creates a different downstream failure.
-  - beat_id: failure-trace
-    learner_question: Where should we repair an answer that fails?
-    instructor_purpose: Show that the visible answer defect may originate in structure, classification, meaning, mapping, or runtime context.
-    teaching_text_refs:
-      - failure-propagation
-      - first-broken-boundary
-    visual_refs:
-      - mbm05-failure-trace
-    interaction_refs:
-      - mbm05-missing-job-trace
-    assessment_refs:
-      - mbm05-diagnose-and-repair
-    intended_realization: The right repair begins at the first broken responsibility, not automatically in the prompt or model.
-    transition: Transfer the method beyond the water pressure scenario.
-  - beat_id: transfer
-    learner_question: Do the same five distinctions survive in wastewater and stormwater?
-    instructor_purpose: Test transfer without adding new terminology.
-    teaching_text_refs:
-      - wastewater-transfer
-      - stormwater-transfer
-    visual_refs: []
-    interaction_refs: []
-    assessment_refs:
-      - mbm05-transfer-diagnosis
-    intended_realization: The five jobs remain stable even when systems, regulations, assets, and decisions change.
-    transition: Turn the distinction map into a professional architecture artifact.
-  - beat_id: meaning-map
-    learner_question: Can another team see which job, owner, and limit governs this decision?
-    instructor_purpose: Produce a reviewable Five-Layer Meaning Map and require a concise defense.
-    teaching_text_refs:
-      - work-product-instructions
-      - completion-boundary
-    visual_refs: []
-    interaction_refs:
-      - mbm05-meaning-map-builder
-    assessment_refs:
-      - mbm05-final-defense
-    intended_realization: Explicit artifacts, owners, gaps, and limits turn confusing vocabulary into an actionable architecture conversation.
-    transition: Module 06 focuses on the classification and vocabulary job in greater depth.
+- beat_id: pressure-event
+  learner_question: We have the data, so why can nobody defend the answer?
+  instructor_purpose: Open with a consequential utility decision and expose the difference
+    between available records and governed meaning.
+  teaching_text_refs:
+  - opening-pressure-event
+  - opening-decision
+  visual_refs:
+  - mbm05-pressure-room
+  interaction_refs: []
+  assessment_refs:
+  - mbm05-opening-decision
+  intended_realization: More data and a dashboard do not settle definitions, mappings,
+    time, permission, or authority.
+  transition: Separate the five questions before introducing the five technical terms.
+- beat_id: five-questions
+  learner_question: What different jobs are hiding inside the word meaning?
+  instructor_purpose: Establish structure, classification, shared meaning, enterprise
+    connection, and task packaging in ordinary language.
+  teaching_text_refs:
+  - five-ordinary-questions
+  - terms-after-jobs
+  visual_refs:
+  - mbm05-five-job-comparison
+  interaction_refs: []
+  assessment_refs:
+  - mbm05-job-question-match
+  intended_realization: The five terms are easier to distinguish when each is tied
+    to the question it answers.
+  transition: Test the distinction using artifacts the learner already recognizes.
+- beat_id: triage-desk
+  learner_question: Which job is this familiar utility artifact actually doing?
+  instructor_purpose: Convert abstract distinctions into concrete judgments about
+    records, definitions, mappings, and controls.
+  teaching_text_refs:
+  - triage-instructions
+  - primary-job-boundary
+  visual_refs:
+  - mbm05-pressure-room
+  interaction_refs:
+  - mbm05-meaning-triage-desk
+  assessment_refs:
+  - mbm05-artifact-classification
+  intended_realization: File type does not reveal semantic purpose, and classification
+    depends on the bounded decision.
+  transition: Follow one shared concept into the systems where its evidence lives.
+- beat_id: semantic-bridge
+  learner_question: If the ontology defines the meaning, how does it reach a real
+    customer record?
+  instructor_purpose: Distinguish reusable domain meaning from the mappings that resolve
+    it to governed enterprise data.
+  teaching_text_refs:
+  - ontology-meaning
+  - semantic-layer-mapping
+  - mapping-drift
+  visual_refs:
+  - mbm05-semantic-bridge
+  interaction_refs: []
+  assessment_refs:
+  - mbm05-broken-boundary
+  intended_realization: A correct concept and an incorrect mapping can coexist, so
+    both require separate tests and owners.
+  transition: Package only what this decision needs now.
+- beat_id: context-packet
+  learner_question: Why not give the model every record we can retrieve?
+  instructor_purpose: Explain AI context as a bounded runtime package and distinguish
+    it from the context engine that assembles it.
+  teaching_text_refs:
+  - context-package
+  - context-engine
+  - relevance-permission-time
+  visual_refs:
+  - mbm05-context-packet
+  interaction_refs: []
+  assessment_refs:
+  - mbm05-context-omission-excess
+  intended_realization: Useful context combines relevant evidence with definitions,
+    policy, time, permission, conflicts, and limits.
+  transition: Observe how each missing job creates a different downstream failure.
+- beat_id: failure-trace
+  learner_question: Where should we repair an answer that fails?
+  instructor_purpose: Show that the visible answer defect may originate in structure,
+    classification, meaning, mapping, or runtime context.
+  teaching_text_refs:
+  - failure-propagation
+  - first-broken-boundary
+  visual_refs:
+  - mbm05-failure-trace
+  interaction_refs:
+  - mbm05-missing-job-trace
+  assessment_refs:
+  - mbm05-diagnose-and-repair
+  intended_realization: The right repair begins at the first broken responsibility,
+    not automatically in the prompt or model.
+  transition: Transfer the method beyond the water pressure scenario.
+- beat_id: transfer
+  learner_question: Do the same five distinctions survive in wastewater and stormwater?
+  instructor_purpose: Test transfer without adding new terminology.
+  teaching_text_refs:
+  - wastewater-transfer
+  - stormwater-transfer
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs:
+  - mbm05-transfer-diagnosis
+  intended_realization: The five jobs remain stable even when systems, regulations,
+    assets, and decisions change.
+  transition: Turn the distinction map into a professional architecture artifact.
+- beat_id: meaning-map
+  learner_question: Can another team see which job, owner, and limit governs this
+    decision?
+  instructor_purpose: Produce a reviewable Five-Layer Meaning Map and require a concise
+    defense.
+  teaching_text_refs:
+  - work-product-instructions
+  - completion-boundary
+  visual_refs: []
+  interaction_refs:
+  - mbm05-meaning-map-builder
+  assessment_refs:
+  - mbm05-final-defense
+  intended_realization: Explicit artifacts, owners, gaps, and limits turn confusing
+    vocabulary into an actionable architecture conversation.
+  transition: Module 06 focuses on the classification and vocabulary job in greater
+    depth.

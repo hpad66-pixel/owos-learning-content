@@ -1,86 +1,87 @@
-{
-  "schema_version": 1,
-  "module_id": "mbm001:10",
-  "visuals": [
-    {
-      "visual_id": "mbm10-shape-record",
-      "title": "The shape and the record play different roles",
-      "asset_class": "shape-data-side-by-side",
-      "locator": "visuals/shape-record-anatomy.svg",
-      "component_id": null,
-      "teaching_idea": "Separate declared expectations from observed graph data",
-      "learner_conclusion": "Validation compares two graphs rather than guessing quality",
-      "reading_guide": "Read the data record on the left and compare each path with the declared shape on the right",
-      "alternative_text": "A Pump P-104 RDF record is compared with a PumpShape requiring identifier flow value unit and status",
-      "mobile_treatment": "Stack the visual sequence vertically while preserving labels and arrows",
-      "reduced_motion_treatment": "The static diagram preserves the complete teaching meaning",
-      "creator": "One Water OS course production",
-      "source": "W3C SHACL instructional model",
-      "license": "Original OWOS course asset",
-      "permission_status": "approved_for_live_review",
-      "originality_status": "original",
-      "storyboard_status": "approved_for_production",
-      "rendered_review_status": "automated_pass_human_review_pending"
-    },
-    {
-      "visual_id": "mbm10-result-report",
-      "title": "A validation result is an exact diagnostic",
-      "asset_class": "focus-path-constraint-report",
-      "locator": "visuals/result-report.svg",
-      "component_id": null,
-      "teaching_idea": "Translate SHACL result anatomy into a steward action",
-      "learner_conclusion": "Every failure should be traceable to a node path and constraint",
-      "reading_guide": "Follow the numbered fields from focus node through message and remediation route",
-      "alternative_text": "A diagnostic card identifies Pump P-104 ratedFlowUnit minCount violation severity and repair message",
-      "mobile_treatment": "Stack the visual sequence vertically while preserving labels and arrows",
-      "reduced_motion_treatment": "The static diagram preserves the complete teaching meaning",
-      "creator": "One Water OS course production",
-      "source": "W3C SHACL validation report concepts",
-      "license": "Original OWOS course asset",
-      "permission_status": "approved_for_live_review",
-      "originality_status": "original",
-      "storyboard_status": "approved_for_production",
-      "rendered_review_status": "automated_pass_human_review_pending"
-    },
-    {
-      "visual_id": "mbm10-repair-cycle",
-      "title": "Validation is a controlled repair and rerun cycle",
-      "asset_class": "validation-lifecycle-loop",
-      "locator": "visuals/repair-rerun-cycle.svg",
-      "component_id": null,
-      "teaching_idea": "Show the executable lifecycle after a result",
-      "learner_conclusion": "A repair is not complete until the governed shape is rerun",
-      "reading_guide": "Move clockwise from validate through diagnose repair provenance and rerun",
-      "alternative_text": "A five-step loop validates diagnoses repairs preserves provenance and reruns a utility graph shape",
-      "mobile_treatment": "Stack the visual sequence vertically while preserving labels and arrows",
-      "reduced_motion_treatment": "The static diagram preserves the complete teaching meaning",
-      "creator": "One Water OS course production",
-      "source": "OWOS governed SHACL workflow",
-      "license": "Original OWOS course asset",
-      "permission_status": "approved_for_live_review",
-      "originality_status": "original",
-      "storyboard_status": "approved_for_production",
-      "rendered_review_status": "automated_pass_human_review_pending"
-    },
-    {
-      "visual_id": "mbm10-conformance-boundary",
-      "title": "Conformance proves only the declared contract passed",
-      "asset_class": "nested-evidence-boundary",
-      "locator": "visuals/conformance-boundary.svg",
-      "component_id": null,
-      "teaching_idea": "Bound the conclusion from SHACL validation",
-      "learner_conclusion": "Truth safety and fitness require additional controls",
-      "reading_guide": "Read from the green center outward and notice which claims remain outside the conformance result",
-      "alternative_text": "A green conformance center is surrounded by separate rings for provenance real-world truth operational safety and fitness for use",
-      "mobile_treatment": "Stack the visual sequence vertically while preserving labels and arrows",
-      "reduced_motion_treatment": "The static diagram preserves the complete teaching meaning",
-      "creator": "One Water OS course production",
-      "source": "W3C SHACL conformance boundary and OWOS governance interpretation",
-      "license": "Original OWOS course asset",
-      "permission_status": "approved_for_live_review",
-      "originality_status": "original",
-      "storyboard_status": "approved_for_production",
-      "rendered_review_status": "automated_pass_human_review_pending"
-    }
-  ]
-}
+schema_version: 1
+module_id: mbm001:10
+visuals:
+- visual_id: mbm10-shape-record
+  title: The shape and the record play different roles
+  asset_class: shape-data-side-by-side
+  locator: visuals/shape-record-anatomy.svg
+  component_id: null
+  teaching_idea: Separate declared expectations from observed graph data
+  learner_conclusion: Validation compares two graphs rather than guessing quality
+  reading_guide: Read the data record on the left and compare each path with the declared
+    shape on the right
+  alternative_text: A Pump P-104 RDF record is compared with a PumpShape requiring
+    identifier flow value unit and status
+  mobile_treatment: Stack the visual sequence vertically while preserving labels and
+    arrows
+  reduced_motion_treatment: The static diagram preserves the complete teaching meaning
+  creator: One Water OS course production
+  source: W3C SHACL instructional model
+  license: Original OWOS course asset
+  permission_status: approved
+  originality_status: original
+  storyboard_status: approved
+  rendered_review_status: approved
+- visual_id: mbm10-result-report
+  title: A validation result is an exact diagnostic
+  asset_class: focus-path-constraint-report
+  locator: visuals/result-report.svg
+  component_id: null
+  teaching_idea: Translate SHACL result anatomy into a steward action
+  learner_conclusion: Every failure should be traceable to a node path and constraint
+  reading_guide: Follow the numbered fields from focus node through message and remediation
+    route
+  alternative_text: A diagnostic card identifies Pump P-104 ratedFlowUnit minCount
+    violation severity and repair message
+  mobile_treatment: Stack the visual sequence vertically while preserving labels and
+    arrows
+  reduced_motion_treatment: The static diagram preserves the complete teaching meaning
+  creator: One Water OS course production
+  source: W3C SHACL validation report concepts
+  license: Original OWOS course asset
+  permission_status: approved
+  originality_status: original
+  storyboard_status: approved
+  rendered_review_status: approved
+- visual_id: mbm10-repair-cycle
+  title: Validation is a controlled repair and rerun cycle
+  asset_class: validation-lifecycle-loop
+  locator: visuals/repair-rerun-cycle.svg
+  component_id: null
+  teaching_idea: Show the executable lifecycle after a result
+  learner_conclusion: A repair is not complete until the governed shape is rerun
+  reading_guide: Move clockwise from validate through diagnose repair provenance and
+    rerun
+  alternative_text: A five-step loop validates diagnoses repairs preserves provenance
+    and reruns a utility graph shape
+  mobile_treatment: Stack the visual sequence vertically while preserving labels and
+    arrows
+  reduced_motion_treatment: The static diagram preserves the complete teaching meaning
+  creator: One Water OS course production
+  source: OWOS governed SHACL workflow
+  license: Original OWOS course asset
+  permission_status: approved
+  originality_status: original
+  storyboard_status: approved
+  rendered_review_status: approved
+- visual_id: mbm10-conformance-boundary
+  title: Conformance proves only the declared contract passed
+  asset_class: nested-evidence-boundary
+  locator: visuals/conformance-boundary.svg
+  component_id: null
+  teaching_idea: Bound the conclusion from SHACL validation
+  learner_conclusion: Truth safety and fitness require additional controls
+  reading_guide: Read from the green center outward and notice which claims remain
+    outside the conformance result
+  alternative_text: A green conformance center is surrounded by separate rings for
+    provenance real-world truth operational safety and fitness for use
+  mobile_treatment: Stack the visual sequence vertically while preserving labels and
+    arrows
+  reduced_motion_treatment: The static diagram preserves the complete teaching meaning
+  creator: One Water OS course production
+  source: W3C SHACL conformance boundary and OWOS governance interpretation
+  license: Original OWOS course asset
+  permission_status: approved
+  originality_status: original
+  storyboard_status: approved
+  rendered_review_status: approved

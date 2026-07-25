@@ -1,103 +1,105 @@
-{
-  "schema_version": 1,
-  "module_id": "mbm001:18",
-  "version": "0.1.0",
-  "status": "approved",
-  "approvals": {
-    "narrative": "approved_for_production",
-    "visuals": "approved_for_production",
-    "interactions": "approved_for_production",
-    "assessments": "approved_for_production",
-    "owner": "approved_under_standing_authorization"
-  },
-  "beats": [
-    {
-      "beat_id": "interruption",
-      "learner_question": "Can a correct answer still be blocked from acting?",
-      "instructor_purpose": "Interrupt confidence with the authority boundary.",
-      "teaching_text_refs": ["interruption"],
-      "visual_refs": ["mbm18-two-key-console"],
-      "interaction_refs": [],
-      "assessment_refs": ["mbm18-opening"],
-      "intended_realization": "Knowledge fitness and action authority are independent.",
-      "transition": "Separate the two keys before inspecting the action lifecycle."
-    },
-    {
-      "beat_id": "two-keys",
-      "learner_question": "What must be true before action is even considered?",
-      "instructor_purpose": "Name the independent evidence and authority decisions.",
-      "teaching_text_refs": ["two-keys"],
-      "visual_refs": [],
-      "interaction_refs": [],
-      "assessment_refs": ["mbm18-state-meaning"],
-      "intended_realization": "No confidence score can substitute for permission.",
-      "transition": "Carry both keys into explicit proposal states."
-    },
-    {
-      "beat_id": "worked-trace",
-      "learner_question": "How do explicit graph statements become a controlled tool result?",
-      "instructor_purpose": "Make the complete graph, validation, policy, approval, execution, verification, and audit path inspectable.",
-      "teaching_text_refs": ["worked-trace"],
-      "visual_refs": ["mbm18-graph-to-action-trace"],
-      "interaction_refs": [],
-      "assessment_refs": [],
-      "intended_realization": "Grounding provides evidence for a proposal while every downstream gate retains its own responsibility.",
-      "transition": "Generalize the worked trace into reusable proposal states."
-    },
-    {
-      "beat_id": "states",
-      "learner_question": "When may the proposal act, ask, refresh, clarify, or stop?",
-      "instructor_purpose": "Teach the branching action lifecycle and rehearse five cases.",
-      "teaching_text_refs": ["states"],
-      "visual_refs": ["mbm18-state-machine"],
-      "interaction_refs": ["mbm18-action-control"],
-      "assessment_refs": [],
-      "intended_realization": "A controlled stop is a successful system outcome.",
-      "transition": "Turn the approved branch into a bounded executable envelope."
-    },
-    {
-      "beat_id": "envelope",
-      "learner_question": "What must travel with an executable action?",
-      "instructor_purpose": "Make the action contract concrete and inspectable.",
-      "teaching_text_refs": ["envelope"],
-      "visual_refs": ["mbm18-action-envelope"],
-      "interaction_refs": [],
-      "assessment_refs": ["mbm18-envelope-check"],
-      "intended_realization": "Tools receive bounded contracts, not vague intentions.",
-      "transition": "Stress the envelope with an uncertain tool outcome."
-    },
-    {
-      "beat_id": "retry",
-      "learner_question": "What happens when the tool outcome is unknown?",
-      "instructor_purpose": "Teach duplicate-safe retry, reconciliation, and verification.",
-      "teaching_text_refs": ["retry"],
-      "visual_refs": ["mbm18-audit-recorder"],
-      "interaction_refs": ["mbm18-retry-simulator"],
-      "assessment_refs": [],
-      "intended_realization": "Retry requires request identity and external-state proof.",
-      "transition": "Preserve the complete decision and execution record."
-    },
-    {
-      "beat_id": "audit",
-      "learner_question": "What must a future investigator be able to reconstruct?",
-      "instructor_purpose": "Connect provenance to accountability without confusing them.",
-      "teaching_text_refs": ["audit"],
-      "visual_refs": [],
-      "interaction_refs": [],
-      "assessment_refs": ["mbm18-audit-rehearsal"],
-      "intended_realization": "A chat transcript is not an action receipt.",
-      "transition": "Convert the controls into a professional contract."
-    },
-    {
-      "beat_id": "contract",
-      "learner_question": "Can another team test the action boundary without guessing?",
-      "instructor_purpose": "Produce and defend the Agent Action Contract.",
-      "teaching_text_refs": ["contract"],
-      "visual_refs": [],
-      "interaction_refs": [],
-      "assessment_refs": [],
-      "intended_realization": "Delegated action is acceptable only when its evidence, authority, recovery, and accountability are testable.",
-      "transition": "Carry the contract into the Module 19 capstone."
-    }
-  ]
-}
+schema_version: 1
+module_id: mbm001:18
+version: 0.1.0
+status: approved
+approvals:
+  narrative: approved
+  visuals: approved
+  interactions: approved
+  assessments: approved
+  owner: approved
+beats:
+- beat_id: interruption
+  learner_question: Can a correct answer still be blocked from acting?
+  instructor_purpose: Interrupt confidence with the authority boundary.
+  teaching_text_refs:
+  - interruption
+  visual_refs:
+  - mbm18-two-key-console
+  interaction_refs: []
+  assessment_refs:
+  - mbm18-opening
+  intended_realization: Knowledge fitness and action authority are independent.
+  transition: Separate the two keys before inspecting the action lifecycle.
+- beat_id: two-keys
+  learner_question: What must be true before action is even considered?
+  instructor_purpose: Name the independent evidence and authority decisions.
+  teaching_text_refs:
+  - two-keys
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs:
+  - mbm18-state-meaning
+  intended_realization: No confidence score can substitute for permission.
+  transition: Carry both keys into explicit proposal states.
+- beat_id: worked-trace
+  learner_question: How do explicit graph statements become a controlled tool result?
+  instructor_purpose: Make the complete graph, validation, policy, approval, execution,
+    verification, and audit path inspectable.
+  teaching_text_refs:
+  - worked-trace
+  visual_refs:
+  - mbm18-graph-to-action-trace
+  interaction_refs: []
+  assessment_refs: []
+  intended_realization: Grounding provides evidence for a proposal while every downstream
+    gate retains its own responsibility.
+  transition: Generalize the worked trace into reusable proposal states.
+- beat_id: states
+  learner_question: When may the proposal act, ask, refresh, clarify, or stop?
+  instructor_purpose: Teach the branching action lifecycle and rehearse five cases.
+  teaching_text_refs:
+  - states
+  visual_refs:
+  - mbm18-state-machine
+  interaction_refs:
+  - mbm18-action-control
+  assessment_refs: []
+  intended_realization: A controlled stop is a successful system outcome.
+  transition: Turn the approved branch into a bounded executable envelope.
+- beat_id: envelope
+  learner_question: What must travel with an executable action?
+  instructor_purpose: Make the action contract concrete and inspectable.
+  teaching_text_refs:
+  - envelope
+  visual_refs:
+  - mbm18-action-envelope
+  interaction_refs: []
+  assessment_refs:
+  - mbm18-envelope-check
+  intended_realization: Tools receive bounded contracts, not vague intentions.
+  transition: Stress the envelope with an uncertain tool outcome.
+- beat_id: retry
+  learner_question: What happens when the tool outcome is unknown?
+  instructor_purpose: Teach duplicate-safe retry, reconciliation, and verification.
+  teaching_text_refs:
+  - retry
+  visual_refs:
+  - mbm18-audit-recorder
+  interaction_refs:
+  - mbm18-retry-simulator
+  assessment_refs: []
+  intended_realization: Retry requires request identity and external-state proof.
+  transition: Preserve the complete decision and execution record.
+- beat_id: audit
+  learner_question: What must a future investigator be able to reconstruct?
+  instructor_purpose: Connect provenance to accountability without confusing them.
+  teaching_text_refs:
+  - audit
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs:
+  - mbm18-audit-rehearsal
+  intended_realization: A chat transcript is not an action receipt.
+  transition: Convert the controls into a professional contract.
+- beat_id: contract
+  learner_question: Can another team test the action boundary without guessing?
+  instructor_purpose: Produce and defend the Agent Action Contract.
+  teaching_text_refs:
+  - contract
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs: []
+  intended_realization: Delegated action is acceptable only when its evidence, authority,
+    recovery, and accountability are testable.
+  transition: Carry the contract into the Module 19 capstone.

@@ -3,81 +3,130 @@ module_id: mbm001:02
 version: 0.2.0
 status: approved
 approvals:
-  narrative: approved_for_production
-  visuals: approved_for_production
-  interactions: approved_for_production
-  assessments: approved_for_production
-  owner: approved_under_standing_authorization
+  narrative: approved
+  visuals: approved
+  interactions: approved
+  assessments: approved
+  owner: approved
 beats:
-  - beat_id: ambiguous-result
-    learner_question: Why is "Outfall 12 has result 7.2" not ready for a decision?
-    instructor_purpose: Expose missing identity, measure, datatype, unit, time, and source before introducing syntax.
-    teaching_text_refs: [opening-result, opening-decision]
-    visual_refs: [mbm02-sample-forensic-strip]
-    interaction_refs: []
-    assessment_refs: [mbm02-opening-repair]
-    intended_realization: Three filled positions can still discard the evidence a utility decision needs.
-    transition: Put every position on the Triple Evidence Bench.
-  - beat_id: identifier-label
-    learner_question: Is "Outfall 12" the thing's identity or only what people call it?
-    instructor_purpose: Separate stable identifiers from labels, aliases, and language-dependent display text.
-    teaching_text_refs: [identifier-job, label-job]
-    visual_refs: [mbm02-identifier-label-specimen]
-    interaction_refs: []
-    assessment_refs: [mbm02-identity-classification]
-    intended_realization: A label can change while the identified resource remains the same.
-    transition: Inspect what may appear in the object position.
-  - beat_id: object-fork
-    learner_question: Is the object another thing or a value?
-    instructor_purpose: Distinguish resource objects from literal objects and show why the branch changes what can connect next.
-    teaching_text_refs: [resource-object, literal-object]
-    visual_refs: [mbm02-object-fork]
-    interaction_refs: [mbm02-object-router]
-    assessment_refs: [mbm02-object-route]
-    intended_realization: Resource objects continue graph relationships; literal objects carry typed values.
-    transition: Inspect the evidence hidden inside a literal.
-  - beat_id: typed-literal
-    learner_question: What does the value 7.2 actually claim?
-    instructor_purpose: Teach lexical value, datatype, measure, unit relationship, and time without overloading one text string.
-    teaching_text_refs: [literal-anatomy, measurement-pattern]
-    visual_refs: [mbm02-typed-literal-panel]
-    interaction_refs: []
-    assessment_refs: [mbm02-literal-repair]
-    intended_realization: A number becomes usable evidence only when its meaning and type are explicit.
-    transition: Repair complete statements at the workbench.
-  - beat_id: evidence-bench
-    learner_question: Which position is defective, and what is the smallest defensible repair?
-    instructor_purpose: Integrate direction, identity, resource-versus-literal choice, datatype, and evidence boundaries.
-    teaching_text_refs: [repair-instructions, repair-debrief]
-    visual_refs: []
-    interaction_refs: [mbm02-triple-evidence-bench]
-    assessment_refs: [mbm02-four-repairs]
-    intended_realization: Precise repairs preserve meaning without pretending the statement proves more than its source supports.
-    transition: Show the same repaired graph through another notation.
-  - beat_id: serialization
-    learner_question: Did Turtle change the meaning or only the notation?
-    instructor_purpose: Align plain language, graph structure, and a small Turtle excerpt.
-    teaching_text_refs: [serialization-reading-guide, turtle-boundary]
-    visual_refs: [mbm02-serialization-strip]
-    interaction_refs: []
-    assessment_refs: [mbm02-serialization-equivalence]
-    intended_realization: Serialization is a way to write the graph, not a separate semantic model.
-    transition: Transfer the repair method to another One Water statement.
-  - beat_id: transfer
-    learner_question: Can I repair a new statement without copying the worked answer?
-    instructor_purpose: Transfer precision to stormwater inspection and water work-order examples.
-    teaching_text_refs: [stormwater-transfer, water-transfer]
-    visual_refs: []
-    interaction_refs: []
-    assessment_refs: [mbm02-transfer-repair]
-    intended_realization: The position and evidence rules survive across utility domains.
-    transition: Build a reviewed set another team can inspect.
-  - beat_id: triple-deck
-    learner_question: Can another reviewer understand every identifier, value, source, and boundary?
-    instructor_purpose: Produce and defend the Reviewed Triple Deck.
-    teaching_text_refs: [deck-instructions, completion-boundary]
-    visual_refs: []
-    interaction_refs: [mbm02-triple-deck-builder]
-    assessment_refs: [mbm02-final-defense]
-    intended_realization: A small reviewed triple set is more useful than a large pile of ambiguous statements.
-    transition: Module 03 asks whether records with similar labels identify the same real utility thing.
+- beat_id: ambiguous-result
+  learner_question: Why is "Outfall 12 has result 7.2" not ready for a decision?
+  instructor_purpose: Expose missing identity, measure, datatype, unit, time, and
+    source before introducing syntax.
+  teaching_text_refs:
+  - opening-result
+  - opening-decision
+  visual_refs:
+  - mbm02-sample-forensic-strip
+  interaction_refs: []
+  assessment_refs:
+  - mbm02-opening-repair
+  intended_realization: Three filled positions can still discard the evidence a utility
+    decision needs.
+  transition: Put every position on the Triple Evidence Bench.
+- beat_id: identifier-label
+  learner_question: Is "Outfall 12" the thing's identity or only what people call
+    it?
+  instructor_purpose: Separate stable identifiers from labels, aliases, and language-dependent
+    display text.
+  teaching_text_refs:
+  - identifier-job
+  - label-job
+  visual_refs:
+  - mbm02-identifier-label-specimen
+  interaction_refs: []
+  assessment_refs:
+  - mbm02-identity-classification
+  intended_realization: A label can change while the identified resource remains the
+    same.
+  transition: Inspect what may appear in the object position.
+- beat_id: object-fork
+  learner_question: Is the object another thing or a value?
+  instructor_purpose: Distinguish resource objects from literal objects and show why
+    the branch changes what can connect next.
+  teaching_text_refs:
+  - resource-object
+  - literal-object
+  visual_refs:
+  - mbm02-object-fork
+  interaction_refs:
+  - mbm02-object-router
+  assessment_refs:
+  - mbm02-object-route
+  intended_realization: Resource objects continue graph relationships; literal objects
+    carry typed values.
+  transition: Inspect the evidence hidden inside a literal.
+- beat_id: typed-literal
+  learner_question: What does the value 7.2 actually claim?
+  instructor_purpose: Teach lexical value, datatype, measure, unit relationship, and
+    time without overloading one text string.
+  teaching_text_refs:
+  - literal-anatomy
+  - measurement-pattern
+  visual_refs:
+  - mbm02-typed-literal-panel
+  interaction_refs: []
+  assessment_refs:
+  - mbm02-literal-repair
+  intended_realization: A number becomes usable evidence only when its meaning and
+    type are explicit.
+  transition: Repair complete statements at the workbench.
+- beat_id: evidence-bench
+  learner_question: Which position is defective, and what is the smallest defensible
+    repair?
+  instructor_purpose: Integrate direction, identity, resource-versus-literal choice,
+    datatype, and evidence boundaries.
+  teaching_text_refs:
+  - repair-instructions
+  - repair-debrief
+  visual_refs: []
+  interaction_refs:
+  - mbm02-triple-evidence-bench
+  assessment_refs:
+  - mbm02-four-repairs
+  intended_realization: Precise repairs preserve meaning without pretending the statement
+    proves more than its source supports.
+  transition: Show the same repaired graph through another notation.
+- beat_id: serialization
+  learner_question: Did Turtle change the meaning or only the notation?
+  instructor_purpose: Align plain language, graph structure, and a small Turtle excerpt.
+  teaching_text_refs:
+  - serialization-reading-guide
+  - turtle-boundary
+  visual_refs:
+  - mbm02-serialization-strip
+  interaction_refs: []
+  assessment_refs:
+  - mbm02-serialization-equivalence
+  intended_realization: Serialization is a way to write the graph, not a separate
+    semantic model.
+  transition: Transfer the repair method to another One Water statement.
+- beat_id: transfer
+  learner_question: Can I repair a new statement without copying the worked answer?
+  instructor_purpose: Transfer precision to stormwater inspection and water work-order
+    examples.
+  teaching_text_refs:
+  - stormwater-transfer
+  - water-transfer
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs:
+  - mbm02-transfer-repair
+  intended_realization: The position and evidence rules survive across utility domains.
+  transition: Build a reviewed set another team can inspect.
+- beat_id: triple-deck
+  learner_question: Can another reviewer understand every identifier, value, source,
+    and boundary?
+  instructor_purpose: Produce and defend the Reviewed Triple Deck.
+  teaching_text_refs:
+  - deck-instructions
+  - completion-boundary
+  visual_refs: []
+  interaction_refs:
+  - mbm02-triple-deck-builder
+  assessment_refs:
+  - mbm02-final-defense
+  intended_realization: A small reviewed triple set is more useful than a large pile
+    of ambiguous statements.
+  transition: Module 03 asks whether records with similar labels identify the same
+    real utility thing.

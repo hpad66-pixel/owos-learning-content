@@ -48,6 +48,7 @@ Status: approved retrofit direction, implementation required
 | 17 | pipeline comparison lab | Rerun BI, document RAG, graph retrieval, and context-engine paths | synchronized pipeline lanes and stage microscope | compare and diagnose | answer repeatability map |
 | 18 | agent authorization control room | Resolve act, ask, refresh, clarify, stop, retry, and verification states | two-key console, action state machine, envelope, flight recorder | govern and recover | agent action contract |
 | 19 | capstone design review | Defend one bounded One Water knowledge-spine pilot | pilot canvas, review panel, measure board | synthesize and defend | ninety-day pilot canvas |
+| 20 | full-screen applied laboratory | Run, break, repair, verify, and transfer the complete Knowledge Spine | living graph, evidence workbench, action trace, and iPhone prompt traversal | rehearse and transfer | portable use-case configuration |
 
 ## Shared shell boundary
 
@@ -57,7 +58,7 @@ debrief structure.
 
 ## Retrofit decision
 
-The existing fixed-page generator is not an approved production path. Modules 01 to 04 and 06 to 19
-must be rebuilt from the archetypes above. Module 05 remains a content reference, but its page
-composition may not be copied. Release remains blocked until the rendered course passes the
-distinctiveness gate and the human review gates.
+The fixed-page generator is retired. All twenty modules use governed structured source and
+deterministic compilation. Module 05 remains a capability benchmark, not a page template. Final
+release requires the rendered course, distinctiveness, owner approval, and release verification
+gates.

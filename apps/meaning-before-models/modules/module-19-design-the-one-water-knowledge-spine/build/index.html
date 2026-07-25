@@ -1,0 +1,2726 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design the One Water Knowledge Spine | One Water OS Academy</title>
+  <meta name="description" content="Decide whether one bounded semantic pilot is worth building, then defend its evidence, controls, value, and stop conditions.">
+  <meta name="owos-course-id" content="owos-course-semantic-data-ai-001">
+  <meta name="owos-learning-object" content="mbm001:19">
+  <meta name="owos-release-state" content="structured working candidate">
+  <meta name="owos-source-version" content="1.0.0-release-candidate">
+  <meta name="owos-compiler-version" content="1.1.0">
+  <meta name="owos-package-checksum" content="202aba1efb663646a3e27712e4ae32f4665a7bfb8de9c5d0ef20c571949486dd">
+  <style>:root {
+  color-scheme: light;
+  --ink: #17324d;
+  --muted: #526d7d;
+  --paper: #ffffff;
+  --wash: #eef6f5;
+  --line: #cddddd;
+  --navy: #102a43;
+  --teal: #147d88;
+  --teal-soft: #dff2ee;
+  --orange: #e8752f;
+  --orange-soft: #fff1e6;
+  --good: #157347;
+  --bad: #a63d32;
+  --shadow: 0 20px 60px rgba(23, 50, 77, .12);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7faf9;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--teal);
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.shell {
+  width: min(1140px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(16, 42, 67, .96);
+  color: #ffffff;
+  backdrop-filter: blur(14px);
+}
+
+.topbar-inner {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+
+.top-actions,
+.button-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  min-height: 44px;
+  border: 1px solid #b8cfce;
+  border-radius: 999px;
+  padding: 10px 17px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--teal);
+}
+
+.button:focus-visible,
+.choice:focus-visible,
+.flip-card:focus-visible,
+.edge-button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.button.primary {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.button.good {
+  border-color: var(--good);
+  background: var(--good);
+  color: #ffffff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 9vw, 110px) 0 70px;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 117, 47, .22), transparent 24%),
+    radial-gradient(circle at 12% 70%, rgba(100, 215, 207, .18), transparent 28%),
+    var(--navy);
+  color: #ffffff;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -5% -58% 35%;
+  height: 520px;
+  border: 2px solid rgba(255, 255, 255, .13);
+  border-radius: 50%;
+  transform: rotate(-9deg);
+}
+
+.eyebrow,
+.kind {
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 12px 0 14px;
+  font-size: clamp(2.65rem, 7vw, 5.8rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #d9e8ef;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-meta span {
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: .9rem;
+}
+
+.progress-panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: -30px auto 52px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: var(--shadow);
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.progress-item::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid #9eb8b8;
+  border-radius: 50%;
+}
+
+.progress-item.done {
+  background: var(--teal-soft);
+  color: var(--ink);
+}
+
+.progress-item.done::before {
+  border-color: var(--good);
+  background: var(--good);
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.lesson-section {
+  margin: 0 auto 34px;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 14px 40px rgba(23, 50, 77, .06);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 26px;
+}
+
+.section-number {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.section-heading h2 {
+  margin: 2px 0 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.prose {
+  max-width: 790px;
+  margin: 0 auto 26px;
+  color: #28485f;
+  font-size: 1.06rem;
+}
+
+.prose p:first-child {
+  margin-top: 0;
+}
+
+.callout {
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 20px 24px;
+  border-left: 6px solid var(--orange);
+  border-radius: 0 16px 16px 0;
+  background: var(--orange-soft);
+}
+
+.callout h3 {
+  margin: 0 0 5px;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.match-grid,
+.multi-grid,
+.triage-grid {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.match-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, .55fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.match-row select,
+.triage-card select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.correct-field {
+  border-color: var(--good) !important;
+  box-shadow: 0 0 0 3px rgba(21, 115, 71, .12);
+}
+
+.incorrect-field {
+  border-color: var(--bad) !important;
+}
+
+.multi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.select-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.select-option input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.select-option.selected-correct {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.select-option.selected-incorrect {
+  border-color: var(--bad);
+  background: #fff3f1;
+}
+
+.signature-component {
+  border-color: #8db9b5;
+  box-shadow: 0 18px 50px rgba(20, 125, 136, .13);
+}
+
+.triage-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.triage-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #ffffff, #f4faf8);
+}
+
+.triage-card h4 {
+  margin: 4px 0 6px;
+  font-size: 1.08rem;
+}
+
+.triage-card p {
+  color: var(--muted);
+}
+
+.triage-number,
+.failure-label {
+  color: var(--teal);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.triage-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.triage-card.incorrect-card {
+  border-color: #d69a93;
+}
+
+.item-feedback {
+  min-height: 42px;
+  margin-top: 10px;
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.failure-lab {
+  display: grid;
+  grid-template-columns: minmax(210px, .38fr) minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: start;
+  margin: 20px 0;
+}
+
+.failure-trigger {
+  grid-column: 1;
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.failure-trigger span {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.failure-trigger.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.failure-result {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.failure-result[hidden] {
+  display: none;
+}
+
+.failure-result ol {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+  padding-left: 24px;
+}
+
+.failure-result p {
+  color: #e4f0f5;
+}
+
+.route-grid,
+.repair-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.route-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.route-card,
+.repair-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfdfc;
+}
+
+.route-card h4 {
+  margin: 5px 0;
+}
+
+.route-card .button.active {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.repair-card {
+  border-left: 6px solid #9eb8b8;
+}
+
+.repair-card.correct-card {
+  border-color: var(--good);
+  background: #eef9f3;
+}
+
+.repair-card.incorrect-card {
+  border-color: var(--bad);
+  background: #fff8f7;
+}
+
+.broken-statement {
+  margin: 10px 0 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #102a43;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.repair-fields {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 14px;
+}
+
+.repair-fields label {
+  display: grid;
+  gap: 6px;
+  font-weight: 750;
+}
+
+.repair-fields select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #9eb8b8;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #ffffff;
+}
+
+.good-text {
+  color: var(--good);
+}
+
+.bad-text {
+  color: var(--bad);
+}
+
+.learning-visual {
+  margin: 34px 0;
+}
+
+.learning-visual h3 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+
+.reading-guide,
+.conclusion {
+  max-width: 880px;
+  margin: 12px auto;
+  padding: 16px 19px;
+  border-radius: 14px;
+}
+
+.reading-guide {
+  border: 1px solid #c9dddd;
+  background: var(--wash);
+}
+
+.conclusion {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.visual-frame {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #f7faf9;
+  box-shadow: var(--shadow);
+}
+
+.visual-frame img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.mobile-visual-composition {
+  display: none;
+}
+
+.visual-detail-dialog {
+  width: min(96vw, 1240px);
+  max-width: none;
+  height: min(92vh, 920px);
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 30px 90px rgba(9, 30, 49, .35);
+}
+
+.visual-detail-dialog::backdrop {
+  background: rgba(9, 30, 49, .76);
+}
+
+.visual-detail-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.visual-detail-header h3 {
+  margin: 2px 0 0;
+}
+
+.visual-detail-help,
+.visual-detail-controls {
+  margin: 14px 20px;
+}
+
+.visual-detail-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.visual-detail-controls output {
+  min-width: 64px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.visual-detail-pan {
+  width: calc(100% - 40px);
+  height: min(62vh, 680px);
+  margin: 0 20px 18px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #f7faf9;
+}
+
+.visual-detail-pan:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.visual-detail-canvas {
+  width: 100%;
+  transform-origin: top left;
+}
+
+.visual-detail-canvas img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  transform-origin: top left;
+}
+
+.component {
+  margin: 34px 0;
+  border: 1px solid #c8d9d9;
+  border-radius: 22px;
+  background: #fbfdfc;
+  overflow: hidden;
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.component-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.component-header .kind {
+  color: #ffb982;
+}
+
+.component-body {
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.component-intro {
+  max-width: 760px;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.choice-grid {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.choice {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 17px;
+  border: 2px solid #cadbda;
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice.selected {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.choice.correct {
+  border-color: var(--good);
+  background: #e5f4ec;
+}
+
+.choice.incorrect {
+  border-color: var(--bad);
+  background: #fae9e7;
+}
+
+.feedback {
+  min-height: 28px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.triple-builder {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.triple-builder label,
+.field-grid label,
+.work-product label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.triple-builder select,
+.field-grid input,
+.work-product input,
+.work-product textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid #cadbda;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.triple-arrow {
+  padding-bottom: 12px;
+  color: var(--orange);
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.triple-output {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.flip-card {
+  min-height: 170px;
+  border: 0;
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 900px;
+}
+
+.flip-card-inner {
+  position: relative;
+  display: grid;
+  min-height: 170px;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+}
+
+.flip-card.revealed .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border: 2px solid #bdd5d3;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  font-weight: 650;
+}
+
+.path-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.edge-button {
+  min-height: 108px;
+  border: 2px solid #c9dddd;
+  border-radius: 17px;
+  padding: 15px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.edge-button.active {
+  border-color: var(--orange);
+  background: var(--orange-soft);
+}
+
+.edge-button strong,
+.edge-button span {
+  display: block;
+}
+
+.edge-button span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.work-product {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.artifact-preview {
+  min-height: 130px;
+  margin: 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+.faq-list details {
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.faq-list summary {
+  padding: 16px 18px;
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+.evidence {
+  padding: 26px;
+  border-radius: 20px;
+  background: #e9eff2;
+}
+
+.evidence h3 {
+  margin-top: 0;
+}
+
+.connected {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 38px 0;
+}
+
+.connected article {
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.connected h3 {
+  margin: 8px 0;
+  color: #ffffff;
+}
+
+.connected p {
+  color: #d9e8ef;
+}
+
+.completion {
+  margin: 36px 0 70px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  background: rgba(5, 19, 31, .56);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 80;
+  width: min(520px, 100%);
+  height: 100dvh;
+  padding: 26px;
+  overflow: auto;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: -24px 0 70px rgba(5, 19, 31, .24);
+  transform: translateX(105%);
+  transition: transform .25s ease;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-scrim.open {
+  display: block;
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer h2 {
+  margin: 0;
+}
+
+.glossary-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.glossary-list article {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--wash);
+}
+
+.glossary-list h3 {
+  margin: 0 0 4px;
+}
+
+.glossary-list p {
+  margin: 0;
+}
+
+footer {
+  padding: 25px 0;
+  background: var(--navy);
+  color: #d9e8ef;
+  font-size: .9rem;
+}
+
+.docket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.docket-card {
+  border: 1px solid #b9c9d3;
+  border-top: 5px solid var(--orange);
+  background: #fffdf8;
+  padding: 1rem;
+  border-radius: .35rem;
+}
+
+.docket-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.docket-source {
+  color: #6d3d12;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.docket-card dl div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: .5rem;
+  border-top: 1px solid #dce5e9;
+  padding: .4rem 0;
+}
+
+.docket-card dt { font-weight: 800; }
+.docket-card dd { margin: 0; }
+.docket-card.passed { border-color: #15865f; background: #eefaf5; }
+.docket-card.failed { border-color: #b94343; background: #fff3f0; }
+
+.graph-lab-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.6fr); gap: 1rem; align-items: start; }
+.source-shelf, .graph-stage, .question-console { border: 1px solid var(--line); border-radius: 18px; padding: 1rem; background: #f8fafc; }
+.source-shelf { display: grid; gap: .65rem; }
+.source-shelf h4, .question-console h4 { margin: 0; }
+.source-packet { width: 100%; text-align: left; display: grid; gap: .25rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .75rem; color: #172033; cursor: pointer; }
+.source-packet span, .source-packet small { color: #526077; }
+.source-packet.active { border-color: #0f766e; background: #ecfdf5; box-shadow: inset 4px 0 #0f766e; }
+.graph-stage { min-height: 24rem; background: #101c2d; color: #f8fafc; border-color: #253957; }
+.graph-stage-header { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .7rem; border-bottom: 1px solid #3a4b65; }
+.graph-stage-header span { color: #9ee7dc; font-size: .88rem; }
+.statement-ledger { display: grid; gap: .48rem; padding-top: .8rem; }
+.ledger-statement { display: grid; grid-template-columns: 8rem 1fr; gap: .65rem; padding: .56rem; border-radius: 9px; background: #172943; }
+.ledger-statement span { color: #fbbf24; font-size: .78rem; font-weight: 800; }
+.ledger-statement code { color: #f8fafc; white-space: normal; }
+.empty-state { color: #cbd5e1; }
+.question-console { margin-top: 1rem; }
+.question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+.graph-question { display: grid; gap: .35rem; text-align: left; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; padding: .8rem; color: #172033; cursor: pointer; }
+.graph-question.answered { border-color: #0f766e; background: #ecfdf5; }
+.query-result { margin-top: .8rem; padding: .9rem; border-left: 5px solid #f59e0b; background: #fff7ed; color: #3b2615; display: grid; gap: .3rem; }
+.canvas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; margin-bottom: 1rem; }
+.canvas-card { border: 1px solid var(--line); border-radius: 14px; padding: .9rem; background: #fff; }
+.canvas-card h4 { margin-top: 0; }
+.query-lab { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr); gap: 1rem; }
+.query-clause-shelf { display: grid; gap: .6rem; }
+.query-clause { display: grid; gap: .35rem; text-align: left; padding: .75rem; border: 1px solid #94a3b8; border-radius: 12px; background: #fff; color: #172033; }
+.query-clause.selected { border-color: #0f766e; background: #ecfdf5; }
+.query-clause code { white-space: normal; color: #526077; }
+.query-console { border-radius: 16px; padding: 1rem; background: #101c2d; color: #f8fafc; min-height: 18rem; }
+.query-console pre { white-space: pre-wrap; color: #9ee7dc; }
+.query-effect { margin-top: 1rem; padding: .8rem; border-left: 4px solid #fbbf24; background: #172943; }
+.decision-case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.decision-case { border: 1px solid #aab9c5; border-radius: 16px; padding: 1rem; background: #fff; box-shadow: 0 10px 24px rgba(15, 32, 50, .06); }
+.decision-case h4 { margin: .35rem 0 .7rem; }
+.decision-case .case-label { color: #755019; font-size: .74rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.case-evidence, .case-rule { border-left: 4px solid #5f7891; background: #f2f6f8; padding: .75rem; margin: .65rem 0; }
+.case-rule { border-color: #c97626; background: #fff6e8; }
+.decision-case.passed { border-color: #15865f; box-shadow: inset 0 0 0 2px #b8ead6; }
+.decision-case.failed { border-color: #b94343; }
+.lab-scenario-tabs { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.lab-scenario-button { border: 1px solid #8fb4c4; border-radius: 999px; background: #fff; color: #12334a; padding: .65rem .9rem; font-weight: 800; cursor: pointer; }
+.lab-scenario-button.selected { background: #087fbd; border-color: #087fbd; color: #fff; }
+.prompt-graph-stage { display: grid; grid-template-columns: minmax(220px,.75fr) minmax(300px,1.15fr) minmax(260px,1fr); gap: 1rem; align-items: stretch; }
+.iphone-demo { border: 10px solid #071f33; border-radius: 34px; padding: 1.4rem 1rem; background: #f8fbfd; box-shadow: 0 18px 35px rgba(7,31,51,.2); min-height: 350px; }
+.iphone-speaker { width: 70px; height: 7px; border-radius: 9px; background: #071f33; margin: -.6rem auto 1.2rem; }
+.iphone-demo [data-phone-prompt] { margin: 1.2rem 0; border-radius: 16px 16px 4px 16px; padding: 1rem; background: #dff4ff; color: #0c2338; font-weight: 700; }
+.prompt-trace { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.prompt-trace li { display: grid; grid-template-columns: 1fr; border: 1px solid #b8cad4; border-radius: 12px; padding: .7rem .8rem; background: #fff; }
+.prompt-trace li b { color: #12334a; }
+.prompt-trace li span { color: #536a7e; font-size: .86rem; }
+.prompt-trace li.active { border-color: #f39b34; box-shadow: 0 0 0 3px #ffebc7; }
+.prompt-trace li.passed { border-left: 6px solid #15865f; }
+.prompt-answer { border-radius: 18px; padding: 1.2rem; background: #071f33; color: #fff; }
+.prompt-answer .case-label { color: #8fe4da; }
+.prompt-answer [data-graph-path] { color: #c4e5ef; }
+.prompt-answer [data-fixed-answer] { display: block; margin: 1rem 0; font-size: 1.05rem; color: #fff; }
+.prompt-answer [data-answer-boundary] { color: #f9df91; }
+@media (max-width: 900px) { .prompt-graph-stage { grid-template-columns: 1fr 1fr; } .prompt-answer { grid-column: 1 / -1; } }
+@media (max-width: 620px) { .prompt-graph-stage { grid-template-columns: 1fr; } .prompt-answer { grid-column: auto; } .iphone-demo { min-height: 0; } }
+@media (prefers-reduced-motion: reduce) { .prompt-trace li { transition: none !important; } }
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 24px, 1140px);
+  }
+
+  .topbar-inner {
+    min-height: 58px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .top-actions .button {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: .82rem;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .progress-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-section {
+    padding: 25px 18px;
+    border-radius: 19px;
+  }
+
+  .section-heading {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .section-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .triple-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .triple-arrow {
+    padding: 0;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+
+  .flip-grid,
+  .path-strip,
+  .field-grid,
+  .connected,
+  .multi-grid,
+  .triage-grid,
+  .route-grid,
+  .repair-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-lab-layout,
+  .question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-stage {
+    min-height: 0;
+  }
+
+  .ledger-statement {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas-grid,
+  .query-lab,
+  .decision-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .docket-card:last-child {
+    grid-column: auto;
+  }
+
+  .docket-card dl div {
+    grid-template-columns: 1fr;
+    gap: .1rem;
+  }
+
+  .match-row,
+  .failure-lab {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-trigger,
+  .failure-result {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .failure-result {
+    min-height: 0;
+  }
+
+  .component-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.learning-lenses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.learning-lenses article{padding:1rem;border:1px solid var(--line);border-radius:16px;background:#fff}.learning-lenses h3{margin:.35rem 0}.drawer input[type=search]{display:block;width:100%;margin:.5rem 0 1rem;padding:.7rem;border:1px solid var(--line);border-radius:10px}.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}
+
+@media (max-width: 900px) {
+  .learning-lenses,
+  .contract-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .contract-rubric {
+    font-size: .8rem;
+  }
+
+  .visual-frame {
+    overflow: hidden;
+  }
+
+  .visual-frame img {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .mobile-visual-composition {
+    display: block;
+    margin: 16px 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--wash);
+  }
+
+  .mobile-visual-composition > h4 {
+    margin: 0 0 12px;
+  }
+
+  .mobile-visual-composition ol {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-visual-composition li {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #c9dddd;
+    border-radius: 13px;
+    background: #ffffff;
+  }
+
+  .mobile-visual-step-number {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #ffffff;
+    font-weight: 850;
+  }
+
+  .mobile-visual-composition h4,
+  .mobile-visual-composition p {
+    margin: 0;
+  }
+
+  .mobile-visual-composition p {
+    margin-top: 4px;
+  }
+
+  .visual-actions {
+    display: block;
+  }
+
+  .visual-detail-dialog {
+    width: 100vw;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .visual-detail-header {
+    align-items: flex-start;
+  }
+
+  .visual-detail-pan {
+    height: 56dvh;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar {
+    position: static;
+    backdrop-filter: none;
+  }
+
+  .topbar-inner,
+  .top-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .top-actions .button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .flip-card.revealed .flip-card-inner {
+    transform: none;
+  }
+
+  .flip-card.revealed .flip-front {
+    display: none;
+  }
+
+  .flip-back {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-module-id="mbm001:19" data-source-version="1.0.0-release-candidate"
+  data-required-ids="[&quot;opening&quot;,&quot;boundary-lab&quot;,&quot;graph-fit&quot;,&quot;artifact-map&quot;,&quot;artifact-check&quot;,&quot;design-challenge&quot;,&quot;handoff&quot;,&quot;roadmap-check&quot;,&quot;review-board&quot;,&quot;pilot-canvas&quot;,&quot;defense&quot;]">
+  <a class="skip-link" href="#lesson-start">Skip to lesson</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="../../curriculum/course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <nav class="top-actions" aria-label="Lesson tools">
+        <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="community">Community</button>
+        <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
+        <a class="button primary" href="#lesson-start">Start</a>
+      </nav>
+    </div>
+  </header>
+  <main id="lesson-start">
+    <section class="hero">
+      <div class="shell">
+        <span class="eyebrow">Meaning Before Models, Module 19</span>
+        <h1>Design the One Water Knowledge Spine</h1>
+        <p>Decide whether one bounded semantic pilot is worth building, then defend its evidence, controls, value, and stop conditions.</p>
+        <div class="hero-meta"><span>90 to 105 minutes</span><span>Foundation with Practitioner and Leader depth</span><span>knowledge spine pilot review board</span></div>
+      </div>
+    </section>
+    <section class="shell progress-panel" aria-label="Completion evidence"><div class="progress-item" data-completion-id="opening">Opening</div>
+<div class="progress-item" data-completion-id="boundary-lab">Boundary Lab</div>
+<div class="progress-item" data-completion-id="graph-fit">Graph Fit</div>
+<div class="progress-item" data-completion-id="artifact-map">Artifact Map</div>
+<div class="progress-item" data-completion-id="artifact-check">Artifact Check</div>
+<div class="progress-item" data-completion-id="design-challenge">Design Challenge</div>
+<div class="progress-item" data-completion-id="handoff">Handoff</div>
+<div class="progress-item" data-completion-id="roadmap-check">Roadmap Check</div>
+<div class="progress-item" data-completion-id="review-board">Review Board</div>
+<div class="progress-item" data-completion-id="pilot-canvas">Pilot Canvas</div>
+<div class="progress-item" data-completion-id="defense">Defense</div></section>
+    <div class="shell">
+      <section class="lesson-section">
+        <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
+        <div class="prose"><ul><li>Bound a semantic pilot around one operational decision</li><li>Use the Graph Fit Test before choosing RDF</li><li>Connect identities, meaning, evidence, context, authority, tests, and value</li><li>Choose build, revise, or stop without technology bias</li><li>Produce and defend a One Water Knowledge Spine Pilot Canvas</li></ul><p><strong>Misconception we will change:</strong> A successful knowledge-graph pilot starts by building the enterprise graph.</p></div>
+      </section>
+      <section class="learning-lenses" aria-label="Foundation, practitioner, and leader views">
+        <article data-lens="foundation"><span class="kind">Foundation</span><h3>Know enough, permit deliberately, prove the result</h3><p>Ask whether the evidence is fit, whether this actor may act, and whether the result can be verified.</p></article>
+        <article data-lens="practitioner"><span class="kind">Practitioner</span><h3>Implement the boundaries</h3><p>Define identities, validation, policy decisions, tool schemas, request keys, recovery, verification, and audit events.</p></article>
+        <article data-lens="leader"><span class="kind">Leader</span><h3>Own the delegation</h3><p>Name approval thresholds, prohibited actions, accountable owners, review cadence, incident response, and correction authority.</p></article>
+      </section>
+
+<section class="lesson-section" id="proposal-autopsy">
+  <header class="section-heading">
+    <span class="section-number">01</span>
+    <div><span class="kind">Editorial opening</span><h2>The proposal is enormous. The decision is missing.</h2></div>
+  </header>
+  <div class="prose"><p>A glossy proposal promises an enterprise knowledge graph for every asset, customer, document, sensor, and decision. It names graph technology, integration tooling, and artificial intelligence. It does not name one operational question, one accountable decision owner, one measurable baseline, one permitted action, or one condition that would make the utility stop.</p><p>That is not a pilot. It is an ambition wearing a ninety-day schedule. A pilot is a deliberately small experiment that reduces a named uncertainty for a named decision.</p><p>Your job in this capstone is not to admire the architecture. Your job is to decide whether the smallest useful Knowledge Spine pilot should be built at all.</p></div>
+
+<figure class="learning-visual" id="mbm19-proposal-autopsy"
+  data-visual-type="editorial-evidence-scene"
+  data-component-source="structured-module-package">
+  <h3>Proposal Autopsy</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Compare the oversized promise on the left with the missing pilot controls on the right</div>
+  <div class="visual-frame">
+    <img src="../visuals/proposal-autopsy.svg" alt="An enterprise graph proposal is marked with five missing controls: bounded question, baseline, owner, authority, and stop condition" data-visual-overview>
+  </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm19-proposal-autopsy-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>An enterprise graph proposal is marked with five missing controls: bounded question, baseline, owner, authority, and stop condition</p></details>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Scale without a bounded decision is not pilot readiness</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm19-proposal-autopsy-detail" data-visual-detail
+    aria-labelledby="mbm19-proposal-autopsy-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm19-proposal-autopsy-detail-title">Proposal Autopsy</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/proposal-autopsy.svg" alt="An enterprise graph proposal is marked with five missing controls: bounded question, baseline, owner, authority, and stop condition" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>An enterprise graph proposal is marked with five missing controls: bounded question, baseline, owner, authority, and stop condition</p></details>
+  </dialog>
+</figure>
+
+<section class="component" id="mbm19-opening" data-multi-select
+  data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
+  data-quiz-source="structured-module-package"
+  data-completion="opening"
+  data-correct-feedback="Correct. Scope, measurement, ownership, and authority are missing."
+  data-incorrect-feedback="The technology is not the defect. Find the missing decision controls.">
+  <header class="component-header"><h3>Which omissions prevent the enterprise proposal from being a pilot?</h3><span class="kind">Context boundary check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
+    <div class="multi-grid">
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>No bounded operational question</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>No baseline or target</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>No accountable decision owner</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>No authority or stop boundary</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>It uses RDF</span>
+</label></div>
+    <button class="button primary" type="button" data-check-multi>Check the packet</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="boundary">
+  <header class="section-heading">
+    <span class="section-number">02</span>
+    <div><span class="kind">Scope boundary</span><h2>A pilot is one question with a clock</h2></div>
+  </header>
+  <div class="prose"><p>The fictional wastewater case begins with Overflow Event 21 at Lift Station LS-7. Asset, telemetry, inspection, work-order, incident, and procedure evidence sit in different systems and documents. Teams use inconsistent identifiers and terms.</p><p>The bounded question is: when Overflow Event 21 occurs, which upstream assets and current evidence should a wastewater supervisor review before approving one draft inspection work order?</p><p>One question, one human decision, one draft action, one accountable owner, one baseline, one target, and one ninety-day review create the boundary. Crew dispatch, priority assignment, operational control, work closure, credential issuance, and enterprise-graph publication remain out of scope.</p></div>
+<section class="component signature-component decision-lab" id="mbm19-boundary-lab" data-pipeline-rerun
+ data-purposeful-interaction="pipeline-rerun" data-component-source="structured-module-package" data-completion="boundary-lab">
+ <header class="component-header"><h3>Pilot Boundary Review</h3><span class="kind">Synchronized answer-pipeline laboratory</span></header>
+ <div class="component-body"><p class="component-intro">Choose KEEP, REVISE, or EXCLUDE for each proposed boundary.</p>
+ <div class="decision-case-grid"><article class="decision-case" data-pipeline-case data-answer="REVISE" data-explanation="Replace enterprise ambition with the LS-7 evidence-review question."><span class="case-label">Question</span><h4>Connect every utility decision to one enterprise graph.</h4><div class="case-evidence">No user, event, decision, or baseline is named.</div><div class="case-rule"><strong>Declared control</strong><br>A pilot begins with one bounded operational question.</div><div class="button-row"><button class="button" type="button" data-pipeline-choice="KEEP">KEEP</button><button class="button" type="button" data-pipeline-choice="REVISE">REVISE</button><button class="button" type="button" data-pipeline-choice="EXCLUDE">EXCLUDE</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-pipeline-case data-answer="KEEP" data-explanation="This is sufficiently bounded for rehearsal."><span class="case-label">Action</span><h4>Create one draft inspection work order after current evidence and supervisor approval.</h4><div class="case-evidence">The Module 18 contract bounds the tool, actor, approval, and postcondition.</div><div class="case-rule"><strong>Declared control</strong><br>One controlled action can test the graph-to-action handoff.</div><div class="button-row"><button class="button" type="button" data-pipeline-choice="KEEP">KEEP</button><button class="button" type="button" data-pipeline-choice="REVISE">REVISE</button><button class="button" type="button" data-pipeline-choice="EXCLUDE">EXCLUDE</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-pipeline-case data-answer="EXCLUDE" data-explanation="Exclude operational control and dispatch."><span class="case-label">Operations</span><h4>Change pump settings and dispatch a crew automatically.</h4><div class="case-evidence">The pilot has no production operational-control authority.</div><div class="case-rule"><strong>Declared control</strong><br>High-consequence operational control is outside this pilot.</div><div class="button-row"><button class="button" type="button" data-pipeline-choice="KEEP">KEEP</button><button class="button" type="button" data-pipeline-choice="REVISE">REVISE</button><button class="button" type="button" data-pipeline-choice="EXCLUDE">EXCLUDE</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div><div class="feedback" data-feedback aria-live="polite">Resolve every case and read its evidence explanation.</div></div></section>
+<aside class="callout"><h3>The smallest useful unit</h3><p>Question → evidence → human decision → one bounded action → verified result → measurable learning.</p></aside>
+</section>
+<section class="lesson-section" id="graph-fit">
+  <header class="section-heading">
+    <span class="section-number">03</span>
+    <div><span class="kind">Architecture judgment</span><h2>Make the graph earn its place</h2></div>
+  </header>
+  <div class="prose"><p>RDF is not the default answer. Run the Graph Fit Test before selecting it. Are relationships central? Must identities be reconciled? Must meaning be shared across systems? Must evidence carry source, time, and authority? Must rules or constraints be evaluated consistently?</p><p>Then ask the defeating question: would a governed table, report, search index, or workflow solve the bounded problem adequately? If yes, use the simpler approach.</p><p>For LS-7, the useful work is multi-hop: event to station, station to upstream pumps, pumps to inspections, inspections to observed conditions, conditions to procedures and current work. Relationship traversal, identity reconciliation, provenance, and validation make a graph plausible. The pilot must still prove that value.</p></div>
+
+<section class="component" id="mbm19-graph-fit" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="graph-fit"
+  data-correct-feedback="Correct. The Graph Fit Test allows a simpler solution to defeat the graph proposal."
+  data-incorrect-feedback="RDF must earn its place through the decision job.">
+  <header class="component-header"><h3>A governed SQL report answers the bounded question with acceptable identity, freshness, and latency. What should the pilot team do?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">Use the simpler governed report and do not force a graph pilot</button>
+<button class="choice" type="button" data-choice data-correct="false">Build RDF anyway because knowledge graphs are strategic</button>
+<button class="choice" type="button" data-choice data-correct="false">Copy every source into a graph before comparing options</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+
+<figure class="learning-visual" id="mbm19-evidence-spine"
+  data-visual-type="network-dependency-diagram"
+  data-component-source="structured-module-package">
+  <h3>Evidence-to-Decision Spine</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow the path from question to meaning, evidence, context, authority, action, verification, and measure</div>
+  <div class="visual-frame">
+    <img src="../visuals/evidence-to-decision-spine.svg" alt="A connected spine links operational question, semantics, source evidence, runtime context, authority, draft action, verification, and measured learning" data-visual-overview>
+  </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm19-evidence-spine-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A connected spine links operational question, semantics, source evidence, runtime context, authority, draft action, verification, and measured learning</p></details>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The graph is one governed component in a decision system</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm19-evidence-spine-detail" data-visual-detail
+    aria-labelledby="mbm19-evidence-spine-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm19-evidence-spine-detail-title">Evidence-to-Decision Spine</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/evidence-to-decision-spine.svg" alt="A connected spine links operational question, semantics, source evidence, runtime context, authority, draft action, verification, and measured learning" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A connected spine links operational question, semantics, source evidence, runtime context, authority, draft action, verification, and measured learning</p></details>
+  </dialog>
+</figure>
+</section>
+<section class="lesson-section" id="prerequisites">
+  <header class="section-heading">
+    <span class="section-number">04</span>
+    <div><span class="kind">Capstone synthesis</span><h2>Eighteen modules become one decision system</h2></div>
+  </header>
+  <div class="prose"><p>The capstone does not start with an empty canvas. It recovers the work already done: triples and identifiers; taxonomies, ontology, and semantic mappings; SPARQL questions; SHACL shapes; bounded inference; provenance and freshness; data-in-place choices; unstructured evidence; runtime context; and the Agent Action Contract.</p><p>Each artifact has one job. The ontology cannot substitute for current evidence. SHACL cannot prove truth. Provenance cannot grant authority. A grounded answer cannot create permission to act.</p><p>The Evidence-to-Decision Spine keeps those boundaries visible while showing how they cooperate.</p></div>
+<section class="component signature-component decision-lab" id="mbm19-artifact-map" data-pipeline-stage-diagnosis
+ data-purposeful-interaction="pipeline-stage-diagnosis" data-component-source="structured-module-package" data-completion="artifact-map">
+ <header class="component-header"><h3>Prerequisite Artifact Map</h3><span class="kind">Repeatability microscope</span></header>
+ <div class="component-body"><p class="component-intro">Choose Meaning, Evidence, Context, Authority, or Measurement.</p>
+ <div class="decision-case-grid"><article class="decision-case" data-stage-case data-answer="Meaning" data-explanation="Ontology and mappings define and connect meaning."><span class="case-label">Ontology and mappings</span><h4>Define shared concepts and connect them to governed source fields.</h4><div class="case-evidence">Modules 5 through 7 and 13.</div><div class="case-rule"><strong>Declared control</strong><br>Shared semantics belong in the meaning boundary.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Meaning">Meaning</button><button class="button" type="button" data-stage-choice="Evidence">Evidence</button><button class="button" type="button" data-stage-choice="Context">Context</button><button class="button" type="button" data-stage-choice="Authority">Authority</button><button class="button" type="button" data-stage-choice="Measurement">Measurement</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-stage-case data-answer="Evidence" data-explanation="Provenance and freshness qualify evidence."><span class="case-label">Provenance and freshness</span><h4>Name source, authority, time, version, and supersession.</h4><div class="case-evidence">Module 11.</div><div class="case-rule"><strong>Declared control</strong><br>Trust decisions require evidence state.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Meaning">Meaning</button><button class="button" type="button" data-stage-choice="Evidence">Evidence</button><button class="button" type="button" data-stage-choice="Context">Context</button><button class="button" type="button" data-stage-choice="Authority">Authority</button><button class="button" type="button" data-stage-choice="Measurement">Measurement</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-stage-case data-answer="Context" data-explanation="The context engine assembles the bounded packet."><span class="case-label">Runtime packet</span><h4>Package user, task, current evidence, policy, permissions, state, and limits.</h4><div class="case-evidence">Module 16.</div><div class="case-rule"><strong>Declared control</strong><br>Task-specific inputs belong in runtime context.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Meaning">Meaning</button><button class="button" type="button" data-stage-choice="Evidence">Evidence</button><button class="button" type="button" data-stage-choice="Context">Context</button><button class="button" type="button" data-stage-choice="Authority">Authority</button><button class="button" type="button" data-stage-choice="Measurement">Measurement</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-stage-case data-answer="Authority" data-explanation="The contract governs action authority and recovery."><span class="case-label">Agent Action Contract</span><h4>Control approval, tools, retries, verification, and audit.</h4><div class="case-evidence">Module 18.</div><div class="case-rule"><strong>Declared control</strong><br>Grounding does not grant permission.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Meaning">Meaning</button><button class="button" type="button" data-stage-choice="Evidence">Evidence</button><button class="button" type="button" data-stage-choice="Context">Context</button><button class="button" type="button" data-stage-choice="Authority">Authority</button><button class="button" type="button" data-stage-choice="Measurement">Measurement</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-stage-case data-answer="Measurement" data-explanation="Baseline and target make value testable."><span class="case-label">Baseline and target</span><h4>Compare current evidence-assembly time with the ninety-day target.</h4><div class="case-evidence">Pilot decision brief.</div><div class="case-rule"><strong>Declared control</strong><br>A pilot must reduce measurable uncertainty or effort.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Meaning">Meaning</button><button class="button" type="button" data-stage-choice="Evidence">Evidence</button><button class="button" type="button" data-stage-choice="Context">Context</button><button class="button" type="button" data-stage-choice="Authority">Authority</button><button class="button" type="button" data-stage-choice="Measurement">Measurement</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div><div class="feedback" data-feedback aria-live="polite">Resolve every case and read its evidence explanation.</div></div></section>
+
+<section class="component" id="mbm19-artifact-check" data-matching
+  data-purposeful-interaction="matching" data-quiz-type="matching"
+  data-quiz-source="structured-module-package"
+  data-completion="artifact-check"
+  data-correct-feedback="Correct. Each artifact keeps its own job."
+  data-incorrect-feedback="Do not let one artifact silently substitute for another.">
+  <header class="component-header"><h3>Match each artifact to its primary pilot job.</h3><span class="kind">Relationship matching</span></header>
+  <div class="component-body">
+    <p class="component-intro">Match each ordinary-language question to the job that answers it. Check all rows together, then revise any row that needs another look.</p>
+    <div class="match-grid">
+<label class="match-row">
+  <span>Ontology and semantic mappings</span>
+  <select data-match-answer="Shared meaning"><option value="">Choose a meaning job</option><option value="Shared meaning">Shared meaning</option><option value="Structural validation">Structural validation</option><option value="Evidence qualification">Evidence qualification</option><option value="Action authority">Action authority</option></select>
+</label>
+<label class="match-row">
+  <span>SHACL shapes</span>
+  <select data-match-answer="Structural validation"><option value="">Choose a meaning job</option><option value="Shared meaning">Shared meaning</option><option value="Structural validation">Structural validation</option><option value="Evidence qualification">Evidence qualification</option><option value="Action authority">Action authority</option></select>
+</label>
+<label class="match-row">
+  <span>Provenance and freshness</span>
+  <select data-match-answer="Evidence qualification"><option value="">Choose a meaning job</option><option value="Shared meaning">Shared meaning</option><option value="Structural validation">Structural validation</option><option value="Evidence qualification">Evidence qualification</option><option value="Action authority">Action authority</option></select>
+</label>
+<label class="match-row">
+  <span>Agent Action Contract</span>
+  <select data-match-answer="Action authority"><option value="">Choose a meaning job</option><option value="Shared meaning">Shared meaning</option><option value="Structural validation">Structural validation</option><option value="Evidence qualification">Evidence qualification</option><option value="Action authority">Action authority</option></select>
+</label></div>
+    <button class="button primary" type="button" data-check-matching>Check the matches</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="minimum-design">
+  <header class="section-heading">
+    <span class="section-number">05</span>
+    <div><span class="kind">Minimum semantic design</span><h2>Design only the meaning the decision needs</h2></div>
+  </header>
+  <div class="prose"><p>Start with competency questions: Which assets are upstream of LS-7? Which current inspections describe those assets? Which conditions require review under approved procedure? Which facts are asserted, inferred, stale, conflicting, or unknown?</p><p>Define only the identities, concepts, relationships, proof queries, shapes, inference rules, and provenance fields needed to answer those questions. Anything else must justify its cost.</p><p>Structured data can remain in governed source systems through mappings. Documents can remain authoritative while approved passages are indexed. Materialize only a justified hot path with ownership, synchronization, recovery, and expiry.</p></div>
+
+<figure class="learning-visual" id="mbm19-pilot-canvas"
+  data-visual-type="connected-system-map"
+  data-component-source="structured-module-package">
+  <h3>Connected Pilot Canvas</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin in the center and inspect the six surrounding decision domains</div>
+  <div class="visual-frame">
+    <img src="../visuals/connected-pilot-canvas.svg" alt="A central bounded decision connects to scope, meaning, evidence, context and authority, tests and owners, and measures and stops" data-visual-overview>
+  </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm19-pilot-canvas-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A central bounded decision connects to scope, meaning, evidence, context and authority, tests and owners, and measures and stops</p></details>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Scope, meaning, evidence, controls, value, and stops must agree</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm19-pilot-canvas-detail" data-visual-detail
+    aria-labelledby="mbm19-pilot-canvas-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm19-pilot-canvas-detail-title">Connected Pilot Canvas</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/connected-pilot-canvas.svg" alt="A central bounded decision connects to scope, meaning, evidence, context and authority, tests and owners, and measures and stops" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A central bounded decision connects to scope, meaning, evidence, context and authority, tests and owners, and measures and stops</p></details>
+  </dialog>
+</figure>
+<section class="component signature-component decision-lab" id="mbm19-design-challenge" data-pipeline-rerun
+ data-purposeful-interaction="pipeline-rerun" data-component-source="structured-module-package" data-completion="design-challenge">
+ <header class="component-header"><h3>Minimum Design Challenge</h3><span class="kind">Synchronized answer-pipeline laboratory</span></header>
+ <div class="component-body"><p class="component-intro">Choose QUERY IN PLACE, INDEX, MATERIALIZE, or STOP.</p>
+ <div class="decision-case-grid"><article class="decision-case" data-pipeline-case data-answer="QUERY IN PLACE" data-explanation="Query the authoritative source through governed mapping."><span class="case-label">Current work orders</span><h4>The governed maintenance API meets availability and latency needs.</h4><div class="case-evidence">The source remains authoritative.</div><div class="case-rule"><strong>Declared control</strong><br>Virtualize before copying when the workload permits.</div><div class="button-row"><button class="button" type="button" data-pipeline-choice="QUERY IN PLACE">QUERY IN PLACE</button><button class="button" type="button" data-pipeline-choice="INDEX">INDEX</button><button class="button" type="button" data-pipeline-choice="MATERIALIZE">MATERIALIZE</button><button class="button" type="button" data-pipeline-choice="STOP">STOP</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-pipeline-case data-answer="INDEX" data-explanation="Index passages and preserve the document."><span class="case-label">Inspection reports</span><h4>Relevant passages must be retrieved with citations.</h4><div class="case-evidence">The original PDF remains authoritative.</div><div class="case-rule"><strong>Declared control</strong><br>Index unstructured evidence without promoting every extraction to fact.</div><div class="button-row"><button class="button" type="button" data-pipeline-choice="QUERY IN PLACE">QUERY IN PLACE</button><button class="button" type="button" data-pipeline-choice="INDEX">INDEX</button><button class="button" type="button" data-pipeline-choice="MATERIALIZE">MATERIALIZE</button><button class="button" type="button" data-pipeline-choice="STOP">STOP</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-pipeline-case data-answer="MATERIALIZE" data-explanation="The bounded resilience case justifies a controlled copy."><span class="case-label">Rehearsed outage path</span><h4>A narrow path must remain available during an approved source outage.</h4><div class="case-evidence">Scope, synchronization, owner, expiry, and recovery are tested.</div><div class="case-rule"><strong>Declared control</strong><br>Materialize only a justified hot path.</div><div class="button-row"><button class="button" type="button" data-pipeline-choice="QUERY IN PLACE">QUERY IN PLACE</button><button class="button" type="button" data-pipeline-choice="INDEX">INDEX</button><button class="button" type="button" data-pipeline-choice="MATERIALIZE">MATERIALIZE</button><button class="button" type="button" data-pipeline-choice="STOP">STOP</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-pipeline-case data-answer="STOP" data-explanation="Escalate identity resolution before continuing."><span class="case-label">Unknown identity</span><h4>Two LS-7 records cannot be reconciled.</h4><div class="case-evidence">Coordinates, ownership, and crosswalk evidence conflict.</div><div class="case-rule"><strong>Declared control</strong><br>Do not build answers on unresolved critical identity.</div><div class="button-row"><button class="button" type="button" data-pipeline-choice="QUERY IN PLACE">QUERY IN PLACE</button><button class="button" type="button" data-pipeline-choice="INDEX">INDEX</button><button class="button" type="button" data-pipeline-choice="MATERIALIZE">MATERIALIZE</button><button class="button" type="button" data-pipeline-choice="STOP">STOP</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div><div class="feedback" data-feedback aria-live="polite">Resolve every case and read its evidence explanation.</div></div></section>
+</section>
+<section class="lesson-section" id="authority-handoff">
+  <header class="section-heading">
+    <span class="section-number">06</span>
+    <div><span class="kind">Graph-to-action handoff</span><h2>Accept Module 18 without enlarging its authority</h2></div>
+  </header>
+  <div class="prose"><p>The incoming Agent Action Contract must score at least sixteen of twenty. Every control maps to an architecture component, accountable owner, acceptance test, failure response, and audit record.</p><p>The pilot must test allowed, denied, stale, ambiguous, timeout, duplicate, failed execution, failed verification, and corrected-record paths. It may create one draft inspection work order only after current evidence and explicit human approval.</p><p>Pilot approval authorizes a bounded rehearsal. It does not grant production credentials, operational-control authority, autonomous dispatch, or final release.</p></div>
+
+<section class="component" id="mbm19-handoff" data-multi-select
+  data-purposeful-interaction="multi-select" data-quiz-type="multi-select"
+  data-quiz-source="structured-module-package"
+  data-completion="handoff"
+  data-correct-feedback="Correct. The handoff is testable and does not enlarge authority."
+  data-incorrect-feedback="Remove every implied production or approval shortcut.">
+  <header class="component-header"><h3>Which conditions must be present before Module 20 rehearses the draft-work-order path?</h3><span class="kind">Context boundary check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Select every item the bounded task needs. Leave irrelevant or unauthorized material outside the packet.</p>
+    <div class="multi-grid">
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Agent Action Contract scores at least 16 of 20</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Controls map to owners, tests, failure responses, and audit evidence</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="true">
+  <span>Denied, stale, ambiguous, timeout, duplicate, and verification-failure paths are defined</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>Pilot approval automatically grants production credentials</span>
+</label>
+
+<label class="select-option">
+  <input type="checkbox" data-multi-option data-correct="false">
+  <span>A grounded answer may bypass supervisor approval</span>
+</label></div>
+    <button class="button primary" type="button" data-check-multi>Check the packet</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+<aside class="callout"><h3>Authority boundary</h3><p>Design approval permits testing the design. It does not permit the design to operate a utility.</p></aside>
+</section>
+<section class="lesson-section" id="roadmap">
+  <header class="section-heading">
+    <span class="section-number">07</span>
+    <div><span class="kind">Evidence roadmap</span><h2>Make ninety days produce evidence</h2></div>
+  </header>
+  <div class="prose"><p>Weeks one through three prove identity, scope, source authority, and baseline. Weeks four through six prove mappings, competency queries, validation, provenance, and freshness. Weeks seven through nine rehearse context, authorization, failure paths, verification, and audit. Weeks ten through twelve compare measured results with the baseline and decide build, revise, stop, or scale.</p><p>Activity is not evidence. A workshop completed is activity. A tested identity crosswalk with known false-merge rate is evidence. A graph loaded is activity. A proof query returning expected bindings under named snapshots is evidence.</p><p>Stop conditions belong in the plan before enthusiasm rises: unresolved identity risk, ungoverned access, stale evidence without safe abstention, failed authority controls, unverifiable actions, no measurable improvement, or a simpler solution that performs adequately.</p></div>
+
+<figure class="learning-visual" id="mbm19-roadmap"
+  data-visual-type="timeline-phase-gate-map"
+  data-component-source="structured-module-package">
+  <h3>Ninety-Day Evidence Roadmap</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read four three-week phases and the evidence gate beneath each</div>
+  <div class="visual-frame">
+    <img src="../visuals/ninety-day-evidence-roadmap.svg" alt="Four phases cover scope and identity, semantics and sources, controls and failures, then measurement and decision" data-visual-overview>
+  </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm19-roadmap-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Four phases cover scope and identity, semantics and sources, controls and failures, then measurement and decision</p></details>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A pilot exists to reduce uncertainty at explicit gates</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm19-roadmap-detail" data-visual-detail
+    aria-labelledby="mbm19-roadmap-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm19-roadmap-detail-title">Ninety-Day Evidence Roadmap</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/ninety-day-evidence-roadmap.svg" alt="Four phases cover scope and identity, semantics and sources, controls and failures, then measurement and decision" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Four phases cover scope and identity, semantics and sources, controls and failures, then measurement and decision</p></details>
+  </dialog>
+</figure>
+
+<section class="component" id="mbm19-roadmap-check" data-flip-group
+  data-purposeful-interaction="flip-cards" data-quiz-type="flip-cards"
+  data-quiz-source="structured-module-package"
+  data-completion="roadmap-check"
+  data-correct-feedback="A pilot should produce decision evidence, not merely completed activity.">
+  <header class="component-header"><h3>Predict whether each item is activity or decision evidence.</h3><span class="kind">Flip-card retrieval</span></header>
+  <div class="component-body">
+    <p class="component-intro">Say the answer before selecting each card. Select all four cards to complete this retrieval check.</p>
+    <div class="flip-grid">
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Graph loaded</span>
+    <span class="flip-face flip-back">Activity. It becomes evidence only when named queries and controls produce expected results.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Identity crosswalk tested against known conflicts</span>
+    <span class="flip-face flip-back">Evidence. It measures a critical risk.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Stakeholder workshop completed</span>
+    <span class="flip-face flip-back">Activity. Documented decisions and accepted controls may become evidence.</span>
+  </span>
+</button>
+
+<button class="flip-card" type="button" data-flip-card aria-pressed="false">
+  <span class="flip-card-inner">
+    <span class="flip-face flip-front">Denied action path blocks the tool and records an audit event</span>
+    <span class="flip-face flip-back">Evidence. It demonstrates an authority control under test.</span>
+  </span>
+</button></div>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+</section>
+<section class="lesson-section" id="review-board">
+  <header class="section-heading">
+    <span class="section-number">08</span>
+    <div><span class="kind">Signature Review Board</span><h2>Defend the pilot before five reviewers</h2></div>
+  </header>
+  <div class="prose"><p>Wastewater operations asks whether the question and evidence reflect real work. Data and semantics asks whether identities, meaning, mappings, queries, shapes, and inference boundaries are testable. Cybersecurity asks whether access, tools, credentials, failure modes, and industrial-control boundaries are defensible.</p><p>Governance asks who owns meaning, source authority, approvals, correction, and audit. Finance asks what baseline changes, what uncertainty the pilot reduces, what it costs, and what evidence would justify scaling.</p><p>A weighted score cannot rescue a failed hard gate. Missing authority, security, accountable ownership, evidence strategy, acceptance tests, or stop conditions forces revise or stop.</p></div>
+
+<figure class="learning-visual" id="mbm19-review-matrix"
+  data-visual-type="governed-comparison-table"
+  data-component-source="structured-module-package">
+  <h3>Review Board Decision Matrix</h3>
+  <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read each reviewer row, evidence question, and hard-gate result</div>
+  <div class="visual-frame">
+    <img src="../visuals/review-board-matrix.svg" alt="Five reviewer rows show operations, semantics, cybersecurity, governance, and finance, each with a separate hard gate" data-visual-overview>
+  </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm19-review-matrix-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Five reviewer rows show operations, semantics, cybersecurity, governance, and finance, each with a separate hard gate</p></details>
+  <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A high average score cannot rescue a failed hard gate</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm19-review-matrix-detail" data-visual-detail
+    aria-labelledby="mbm19-review-matrix-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm19-review-matrix-detail-title">Review Board Decision Matrix</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/review-board-matrix.svg" alt="Five reviewer rows show operations, semantics, cybersecurity, governance, and finance, each with a separate hard gate" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Five reviewer rows show operations, semantics, cybersecurity, governance, and finance, each with a separate hard gate</p></details>
+  </dialog>
+</figure>
+<section class="component signature-component decision-lab" id="mbm19-review-board" data-pipeline-stage-diagnosis
+ data-purposeful-interaction="pipeline-stage-diagnosis" data-component-source="structured-module-package" data-completion="review-board">
+ <header class="component-header"><h3>Knowledge Spine Pilot Review Board</h3><span class="kind">Repeatability microscope</span></header>
+ <div class="component-body"><p class="component-intro">Choose the reviewer who owns each challenge.</p>
+ <div class="decision-case-grid"><article class="decision-case" data-stage-case data-answer="Operations" data-explanation="Operations validates the decision context."><span class="case-label">Real work</span><h4>Does the question match the supervisor&#x27;s actual decision and timing?</h4><div class="case-evidence">Workflow observation and practitioner review.</div><div class="case-rule"><strong>Declared control</strong><br>Operational usefulness is judged by the work owner.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Operations">Operations</button><button class="button" type="button" data-stage-choice="Semantics">Semantics</button><button class="button" type="button" data-stage-choice="Cybersecurity">Cybersecurity</button><button class="button" type="button" data-stage-choice="Governance">Governance</button><button class="button" type="button" data-stage-choice="Finance">Finance</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-stage-case data-answer="Semantics" data-explanation="The data and semantics reviewer owns this challenge."><span class="case-label">Meaning</span><h4>Can another team test identities, mappings, queries, shapes, and inference limits?</h4><div class="case-evidence">Versioned semantic artifacts and tests.</div><div class="case-rule"><strong>Declared control</strong><br>Semantic claims must be explicit and testable.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Operations">Operations</button><button class="button" type="button" data-stage-choice="Semantics">Semantics</button><button class="button" type="button" data-stage-choice="Cybersecurity">Cybersecurity</button><button class="button" type="button" data-stage-choice="Governance">Governance</button><button class="button" type="button" data-stage-choice="Finance">Finance</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-stage-case data-answer="Cybersecurity" data-explanation="Cybersecurity validates access and control boundaries."><span class="case-label">Access</span><h4>Can credentials, tool scope, denied paths, and OT boundaries be enforced?</h4><div class="case-evidence">Threat model and control tests.</div><div class="case-rule"><strong>Declared control</strong><br>Security gates cannot be averaged away.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Operations">Operations</button><button class="button" type="button" data-stage-choice="Semantics">Semantics</button><button class="button" type="button" data-stage-choice="Cybersecurity">Cybersecurity</button><button class="button" type="button" data-stage-choice="Governance">Governance</button><button class="button" type="button" data-stage-choice="Finance">Finance</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-stage-case data-answer="Governance" data-explanation="Governance owns accountability and correction."><span class="case-label">Accountability</span><h4>Who owns source authority, approvals, correction, and audit?</h4><div class="case-evidence">Named roles and escalation paths.</div><div class="case-rule"><strong>Declared control</strong><br>Every governed decision needs accountable ownership.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Operations">Operations</button><button class="button" type="button" data-stage-choice="Semantics">Semantics</button><button class="button" type="button" data-stage-choice="Cybersecurity">Cybersecurity</button><button class="button" type="button" data-stage-choice="Governance">Governance</button><button class="button" type="button" data-stage-choice="Finance">Finance</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article><article class="decision-case" data-stage-case data-answer="Finance" data-explanation="Finance tests value and scale logic."><span class="case-label">Value</span><h4>What baseline changes and what evidence would justify scaling?</h4><div class="case-evidence">Cost, benefit, uncertainty, and stop thresholds.</div><div class="case-rule"><strong>Declared control</strong><br>Investment follows measurable learning.</div><div class="button-row"><button class="button" type="button" data-stage-choice="Operations">Operations</button><button class="button" type="button" data-stage-choice="Semantics">Semantics</button><button class="button" type="button" data-stage-choice="Cybersecurity">Cybersecurity</button><button class="button" type="button" data-stage-choice="Governance">Governance</button><button class="button" type="button" data-stage-choice="Finance">Finance</button></div><div class="item-feedback" data-item-feedback aria-live="polite"></div></article></div><div class="feedback" data-feedback aria-live="polite">Resolve every case and read its evidence explanation.</div></div></section>
+</section>
+<section class="lesson-section" id="work-product">
+  <header class="section-heading">
+    <span class="section-number">09</span>
+    <div><span class="kind">Professional application</span><h2>Produce the Pilot Canvas and decision briefing</h2></div>
+  </header>
+  <div class="prose"><p>Your Pilot Canvas joins the operational question, baseline, Graph Fit result, semantic boundary, source strategy, proof queries, validation, inference, provenance, context, authority, owners, tests, measures, and stop conditions.</p><p>Your decision briefing names build, revise, or stop. It must be understandable to an executive, testable by a delivery team, reviewable by security and governance, and honest about assumptions and uncertainty.</p><p>The artifact is a planning and investment decision. It is not production code, a credential, a graph-publication approval, or operational authorization.</p></div>
+
+<section class="component" id="mbm19-pilot-canvas"
+  data-purposeful-interaction="applied-work-product"
+  data-component-source="structured-module-package"
+  data-final-applied-check data-artifact-ref="mbm19-pilot-canvas">
+  <header class="component-header"><h3>One Water Knowledge Spine Pilot Canvas and Decision Briefing</h3><span class="kind">Professional work product</span></header>
+  <div class="component-body">
+    <p class="component-intro">Complete every hard-gate field, then recommend BUILD, REVISE, or STOP. This artifact authorizes planning and rehearsal only.</p>
+
+    <div class="contract-teaching">
+      <h4>Score the contract before you defend it</h4>
+      <table class="contract-rubric"><thead><tr><th>Dimension</th><th>Full-credit evidence</th><th>Points</th></tr></thead><tbody></tbody></table>
+      <div class="contract-comparison"><article><b>Weak boundary</b><p></p></article><article><b>Strong boundary</b><p></p></article></div>
+      <details><summary>Open the completed wastewater exemplar</summary><p></p></details>
+    </div>
+    <form class="work-product" data-work-product="mbm19-pilot-canvas"
+      data-artifact="mbm19-pilot-canvas"
+      data-completion="pilot-canvas"
+      data-correct-feedback="The canvas is complete enough to defend and hand to the Module 20 laboratory."
+      data-incorrect-feedback="Complete every scope, evidence, authority, owner, test, measure, and stop boundary.">
+      <div class="field-grid"><label>Question, user, decision owner, permitted action, baseline, target, and exclusions<textarea name="decision_boundary" rows="3" required></textarea></label><label>Relationship, identity, meaning, evidence, rule, and simpler-solution findings<textarea name="graph_fit" rows="3" required></textarea></label><label>Competency questions, identifiers, concepts, relationships, queries, shapes, and inference limits<textarea name="meaning_model" rows="3" required></textarea></label><label>Structured and unstructured sources, authority, mappings, indexing, materialization, provenance, and freshness<textarea name="evidence_strategy" rows="3" required></textarea></label><label>Runtime context, permissions, approvals, tool scope, prohibited actions, verification, and audit<textarea name="context_and_authority" rows="3" required></textarea></label><label>Accountable owners, access controls, cybersecurity review path, and correction path<textarea name="owners_and_security" rows="3" required></textarea></label><label>Allowed, denied, stale, ambiguous, timeout, duplicate, failed execution, failed verification, and correction tests<textarea name="tests_and_failures" rows="3" required></textarea></label><label>Ninety-day evidence milestones, baseline, target, value, cost, and review gates<textarea name="roadmap_and_measures" rows="3" required></textarea></label><label>Conditions that force revise, stop, or use a simpler solution<textarea name="stop_conditions" rows="3" required></textarea></label></div>
+      <label>BUILD, REVISE, or STOP with evidence, assumptions, uncertainty, and requested decision<textarea name="executive_recommendation" rows="3" required></textarea></label>
+
+      <fieldset class="contract-defense"><legend>Defend the completed contract</legend></fieldset>
+      <section class="handoff-contract"><h4>Module 19 handoff contract</h4><p></p><ul></ul></section>
+      <button class="button primary" type="submit">Save One Water Knowledge Spine Pilot Canvas and Decision Briefing</button>
+      <button class="button secondary" type="button" data-export-artifact>Export contract</button>
+      <div class="feedback" data-feedback aria-live="polite"></div>
+      <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
+    </form>
+  </div>
+</section>
+
+<section class="component" id="mbm19-defense" data-choice-group
+  data-purposeful-interaction="multiple-choice" data-quiz-type="multiple-choice"
+  data-quiz-source="structured-module-package"
+  data-completion="defense"
+  data-correct-feedback="Correct. A weighted score cannot override a failed authority hard gate."
+  data-incorrect-feedback="Hard gates are not averaged away.">
+  <header class="component-header"><h3>The pilot scores highly on value and usability, but the team cannot enforce the authority boundary. What is the correct Review Board decision?</h3><span class="kind">Decision check</span></header>
+  <div class="component-body">
+    <p class="component-intro">Choose the strongest answer, then check it. The feedback explains the boundary.</p>
+    <div class="choice-grid"><button class="choice" type="button" data-choice data-correct="true">REVISE or STOP because a hard gate failed</button>
+<button class="choice" type="button" data-choice data-correct="false">BUILD because the average score is high</button>
+<button class="choice" type="button" data-choice data-correct="false">BUILD and document the authority gap later</button></div>
+    <button class="button primary" type="button" data-check-choice>Check my answer</button>
+    <div class="feedback" data-feedback aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="faq-list" aria-labelledby="faq-heading" data-module-faq>
+  <h3 id="faq-heading">Questions people actually ask</h3>
+  <details><summary>Do we need a graph for every AI use case?</summary><p>No. Use a graph when governed relationships, identity, meaning, provenance, or rule traversal are central and a simpler approach is inadequate.</p></details>
+<details><summary>How small can a useful pilot be?</summary><p>One bounded question, one decision owner, one permitted action, one baseline, one target, explicit evidence, and explicit stop conditions can be enough.</p></details>
+<details><summary>What stays in source systems?</summary><p>Prefer authoritative data in place when governed mappings and query performance meet the need. Index documents for retrieval and materialize only justified hot paths.</p></details>
+<details><summary>Does SHACL guarantee truth?</summary><p>No. It reports conformance to declared graph constraints. Factual accuracy and source authority require separate controls and review.</p></details>
+<details><summary>Who may approve the pilot?</summary><p>The accountable utility owner may approve the bounded investment and rehearsal. Separate qualified authorities still govern security, credentials, production access, and operational action.</p></details>
+<details><summary>When should the utility stop?</summary><p>Stop when a hard gate fails, evidence cannot be made fit, authority cannot be enforced, value is not measurable, or a simpler solution is adequate.</p></details>
+</section>
+</section>
+<section class="lesson-section" id="handoff">
+  <header class="section-heading">
+    <span class="section-number">10</span>
+    <div><span class="kind">Module 20 handoff</span><h2>Carry the approved design into the live laboratory</h2></div>
+  </header>
+  <div class="prose"><p>Module 20 consumes the exact bounded question, identities, relationships, source choices, proof queries, shapes, inference limits, context contract, action controls, tests, measures, and stop conditions from this canvas.</p><p>The laboratory then exposes the design to failures and shows an ordinary iPhone prompt traversing the Knowledge Spine. If the laboratory reveals a failed hard gate, the correct result is revise or stop, not concealment.</p><p>You are ready to proceed when another team can implement the pilot without inventing its meaning, evidence, authority, or acceptance criteria.</p></div>
+<aside class="callout"><h3>Testable handoff</h3><p>Module 20 must be able to configure, run, break, repair, verify, audit, and transfer the pilot without adding undeclared authority.</p></aside>
+</section>
+      <section id="owos-course-community" class="connected">
+        <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real action boundary</h3><p>Discuss which utility action should act, ask, refresh, clarify, or stop. Community discussion is not governed evidence.</p><button class="button" type="button" data-open-drawer="community">Open Community</button></article>
+      </section>
+      <nav class="footnav" aria-label="Lesson navigation">
+        <a class="button" href="../../curriculum/course-meaning-before-models.html">Return to course</a>
+        <a class="button" href="#lesson-start">Start at the top</a>
+      </nav>
+      <section class="completion">
+        <h2>Complete the working candidate</h2>
+        <p>Complete the proposal diagnosis, boundary and Graph Fit decisions, prerequisite mapping, minimum-design challenge, Agent Action Contract handoff, roadmap check, Review Board, Pilot Canvas, and final defense.</p>
+        <button class="button good" type="button" data-complete-module disabled>Complete module</button>
+        <p data-completion-status aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <div class="drawer-scrim" data-drawer-scrim></div>
+  <aside class="drawer" data-drawer="graph" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p data-graph-kind="concept">Concept: a grounded proposal does not create permission to act.</p>
+    <p data-graph-kind="relationship">Relationship: evidence supports proposal; policy and authority govern action.</p>
+    <p data-graph-kind="role">Role: utility leader, operator, maintainer, data steward, cybersecurity owner, and approver.</p>
+    <p data-graph-kind="competency">Competency: define and defend one bounded Agent Action Contract.</p>
+    <p data-graph-kind="source">Sources: W3C, OWASP, and NIST evidence listed below.</p>
+    <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>Graph model and statement boundaries</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>SPARQL 1.1 Query Language</h3><p>Competency queries and proof bindings</p><a href="https://www.w3.org/TR/sparql11-query/">Open source</a></article><article><h3>Shapes Constraint Language</h3><p>Graph constraint validation</p><a href="https://www.w3.org/TR/shacl/">Open source</a></article><article><h3>OWL 2 Web Ontology Language Document Overview</h3><p>Declared inference boundary</p><a href="https://www.w3.org/TR/owl2-overview/">Open source</a></article><article><h3>PROV-O: The PROV Ontology</h3><p>Evidence and activity provenance</p><a href="https://www.w3.org/TR/prov-o/">Open source</a></article><article><h3>NIST Special Publication 800-82 Revision 3</h3><p>Operational technology security boundaries</p><a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">Open source</a></article><article><h3>NIST Special Publication 800-207</h3><p>Policy decisions, authentication, authorization, and least privilege</p><a href="https://csrc.nist.gov/pubs/sp/800/207/final">Open source</a></article></div>
+  </aside>
+  <aside class="drawer" data-drawer="community" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Community</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>Community discussion helps compare practice. It never replaces governed evidence, utility policy, or approval.</p>
+    <label data-community-feature="search">Search this discussion<input type="search" placeholder="Search action boundaries"></label>
+    <div data-community-feature="filters"><button class="button" type="button">Operations</button> <button class="button" type="button">Maintenance</button> <button class="button" type="button">Cybersecurity</button></div>
+    <p data-community-feature="bookmarks"><strong>Bookmarks:</strong> Save a useful practitioner example for later review.</p>
+    <p data-community-feature="threaded-replies"><strong>Threaded replies:</strong> Compare why another utility would ACT, ASK, REFRESH, CLARIFY, or STOP.</p>
+    <p data-community-feature="presence"><strong>Presence:</strong> Participant presence is supplied by the authenticated platform runtime.</p>
+    <p data-community-feature="instructor-treatment"><strong>Instructor boundary:</strong> Examples remain discussion until evidence and authority are reviewed.</p>
+  </aside>
+  <aside class="drawer" data-drawer="glossary" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article data-defined-term><h3 class="term" data-def="A time-limited experiment organized around one named decision, evidence boundary, owner, measure, and stop condition.">bounded pilot</h3><p>A time-limited experiment organized around one named decision, evidence boundary, owner, measure, and stop condition.</p></article><article data-defined-term><h3 class="term" data-def="An OWOS decision method for testing whether relationships, identity, semantics, provenance, and rules justify a graph over a simpler governed solution.">Graph Fit Test</h3><p>An OWOS decision method for testing whether relationships, identity, semantics, provenance, and rules justify a graph over a simpler governed solution.</p></article><article data-defined-term><h3 class="term" data-def="A question the semantic design must be able to answer and test.">competency question</h3><p>A question the semantic design must be able to answer and test.</p></article><article data-defined-term><h3 class="term" data-def="A release or investment condition that cannot be offset by a high average score elsewhere.">hard gate</h3><p>A release or investment condition that cannot be offset by a high average score elsewhere.</p></article><article data-defined-term><h3 class="term" data-def="The connected professional artifact defining scope, meaning, evidence, context, authority, owners, tests, measures, and stop conditions.">Pilot Canvas</h3><p>The connected professional artifact defining scope, meaning, evidence, context, authority, owners, tests, measures, and stop conditions.</p></article><article data-defined-term><h3 class="term" data-def="An OWOS architecture term for instantiated, queryable, governed meaning connected to authoritative enterprise evidence.">Knowledge Spine</h3><p>An OWOS architecture term for instantiated, queryable, governed meaning connected to authoritative enterprise evidence.</p></article><article data-defined-term><h3 class="term" data-def="Creating and governing a copy of selected data or relationships for a justified workload.">materialization</h3><p>Creating and governing a copy of selected data or relationships for a justified workload.</p></article><article data-defined-term><h3 class="term" data-def="A predefined finding that requires the pilot to pause, revise, use a simpler approach, or end.">stop condition</h3><p>A predefined finding that requires the pilot to pause, revise, use a simpler approach, or end.</p></article></div>
+  </aside>
+  <div id="tt" role="tooltip" hidden></div>
+  <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 1.0.0-release-candidate. No credential or operational authority.</div></footer>
+  <script>(() => {
+  "use strict";
+
+  const required = JSON.parse(document.body.dataset.requiredIds || "[]");
+  const stateKey = `owos-module:${document.body.dataset.moduleId}:${document.body.dataset.sourceVersion}`;
+  const completed = new Set();
+  let lastDrawerTrigger = null;
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(stateKey) || "[]");
+    saved.forEach((id) => completed.add(id));
+  } catch {
+    localStorage.removeItem(stateKey);
+  }
+
+  function saveState() {
+    localStorage.setItem(stateKey, JSON.stringify([...completed].sort()));
+  }
+
+  function refreshCompletion() {
+    document.querySelectorAll("[data-completion-id]").forEach((item) => {
+      item.classList.toggle("done", completed.has(item.dataset.completionId));
+    });
+    const ready = required.every((id) => completed.has(id));
+    const button = document.querySelector("[data-complete-module]");
+    const status = document.querySelector("[data-completion-status]");
+    if (button) button.disabled = !ready;
+    if (status) {
+      const count = required.filter((id) => completed.has(id)).length;
+      status.textContent = ready
+        ? "All required evidence is complete. You can complete this working candidate."
+        : `${count} of ${required.length} required activities complete.`;
+    }
+  }
+
+  function mark(id) {
+    if (!id) return;
+    completed.add(id);
+    saveState();
+    refreshCompletion();
+  }
+
+  document.querySelectorAll("[data-choice-group]").forEach((group) => {
+    let selected = null;
+    group.querySelectorAll("[data-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        group.querySelectorAll("[data-choice]").forEach((item) => item.classList.remove("selected"));
+        button.classList.add("selected");
+        selected = button;
+      });
+    });
+    group.querySelector("[data-check-choice]")?.addEventListener("click", () => {
+      const feedback = group.querySelector("[data-feedback]");
+      if (!selected) {
+        feedback.textContent = "Choose one response first.";
+        feedback.className = "feedback bad";
+        return;
+      }
+      const correct = selected.dataset.correct === "true";
+      selected.classList.add(correct ? "correct" : "incorrect");
+      feedback.textContent = correct ? group.dataset.correctFeedback : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-flip-group]").forEach((group) => {
+    const cards = [...group.querySelectorAll("[data-flip-card]")];
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const revealed = !card.classList.contains("revealed");
+        card.classList.toggle("revealed", revealed);
+        card.setAttribute("aria-pressed", String(revealed));
+        if (cards.every((item) => item.classList.contains("revealed"))) {
+          mark(group.dataset.completion);
+          const feedback = group.querySelector("[data-feedback]");
+          feedback.textContent = group.dataset.correctFeedback;
+          feedback.className = "feedback good";
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-matching]").forEach((group) => {
+    group.querySelector("[data-check-matching]")?.addEventListener("click", () => {
+      const rows = [...group.querySelectorAll("[data-match-answer]")];
+      const feedback = group.querySelector("[data-feedback]");
+      let correctCount = 0;
+      rows.forEach((field) => {
+        const correct = field.value === field.dataset.matchAnswer;
+        field.classList.toggle("correct-field", correct);
+        field.classList.toggle("incorrect-field", !correct);
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === rows.length;
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : `${group.dataset.incorrectFeedback} ${correctCount} of ${rows.length} are correctly matched.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-multi-select]").forEach((group) => {
+    group.querySelector("[data-check-multi]")?.addEventListener("click", () => {
+      const options = [...group.querySelectorAll("[data-multi-option]")];
+      const feedback = group.querySelector("[data-feedback]");
+      const correct = options.every(
+        (option) => option.checked === (option.dataset.correct === "true")
+      );
+      options.forEach((option) => {
+        option.closest(".select-option")?.classList.toggle(
+          "selected-correct",
+          option.checked && option.dataset.correct === "true"
+        );
+        option.closest(".select-option")?.classList.toggle(
+          "selected-incorrect",
+          option.checked && option.dataset.correct !== "true"
+        );
+      });
+      feedback.textContent = correct
+        ? group.dataset.correctFeedback
+        : group.dataset.incorrectFeedback;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(group.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-triple-builder]").forEach((builder) => {
+    const selects = [...builder.querySelectorAll("select")];
+    const correct = JSON.parse(builder.dataset.correct);
+    const output = builder.querySelector("[data-triple-output]");
+    const feedback = builder.querySelector("[data-feedback]");
+    const reverseButton = builder.querySelector("[data-reverse]");
+    let built = false;
+    let reversed = false;
+
+    builder.querySelector("[data-check-triple]").addEventListener("click", () => {
+      const values = selects.map((field) => field.value);
+      output.textContent = values.every(Boolean) ? values.join("  →  ") : "Choose all three positions.";
+      built = values.every((value, index) => value === correct[index]);
+      reverseButton.disabled = !built;
+      feedback.textContent = built
+        ? "Correct. Now reverse the ends and inspect what the statement says."
+        : "Use Pump_P104 as subject, serves as predicate, and Pressure_Zone_3 as object.";
+      feedback.className = `feedback ${built ? "good" : "bad"}`;
+    });
+
+    reverseButton.addEventListener("click", () => {
+      const first = selects[0].value;
+      selects[0].value = selects[2].value;
+      selects[2].value = first;
+      reversed = true;
+      output.textContent = selects.map((field) => field.value).join("  →  ");
+      feedback.textContent = "The words are familiar, but the direction now says the pressure zone serves the pump.";
+      feedback.className = "feedback bad";
+    });
+
+    builder.querySelector("[data-finish-triple]").addEventListener("click", () => {
+      const explanation = builder.querySelector("textarea").value.trim();
+      const enough = explanation.length >= Number(builder.dataset.minimumExplanation);
+      if (built && reversed && enough) {
+        mark(builder.dataset.completion);
+        feedback.textContent = "Complete. You showed that direction carries meaning.";
+        feedback.className = "feedback good";
+      } else {
+        feedback.textContent = "Build the correct triple, reverse it, and explain the changed meaning in one full sentence.";
+        feedback.className = "feedback bad";
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-path-tracer]").forEach((tracer) => {
+    const edges = [...tracer.querySelectorAll("[data-edge-index]")];
+    const feedback = tracer.querySelector("[data-feedback]");
+    let expected = 0;
+    edges.forEach((edge) => {
+      edge.addEventListener("click", () => {
+        const index = Number(edge.dataset.edgeIndex);
+        if (index !== expected) {
+          feedback.textContent = `Start with edge ${expected + 1}. A path only works when its relationships connect in order.`;
+          feedback.className = "feedback bad";
+          return;
+        }
+        edge.classList.add("active");
+        expected += 1;
+        feedback.textContent = edge.dataset.explanation;
+        feedback.className = "feedback good";
+        if (expected === edges.length) mark(tracer.dataset.completion);
+      });
+    });
+    tracer.querySelector("[data-reset-path]").addEventListener("click", () => {
+      expected = 0;
+      edges.forEach((edge) => edge.classList.remove("active"));
+      feedback.textContent = "Path reset. Begin with edge 1.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-artifact-classifier]").forEach((desk) => {
+    const items = [...desk.querySelectorAll("[data-triage-item]")];
+    const feedback = desk.querySelector("[data-feedback]");
+    desk.querySelector("[data-check-triage]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      items.forEach((item) => {
+        const field = item.querySelector("select");
+        const correct = field.value === item.dataset.answer;
+        const itemFeedback = item.querySelector("[data-item-feedback]");
+        item.classList.toggle("correct-card", correct);
+        item.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Correct. ${item.dataset.explanation}`
+          : `Try again. Ask what primary job this artifact performs here. ${item.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === items.length;
+      feedback.textContent = correct
+        ? "The desk is organized. The same event now has distinct structures, classifications, meanings, mappings, and runtime controls."
+        : `${correctCount} of ${items.length} artifacts are correctly placed. Use the explanation under each artifact and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(desk.dataset.completion);
+    });
+    desk.querySelector("[data-reset-triage]")?.addEventListener("click", () => {
+      items.forEach((item) => {
+        item.querySelector("select").value = "";
+        item.classList.remove("correct-card", "incorrect-card");
+        item.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "The triage desk is reset.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-failure-trace]").forEach((lab) => {
+    const triggers = [...lab.querySelectorAll("[data-failure-trigger]")];
+    const visited = new Set();
+    const feedback = lab.querySelector("[data-feedback]");
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const job = trigger.dataset.failureTrigger;
+        visited.add(job);
+        triggers.forEach((item) => {
+          item.classList.toggle("active", item === trigger);
+          item.setAttribute("aria-pressed", String(item === trigger));
+        });
+        lab.querySelectorAll("[data-failure-result]").forEach((result) => {
+          result.hidden = result.dataset.failureResult !== job;
+        });
+        feedback.textContent =
+          visited.size === triggers.length
+            ? "All five paths inspected. The symptom appears in the answer, but the first repair belongs at the first broken job."
+            : `${visited.size} of ${triggers.length} failure paths inspected.`;
+        feedback.className = "feedback good";
+        if (visited.size === triggers.length) mark(lab.dataset.completion);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-object-router]").forEach((router) => {
+    const items = [...router.querySelectorAll("[data-route-item]")];
+    const feedback = router.querySelector("[data-feedback]");
+    items.forEach((item) => {
+      item.querySelectorAll("[data-route-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          item.querySelectorAll("[data-route-choice]").forEach((choice) => choice.classList.remove("active"));
+          button.classList.add("active");
+          const correct = button.dataset.routeChoice === item.dataset.answer;
+          item.dataset.complete = String(correct);
+          const itemFeedback = item.querySelector("[data-item-feedback]");
+          itemFeedback.textContent = correct
+            ? `Correct. ${item.dataset.explanation}`
+            : `Try the other branch. ${item.dataset.explanation}`;
+          itemFeedback.className = `item-feedback ${correct ? "good-text" : "bad-text"}`;
+          if (items.every((candidate) => candidate.dataset.complete === "true")) {
+            feedback.textContent = "Every object is correctly routed. Resource objects continue relationships; literals carry values.";
+            feedback.className = "feedback good";
+            mark(router.dataset.completion);
+          }
+        });
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-triple-repair-bench]").forEach((bench) => {
+    const cards = [...bench.querySelectorAll("[data-repair-card]")];
+    const feedback = bench.querySelector("[data-feedback]");
+    bench.querySelector("[data-check-repairs]")?.addEventListener("click", () => {
+      let correctCount = 0;
+      cards.forEach((card) => {
+        const defectCorrect = card.querySelector("[data-defect-field]").value === card.dataset.defect;
+        const repairCorrect = card.querySelector("[data-repair-field]").value === card.dataset.repair;
+        const correct = defectCorrect && repairCorrect;
+        const itemFeedback = card.querySelector("[data-item-feedback]");
+        card.classList.toggle("correct-card", correct);
+        card.classList.toggle("incorrect-card", !correct);
+        itemFeedback.textContent = correct
+          ? `Repair accepted. ${card.dataset.explanation}`
+          : `Inspect both the failed position and the smallest repair. ${card.dataset.explanation}`;
+        if (correct) correctCount += 1;
+      });
+      const correct = correctCount === cards.length;
+      feedback.textContent = correct
+        ? "All four statements are repaired without claiming more than their evidence supports."
+        : `${correctCount} of ${cards.length} repairs pass review. Read each explanation and retry.`;
+      feedback.className = `feedback ${correct ? "good" : "bad"}`;
+      if (correct) mark(bench.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-identity-adjudication]").forEach((docket) => {
+    const records = [...docket.querySelectorAll("[data-docket-record]")];
+    const feedback = docket.querySelector("[data-feedback]");
+    docket.querySelector("[data-check-docket]")?.addEventListener("click", () => {
+      let correct = 0;
+      records.forEach((record) => {
+        const passed = record.querySelector("select").value === record.dataset.answer;
+        record.classList.toggle("passed", passed);
+        record.classList.toggle("failed", !passed);
+        record.querySelector("[data-item-feedback]").textContent = passed
+          ? `Finding accepted. ${record.dataset.explanation}`
+          : "That finding does not fit the evidence. Separate the physical asset from records about it, and preserve contradictions.";
+        if (passed) correct += 1;
+      });
+      if (correct === records.length) {
+        feedback.textContent = "Docket complete. Approved identity, related records, and the unresolved conflict remain visibly different.";
+        feedback.className = "feedback good";
+        mark(docket.dataset.completion);
+      } else {
+        feedback.textContent = `${correct} of ${records.length} findings are supported. Review the evidence and retry.`;
+        feedback.className = "feedback bad";
+      }
+    });
+    docket.querySelector("[data-reset-docket]")?.addEventListener("click", () => {
+      records.forEach((record) => {
+        record.querySelector("select").value = "";
+        record.classList.remove("passed", "failed");
+        record.querySelector("[data-item-feedback]").textContent = "";
+      });
+      feedback.textContent = "Review all five records.";
+      feedback.className = "feedback";
+    });
+  });
+
+  document.querySelectorAll("[data-graph-growth-lab]").forEach((lab) => {
+    const sources = JSON.parse(lab.dataset.sourceStatements || "[]");
+    const loaded = new Set();
+    const tested = new Set();
+    const ledger = lab.querySelector("[data-statement-ledger]");
+    const count = lab.querySelector("[data-graph-count]");
+    const result = lab.querySelector("[data-query-result]");
+    const feedback = lab.querySelector("[data-feedback]");
+
+    function renderLedger() {
+      const statements = sources.filter((source) => loaded.has(source.source))
+        .flatMap((source) => source.statements.map((statement) => ({ ...statement, source: source.source })));
+      count.textContent = `${statements.length} statements loaded from ${loaded.size} source packets`;
+      ledger.innerHTML = statements.length
+        ? statements.map((statement) => `<article class="ledger-statement"><span>${statement.source}</span><code>${statement.subject} → ${statement.predicate} → ${statement.object}</code></article>`).join("")
+        : '<p class="empty-state">Choose a source packet. Every statement remains attributable to its source.</p>';
+      lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+        const active = loaded.has(button.dataset.sourcePacket);
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    lab.querySelectorAll("[data-source-packet]").forEach((button) => {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        const source = button.dataset.sourcePacket;
+        loaded.has(source) ? loaded.delete(source) : loaded.add(source);
+        tested.clear();
+        lab.querySelectorAll("[data-graph-question]").forEach((question) => question.classList.remove("answered"));
+        result.textContent = "The graph changed. Test the competency questions again.";
+        renderLedger();
+      });
+    });
+
+    lab.querySelectorAll("[data-graph-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const requires = JSON.parse(button.dataset.requires || "[]");
+        const missing = requires.filter((source) => !loaded.has(source));
+        tested.add(button.dataset.graphQuestion);
+        if (missing.length) {
+          result.innerHTML = `<strong>Not answerable yet.</strong><span>Missing reviewed statements from: ${missing.join(", ")}.</span>`;
+          button.classList.remove("answered");
+        } else {
+          result.innerHTML = `<strong>${button.dataset.answer}</strong><span>Evidence path: ${button.dataset.path}</span>`;
+          button.classList.add("answered");
+        }
+        const allAnswerable = [...lab.querySelectorAll("[data-graph-question]")].every((question) => {
+          const needed = JSON.parse(question.dataset.requires || "[]");
+          return tested.has(question.dataset.graphQuestion) && needed.every((source) => loaded.has(source));
+        });
+        feedback.textContent = allAnswerable
+          ? "All three questions are answerable through explicit, source-bounded paths."
+          : "Keep growing the graph until every question has a complete evidence path.";
+        feedback.className = `feedback ${allAnswerable ? "good" : ""}`;
+        if (allAnswerable) mark(lab.dataset.completion);
+      });
+    });
+
+    lab.querySelector("[data-reset-graph]")?.addEventListener("click", () => {
+      loaded.clear();
+      tested.clear();
+      result.textContent = "No question tested yet.";
+      lab.querySelectorAll("[data-graph-question]").forEach((button) => button.classList.remove("answered"));
+      renderLedger();
+    });
+    renderLedger();
+  });
+
+  document.querySelectorAll("[data-hierarchy-repair]").forEach((lab) => {
+    const cases = [...lab.querySelectorAll("[data-hierarchy-case]")];
+    const feedback = lab.querySelector("[data-feedback]");
+    cases.forEach((card) => card.querySelectorAll("[data-hierarchy-choice]").forEach((button) => button.addEventListener("click", () => {
+      const correct = button.dataset.hierarchyChoice === card.dataset.answer;
+      card.querySelectorAll("button").forEach((item) => item.classList.toggle("selected", item === button));
+      card.dataset.passed = String(correct);
+      card.querySelector("[data-item-feedback]").textContent = correct ? card.dataset.explanation : `Review the semantic consequence. ${card.dataset.explanation}`;
+      const passed = cases.filter((item) => item.dataset.passed === "true").length;
+      feedback.textContent = passed === cases.length ? "The hierarchy now preserves the intended utility meanings." : `${passed} of ${cases.length} decisions are defensible.`;
+      if (passed === cases.length) mark(lab.dataset.completion);
+    })));
+  });
+
+  document.querySelectorAll("[data-ontology-canvas]").forEach((canvas) => {
+    canvas.querySelector("[data-check-canvas]")?.addEventListener("click", () => {
+      const fields = [...canvas.querySelectorAll("[data-canvas-answer]")];
+      let correct = 0;
+      fields.forEach((field) => {
+        const passed = field.value === field.dataset.canvasAnswer;
+        field.closest(".canvas-card").querySelector("[data-item-feedback]").textContent = passed
+          ? field.closest(".canvas-card").querySelector("[data-item-feedback]").dataset.explanation
+          : "Recheck the competency question, scope, and evidence boundary.";
+        if (passed) correct += 1;
+      });
+      const feedback = canvas.querySelector("[data-feedback]");
+      feedback.textContent = correct === fields.length ? "The ontology slice is bounded, testable, and ready for domain review." : `${correct} of ${fields.length} modeling decisions pass.`;
+      feedback.className = `feedback ${correct === fields.length ? "good" : "bad"}`;
+      if (correct === fields.length) mark(canvas.dataset.completion);
+    });
+  });
+
+  document.querySelectorAll("[data-sparql-builder]").forEach((lab) => {
+    const clauses = [...lab.querySelectorAll("[data-query-clause]")];
+    const selected = [];
+    const code = lab.querySelector("[data-query-code]");
+    const effect = lab.querySelector("[data-query-effect]");
+    const feedback = lab.querySelector("[data-feedback]");
+    clauses.forEach((button, index) => button.addEventListener("click", () => {
+      if (index !== selected.length) {
+        effect.textContent = `Clause ${index + 1} cannot run yet. Add clause ${selected.length + 1} first.`;
+        return;
+      }
+      selected.push(button.dataset.code);
+      button.classList.add("selected");
+      button.disabled = true;
+      code.textContent = selected.join("\n");
+      effect.textContent = button.dataset.effect;
+      feedback.textContent = selected.length === clauses.length ? "The complete query pattern returns source-traceable bindings." : `Clause ${selected.length} added. Continue in order.`;
+      if (selected.length === clauses.length) mark(lab.dataset.completion);
+    }));
+    lab.querySelector("[data-reset-query]")?.addEventListener("click", () => {
+      selected.length = 0;
+      clauses.forEach((button) => { button.disabled = false; button.classList.remove("selected"); });
+      code.textContent = "# Select clause 1 to begin";
+      effect.textContent = "The graph pattern will illuminate here.";
+    });
+  });
+
+  [
+    ["[data-inference-court]", "[data-inference-case]", "[data-inference-choice]", "inferenceChoice", "The court has resolved every proposed inference."],
+    ["[data-shacl-clinic]", "[data-shacl-case]", "[data-shacl-choice]", "shaclChoice", "Every record now has a defensible validation disposition."],
+    ["[data-evidence-reconciliation]", "[data-evidence-case]", "[data-evidence-choice]", "evidenceChoice", "Every claim now has an explicit governing-use disposition."]
+    ,["[data-knowledge-spine-router]", "[data-spine-case]", "[data-spine-choice]", "spineChoice", "Every capability now sits in its defensible operating layer."]
+    ,["[data-accountability-handoff]", "[data-handoff-case]", "[data-handoff-choice]", "handoffChoice", "Every operating decision now has an accountable owner."]
+    ,["[data-mapping-workbench]", "[data-mapping-case]", "[data-mapping-choice]", "mappingChoice", "Every source field now resolves to a bounded semantic target."]
+    ,["[data-mapping-break-repair]", "[data-map-repair-case]", "[data-map-repair-choice]", "mapRepairChoice", "Every mapping defect now has a governed repair."]
+    ,["[data-access-pattern-stress-test]", "[data-access-case]", "[data-access-choice]", "accessChoice", "Every workload now has a defensible access pattern."]
+    ,["[data-stale-copy-diagnosis]", "[data-stale-case]", "[data-stale-choice]", "staleChoice", "Every stale-copy failure now has an effective control."]
+    ,["[data-evidence-promotion]", "[data-promotion-case]", "[data-promotion-choice]", "promotionChoice", "Every document item now has a defensible evidence state."]
+    ,["[data-evidence-state-classifier]", "[data-evidence-state-case]", "[data-evidence-state-choice]", "evidenceStateChoice", "Every artifact now retains the right evidence boundary."]
+    ,["[data-context-assembly]", "[data-context-case]", "[data-context-choice]", "contextChoice", "The runtime packet now contains every required control."]
+    ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
+    ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
+    ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
+    ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
+    ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
+    ,["[data-knowledge-spine-live-lab]", "[data-spine-lab-case]", "[data-spine-lab-choice]", "spineLabChoice", "All fifteen Knowledge Spine laboratory stages now have a governed disposition."]
+    ,["[data-graph-path-illuminator]", "[data-path-lab-case]", "[data-path-lab-choice]", "pathLabChoice", "Every source and path now has a defensible access or repair decision."]
+    ,["[data-scenario-transfer-lab]", "[data-transfer-lab-case]", "[data-transfer-lab-choice]", "transferLabChoice", "The use case has changed without losing the governed core."]
+  ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
+    document.querySelectorAll(labSelector).forEach((lab) => {
+      const cases = [...lab.querySelectorAll(caseSelector)];
+      const feedback = lab.querySelector("[data-feedback]");
+      cases.forEach((card) => card.querySelectorAll(choiceSelector).forEach((button) => button.addEventListener("click", () => {
+        const correct = button.dataset[choiceKey] === card.dataset.answer;
+        card.querySelectorAll(choiceSelector).forEach((item) => item.classList.toggle("selected", item === button));
+        card.classList.toggle("passed", correct);
+        card.classList.toggle("failed", !correct);
+        card.dataset.passed = String(correct);
+        card.querySelector("[data-item-feedback]").textContent = correct ? card.dataset.explanation : `Reopen the evidence and declared control. ${card.dataset.explanation}`;
+        const passed = cases.filter((item) => item.dataset.passed === "true").length;
+        feedback.textContent = passed === cases.length ? success : `${passed} of ${cases.length} cases resolved correctly.`;
+        feedback.className = `feedback ${passed === cases.length ? "good" : ""}`;
+        if (passed === cases.length) mark(lab.dataset.completion);
+      })));
+    });
+  });
+
+  document.querySelectorAll("[data-prompt-graph-simulator]").forEach((lab) => {
+    const scenarioButtons = [...lab.querySelectorAll("[data-prompt-scenario]")];
+    const stages = [...lab.querySelectorAll("[data-prompt-stage]")];
+    const run = lab.querySelector("[data-run-prompt]");
+    const prompt = lab.querySelector("[data-phone-prompt]");
+    const path = lab.querySelector("[data-graph-path]");
+    const answer = lab.querySelector("[data-fixed-answer]");
+    const boundary = lab.querySelector("[data-answer-boundary]");
+    const feedback = lab.querySelector("[data-feedback]");
+    let selected = null;
+    let timer = null;
+    function resetStages() {
+      if (timer) clearInterval(timer);
+      timer = null;
+      stages.forEach((stage) => stage.classList.remove("active", "passed"));
+      path.textContent = "The graph path will appear here.";
+      answer.textContent = "Run the trace to produce the answer.";
+      boundary.textContent = "";
+    }
+    scenarioButtons.forEach((button) => button.addEventListener("click", () => {
+      selected = button;
+      scenarioButtons.forEach((item) => item.classList.toggle("selected", item === button));
+      prompt.textContent = button.dataset.prompt;
+      run.disabled = false;
+      resetStages();
+      feedback.textContent = `${button.dataset.label} loaded. Run the fixed evidence trace.`;
+    }));
+    run?.addEventListener("click", () => {
+      if (!selected) return;
+      resetStages();
+      const finish = () => {
+        path.textContent = selected.dataset.path;
+        answer.textContent = selected.dataset.answer;
+        boundary.textContent = selected.dataset.boundary;
+        feedback.textContent = "The same frozen snapshot, query, rules, permissions, and response template produce the same evidence answer.";
+        mark(lab.dataset.completion);
+      };
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        stages.forEach((stage) => stage.classList.add("passed"));
+        finish();
+        return;
+      }
+      let index = 0;
+      timer = setInterval(() => {
+        stages.forEach((stage) => stage.classList.remove("active"));
+        stages[index].classList.add("active", "passed");
+        index += 1;
+        if (index === stages.length) {
+          clearInterval(timer);
+          timer = null;
+          finish();
+        }
+      }, 240);
+    });
+  });
+
+  document.querySelectorAll("[data-work-product]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = [...form.querySelectorAll("input[required]:not([type=radio]), textarea[required], select[required]")];
+      const defense = form.querySelector("input[name=contract_defense]:checked");
+      const defenseCorrect = !form.querySelector("input[name=contract_defense]") || defense?.dataset.correct === "true";
+      const complete = fields.every((field) => field.value.trim()) && defenseCorrect;
+      const feedback = form.querySelector("[data-feedback]");
+      if (!complete) {
+        feedback.textContent = defense && !defenseCorrect ? "The contract is not defensible merely because its boxes are filled. Use the rubric, strengthen the boundaries, and try again." : form.dataset.incorrectFeedback;
+        feedback.className = "feedback bad";
+        return;
+      }
+      const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      record.contract_defense = defense?.value || "not-required";
+      form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
+      localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
+      feedback.textContent = form.dataset.correctFeedback;
+      feedback.className = "feedback good";
+      mark(form.dataset.completion);
+    });
+    form.querySelector("[data-export-artifact]")?.addEventListener("click", () => {
+      const preview = form.querySelector("[data-artifact-preview]").textContent;
+      if (!preview || preview.includes("local preview")) {
+        form.querySelector("[data-feedback]").textContent = "Save and defend the contract before exporting it.";
+        return;
+      }
+      const blob = new Blob([preview], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${form.dataset.workProduct}.json`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
+    });
+  });
+
+  document.querySelectorAll(".learning-visual").forEach((visual) => {
+    const trigger = visual.querySelector("[data-open-visual-detail]");
+    const dialog = visual.querySelector("[data-visual-detail]");
+    const image = dialog?.querySelector("[data-visual-detail-image]");
+    const canvas = dialog?.querySelector("[data-visual-detail-canvas]");
+    const pan = dialog?.querySelector("[data-visual-pan]");
+    const status = dialog?.querySelector("[data-visual-zoom-status]");
+    if (!trigger || !dialog || !image || !canvas || !pan || !status) return;
+
+    let zoom = 1;
+    const renderZoom = () => {
+      const baseWidth = pan.clientWidth;
+      canvas.style.setProperty("width", `${baseWidth * zoom}px`, "important");
+      canvas.style.setProperty("min-width", `${baseWidth * zoom}px`, "important");
+      canvas.style.zoom = "1";
+      canvas.style.transform = "none";
+      canvas.style.margin = "0";
+      status.value = `${Math.round(zoom * 100)}%`;
+      status.textContent = status.value;
+    };
+    const resetDetail = () => {
+      zoom = 1;
+      pan.scrollTo({ left: 0, top: 0, behavior: "instant" });
+      renderZoom();
+    };
+
+    trigger.addEventListener("click", () => {
+      dialog.showModal();
+      resetDetail();
+      dialog.querySelector("[data-close-visual-detail]")?.focus();
+    });
+    dialog.querySelector("[data-close-visual-detail]")?.addEventListener("click", () => {
+      dialog.close();
+    });
+    dialog.querySelector("[data-visual-zoom-in]")?.addEventListener("click", () => {
+      zoom = Math.min(4, zoom + .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-zoom-out]")?.addEventListener("click", () => {
+      zoom = Math.max(1, zoom - .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-reset]")?.addEventListener("click", resetDetail);
+    pan.addEventListener("keydown", (event) => {
+      const movement = 80;
+      const directions = {
+        ArrowLeft: [-movement, 0],
+        ArrowRight: [movement, 0],
+        ArrowUp: [0, -movement],
+        ArrowDown: [0, movement],
+      };
+      if (!directions[event.key]) return;
+      event.preventDefault();
+      pan.scrollBy({ left: directions[event.key][0], top: directions[event.key][1] });
+    });
+    dialog.addEventListener("close", () => trigger.focus());
+  });
+
+  function openDrawer(name, trigger) {
+    const drawer = document.querySelector(`[data-drawer="${name}"]`);
+    if (!drawer) return;
+    lastDrawerTrigger = trigger;
+    document.querySelector("[data-drawer-scrim]").classList.add("open");
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    drawer.querySelector("button, a, input")?.focus();
+  }
+
+  function closeDrawers() {
+    document.querySelector("[data-drawer-scrim]").classList.remove("open");
+    document.querySelectorAll("[data-drawer]").forEach((drawer) => {
+      drawer.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    });
+    lastDrawerTrigger?.focus();
+  }
+
+  document.querySelectorAll("[data-open-drawer]").forEach((button) => {
+    button.addEventListener("click", () => openDrawer(button.dataset.openDrawer, button));
+  });
+  document.querySelectorAll("[data-close-drawer], [data-drawer-scrim]").forEach((button) => {
+    button.addEventListener("click", closeDrawers);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDrawers();
+  });
+
+  document.querySelector("[data-complete-module]")?.addEventListener("click", () => {
+    const status = document.querySelector("[data-completion-status]");
+    status.textContent = "Working candidate completed locally. This does not issue a credential or operational authority.";
+  });
+
+  refreshCompletion();
+})();
+</script>
+</body>
+</html>

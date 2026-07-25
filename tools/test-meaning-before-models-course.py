@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate all eighteen Meaning Before Models module candidates."""
+"""Validate all twenty Meaning Before Models modules."""
 
 import importlib.util
 import json
@@ -43,10 +43,22 @@ records[18] = {
     "script": None,
     "qa": COURSE / "modules/module-18-graph-grounded-agentic-applications/qa.yaml",
 }
+records[19] = {
+    "lesson": COURSE / "curriculum/module-19-design-the-one-water-knowledge-spine.html",
+    "brief": COURSE / "modules/module-19-design-the-one-water-knowledge-spine/design-brief.md",
+    "script": None,
+    "qa": COURSE / "modules/module-19-design-the-one-water-knowledge-spine/qa.yaml",
+}
+records[20] = {
+    "lesson": COURSE / "curriculum/module-20-one-water-knowledge-spine-lab.html",
+    "brief": COURSE / "modules/module-20-one-water-knowledge-spine-lab/design-brief.md",
+    "script": None,
+    "qa": COURSE / "modules/module-20-one-water-knowledge-spine-lab/qa.yaml",
+}
 
 full_conformance = audit_full_conformance(COURSE)
 results = full_conformance["lessons"]
-for number in range(1, 19):
+for number in range(1, 21):
     record = records[number]
     soup = BeautifulSoup(record["lesson"].read_text(encoding="utf-8"), "html.parser")
     ids = [node["id"] for node in soup.select("[id]")]
@@ -64,8 +76,8 @@ for number in range(1, 19):
         if not target.exists():
             raise AssertionError(f"module {number:02} has missing local target: {value}")
 
-if len(results) != 18:
-    raise AssertionError("all eighteen modules must be validated")
+if len(results) != 20:
+    raise AssertionError("all twenty modules must be validated")
 minimum_visuals = int(contract["minimum_visual_types"])
 minimum_quizzes = int(contract["minimum_quiz_types"])
 if any(len(item["visual_types"]) < minimum_visuals for item in results):

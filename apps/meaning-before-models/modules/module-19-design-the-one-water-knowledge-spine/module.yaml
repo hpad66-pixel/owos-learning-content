@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:19",
+    "slug": "module-19-design-the-one-water-knowledge-spine",
+    "title": "Design the One Water Knowledge Spine",
+    "eyebrow": "Meaning Before Models, Module 19",
+    "promise": "Decide whether one bounded semantic pilot is worth building, then defend its evidence, controls, value, and stop conditions.",
+    "duration": "90 to 105 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "knowledge-spine-pilot-review-board",
+    "signature_mechanism": "assemble-and-defend-a-bounded-pilot-before-five-reviewers",
+    "source_version": "1.0.0-release-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility executives, operational leaders, and nontechnical staff",
+      "Data, semantic, cybersecurity, governance, and delivery practitioners"
+    ],
+    "outcomes": [
+      "Bound a semantic pilot around one operational decision",
+      "Use the Graph Fit Test before choosing RDF",
+      "Connect identities, meaning, evidence, context, authority, tests, and value",
+      "Choose build, revise, or stop without technology bias",
+      "Produce and defend a One Water Knowledge Spine Pilot Canvas"
+    ],
+    "prior_knowledge": "Modules 1 through 18, including the Agent Action Contract.",
+    "misconception": "A successful knowledge-graph pilot starts by building the enterprise graph.",
+    "transfer_task": "Defend a ninety-day wastewater Knowledge Spine pilot against operations, semantic, security, governance, and finance challenges."
+  },
+  "sections": [
+    {
+      "section_id": "proposal-autopsy",
+      "title": "The proposal is enormous. The decision is missing.",
+      "kind": "Editorial opening",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A glossy proposal promises an enterprise knowledge graph for every asset, customer, document, sensor, and decision. It names graph technology, integration tooling, and artificial intelligence. It does not name one operational question, one accountable decision owner, one measurable baseline, one permitted action, or one condition that would make the utility stop.",
+            "That is not a pilot. It is an ambition wearing a ninety-day schedule. A pilot is a deliberately small experiment that reduces a named uncertainty for a named decision.",
+            "Your job in this capstone is not to admire the architecture. Your job is to decide whether the smallest useful Knowledge Spine pilot should be built at all."
+          ]
+        },
+        {"type": "visual", "visual_id": "mbm19-proposal-autopsy"},
+        {"type": "assessment", "assessment_id": "mbm19-opening"}
+      ]
+    },
+    {
+      "section_id": "boundary",
+      "title": "A pilot is one question with a clock",
+      "kind": "Scope boundary",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The fictional wastewater case begins with Overflow Event 21 at Lift Station LS-7. Asset, telemetry, inspection, work-order, incident, and procedure evidence sit in different systems and documents. Teams use inconsistent identifiers and terms.",
+            "The bounded question is: when Overflow Event 21 occurs, which upstream assets and current evidence should a wastewater supervisor review before approving one draft inspection work order?",
+            "One question, one human decision, one draft action, one accountable owner, one baseline, one target, and one ninety-day review create the boundary. Crew dispatch, priority assignment, operational control, work closure, credential issuance, and enterprise-graph publication remain out of scope."
+          ]
+        },
+        {"type": "interaction", "interaction_id": "mbm19-boundary-lab"},
+        {
+          "type": "callout",
+          "title": "The smallest useful unit",
+          "text": "Question → evidence → human decision → one bounded action → verified result → measurable learning."
+        }
+      ]
+    },
+    {
+      "section_id": "graph-fit",
+      "title": "Make the graph earn its place",
+      "kind": "Architecture judgment",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "RDF is not the default answer. Run the Graph Fit Test before selecting it. Are relationships central? Must identities be reconciled? Must meaning be shared across systems? Must evidence carry source, time, and authority? Must rules or constraints be evaluated consistently?",
+            "Then ask the defeating question: would a governed table, report, search index, or workflow solve the bounded problem adequately? If yes, use the simpler approach.",
+            "For LS-7, the useful work is multi-hop: event to station, station to upstream pumps, pumps to inspections, inspections to observed conditions, conditions to procedures and current work. Relationship traversal, identity reconciliation, provenance, and validation make a graph plausible. The pilot must still prove that value."
+          ]
+        },
+        {"type": "assessment", "assessment_id": "mbm19-graph-fit"},
+        {"type": "visual", "visual_id": "mbm19-evidence-spine"}
+      ]
+    },
+    {
+      "section_id": "prerequisites",
+      "title": "Eighteen modules become one decision system",
+      "kind": "Capstone synthesis",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The capstone does not start with an empty canvas. It recovers the work already done: triples and identifiers; taxonomies, ontology, and semantic mappings; SPARQL questions; SHACL shapes; bounded inference; provenance and freshness; data-in-place choices; unstructured evidence; runtime context; and the Agent Action Contract.",
+            "Each artifact has one job. The ontology cannot substitute for current evidence. SHACL cannot prove truth. Provenance cannot grant authority. A grounded answer cannot create permission to act.",
+            "The Evidence-to-Decision Spine keeps those boundaries visible while showing how they cooperate."
+          ]
+        },
+        {"type": "interaction", "interaction_id": "mbm19-artifact-map"},
+        {"type": "assessment", "assessment_id": "mbm19-artifact-check"}
+      ]
+    },
+    {
+      "section_id": "minimum-design",
+      "title": "Design only the meaning the decision needs",
+      "kind": "Minimum semantic design",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Start with competency questions: Which assets are upstream of LS-7? Which current inspections describe those assets? Which conditions require review under approved procedure? Which facts are asserted, inferred, stale, conflicting, or unknown?",
+            "Define only the identities, concepts, relationships, proof queries, shapes, inference rules, and provenance fields needed to answer those questions. Anything else must justify its cost.",
+            "Structured data can remain in governed source systems through mappings. Documents can remain authoritative while approved passages are indexed. Materialize only a justified hot path with ownership, synchronization, recovery, and expiry."
+          ]
+        },
+        {"type": "visual", "visual_id": "mbm19-connected-canvas"},
+        {"type": "interaction", "interaction_id": "mbm19-design-challenge"}
+      ]
+    },
+    {
+      "section_id": "authority-handoff",
+      "title": "Accept Module 18 without enlarging its authority",
+      "kind": "Graph-to-action handoff",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The incoming Agent Action Contract must score at least sixteen of twenty. Every control maps to an architecture component, accountable owner, acceptance test, failure response, and audit record.",
+            "The pilot must test allowed, denied, stale, ambiguous, timeout, duplicate, failed execution, failed verification, and corrected-record paths. It may create one draft inspection work order only after current evidence and explicit human approval.",
+            "Pilot approval authorizes a bounded rehearsal. It does not grant production credentials, operational-control authority, autonomous dispatch, or final release."
+          ]
+        },
+        {"type": "assessment", "assessment_id": "mbm19-handoff"},
+        {
+          "type": "callout",
+          "title": "Authority boundary",
+          "text": "Design approval permits testing the design. It does not permit the design to operate a utility."
+        }
+      ]
+    },
+    {
+      "section_id": "roadmap",
+      "title": "Make ninety days produce evidence",
+      "kind": "Evidence roadmap",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Weeks one through three prove identity, scope, source authority, and baseline. Weeks four through six prove mappings, competency queries, validation, provenance, and freshness. Weeks seven through nine rehearse context, authorization, failure paths, verification, and audit. Weeks ten through twelve compare measured results with the baseline and decide build, revise, stop, or scale.",
+            "Activity is not evidence. A workshop completed is activity. A tested identity crosswalk with known false-merge rate is evidence. A graph loaded is activity. A proof query returning expected bindings under named snapshots is evidence.",
+            "Stop conditions belong in the plan before enthusiasm rises: unresolved identity risk, ungoverned access, stale evidence without safe abstention, failed authority controls, unverifiable actions, no measurable improvement, or a simpler solution that performs adequately."
+          ]
+        },
+        {"type": "visual", "visual_id": "mbm19-roadmap"},
+        {"type": "assessment", "assessment_id": "mbm19-roadmap-check"}
+      ]
+    },
+    {
+      "section_id": "review-board",
+      "title": "Defend the pilot before five reviewers",
+      "kind": "Signature Review Board",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Wastewater operations asks whether the question and evidence reflect real work. Data and semantics asks whether identities, meaning, mappings, queries, shapes, and inference boundaries are testable. Cybersecurity asks whether access, tools, credentials, failure modes, and industrial-control boundaries are defensible.",
+            "Governance asks who owns meaning, source authority, approvals, correction, and audit. Finance asks what baseline changes, what uncertainty the pilot reduces, what it costs, and what evidence would justify scaling.",
+            "A weighted score cannot rescue a failed hard gate. Missing authority, security, accountable ownership, evidence strategy, acceptance tests, or stop conditions forces revise or stop."
+          ]
+        },
+        {"type": "visual", "visual_id": "mbm19-review-matrix"},
+        {"type": "interaction", "interaction_id": "mbm19-review-board"}
+      ]
+    },
+    {
+      "section_id": "work-product",
+      "title": "Produce the Pilot Canvas and decision briefing",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Your Pilot Canvas joins the operational question, baseline, Graph Fit result, semantic boundary, source strategy, proof queries, validation, inference, provenance, context, authority, owners, tests, measures, and stop conditions.",
+            "Your decision briefing names build, revise, or stop. It must be understandable to an executive, testable by a delivery team, reviewable by security and governance, and honest about assumptions and uncertainty.",
+            "The artifact is a planning and investment decision. It is not production code, a credential, a graph-publication approval, or operational authorization."
+          ]
+        },
+        {"type": "work_product", "work_product_id": "mbm19-pilot-canvas"},
+        {"type": "assessment", "assessment_id": "mbm19-defense"},
+        {
+          "type": "faq",
+          "items": [
+            {"question": "Do we need a graph for every AI use case?", "answer": "No. Use a graph when governed relationships, identity, meaning, provenance, or rule traversal are central and a simpler approach is inadequate."},
+            {"question": "How small can a useful pilot be?", "answer": "One bounded question, one decision owner, one permitted action, one baseline, one target, explicit evidence, and explicit stop conditions can be enough."},
+            {"question": "What stays in source systems?", "answer": "Prefer authoritative data in place when governed mappings and query performance meet the need. Index documents for retrieval and materialize only justified hot paths."},
+            {"question": "Does SHACL guarantee truth?", "answer": "No. It reports conformance to declared graph constraints. Factual accuracy and source authority require separate controls and review."},
+            {"question": "Who may approve the pilot?", "answer": "The accountable utility owner may approve the bounded investment and rehearsal. Separate qualified authorities still govern security, credentials, production access, and operational action."},
+            {"question": "When should the utility stop?", "answer": "Stop when a hard gate fails, evidence cannot be made fit, authority cannot be enforced, value is not measurable, or a simpler solution is adequate."}
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "handoff",
+      "title": "Carry the approved design into the live laboratory",
+      "kind": "Module 20 handoff",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Module 20 consumes the exact bounded question, identities, relationships, source choices, proof queries, shapes, inference limits, context contract, action controls, tests, measures, and stop conditions from this canvas.",
+            "The laboratory then exposes the design to failures and shows an ordinary iPhone prompt traversing the Knowledge Spine. If the laboratory reveals a failed hard gate, the correct result is revise or stop, not concealment.",
+            "You are ready to proceed when another team can implement the pilot without inventing its meaning, evidence, authority, or acceptance criteria."
+          ]
+        },
+        {"type": "callout", "title": "Testable handoff", "text": "Module 20 must be able to configure, run, break, repair, verify, audit, and transfer the pilot without adding undeclared authority."}
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "boundary-lab",
+      "graph-fit",
+      "artifact-map",
+      "artifact-check",
+      "design-challenge",
+      "handoff",
+      "roadmap-check",
+      "review-board",
+      "pilot-canvas",
+      "defense"
+    ],
+    "event_name": "owos-course-module-complete",
+    "course_id": "meaning-before-models",
+    "module_id": "module-19-design-the-one-water-knowledge-spine",
+    "storage_key": "owos:meaning-before-models:module-19:release",
+    "rule": "Complete the proposal diagnosis, boundary and Graph Fit decisions, prerequisite mapping, minimum-design challenge, Agent Action Contract handoff, roadmap check, Review Board, Pilot Canvas, and final defense."
+  }
+}

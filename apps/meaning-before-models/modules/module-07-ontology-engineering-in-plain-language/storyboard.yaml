@@ -2,59 +2,81 @@ schema_version: 1
 module_id: mbm001:07
 version: 0.2.0
 status: approved
-approvals: {narrative: approved_for_production, visuals: approved_for_production, interactions: approved_for_production, assessments: approved_for_production, owner: approved_under_standing_authorization}
+approvals:
+  narrative: approved
+  visuals: approved
+  interactions: approved
+  assessments: approved
+  owner: approved
 beats:
-  - beat_id: conflict
-    learner_question: Which active customer meaning should the team use?
-    instructor_purpose: Reframe definition conflict around a consequential question.
-    teaching_text_refs: [definition-conflict]
-    visual_refs: [mbm07-conflict-board]
-    interaction_refs: []
-    assessment_refs: [mbm07-opening]
-    intended_realization: Meaning is scoped by decision and consequence.
-    transition: Turn the question into model requirements.
-  - beat_id: questions
-    learner_question: What must the model represent to answer the question?
-    instructor_purpose: Derive concepts from competency questions.
-    teaching_text_refs: [competency-questions]
-    visual_refs: [mbm07-question-funnel]
-    interaction_refs: []
-    assessment_refs: [mbm07-question-check]
-    intended_realization: Questions constrain scope.
-    transition: Make inclusion and exclusion decisions.
-  - beat_id: canvas
-    learner_question: Which meanings belong in this ontology slice?
-    instructor_purpose: Facilitate bounded modeling decisions.
-    teaching_text_refs: [scope-canvas]
-    visual_refs: [mbm07-scope-canvas]
-    interaction_refs: [mbm07-ontology-canvas]
-    assessment_refs: []
-    intended_realization: Exclusions and escalations are model decisions.
-    transition: Evaluate reuse.
-  - beat_id: reuse
-    learner_question: What should be reused aligned or left outside?
-    instructor_purpose: Teach selective reuse and application profiles.
-    teaching_text_refs: [reuse-test]
-    visual_refs: []
-    interaction_refs: []
-    assessment_refs: [mbm07-reuse]
-    intended_realization: Reuse requires semantic and governance fit.
-    transition: Establish release control.
-  - beat_id: lifecycle
-    learner_question: How does a draft become an approved model?
-    instructor_purpose: Make test review version and release visible.
-    teaching_text_refs: [release-loop]
-    visual_refs: [mbm07-release-loop]
-    interaction_refs: []
-    assessment_refs: [mbm07-release]
-    intended_realization: Ontologies are governed lifecycle products.
-    transition: Preserve the decisions.
-  - beat_id: record
-    learner_question: Can another team reopen the reasoning?
-    instructor_purpose: Produce the Ontology Decision Record.
-    teaching_text_refs: [decision-record]
-    visual_refs: []
-    interaction_refs: [mbm07-decision-record]
-    assessment_refs: [mbm07-decision-record]
-    intended_realization: Scope and rationale remain reviewable.
-    transition: Module 08 turns the questions into graph patterns.
+- beat_id: conflict
+  learner_question: Which active customer meaning should the team use?
+  instructor_purpose: Reframe definition conflict around a consequential question.
+  teaching_text_refs:
+  - definition-conflict
+  visual_refs:
+  - mbm07-conflict-board
+  interaction_refs: []
+  assessment_refs:
+  - mbm07-opening
+  intended_realization: Meaning is scoped by decision and consequence.
+  transition: Turn the question into model requirements.
+- beat_id: questions
+  learner_question: What must the model represent to answer the question?
+  instructor_purpose: Derive concepts from competency questions.
+  teaching_text_refs:
+  - competency-questions
+  visual_refs:
+  - mbm07-question-funnel
+  interaction_refs: []
+  assessment_refs:
+  - mbm07-question-check
+  intended_realization: Questions constrain scope.
+  transition: Make inclusion and exclusion decisions.
+- beat_id: canvas
+  learner_question: Which meanings belong in this ontology slice?
+  instructor_purpose: Facilitate bounded modeling decisions.
+  teaching_text_refs:
+  - scope-canvas
+  visual_refs:
+  - mbm07-scope-canvas
+  interaction_refs:
+  - mbm07-ontology-canvas
+  assessment_refs: []
+  intended_realization: Exclusions and escalations are model decisions.
+  transition: Evaluate reuse.
+- beat_id: reuse
+  learner_question: What should be reused aligned or left outside?
+  instructor_purpose: Teach selective reuse and application profiles.
+  teaching_text_refs:
+  - reuse-test
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs:
+  - mbm07-reuse
+  intended_realization: Reuse requires semantic and governance fit.
+  transition: Establish release control.
+- beat_id: lifecycle
+  learner_question: How does a draft become an approved model?
+  instructor_purpose: Make test review version and release visible.
+  teaching_text_refs:
+  - release-loop
+  visual_refs:
+  - mbm07-release-loop
+  interaction_refs: []
+  assessment_refs:
+  - mbm07-release
+  intended_realization: Ontologies are governed lifecycle products.
+  transition: Preserve the decisions.
+- beat_id: record
+  learner_question: Can another team reopen the reasoning?
+  instructor_purpose: Produce the Ontology Decision Record.
+  teaching_text_refs:
+  - decision-record
+  visual_refs: []
+  interaction_refs:
+  - mbm07-decision-record
+  assessment_refs:
+  - mbm07-decision-record
+  intended_realization: Scope and rationale remain reviewable.
+  transition: Module 08 turns the questions into graph patterns.

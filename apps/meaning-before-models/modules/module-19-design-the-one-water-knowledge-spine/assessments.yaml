@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:19",
+  "assessments": [
+    {
+      "assessment_id": "mbm19-opening",
+      "type": "multi-select",
+      "cognitive_job": "diagnose an unbounded proposal",
+      "prompt": "Which omissions prevent the enterprise proposal from being a pilot?",
+      "options": [
+        {"text": "No bounded operational question", "correct": true},
+        {"text": "No baseline or target", "correct": true},
+        {"text": "No accountable decision owner", "correct": true},
+        {"text": "No authority or stop boundary", "correct": true},
+        {"text": "It uses RDF", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. Scope, measurement, ownership, and authority are missing.", "incorrect": "The technology is not the defect. Find the missing decision controls."},
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm19-graph-fit",
+      "type": "multiple-choice",
+      "cognitive_job": "select architecture without technology bias",
+      "prompt": "A governed SQL report answers the bounded question with acceptable identity, freshness, and latency. What should the pilot team do?",
+      "options": [
+        {"text": "Use the simpler governed report and do not force a graph pilot", "correct": true},
+        {"text": "Build RDF anyway because knowledge graphs are strategic", "correct": false},
+        {"text": "Copy every source into a graph before comparing options", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. The Graph Fit Test allows a simpler solution to defeat the graph proposal.", "incorrect": "RDF must earn its place through the decision job."},
+      "completion_id": "graph-fit"
+    },
+    {
+      "assessment_id": "mbm19-artifact-check",
+      "type": "matching",
+      "cognitive_job": "map artifacts to design jobs",
+      "prompt": "Match each artifact to its primary pilot job.",
+      "targets": ["Shared meaning", "Structural validation", "Evidence qualification", "Action authority"],
+      "pairs": [
+        {"prompt": "Ontology and semantic mappings", "answer": "Shared meaning"},
+        {"prompt": "SHACL shapes", "answer": "Structural validation"},
+        {"prompt": "Provenance and freshness", "answer": "Evidence qualification"},
+        {"prompt": "Agent Action Contract", "answer": "Action authority"}
+      ],
+      "feedback": {"correct": "Correct. Each artifact keeps its own job.", "incorrect": "Do not let one artifact silently substitute for another."},
+      "completion_id": "artifact-check"
+    },
+    {
+      "assessment_id": "mbm19-handoff",
+      "type": "multi-select",
+      "cognitive_job": "validate the Module 18 handoff",
+      "prompt": "Which conditions must be present before Module 20 rehearses the draft-work-order path?",
+      "options": [
+        {"text": "Agent Action Contract scores at least 16 of 20", "correct": true},
+        {"text": "Controls map to owners, tests, failure responses, and audit evidence", "correct": true},
+        {"text": "Denied, stale, ambiguous, timeout, duplicate, and verification-failure paths are defined", "correct": true},
+        {"text": "Pilot approval automatically grants production credentials", "correct": false},
+        {"text": "A grounded answer may bypass supervisor approval", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. The handoff is testable and does not enlarge authority.", "incorrect": "Remove every implied production or approval shortcut."},
+      "completion_id": "handoff"
+    },
+    {
+      "assessment_id": "mbm19-roadmap-check",
+      "type": "flip-cards",
+      "cognitive_job": "distinguish activity from evidence",
+      "prompt": "Predict whether each item is activity or decision evidence.",
+      "cards": [
+        {"front": "Graph loaded", "back": "Activity. It becomes evidence only when named queries and controls produce expected results."},
+        {"front": "Identity crosswalk tested against known conflicts", "back": "Evidence. It measures a critical risk."},
+        {"front": "Stakeholder workshop completed", "back": "Activity. Documented decisions and accepted controls may become evidence."},
+        {"front": "Denied action path blocks the tool and records an audit event", "back": "Evidence. It demonstrates an authority control under test."}
+      ],
+      "feedback": {"correct": "A pilot should produce decision evidence, not merely completed activity."},
+      "completion_id": "roadmap-check"
+    },
+    {
+      "assessment_id": "mbm19-pilot-canvas",
+      "type": "applied-work-product",
+      "title": "One Water Knowledge Spine Pilot Canvas and Decision Briefing",
+      "cognitive_job": "synthesize and defend a bounded semantic pilot",
+      "prompt": "Complete every hard-gate field, then recommend BUILD, REVISE, or STOP. This artifact authorizes planning and rehearsal only.",
+      "required_fields": [
+        "decision_boundary",
+        "graph_fit",
+        "meaning_model",
+        "evidence_strategy",
+        "context_and_authority",
+        "owners_and_security",
+        "tests_and_failures",
+        "roadmap_and_measures",
+        "stop_conditions",
+        "executive_recommendation"
+      ],
+      "field_labels": {
+        "decision_boundary": "Question, user, decision owner, permitted action, baseline, target, and exclusions",
+        "graph_fit": "Relationship, identity, meaning, evidence, rule, and simpler-solution findings",
+        "meaning_model": "Competency questions, identifiers, concepts, relationships, queries, shapes, and inference limits",
+        "evidence_strategy": "Structured and unstructured sources, authority, mappings, indexing, materialization, provenance, and freshness",
+        "context_and_authority": "Runtime context, permissions, approvals, tool scope, prohibited actions, verification, and audit",
+        "owners_and_security": "Accountable owners, access controls, cybersecurity review path, and correction path",
+        "tests_and_failures": "Allowed, denied, stale, ambiguous, timeout, duplicate, failed execution, failed verification, and correction tests",
+        "roadmap_and_measures": "Ninety-day evidence milestones, baseline, target, value, cost, and review gates",
+        "stop_conditions": "Conditions that force revise, stop, or use a simpler solution",
+        "executive_recommendation": "BUILD, REVISE, or STOP with evidence, assumptions, uncertainty, and requested decision"
+      },
+      "textarea_fields": [
+        "decision_boundary",
+        "graph_fit",
+        "meaning_model",
+        "evidence_strategy",
+        "context_and_authority",
+        "owners_and_security",
+        "tests_and_failures",
+        "roadmap_and_measures",
+        "stop_conditions",
+        "executive_recommendation"
+      ],
+      "feedback": {
+        "correct": "The canvas is complete enough to defend and hand to the Module 20 laboratory.",
+        "incorrect": "Complete every scope, evidence, authority, owner, test, measure, and stop boundary."
+      },
+      "completion_id": "pilot-canvas"
+    },
+    {
+      "assessment_id": "mbm19-defense",
+      "type": "multiple-choice",
+      "cognitive_job": "defend a hard-gate decision",
+      "prompt": "The pilot scores highly on value and usability, but the team cannot enforce the authority boundary. What is the correct Review Board decision?",
+      "options": [
+        {"text": "REVISE or STOP because a hard gate failed", "correct": true},
+        {"text": "BUILD because the average score is high", "correct": false},
+        {"text": "BUILD and document the authority gap later", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. A weighted score cannot override a failed authority hard gate.", "incorrect": "Hard gates are not averaged away."},
+      "completion_id": "defense"
+    }
+  ]
+}

@@ -1,111 +1,80 @@
-{
-  "schema_version": 1,
-  "module_id": "mbm001:10",
-  "version": "0.2.0",
-  "status": "approved",
-  "approvals": {
-    "narrative": "approved_for_production",
-    "visuals": "approved_for_production",
-    "interactions": "approved_for_production",
-    "assessments": "approved_for_production",
-    "owner": "approved_under_standing_authorization"
-  },
-  "beats": [
-    {
-      "beat_id": "intake",
-      "learner_question": "A plausible record can still break the contract",
-      "instructor_purpose": "Clinic intake",
-      "teaching_text_refs": [
-        "intake"
-      ],
-      "visual_refs": [
-        "mbm10-shape-record"
-      ],
-      "interaction_refs": [],
-      "assessment_refs": [
-        "mbm10-opening"
-      ],
-      "intended_realization": "The learner can diagnose and govern the validation decision.",
-      "transition": "Move to the next clinic stage."
-    },
-    {
-      "beat_id": "report",
-      "learner_question": "A useful failure points to the exact place",
-      "instructor_purpose": "Diagnostic report",
-      "teaching_text_refs": [
-        "report"
-      ],
-      "visual_refs": [
-        "mbm10-result-report"
-      ],
-      "interaction_refs": [],
-      "assessment_refs": [
-        "mbm10-report"
-      ],
-      "intended_realization": "The learner can diagnose and govern the validation decision.",
-      "transition": "Move to the next clinic stage."
-    },
-    {
-      "beat_id": "clinic",
-      "learner_question": "Repair the record, then rerun the contract",
-      "instructor_purpose": "SHACL Validation Clinic",
-      "teaching_text_refs": [
-        "clinic"
-      ],
-      "visual_refs": [],
-      "interaction_refs": [
-        "mbm10-shacl-clinic"
-      ],
-      "assessment_refs": [],
-      "intended_realization": "The learner can diagnose and govern the validation decision.",
-      "transition": "Move to the next clinic stage."
-    },
-    {
-      "beat_id": "cycle",
-      "learner_question": "Validation belongs in a repeatable lifecycle",
-      "instructor_purpose": "Repair and rerun",
-      "teaching_text_refs": [
-        "cycle"
-      ],
-      "visual_refs": [
-        "mbm10-repair-cycle"
-      ],
-      "interaction_refs": [],
-      "assessment_refs": [
-        "mbm10-severity"
-      ],
-      "intended_realization": "The learner can diagnose and govern the validation decision.",
-      "transition": "Move to the next clinic stage."
-    },
-    {
-      "beat_id": "truth",
-      "learner_question": "Conforms is not the same as true",
-      "instructor_purpose": "Truth boundary",
-      "teaching_text_refs": [
-        "truth"
-      ],
-      "visual_refs": [
-        "mbm10-conformance-boundary"
-      ],
-      "interaction_refs": [],
-      "assessment_refs": [
-        "mbm10-boundary"
-      ],
-      "intended_realization": "The learner can diagnose and govern the validation decision.",
-      "transition": "Move to the next clinic stage."
-    },
-    {
-      "beat_id": "contract",
-      "learner_question": "Turn one expectation into an inspectable contract",
-      "instructor_purpose": "Professional application",
-      "teaching_text_refs": [
-        "contract"
-      ],
-      "visual_refs": [],
-      "interaction_refs": [],
-      "assessment_refs": [],
-      "intended_realization": "The learner can diagnose and govern the validation decision.",
-      "transition": "Move to the next clinic stage."
-    }
-  ]
-}
+schema_version: 1
+module_id: mbm001:10
+version: 0.2.0
+status: approved
+approvals:
+  narrative: approved
+  visuals: approved
+  interactions: approved
+  assessments: approved
+  owner: approved
+beats:
+- beat_id: intake
+  learner_question: A plausible record can still break the contract
+  instructor_purpose: Clinic intake
+  teaching_text_refs:
+  - intake
+  visual_refs:
+  - mbm10-shape-record
+  interaction_refs: []
+  assessment_refs:
+  - mbm10-opening
+  intended_realization: The learner can diagnose and govern the validation decision.
+  transition: Move to the next clinic stage.
+- beat_id: report
+  learner_question: A useful failure points to the exact place
+  instructor_purpose: Diagnostic report
+  teaching_text_refs:
+  - report
+  visual_refs:
+  - mbm10-result-report
+  interaction_refs: []
+  assessment_refs:
+  - mbm10-report
+  intended_realization: The learner can diagnose and govern the validation decision.
+  transition: Move to the next clinic stage.
+- beat_id: clinic
+  learner_question: Repair the record, then rerun the contract
+  instructor_purpose: SHACL Validation Clinic
+  teaching_text_refs:
+  - clinic
+  visual_refs: []
+  interaction_refs:
+  - mbm10-shacl-clinic
+  assessment_refs: []
+  intended_realization: The learner can diagnose and govern the validation decision.
+  transition: Move to the next clinic stage.
+- beat_id: cycle
+  learner_question: Validation belongs in a repeatable lifecycle
+  instructor_purpose: Repair and rerun
+  teaching_text_refs:
+  - cycle
+  visual_refs:
+  - mbm10-repair-cycle
+  interaction_refs: []
+  assessment_refs:
+  - mbm10-severity
+  intended_realization: The learner can diagnose and govern the validation decision.
+  transition: Move to the next clinic stage.
+- beat_id: truth
+  learner_question: Conforms is not the same as true
+  instructor_purpose: Truth boundary
+  teaching_text_refs:
+  - truth
+  visual_refs:
+  - mbm10-conformance-boundary
+  interaction_refs: []
+  assessment_refs:
+  - mbm10-boundary
+  intended_realization: The learner can diagnose and govern the validation decision.
+  transition: Move to the next clinic stage.
+- beat_id: contract
+  learner_question: Turn one expectation into an inspectable contract
+  instructor_purpose: Professional application
+  teaching_text_refs:
+  - contract
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs: []
+  intended_realization: The learner can diagnose and govern the validation decision.
+  transition: Move to the next clinic stage.

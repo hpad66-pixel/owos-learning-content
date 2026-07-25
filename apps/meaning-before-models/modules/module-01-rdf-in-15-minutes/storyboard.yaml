@@ -4,57 +4,64 @@ version: 1.0.0
 status: approved
 approvals:
   narrative: approved
-  visuals: approved_for_reference_build
-  interactions: approved_for_reference_build
-  assessments: approved_for_reference_build
-  owner: approved_for_reference_build
+  visuals: approved
+  interactions: approved
+  assessments: approved
+  owner: approved
 beats:
-  - beat_id: opening-scene
-    learner_question: What does the operator still not know after seeing the alarm?
-    instructor_purpose: Separate a recorded event from the relationship that gives it operational meaning.
-    teaching_text_refs:
-      - opening
-    visual_refs:
-      - mbm01-utility-scene
-    interaction_refs: []
-    assessment_refs:
-      - mbm01-opening-choice
-    intended_realization: The data can exist while the answer path remains implicit.
-    transition: Name the smallest reusable relationship.
-  - beat_id: triple-construction
-    learner_question: What are the three jobs inside one relationship statement?
-    instructor_purpose: Teach subject, predicate, object, direction, and the claim boundary.
-    teaching_text_refs:
-      - triple
-    visual_refs:
-      - mbm01-triple-anatomy
-    interaction_refs:
-      - mbm01-triple-builder
-    assessment_refs:
-      - mbm01-term-cards
-    intended_realization: A triple is simple, but its direction and identifiers carry precise meaning.
-    transition: Reuse shared nodes to connect statements.
-  - beat_id: graph-growth
-    learner_question: How does one relationship become an answer path?
-    instructor_purpose: Show how repeated triples create a traversable graph without overclaiming causation.
-    teaching_text_refs:
-      - graph
-    visual_refs:
-      - mbm01-graph-growth
-    interaction_refs:
-      - mbm01-path-tracer
-    assessment_refs:
-      - mbm01-path-claim
-    intended_realization: A graph answer is a chain of explicit relationships, each with its own evidence need.
-    transition: Apply the pattern to one real utility question.
-  - beat_id: transfer
-    learner_question: What relationship should my utility make explicit first?
-    instructor_purpose: Transfer the mental model to the learner's work and preserve source boundaries.
-    teaching_text_refs:
-      - transfer
-    visual_refs: []
-    interaction_refs: []
-    assessment_refs:
-      - mbm01-relationship-card
-    intended_realization: A bounded, reviewable relationship is a better starting point than an enterprise-wide graph promise.
-    transition: Continue to identifiers, literals, direction, and serialization in Module 02.
+- beat_id: opening-scene
+  learner_question: What does the operator still not know after seeing the alarm?
+  instructor_purpose: Separate a recorded event from the relationship that gives it
+    operational meaning.
+  teaching_text_refs:
+  - opening
+  visual_refs:
+  - mbm01-utility-scene
+  interaction_refs: []
+  assessment_refs:
+  - mbm01-opening-choice
+  intended_realization: The data can exist while the answer path remains implicit.
+  transition: Name the smallest reusable relationship.
+- beat_id: triple-construction
+  learner_question: What are the three jobs inside one relationship statement?
+  instructor_purpose: Teach subject, predicate, object, direction, and the claim boundary.
+  teaching_text_refs:
+  - triple
+  visual_refs:
+  - mbm01-triple-anatomy
+  interaction_refs:
+  - mbm01-triple-builder
+  assessment_refs:
+  - mbm01-term-cards
+  intended_realization: A triple is simple, but its direction and identifiers carry
+    precise meaning.
+  transition: Reuse shared nodes to connect statements.
+- beat_id: graph-growth
+  learner_question: How does one relationship become an answer path?
+  instructor_purpose: Show how repeated triples create a traversable graph without
+    overclaiming causation.
+  teaching_text_refs:
+  - graph
+  visual_refs:
+  - mbm01-graph-growth
+  interaction_refs:
+  - mbm01-path-tracer
+  assessment_refs:
+  - mbm01-path-claim
+  intended_realization: A graph answer is a chain of explicit relationships, each
+    with its own evidence need.
+  transition: Apply the pattern to one real utility question.
+- beat_id: transfer
+  learner_question: What relationship should my utility make explicit first?
+  instructor_purpose: Transfer the mental model to the learner's work and preserve
+    source boundaries.
+  teaching_text_refs:
+  - transfer
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs:
+  - mbm01-relationship-card
+  intended_realization: A bounded, reviewable relationship is a better starting point
+    than an enterprise-wide graph promise.
+  transition: Continue to identifiers, literals, direction, and serialization in Module
+    02.

@@ -40,11 +40,12 @@ def required(value, label: str):
     return value
 
 
-def relative_file(path: Path) -> dict:
+def relative_file(path: Path, site_dir: Path) -> dict:
     rel = path.relative_to(ROOT).as_posix()
+    runtime_rel = path.relative_to(site_dir).as_posix()
     return {
         "source_path": rel,
-        "runtime_path": f"site/{path.name}",
+        "runtime_path": f"site/{runtime_rel}",
         "sha256": sha256(path),
         "bytes": path.stat().st_size,
         "role": (
@@ -200,13 +201,13 @@ def build(course_dir: Path) -> dict:
         raise SystemExit(f"course quality gate failed: {error}") from error
 
     runtime_assets = sorted(
-        path for path in site_dir.iterdir()
+        path for path in site_dir.rglob("*")
         if path.is_file() and path != landing and path not in lessons
     )
     files = [
-        relative_file(landing),
-        *(relative_file(path) for path in lessons),
-        *(relative_file(path) for path in runtime_assets),
+        relative_file(landing, site_dir),
+        *(relative_file(path, site_dir) for path in lessons),
+        *(relative_file(path, site_dir) for path in runtime_assets),
     ]
     for entry in files:
         text = (ROOT / entry["source_path"]).read_text(encoding="utf-8")

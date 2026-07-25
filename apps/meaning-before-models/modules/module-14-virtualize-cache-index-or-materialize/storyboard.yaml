@@ -1,111 +1,86 @@
-{
-  "schema_version": 1,
-  "module_id": "mbm001:14",
-  "version": "0.2.0",
-  "status": "approved",
-  "approvals": {
-    "narrative": "approved_for_production",
-    "visuals": "approved_for_production",
-    "interactions": "approved_for_production",
-    "assessments": "approved_for_production",
-    "owner": "approved_under_standing_authorization"
-  },
-  "beats": [
-    {
-      "beat_id": "incident",
-      "learner_question": "Two seconds, one outage, and several kinds of evidence",
-      "instructor_purpose": "Incident clock",
-      "teaching_text_refs": [
-        "incident"
-      ],
-      "visual_refs": [
-        "mbm14-decision-surface"
-      ],
-      "interaction_refs": [],
-      "assessment_refs": [
-        "mbm14-opening"
-      ],
-      "intended_realization": "Access architecture follows explicit workload constraints and copy obligations.",
-      "transition": "Carry this operating distinction into the next stage."
-    },
-    {
-      "beat_id": "patterns",
-      "learner_question": "Name the four patterns without ranking them",
-      "instructor_purpose": "Pattern field",
-      "teaching_text_refs": [
-        "patterns"
-      ],
-      "visual_refs": [
-        "mbm14-placement-map"
-      ],
-      "interaction_refs": [],
-      "assessment_refs": [
-        "mbm14-patterns"
-      ],
-      "intended_realization": "Access architecture follows explicit workload constraints and copy obligations.",
-      "transition": "Carry this operating distinction into the next stage."
-    },
-    {
-      "beat_id": "stress",
-      "learner_question": "Change the constraint and let the architecture respond",
-      "instructor_purpose": "Access-Pattern Stress Board",
-      "teaching_text_refs": [
-        "stress"
-      ],
-      "visual_refs": [],
-      "interaction_refs": [
-        "mbm14-stress-board"
-      ],
-      "assessment_refs": [],
-      "intended_realization": "Access architecture follows explicit workload constraints and copy obligations.",
-      "transition": "Carry this operating distinction into the next stage."
-    },
-    {
-      "beat_id": "copies",
-      "learner_question": "Draw every place data or retrieval state exists",
-      "instructor_purpose": "Copy inventory",
-      "teaching_text_refs": [
-        "copies"
-      ],
-      "visual_refs": [
-        "mbm14-copy-inventory"
-      ],
-      "interaction_refs": [],
-      "assessment_refs": [
-        "mbm14-copy-boundary"
-      ],
-      "intended_realization": "Access architecture follows explicit workload constraints and copy obligations.",
-      "transition": "Carry this operating distinction into the next stage."
-    },
-    {
-      "beat_id": "failure",
-      "learner_question": "Rehearse stale and unavailable evidence before production",
-      "instructor_purpose": "Stale-copy failure rehearsal",
-      "teaching_text_refs": [
-        "failure"
-      ],
-      "visual_refs": [
-        "mbm14-stale-chain"
-      ],
-      "interaction_refs": [
-        "mbm14-stale-rehearsal"
-      ],
-      "assessment_refs": [],
-      "intended_realization": "Access architecture follows explicit workload constraints and copy obligations.",
-      "transition": "Carry this operating distinction into the next stage."
-    },
-    {
-      "beat_id": "record",
-      "learner_question": "Defend the pattern source by source",
-      "instructor_purpose": "Professional application",
-      "teaching_text_refs": [
-        "record"
-      ],
-      "visual_refs": [],
-      "interaction_refs": [],
-      "assessment_refs": [],
-      "intended_realization": "Access architecture follows explicit workload constraints and copy obligations.",
-      "transition": "Carry this operating distinction into the next stage."
-    }
-  ]
-}
+schema_version: 1
+module_id: mbm001:14
+version: 0.2.0
+status: approved
+approvals:
+  narrative: approved
+  visuals: approved
+  interactions: approved
+  assessments: approved
+  owner: approved
+beats:
+- beat_id: incident
+  learner_question: Two seconds, one outage, and several kinds of evidence
+  instructor_purpose: Incident clock
+  teaching_text_refs:
+  - incident
+  visual_refs:
+  - mbm14-decision-surface
+  interaction_refs: []
+  assessment_refs:
+  - mbm14-opening
+  intended_realization: Access architecture follows explicit workload constraints
+    and copy obligations.
+  transition: Carry this operating distinction into the next stage.
+- beat_id: patterns
+  learner_question: Name the four patterns without ranking them
+  instructor_purpose: Pattern field
+  teaching_text_refs:
+  - patterns
+  visual_refs:
+  - mbm14-placement-map
+  interaction_refs: []
+  assessment_refs:
+  - mbm14-patterns
+  intended_realization: Access architecture follows explicit workload constraints
+    and copy obligations.
+  transition: Carry this operating distinction into the next stage.
+- beat_id: stress
+  learner_question: Change the constraint and let the architecture respond
+  instructor_purpose: Access-Pattern Stress Board
+  teaching_text_refs:
+  - stress
+  visual_refs: []
+  interaction_refs:
+  - mbm14-stress-board
+  assessment_refs: []
+  intended_realization: Access architecture follows explicit workload constraints
+    and copy obligations.
+  transition: Carry this operating distinction into the next stage.
+- beat_id: copies
+  learner_question: Draw every place data or retrieval state exists
+  instructor_purpose: Copy inventory
+  teaching_text_refs:
+  - copies
+  visual_refs:
+  - mbm14-copy-inventory
+  interaction_refs: []
+  assessment_refs:
+  - mbm14-copy-boundary
+  intended_realization: Access architecture follows explicit workload constraints
+    and copy obligations.
+  transition: Carry this operating distinction into the next stage.
+- beat_id: failure
+  learner_question: Rehearse stale and unavailable evidence before production
+  instructor_purpose: Stale-copy failure rehearsal
+  teaching_text_refs:
+  - failure
+  visual_refs:
+  - mbm14-stale-chain
+  interaction_refs:
+  - mbm14-stale-rehearsal
+  assessment_refs: []
+  intended_realization: Access architecture follows explicit workload constraints
+    and copy obligations.
+  transition: Carry this operating distinction into the next stage.
+- beat_id: record
+  learner_question: Defend the pattern source by source
+  instructor_purpose: Professional application
+  teaching_text_refs:
+  - record
+  visual_refs: []
+  interaction_refs: []
+  assessment_refs: []
+  intended_realization: Access architecture follows explicit workload constraints
+    and copy obligations.
+  transition: Carry this operating distinction into the next stage.
