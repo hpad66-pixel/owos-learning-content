@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:12",
+  "interactions": [
+    {
+      "interaction_id": "mbm12-spine-router",
+      "component": "knowledge-spine-router",
+      "title": "Knowledge Spine Routing Studio",
+      "teaching_purpose": "Place operating capabilities in the layer that owns their job.",
+      "instructions": "Read each capability and route it to Governance core, Semantic services, Connection fabric, Consumption plane, or Reliability control.",
+      "completion_id": "spine-router",
+      "config": {
+        "choices": [
+          "Governance core",
+          "Semantic services",
+          "Connection fabric",
+          "Consumption plane",
+          "Reliability control"
+        ],
+        "cases": [
+          {
+            "label": "Ontology release",
+            "claim": "Approve Pump v3.2 and its effective date.",
+            "evidence": "Domain decision and version record.",
+            "rule": "Meaning and release policy belong in the governed core.",
+            "answer": "Governance core",
+            "explanation": "The core controls approved meaning and version state."
+          },
+          {
+            "label": "Graph query",
+            "claim": "Execute a source-bounded SPARQL pattern.",
+            "evidence": "Query plan, entailment setting, and evidence receipt.",
+            "rule": "Queryable meaning is a semantic service.",
+            "answer": "Semantic services",
+            "explanation": "The service matches the governed graph pattern and exposes evidence."
+          },
+          {
+            "label": "Virtual mapping",
+            "claim": "Resolve CMMS fields to approved asset concepts at query time.",
+            "evidence": "Connection, credentials, mapping, and pushdown plan.",
+            "rule": "Source access and mapping execution belong in the fabric.",
+            "answer": "Connection fabric",
+            "explanation": "The fabric connects owned source structures to semantic terms."
+          },
+          {
+            "label": "Agent package",
+            "claim": "Deliver customer, date, policy, permissions, and evidence to an agent.",
+            "evidence": "Consumer contract and runtime request.",
+            "rule": "Consumer-specific packaging belongs in the consumption plane.",
+            "answer": "Consumption plane",
+            "explanation": "The plane shapes governed evidence for a particular consumer."
+          },
+          {
+            "label": "Source outage",
+            "claim": "Detect unavailable GIS and apply hold policy.",
+            "evidence": "Health check, service level, and fallback state.",
+            "rule": "Availability and failure behavior are cross-cutting controls.",
+            "answer": "Reliability control",
+            "explanation": "Reliability makes failure visible and governed."
+          }
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm12-accountability",
+      "component": "accountability-handoff",
+      "title": "Knowledge Spine Accountability Handoff",
+      "teaching_purpose": "Assign decisions to accountable operating roles.",
+      "instructions": "Choose the accountable owner for each decision. Correct every handoff.",
+      "completion_id": "accountability",
+      "config": {
+        "choices": [
+          "Domain owner",
+          "Source owner",
+          "Semantic platform owner",
+          "Application owner",
+          "Operations policy owner",
+          "Data steward"
+        ],
+        "cases": [
+          {
+            "label": "Meaning",
+            "claim": "Approve what CriticalCustomer means.",
+            "evidence": "Business definition and inclusion rules.",
+            "rule": "Domain meaning requires accountable domain authority.",
+            "answer": "Domain owner",
+            "explanation": "The domain owner approves the concept and scope."
+          },
+          {
+            "label": "Record",
+            "claim": "Correct the premise identifier in GIS.",
+            "evidence": "Source record and editing policy.",
+            "rule": "The authoritative source owns its record.",
+            "answer": "Source owner",
+            "explanation": "The source owner governs correction in GIS."
+          },
+          {
+            "label": "Service",
+            "claim": "Restore query and validation availability.",
+            "evidence": "Service health and incident log.",
+            "rule": "Runtime semantic services need a technical operator.",
+            "answer": "Semantic platform owner",
+            "explanation": "The platform owner restores and observes the service."
+          },
+          {
+            "label": "Consumer",
+            "claim": "Define what the agent may do with a candidate impact list.",
+            "evidence": "Application contract and user journey.",
+            "rule": "Consumer behavior belongs to its product owner.",
+            "answer": "Application owner",
+            "explanation": "The application owner defines safe use within policy."
+          },
+          {
+            "label": "Action",
+            "claim": "Authorize customer notification after review.",
+            "evidence": "Current policy and accountable approval.",
+            "rule": "Operational action remains under operating policy.",
+            "answer": "Operations policy owner",
+            "explanation": "Semantic evidence does not grant notification authority."
+          },
+          {
+            "label": "Correction",
+            "claim": "Investigate a conflicting customer-premise link.",
+            "evidence": "Conflict queue and source receipts.",
+            "rule": "A steward coordinates evidence and review.",
+            "answer": "Data steward",
+            "explanation": "The steward investigates and routes the governed correction."
+          }
+        ]
+      }
+    }
+  ]
+}

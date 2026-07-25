@@ -49,6 +49,12 @@ SUPPORTED_INTERACTIONS = {
     "inference-court",
     "shacl-clinic",
     "evidence-reconciliation",
+    "knowledge-spine-router",
+    "accountability-handoff",
+    "mapping-workbench",
+    "mapping-break-repair",
+    "access-pattern-stress-test",
+    "stale-copy-diagnosis",
 }
 SUPPORTED_ASSESSMENTS = {
     "multiple-choice",
@@ -898,6 +904,30 @@ def render_evidence_reconciliation(interaction: dict[str, Any]) -> str:
     return render_decision_lab(interaction, "evidence-reconciliation", "Evidence reconciliation hearing", "data-evidence-case", "data-evidence-choice")
 
 
+def render_knowledge_spine_router(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "knowledge-spine-router", "Knowledge Spine routing studio", "data-spine-case", "data-spine-choice")
+
+
+def render_accountability_handoff(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "accountability-handoff", "Accountability handoff", "data-handoff-case", "data-handoff-choice")
+
+
+def render_mapping_workbench(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "mapping-workbench", "Source-to-concept wiring bench", "data-mapping-case", "data-mapping-choice")
+
+
+def render_mapping_break_repair(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "mapping-break-repair", "Mapping break and repair laboratory", "data-map-repair-case", "data-map-repair-choice")
+
+
+def render_access_pattern_stress_test(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "access-pattern-stress-test", "Access-pattern stress board", "data-access-case", "data-access-choice")
+
+
+def render_stale_copy_diagnosis(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "stale-copy-diagnosis", "Stale-copy failure rehearsal", "data-stale-case", "data-stale-choice")
+
+
 def render_object_router(interaction: dict[str, Any]) -> str:
     cards = []
     for index, item in enumerate(interaction["config"]["items"]):
@@ -1072,6 +1102,18 @@ def render_block(
             return render_shacl_clinic(interaction)
         if interaction["component"] == "evidence-reconciliation":
             return render_evidence_reconciliation(interaction)
+        if interaction["component"] == "knowledge-spine-router":
+            return render_knowledge_spine_router(interaction)
+        if interaction["component"] == "accountability-handoff":
+            return render_accountability_handoff(interaction)
+        if interaction["component"] == "mapping-workbench":
+            return render_mapping_workbench(interaction)
+        if interaction["component"] == "mapping-break-repair":
+            return render_mapping_break_repair(interaction)
+        if interaction["component"] == "access-pattern-stress-test":
+            return render_access_pattern_stress_test(interaction)
+        if interaction["component"] == "stale-copy-diagnosis":
+            return render_stale_copy_diagnosis(interaction)
         if interaction["component"] == "object-router":
             return render_object_router(interaction)
         return render_triple_repair_bench(interaction)

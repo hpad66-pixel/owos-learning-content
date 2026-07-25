@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:12",
+    "slug": "module-12-running-knowledge-spine",
+    "title": "From an Ontology File to a Running Knowledge Spine",
+    "eyebrow": "Meaning Before Models, Module 12",
+    "promise": "Turn approved meaning into a queryable, governed operating service that connects sources, semantic controls, consumers, and corrections.",
+    "duration": "75 to 90 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "architecture-studio",
+    "signature_mechanism": "route-question-and-accountability-through-running-spine",
+    "source_version": "0.2.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Data GIS IT OT engineering governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Explain why an ontology file is not a running service",
+      "Identify governance semantic connection consumption and reliability responsibilities",
+      "Route one utility question to source-bounded evidence",
+      "Assign accountable owners across the operating path",
+      "Design a bounded Knowledge Spine without copying everything"
+    ],
+    "prior_knowledge": "The learner understands ontology, SPARQL, OWL, SHACL, provenance, authority, and time.",
+    "misconception": "A graph database or ontology diagram is already a Knowledge Spine.",
+    "transfer_task": "Route an overflow-response question from an approved concept to governed evidence and a steward correction."
+  },
+  "sections": [
+    {
+      "section_id": "opening",
+      "title": "The ontology is finished, but nothing can ask it a question",
+      "kind": "Architecture call",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Riverbend has approved definitions for Pump, Pressure Zone, Customer, Work Order, Overflow, and Inspection. The ontology is presented at a governance meeting. Then operations asks which critical customers depend on the zone served by Pump P-104. No application can resolve the concepts to live Geographic Information System, customer, and work-management records.",
+            "The missing piece is operation. A running Knowledge Spine makes approved meaning queryable, connects it to governed sources, applies reasoning and validation where appropriate, packages evidence for consumers, and records corrections."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm12-service-stack"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm12-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "layers",
+      "title": "Read the spine as responsibilities, not product boxes",
+      "kind": "Service cutaway",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Start with the governance core. It versions the ontology, shapes, mappings, policies, and release decisions. Semantic services query, reason, validate, reconcile, and explain. The connection fabric reaches structured and unstructured sources through governed interfaces. Consumption services deliver bounded packages to business intelligence, applications, agents, and stewards.",
+            "Reliability cuts across every layer. Identity, access, observability, service levels, failure behavior, and evidence receipts are operating controls, not optional decorations."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm12-estate-map"
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm12-spine-router"
+        }
+      ]
+    },
+    {
+      "section_id": "route",
+      "title": "Trace one question from request to evidence receipt",
+      "kind": "Answer route",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "An agent asks which hospital accounts may be affected by Pump P-104. The spine resolves P-104 to the approved asset identity, follows the serves and contains relationships, queries source data under current permissions, applies the requested time boundary, and returns account candidates with source references.",
+            "The answer package must expose what was asserted, inferred, validated, missing, and stale. If Geographic Information System data is unavailable, the service should report the dependency and follow a declared fallback or hold policy."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm12-answer-route"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm12-packet"
+        }
+      ]
+    },
+    {
+      "section_id": "ownership",
+      "title": "No single team owns the whole semantic answer",
+      "kind": "Accountability handoff",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Domain owners approve meaning. Source owners govern records and availability. Semantic platform teams operate query and validation services. Application owners define the consumer contract. Operations and policy owners control action. Stewards investigate corrections and release changes.",
+            "Assigning all accountability to the platform team creates an architecture that nobody can safely change. Use the handoff to locate each decision where the authority actually sits."
+          ]
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm12-accountability"
+        }
+      ]
+    },
+    {
+      "section_id": "feedback",
+      "title": "A correction must travel back through release control",
+      "kind": "Steward feedback loop",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Suppose a steward finds that Customer 882 is linked to the wrong premise. Correcting one answer in an application is not enough. The issue may belong to the source record, identity crosswalk, mapping, ontology, or consumer rule.",
+            "The feedback path records the defect, owner, evidence, proposed change, regression test, approval, release version, and affected consumers. That is how the spine learns operationally without allowing silent model drift."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm12-feedback-loop"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm12-feedback"
+        }
+      ]
+    },
+    {
+      "section_id": "brief",
+      "title": "Design one spine that can be operated and challenged",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Choose one bounded water, wastewater, or stormwater question. Name only the sources and capabilities needed to answer it. State which data stays in place, which evidence is indexed or materialized, and how failure appears to the consumer.",
+            "Your operating brief should let a leader understand the investment, let a practitioner test the route, and let a steward correct the answer."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm12-operating-brief"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "Is a Knowledge Spine just a large knowledge graph?",
+              "answer": "No. Graph storage may be one part. The operating pattern also needs governance, mappings, query and validation services, security, observability, consumer contracts, and correction workflows."
+            },
+            {
+              "question": "Must every source become RDF?",
+              "answer": "No. Mappings and federation can expose selected meaning while data stays in governed source systems. Materialize only when the workload requires it."
+            },
+            {
+              "question": "How is this different from a business intelligence semantic layer?",
+              "answer": "They can work together. A Knowledge Spine usually covers named relationships, identity, provenance, inference, validation, and context across more consumer types."
+            },
+            {
+              "question": "What happens when a source is down?",
+              "answer": "The answer package should expose the unavailable dependency and apply a declared fallback, stale-data, or hold policy."
+            },
+            {
+              "question": "Who owns the ontology?",
+              "answer": "Domain owners should govern domain meaning, with shared governance for cross-domain terms and a platform team operating the services."
+            },
+            {
+              "question": "Does grounding eliminate hallucination?",
+              "answer": "No. It supplies better evidence and tighter controls, but generative behavior and incomplete evidence still require boundaries and review."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "Knowledge Spine is taught here as a vendor-neutral architecture pattern. It does not require one product or guarantee complete, correct, or available answers.",
+          "source_refs": [
+            "w3c-rdf",
+            "w3c-sparql",
+            "w3c-shacl",
+            "w3c-prov"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "spine-router",
+      "packet",
+      "accountability",
+      "feedback",
+      "operating-brief"
+    ],
+    "rule": "Complete the operating-gap decision, routing studio, evidence packet, accountability handoff, correction check, and Operating Brief."
+  }
+}

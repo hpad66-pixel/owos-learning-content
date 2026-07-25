@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:14",
+  "assessments": [
+    {
+      "assessment_id": "mbm14-opening",
+      "type": "multiple-choice",
+      "cognitive_job": "reject universal pattern",
+      "prompt": "What should the team choose first for the four-source emergency question?",
+      "options": [
+        {
+          "text": "A source-by-source pattern based on measured constraints",
+          "correct": true
+        },
+        {
+          "text": "Virtualize everything because copies are always bad",
+          "correct": false
+        },
+        {
+          "text": "Materialize everything because speed is always primary",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The choice follows the stated operating boundary.",
+        "incorrect": "Review the source, control, and intended use before choosing again."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm14-patterns",
+      "type": "flip-cards",
+      "cognitive_job": "retrieve access-pattern definitions",
+      "prompt": "Name the pattern before turning each card.",
+      "cards": [
+        {
+          "front": "Virtualize",
+          "back": "Query governed data where it lives through a mapped access path."
+        },
+        {
+          "front": "Cache",
+          "back": "Keep a temporary reusable result or bounded data subset under freshness rules."
+        },
+        {
+          "front": "Index",
+          "back": "Create a derived retrieval structure while authority remains with source evidence."
+        },
+        {
+          "front": "Materialize",
+          "back": "Persist a governed representation for repeated use."
+        }
+      ],
+      "feedback": {
+        "correct": "You can now compare the four patterns without treating one as universally superior."
+      },
+      "completion_id": "patterns"
+    },
+    {
+      "assessment_id": "mbm14-copy-boundary",
+      "type": "multi-select",
+      "cognitive_job": "inventory copy obligations",
+      "prompt": "Which placements create governance obligations?",
+      "options": [
+        {
+          "text": "Query-result cache",
+          "correct": true
+        },
+        {
+          "text": "Vector index",
+          "correct": true
+        },
+        {
+          "text": "Materialized graph",
+          "correct": true
+        },
+        {
+          "text": "Exported incident report",
+          "correct": true
+        },
+        {
+          "text": "A claim that data stays in place with no inventory",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Every physical or derived placement now has an owner and lifecycle.",
+        "incorrect": "Caches, indexes, exports, and materializations all require governance."
+      },
+      "completion_id": "copy-boundary"
+    },
+    {
+      "assessment_id": "mbm14-decision-record",
+      "type": "applied-work-product",
+      "title": "Virtualize-or-Materialize Decision Record",
+      "cognitive_job": "defend source-specific access patterns",
+      "prompt": "Record the selected pattern and operating contract for each source.",
+      "required_fields": [
+        "utility_question",
+        "sources_patterns",
+        "latency",
+        "freshness",
+        "availability",
+        "copy_locations",
+        "authority",
+        "security",
+        "cost",
+        "fallback",
+        "recovery",
+        "owners",
+        "review_triggers"
+      ],
+      "field_labels": {
+        "utility_question": "Bounded utility question",
+        "sources_patterns": "Source-by-source access pattern",
+        "latency": "Measured response target",
+        "freshness": "Allowed age and effective-time rule",
+        "availability": "Source and service expectations",
+        "copy_locations": "Caches indexes extracts and materializations",
+        "authority": "Governing source by claim",
+        "security": "Access retention and deletion controls",
+        "cost": "Query storage transfer and operations assumptions",
+        "fallback": "Outage stale-data and hold behavior",
+        "recovery": "Rebuild restore and recovery test",
+        "owners": "Source platform consumer and policy owners",
+        "review_triggers": "Workload schema cost risk and service changes"
+      },
+      "textarea_fields": [
+        "utility_question",
+        "sources_patterns",
+        "latency",
+        "freshness",
+        "availability",
+        "copy_locations",
+        "authority",
+        "security",
+        "cost",
+        "fallback",
+        "recovery",
+        "owners",
+        "review_triggers"
+      ],
+      "feedback": {
+        "correct": "Your decision record exposes every pattern, copy, promise, failure path, and review trigger.",
+        "incorrect": "Complete the source patterns, measurable constraints, copy inventory, fallback, and recovery."
+      },
+      "completion_id": "decision-record"
+    }
+  ]
+}

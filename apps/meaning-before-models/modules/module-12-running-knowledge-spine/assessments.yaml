@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:12",
+  "assessments": [
+    {
+      "assessment_id": "mbm12-opening",
+      "type": "multiple-choice",
+      "cognitive_job": "identify operating gap",
+      "prompt": "What turns an approved ontology into a running capability?",
+      "options": [
+        {
+          "text": "Governed services, source connections, consumer contracts, and correction controls",
+          "correct": true
+        },
+        {
+          "text": "A slide deck alone",
+          "correct": false
+        },
+        {
+          "text": "Copying every table without mappings",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The choice follows the stated operating boundary.",
+        "incorrect": "Review the source, control, and intended use before choosing again."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm12-packet",
+      "type": "matching",
+      "cognitive_job": "read an evidence package",
+      "prompt": "Match each packet field to its purpose.",
+      "targets": [
+        "Identity",
+        "Evidence",
+        "Time",
+        "Permission"
+      ],
+      "pairs": [
+        {
+          "prompt": "Approved P-104 resource identifier",
+          "answer": "Identity"
+        },
+        {
+          "prompt": "Source statement and provenance receipt",
+          "answer": "Evidence"
+        },
+        {
+          "prompt": "Effective and observation interval",
+          "answer": "Time"
+        },
+        {
+          "prompt": "Allowed consumer and action scope",
+          "answer": "Permission"
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The answer package is bounded and inspectable.",
+        "incorrect": "Separate who or what, supporting evidence, applicable time, and allowed use."
+      },
+      "completion_id": "packet"
+    },
+    {
+      "assessment_id": "mbm12-feedback",
+      "type": "multi-select",
+      "cognitive_job": "govern correction release",
+      "prompt": "Which controls belong in a correction loop?",
+      "options": [
+        {
+          "text": "Defect evidence and accountable owner",
+          "correct": true
+        },
+        {
+          "text": "Regression test and release version",
+          "correct": true
+        },
+        {
+          "text": "Silent production edit with no history",
+          "correct": false
+        },
+        {
+          "text": "Affected-consumer notification",
+          "correct": true
+        },
+        {
+          "text": "Deleting the prior assertion from audit history",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The correction can now be challenged and released safely.",
+        "incorrect": "Preserve evidence, ownership, tests, release state, and impact."
+      },
+      "completion_id": "feedback"
+    },
+    {
+      "assessment_id": "mbm12-operating-brief",
+      "type": "applied-work-product",
+      "title": "Utility Knowledge Spine Operating Brief",
+      "cognitive_job": "design a bounded semantic operating service",
+      "prompt": "Record one question and its complete operating path.",
+      "required_fields": [
+        "question",
+        "governance_core",
+        "semantic_services",
+        "source_connections",
+        "consumers",
+        "permissions",
+        "service_levels",
+        "fallback",
+        "owners",
+        "evidence_receipt",
+        "feedback_route"
+      ],
+      "field_labels": {
+        "question": "Bounded utility question",
+        "governance_core": "Ontology shapes mappings and policies",
+        "semantic_services": "Query reasoning validation and reconciliation services",
+        "source_connections": "Sources interfaces and data placement",
+        "consumers": "Business intelligence applications agents and stewards",
+        "permissions": "Identity access and action boundary",
+        "service_levels": "Latency freshness and availability",
+        "fallback": "Failure and stale-data behavior",
+        "owners": "Accountable owners by decision",
+        "evidence_receipt": "Source time version and proof receipt",
+        "feedback_route": "Correction investigation test and release path"
+      },
+      "textarea_fields": [
+        "question",
+        "governance_core",
+        "semantic_services",
+        "source_connections",
+        "consumers",
+        "permissions",
+        "service_levels",
+        "fallback",
+        "owners",
+        "evidence_receipt",
+        "feedback_route"
+      ],
+      "feedback": {
+        "correct": "Your operating brief makes the spine testable, accountable, and bounded.",
+        "incorrect": "Complete every operating layer, failure control, and correction route."
+      },
+      "completion_id": "operating-brief"
+    }
+  ]
+}

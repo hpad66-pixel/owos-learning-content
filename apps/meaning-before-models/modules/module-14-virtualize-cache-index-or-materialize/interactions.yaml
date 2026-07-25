@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:14",
+  "interactions": [
+    {
+      "interaction_id": "mbm14-stress-board",
+      "component": "access-pattern-stress-test",
+      "title": "Access-Pattern Stress Board",
+      "teaching_purpose": "Choose an access pattern from each workload's binding constraint.",
+      "instructions": "Select Virtualize, Cache, Index, Materialize, or Governed hybrid. Correct all five scenarios.",
+      "completion_id": "stress-board",
+      "config": {
+        "choices": [
+          "Virtualize",
+          "Cache",
+          "Index",
+          "Materialize",
+          "Governed hybrid"
+        ],
+        "cases": [
+          {
+            "label": "Current authority",
+            "claim": "Query the latest work-order state with 30-second latency while CMMS is healthy.",
+            "evidence": "Source supports governed query pushdown; no outage continuity required.",
+            "rule": "Use the authoritative source without creating an unnecessary persistent copy.",
+            "answer": "Virtualize",
+            "explanation": "A governed virtual query meets the measured requirement."
+          },
+          {
+            "label": "Emergency continuity",
+            "claim": "Critical facility list must answer in two seconds during a 20-minute customer-system outage.",
+            "evidence": "List changes daily; emergency use and staleness threshold are approved.",
+            "rule": "Keep a bounded temporary copy with freshness and outage policy.",
+            "answer": "Cache",
+            "explanation": "A governed cache supports continuity within its declared stale-data boundary."
+          },
+          {
+            "label": "Document discovery",
+            "claim": "Find relevant clauses across 40,000 procedures, then verify the cited source.",
+            "evidence": "Keyword and semantic retrieval are needed; documents remain authoritative.",
+            "rule": "Build a retrieval structure while retaining source links and versions.",
+            "answer": "Index",
+            "explanation": "An index supports discovery without pretending to become authority."
+          },
+          {
+            "label": "Hot graph path",
+            "claim": "Traverse upstream network impact thousands of times per minute under a stable nightly source release.",
+            "evidence": "Virtual traversal misses latency target; governed rebuild is available.",
+            "rule": "Persist the bounded relationship representation and monitor drift.",
+            "answer": "Materialize",
+            "explanation": "Measured reuse and latency justify a governed materialized path."
+          },
+          {
+            "label": "Overflow response",
+            "claim": "Combine live telemetry, current work state, indexed procedures, and a resilient facility list.",
+            "evidence": "Sources have different clocks, authority, availability, and retrieval needs.",
+            "rule": "Select a pattern per source and reconcile the evidence package.",
+            "answer": "Governed hybrid",
+            "explanation": "The complete workload needs several controlled access patterns."
+          }
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm14-stale-rehearsal",
+      "component": "stale-copy-diagnosis",
+      "title": "Stale-Copy Failure Rehearsal",
+      "teaching_purpose": "Select the earliest control that prevents stale or unavailable evidence from becoming unsafe action.",
+      "instructions": "Choose Freshness gate, Effective-time filter, Source health hold, Version pin, Authority reconciliation, or Recovery test.",
+      "completion_id": "stale-rehearsal",
+      "config": {
+        "choices": [
+          "Freshness gate",
+          "Effective-time filter",
+          "Source health hold",
+          "Version pin",
+          "Authority reconciliation",
+          "Recovery test"
+        ],
+        "cases": [
+          {
+            "label": "Old customer list",
+            "claim": "Emergency cache is 36 hours old; policy permits 24 hours.",
+            "evidence": "Timestamp and threshold are available before query results are used.",
+            "rule": "Stop the package before stale candidates reach the consumer.",
+            "answer": "Freshness gate",
+            "explanation": "The cache exceeds its approved age and must be refreshed or held."
+          },
+          {
+            "label": "Retired permit",
+            "claim": "Index ranks a permit clause that was superseded yesterday.",
+            "evidence": "Both versions and effective intervals are recorded.",
+            "rule": "Filter claims by governing interval before use.",
+            "answer": "Effective-time filter",
+            "explanation": "Retrieval relevance does not override effective time."
+          },
+          {
+            "label": "GIS outage",
+            "claim": "Virtual impact query cannot reach the authoritative network source.",
+            "evidence": "No approved fallback graph exists.",
+            "rule": "Do not convert source unavailability into a negative answer.",
+            "answer": "Source health hold",
+            "explanation": "The service must expose the outage and hold the conclusion."
+          },
+          {
+            "label": "Procedure drift",
+            "claim": "Agent prompt references procedure v4 while the approved workflow requires v5.",
+            "evidence": "Both versions remain in the document store.",
+            "rule": "Bind runtime context to the approved version.",
+            "answer": "Version pin",
+            "explanation": "The context engine should retrieve the designated release."
+          },
+          {
+            "label": "Conflicting status",
+            "claim": "Cache says Active; source says Seasonal after a reviewed update.",
+            "evidence": "Source authority and cache lineage are known.",
+            "rule": "Resolve governing authority before action.",
+            "answer": "Authority reconciliation",
+            "explanation": "The authoritative reviewed source supersedes the cached claim."
+          },
+          {
+            "label": "Failed rebuild",
+            "claim": "Materialized graph cannot be rebuilt after schema change.",
+            "evidence": "Backup exists but restore has never been exercised.",
+            "rule": "Prove the recovery objective before relying on the copy.",
+            "answer": "Recovery test",
+            "explanation": "A backup without a tested restore is not a recovery capability."
+          }
+        ]
+      }
+    }
+  ]
+}

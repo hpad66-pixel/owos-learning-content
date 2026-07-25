@@ -314,3 +314,42 @@ release checks, deploy production, and verify all three public pages and checksu
 ## Next action
 
 Begin the approved structured production of Modules 12 to 14.
+
+## Progressive Modules 12 to 14 structured batch
+
+### Module 12
+
+- Archetype: architecture studio
+- Signature mechanisms: Knowledge Spine Routing Studio and Accountability Handoff
+- Four original visual classes and Utility Knowledge Spine Operating Brief
+- Package checksum: `1afde1fba1871fa31bbba7d0730e2a217e10554aeb33762fc552dc6a285bfb3d`
+
+### Module 13
+
+- Archetype: semantic wiring workshop
+- Signature mechanisms: Source-to-Concept Wiring Bench and Mapping Break and Repair Laboratory
+- Four original visual classes and Semantic Mapping Specification
+- Package checksum: `2c1677ebf8bb2035a6cc58620ba60851e250393c73f2f88ff2fda81956a3015b`
+
+### Module 14
+
+- Archetype: constraint stress test
+- Signature mechanisms: Access-Pattern Stress Board and Stale-Copy Failure Rehearsal
+- Four original visual classes and Virtualize-or-Materialize Decision Record
+- Package checksum: `e0d92512b3d8f8d2ffdc866bc56b2368a5a985621f7dab67b38765ece35cc1b0`
+
+### Batch evidence before publication
+
+- Nine corrected local and nine packaged browser runs passed across desktop, tablet, and phone.
+- All twelve original visual assets loaded and all twelve visual classes are distinct.
+- All six lesson-specific simulations, distributed assessments, work products, drawers, focus
+  return, and completion paths passed.
+- Runtime errors: zero. Horizontal overflow: zero. Phone reduced-motion maximum: 0.01 milliseconds.
+- Compiler, lesson contracts, whole-course conformance, course distinctiveness,
+  structured-authoring, release-manifest, and formatting gates passed.
+- The release manifest contains 85 checksum-controlled files.
+
+## Next action
+
+Commit and push the exact learning release, import that commit into the OWOS platform, run platform
+release checks, deploy production, and verify all three public pages and checksums.

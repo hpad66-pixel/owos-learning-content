@@ -473,6 +473,12 @@
     ["[data-inference-court]", "[data-inference-case]", "[data-inference-choice]", "inferenceChoice", "The court has resolved every proposed inference."],
     ["[data-shacl-clinic]", "[data-shacl-case]", "[data-shacl-choice]", "shaclChoice", "Every record now has a defensible validation disposition."],
     ["[data-evidence-reconciliation]", "[data-evidence-case]", "[data-evidence-choice]", "evidenceChoice", "Every claim now has an explicit governing-use disposition."]
+    ,["[data-knowledge-spine-router]", "[data-spine-case]", "[data-spine-choice]", "spineChoice", "Every capability now sits in its defensible operating layer."]
+    ,["[data-accountability-handoff]", "[data-handoff-case]", "[data-handoff-choice]", "handoffChoice", "Every operating decision now has an accountable owner."]
+    ,["[data-mapping-workbench]", "[data-mapping-case]", "[data-mapping-choice]", "mappingChoice", "Every source field now resolves to a bounded semantic target."]
+    ,["[data-mapping-break-repair]", "[data-map-repair-case]", "[data-map-repair-choice]", "mapRepairChoice", "Every mapping defect now has a governed repair."]
+    ,["[data-access-pattern-stress-test]", "[data-access-case]", "[data-access-choice]", "accessChoice", "Every workload now has a defensible access pattern."]
+    ,["[data-stale-copy-diagnosis]", "[data-stale-case]", "[data-stale-choice]", "staleChoice", "Every stale-copy failure now has an effective control."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];

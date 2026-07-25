@@ -102,3 +102,13 @@ The numeric score summarizes quality. It never overrides a failed hard gate.
 | Working-review acceptance | Codex | 2026-07-23 | Accepted for human review |
 | Production benchmark |  |  | Pending |
 | Release |  |  | Blocked |
+
+## Structured live-review replacement, 2026-07-24
+
+The structured semantic-wiring candidate supersedes the legacy rendered candidate for live review.
+It contains four original visual classes, two lesson-specific simulations, distributed assessment,
+a Semantic Mapping Specification, six module-specific FAQs, and explicit mapping boundaries. Nine
+local desktop, tablet, and phone browser runs passed with zero runtime errors, zero overflow,
+complete interaction paths, working drawers, focus return, and 0.01-millisecond reduced motion on
+phone. Independent factual, practitioner, screen-reader, physical-device, and novice reviews remain
+pending.

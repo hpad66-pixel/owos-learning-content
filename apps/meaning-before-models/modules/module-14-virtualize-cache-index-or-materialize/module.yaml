@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:14",
+    "slug": "module-14-virtualize-cache-index-or-materialize",
+    "title": "Virtualize, Cache, Index, or Materialize?",
+    "eyebrow": "Meaning Before Models, Module 14",
+    "promise": "Choose source-specific access patterns from measurable operating constraints and expose every copy, freshness promise, fallback, and recovery obligation.",
+    "duration": "75 to 90 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "constraint-stress-test",
+    "signature_mechanism": "change-workload-constraints-and-rehearse-stale-copy-failure",
+    "source_version": "0.2.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Data GIS IT OT engineering governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Explain virtualization cache index and materialization in plain language",
+      "Identify every physical copy and governing authority",
+      "Choose patterns from latency freshness availability security volume transformation and cost",
+      "Design a governed hybrid instead of one universal answer",
+      "Define stale-data fallback and recovery behavior"
+    ],
+    "prior_knowledge": "The learner understands the running Knowledge Spine and semantic mappings.",
+    "misconception": "Virtualization is always best, or data in place means no copies exist anywhere.",
+    "transfer_task": "Select access patterns for an emergency wastewater response when a source is intermittently unavailable."
+  },
+  "sections": [
+    {
+      "section_id": "incident",
+      "title": "Two seconds, one outage, and several kinds of evidence",
+      "kind": "Incident clock",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A wastewater overflow response agent must identify upstream lift stations, active work orders, recent telemetry, and the current emergency procedure within two seconds. The maintenance source is intermittently unavailable. Telemetry changes every few seconds. The procedure changes rarely but must remain version-controlled.",
+            "One access pattern cannot satisfy all of those obligations. The right question is not where should all data live. Ask what each source and workload requires."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm14-decision-surface"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm14-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "patterns",
+      "title": "Name the four patterns without ranking them",
+      "kind": "Pattern field",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Virtualization queries governed data where it lives. A cache keeps a temporary reusable result or data subset. An index creates a retrieval structure, such as search or vector indexes, while authority remains elsewhere. Materialization writes a governed representation for repeated use.",
+            "Every cache, index, extract, replica, and materialized graph is a copy with freshness, security, lineage, deletion, recovery, and cost obligations. A hybrid architecture often uses several patterns by source."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm14-placement-map"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm14-patterns"
+        }
+      ]
+    },
+    {
+      "section_id": "stress",
+      "title": "Change the constraint and let the architecture respond",
+      "kind": "Access-Pattern Stress Board",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Read each workload's binding constraint. Choose the pattern that satisfies the stated use, then read the boundary. The same source may use a virtual path for current authority and a governed cache for emergency continuity.",
+            "The board does not declare one permanent winner. It teaches you to connect a pattern to measurable promises."
+          ]
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm14-stress-board"
+        }
+      ]
+    },
+    {
+      "section_id": "copies",
+      "title": "Draw every place data or retrieval state exists",
+      "kind": "Copy inventory",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A team may say the data stays in place while also creating a query cache, vector index, browser storage, exported report, and model context packet. Those are real placements even when they are not full database replicas.",
+            "Record the owner, purpose, content scope, freshness rule, access boundary, retention, and deletion behavior for each placement."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm14-copy-inventory"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm14-copy-boundary"
+        }
+      ]
+    },
+    {
+      "section_id": "failure",
+      "title": "Rehearse stale and unavailable evidence before production",
+      "kind": "Stale-copy failure rehearsal",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A stale cache can return a fast answer that is no longer authorized. A virtual query can fail during a source outage. An index can retrieve a retired procedure. A materialized graph can drift after a source schema change.",
+            "Find the earliest effective control: freshness check, effective-time filter, source health gate, version pin, authority reconciliation, hold state, or recovery test."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm14-stale-chain"
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm14-stale-rehearsal"
+        }
+      ]
+    },
+    {
+      "section_id": "record",
+      "title": "Defend the pattern source by source",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Create one row for each source in a bounded utility question. State the selected access pattern, measurable requirement, copy location, source authority, and failure behavior.",
+            "A useful decision record names what would cause the team to revisit the design. Workloads change, so architecture decisions need review triggers."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm14-decision-record"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "Does virtualization mean no integration work?",
+              "answer": "No. It still needs connections, credentials, mappings, query planning, permissions, source availability, and performance controls."
+            },
+            {
+              "question": "Is a cache authoritative?",
+              "answer": "Usually the source remains authoritative. The cache needs a freshness and fallback policy for its allowed uses."
+            },
+            {
+              "question": "Is a search or vector index a copy?",
+              "answer": "Yes. It is a derived retrieval structure with lineage, security, refresh, retention, and deletion obligations."
+            },
+            {
+              "question": "When should we materialize?",
+              "answer": "When measured latency, resilience, transformation cost, reuse, or source limitations justify a governed copy and its lifecycle."
+            },
+            {
+              "question": "Can one solution mix patterns?",
+              "answer": "Yes. A question may virtualize current asset records, cache emergency reference data, index documents, and materialize a hot relationship path."
+            },
+            {
+              "question": "What does move less data first mean?",
+              "answer": "It is a prompt to avoid unnecessary replication. It is not an absolute rule that overrides reliability, latency, cost, or safety."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "The access recommendations are instructional. Production choices require local workload measurements, source contracts, security review, resilience engineering, and cost analysis.",
+          "source_refs": [
+            "w3c-sparql",
+            "w3c-rdf",
+            "w3c-prov"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "patterns",
+      "stress-board",
+      "copy-boundary",
+      "stale-rehearsal",
+      "decision-record"
+    ],
+    "rule": "Complete the incident decision, pattern cards, stress board, copy inventory, failure rehearsal, and Decision Record."
+  }
+}

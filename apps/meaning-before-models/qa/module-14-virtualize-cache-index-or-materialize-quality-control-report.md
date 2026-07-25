@@ -90,3 +90,13 @@ release_status: blocked
 | Working-review acceptance | pending Hardeep Anand | | |
 | Production benchmark | working candidate | 2026-07-23 | Retrofit architecture |
 | Release | blocked | | Human gates remain |
+
+## Structured live-review replacement, 2026-07-24
+
+The structured constraint-stress candidate supersedes the legacy rendered candidate for live
+review. It contains four original visual classes, two lesson-specific simulations, distributed
+assessment, a Virtualize-or-Materialize Decision Record, six module-specific FAQs, and explicit
+decision boundaries. Nine local desktop, tablet, and phone browser runs passed with zero runtime
+errors, zero overflow, complete interaction paths, working drawers, focus return, and
+0.01-millisecond reduced motion on phone. Independent factual, practitioner, screen-reader,
+physical-device, and novice reviews remain pending.

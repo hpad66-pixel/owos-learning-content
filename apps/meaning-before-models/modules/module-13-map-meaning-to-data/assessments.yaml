@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:13",
+  "assessments": [
+    {
+      "assessment_id": "mbm13-opening",
+      "type": "multiple-choice",
+      "cognitive_job": "reject false equivalence",
+      "prompt": "What is the safest interpretation of three STATUS fields?",
+      "options": [
+        {
+          "text": "Treat each according to its subject, definition, codes, owner, and time behavior",
+          "correct": true
+        },
+        {
+          "text": "Map them all to one property because the labels match",
+          "correct": false
+        },
+        {
+          "text": "Delete source-specific meaning",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The choice follows the stated operating boundary.",
+        "incorrect": "Review the source, control, and intended use before choosing again."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm13-identity",
+      "type": "multi-select",
+      "cognitive_job": "govern identity bridge",
+      "prompt": "Which evidence belongs in an identity mapping?",
+      "options": [
+        {
+          "text": "Source identifiers and approved crosswalk",
+          "correct": true
+        },
+        {
+          "text": "Scope owner and review state",
+          "correct": true
+        },
+        {
+          "text": "Conflicts and provenance",
+          "correct": true
+        },
+        {
+          "text": "A spelling match treated as universal proof",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The bridge remains traceable and challengeable.",
+        "incorrect": "Identity requires evidence, scope, ownership, and conflict handling."
+      },
+      "completion_id": "identity"
+    },
+    {
+      "assessment_id": "mbm13-operations",
+      "type": "matching",
+      "cognitive_job": "separate pipeline jobs",
+      "prompt": "Match each operation to its job.",
+      "targets": [
+        "Join",
+        "Transform",
+        "Map",
+        "Infer"
+      ],
+      "pairs": [
+        {
+          "prompt": "Combine rows on approved keys",
+          "answer": "Join"
+        },
+        {
+          "prompt": "Convert feet to meters",
+          "answer": "Transform"
+        },
+        {
+          "prompt": "Connect GIS.STATUS to outfall:operatingStatus",
+          "answer": "Map"
+        },
+        {
+          "prompt": "Derive an inverse relationship from an OWL axiom",
+          "answer": "Infer"
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Each operation now has a visible job and boundary.",
+        "incorrect": "Separate record combination, representation change, semantic connection, and logical consequence."
+      },
+      "completion_id": "operations"
+    },
+    {
+      "assessment_id": "mbm13-mapping-spec",
+      "type": "applied-work-product",
+      "title": "Semantic Mapping Specification",
+      "cognitive_job": "author a testable concept-to-source contract",
+      "prompt": "Specify one mapping from competency question through change control.",
+      "required_fields": [
+        "competency_question",
+        "source_contract",
+        "identity_rule",
+        "target_terms",
+        "transformation",
+        "expected_triples",
+        "provenance",
+        "tests",
+        "owner",
+        "change_trigger",
+        "failure_behavior"
+      ],
+      "field_labels": {
+        "competency_question": "Question the mapping must answer",
+        "source_contract": "Source system relation fields codes and authority",
+        "identity_rule": "Subject identity and conflict rule",
+        "target_terms": "Classes and properties",
+        "transformation": "Datatype unit code and relationship transformation",
+        "expected_triples": "Expected RDF statements",
+        "provenance": "Source activity agent and time",
+        "tests": "Passing failing and regression tests",
+        "owner": "Source domain and implementation owners",
+        "change_trigger": "Schema code authority and version triggers",
+        "failure_behavior": "Hold fallback alert and consumer notice"
+      },
+      "textarea_fields": [
+        "competency_question",
+        "source_contract",
+        "identity_rule",
+        "target_terms",
+        "transformation",
+        "expected_triples",
+        "provenance",
+        "tests",
+        "owner",
+        "change_trigger",
+        "failure_behavior"
+      ],
+      "feedback": {
+        "correct": "Your mapping specification makes source meaning and downstream consequences testable.",
+        "incorrect": "Complete the identity, expected triples, tests, ownership, and failure behavior."
+      },
+      "completion_id": "mapping-spec"
+    }
+  ]
+}

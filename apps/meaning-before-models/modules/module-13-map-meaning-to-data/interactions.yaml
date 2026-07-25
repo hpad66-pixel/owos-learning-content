@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:13",
+  "interactions": [
+    {
+      "interaction_id": "mbm13-wiring-bench",
+      "component": "mapping-workbench",
+      "title": "Source-to-Concept Wiring Bench",
+      "teaching_purpose": "Connect source fields to bounded semantic targets.",
+      "instructions": "Read the subject and source contract. Choose the target concept that preserves meaning.",
+      "completion_id": "wiring-bench",
+      "config": {
+        "choices": [
+          "Outfall operating status",
+          "Inspection workflow status",
+          "Telemetry channel state",
+          "Stable outfall identity",
+          "Measured flow with unit"
+        ],
+        "cases": [
+          {
+            "label": "GIS field",
+            "claim": "OUTFALL.STATUS = Active",
+            "evidence": "Subject is Outfall O-7; code list Active, Inactive, Seasonal.",
+            "rule": "Map the field to the outfall lifecycle concept.",
+            "answer": "Outfall operating status",
+            "explanation": "The subject and controlled list establish operating status."
+          },
+          {
+            "label": "Work field",
+            "claim": "INSPECTION.STATUS = Overdue",
+            "evidence": "Subject is work item WO-88; codes Open, Complete, Overdue.",
+            "rule": "Keep workflow state separate from asset state.",
+            "answer": "Inspection workflow status",
+            "explanation": "The field describes work, not the outfall condition."
+          },
+          {
+            "label": "Telemetry field",
+            "claim": "CHANNEL.STATUS = Online",
+            "evidence": "Subject is communication channel C-7; codes Online, Offline.",
+            "rule": "The status belongs to the telemetry channel.",
+            "answer": "Telemetry channel state",
+            "explanation": "Channel availability is not asset or inspection status."
+          },
+          {
+            "label": "Identifier field",
+            "claim": "PERMIT.OUTFALL_ID = NPDES-7",
+            "evidence": "Approved crosswalk links NPDES-7 to O-7 and retains both identifiers.",
+            "rule": "Use governed reconciliation to select the RDF subject.",
+            "answer": "Stable outfall identity",
+            "explanation": "The mapping preserves the local identifier and resolves a stable resource."
+          },
+          {
+            "label": "Measurement field",
+            "claim": "FLOW = 2.4 and UNIT = MGD",
+            "evidence": "Both value and unit are present in the reviewed source row.",
+            "rule": "Map value and unit together and retain source provenance.",
+            "answer": "Measured flow with unit",
+            "explanation": "A number without its unit is not a complete measurement."
+          }
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm13-map-repair",
+      "component": "mapping-break-repair",
+      "title": "Mapping Break and Repair Laboratory",
+      "teaching_purpose": "Diagnose source changes before wrong semantic answers spread.",
+      "instructions": "Choose Repair mapping, Hold and steward, Reject shortcut, or Accept governed change.",
+      "completion_id": "map-repair",
+      "config": {
+        "choices": [
+          "Repair mapping",
+          "Hold and steward",
+          "Reject shortcut",
+          "Accept governed change"
+        ],
+        "cases": [
+          {
+            "label": "Column rename",
+            "claim": "OUTFALL_ID becomes DISCHARGE_POINT_ID.",
+            "evidence": "Source release note says values and meaning are unchanged; mapping test now fails.",
+            "rule": "Update the source reference and rerun expected-triple tests.",
+            "answer": "Repair mapping",
+            "explanation": "The reviewed contract supports a deliberate mapping update."
+          },
+          {
+            "label": "Identity collision",
+            "claim": "Two source records now share local key OUT7.",
+            "evidence": "No approved merge evidence exists.",
+            "rule": "Do not collapse resources when identity is ambiguous.",
+            "answer": "Hold and steward",
+            "explanation": "Route the conflict for evidence-based identity review."
+          },
+          {
+            "label": "Unit shortcut",
+            "claim": "Convert 2.4 MGD to 2.4 cubic meters per second by changing only the unit label.",
+            "evidence": "The numeric value was not converted.",
+            "rule": "A label swap creates false measurement meaning.",
+            "answer": "Reject shortcut",
+            "explanation": "Apply a verified conversion and preserve original value and unit."
+          },
+          {
+            "label": "Authority transition",
+            "claim": "Inspection status authority moves from spreadsheet to work-management system.",
+            "evidence": "Approved governance decision has effective date and migration test.",
+            "rule": "Update authority and mapping under controlled release.",
+            "answer": "Accept governed change",
+            "explanation": "The change has ownership, time, evidence, and tests."
+          },
+          {
+            "label": "Code drift",
+            "claim": "GIS adds status Temporarily Closed.",
+            "evidence": "Ontology vocabulary and mapping do not contain the new code.",
+            "rule": "Do not silently coerce the value to Inactive.",
+            "answer": "Hold and steward",
+            "explanation": "Review the concept and controlled vocabulary before mapping the new code."
+          }
+        ]
+      }
+    }
+  ]
+}

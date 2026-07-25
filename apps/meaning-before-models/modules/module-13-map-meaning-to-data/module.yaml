@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:13",
+    "slug": "module-13-map-meaning-to-data",
+    "title": "Map Meaning to Data",
+    "eyebrow": "Meaning Before Models, Module 13",
+    "promise": "Connect approved concepts to real source fields through testable identity, transformation, provenance, and change controls.",
+    "duration": "75 to 90 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "semantic-wiring-workshop",
+    "signature_mechanism": "wire-break-and-repair-source-to-concept-mappings",
+    "source_version": "0.2.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Data GIS IT OT engineering governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Separate same-label fields with different meanings",
+      "Explain joins transformations mappings and inferences as different jobs",
+      "Map source records to stable graph identities and terms",
+      "Predict and test expected triples",
+      "Diagnose mapping failures and assign change ownership"
+    ],
+    "prior_knowledge": "The learner understands governed identity and the running Knowledge Spine architecture.",
+    "misconception": "Semantic mapping is column renaming, an ordinary join, or mandatory data copying.",
+    "transfer_task": "Map a stormwater outfall inspection across Geographic Information System and work-management fields."
+  },
+  "sections": [
+    {
+      "section_id": "opening",
+      "title": "Three STATUS fields are not one concept",
+      "kind": "Source evidence wall",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The Geographic Information System says Outfall O-7 has STATUS Active. The work-management system says inspection WO-88 has STATUS Overdue. Telemetry says discharge channel C-7 has STATUS Online. The label is identical, but the subjects, meanings, allowed values, owners, and time behavior differ.",
+            "If a mapping collapses all three into one hasStatus property, every downstream dashboard, query, and agent receives confident semantic error. The first mapping decision is to preserve the distinctions."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm13-status-wall"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm13-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "identity",
+      "title": "A mapping starts by deciding which thing the row describes",
+      "kind": "Identity bridge",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "GIS key OF-0007, permit identifier NPDES-7, and work location code OUT7 may refer to the same outfall, but a spelling match is not enough. A governed identity rule needs evidence, scope, owner, confidence or review state, and a conflict route.",
+            "Keep each source identifier and provenance even after the records resolve to one RDF resource. That lets a steward trace and challenge the bridge."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm13-identity-bridge"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm13-identity"
+        }
+      ]
+    },
+    {
+      "section_id": "wiring",
+      "title": "Turn source contracts into expected triples",
+      "kind": "Source-to-concept Wiring Bench",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A mapping names the source relation, field, target class or property, identity rule, transformation, datatype, unit, and authority. It also predicts the RDF statements that should appear or be available virtually.",
+            "Wire each field to the concept that matches its real job. The bench includes one tempting false equivalence so you can see why labels alone are unsafe."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm13-wiring-circuit"
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm13-wiring-bench"
+        }
+      ]
+    },
+    {
+      "section_id": "operations",
+      "title": "Join, transform, map, and infer are not interchangeable",
+      "kind": "Operation comparison",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A join combines records according to matching keys. A transformation changes representation, such as feet to meters. A semantic mapping connects source structures to RDF terms. An inference derives a statement under declared semantics.",
+            "One pipeline may use all four operations. Naming each job makes its evidence and failure boundary reviewable."
+          ]
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm13-operations"
+        },
+        {
+          "type": "callout",
+          "title": "Leader view",
+          "text": "Approve the source authority, mapping owner, test contract, change notice, and failure behavior. Do not approve only a diagram."
+        }
+      ]
+    },
+    {
+      "section_id": "break",
+      "title": "Break the mapping and watch the answer change",
+      "kind": "Repair laboratory",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Source systems change. Columns are renamed, code lists drift, units change, identifiers merge, and authority moves. A mapping can continue running while producing the wrong graph.",
+            "The repair laboratory asks you to stop the earliest unsafe effect. A good repair preserves the source change, updates the mapping deliberately, reruns expected-triple and competency-question tests, and notifies affected consumers."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm13-break-path"
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm13-map-repair"
+        }
+      ]
+    },
+    {
+      "section_id": "specification",
+      "title": "Write a mapping another team can test",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Choose one utility concept and source. Record a real competency question before writing field rules. Then state the expected triples and both passing and failing test cases.",
+            "Your specification should survive a source rename, unit change, and owner transition without forcing a reviewer to reverse-engineer code."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm13-mapping-spec"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "Is semantic mapping just renaming columns?",
+              "answer": "No. It connects source meaning, identity, values, relationships, transformations, and provenance to governed semantic terms."
+            },
+            {
+              "question": "Do matching identifiers prove two records describe the same asset?",
+              "answer": "Not always. Use approved identity rules and preserve conflicts for stewardship."
+            },
+            {
+              "question": "Must mapped data be copied into a graph?",
+              "answer": "No. A mapping may create a virtual graph at query time or support materialized RDF, depending on the architecture."
+            },
+            {
+              "question": "Should every source field be mapped?",
+              "answer": "No. Map the fields and relationships needed for bounded competency questions and governed reuse."
+            },
+            {
+              "question": "Who approves a mapping?",
+              "answer": "The source owner and domain owner approve meaning and authority. Engineers implement it, and stewards help test evidence and conflicts."
+            },
+            {
+              "question": "Can documents be mapped?",
+              "answer": "Selected document entities and claims can be extracted and connected with provenance, but extraction and authority need separate review."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "R2RML and Direct Mapping define ways to express RDF views of relational data. Local source meaning, identity, authority, transformations, and tests still require governed review.",
+          "source_refs": [
+            "w3c-r2rml",
+            "w3c-direct",
+            "w3c-rdf",
+            "w3c-prov"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "identity",
+      "wiring-bench",
+      "operations",
+      "map-repair",
+      "mapping-spec"
+    ],
+    "rule": "Complete the false-equivalence decision, identity check, wiring bench, operation match, repair laboratory, and Mapping Specification."
+  }
+}
