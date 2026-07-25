@@ -1,0 +1,251 @@
+schema_version: "1.0"
+course_id: meaning-before-models
+module_id: module-19-design-the-one-water-knowledge-spine
+module_number: 19
+title: Design the One Water Knowledge Spine
+phase: design
+status: pending_owner_review
+implementation_started: false
+central_question: What is the smallest governed semantic pilot worth building?
+capstone_decisions:
+  - build_the_bounded_pilot
+  - revise_before_investment
+  - do_not_build_a_graph_pilot
+scenario:
+  utility_domain: wastewater
+  duration: ninety_day_pilot
+  focal_asset: Lift Station LS-7
+  focal_event: Overflow Event 21
+  operational_question: When Overflow Event 21 occurs, which upstream assets and current evidence should a wastewater supervisor review before approving one draft inspection work order?
+  permitted_action: Create one draft inspection work order after explicit human approval
+  prohibited_actions:
+    - dispatch_a_crew
+    - set_or_change_work_priority
+    - close_a_work_order
+    - change_operational_controls
+    - publish_an_enterprise_graph
+    - issue_credentials
+    - bypass_access_controls
+    - approve_production_release
+signature_mechanism:
+  name: Knowledge Spine Pilot Review Board
+  reviewer_roles:
+    - wastewater_operations
+    - data_and_semantics
+    - cybersecurity_and_access
+    - governance_and_authority
+    - finance_and_measurable_value
+supporting_mechanisms:
+  - name: Pilot Boundary Review
+    purpose: Reduce an unbounded proposal to one question, decision, action, owner, baseline, target, and stop condition
+  - name: Graph Fit Test
+    purpose: Determine whether governed relationships justify RDF or a simpler solution is sufficient
+visual_arsenal:
+  - id: visual-01
+    name: Proposal Autopsy
+    class: editorial_evidence_scene
+    cognitive_job: expose_missing_decision_value_owner_and_authority
+  - id: visual-02
+    name: Evidence-to-Decision Spine
+    class: network_dependency_diagram
+    cognitive_job: reveal_dependencies_from_question_to_measured_result
+  - id: visual-03
+    name: Connected Pilot Canvas
+    class: interactive_system_map
+    cognitive_job: trace_each_design_choice_to_the_bounded_decision
+  - id: visual-04
+    name: Ninety-Day Evidence Roadmap
+    class: timeline_phase_gate_map
+    cognitive_job: separate_activity_from_evidence_producing_milestones
+  - id: visual-05
+    name: Review Board Decision Matrix
+    class: governed_comparison_table
+    cognitive_job: expose_hard_gates_and_tradeoffs
+beats:
+  - id: beat-01
+    title: The impressive proposal with no decision
+    purpose: Create the opening misconception failure
+    visual: visual-01
+    interaction: proposal_triage
+    assessment:
+      cognitive_job: judgment
+      required_reasoning:
+        - bounded_question_missing
+        - baseline_missing
+        - owner_missing
+        - authority_boundary_missing
+  - id: beat-02
+    title: A pilot is a question with a clock
+    purpose: Establish the smallest useful unit of pilot design
+    interaction: pilot_boundary_review
+    work_product_update:
+      - operational_question
+      - decision_owner
+      - permitted_action
+      - baseline
+      - target
+      - stop_condition
+  - id: beat-03
+    title: Test whether a graph belongs here
+    purpose: Prevent technology-first design
+    interaction: graph_fit_test
+    assessment:
+      cognitive_job: diagnosis
+      pass_condition: Select a graph only when relationships justify it and a simpler governed approach is inadequate
+  - id: beat-04
+    title: Recover eighteen modules of evidence
+    purpose: Make the capstone a synthesis rather than a content dump
+    visual: visual-02
+    interaction: prerequisite_artifact_map
+    assessment:
+      cognitive_job: relationship_mapping
+      pass_condition: Every prerequisite artifact is assigned to its correct design role
+  - id: beat-05
+    title: Draw the minimum meaning boundary
+    purpose: Define only the semantics required by the operational question
+    work_product_update:
+      - identities
+      - vocabulary
+      - ontology_boundary
+      - competency_questions
+      - sparql_proof_queries
+      - inference_boundary
+  - id: beat-06
+    title: Connect evidence without copying everything
+    purpose: Choose a data-in-place strategy deliberately
+    visual: visual-02
+    interaction: connection_strategy_board
+    work_product_update:
+      - structured_sources
+      - unstructured_sources
+      - virtual_mappings
+      - materialization_exceptions
+      - provenance_controls
+      - evidence_freshness
+  - id: beat-07
+    title: Turn rules into testable contracts
+    purpose: Connect semantic validity to explicit failure handling
+    interaction: evidence_control_challenge
+    assessment:
+      cognitive_job: evidence_diagnosis
+      test_cases:
+        - stale_evidence
+        - ambiguous_identity
+        - missing_authority
+        - contradictory_source
+  - id: beat-08
+    title: Carry meaning into runtime context
+    purpose: Connect the semantic layer to the decision package
+    work_product_update:
+      - runtime_context_contract
+      - retrieval_and_filtering
+      - citation_requirements
+      - abstention_rules
+  - id: beat-09
+    title: Grounding still does not grant permission
+    purpose: Accept the Module 18 handoff and preserve authorization boundaries
+    interaction: action_contract_handoff_test
+    assessment:
+      cognitive_job: control_mapping
+      hard_gate: Agent Action Contract must score at least 16 of 20
+  - id: beat-10
+    title: Build the connected pilot canvas
+    purpose: Synthesize the complete governed pilot
+    visual: visual-03
+    interaction: connected_pilot_canvas
+    assessment:
+      cognitive_job: synthesis
+      hard_gates:
+        - bounded_operational_question
+        - graph_fit_passed
+        - baseline_and_target
+        - evidence_strategy
+        - authority_boundary
+        - cybersecurity_review_path
+        - accepted_module_18_handoff
+        - accountable_owner
+        - acceptance_tests
+        - stop_conditions
+  - id: beat-11
+    title: Make ninety days produce evidence
+    purpose: Convert the canvas into a measurable learning plan
+    visual: visual-04
+    interaction: roadmap_gate_builder
+    work_product_update:
+      - ninety_day_roadmap
+      - success_measures
+      - stop_revise_and_scale_criteria
+  - id: beat-12
+    title: Defend the investment
+    purpose: Require a cross-functional, evidence-backed recommendation
+    visual: visual-05
+    interaction: knowledge_spine_pilot_review_board
+    assessment:
+      cognitive_job: defense_and_transfer
+      hard_gate_rule: A score cannot override failed evidence, authority, security, ownership, or stop-condition gates
+  - id: beat-13
+    title: Export the professional decision package
+    purpose: Produce a utility-ready artifact without implying release approval
+    work_product:
+      name: One Water Knowledge Spine Pilot Canvas and Decision Briefing
+      formats:
+        - accessible_html
+        - print_ready_document
+      release_claim_permitted: false
+module_18_handoff:
+  incoming_artifact: Agent Action Contract
+  minimum_score: 16
+  required_mappings:
+    - architecture_component
+    - accountable_owner
+    - acceptance_test
+    - failure_response
+    - audit_evidence
+  required_tests:
+    - allowed_request
+    - denied_request
+    - stale_evidence
+    - ambiguous_identity
+    - approval_timeout
+    - duplicate_request
+    - failed_execution
+    - failed_post_action_verification
+    - corrected_record
+evidence_boundaries:
+  - W3C standards claims require authoritative attribution
+  - Knowledge Spine is a course architecture term and not a W3C standard
+  - SHACL conformance does not prove factual truth
+  - OWL inference does not replace operator judgment or policy
+  - A grounded answer does not create permission to act
+  - RDF is not automatically the right solution
+  - Scenario facts and metrics are illustrative unless separately cited
+  - Cybersecurity and industrial-control decisions require qualified human review
+responsive_requirements:
+  - complete_fit_to_screen_overview_for_each_visual
+  - mobile_specific_vertical_composition_for_text_heavy_visuals
+  - no_default_horizontal_scrolling
+  - structured_textual_equivalent_for_each_visual
+  - full_screen_detail_viewer_with_zoom_pan_reset_close_and_focus_return
+  - keyboard_and_touch_operation
+  - reduced_motion_equivalence
+  - readable_and_operable_at_200_and_400_percent_zoom
+distinctiveness:
+  must_not_repeat:
+    - module_17_operating_lanes
+    - module_18_authorization_console
+    - module_18_action_state_machine
+    - generic_layered_architecture_hero
+owner_review:
+  status: pending
+  required_approvals:
+    - reconciled_lesson_contract
+    - utility_scenario
+    - capstone_decision
+    - signature_mechanism
+    - visual_arsenal_selection
+    - assessment_architecture
+    - professional_work_product
+    - module_18_handoff
+    - evidence_and_authority_boundaries
+next_phase_if_approved: structured_authoring_and_production_design
+

@@ -15,6 +15,8 @@ Give the user one conversational workspace. Never make the user operate internal
    - `../../../hardeep-soul/SOUL.md` and `../../../hardeep-soul/authoring/AUTHORING_STANDARD.md`;
    - `../../core/standards/COURSE-PRODUCTION-CONTRACT.md`, `../../core/standards/COURSE-OPERATING-STANDARD.md`, `../../core/standards/COURSE-DESIGN-SYSTEM.md`, `../../core/standards/COURSE-EXPERIENCE-ARCHITECTURE.md`, `../../core/standards/VISUAL-ARSENAL.md`, and `../../core/standards/WRITING-STANDARD.md`;
    - `../../core/components/COMPONENTS.md`, `../../core/components/QUIZ-TYPES.md`, and the rendered component and quiz galleries, resolving paths from the course directory.
+   - `../../core/standards/OWOS-COURSE-PRODUCTION-ACTIVATION-PROMPT.md` and
+     `../../core/templates/COURSE-QUALITY-CONTROL-DOSSIER.md`.
 3. Treat the current user message as course input. Preserve the user's substantive wording in a dated file under `conversations/` unless it is already recorded.
 4. Run the internal workspace scan. Do not ask the user to run it:
 
@@ -99,6 +101,14 @@ Never skip from research to bulk lesson generation. Never publish because a file
 - Complete `core/templates/RENDERED-EXPERIENCE-REPORT.md` after browser review and
   `core/templates/COURSE-COHERENCE-REPORT.md` before release. Source inspection cannot substitute for
   rendered desktop, tablet, phone, keyboard, touch, reduced-motion, and read-without-video evidence.
+- At course completion, create `qa/course-quality-control-dossier.md` from
+  `core/templates/COURSE-QUALITY-CONTROL-DOSSIER.md`. Back every score with an exact artifact,
+  checksum, screenshot, test result, review record, commit, deployment, or live verification.
+  Package the evidence so Hardeep can inspect the basis of the score without reconstructing the run.
+- Audit every rendered SVG text element against its intended container. Text clipping, overlap,
+  escape, unreadable compression, insufficient padding, broken connector relationships, and
+  desktop, tablet, phone, or zoom failures are release blockers. Keep a repeatable containment audit
+  and rerun it after source-asset changes.
 - After every three produced lessons and before release, run
   `python3 tools/course_distinctiveness.py --course apps/<course>`. Stop bulk production when the
   rendered lessons repeat archetypes, quiz sequences, interaction signatures, generic frequently

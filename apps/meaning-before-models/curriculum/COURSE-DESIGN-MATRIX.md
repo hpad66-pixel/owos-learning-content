@@ -18,8 +18,10 @@
 | 14 | emergency latency change | decision tree | choose pattern, change constraints | access decision | guided scenario | no document extraction |
 | 15 | procedure and sensor disagree | evidence bridge | compare retrieval, approve claim | evidence plan | passage and claim cards | no context assembly |
 | 16 | agent gets incomplete packet | context packet | assemble, remove control | context contract | packet checklist | no agent execution |
-| 17 | one question, several pipelines | response lab and state machine | rerun answer, govern action | repeatability map and action contract | pipeline tabs and state stepper | no pilot canvas |
-| 18 | “build the enterprise graph” | pilot canvas | scope pilot, defend decision | pilot canvas | staged wizard and summary | synthesis only |
+| 17 | one question, several pipelines | synchronized answer lanes and stage microscope | rerun answer, diagnose changed stage | answer repeatability map | pipeline tabs and evidence trace | no authorization console |
+| 18 | correct answer, blocked action | two-key action console and flight recorder | resolve action state, recover unknown result | agent action contract | stacked gates and vertical audit events | no pipeline comparison or pilot canvas |
+| 19 | “build the enterprise graph” | cross-functional pilot review board | scope, test graph fit, assemble evidence, defend investment | connected pilot canvas and decision briefing | proposal autopsy, dependency spine, interactive canvas, ninety-day evidence roadmap, governed decision matrix | judgment, diagnosis, relationship mapping, synthesis, defense |
+| 20 | approved design will work automatically | full-screen live Knowledge Spine laboratory | build, run, break, repair, replay, adapt | portable use-case configuration | living graph, query illuminator, evidence workbench, context chamber, action flight trace, transfer map | representation, diagnosis, tradeoff analysis, policy application, sequential recovery, transfer |
 
 ## Course-level review
 

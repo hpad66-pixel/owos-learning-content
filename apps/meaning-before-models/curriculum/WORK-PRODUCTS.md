@@ -20,8 +20,10 @@
 | 14 | Access-pattern decision | virtualize, federate, cache, index, or materialize with evidence |
 | 15 | Structured-Unstructured Evidence Plan | original, segment, extraction, graph link, authority, review |
 | 16 | AI Context Contract | required, optional, prohibited, time-controlled, and permission-controlled context |
-| 17 | Repeatability map and agent action contract | fixed and variable stages, tools, permissions, approvals, stops |
-| 18 | Pilot canvas | complete capstone sections and measures |
+| 17 | Repeatability map and operating model | fixed and variable stages, owners, controls, measures, and release conditions |
+| 18 | Agent Action Contract | evidence, permissions, approvals, stops, retries, verification, and audit |
+| 19 | One Water Knowledge Spine Pilot Canvas and Decision Briefing | graph fit, bounded scope, governed evidence, action controls, measures, and defended recommendation |
+| 20 | Portable One Water Knowledge Spine Use-Case Configuration | complete simulated question-to-action pattern, failure tests, repairs, transfer scenario, and export |
 
 ## Capstone rubric
 

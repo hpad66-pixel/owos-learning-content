@@ -487,6 +487,9 @@
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
     ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
     ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
+    ,["[data-knowledge-spine-live-lab]", "[data-spine-lab-case]", "[data-spine-lab-choice]", "spineLabChoice", "All fifteen Knowledge Spine laboratory stages now have a governed disposition."]
+    ,["[data-graph-path-illuminator]", "[data-path-lab-case]", "[data-path-lab-choice]", "pathLabChoice", "Every source and path now has a defensible access or repair decision."]
+    ,["[data-scenario-transfer-lab]", "[data-transfer-lab-case]", "[data-transfer-lab-choice]", "transferLabChoice", "The use case has changed without losing the governed core."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -503,6 +506,62 @@
         feedback.className = `feedback ${passed === cases.length ? "good" : ""}`;
         if (passed === cases.length) mark(lab.dataset.completion);
       })));
+    });
+  });
+
+  document.querySelectorAll("[data-prompt-graph-simulator]").forEach((lab) => {
+    const scenarioButtons = [...lab.querySelectorAll("[data-prompt-scenario]")];
+    const stages = [...lab.querySelectorAll("[data-prompt-stage]")];
+    const run = lab.querySelector("[data-run-prompt]");
+    const prompt = lab.querySelector("[data-phone-prompt]");
+    const path = lab.querySelector("[data-graph-path]");
+    const answer = lab.querySelector("[data-fixed-answer]");
+    const boundary = lab.querySelector("[data-answer-boundary]");
+    const feedback = lab.querySelector("[data-feedback]");
+    let selected = null;
+    let timer = null;
+    function resetStages() {
+      if (timer) clearInterval(timer);
+      timer = null;
+      stages.forEach((stage) => stage.classList.remove("active", "passed"));
+      path.textContent = "The graph path will appear here.";
+      answer.textContent = "Run the trace to produce the answer.";
+      boundary.textContent = "";
+    }
+    scenarioButtons.forEach((button) => button.addEventListener("click", () => {
+      selected = button;
+      scenarioButtons.forEach((item) => item.classList.toggle("selected", item === button));
+      prompt.textContent = button.dataset.prompt;
+      run.disabled = false;
+      resetStages();
+      feedback.textContent = `${button.dataset.label} loaded. Run the fixed evidence trace.`;
+    }));
+    run?.addEventListener("click", () => {
+      if (!selected) return;
+      resetStages();
+      const finish = () => {
+        path.textContent = selected.dataset.path;
+        answer.textContent = selected.dataset.answer;
+        boundary.textContent = selected.dataset.boundary;
+        feedback.textContent = "The same frozen snapshot, query, rules, permissions, and response template produce the same evidence answer.";
+        mark(lab.dataset.completion);
+      };
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        stages.forEach((stage) => stage.classList.add("passed"));
+        finish();
+        return;
+      }
+      let index = 0;
+      timer = setInterval(() => {
+        stages.forEach((stage) => stage.classList.remove("active"));
+        stages[index].classList.add("active", "passed");
+        index += 1;
+        if (index === stages.length) {
+          clearInterval(timer);
+          timer = null;
+          finish();
+        }
+      }, 240);
     });
   });
 

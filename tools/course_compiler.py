@@ -63,6 +63,10 @@ SUPPORTED_INTERACTIONS = {
     "pipeline-stage-diagnosis",
     "agent-action-control",
     "idempotency-recovery",
+    "knowledge-spine-live-lab",
+    "graph-path-illuminator",
+    "scenario-transfer-lab",
+    "prompt-graph-simulator",
 }
 SUPPORTED_ASSESSMENTS = {
     "multiple-choice",
@@ -1026,6 +1030,59 @@ def render_idempotency_recovery(interaction: dict[str, Any]) -> str:
     return render_decision_lab(interaction, "idempotency-recovery", "Safe retry and receipt simulator", "data-retry-case", "data-retry-choice")
 
 
+def render_knowledge_spine_live_lab(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "knowledge-spine-live-lab", "One Water Knowledge Spine Live Lab", "data-spine-lab-case", "data-spine-lab-choice")
+
+
+def render_graph_path_illuminator(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "graph-path-illuminator", "Query and evidence path illuminator", "data-path-lab-case", "data-path-lab-choice")
+
+
+def render_scenario_transfer_lab(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "scenario-transfer-lab", "Cross-domain transfer laboratory", "data-transfer-lab-case", "data-transfer-lab-choice")
+
+
+def render_prompt_graph_simulator(interaction: dict[str, Any]) -> str:
+    scenarios = "".join(
+        f"""<button type="button" class="lab-scenario-button" data-prompt-scenario
+ data-label="{esc(item['label'])}" data-prompt="{esc(item['prompt'])}"
+ data-path="{esc(' → '.join(item['path']))}" data-answer="{esc(item['answer'])}"
+ data-boundary="{esc(item['boundary'])}">{esc(item['label'])}</button>"""
+        for item in interaction["config"]["scenarios"]
+    )
+    stages = "".join(
+        f'<li data-prompt-stage><b>{esc(item["title"])}</b><span>{esc(item["body"])}</span></li>'
+        for item in interaction["config"]["stages"]
+    )
+    return f"""<section class="component signature-component prompt-graph-simulator"
+ id="{esc(interaction['interaction_id'])}" data-prompt-graph-simulator
+ data-purposeful-interaction="prompt-graph-simulator"
+ data-component-source="structured-module-package" data-completion="{esc(interaction['completion_id'])}">
+ <header class="component-header"><h3>{esc(interaction['title'])}</h3><span class="kind">iPhone prompt-to-graph demonstration</span></header>
+ <div class="component-body">
+  <p class="component-intro">{esc(interaction['instructions'])}</p>
+  <div class="lab-scenario-tabs" aria-label="Choose a utility scenario">{scenarios}</div>
+  <div class="prompt-graph-stage">
+   <article class="iphone-demo" aria-label="Simulated iPhone prompt">
+    <div class="iphone-speaker" aria-hidden="true"></div>
+    <span class="case-label">ONE WATER ASSISTANT</span>
+    <p data-phone-prompt>Select a scenario to load the prompt.</p>
+    <button class="button primary" type="button" data-run-prompt disabled>Run fixed trace</button>
+    <p class="small">Instructional simulation. No production system is connected.</p>
+   </article>
+   <ol class="prompt-trace" aria-label="Governed graph traversal">{stages}</ol>
+   <article class="prompt-answer" aria-live="polite">
+    <span class="case-label">FIXED EVIDENCE ANSWER</span>
+    <p data-graph-path>The graph path will appear here.</p>
+    <strong data-fixed-answer>Run the trace to produce the answer.</strong>
+    <p data-answer-boundary></p>
+   </article>
+  </div>
+  <div class="feedback" data-feedback aria-live="polite">Choose a scenario, then run the fixed trace.</div>
+ </div>
+</section>"""
+
+
 def render_object_router(interaction: dict[str, Any]) -> str:
     cards = []
     for index, item in enumerate(interaction["config"]["items"]):
@@ -1255,6 +1312,14 @@ def render_block(
             return render_agent_action_control(interaction)
         if interaction["component"] == "idempotency-recovery":
             return render_idempotency_recovery(interaction)
+        if interaction["component"] == "knowledge-spine-live-lab":
+            return render_knowledge_spine_live_lab(interaction)
+        if interaction["component"] == "graph-path-illuminator":
+            return render_graph_path_illuminator(interaction)
+        if interaction["component"] == "scenario-transfer-lab":
+            return render_scenario_transfer_lab(interaction)
+        if interaction["component"] == "prompt-graph-simulator":
+            return render_prompt_graph_simulator(interaction)
         if interaction["component"] == "object-router":
             return render_object_router(interaction)
         return render_triple_repair_bench(interaction)

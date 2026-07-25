@@ -146,7 +146,7 @@ class StudioHandler(SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
             return
-        if parsed.path in {"/", "/index.html"}:
+        if parsed.path in {"/", "/index.html"} or parsed.path.startswith("/review/"):
             self.path = "/index.html"
         return SimpleHTTPRequestHandler.do_GET(self)
 
@@ -199,7 +199,7 @@ class StudioHandler(SimpleHTTPRequestHandler):
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--host", default="localhost")
     parser.add_argument("--port", type=int, default=8787)
     args = parser.parse_args()
     if not STUDIO.is_dir():

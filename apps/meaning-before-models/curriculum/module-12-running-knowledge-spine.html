@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="6ecbc93965fc8bc0e52c491f813d06d9012b473162ede70f84245a2e87c17193">
+  <meta name="owos-package-checksum" content="1bc17225b2c0359ccc62311fa8ccaa0b71879c4785571abb423f98147e8f3748">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1154,6 +1154,27 @@ footer {
 .case-rule { border-color: #c97626; background: #fff6e8; }
 .decision-case.passed { border-color: #15865f; box-shadow: inset 0 0 0 2px #b8ead6; }
 .decision-case.failed { border-color: #b94343; }
+.lab-scenario-tabs { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.lab-scenario-button { border: 1px solid #8fb4c4; border-radius: 999px; background: #fff; color: #12334a; padding: .65rem .9rem; font-weight: 800; cursor: pointer; }
+.lab-scenario-button.selected { background: #087fbd; border-color: #087fbd; color: #fff; }
+.prompt-graph-stage { display: grid; grid-template-columns: minmax(220px,.75fr) minmax(300px,1.15fr) minmax(260px,1fr); gap: 1rem; align-items: stretch; }
+.iphone-demo { border: 10px solid #071f33; border-radius: 34px; padding: 1.4rem 1rem; background: #f8fbfd; box-shadow: 0 18px 35px rgba(7,31,51,.2); min-height: 350px; }
+.iphone-speaker { width: 70px; height: 7px; border-radius: 9px; background: #071f33; margin: -.6rem auto 1.2rem; }
+.iphone-demo [data-phone-prompt] { margin: 1.2rem 0; border-radius: 16px 16px 4px 16px; padding: 1rem; background: #dff4ff; color: #0c2338; font-weight: 700; }
+.prompt-trace { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.prompt-trace li { display: grid; grid-template-columns: 1fr; border: 1px solid #b8cad4; border-radius: 12px; padding: .7rem .8rem; background: #fff; }
+.prompt-trace li b { color: #12334a; }
+.prompt-trace li span { color: #536a7e; font-size: .86rem; }
+.prompt-trace li.active { border-color: #f39b34; box-shadow: 0 0 0 3px #ffebc7; }
+.prompt-trace li.passed { border-left: 6px solid #15865f; }
+.prompt-answer { border-radius: 18px; padding: 1.2rem; background: #071f33; color: #fff; }
+.prompt-answer .case-label { color: #8fe4da; }
+.prompt-answer [data-graph-path] { color: #c4e5ef; }
+.prompt-answer [data-fixed-answer] { display: block; margin: 1rem 0; font-size: 1.05rem; color: #fff; }
+.prompt-answer [data-answer-boundary] { color: #f9df91; }
+@media (max-width: 900px) { .prompt-graph-stage { grid-template-columns: 1fr 1fr; } .prompt-answer { grid-column: 1 / -1; } }
+@media (max-width: 620px) { .prompt-graph-stage { grid-template-columns: 1fr; } .prompt-answer { grid-column: auto; } .iphone-demo { min-height: 0; } }
+@media (prefers-reduced-motion: reduce) { .prompt-trace li { transition: none !important; } }
 
 @media (max-width: 760px) {
   .shell {
@@ -1461,7 +1482,7 @@ footer {
   <h3>A running Knowledge Spine has operating layers</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read upward from owned sources and across the reliability rail</div>
   <div class="visual-frame">
-    <img src="../visuals/service-stack.svg" alt="A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers" data-visual-overview>
+    <img src="../modules/module-12-running-knowledge-spine/visuals/service-stack.svg" alt="A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers" data-visual-overview>
   </div>
 
   <p class="visual-actions">
@@ -1486,7 +1507,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/service-stack.svg" alt="A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers" data-visual-detail-image>
+        <img src="../modules/module-12-running-knowledge-spine/visuals/service-stack.svg" alt="A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers</p></details>
@@ -1523,7 +1544,7 @@ footer {
   <h3>Meaning can connect data without moving all of it</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow each source into the central semantic services and then to different consumers</div>
   <div class="visual-frame">
-    <img src="../visuals/estate-map.svg" alt="GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards" data-visual-overview>
+    <img src="../modules/module-12-running-knowledge-spine/visuals/estate-map.svg" alt="GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards" data-visual-overview>
   </div>
 
   <p class="visual-actions">
@@ -1548,7 +1569,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/estate-map.svg" alt="GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards" data-visual-detail-image>
+        <img src="../modules/module-12-running-knowledge-spine/visuals/estate-map.svg" alt="GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards</p></details>
@@ -1573,7 +1594,7 @@ footer {
   <h3>A question becomes a bounded evidence package</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the six numbered hops from request to evidence package</div>
   <div class="visual-frame">
-    <img src="../visuals/answer-route.svg" alt="A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent" data-visual-overview>
+    <img src="../modules/module-12-running-knowledge-spine/visuals/answer-route.svg" alt="A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent" data-visual-overview>
   </div>
 
   <p class="visual-actions">
@@ -1598,7 +1619,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/answer-route.svg" alt="A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent" data-visual-detail-image>
+        <img src="../modules/module-12-running-knowledge-spine/visuals/answer-route.svg" alt="A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent</p></details>
@@ -1661,7 +1682,7 @@ footer {
   <h3>Operational corrections return through governed release</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Move clockwise from detected defect through investigation and release back to runtime</div>
   <div class="visual-frame">
-    <img src="../visuals/feedback-loop.svg" alt="A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification" data-visual-overview>
+    <img src="../modules/module-12-running-knowledge-spine/visuals/feedback-loop.svg" alt="A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification" data-visual-overview>
   </div>
 
   <p class="visual-actions">
@@ -1686,7 +1707,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/feedback-loop.svg" alt="A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification" data-visual-detail-image>
+        <img src="../modules/module-12-running-knowledge-spine/visuals/feedback-loop.svg" alt="A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification</p></details>
@@ -2318,6 +2339,9 @@ footer {
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
     ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
     ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
+    ,["[data-knowledge-spine-live-lab]", "[data-spine-lab-case]", "[data-spine-lab-choice]", "spineLabChoice", "All fifteen Knowledge Spine laboratory stages now have a governed disposition."]
+    ,["[data-graph-path-illuminator]", "[data-path-lab-case]", "[data-path-lab-choice]", "pathLabChoice", "Every source and path now has a defensible access or repair decision."]
+    ,["[data-scenario-transfer-lab]", "[data-transfer-lab-case]", "[data-transfer-lab-choice]", "transferLabChoice", "The use case has changed without losing the governed core."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -2334,6 +2358,62 @@ footer {
         feedback.className = `feedback ${passed === cases.length ? "good" : ""}`;
         if (passed === cases.length) mark(lab.dataset.completion);
       })));
+    });
+  });
+
+  document.querySelectorAll("[data-prompt-graph-simulator]").forEach((lab) => {
+    const scenarioButtons = [...lab.querySelectorAll("[data-prompt-scenario]")];
+    const stages = [...lab.querySelectorAll("[data-prompt-stage]")];
+    const run = lab.querySelector("[data-run-prompt]");
+    const prompt = lab.querySelector("[data-phone-prompt]");
+    const path = lab.querySelector("[data-graph-path]");
+    const answer = lab.querySelector("[data-fixed-answer]");
+    const boundary = lab.querySelector("[data-answer-boundary]");
+    const feedback = lab.querySelector("[data-feedback]");
+    let selected = null;
+    let timer = null;
+    function resetStages() {
+      if (timer) clearInterval(timer);
+      timer = null;
+      stages.forEach((stage) => stage.classList.remove("active", "passed"));
+      path.textContent = "The graph path will appear here.";
+      answer.textContent = "Run the trace to produce the answer.";
+      boundary.textContent = "";
+    }
+    scenarioButtons.forEach((button) => button.addEventListener("click", () => {
+      selected = button;
+      scenarioButtons.forEach((item) => item.classList.toggle("selected", item === button));
+      prompt.textContent = button.dataset.prompt;
+      run.disabled = false;
+      resetStages();
+      feedback.textContent = `${button.dataset.label} loaded. Run the fixed evidence trace.`;
+    }));
+    run?.addEventListener("click", () => {
+      if (!selected) return;
+      resetStages();
+      const finish = () => {
+        path.textContent = selected.dataset.path;
+        answer.textContent = selected.dataset.answer;
+        boundary.textContent = selected.dataset.boundary;
+        feedback.textContent = "The same frozen snapshot, query, rules, permissions, and response template produce the same evidence answer.";
+        mark(lab.dataset.completion);
+      };
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        stages.forEach((stage) => stage.classList.add("passed"));
+        finish();
+        return;
+      }
+      let index = 0;
+      timer = setInterval(() => {
+        stages.forEach((stage) => stage.classList.remove("active"));
+        stages[index].classList.add("active", "passed");
+        index += 1;
+        if (index === stages.length) {
+          clearInterval(timer);
+          timer = null;
+          finish();
+        }
+      }, 240);
     });
   });
 

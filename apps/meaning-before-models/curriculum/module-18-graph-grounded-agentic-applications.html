@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.1.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="3e22f25705f3c3efaab6e6ed53c703b72dfd8fdbdada357724b31dc724bb8e8e">
+  <meta name="owos-package-checksum" content="2ad0dc142f5c6c26ae000a2915f1a72de69673033c211c981d18c474dfebc45f">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1154,6 +1154,27 @@ footer {
 .case-rule { border-color: #c97626; background: #fff6e8; }
 .decision-case.passed { border-color: #15865f; box-shadow: inset 0 0 0 2px #b8ead6; }
 .decision-case.failed { border-color: #b94343; }
+.lab-scenario-tabs { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.lab-scenario-button { border: 1px solid #8fb4c4; border-radius: 999px; background: #fff; color: #12334a; padding: .65rem .9rem; font-weight: 800; cursor: pointer; }
+.lab-scenario-button.selected { background: #087fbd; border-color: #087fbd; color: #fff; }
+.prompt-graph-stage { display: grid; grid-template-columns: minmax(220px,.75fr) minmax(300px,1.15fr) minmax(260px,1fr); gap: 1rem; align-items: stretch; }
+.iphone-demo { border: 10px solid #071f33; border-radius: 34px; padding: 1.4rem 1rem; background: #f8fbfd; box-shadow: 0 18px 35px rgba(7,31,51,.2); min-height: 350px; }
+.iphone-speaker { width: 70px; height: 7px; border-radius: 9px; background: #071f33; margin: -.6rem auto 1.2rem; }
+.iphone-demo [data-phone-prompt] { margin: 1.2rem 0; border-radius: 16px 16px 4px 16px; padding: 1rem; background: #dff4ff; color: #0c2338; font-weight: 700; }
+.prompt-trace { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.prompt-trace li { display: grid; grid-template-columns: 1fr; border: 1px solid #b8cad4; border-radius: 12px; padding: .7rem .8rem; background: #fff; }
+.prompt-trace li b { color: #12334a; }
+.prompt-trace li span { color: #536a7e; font-size: .86rem; }
+.prompt-trace li.active { border-color: #f39b34; box-shadow: 0 0 0 3px #ffebc7; }
+.prompt-trace li.passed { border-left: 6px solid #15865f; }
+.prompt-answer { border-radius: 18px; padding: 1.2rem; background: #071f33; color: #fff; }
+.prompt-answer .case-label { color: #8fe4da; }
+.prompt-answer [data-graph-path] { color: #c4e5ef; }
+.prompt-answer [data-fixed-answer] { display: block; margin: 1rem 0; font-size: 1.05rem; color: #fff; }
+.prompt-answer [data-answer-boundary] { color: #f9df91; }
+@media (max-width: 900px) { .prompt-graph-stage { grid-template-columns: 1fr 1fr; } .prompt-answer { grid-column: 1 / -1; } }
+@media (max-width: 620px) { .prompt-graph-stage { grid-template-columns: 1fr; } .prompt-answer { grid-column: auto; } .iphone-demo { min-height: 0; } }
+@media (prefers-reduced-motion: reduce) { .prompt-trace li { transition: none !important; } }
 
 @media (max-width: 760px) {
   .shell {
@@ -1462,7 +1483,7 @@ footer {
   <h3>Grounding and authority are independent keys</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the knowledge key on the left, the authority key on the right, then combine their dispositions at the bottom</div>
   <div class="visual-frame">
-    <img src="../visuals/two-key-console.svg" alt="Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority" data-visual-overview>
+    <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/two-key-console.svg" alt="Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority" data-visual-overview>
   </div>
 
   <section class="mobile-visual-composition" data-mobile-visual-composition
@@ -1492,7 +1513,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/two-key-console.svg" alt="Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority" data-visual-detail-image>
+        <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/two-key-console.svg" alt="Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority</p></details>
@@ -1572,7 +1593,7 @@ footer {
   <h3>A complete graph-to-action trace for LS-7</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the six explicit triples first, then follow the numbered gates from graph retrieval to the verified audit receipt</div>
   <div class="visual-frame">
-    <img src="../visuals/graph-to-action-trace.svg" alt="Explicit LS-7 wastewater triples flow through graph retrieval, freshness validation, authorization, supervisor approval, bounded draft work-order execution, verification, and audit" data-visual-overview>
+    <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/graph-to-action-trace.svg" alt="Explicit LS-7 wastewater triples flow through graph retrieval, freshness validation, authorization, supervisor approval, bounded draft work-order execution, verification, and audit" data-visual-overview>
   </div>
 
   <section class="mobile-visual-composition" data-mobile-visual-composition
@@ -1602,7 +1623,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/graph-to-action-trace.svg" alt="Explicit LS-7 wastewater triples flow through graph retrieval, freshness validation, authorization, supervisor approval, bounded draft work-order execution, verification, and audit" data-visual-detail-image>
+        <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/graph-to-action-trace.svg" alt="Explicit LS-7 wastewater triples flow through graph retrieval, freshness validation, authorization, supervisor approval, bounded draft work-order execution, verification, and audit" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>LS-7 contributes to Overflow-21. Inspection-443 inspected LS-7 and was recorded on June 1. Policy-12 requires evidence no older than 24 hours. Operator-77 may create a draft work order but may not assign Priority 1. Therefore the system refreshes evidence, asks the supervisor, executes only the permitted draft, verifies the CMMS record, and stores the audit receipt.</p></details>
@@ -1623,7 +1644,7 @@ footer {
   <h3>A proposal moves through controlled action states</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow the upper route from proposal to record, then inspect each downward branch and its return or stop condition</div>
   <div class="visual-frame">
-    <img src="../visuals/state-machine.svg" alt="A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop" data-visual-overview>
+    <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/state-machine.svg" alt="A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop" data-visual-overview>
   </div>
 
   <section class="mobile-visual-composition" data-mobile-visual-composition
@@ -1653,7 +1674,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/state-machine.svg" alt="A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop" data-visual-detail-image>
+        <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/state-machine.svg" alt="A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop</p></details>
@@ -1678,7 +1699,7 @@ footer {
   <h3>An executable action travels inside a bounded envelope</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read from the outer audit wrapper through authority and evidence boundaries to the exact tool call and postcondition</div>
   <div class="visual-frame">
-    <img src="../visuals/action-envelope.svg" alt="Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls" data-visual-overview>
+    <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/action-envelope.svg" alt="Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls" data-visual-overview>
   </div>
 
   <section class="mobile-visual-composition" data-mobile-visual-composition
@@ -1708,7 +1729,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/action-envelope.svg" alt="Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls" data-visual-detail-image>
+        <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/action-envelope.svg" alt="Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls</p></details>
@@ -1777,7 +1798,7 @@ footer {
   <h3>The action flight recorder preserves uncertain outcomes</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow the timeline left to right and notice how request K-441 connects the timeout to the discovered work order</div>
   <div class="visual-frame">
-    <img src="../visuals/audit-recorder.svg" alt="A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt" data-visual-overview>
+    <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/audit-recorder.svg" alt="A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt" data-visual-overview>
   </div>
 
   <section class="mobile-visual-composition" data-mobile-visual-composition
@@ -1807,7 +1828,7 @@ footer {
     <div class="visual-detail-pan" data-visual-pan tabindex="0"
       aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
       <div class="visual-detail-canvas" data-visual-detail-canvas>
-        <img src="../visuals/audit-recorder.svg" alt="A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt" data-visual-detail-image>
+        <img src="../modules/module-18-graph-grounded-agentic-applications/visuals/audit-recorder.svg" alt="A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt" data-visual-detail-image>
       </div>
     </div>
     <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt</p></details>
@@ -2449,6 +2470,9 @@ footer {
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
     ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
     ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
+    ,["[data-knowledge-spine-live-lab]", "[data-spine-lab-case]", "[data-spine-lab-choice]", "spineLabChoice", "All fifteen Knowledge Spine laboratory stages now have a governed disposition."]
+    ,["[data-graph-path-illuminator]", "[data-path-lab-case]", "[data-path-lab-choice]", "pathLabChoice", "Every source and path now has a defensible access or repair decision."]
+    ,["[data-scenario-transfer-lab]", "[data-transfer-lab-case]", "[data-transfer-lab-choice]", "transferLabChoice", "The use case has changed without losing the governed core."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -2465,6 +2489,62 @@ footer {
         feedback.className = `feedback ${passed === cases.length ? "good" : ""}`;
         if (passed === cases.length) mark(lab.dataset.completion);
       })));
+    });
+  });
+
+  document.querySelectorAll("[data-prompt-graph-simulator]").forEach((lab) => {
+    const scenarioButtons = [...lab.querySelectorAll("[data-prompt-scenario]")];
+    const stages = [...lab.querySelectorAll("[data-prompt-stage]")];
+    const run = lab.querySelector("[data-run-prompt]");
+    const prompt = lab.querySelector("[data-phone-prompt]");
+    const path = lab.querySelector("[data-graph-path]");
+    const answer = lab.querySelector("[data-fixed-answer]");
+    const boundary = lab.querySelector("[data-answer-boundary]");
+    const feedback = lab.querySelector("[data-feedback]");
+    let selected = null;
+    let timer = null;
+    function resetStages() {
+      if (timer) clearInterval(timer);
+      timer = null;
+      stages.forEach((stage) => stage.classList.remove("active", "passed"));
+      path.textContent = "The graph path will appear here.";
+      answer.textContent = "Run the trace to produce the answer.";
+      boundary.textContent = "";
+    }
+    scenarioButtons.forEach((button) => button.addEventListener("click", () => {
+      selected = button;
+      scenarioButtons.forEach((item) => item.classList.toggle("selected", item === button));
+      prompt.textContent = button.dataset.prompt;
+      run.disabled = false;
+      resetStages();
+      feedback.textContent = `${button.dataset.label} loaded. Run the fixed evidence trace.`;
+    }));
+    run?.addEventListener("click", () => {
+      if (!selected) return;
+      resetStages();
+      const finish = () => {
+        path.textContent = selected.dataset.path;
+        answer.textContent = selected.dataset.answer;
+        boundary.textContent = selected.dataset.boundary;
+        feedback.textContent = "The same frozen snapshot, query, rules, permissions, and response template produce the same evidence answer.";
+        mark(lab.dataset.completion);
+      };
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        stages.forEach((stage) => stage.classList.add("passed"));
+        finish();
+        return;
+      }
+      let index = 0;
+      timer = setInterval(() => {
+        stages.forEach((stage) => stage.classList.remove("active"));
+        stages[index].classList.add("active", "passed");
+        index += 1;
+        if (index === stages.length) {
+          clearInterval(timer);
+          timer = null;
+          finish();
+        }
+      }, 240);
     });
   });
 

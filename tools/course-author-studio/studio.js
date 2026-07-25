@@ -131,6 +131,8 @@
     try {
       const data = await api("/api/courses");
       courseList.innerHTML = "";
+      const route = window.location.pathname.match(/^\/review\/([^/]+)\/([^/]+)\/?$/);
+      let requestedButton = null;
       data.courses.forEach((course) => {
         const group = document.createElement("section");
         group.className = "course-group";
@@ -143,10 +145,18 @@
           button.type = "button";
           button.textContent = module.title;
           button.addEventListener("click", () => selectModule(course.slug, module.slug, button));
+          if (route && decodeURIComponent(route[1]) === course.slug && decodeURIComponent(route[2]) === module.slug) {
+            requestedButton = {course: course.slug, module: module.slug, button};
+          }
           group.append(button);
         });
         courseList.append(group);
       });
+      if (requestedButton) {
+        await selectModule(requestedButton.course, requestedButton.module, requestedButton.button);
+      } else if (route) {
+        notify("The requested structured module was not found.", true);
+      }
     } catch (error) {
       notify(error.message, true);
     }

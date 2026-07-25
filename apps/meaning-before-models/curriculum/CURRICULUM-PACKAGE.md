@@ -141,7 +141,7 @@ Choose measures tied to the pilot question:
 
 ## Review gates
 
-1. Approve the eighteen-module blueprint.
+1. Maintain approval evidence for the twenty-module curriculum and lesson contracts.
 2. Approve the Module 01 golden-lesson treatment.
 3. Validate the fictional utility scenario with operations, engineering, data, and cybersecurity
    reviewers.

@@ -319,6 +319,116 @@ Module 17-to-18-to-19 coherence gate are resolved.
 Commit and push the exact learning release, import that commit into the OWOS platform, run platform
 release checks, deploy production, and verify all three public pages and checksums.
 
+## Module 19 Phase 0 design package
+
+- Approved title: Design the One Water Knowledge Spine
+- Approved role: capstone design and defense
+- Phase 0 reconciliation corrects the stale historical Module 18 capstone numbering.
+- Modules 1 through 18 now have explicit capstone inputs.
+- Module 18 supplies a minimum 16-of-20 Agent Action Contract with testable architecture, owner,
+  acceptance-test, failure-response, and audit mappings.
+- Scenario: fictional ninety-day wastewater overflow-response pilot for Lift Station LS-7 and
+  Overflow Event 21.
+- Bounded question: which upstream assets and current evidence should a supervisor review before
+  approving one draft inspection work order?
+- Capstone decision: build, revise, or do not build the bounded graph pilot.
+- Signature mechanism: Knowledge Spine Pilot Review Board.
+- Work product: One Water Knowledge Spine Pilot Canvas and Decision Briefing.
+- Five Visual Arsenal jobs and thirteen storyboard beats are defined.
+- Evidence, cybersecurity, action-authority, and responsive-visual boundaries are explicit.
+- Design state: ready for owner review.
+- Implementation state: not started.
+- Publication and final release state: not approved.
+
+## Next action
+
+Conduct Module 19 owner design review in One Water OS Author Studio. Begin structured lesson
+authoring only after the owner approves the reconciled contract, scenario, capstone decision,
+signature mechanism, Visual Arsenal, assessments, work product, Module 18 handoff, and evidence
+boundaries.
+
+## Module 20 applied laboratory expansion
+
+- Hardeep Anand approved expanding the planned curriculum from nineteen to twenty modules.
+- Module 19 remains the capstone design and investment-defense experience.
+- Module 20 is One Water Knowledge Spine Lab: From Utility Question to Governed Action.
+- Module 20 is a full-screen HTML simulation laboratory, not another lecture or handout.
+- The learner follows fifteen governed steps from operational question through identity, triples,
+  graph, query, validation, inference, evidence, context, authorization, simulated execution,
+  verification, audit, and transfer.
+- Default scenario: Lift Station LS-7 and Overflow Event 21.
+- Transfer modes: water pressure zone, wastewater overflow, stormwater outfall, and guided custom
+  use case.
+- Signature mechanism: One Water Knowledge Spine Live Lab.
+- Six distinct Visual Arsenal systems and twelve purposeful simulation mechanisms are planned.
+- Professional work product: Portable One Water Knowledge Spine Use-Case Configuration contained
+  inside the HTML laboratory.
+- Module 19 now prepares Module 20.
+- The planned course structure is twenty modules. The current live-review delivery remains eighteen
+  modules until Modules 19 and 20 pass their own gates.
+- Module 20 design state: ready for owner review.
+- Module 20 implementation state: not started.
+- Module 20 publication and release state: not approved.
+
+## Next action
+
+Conduct Module 20 owner design review in One Water OS Author Studio. Implementation begins only
+after approval of the twenty-module sequence, lesson contract, fifteen-step sequence, scenarios,
+signature mechanism, Visual Arsenal, simulations, assessments, work product, responsive
+architecture, and evidence boundaries.
+
+## Module 20 structured authoring and interaction prototype
+
+- Owner approved the complete Phase 0 design package for structured authoring and prototyping.
+- Complete conversational teaching now covers all fifteen approved laboratory steps.
+- The structured package includes seven original governed SVG assets, four new signature interaction
+  components, thirty-eight decision-laboratory cases, three prompt scenarios, eight distributed assessments, glossary, sources,
+  evidence boundaries, and the Portable One Water Knowledge Spine Use-Case Configuration.
+- The governed compiler and shared runtime now support `knowledge-spine-live-lab`,
+  `graph-path-illuminator`, and `scenario-transfer-lab`.
+- Structured validation passed.
+- Deterministic compilation passed.
+- Structured source checksum:
+  `7baddc5a423ef7f037fa84361b0d28126a782e5244bbd7f9ee7b0f4590ece962`.
+- Compiler version: 1.1.0.
+- Browser QA passed desktop, iPad, and iPhone with zero runtime errors, zero horizontal overflow,
+  all images loaded, working completion, working drawer focus return, and 0.01 millisecond maximum
+  transition duration under phone reduced motion.
+- Prototype screenshots and evidence are stored under
+  `qa/rendered/module-20-prototype/` and
+  `qa/module-20-structured-prototype-report.md`.
+- Release ready: false.
+- No curriculum lesson was replaced.
+- No live route was created.
+- No deployment or publication occurred.
+
+## Module 20 iPhone prompt-to-graph culmination
+
+- The learner can choose wastewater, water, or stormwater on a simulated iPhone.
+- The prompt moves through seven visible stages: intent and identity, graph traversal, evidence
+  retrieval, validation and inference limits, runtime context, authority, and fixed answer
+  rendering.
+- The wastewater trace traverses Overflow-21, LS-7, Pump-P204, Inspection-778, and Seal-Leak.
+- The answer preserves the evidence path, stale-evidence response, approval requirement, permitted
+  draft action, prohibited actions, and uncertainty boundary.
+- The deterministic claim is explicitly bounded to a frozen evidence snapshot, fixed query, fixed
+  shapes, fixed inference rules, fixed policy, fixed permissions, and fixed response template.
+- The shared compiler and runtime now support `prompt-graph-simulator`.
+- A seventh original governed visual asset teaches the iPhone prompt-to-graph sequence.
+- Revised browser QA passes desktop, iPad, and iPhone with eight rendered visual instances, twelve
+  purposeful components, zero runtime errors, zero horizontal overflow, and phone reduced motion at
+  0.01 milliseconds.
+- Responsive screenshots include `prompt-graph-finale.png` for all three modes.
+- Revised structured source checksum:
+  `7baddc5a423ef7f037fa84361b0d28126a782e5244bbd7f9ee7b0f4590ece962`.
+
+## Next action
+
+Return the structured Module 20 prototype for owner narrative and interaction review. After owner
+findings are applied, complete 200 and 400 percent zoom, detailed visual readability, full-screen
+viewer, export, screen-reader, physical-device, practitioner, factual, security, and Module 19 to
+Module 20 coherence review. Do not publish or mark final release approved.
+
 ## Modules 15 to 17 publication evidence
 
 - Exact learning-content intake commit: `f0ec004d203369c691a7d6a88f291dbf266812b7`

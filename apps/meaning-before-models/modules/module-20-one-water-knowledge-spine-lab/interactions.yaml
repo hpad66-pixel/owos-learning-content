@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:20",
+  "interactions": [
+    {
+      "interaction_id": "mbm20-live-lab",
+      "component": "knowledge-spine-live-lab",
+      "title": "One Water Knowledge Spine Live Lab",
+      "teaching_purpose": "Rehearse the complete fifteen-step question-to-action chain and diagnose the disposition at each governed stage.",
+      "instructions": "Work through each case in order. Choose the strongest governed response. The prototype records which laboratory stages are ready, need repair, or must stop.",
+      "completion_id": "live-lab",
+      "config": {
+        "choices": ["ADVANCE", "REPAIR", "REFRESH", "ASK", "STOP"],
+        "cases": [
+          {"label": "1. Operational question", "claim": "Build an enterprise graph to improve all utility decisions.", "evidence": "No bounded decision, owner, measure, action, or stop condition is named.", "rule": "The laboratory starts with one decision-bound question.", "answer": "REPAIR", "explanation": "Rewrite the ambition as one operational question before selecting architecture."},
+          {"label": "2. Things", "claim": "Model LS-7, Overflow-21, Pump P-204, Inspection-778, Procedure-WW12, and Draft-4821.", "evidence": "Each thing has a distinct operating role in the bounded scenario.", "rule": "Model only the entities required to answer or govern the question.", "answer": "ADVANCE", "explanation": "The minimum entity set supports the question without turning the pilot into an enterprise inventory."},
+          {"label": "3. Relationships", "claim": "Inspection-778 foundCondition Seal-Leak on Pump-P204.", "evidence": "Subject, predicate, object, source, and direction are explicit.", "rule": "Each relationship must be readable and testable.", "answer": "ADVANCE", "explanation": "The explicit relationship can enter the living graph with its evidence reference."},
+          {"label": "4. Identity", "claim": "Merge LS-007 and LIFT_7 because the labels look similar.", "evidence": "Location and equipment evidence has not been compared.", "rule": "Similar labels are candidates, not identity proof.", "answer": "REPAIR", "explanation": "Require identity evidence and an accountable match decision before merging."},
+          {"label": "5. Meaning", "claim": "Treat the ontology, source schema, semantic mapping, and runtime context as one file.", "evidence": "The owners and tests for four different jobs disappear.", "rule": "Each meaning layer keeps a distinct responsibility.", "answer": "REPAIR", "explanation": "Separate structure, shared meaning, enterprise connection, and task-time context."},
+          {"label": "6. Connections", "claim": "Query CMMS in place, index inspection passages, and materialize only the tested hot path.", "evidence": "Freshness, authority, availability, latency, and cost have explicit controls.", "rule": "Move the least data that satisfies the governed workload.", "answer": "ADVANCE", "explanation": "The mixed access pattern is justified by source and workload requirements."},
+          {"label": "7. Query", "claim": "Traverse Overflow-21 to LS-7, upstream Pump-P204, Inspection-778, and Seal-Leak.", "evidence": "Every result binding retains the matched path and source.", "rule": "A graph answer must remain traceable to its relationship pattern.", "answer": "ADVANCE", "explanation": "The SPARQL path answers the bounded relationship question with evidence."},
+          {"label": "8. Validation", "claim": "Inspection-778 has no inspection date or inspector.", "evidence": "The pilot shape requires both properties.", "rule": "Required evidence must conform before the result advances.", "answer": "REPAIR", "explanation": "Repair or reject the record. Do not mistake a malformed evidence record for a current inspection."},
+          {"label": "9. Inference", "claim": "The seal leak proves Pump-P204 caused Overflow-21.", "evidence": "The graph supports inspection need, not event causation.", "rule": "Inference remains inside declared semantics and evidence.", "answer": "STOP", "explanation": "Stop the causal leap. Preserve the asserted condition and the bounded inspection inference."},
+          {"label": "10. Runtime context", "claim": "Assemble current evidence, policy, permissions, time, state, and output limits.", "evidence": "The packet names all required elements and excludes prohibited material.", "rule": "The task receives the smallest complete governed context.", "answer": "ADVANCE", "explanation": "The context package is complete for recommendation and authorization checks."},
+          {"label": "11. Recommendation", "claim": "Recommend review and evidence refresh while naming uncertainty.", "evidence": "The path, citations, freshness, and prohibited conclusion are visible.", "rule": "Grounded output preserves evidence and uncertainty.", "answer": "ADVANCE", "explanation": "The recommendation is fit to consider but still does not authorize action."},
+          {"label": "12. Authority", "claim": "The operator may draft but cannot assign Priority 1.", "evidence": "Current policy requires supervisor approval for priority and dispatch.", "rule": "Grounding and permission are separate gates.", "answer": "ASK", "explanation": "Ask the named supervisor and keep the action inside draft-only authority."},
+          {"label": "13. Execute", "claim": "The draft request timed out after transmission.", "evidence": "The idempotency key exists but external state is unknown.", "rule": "Unknown side effects are reconciled before retry.", "answer": "REFRESH", "explanation": "Refresh the action evidence by checking the receipt and external state. Do not repeat blindly."},
+          {"label": "14. Verify", "claim": "One draft exists for LS-7 with the approved parameters and evidence receipt.", "evidence": "The authoritative simulated record matches the expected postcondition.", "rule": "Verification confirms the result before completion.", "answer": "ADVANCE", "explanation": "Record the verified postcondition and complete audit trace."},
+          {"label": "15. Adapt", "claim": "Apply the governed pattern to one bounded stormwater outfall question.", "evidence": "Entities and sources change while identity, evidence, authority, tests, and stops remain explicit.", "rule": "Transfer preserves controls while changing domain content.", "answer": "ADVANCE", "explanation": "The learner is ready to export a bounded planning configuration."}
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm20-path-lab",
+      "component": "graph-path-illuminator",
+      "title": "Query and Evidence Path Illuminator",
+      "teaching_purpose": "Connect access-pattern choices and readable query paths to evidence freshness and authority.",
+      "instructions": "Choose the correct access or traversal response for each source condition.",
+      "completion_id": "path-lab",
+      "config": {
+        "choices": ["QUERY IN PLACE", "INDEX", "MATERIALIZE", "REPAIR MAPPING", "STOP"],
+        "cases": [
+          {"label": "Authoritative maintenance record", "claim": "Current work-order status is available through a governed source API.", "evidence": "The source meets query latency and availability requirements.", "rule": "Prefer current authoritative access when it satisfies the workload.", "answer": "QUERY IN PLACE", "explanation": "Query the governed source and preserve its authority and current state."},
+          {"label": "Inspection PDF", "claim": "The learner needs to retrieve relevant passages and citations.", "evidence": "The source document remains authoritative and is not converted wholesale into approved graph facts.", "rule": "Index passages for retrieval while preserving the original.", "answer": "INDEX", "explanation": "Index the document and keep extracted statements in a candidate evidence state."},
+          {"label": "Tested emergency path", "claim": "A narrow relationship path must remain available during a rehearsed source outage.", "evidence": "The utility has approved scope, synchronization, ownership, and recovery.", "rule": "Materialize only the justified hot path.", "answer": "MATERIALIZE", "explanation": "The bounded copy is justified by tested resilience requirements."},
+          {"label": "Renamed source column", "claim": "The SPARQL result suddenly loses Pump-P204.", "evidence": "The source column changed but the semantic mapping did not.", "rule": "Mapping defects are repaired and retested before answering.", "answer": "REPAIR MAPPING", "explanation": "Repair the mapping and rerun its contract tests before trusting the path."}
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm20-transfer-lab",
+      "component": "scenario-transfer-lab",
+      "title": "Water, Wastewater, Stormwater, and Custom Transfer Lab",
+      "teaching_purpose": "Distinguish reusable governance from use-case-specific entities, sources, policies, and measures.",
+      "instructions": "Choose what the learner should preserve or change when transferring the pattern.",
+      "completion_id": "transfer-lab",
+      "config": {
+        "choices": ["PRESERVE CONTROL", "CHANGE DOMAIN CONTENT", "REVIEW LOCALLY", "EXCLUDE"],
+        "cases": [
+          {"label": "Identity evidence", "claim": "Move from LS-7 to Pressure Zone 3.", "evidence": "The identifiers and sources change, but identity still needs evidence and ownership.", "rule": "Governed identity is reusable as a discipline.", "answer": "PRESERVE CONTROL", "explanation": "Keep the identity-evidence method and replace the domain records."},
+          {"label": "Entities and relationships", "claim": "Move from wastewater flow to stormwater drainage.", "evidence": "Lift stations and force mains no longer fit the question.", "rule": "Domain semantics must match the actual operating world.", "answer": "CHANGE DOMAIN CONTENT", "explanation": "Replace the entity and relationship model with catchments, outfalls, inspections, and drainage paths."},
+          {"label": "Freshness and approval thresholds", "claim": "Reuse the fictional twenty-four-hour threshold in a real utility.", "evidence": "The threshold is an instructional assumption, not an industry rule.", "rule": "Policy assumptions require qualified local approval.", "answer": "REVIEW LOCALLY", "explanation": "A utility owner must approve the real threshold, role, escalation, and evidence rule."},
+          {"label": "Operational control", "claim": "Add autonomous valve or pump commands to the custom configuration.", "evidence": "The course laboratory has no production operational-control authority.", "rule": "Prohibited production actions remain outside the artifact.", "answer": "EXCLUDE", "explanation": "Exclude operational control and route any future proposal through separate security, safety, practitioner, and authority review."}
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm20-prompt-graph-finale",
+      "component": "prompt-graph-simulator",
+      "title": "Ask on an iPhone. Watch the Knowledge Spine answer.",
+      "teaching_purpose": "Demonstrate how an ordinary utility prompt becomes a fixed, traceable graph-grounded answer under a frozen evidence and policy configuration.",
+      "instructions": "Choose a utility scenario. Read the prompt as it appears on the simulated iPhone, then run the fixed trace. Watch identity, graph traversal, evidence, validation, inference, context, and authority complete before the answer appears.",
+      "completion_id": "prompt-graph-finale",
+      "config": {
+        "stages": [
+          {"title": "1. Resolve intent and identity", "body": "Bind the prompt to the governed event, asset, location, and user role."},
+          {"title": "2. Traverse the graph", "body": "Run the fixed SPARQL path against the frozen graph snapshot."},
+          {"title": "3. Retrieve evidence", "body": "Attach current source records and cited document passages."},
+          {"title": "4. Validate and bound inference", "body": "Apply SHACL requirements and reject unsupported causal conclusions."},
+          {"title": "5. Assemble context", "body": "Add policy, permissions, time, workflow state, tools, and output limits."},
+          {"title": "6. Decide authority", "body": "Separate the grounded recommendation from permission to act."},
+          {"title": "7. Render the fixed answer", "body": "Use the governed response template with evidence path, uncertainty, and next step."}
+        ],
+        "scenarios": [
+          {
+            "label": "Wastewater",
+            "prompt": "Overflow 21 just occurred. What should I inspect first, and can you create the work order?",
+            "path": ["Overflow-21", "occurredAt", "LS-7", "receivesFlowFrom", "Pump-P204", "inspectedBy", "Inspection-778", "foundCondition", "Seal-Leak"],
+            "answer": "Inspect Pump P-204 first, but refresh Inspection 778 because it is outside the approved freshness window. After current evidence and supervisor approval, the system may create one draft inspection work order. It may not set Priority 1, dispatch a crew, close work, or claim that P-204 caused the overflow.",
+            "boundary": "Fixed result for snapshot WW-2026-07-25, query Q-WW-04, shape set S-12, policy P-18, role Operator-77, and response template T-03."
+          },
+          {
+            "label": "Water",
+            "prompt": "Pressure is falling in Zone 3. Which customers and critical facilities should we review first?",
+            "path": ["PressureEvent-31", "affects", "PressureZone-3", "contains", "CriticalFacility-12", "servedBy", "Pump-P104", "hasCurrentStatus", "InspectionRequired"],
+            "answer": "Review Critical Facility 12 and the current status of Pump P-104 first. The fixed evidence supports a draft field-inspection recommendation. It does not authorize customer notification, operational changes, or a declaration that P-104 caused the pressure event.",
+            "boundary": "Fixed result for snapshot W-2026-07-25, query Q-W-07, shape set S-21, policy P-31, role Distribution-Supervisor, and response template T-03."
+          },
+          {
+            "label": "Stormwater",
+            "prompt": "Debris has returned at Outfall SW-14. Which upstream area and records should we check?",
+            "path": ["DebrisReport-14", "reportedAt", "Outfall-SW14", "drains", "Catchment-C5", "hasInspection", "Inspection-SW88", "hasMaintenanceRecord", "Work-SW41"],
+            "answer": "Review Catchment C5, Inspection SW-88, and Maintenance Record SW-41. The evidence supports a bounded maintenance review. It does not prove the debris source or authorize field dispatch without the required local approval.",
+            "boundary": "Fixed result for snapshot SW-2026-07-25, query Q-SW-02, shape set S-34, policy P-44, role Stormwater-Coordinator, and response template T-03."
+          }
+        ]
+      }
+    }
+  ]
+}

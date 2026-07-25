@@ -82,7 +82,7 @@ follow many small, explicit relationships.
 | II. Build shared meaning | How do structure, taxonomy, ontology, and semantics differ? | Model shared concepts and query graph patterns. |
 | III. Trust the graph | What may be inferred, what must be present, and who said what when? | Separate reasoning, validation, provenance, authority, and time. |
 | IV. Operate the Knowledge Spine | How does shared meaning connect to data and documents without unnecessary copying? | Instantiate, map, federate, materialize selectively, and assemble context. |
-| V. Apply the backbone | How does this improve BI, RAG, agents, and utility decisions? | Compare architectures, control agent actions, and design a pilot. |
+| V. Apply the backbone | How does this improve BI, RAG, agents, and utility decisions? | Compare architectures, control agent actions, design a pilot, and rehearse the complete governed pattern. |
 
 ## Module 01: the fifteen-minute learner experience
 
@@ -119,6 +119,8 @@ By the end of the course, learners can:
     extracted entities, and explicit graph relationships are the same.
 14. Design a small utility semantic-backbone pilot with a measurable operational question, named
     sources, validation rules, access controls, and human approval boundaries.
+15. Run, diagnose, repair, and adapt a complete simulated Knowledge Spine from one utility question
+    through graph-grounded evidence, controlled action, verification, and audit.
 
 ## Required example bank
 
@@ -204,6 +206,6 @@ used independently as the short concept primer.
 
 ## Current boundary
 
-The comprehensive course scope and connection to `Data Before AI` are approved direction. The
-detailed eighteen-module blueprint, original visual treatment, golden lesson, and release still
-require their normal reviews.
+The comprehensive course scope, twenty-module curriculum, original visual direction, and golden
+lesson are approved for production. Graph publication, credentials, and final release still require
+their normal reviews.

@@ -45,8 +45,9 @@ Status: approved retrofit direction, implementation required
 | 14 | constraint stress test | Change latency, freshness, authority, and outage conditions | decision surface and architecture response | optimize and defend | access-pattern decision |
 | 15 | evidence investigation | Promote retrieved passages only after extraction and review | document-to-claim chain and evidence board | classify evidence state | structured-unstructured plan |
 | 16 | context assembly room | Add and remove runtime context controls | task packet exploded view | assemble and validate | AI Context Contract |
-| 17 | pipeline comparison lab | Rerun BI, RAG, graph, and agent paths and stop unsafe action | synchronized pipeline lanes and state machine | compare and govern | repeatability and action contract |
-| 18 | capstone design review | Defend one bounded One Water knowledge-spine pilot | pilot canvas, review panel, measure board | synthesize and defend | ninety-day pilot canvas |
+| 17 | pipeline comparison lab | Rerun BI, document RAG, graph retrieval, and context-engine paths | synchronized pipeline lanes and stage microscope | compare and diagnose | answer repeatability map |
+| 18 | agent authorization control room | Resolve act, ask, refresh, clarify, stop, retry, and verification states | two-key console, action state machine, envelope, flight recorder | govern and recover | agent action contract |
+| 19 | capstone design review | Defend one bounded One Water knowledge-spine pilot | pilot canvas, review panel, measure board | synthesize and defend | ninety-day pilot canvas |
 
 ## Shared shell boundary
 
@@ -56,8 +57,7 @@ debrief structure.
 
 ## Retrofit decision
 
-The existing fixed-page generator is not an approved production path. Modules 01 to 04 and 06 to 18
+The existing fixed-page generator is not an approved production path. Modules 01 to 04 and 06 to 19
 must be rebuilt from the archetypes above. Module 05 remains a content reference, but its page
 composition may not be copied. Release remains blocked until the rendered course passes the
 distinctiveness gate and the human review gates.
-

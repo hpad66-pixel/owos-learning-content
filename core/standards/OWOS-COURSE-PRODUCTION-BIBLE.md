@@ -511,6 +511,26 @@ Do not stop at scaffolding or source generation. Do not hand-edit delivery HTML.
 
 ## Phase 8: Author Studio
 
+### Control rule: where prompts are entered
+
+Author Studio is the permanent visual review and structured-content control surface. It does not
+currently contain a general-purpose prompt box. Every prompt printed in this Bible is entered in
+the active Codex course-production task. Codex prepares or revises the governed package; Author
+Studio is then used to inspect the result, compare responsive views, and record the owner's
+decision.
+
+The operating loop is:
+
+```text
+Prompt in Codex
+  -> governed structured-source change
+  -> deterministic compilation and automated checks
+  -> permanent Author Studio review candidate
+  -> owner finding or approval returned in Codex
+```
+
+Never send the owner to localhost, a repository path, a raw build folder, or a cryptic preview URL.
+
 ### Where it is
 
 Hardeep opens the permanent studio inside One Water OS:
@@ -563,10 +583,11 @@ interactions, assessment sequence, work product, evidence boundary, current scor
 gates before I inspect it.
 ```
 
-### Directions inside Author Studio
+### Directions that refer to Author Studio views
 
-Author Studio edits structured files, so instructions should name the view and intended learning
-change.
+Enter these directions in Codex after identifying the relevant Author Studio view. They are not
+typed into Author Studio. The instruction names the view so Codex changes only the corresponding
+governed source and returns a new review candidate.
 
 Good Narrative prompt:
 

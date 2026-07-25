@@ -108,7 +108,7 @@
     </div>
   </header>
   <div class="shell">
-    <div class="notice"><strong>Operating boundary</strong><span>This source of truth separates Codex production, owner review, named human review, and final release. No automated score or owner approval silently substitutes for a required specialist review.</span></div>
+    <div class="notice"><strong>Operating boundary</strong><span>This source of truth separates Codex production, Author Studio inspection, owner review, named human review, and final release. Enter every prompt in the active Codex task. Author Studio is the permanent visual review and structured-content control surface; it is not a general-purpose prompt box. No automated score or owner approval silently substitutes for a required specialist review.</span></div>
     <div class="route">
       <nav class="rail" aria-label="Production phases">
         <h2>Complete route</h2>
@@ -222,6 +222,7 @@ Spar with me. Challenge the topic, separate fact from my position, identify miss
               <div class="studio-tabs"><span>Design brief</span><span>Narrative</span><span>Storyboard</span><span>Visuals</span><span>Interactions</span><span>Assessments</span><span>Sources</span><span>Glossary</span><span>QA</span><span>Preview</span></div>
               <div class="studio-detail"><h3>What you open</h3><p><code>One Water OS → Author Studio → Courses</code></p><p>This is the permanent production workspace. It requires no local server, terminal command, or repository navigation. The Content Desk is a separate downstream publishing-approval queue.</p><a class="studio-link" href="https://owos.ai/capture#studio?tab=courses">Open Courses in One Water OS Author Studio</a><p>The governed structured source remains the source of truth. Release approval remains unavailable until required human reviews are recorded.</p></div>
             </div>
+            <div class="gate"><b>Where prompts go</b><span>Enter every prompt below in the active Codex course-production task. Codex changes the governed structured source, compiles and checks it, and returns a permanent Author Studio candidate. Use Author Studio to inspect Desktop, iPad, iPhone, zoom, narrative, visuals, interactions, assessments, evidence, and QA. Never use localhost, a repository path, or a raw build folder for owner review.</span></div>
             <div class="prompt-list">
               <div class="prompt"><div class="prompt-head">Open the studio <button class="copy" type="button">Copy</button></div><pre>Open One Water OS Author Studio for [COURSE] and [MODULE], navigate me to Courses, and summarize which views require review. Use the permanent production route, never localhost. Do not change approved source merely to make the page look different.</pre></div>
               <div class="prompt"><div class="prompt-head">Narrative instruction <button class="copy" type="button">Copy</button></div><pre>In Narrative, rewrite [CONCEPT] for [LEARNER]. Preserve the approved claim boundary, add [UTILITY EXAMPLE], and do not change the storyboard.</pre></div>

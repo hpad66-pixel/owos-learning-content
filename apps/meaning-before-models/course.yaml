@@ -35,9 +35,9 @@ structure:
 planned_structure:
   status: approved_blueprint_not_yet_released
   parts: 5
-  chapters: 19
-  chapter_range: "01-19"
-  delivery_boundary: Current live-review release remains eighteen chapters until the revised course passes its release gates.
+  chapters: 20
+  chapter_range: "01-20"
+  delivery_boundary: Current live-review release remains eighteen chapters until Modules 19 and 20 pass their separate design, production, human-review, and release gates.
 
 planning_effort:
   status: estimate_pending_pilot
@@ -118,6 +118,14 @@ delivery:
   runtime_store_key: mbm001
   runtime_canonical: /course-meaning-before-models
   learner_records: supabase
+
+completion_status:
+  curriculum_architecture: complete_20_modules
+  current_live_review_release: modules_01_18
+  module_19: design_ready_not_implemented
+  module_20: structured_prototype_not_release_ready
+  final_course_release: pending
+  authoritative_ledger: qa/COURSE-COMPLETION-LEDGER.md
   semantic_alignment: owos_knowledge_graph
   edge_delivery: cloudflare_pages_and_worker
   completion_events_enabled: false

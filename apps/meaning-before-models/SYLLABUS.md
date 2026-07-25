@@ -20,7 +20,7 @@ decision model.
 
 ## Format
 
-- Eighteen-module foundational master class in five parts
+- Twenty-module foundational master class in five parts
 - Estimated eighteen guided hours plus a six-hour capstone, pending pilot
 - Module 01 remains a complete fifteen-minute standalone primer
 - Foundation, Practitioner, and Leader instructional views
@@ -290,27 +290,43 @@ make a generative model deterministic?
 
 # Part V: Apply the backbone
 
-## Module 17: BI, RAG, Graph Grounding, and Agentic Applications
+## Module 17: BI, RAG, Graph Retrieval, and Context Engines
 
 Ask the same Pump P-104 question through joined tables and Power BI, document RAG, RDF graph
-retrieval, a context engine, and a graph-grounded agent.
+retrieval, and a context engine.
 
 Identify what may remain fixed and what may vary: source snapshot, mapping, query, graph, inference
 regime, validation shapes, retrieval, ranking, context assembly, prompt, model, decoding, tools, and
 external state.
 
-Carry the result through identify, query, retrieve, infer, validate, assemble context, explain,
-propose, authorize, act or stop, and record.
+Carry the result through identify, query, retrieve, infer, validate, assemble context, and explain.
 
-Simulation: compare three RAG answers with one evidence path, then test allowed, denied, stale,
-ambiguous, and approval-required agent cases.
+Simulation: rerun four answer paths and diagnose whether a changed source, mapping, query, retrieval,
+context, generation setting, or external state changed the evidence or wording.
 
-Work products: repeatability map and agent action contract.
+Work product: Answer Repeatability Map.
 
-FAQ focus: Does the graph replace RAG? Why can wording vary when evidence does not? Can an agent act
-because it has a correct answer?
+FAQ focus: Does the graph replace RAG? Why can wording vary when evidence does not? What must be
+recorded for a defensible rerun?
 
-## Module 18: Design the One Water Knowledge Spine
+## Module 18: Graph-Grounded Agentic Applications
+
+Begin after the system has produced a grounded proposal. Carry it through evidence fitness,
+validation, authentication, authorization, approval, execution, verification, and recording.
+
+Separate two independent questions: Is the proposal grounded well enough to consider, and may this
+actor perform this action now? Treat ACT, ASK, REFRESH, CLARIFY, and STOP as explicit controlled
+states.
+
+Simulation: govern five wastewater work-order cases, then recover tool timeouts and uncertain
+external state without creating duplicate side effects.
+
+Work product: Agent Action Contract.
+
+FAQ focus: Can a correct answer authorize action? What is idempotency? When should an agent stop?
+Who owns correction when an agent acts incorrectly?
+
+## Module 19: Design the One Water Knowledge Spine
 
 Choose a bounded operational question, not “build the enterprise graph.” Identify concepts,
 identities, sources, documents, mappings, graph patterns, validation shapes, inference boundaries,
@@ -330,18 +346,37 @@ Capstone: One Water Knowledge Spine Pilot Canvas and decision briefing.
 FAQ focus: Where should a utility start? How much graph is enough? What should the first 90 days
 produce? When should the team stop?
 
+## Module 20: One Water Knowledge Spine Lab
+
+Operate a full-screen HTML laboratory that carries one realistic utility question through identity,
+triples, graph construction, SPARQL traversal, SHACL validation, inference boundaries, governed
+evidence, runtime context, authorization, simulated action, verification, and audit.
+
+Begin with the Lift Station LS-7 and Overflow Event 21 wastewater scenario. Then switch to water,
+stormwater, or a guided learner-supplied use case. Build the pattern, introduce realistic failures,
+repair them, replay the result, and export a portable use-case configuration.
+
+Simulation: the entire module is a build, run, break, repair, and adapt laboratory.
+
+Work product: Portable One Water Knowledge Spine Use-Case Configuration contained within the HTML
+experience.
+
+FAQ focus: Is this connected to real utility systems? What parts can be reused? Why can a correct
+query still lead to a stopped action? How do we adapt the pattern safely?
+
 ## Completion rule
 
 ```text
-18 module checks passed
+20 module checks passed
 + required Utility Semantic Starter Pack artifacts saved
 + final transfer scenario passed
 + One Water Knowledge Spine Pilot Canvas submitted
++ Portable One Water Knowledge Spine Use-Case Configuration completed
 = course complete
 ```
 
 ## Approval note
 
-The master-class scope is approved direction. This eighteen-module blueprint remains a draft until
-the curriculum blueprint is explicitly approved. Lesson HTML, recording scripts, graph publication,
-credential claims, and release remain behind their separate approval gates.
+The twenty-module curriculum and lesson contracts are approved for design. Existing live-review
+modules remain governed by their recorded release states. Graph publication,
+credential claims, and final release remain behind their separate approval gates.

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:20",
+  "assessments": [
+    {
+      "assessment_id": "mbm20-opening",
+      "type": "multiple-choice",
+      "cognitive_job": "distinguish design approval from rehearsal evidence",
+      "prompt": "The approved pilot design fails its first identity and freshness tests. What should the team conclude?",
+      "options": [
+        {"text": "The rehearsal is doing its job by exposing what must be repaired before production", "correct": true},
+        {"text": "The architecture diagram proves the failures can be ignored", "correct": false},
+        {"text": "The agent should act before the evidence becomes more complicated", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. A rehearsal produces evidence about readiness and exposes repair or stop conditions.", "incorrect": "Design approval is permission to test the design, not evidence that the system works."},
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm20-triple-check",
+      "type": "matching",
+      "cognitive_job": "read utility triples by relationship job",
+      "prompt": "Match each statement to what it contributes to the graph.",
+      "targets": ["Event location", "Upstream path", "Inspection evidence", "Applicable procedure"],
+      "pairs": [
+        {"prompt": "Overflow_21 occurred_at LS_7", "answer": "Event location"},
+        {"prompt": "Pump_P204 pumps_to LS_7", "answer": "Upstream path"},
+        {"prompt": "Inspection_778 inspected Pump_P204", "answer": "Inspection evidence"},
+        {"prompt": "Procedure_WW12 applies_to Overflow_Response", "answer": "Applicable procedure"}
+      ],
+      "feedback": {"correct": "Correct. Each triple contributes one explicit relationship job.", "incorrect": "Read the predicate aloud and follow its direction."},
+      "completion_id": "triple-check"
+    },
+    {
+      "assessment_id": "mbm20-identity-check",
+      "type": "multi-select",
+      "cognitive_job": "evaluate identity evidence",
+      "prompt": "Which evidence supports a defensible LS-7 identity match?",
+      "options": [
+        {"text": "Matching coordinates and facility ownership", "correct": true},
+        {"text": "A governed crosswalk approved by the asset steward", "correct": true},
+        {"text": "Matching equipment and upstream connection evidence", "correct": true},
+        {"text": "Similar labels alone", "correct": false},
+        {"text": "The language model says the records probably match", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. Identity needs traceable evidence and accountable ownership.", "incorrect": "Remove label-only and model-opinion shortcuts."},
+      "completion_id": "identity-check"
+    },
+    {
+      "assessment_id": "mbm20-layer-check",
+      "type": "flip-cards",
+      "cognitive_job": "retrieve five-layer distinctions",
+      "prompt": "Predict each layer's job before turning the card.",
+      "cards": [
+        {"front": "Data model", "back": "Structures information for a system or use through entities, fields, keys, relationships, and constraints."},
+        {"front": "Ontology", "back": "Defines shared concepts, relationships, classifications, and selected semantic rules."},
+        {"front": "Semantic layer", "back": "Connects shared meaning to authoritative fields, tables, metrics, APIs, and documents."},
+        {"front": "Runtime AI context", "back": "Packages the evidence, definitions, policy, permissions, time, state, tools, and limits needed for this task now."}
+      ],
+      "feedback": {"correct": "The four jobs remain distinct and testable."},
+      "completion_id": "layer-check"
+    },
+    {
+      "assessment_id": "mbm20-validation-check",
+      "type": "multiple-choice",
+      "cognitive_job": "separate conformance from truth",
+      "prompt": "Inspection 778 now conforms to its SHACL shape. What has been proven?",
+      "options": [
+        {"text": "The tested graph satisfies the declared constraints", "correct": true},
+        {"text": "The inspection definitely occurred exactly as recorded", "correct": false},
+        {"text": "Pump P-204 caused Overflow Event 21", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. SHACL reports conformance to declared constraints, not real-world truth or causation.", "incorrect": "Keep structural validation separate from factual accuracy and causal judgment."},
+      "completion_id": "validation-check"
+    },
+    {
+      "assessment_id": "mbm20-inference-check",
+      "type": "multiple-choice",
+      "cognitive_job": "bound logical inference",
+      "prompt": "The graph asserts that Inspection 778 found a seal leak on Pump P-204. Which conclusion is defensible under the laboratory rule?",
+      "options": [
+        {"text": "Pump P-204 requires inspection", "correct": true},
+        {"text": "Pump P-204 caused Overflow Event 21", "correct": false},
+        {"text": "Every pump upstream of LS-7 has a seal leak", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. The bounded rule supports inspection need, not event causation or generalization.", "incorrect": "Use only the declared rule and asserted evidence."},
+      "completion_id": "inference-check"
+    },
+    {
+      "assessment_id": "mbm20-authority-check",
+      "type": "multi-select",
+      "cognitive_job": "apply the agent action boundary",
+      "prompt": "Which actions remain inside the simulated operator's boundary?",
+      "options": [
+        {"text": "Present the grounded evidence path", "correct": true},
+        {"text": "Request current inspection evidence", "correct": true},
+        {"text": "Create one draft inspection work order after approval", "correct": true},
+        {"text": "Assign Priority 1 without the named supervisor", "correct": false},
+        {"text": "Dispatch a crew or change a pump setting", "correct": false}
+      ],
+      "feedback": {"correct": "Correct. Evidence, refresh, and one approved draft remain inside the boundary.", "incorrect": "Remove priority, dispatch, and operational control."},
+      "completion_id": "authority-check"
+    },
+    {
+      "assessment_id": "mbm20-use-case-configuration",
+      "type": "applied-work-product",
+      "title": "Portable One Water Knowledge Spine Use-Case Configuration",
+      "cognitive_job": "adapt and defend the complete governed pattern",
+      "prompt": "Configure one bounded water, wastewater, stormwater, or learner-supplied use case. The artifact is a planning configuration, not production code or authorization.",
+      "required_fields": [
+        "question_decision_action",
+        "entities_relationships",
+        "identity_evidence",
+        "sources_access",
+        "query_path",
+        "validation_inference",
+        "provenance_freshness",
+        "runtime_context",
+        "authority_controls",
+        "failure_recovery",
+        "verification_audit",
+        "measures_stops"
+      ],
+      "field_labels": {
+        "question_decision_action": "Bounded question, decision, user, owner, and permitted action",
+        "entities_relationships": "Required entities and five to fifteen explicit relationships",
+        "identity_evidence": "Identifiers, crosswalk evidence, conflicts, and steward",
+        "sources_access": "Structured and unstructured sources with virtual, indexed, cached, or materialized access",
+        "query_path": "Competency question, readable query pattern, expected result, and evidence path",
+        "validation_inference": "Required shapes, permitted inferences, unknowns, and prohibited conclusions",
+        "provenance_freshness": "Source, authority, time, version, supersession, and freshness controls",
+        "runtime_context": "Required, optional, prohibited, time-controlled, and permission-controlled context",
+        "authority_controls": "Authenticated role, policy, approval, tool scope, parameters, and prohibited actions",
+        "failure_recovery": "Stale, ambiguous, denied, timeout, duplicate, failed execution, and correction responses",
+        "verification_audit": "Expected postcondition, readback, audit events, owners, and retention",
+        "measures_stops": "Baseline, target, acceptance tests, stop conditions, and review decision"
+      },
+      "textarea_fields": [
+        "question_decision_action",
+        "entities_relationships",
+        "identity_evidence",
+        "sources_access",
+        "query_path",
+        "validation_inference",
+        "provenance_freshness",
+        "runtime_context",
+        "authority_controls",
+        "failure_recovery",
+        "verification_audit",
+        "measures_stops"
+      ],
+      "feedback": {
+        "correct": "Your configuration preserves the complete governed question-to-action pattern and its stop conditions.",
+        "incorrect": "Complete every meaning, evidence, context, authority, verification, audit, and measurement boundary."
+      },
+      "completion_id": "use-case-configuration"
+    }
+  ]
+}
+
