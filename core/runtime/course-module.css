@@ -1047,6 +1047,14 @@ footer {
 .query-console { border-radius: 16px; padding: 1rem; background: #101c2d; color: #f8fafc; min-height: 18rem; }
 .query-console pre { white-space: pre-wrap; color: #9ee7dc; }
 .query-effect { margin-top: 1rem; padding: .8rem; border-left: 4px solid #fbbf24; background: #172943; }
+.decision-case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.decision-case { border: 1px solid #aab9c5; border-radius: 16px; padding: 1rem; background: #fff; box-shadow: 0 10px 24px rgba(15, 32, 50, .06); }
+.decision-case h4 { margin: .35rem 0 .7rem; }
+.decision-case .case-label { color: #755019; font-size: .74rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.case-evidence, .case-rule { border-left: 4px solid #5f7891; background: #f2f6f8; padding: .75rem; margin: .65rem 0; }
+.case-rule { border-color: #c97626; background: #fff6e8; }
+.decision-case.passed { border-color: #15865f; box-shadow: inset 0 0 0 2px #b8ead6; }
+.decision-case.failed { border-color: #b94343; }
 
 @media (max-width: 760px) {
   .shell {
@@ -1129,7 +1137,8 @@ footer {
   }
 
   .canvas-grid,
-  .query-lab {
+  .query-lab,
+  .decision-case-grid {
     grid-template-columns: 1fr;
   }
 

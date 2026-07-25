@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:11",
+  "assessments": [
+    {
+      "assessment_id": "mbm11-opening",
+      "type": "multiple-choice",
+      "cognitive_job": "identify missing governance context",
+      "prompt": "What is missing when five RDF claims conflict?",
+      "options": [
+        {
+          "text": "Provenance, authority scope, time, version, and governing-use policy",
+          "correct": true
+        },
+        {
+          "text": "More colorful graph nodes",
+          "correct": false
+        },
+        {
+          "text": "A rule that always selects the newest record",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The decision follows the declared evidence boundary.",
+        "incorrect": "Recheck what is asserted, controlled, and still unknown."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm11-provenance",
+      "type": "flip-cards",
+      "cognitive_job": "retrieve provenance chain roles",
+      "prompt": "Name the provenance role before turning each evidence card.",
+      "cards": [
+        {
+          "front": "Entity",
+          "back": "A thing such as a raw sensor packet or published claim."
+        },
+        {
+          "front": "Activity",
+          "back": "A process such as ingestion, normalization, extraction, or review."
+        },
+        {
+          "front": "Agent",
+          "back": "A person, organization, or system responsible for an activity."
+        },
+        {
+          "front": "Source reference",
+          "back": "A durable locator and integrity clue connecting the claim to evidence."
+        }
+      ],
+      "feedback": {
+        "correct": "The claim now has a production chain rather than a loose citation."
+      },
+      "completion_id": "provenance"
+    },
+    {
+      "assessment_id": "mbm11-time",
+      "type": "multiple-choice",
+      "cognitive_job": "select relevant time",
+      "prompt": "A permit was uploaded today but became effective three months ago. Which time governs a decision made last month?",
+      "options": [
+        {
+          "text": "The permit effective interval",
+          "correct": true
+        },
+        {
+          "text": "Today's upload time only",
+          "correct": false
+        },
+        {
+          "text": "The language model response time",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Governing effect and system record history are separate clocks.",
+        "incorrect": "Use the time dimension that answers when the rule governed."
+      },
+      "completion_id": "time"
+    },
+    {
+      "assessment_id": "mbm11-authority",
+      "type": "multi-select",
+      "cognitive_job": "apply scoped authority",
+      "prompt": "Which statements are defensible?",
+      "options": [
+        {
+          "text": "Authority is scoped to subject and use",
+          "correct": true
+        },
+        {
+          "text": "Superseded claims should retain history",
+          "correct": true
+        },
+        {
+          "text": "The newest timestamp always wins",
+          "correct": false
+        },
+        {
+          "text": "PROV-O records provenance but does not assign organizational authority",
+          "correct": true
+        },
+        {
+          "text": "A high confidence score creates legal authority",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. You separated evidence history from governing policy.",
+        "incorrect": "Do not let recency, confidence, or a system label silently create authority."
+      },
+      "completion_id": "authority"
+    },
+    {
+      "assessment_id": "mbm11-authority-ledger",
+      "type": "applied-work-product",
+      "title": "Authority, Provenance, and Time Ledger",
+      "cognitive_job": "package evidence for a bounded decision",
+      "prompt": "Document a contested claim and its complete decision envelope.",
+      "required_fields": [
+        "claim",
+        "source",
+        "production_activity",
+        "responsible_agent",
+        "observation_time",
+        "record_time",
+        "effective_interval",
+        "version",
+        "authority_scope",
+        "review_state",
+        "supersession",
+        "access_boundary",
+        "decision_use"
+      ],
+      "field_labels": {
+        "claim": "Claim",
+        "source": "Source and locator",
+        "production_activity": "How it was produced or transformed",
+        "responsible_agent": "Person system or organization",
+        "observation_time": "Observation time",
+        "record_time": "Record time",
+        "effective_interval": "Effective interval",
+        "version": "Version",
+        "authority_scope": "Authority scope",
+        "review_state": "Review state",
+        "supersession": "Supersession relationship",
+        "access_boundary": "Permissions and sensitivity",
+        "decision_use": "Governing supporting superseded or hold for this use"
+      },
+      "textarea_fields": [
+        "claim",
+        "source",
+        "production_activity",
+        "responsible_agent",
+        "observation_time",
+        "record_time",
+        "effective_interval",
+        "version",
+        "authority_scope",
+        "review_state",
+        "supersession",
+        "access_boundary",
+        "decision_use"
+      ],
+      "feedback": {
+        "correct": "Your ledger gives an agent a bounded claim with visible provenance, time, and authority.",
+        "incorrect": "Complete every evidence-envelope field before permitting decision use."
+      },
+      "completion_id": "authority-ledger"
+    }
+  ]
+}

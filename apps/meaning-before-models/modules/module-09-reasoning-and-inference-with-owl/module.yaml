@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:09",
+    "slug": "module-09-reasoning-and-inference-with-owl",
+    "title": "Reasoning and Inference with OWL",
+    "eyebrow": "Meaning Before Models, Module 09",
+    "promise": "Separate asserted facts from justified entailments, inspect a proof trace, and prevent a logical conclusion from becoming an unauthorized operating decision.",
+    "duration": "70 to 85 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "model-courtroom",
+    "signature_mechanism": "owl-model-court",
+    "source_version": "0.2.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Data GIS IT OT engineering governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Explain assertion inference and entailment in plain language",
+      "Read an evidence-rule-conclusion proof trace",
+      "Distinguish known true known false and unknown",
+      "Recognize inverse transitive equivalent-class and class-membership entailments",
+      "Set an operational-use boundary for inferred statements"
+    ],
+    "prior_knowledge": "The learner understands RDF triples, graph paths, vocabularies, ontologies, and SPARQL patterns.",
+    "misconception": "A reasoner predicts reality, fills every gap, or authorizes an operational action.",
+    "transfer_task": "Review an inferred upstream relationship and document whether it may support discovery, analysis, or action."
+  },
+  "sections": [
+    {
+      "section_id": "opening",
+      "title": "The graph contains more than anyone typed",
+      "kind": "Court opening",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Riverbend has asserted that Pump P-104 serves Pressure Zone 3. Its ontology declares serves as the inverse of isServedBy. A reasoner can therefore entail that Pressure Zone 3 isServedBy Pump P-104. Nobody typed the second statement, and no language model guessed it. The declared semantics made it follow.",
+            "That simple distinction is the heart of OWL reasoning. An assertion is stated. An entailment follows from stated information under formal semantics. An inference is the process or result of making that entailed statement available."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm09-assertion-docket"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm09-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "proof",
+      "title": "An inference should arrive with its proof path",
+      "kind": "Proof trace",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Read the proof from bottom to top. The conclusion is admissible only because the asserted premises and the declared axiom support it. If the axiom changes, the entailment may change. If a premise is wrong, the logic can still be valid while the real-world conclusion is wrong.",
+            "For utility work, record the ontology version, reasoning profile, premises, conclusion, and run time. That receipt lets a steward reproduce and challenge the result."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm09-proof-trace"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm09-proof"
+        }
+      ]
+    },
+    {
+      "section_id": "unknown",
+      "title": "Missing is usually unknown, not false",
+      "kind": "Open-world field",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "OWL normally operates with an open-world assumption. If the graph does not say that Valve V-17 isolates Main M-9, you usually cannot conclude that it does not. The relationship may simply be absent from the available graph.",
+            "A negative assertion is different. If an authoritative source explicitly supports a negative statement and the ontology models it, that may be known false for the scoped claim. Otherwise hold the question as unknown."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm09-open-world-field"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm09-open-world"
+        }
+      ]
+    },
+    {
+      "section_id": "court",
+      "title": "Hear five proposed utility inferences",
+      "kind": "OWL Model Court",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Open each case like a judge. First identify the assertion. Then read the axiom. Ask whether the proposed conclusion follows exactly. Admit a supported entailment, reject a logical leap, or hold a case when the graph does not establish either truth or falsity.",
+            "The court intentionally mixes safe formal consequences with tempting operational assumptions. Read the explanation after every ruling."
+          ]
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm09-inference-court"
+        }
+      ]
+    },
+    {
+      "section_id": "boundary",
+      "title": "Logical validity and operating authority are different gates",
+      "kind": "Use boundary",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "An inferred relationship can help discovery, query expansion, classification, impact analysis, or explanation. It does not automatically prove current physical condition, risk, safety, or permission to operate equipment.",
+            "Use a second gate for action: current evidence, operating policy, permissions, accountable review, and uncertainty must still be satisfied."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm09-inference-boundary"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm09-boundary"
+        }
+      ]
+    },
+    {
+      "section_id": "artifact",
+      "title": "Write the boundary before an agent uses the inference",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Choose one inference your utility might expose to analytics or an AI agent. Record the premises and axiom in language a nontechnical reviewer can understand. Then separate allowed uses from prohibited uses.",
+            "The finished card is a control artifact, not a souvenir. Attach it to the ontology change, query product, or agent tool that relies on the inference."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm09-boundary-card"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "Is OWL artificial intelligence?",
+              "answer": "OWL is a formal ontology language. A reasoner can derive logical consequences from declared semantics. That is different from a generative model producing likely text."
+            },
+            {
+              "question": "Does inference create new data?",
+              "answer": "It can make an entailed statement explicit or queryable. The conclusion depends on existing assertions and axioms, so its proof should remain visible."
+            },
+            {
+              "question": "Why does absence mean unknown?",
+              "answer": "The graph may be incomplete. Under open-world semantics, a missing statement is normally not enough to assert its opposite."
+            },
+            {
+              "question": "Can an inference trigger a valve operation?",
+              "answer": "Not by itself. Operational action needs current evidence, policy, authorization, safety controls, and accountable review."
+            },
+            {
+              "question": "What is an OWL profile?",
+              "answer": "A profile is a defined subset of OWL designed for particular reasoning and implementation tradeoffs. Record which profile and reasoner your use case relies on."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "OWL entailments follow declared semantics and available assertions. They are not predictions, real-world verification, or operating authorization.",
+          "source_refs": [
+            "w3c-owl-primer",
+            "w3c-rdf-concepts"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "proof",
+      "open-world",
+      "inference-court",
+      "boundary",
+      "boundary-card"
+    ],
+    "rule": "Complete the opening, proof trace, open-world check, five-case model court, use boundary, and Inference Boundary Card."
+  }
+}

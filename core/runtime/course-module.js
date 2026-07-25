@@ -469,6 +469,29 @@
     });
   });
 
+  [
+    ["[data-inference-court]", "[data-inference-case]", "[data-inference-choice]", "inferenceChoice", "The court has resolved every proposed inference."],
+    ["[data-shacl-clinic]", "[data-shacl-case]", "[data-shacl-choice]", "shaclChoice", "Every record now has a defensible validation disposition."],
+    ["[data-evidence-reconciliation]", "[data-evidence-case]", "[data-evidence-choice]", "evidenceChoice", "Every claim now has an explicit governing-use disposition."]
+  ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
+    document.querySelectorAll(labSelector).forEach((lab) => {
+      const cases = [...lab.querySelectorAll(caseSelector)];
+      const feedback = lab.querySelector("[data-feedback]");
+      cases.forEach((card) => card.querySelectorAll(choiceSelector).forEach((button) => button.addEventListener("click", () => {
+        const correct = button.dataset[choiceKey] === card.dataset.answer;
+        card.querySelectorAll(choiceSelector).forEach((item) => item.classList.toggle("selected", item === button));
+        card.classList.toggle("passed", correct);
+        card.classList.toggle("failed", !correct);
+        card.dataset.passed = String(correct);
+        card.querySelector("[data-item-feedback]").textContent = correct ? card.dataset.explanation : `Reopen the evidence and declared control. ${card.dataset.explanation}`;
+        const passed = cases.filter((item) => item.dataset.passed === "true").length;
+        feedback.textContent = passed === cases.length ? success : `${passed} of ${cases.length} cases resolved correctly.`;
+        feedback.className = `feedback ${passed === cases.length ? "good" : ""}`;
+        if (passed === cases.length) mark(lab.dataset.completion);
+      })));
+    });
+  });
+
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();

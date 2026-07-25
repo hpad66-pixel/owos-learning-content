@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:10",
+    "slug": "module-10-validation-with-shacl",
+    "title": "Validation with SHACL",
+    "eyebrow": "Meaning Before Models, Module 10",
+    "promise": "Read a SHACL result as a precise diagnostic, repair or route the issue, rerun validation, and state exactly what conformance does not prove.",
+    "duration": "70 to 85 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "validation-clinic",
+    "signature_mechanism": "shacl-validation-clinic",
+    "source_version": "0.2.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Data GIS IT OT engineering governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Explain SHACL in plain language",
+      "Distinguish a data graph from a shapes graph",
+      "Read focus node path constraint severity and message",
+      "Repair and rerun a validation case",
+      "Separate conformance from truth completeness safety and fitness"
+    ],
+    "prior_knowledge": "The learner understands triples classes properties and ontology terms.",
+    "misconception": "A conforming graph is complete true safe and fit for every operational use.",
+    "transfer_task": "Write and test a small utility data contract for an asset sample work order exposure or outfall."
+  },
+  "sections": [
+    {
+      "section_id": "intake",
+      "title": "A plausible record can still break the contract",
+      "kind": "Clinic intake",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Pump P-104 appears in the asset graph with a label, station, and status. It looks reasonable to a person. Yet the record has no durable asset identifier and its rated flow has no unit. A downstream agent can retrieve the number but cannot safely interpret it.",
+            "SHACL, pronounced \"shackle,\" lets a team describe testable expectations for RDF data. A shapes graph declares what to check. A validation engine evaluates a data graph and produces a results graph."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm10-shape-record"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm10-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "report",
+      "title": "A useful failure points to the exact place",
+      "kind": "Diagnostic report",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A SHACL result should not merely say bad data. It identifies the focus node being checked, the result path, the constraint component, severity, source shape, and a human-readable message.",
+            "That precision turns validation into a governed workflow. A steward can repair the value, route an exception, or challenge the shape itself."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm10-result-report"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm10-report"
+        }
+      ]
+    },
+    {
+      "section_id": "clinic",
+      "title": "Repair the record, then rerun the contract",
+      "kind": "SHACL Validation Clinic",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Each clinic case contains a record, a declared constraint, and three possible dispositions. Select the repair that satisfies the stated shape without inventing evidence.",
+            "A valid repair changes the data or routes a governed exception. The validator must run again. Editing the report itself does not repair the graph."
+          ]
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm10-shacl-clinic"
+        }
+      ]
+    },
+    {
+      "section_id": "cycle",
+      "title": "Validation belongs in a repeatable lifecycle",
+      "kind": "Repair and rerun",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Shapes should be versioned, tested, reviewed, and released like other executable controls. Run them at ingestion, transformation, publication, or before an agent receives context, based on risk and latency.",
+            "Treat warning, information, and violation severities according to local policy. Severity labels do not create the policy by themselves."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm10-repair-cycle"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm10-severity"
+        }
+      ]
+    },
+    {
+      "section_id": "truth",
+      "title": "Conforms is not the same as true",
+      "kind": "Truth boundary",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A record can conform and still describe the wrong pump. A required inspection date can be present yet fabricated. A shape can omit a safety-critical requirement. Conformance means the evaluated graph satisfied the declared shapes under that validation run.",
+            "Use validation alongside provenance, authority, reconciliation, sensor quality controls, and practitioner review."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm10-conformance-boundary"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm10-boundary"
+        }
+      ]
+    },
+    {
+      "section_id": "contract",
+      "title": "Turn one expectation into an inspectable contract",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Choose one utility class and write only the constraints needed for a real decision. Name the owner and exception route. Include passing and failing test cases so future changes can be checked.",
+            "The work product should tell a steward what to fix and tell an agent when not to proceed."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm10-shacl-contract"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "Is SHACL the same as a database schema?",
+              "answer": "Both can enforce structure, but SHACL validates RDF graphs using shapes and graph paths. It can sit across mapped and federated data rather than belonging to one table."
+            },
+            {
+              "question": "Does SHACL correct data automatically?",
+              "answer": "SHACL reports conformance results. A separate governed process may repair data or route exceptions."
+            },
+            {
+              "question": "Can a conforming record still be wrong?",
+              "answer": "Yes. A value may satisfy datatype and range constraints while misrepresenting reality. Provenance and verification are separate."
+            },
+            {
+              "question": "Should every warning block an agent?",
+              "answer": "Not automatically. Your policy maps result severity and use case risk to continue, hold, review, or reject."
+            },
+            {
+              "question": "Who owns a shape?",
+              "answer": "A domain owner should own its business meaning while data stewards and platform teams help implement and test it."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "SHACL evaluates an RDF data graph against declared shapes. Conformance is relative to those shapes and does not establish truth, completeness, safety, or universal fitness.",
+          "source_refs": [
+            "w3c-shacl",
+            "w3c-rdf-concepts"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "report",
+      "shacl-clinic",
+      "severity",
+      "boundary",
+      "shacl-contract"
+    ],
+    "rule": "Complete intake, report anatomy, five-case clinic, lifecycle check, truth boundary, and Utility SHACL Contract."
+  }
+}

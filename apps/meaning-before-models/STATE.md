@@ -165,7 +165,20 @@ override a blocked hard gate.
 
 ## Next action
 
-Begin Module 09.
+Complete the approved Modules 09 to 11 structured batch through source packages, original visual
+assets, simulations, browser QA, Git publication, platform intake, deployment, and public
+verification.
+
+## Modules 09 to 11 batch design start
+
+- Module 09 is locked as a model courtroom with assertion exhibits, declared axioms, proof traces,
+  open-world states, and an Inference Boundary Card.
+- Module 10 is locked as a validation clinic with shape-to-data comparison, focus-node reports,
+  repair-and-rerun behavior, and a Utility SHACL Contract.
+- Module 11 is locked as an evidence-reconciliation room with production chains, dual timelines,
+  scoped authority, supersession, and an Authority, Provenance, and Time Ledger.
+- The batch preserves three hard distinctions: OWL entailment is not prediction, SHACL conformance
+  is not truth, and provenance does not automatically confer authority.
 
 ## Progressive Modules 06 to 08 structured batch
 
@@ -245,3 +258,42 @@ Begin Module 09.
 - Whole-course conformance, course distinctiveness, course QA, release checksum, and structured
   authoring audits pass.
 - The generated release manifest contains 34 checksum-controlled files.
+
+## Progressive Modules 09 to 11 structured batch
+
+### Module 09
+
+- Archetype: model courtroom
+- Signature mechanism: five-case OWL Model Court
+- Four original visual types and Inference Boundary Card
+- Package checksum: `0a028ddb79b434515387a9efe6dc585a0b5c316c4a1d70bbe4c95623d45f9422`
+
+### Module 10
+
+- Archetype: validation clinic
+- Signature mechanism: five-record SHACL Validation Clinic
+- Four original visual types and Utility SHACL Contract
+- Package checksum: `a3678fa1a1c43546327495164c5fb7468807b508496c45b9c9ea102134c91a24`
+
+### Module 11
+
+- Archetype: evidence reconciliation room
+- Signature mechanism: five-claim Evidence Reconciliation Hearing
+- Four original visual types and Authority, Provenance, and Time Ledger
+- Package checksum: `a1e9ccfec099d25183bf39d32342b607daca2d13fe28a7857a48bcc4ca812260`
+
+### Batch evidence before publication
+
+- Nine local and nine packaged browser runs passed across desktop, tablet, and phone.
+- All twelve original visual assets loaded and all twelve visual classes are distinct.
+- All three signature interactions, distributed assessments, flip cards, work products, drawers,
+  focus return, and completion paths passed.
+- Runtime errors: zero. Horizontal overflow: zero. Phone reduced-motion maximum: 0.01 milliseconds.
+- Compiler, whole-course conformance, course distinctiveness, structured-authoring,
+  release-manifest, and formatting gates passed.
+- The release manifest contains 73 checksum-controlled files.
+
+## Next action
+
+Commit and push the exact learning release, import that commit into the OWOS platform, run platform
+release checks, deploy production, and verify all three public pages and checksums.

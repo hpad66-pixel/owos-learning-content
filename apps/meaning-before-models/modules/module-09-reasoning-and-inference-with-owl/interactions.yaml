@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:09",
+  "interactions": [
+    {
+      "interaction_id": "mbm09-inference-court",
+      "component": "inference-court",
+      "title": "The OWL Model Court",
+      "teaching_purpose": "Judge whether proposed conclusions follow from assertions and axioms.",
+      "instructions": "Read each evidence packet and declared axiom. Choose Admit, Reject, or Hold. Correct every ruling to close the docket.",
+      "completion_id": "inference-court",
+      "config": {
+        "choices": [
+          "Admit",
+          "Reject",
+          "Hold"
+        ],
+        "cases": [
+          {
+            "label": "Inverse property",
+            "claim": "Zone 3 is served by Pump P-104.",
+            "evidence": "Asserted: Pump P-104 serves Zone 3.",
+            "rule": "serves is declared inverseOf isServedBy.",
+            "answer": "Admit",
+            "explanation": "The inverse-property axiom supports the conclusion exactly."
+          },
+          {
+            "label": "Transitive path",
+            "claim": "Tank T-2 is upstream of Customer C-9.",
+            "evidence": "Asserted: T-2 upstreamOf J-4; J-4 upstreamOf C-9.",
+            "rule": "upstreamOf is declared transitive for this modeled network relation.",
+            "answer": "Admit",
+            "explanation": "The two asserted links and transitive axiom entail the longer path."
+          },
+          {
+            "label": "Equivalent class",
+            "claim": "Sample S-8 is a ComplianceSample.",
+            "evidence": "S-8 hasPurpose Regulatory and hasReviewState Approved.",
+            "rule": "ComplianceSample is equivalent to samples satisfying both restrictions.",
+            "answer": "Admit",
+            "explanation": "The class definition and both asserted properties support classification."
+          },
+          {
+            "label": "Operational leap",
+            "claim": "Pump P-104 is safe to restart.",
+            "evidence": "The graph entails P-104 serves Zone 3 and has an open work order.",
+            "rule": "No safety or restart authorization axiom is declared.",
+            "answer": "Reject",
+            "explanation": "Connectivity and work status do not entail safe restart."
+          },
+          {
+            "label": "Missing statement",
+            "claim": "Valve V-17 does not isolate Main M-9.",
+            "evidence": "No isolates relationship is present for V-17 and M-9.",
+            "rule": "Open-world semantics; no explicit negative assertion is available.",
+            "answer": "Hold",
+            "explanation": "Absence leaves the claim unknown rather than known false."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:10",
+  "assessments": [
+    {
+      "assessment_id": "mbm10-opening",
+      "type": "flip-cards",
+      "cognitive_job": "retrieve the two graphs and the validation result",
+      "prompt": "Say the role before turning each clinic card.",
+      "cards": [
+        {
+          "front": "Data graph",
+          "back": "The RDF records being evaluated."
+        },
+        {
+          "front": "Shapes graph",
+          "back": "The declared targets and constraints used for validation."
+        },
+        {
+          "front": "Results graph",
+          "back": "The validation report and its individual diagnostic results."
+        }
+      ],
+      "feedback": {
+        "correct": "You can now keep the records, executable contract, and diagnostic output separate."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm10-report",
+      "type": "matching",
+      "cognitive_job": "read a validation result",
+      "prompt": "Match each SHACL result field to its job.",
+      "targets": [
+        "Focus node",
+        "Result path",
+        "Constraint",
+        "Severity"
+      ],
+      "pairs": [
+        {
+          "prompt": "Pump P-104",
+          "answer": "Focus node"
+        },
+        {
+          "prompt": "ratedFlowUnit",
+          "answer": "Result path"
+        },
+        {
+          "prompt": "minCount 1",
+          "answer": "Constraint"
+        },
+        {
+          "prompt": "Violation",
+          "answer": "Severity"
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The diagnostic identifies where, why, and how seriously the shape failed.",
+        "incorrect": "Locate the node, property path, rule, and policy signal separately."
+      },
+      "completion_id": "report"
+    },
+    {
+      "assessment_id": "mbm10-severity",
+      "type": "multiple-choice",
+      "cognitive_job": "apply validation lifecycle",
+      "prompt": "A steward repairs the missing unit. What must happen next?",
+      "options": [
+        {
+          "text": "Rerun validation against the governed shape version",
+          "correct": true
+        },
+        {
+          "text": "Edit the result report to say conforming",
+          "correct": false
+        },
+        {
+          "text": "Assume all other records are now valid",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Conformance is established by a new validation run.",
+        "incorrect": "Repair the graph, preserve the evidence, and rerun the executable contract."
+      },
+      "completion_id": "severity"
+    },
+    {
+      "assessment_id": "mbm10-boundary",
+      "type": "multi-select",
+      "cognitive_job": "separate conformance from truth",
+      "prompt": "Which statements are defensible?",
+      "options": [
+        {
+          "text": "Conformance is relative to declared shapes",
+          "correct": true
+        },
+        {
+          "text": "A conforming value can still be factually wrong",
+          "correct": true
+        },
+        {
+          "text": "Shapes should have owners versions and tests",
+          "correct": true
+        },
+        {
+          "text": "Passing SHACL proves operational safety",
+          "correct": false
+        },
+        {
+          "text": "Every missing value should be invented to pass",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Validation is powerful because its boundary is explicit.",
+        "incorrect": "Do not promote structural conformance into truth or safety."
+      },
+      "completion_id": "boundary"
+    },
+    {
+      "assessment_id": "mbm10-shacl-contract",
+      "type": "applied-work-product",
+      "title": "Utility SHACL Contract",
+      "cognitive_job": "specify a governed validation contract",
+      "prompt": "Define a small testable utility shape and its operating boundary.",
+      "required_fields": [
+        "target_class",
+        "property_paths",
+        "constraints",
+        "severity",
+        "messages",
+        "owner",
+        "exception_policy",
+        "remediation_route",
+        "test_cases",
+        "truth_boundary"
+      ],
+      "field_labels": {
+        "target_class": "Target class",
+        "property_paths": "Property paths",
+        "constraints": "Cardinality datatype range or controlled-value constraints",
+        "severity": "Severity policy",
+        "messages": "Steward-facing messages",
+        "owner": "Domain owner",
+        "exception_policy": "Exception policy",
+        "remediation_route": "Repair and review route",
+        "test_cases": "Passing and failing test cases",
+        "truth_boundary": "What conformance does not prove"
+      },
+      "textarea_fields": [
+        "target_class",
+        "property_paths",
+        "constraints",
+        "severity",
+        "messages",
+        "owner",
+        "exception_policy",
+        "remediation_route",
+        "test_cases",
+        "truth_boundary"
+      ],
+      "feedback": {
+        "correct": "Your Utility SHACL Contract is testable, owned, and honest about its limits.",
+        "incorrect": "Complete every field including test cases and truth boundary."
+      },
+      "completion_id": "shacl-contract"
+    }
+  ]
+}

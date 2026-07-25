@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:10",
+  "interactions": [
+    {
+      "interaction_id": "mbm10-shacl-clinic",
+      "component": "shacl-clinic",
+      "title": "The SHACL Validation Clinic",
+      "teaching_purpose": "Diagnose and remediate exact graph-shape failures.",
+      "instructions": "Inspect the record and constraint. Choose Repair, Route exception, or Reject proposed fix. Correct every disposition.",
+      "completion_id": "shacl-clinic",
+      "config": {
+        "choices": [
+          "Repair",
+          "Route exception",
+          "Reject proposed fix"
+        ],
+        "cases": [
+          {
+            "label": "Pump identity",
+            "claim": "P-104 lacks the required durable asset identifier.",
+            "evidence": "Focus: Pump P-104 • Path: assetIdentifier • minCount 1",
+            "rule": "Add the verified CMMS asset identifier and preserve its source.",
+            "answer": "Repair",
+            "explanation": "A verified identifier satisfies the declared minimum-count requirement."
+          },
+          {
+            "label": "Sample unit",
+            "claim": "Sample S-22 reports 0.4 with no measurement unit.",
+            "evidence": "Focus: Sample S-22 • Path: unit • minCount 1",
+            "rule": "The laboratory result packet names mg/L as the reviewed unit.",
+            "answer": "Repair",
+            "explanation": "The source supplies the missing unit, so the data graph can be repaired and rerun."
+          },
+          {
+            "label": "Work order role",
+            "claim": "WO-4821 has an assignee name but no controlled role.",
+            "evidence": "Focus: WO-4821 • Path: accountableRole • in approved role list",
+            "rule": "No reviewed role is available in the source packet.",
+            "answer": "Route exception",
+            "explanation": "Do not invent a role. Hold or route the record for accountable review."
+          },
+          {
+            "label": "Exposure date",
+            "claim": "The proposed fix copies today's date into effectiveFrom.",
+            "evidence": "Focus: Exposure E-9 • Path: effectiveFrom • minCount 1",
+            "rule": "The actual effective time is unavailable.",
+            "answer": "Reject proposed fix",
+            "explanation": "A syntactically valid invented date would conform while corrupting meaning."
+          },
+          {
+            "label": "Outfall status",
+            "claim": "Outfall O-7 uses value 'mostly active' outside the controlled list.",
+            "evidence": "Focus: Outfall O-7 • Path: operatingStatus • sh:in Active, Inactive, Seasonal",
+            "rule": "The approved permit record states Seasonal.",
+            "answer": "Repair",
+            "explanation": "Map the reviewed source value to the controlled term Seasonal and rerun validation."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:09",
+  "assessments": [
+    {
+      "assessment_id": "mbm09-opening",
+      "type": "multiple-choice",
+      "cognitive_job": "separate assertion and entailment",
+      "prompt": "Which statement was typed directly into the graph?",
+      "options": [
+        {
+          "text": "Pump P-104 serves Zone 3",
+          "correct": true
+        },
+        {
+          "text": "Zone 3 isServedBy Pump P-104 because the inverse axiom entails it",
+          "correct": false
+        },
+        {
+          "text": "Pump P-104 is safe because the model sounds confident",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The decision follows the declared evidence boundary.",
+        "incorrect": "Recheck what is asserted, controlled, and still unknown."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm09-proof",
+      "type": "matching",
+      "cognitive_job": "read a proof trace",
+      "prompt": "Match each proof element to its role.",
+      "targets": [
+        "Premise",
+        "Axiom",
+        "Entailed conclusion",
+        "Operational policy"
+      ],
+      "pairs": [
+        {
+          "prompt": "P-104 serves Zone 3",
+          "answer": "Premise"
+        },
+        {
+          "prompt": "serves inverseOf isServedBy",
+          "answer": "Axiom"
+        },
+        {
+          "prompt": "Zone 3 isServedBy P-104",
+          "answer": "Entailed conclusion"
+        },
+        {
+          "prompt": "Restart requires operator approval",
+          "answer": "Operational policy"
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. Formal proof and operational policy remain visible and separate.",
+        "incorrect": "Trace evidence to rule to conclusion, then place action policy outside the entailment."
+      },
+      "completion_id": "proof"
+    },
+    {
+      "assessment_id": "mbm09-open-world",
+      "type": "multi-select",
+      "cognitive_job": "distinguish unknown from false",
+      "prompt": "Which statements are defensible under the open-world boundary?",
+      "options": [
+        {
+          "text": "A missing relationship may be unknown",
+          "correct": true
+        },
+        {
+          "text": "An explicit modeled negative can differ from absence",
+          "correct": true
+        },
+        {
+          "text": "Every missing statement is false",
+          "correct": false
+        },
+        {
+          "text": "A complete operational decision may need closed-world checks outside OWL",
+          "correct": true
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. You preserved the difference between absence and a supported negative.",
+        "incorrect": "Do not turn graph incompleteness into certainty."
+      },
+      "completion_id": "open-world"
+    },
+    {
+      "assessment_id": "mbm09-boundary",
+      "type": "multiple-choice",
+      "cognitive_job": "set operational boundary",
+      "prompt": "A valid entailment identifies customers connected to an affected zone. What may the agent do first?",
+      "options": [
+        {
+          "text": "Present the trace for authorized impact review",
+          "correct": true
+        },
+        {
+          "text": "Issue a mandatory boil-water notice without policy checks",
+          "correct": false
+        },
+        {
+          "text": "Operate valves automatically because the logic is deterministic",
+          "correct": false
+        }
+      ],
+      "feedback": {
+        "correct": "Correct. The entailment supports review while policy and authority govern action.",
+        "incorrect": "Formal validity does not grant operational authority."
+      },
+      "completion_id": "boundary"
+    },
+    {
+      "assessment_id": "mbm09-boundary-card",
+      "type": "applied-work-product",
+      "title": "Inference Boundary Card",
+      "cognitive_job": "govern an inference used by people or agents",
+      "prompt": "Document one inference, its proof, and its use boundary.",
+      "required_fields": [
+        "assertions",
+        "axiom",
+        "entailed_statement",
+        "proof_requirement",
+        "profile",
+        "allowed_uses",
+        "prohibited_uses",
+        "owner",
+        "review_route"
+      ],
+      "field_labels": {
+        "assertions": "Asserted premises",
+        "axiom": "Declared axiom",
+        "entailed_statement": "Entailed statement",
+        "proof_requirement": "Proof receipt required",
+        "profile": "OWL profile and reasoner",
+        "allowed_uses": "Allowed uses",
+        "prohibited_uses": "Prohibited uses",
+        "owner": "Accountable owner",
+        "review_route": "Challenge and review route"
+      },
+      "textarea_fields": [
+        "assertions",
+        "axiom",
+        "entailed_statement",
+        "proof_requirement",
+        "profile",
+        "allowed_uses",
+        "prohibited_uses",
+        "owner",
+        "review_route"
+      ],
+      "feedback": {
+        "correct": "Your Inference Boundary Card preserves both the proof and the action boundary.",
+        "incorrect": "Complete every field before releasing the inference for use."
+      },
+      "completion_id": "boundary-card"
+    }
+  ]
+}

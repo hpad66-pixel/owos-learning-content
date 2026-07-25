@@ -46,6 +46,9 @@ SUPPORTED_INTERACTIONS = {
     "hierarchy-repair",
     "ontology-canvas",
     "sparql-builder",
+    "inference-court",
+    "shacl-clinic",
+    "evidence-reconciliation",
 }
 SUPPORTED_ASSESSMENTS = {
     "multiple-choice",
@@ -866,6 +869,35 @@ def render_sparql_builder(interaction: dict[str, Any]) -> str:
  <button class="button" type="button" data-reset-query>Reset query</button><div class="feedback" data-feedback aria-live="polite">Assemble every clause in order.</div></div></section>"""
 
 
+def render_decision_lab(interaction: dict[str, Any], component: str, kind: str, card_attr: str, choice_attr: str) -> str:
+    choices = interaction["config"]["choices"]
+    cards = "".join(
+        f'<article class="decision-case" {card_attr} data-answer="{esc(item["answer"])}" data-explanation="{esc(item["explanation"])}">'
+        f'<span class="case-label">{esc(item.get("label", f"Case {index + 1}"))}</span><h4>{esc(item["claim"])}</h4>'
+        f'<div class="case-evidence">{esc(item["evidence"])}</div><div class="case-rule"><strong>Declared control</strong><br>{esc(item["rule"])}</div>'
+        f'<div class="button-row">{"".join(f"""<button class="button" type="button" {choice_attr}="{esc(choice)}">{esc(choice)}</button>""" for choice in choices)}</div>'
+        f'<div class="item-feedback" data-item-feedback aria-live="polite"></div></article>'
+        for index, item in enumerate(interaction["config"]["cases"])
+    )
+    return f"""<section class="component signature-component decision-lab" id="{esc(interaction['interaction_id'])}" data-{component}
+ data-purposeful-interaction="{component}" data-component-source="structured-module-package" data-completion="{esc(interaction['completion_id'])}">
+ <header class="component-header"><h3>{esc(interaction['title'])}</h3><span class="kind">{esc(kind)}</span></header>
+ <div class="component-body"><p class="component-intro">{esc(interaction['instructions'])}</p>
+ <div class="decision-case-grid">{cards}</div><div class="feedback" data-feedback aria-live="polite">Resolve every case and read its evidence explanation.</div></div></section>"""
+
+
+def render_inference_court(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "inference-court", "OWL model court", "data-inference-case", "data-inference-choice")
+
+
+def render_shacl_clinic(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "shacl-clinic", "SHACL validation clinic", "data-shacl-case", "data-shacl-choice")
+
+
+def render_evidence_reconciliation(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "evidence-reconciliation", "Evidence reconciliation hearing", "data-evidence-case", "data-evidence-choice")
+
+
 def render_object_router(interaction: dict[str, Any]) -> str:
     cards = []
     for index, item in enumerate(interaction["config"]["items"]):
@@ -1034,6 +1066,12 @@ def render_block(
             return render_ontology_canvas(interaction)
         if interaction["component"] == "sparql-builder":
             return render_sparql_builder(interaction)
+        if interaction["component"] == "inference-court":
+            return render_inference_court(interaction)
+        if interaction["component"] == "shacl-clinic":
+            return render_shacl_clinic(interaction)
+        if interaction["component"] == "evidence-reconciliation":
+            return render_evidence_reconciliation(interaction)
         if interaction["component"] == "object-router":
             return render_object_router(interaction)
         return render_triple_repair_bench(interaction)
