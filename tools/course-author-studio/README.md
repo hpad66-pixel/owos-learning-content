@@ -1,7 +1,8 @@
 # OWOS Course Author Studio
 
-Author Studio is the module-level control surface for structured OWOS courses. It does not edit
-compiled HTML.
+This utility is an internal developer harness for structured OWOS course packages. It is not
+Hardeep's permanent Author Studio and must not be presented as the human-facing production
+workspace. The permanent workspace is `https://owos.ai/capture#studio?tab=courses`.
 
 Start it from the repository root:
 
@@ -9,7 +10,19 @@ Start it from the repository root:
 python3 tools/course_author_studio.py
 ```
 
-Then open `http://127.0.0.1:8787`.
+Developers may then open the temporary harness at `http://localhost:8787`.
+
+Open a specific module directly with:
+
+```text
+http://localhost:8787/review/<course-slug>/<module-slug>
+```
+
+For example:
+
+```text
+http://localhost:8787/review/meaning-before-models/module-18-graph-grounded-agentic-applications
+```
 
 The studio provides separate views for the design brief, narrative, storyboard, visuals,
 interactions, assessments, sources, glossary, QA, and compiled preview. Every save preserves the

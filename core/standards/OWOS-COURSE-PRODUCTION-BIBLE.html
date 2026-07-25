@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OWOS Course Production Bible</title>
+  <meta name="description" content="The complete One Water OS course production route, prompts, examples, Author Studio handoff, quality gates, and release proof.">
+  <style>
+    :root{
+      --ink:#10233a;--muted:#5b6f80;--line:#d7e2e8;--paper:#f4f8f9;--white:#fff;
+      --navy:#0d2942;--teal:#087a78;--teal-soft:#e4f5f2;--orange:#e8752f;
+      --orange-soft:#fff0e6;--green:#1a765c;--blue:#176b9b;--violet:#6b57a5;
+      --shadow:0 18px 48px rgba(16,35,58,.1);--radius:22px;
+      --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--muted);font:16px/1.65 var(--sans)}
+    a{color:inherit}
+    button{font:inherit}
+    :focus-visible{outline:3px solid rgba(8,122,120,.25);outline-offset:3px}
+    .shell{width:min(1240px,calc(100% - 32px));margin:auto}
+    .mast{position:relative;overflow:hidden;background:linear-gradient(140deg,#0b243b,#103f56 62%,#087a78);color:#fff;padding:72px 0 44px}
+    .mast:after{content:"";position:absolute;right:-120px;top:-180px;width:560px;height:560px;border:1px solid rgba(255,255,255,.14);border-radius:50%;box-shadow:0 0 0 80px rgba(255,255,255,.035),0 0 0 160px rgba(255,255,255,.025)}
+    .eyebrow{font:700 .72rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#9ce0d9}
+    h1,h2,h3{color:var(--ink);line-height:1.1;letter-spacing:-.035em}
+    .mast h1{position:relative;z-index:1;max-width:850px;margin:14px 0 18px;color:#fff;font-size:clamp(2.8rem,7vw,6.3rem);line-height:.94}
+    .mast p{position:relative;z-index:1;max-width:760px;margin:0;color:#d8e9ef;font-size:clamp(1.02rem,1.7vw,1.25rem)}
+    .mast-meta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
+    .mast-meta span{padding:7px 11px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.07);font-size:.76rem;font-weight:700}
+    .notice{display:flex;gap:14px;align-items:flex-start;margin:28px auto;padding:16px 18px;background:#fff9eb;border:1px solid #efd69a;border-radius:15px;color:#71520e}
+    .notice strong{color:#614508}
+    .route{display:grid;grid-template-columns:260px minmax(0,1fr);gap:30px;align-items:start;padding-bottom:80px}
+    .rail{position:sticky;top:18px;background:var(--navy);border-radius:20px;padding:17px;color:#dceaf0;box-shadow:var(--shadow)}
+    .rail h2{margin:0 0 12px;color:#fff;font-size:1rem}
+    .rail ol{display:grid;gap:2px;margin:0;padding:0;list-style:none}
+    .rail a{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center;padding:8px;border-radius:10px;text-decoration:none;font-size:.74rem;line-height:1.25}
+    .rail a:hover{background:rgba(255,255,255,.09)}
+    .rail b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(156,224,217,.13);color:#9ce0d9;font:700 .65rem var(--mono)}
+    .content{min-width:0}
+    .orientation{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+    .orientation article{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+    .orientation h2{margin:0 0 9px;font-size:1.25rem}
+    .orientation p{margin:0}
+    .flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;align-items:stretch;margin:0 0 34px}
+    .flow div{position:relative;display:grid;place-items:center;min-height:74px;padding:10px;border-radius:13px;background:#fff;border:1px solid var(--line);text-align:center;color:var(--ink);font-size:.72rem;font-weight:750}
+    .flow div:not(:last-child):after{content:"";position:absolute;right:-9px;top:50%;width:10px;height:2px;background:var(--orange);z-index:2}
+    .phase{scroll-margin-top:20px;margin:0 0 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 24px rgba(16,35,58,.05);overflow:hidden}
+    .phase-head{display:grid;grid-template-columns:74px 1fr auto;gap:18px;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+    .phase-num{display:grid;place-items:center;width:58px;height:58px;border-radius:18px;background:var(--teal-soft);color:var(--teal);font:800 1rem var(--mono)}
+    .phase h2{margin:0;font-size:1.55rem}
+    .phase-head p{margin:5px 0 0;font-size:.88rem}
+    .where{padding:6px 10px;border-radius:999px;background:#edf3f7;color:#375467;font:700 .66rem var(--mono);text-transform:uppercase;letter-spacing:.08em}
+    .phase-body{padding:24px}
+    .example{margin:0 0 18px;padding:17px 19px;border-left:5px solid var(--orange);border-radius:0 14px 14px 0;background:var(--orange-soft);color:#5f4028}
+    .example strong{display:block;color:#8c451d}
+    .triptych{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:18px 0}
+    .triptych section{padding:15px;border:1px solid var(--line);border-radius:14px;background:#f8fbfc}
+    .triptych h3{margin:0 0 8px;font-size:.9rem}
+    .triptych ul{margin:0;padding-left:18px;font-size:.82rem}
+    .prompt{position:relative;margin-top:18px;border-radius:16px;background:#0d2238;color:#dcebf2;overflow:hidden}
+    .prompt-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.12);color:#9ce0d9;font:700 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .copy{border:1px solid rgba(255,255,255,.2);border-radius:8px;background:rgba(255,255,255,.08);color:#fff;padding:6px 9px;cursor:pointer;font-size:.7rem}
+    pre{margin:0;padding:17px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.62 var(--mono);color:#edf7fb}
+    .gate{display:grid;grid-template-columns:100px 1fr;gap:14px;align-items:start;margin-top:18px;padding:14px;border:1px solid #bddfd8;border-radius:14px;background:#eff9f6}
+    .gate b{color:var(--green);font:800 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .studio{border-color:#cfc6ec}
+    .studio .phase-head{background:linear-gradient(90deg,#f6f2ff,#fff)}
+    .studio .phase-num{background:#eee8ff;color:var(--violet)}
+    .studio-link{display:inline-flex;align-items:center;justify-content:center;margin-top:10px;padding:11px 15px;border-radius:10px;background:var(--violet);color:#fff;text-decoration:none;font-weight:800}
+    .studio-link:hover,.studio-link:focus-visible{background:#4f368d}
+    .studio-map{display:grid;grid-template-columns:220px 1fr;gap:14px;margin:18px 0}
+    .studio-tabs{display:grid;gap:7px}
+    .studio-tabs span{padding:9px 11px;border-radius:9px;background:#eee8ff;color:#4e4080;font-size:.76rem;font-weight:750}
+    .studio-detail{padding:18px;border:1px solid #d8d0ed;border-radius:14px;background:#fbf9ff}
+    .studio-detail code{font-family:var(--mono);color:#4e4080}
+    .prompt-list{display:grid;gap:12px}
+    .master{margin-top:38px;border:2px solid var(--teal)}
+    .master .phase-head{background:linear-gradient(90deg,#e9f7f4,#fff)}
+    .master .phase-num{background:var(--teal);color:#fff}
+    .footer{padding:25px 0 55px;border-top:1px solid var(--line);color:#718493;font-size:.78rem}
+    .status{display:inline-flex;gap:8px;align-items:center}
+    .status:before{content:"";width:8px;height:8px;border-radius:50%;background:#d59320}
+    @media(max-width:980px){
+      .route{grid-template-columns:1fr}.rail{position:relative;top:0}.rail ol{grid-template-columns:repeat(3,1fr)}
+      .flow{grid-template-columns:repeat(3,1fr)}.flow div:after{display:none}
+    }
+    @media(max-width:700px){
+      .shell{width:min(100% - 22px,1240px)}.mast{padding:52px 0 34px}
+      .orientation,.triptych,.studio-map{grid-template-columns:1fr}
+      .rail ol{grid-template-columns:1fr 1fr}.phase-head{grid-template-columns:58px 1fr}.where{grid-column:1/-1;width:max-content}
+      .phase-body{padding:18px}.flow{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:420px){
+      .rail ol,.flow{grid-template-columns:1fr}.phase-head{padding:17px}.phase-num{width:48px;height:48px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="mast">
+    <div class="shell">
+      <span class="eyebrow">One Water OS Academy · Source of Truth</span>
+      <h1>Course Production Bible</h1>
+      <p>From a rough utility topic to a researched curriculum, unique structured modules, Author Studio review, evidence-backed quality scores, and a verified live release.</p>
+      <div class="mast-meta"><span>Topic neutral</span><span>Module count emerges from learning</span><span>Written-first</span><span>Evidence backed</span><span>Review candidate</span></div>
+    </div>
+  </header>
+  <div class="shell">
+    <div class="notice"><strong>Review boundary</strong><span>This file and its Markdown companion are local review candidates. They are not approved for GitHub publication yet.</span></div>
+    <div class="route">
+      <nav class="rail" aria-label="Production phases">
+        <h2>Complete route</h2>
+        <ol>
+          <li><a href="#p0"><b>00</b>Topic sparring</a></li><li><a href="#p1"><b>01</b>Research</a></li>
+          <li><a href="#p2"><b>02</b>Formulation</a></li><li><a href="#p3"><b>03</b>Curriculum</a></li>
+          <li><a href="#p4"><b>04</b>Experience</a></li><li><a href="#p5"><b>05</b>Contracts</a></li>
+          <li><a href="#p6"><b>06</b>Golden lesson</a></li><li><a href="#p7"><b>07</b>Production</a></li>
+          <li><a href="#p8"><b>08</b>Author Studio</a></li><li><a href="#p9"><b>09</b>Module QA</a></li>
+          <li><a href="#p10"><b>10</b>Landing page</a></li><li><a href="#p11"><b>11</b>Course dossier</a></li>
+          <li><a href="#p12"><b>12</b>Publish and verify</a></li><li><a href="#master"><b>GO</b>Master prompt</a></li>
+        </ol>
+      </nav>
+      <main class="content">
+        <section class="orientation">
+          <article><span class="eyebrow">Start here</span><h2>Begin with Codex</h2><p>Spar, research, formulate, and design the curriculum in the conversational workspace. Do not start with HTML or a module count.</p></article>
+          <article><span class="eyebrow">Enter later</span><h2>Use Author Studio for control</h2><p>Author Studio begins after structured module candidates exist. It reviews source, visuals, interactions, assessments, evidence, QA, and preview.</p></article>
+        </section>
+        <section class="flow" aria-label="Course production flow">
+          <div>Idea</div><div>Evidence</div><div>Capability</div><div>Curriculum</div><div>Contracts</div><div>Golden lesson</div>
+          <div>Structured modules</div><div>Author Studio</div><div>Module QA</div><div>Landing page</div><div>Course dossier</div><div>Live proof</div>
+        </section>
+
+        <article class="phase" id="p0">
+          <header class="phase-head"><span class="phase-num">00</span><div><h2>Topic sparring and intake</h2><p>Determine whether the idea can become a useful course.</p></div><span class="where">Codex workspace</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>“Preventing Lift Station Failures” begins as an idea about maintenance, telemetry, operator knowledge, and artificial intelligence claims. No module count exists yet.</div>
+            <div class="triptych"><section><h3>You bring</h3><ul><li>Topic and point of view</li><li>Research and notes</li><li>Learners and examples</li></ul></section><section><h3>Codex produces</h3><ul><li>Intake brief</li><li>Research plan</li><li>Unanswered questions</li></ul></section><section><h3>Do not do yet</h3><ul><li>Choose module count</li><li>Open Author Studio</li><li>Generate lessons</li></ul></section></div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>I want to explore a possible OWOS course about [TOPIC].
+
+My current point of view is [POINT OF VIEW].
+The intended learners may be [LEARNERS].
+The utility problems and examples are [EXAMPLES].
+My research and notes are [MATERIAL].
+
+Spar with me. Challenge the topic, separate fact from my position, identify missing questions, and help me decide whether this should become a course. Do not select a module count or generate lessons.</pre></div>
+            <div class="gate"><b>Exit gate</b><span>Hardeep agrees that the topic is worth formal research and formulation.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p1">
+          <header class="phase-head"><span class="phase-num">01</span><div><h2>Research and evidence</h2><p>Make the evidence, claims, limitations, and permissions visible.</p></div><span class="where">Codex + research folders</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>Collect maintenance records, alarm histories, pump manuals, power-quality evidence, operator interviews, overflow procedures, and reliability references. An operator statement remains interpretation until its authority and use are reviewed.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Organize and evaluate all research for the proposed course. Preserve every original and checksum. Build the source register, claims register, evidence boundaries, research-coverage map, contradiction log, permissions record, and unresolved-question list. Use primary sources for load-bearing claims. Do not draft the curriculum until evidence coverage and limitations are visible.</pre></div>
+            <div class="gate"><b>Exit gate</b><span>Evidence is adequate for formulation, or its limitations are explicitly accepted.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p2">
+          <header class="phase-head"><span class="phase-num">02</span><div><h2>Course formulation</h2><p>Define who graduates, what they can do, and what the course will not claim.</p></div><span class="where">Codex workspace</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>The graduate can frame one lift-station reliability problem, identify evidence, distinguish symptom from cause, choose controls, assign owners, and recognize when engineering or operational approval is required.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Formulate the course from the research. Define primary and secondary learners, prerequisites, course promise, graduation capability, measurable outcomes, common and practitioner depth, leader decisions, work-product progression, assessment strategy, modality, evidence boundaries, and relationships to other OWOS courses. Do not create modules until the graduation capability is useful, assessable, and supported.</pre></div>
+            <div class="gate"><b>Approval</b><span>Hardeep approves the Course Brief and graduation capability.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p3">
+          <header class="phase-head"><span class="phase-num">03</span><div><h2>Syllabus and curriculum architecture</h2><p>Determine first, second, third, and thereafter. Let learning determine length.</p></div><span class="where">Codex workspace</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>Operational failure meaning may come first, identity and system boundaries second, failure modes and evidence third, followed by telemetry, maintenance decisions, authority, and a bounded reliability pilot. Research may produce another sequence.</div>
+            <div class="triptych"><section><h3>Work backward</h3><ul><li>Final capability</li><li>Immediate prerequisite</li><li>Foundational prerequisite</li></ul></section><section><h3>Test the sequence</h3><ul><li>Missing prerequisites</li><li>Overloaded modules</li><li>Repeated learning jobs</li></ul></section><section><h3>Produce</h3><ul><li>Syllabus</li><li>Dependency map</li><li>Design matrix</li></ul></section></div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Design the syllabus and curriculum from the approved graduation capability. Determine what must come first, second, third, and thereafter. Let learning jobs and prerequisites determine the module count. For every module define title, learner question, one learning job, prerequisite, outcome, misconception, transfer task, work product, and adjacency relationship. Reject arbitrary counts, overloaded lessons, and missing prerequisites.</pre></div>
+            <div class="gate"><b>Approval</b><span>Hardeep approves the syllabus, sequence, and resulting module count.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p4">
+          <header class="phase-head"><span class="phase-num">04</span><div><h2>Course experience architecture</h2><p>Give the course its own teaching and visual identity.</p></div><span class="where">Codex workspace</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>The lift-station course uses a reliability investigation fieldbook, degradation timelines, failure trees, evidence boards, and maintenance decision rooms. It does not borrow the semantic-graph visual grammar from another course.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Create the course experience architecture. Define teaching voice, utility world, recurring cases, visual language, signature mechanisms, interaction rhythm, assessment rhythm, artifact family, accessibility treatments, and prohibited motifs. Compare with existing OWOS courses and prevent common quality standards from creating a common appearance.</pre></div>
+            <div class="gate"><b>Approval</b><span>Hardeep accepts the Course Experience Brief and distinctiveness direction.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p5">
+          <header class="phase-head"><span class="phase-num">05</span><div><h2>Lesson contracts</h2><p>Lock the necessary job and boundaries of every approved module.</p></div><span class="where">Structured source</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>A cavitation lesson contract teaches how to distinguish evidence of cavitation from other causes. It excludes pump redesign authority and does not duplicate the later maintenance-strategy lesson.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Create and validate one lesson contract for every approved module. Lock module identity, curriculum role, learner question, one learning job, prior knowledge, misconception, transfer task, depth, archetype, opening, mental model, signature mechanism, visual jobs, assessment jobs, work product, evidence references, boundary, prerequisites, and preparation relationships. Audit duplicates and weak transitions.</pre></div>
+            <div class="gate"><b>Exit gate</b><span>Every approved module has a validated contract.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p6">
+          <header class="phase-head"><span class="phase-num">06</span><div><h2>Golden lesson</h2><p>Prove the hardest capability once before bulk production.</p></div><span class="where">Codex, then review</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>The selected lesson may require a live failure-tree simulation, an evidence diagnosis, a maintenance decision, and a professional Reliability Evidence Card. It proves capability, not a reusable page layout.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Select the golden lesson that best tests the course's hardest teaching, visual, interaction, assessment, and transfer requirements. Build its design brief, Visual Arsenal selection, storyboard, structured source, real assets, simulation, assessment, work product, FAQ, evidence boundary, compiled preview, browser evidence, and scored QA report. Present it for approval as a capability benchmark, not a page template.</pre></div>
+            <div class="gate"><b>Approval</b><span>Hardeep approves the golden lesson's capability and quality level.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p7">
+          <header class="phase-head"><span class="phase-num">07</span><div><h2>Structured module production</h2><p>Produce unique lessons in prerequisite order from governed source.</p></div><span class="where">Codex production</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>One module uses a forensic evidence wall; another uses a degradation timeline; another uses an operating-envelope simulator. Shared accessibility does not create repeated experiences.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Produce the next approved module or batch in prerequisite order. Preserve each contract and unique design. Run Visual Arsenal selection. Author complete written teaching, real graphics, a subject-specific signature mechanism, assessments matched to cognitive jobs, a professional work product, FAQs, and evidence boundaries. Validate structured source, compile deterministic HTML, compare adjacent lessons, run browser QA, and complete module scorecards. Do not stop at scaffolding.</pre></div>
+            <div class="gate"><b>Batch gate</b><span>Every batch passes module QA and course distinctiveness before the next batch.</span></div>
+          </div>
+        </article>
+
+        <article class="phase studio" id="p8">
+          <header class="phase-head"><span class="phase-num">08</span><div><h2>Author Studio review</h2><p>Inspect and revise structured modules without editing compiled HTML.</p></div><span class="where">OWOS Author Studio</span></header>
+          <div class="phase-body">
+            <div class="studio-map">
+              <div class="studio-tabs"><span>Design brief</span><span>Narrative</span><span>Storyboard</span><span>Visuals</span><span>Interactions</span><span>Assessments</span><span>Sources</span><span>Glossary</span><span>QA</span><span>Preview</span></div>
+              <div class="studio-detail"><h3>What you open</h3><p><code>One Water OS → Author Studio → Courses</code></p><p>This is the permanent production workspace. It requires no local server, terminal command, or repository navigation. The Content Desk is a separate downstream publishing-approval queue.</p><a class="studio-link" href="https://owos.ai/capture#studio?tab=courses">Open Courses in One Water OS Author Studio</a><p>The governed structured source remains the source of truth. Release approval remains unavailable until required human reviews are recorded.</p></div>
+            </div>
+            <div class="prompt-list">
+              <div class="prompt"><div class="prompt-head">Open the studio <button class="copy" type="button">Copy</button></div><pre>Open One Water OS Author Studio for [COURSE] and [MODULE], navigate me to Courses, and summarize which views require review. Use the permanent production route, never localhost. Do not change approved source merely to make the page look different.</pre></div>
+              <div class="prompt"><div class="prompt-head">Narrative instruction <button class="copy" type="button">Copy</button></div><pre>In Narrative, rewrite [CONCEPT] for [LEARNER]. Preserve the approved claim boundary, add [UTILITY EXAMPLE], and do not change the storyboard.</pre></div>
+              <div class="prompt"><div class="prompt-head">Storyboard instruction <button class="copy" type="button">Copy</button></div><pre>In Storyboard, move [COMPONENT] immediately after [TEACHING BEAT]. Preserve completion IDs and explain why the new sequence improves learning.</pre></div>
+              <div class="prompt"><div class="prompt-head">Visual instruction <button class="copy" type="button">Copy</button></div><pre>In Visuals, replace [CURRENT VISUAL] with [BETTER VISUAL SHAPE]. Preserve the teaching idea, reading guide, learner conclusion, alternative text, source, license, mobile treatment, and reduced-motion treatment.</pre></div>
+              <div class="prompt"><div class="prompt-head">Assessment instruction <button class="copy" type="button">Copy</button></div><pre>In Assessments, replace [CURRENT CHECK] with [QUIZ OR APPLIED TASK] because the learner must [COGNITIVE JOB]. Preserve explanatory feedback, retry, and the completion contract.</pre></div>
+              <div class="prompt"><div class="prompt-head">After saving <button class="copy" type="button">Copy</button></div><pre>Validate the saved structured package, rebuild the preview, compare the source checksum, rerun affected tests, and show exactly what changed. Do not publish yet.</pre></div>
+            </div>
+            <div class="gate"><b>Exit gate</b><span>Approved Studio changes validate, compile, and pass affected regression tests.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p9">
+          <header class="phase-head"><span class="phase-num">09</span><div><h2>Module QA and scoring</h2><p>Back every score with visible, repeatable evidence.</p></div><span class="where">Local + packaged browser</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>The degradation timeline must keep every label inside its container, respond on phone, preserve reduced-motion meaning, and support the intended reliability conclusion.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Run complete module QA. Verify real assets, visual text containment, connectors, desktop, tablet, phone, zoom, touch, keyboard, focus return, reduced motion, contrast, overflow, empty controls, simulations, feedback, retry, work-product completion, Graph, Community, Start, drawers, console errors, source boundaries, and distinctiveness. Save screenshots. Complete the score out of 100 and five hard gates without converting unperformed human review into a pass.</pre></div>
+            <div class="gate"><b>Hard rule</b><span>A numeric score never overrides blocked accuracy, practitioner, accessibility, technical, security, or release gates.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p10">
+          <header class="phase-head"><span class="phase-num">10</span><div><h2>Course landing page</h2><p>Orient the learner through this course's actual route.</p></div><span class="where">After curriculum exists</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>The reliability course landing page may show a signal-to-decision path, course phases, resulting Reliability Fieldbook, prerequisites, and where operators, leaders, and practitioners begin.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Build the course-specific landing page from the approved curriculum and experience architecture. Show promise, learner, graduation capability, route, parts, module sequence, prerequisites, work products, evidence-supported effort, release state, and where to begin. Give it a unique visual identity. Test typography, hierarchy, spacing, links, navigation, drawers, desktop, tablet, phone, zoom, contrast, and overflow.</pre></div>
+            <div class="gate"><b>Exit gate</b><span>The landing page accurately represents the approved and actually available course.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p11">
+          <header class="phase-head"><span class="phase-num">11</span><div><h2>Course Quality-Control Dossier</h2><p>Box up the score and all supporting proof.</p></div><span class="where">Course qa folder</span></header>
+          <div class="phase-body">
+            <div class="triptych"><section><h3>Scores</h3><ul><li>Course out of 100</li><li>Module register</li><li>Hard gates</li></ul></section><section><h3>Evidence</h3><ul><li>Checksums and tests</li><li>Screenshots</li><li>Review records</li></ul></section><section><h3>Release proof</h3><ul><li>Git commits</li><li>Deployment</li><li>Live checks</li></ul></section></div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Complete the Course Quality-Control Dossier. Include the score and evidence for every category, module score register, curriculum and contract evidence, structured package checksums, visual containment, rendered screenshots, browser and accessibility results, distinctiveness, coherence, source status, defect ledger, human-review register, hard gates, manifest, Git commits, deployment, and live proof. Keep every unperformed review pending.</pre></div>
+            <div class="gate"><b>Exit gate</b><span>Hardeep can inspect the basis of every score without reconstructing the production run.</span></div>
+          </div>
+        </article>
+
+        <article class="phase" id="p12">
+          <header class="phase-head"><span class="phase-num">12</span><div><h2>Git, platform, deployment, and live proof</h2><p>Publish only the exact verified release.</p></div><span class="where">Authorized release only</span></header>
+          <div class="phase-body">
+            <div class="example"><strong>Industry example</strong>The approved reliability release is committed, imported by exact SHA into the OWOS platform, tested, deployed, checksum-compared on the custom domain, and exercised again in the live browser.</div>
+            <div class="prompt"><div class="prompt-head">Prompt <button class="copy" type="button">Copy</button></div><pre>Publish the approved course end to end. Run source, compiler, module, course, distinctiveness, visual, accessibility, release, and formatting gates. Commit source and reproducible output. Push GitHub. Import the exact learning commit into the OWOS platform. Run platform tests. Push the exact production commit. Deploy it. Verify custom-domain files byte for byte and run live desktop, tablet, and phone QA. Do not report publication before custom-domain verification.</pre></div>
+            <div class="gate"><b>Final proof</b><span>Source SHA, platform SHA, deployment ID, public URLs, matching checksums, live browser results, and clean synchronized repositories.</span></div>
+          </div>
+        </article>
+
+        <article class="phase master" id="master">
+          <header class="phase-head"><span class="phase-num">GO</span><div><h2>Generic master build prompt</h2><p>Use this after topic sparring and research direction are ready.</p></div><span class="where">Topic neutral</span></header>
+          <div class="phase-body">
+            <div class="prompt"><div class="prompt-head">Complete activation prompt <button class="copy" type="button">Copy</button></div><pre>Activate the complete OWOS Course Production System for the topic and research developed in this conversation.
+
+Treat this as a new governed course unless the repository already contains an approved course folder. Do not assume a module count, syllabus, curriculum sequence, delivery format, visual style, or page structure.
+
+Begin by preserving this conversation and all supplied research. Determine the current phase from repository evidence.
+
+Execute:
+1. topic sparring and intake;
+2. research and evidence organization;
+3. course formulation;
+4. syllabus and curriculum architecture;
+5. course experience architecture;
+6. lesson contracts;
+7. golden lesson selection, production, testing, scoring, and approval;
+8. structured module production in prerequisite order;
+9. Author Studio-compatible review;
+10. deterministic compilation;
+11. module-level rendered QA and evidence-backed scoring;
+12. course coherence and distinctiveness review;
+13. course-specific landing-page production;
+14. Course Quality-Control Dossier;
+15. Git publication, platform intake, production deployment, custom-domain verification, and live browser QA when publication is authorized.
+
+For the curriculum, determine what the learner must understand first, second, third, and thereafter. Let learning jobs and prerequisites determine the module count.
+
+Give every module its own contract, design brief, storyboard, narrative structure, opening, visual reasoning, signature mechanism, simulation strategy, assessment rhythm, professional work product, FAQ, and evidence boundary.
+
+Apply one common quality standard without producing one common appearance. Prevent repeated openings, visual shapes, interaction pairs, quiz sequences, work-product formats, FAQs, and factory prose.
+
+Use structured source. Treat HTML as compiled delivery output. Use Author Studio after curriculum architecture and structured module candidates exist.
+
+Require complete conversational teaching that works without video. Define terms, spell out acronyms, explain every visual and interaction, use concrete utility examples, and preserve source, authority, time, uncertainty, and permission boundaries.
+
+Count only real visual assets and governed executable components. Render and measure every graphic. Text clipping, overlap, escape from boxes, unreadable compression, insufficient padding, broken connectors, contrast failures, and desktop, tablet, phone, zoom, or reduced-motion failures are release blockers.
+
+Select interactions and assessments from the cognitive job. Require immediate feedback, retry, distributed checks, an applied demonstration, and a professional work product.
+
+Complete an evidence-backed Module Quality-Control Report for every module and a Course Quality-Control Dossier for the course. A score cannot override blocked factual, practitioner, accessibility, technical, security, credential, or release gates.
+
+Do not report publication until the exact source commit is imported, platform tests pass, production deployment completes, custom-domain files match, and live desktop, tablet, and phone tests pass.
+
+Before each major phase, report completed work, available evidence, unresolved decisions, required approval, and next-phase output.
+
+Do not ask me to operate internal scripts. Preserve all substantive direction and evidence in the repository.</pre></div>
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+  <footer class="footer"><div class="shell"><span class="status">Review candidate. Awaiting Hardeep approval before GitHub publication.</span></div></footer>
+  <script>
+    document.querySelectorAll(".copy").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const text = button.closest(".prompt").querySelector("pre").textContent.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          const prior = button.textContent;
+          button.textContent = "Copied";
+          setTimeout(() => button.textContent = prior, 1400);
+        } catch {
+          button.textContent = "Select text";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

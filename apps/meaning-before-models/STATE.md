@@ -315,6 +315,90 @@ release checks, deploy production, and verify all three public pages and checksu
 
 Begin the approved structured production of Module 18.
 
+## Progressive Module 18 structured result
+
+- Authoritative source:
+  `modules/module-18-graph-grounded-agentic-applications/`
+- Lesson archetype: agent authorization control room
+- Signature mechanisms: Agent Action Control Room and Safe Retry and Receipt Simulator
+- Four original visual classes: Two-Key Action Console, Proposal-to-Record State Machine, Action
+  Envelope Anatomy, and Agent Action Flight Recorder
+- Professional work product: Agent Action Contract
+- Final package checksum:
+  `85de8cd7948099b90131c983ebd715749fc5cc4dcc6f355298be16ee5fe81f33`
+- Compiler contract: `owos-course-compiler/1`
+- Compiler implementation: 1.1.0
+- Structured validation and deterministic compilation passed.
+- Browser QA passed desktop, tablet, and phone with zero runtime errors, zero horizontal overflow,
+  all seven completion IDs, working Graph and Glossary drawers, focus return, and 0.01-millisecond
+  reduced-motion maximum on phone.
+- SVG containment passed 75 files and 1,213 text elements with zero violations after one 2.3-pixel
+  source-asset repair.
+- Course distinctiveness passed with 18 lessons and 18 archetypes.
+- The shared runtime extension required Modules 01 through 17 to be rebuilt. The portfolio
+  structured-authoring audit then passed with synchronized package checksums.
+- Evidence-backed working score: 94 out of 100. Human source, practitioner, novice, screen-reader,
+  zoom, physical-device, platform, and release gates remain pending.
+
+## Next action
+
+Produce Module 19, Design the One Water Knowledge Spine, then execute course assembly, landing-page
+alignment, dossier update, Git publication, platform intake, deployment, and live verification under
+the standing production and publication authorization.
+
+## Author Studio access correction
+
+- The earlier localhost direction was rejected and superseded.
+- The permanent human-facing route is `One Water OS → Author Studio → Courses`.
+- The production address is `https://owos.ai/capture#studio?tab=courses`.
+- Module 18 has a permanent compiled review copy linked from that OS workspace.
+- The Content Desk remains a separate downstream publishing-approval queue.
+- The local Course Author Studio is retained only as an internal developer harness.
+
+## Production prompt, graphic scrub, and landing-page retrofit
+
+- The binding reusable prompt now lives at
+  `core/standards/OWOS-COURSE-PRODUCTION-ACTIVATION-PROMPT.md`.
+- The course-end evidence package now uses
+  `core/templates/COURSE-QUALITY-CONTROL-DOSSIER.md`.
+- The production contract and continue-course workflow require both artifacts.
+- A reusable Chrome SVG audit measured 71 source graphics and 1,119 text elements across structured
+  Modules 01 through 17.
+- The initial audit found 21 text-containment failures in 12 graphics. Source assets were repaired,
+  recompiled, and the final audit passed with zero failures.
+- The course landing hero was redesigned with a clear semantic statement, one-triple visual,
+  nineteen-module course facts, responsive route, and accurate live-review state.
+- Source and packaged landing pages passed desktop, tablet, and phone browser review with zero
+  console errors, zero overflow, working drawer focus return, eighteen live lesson links, and no
+  dark-text failures.
+- The working course dossier is `qa/course-quality-control-dossier.md`. Its current evidence-backed
+  score is 89 of 100, with final human and credential-bearing release gates explicitly blocked.
+
+## Next action
+
+Deliver the activation prompt to Hardeep. Produce Modules 18 and 19 only after Hardeep returns that
+prompt as the explicit production trigger.
+
+## Course Production Bible review candidate
+
+- Created `core/standards/OWOS-COURSE-PRODUCTION-BIBLE.html`.
+- Created the matching source-of-truth companion
+  `core/standards/OWOS-COURSE-PRODUCTION-BIBLE.md`.
+- The Bible carries one lift-station reliability example through topic intake, research,
+  formulation, curriculum, experience architecture, lesson contracts, golden lesson, production,
+  Author Studio, module QA, landing-page production, course dossier, and verified publication.
+- It contains nineteen copyable prompts, detailed Author Studio location and startup information,
+  view-specific Studio prompts, approval gates, exit evidence, and the generic master build prompt.
+- Desktop, tablet, and phone browser validation passed with zero runtime errors, zero horizontal
+  overflow, one heading, fourteen phase panels, nineteen prompts, working phase navigation, and
+  working copy controls.
+- The Bible files are local review candidates. They have not been pushed to GitHub.
+
+## Next action
+
+Hardeep reviews the HTML and Markdown Bible. After explicit approval, make them binding repository
+sources of truth and push both files to GitHub.
+
 ## Progressive Modules 15 to 17 structured batch
 
 ### Module 15
