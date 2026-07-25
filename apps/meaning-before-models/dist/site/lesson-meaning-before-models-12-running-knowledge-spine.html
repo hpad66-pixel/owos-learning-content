@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="live-review">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="6f7854e64a98f5a9f43f1af59a1182f9e7d6e3f6860b77a7f7f26b113a15c07c">
+  <meta name="owos-package-checksum" content="6ecbc93965fc8bc0e52c491f813d06d9012b473162ede70f84245a2e87c17193">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -623,7 +623,93 @@ textarea:focus-visible {
 .visual-frame img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
+}
+
+.mobile-visual-composition {
+  display: none;
+}
+
+.visual-detail-dialog {
+  width: min(96vw, 1240px);
+  max-width: none;
+  height: min(92vh, 920px);
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 30px 90px rgba(9, 30, 49, .35);
+}
+
+.visual-detail-dialog::backdrop {
+  background: rgba(9, 30, 49, .76);
+}
+
+.visual-detail-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.visual-detail-header h3 {
+  margin: 2px 0 0;
+}
+
+.visual-detail-help,
+.visual-detail-controls {
+  margin: 14px 20px;
+}
+
+.visual-detail-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.visual-detail-controls output {
+  min-width: 64px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.visual-detail-pan {
+  width: calc(100% - 40px);
+  height: min(62vh, 680px);
+  margin: 0 20px 18px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #f7faf9;
+}
+
+.visual-detail-pan:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.visual-detail-canvas {
+  width: 100%;
+  transform-origin: top left;
+}
+
+.visual-detail-canvas img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  transform-origin: top left;
 }
 
 .component {
@@ -1185,6 +1271,116 @@ footer {
   }
 }
 
+.learning-lenses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.learning-lenses article{padding:1rem;border:1px solid var(--line);border-radius:16px;background:#fff}.learning-lenses h3{margin:.35rem 0}.drawer input[type=search]{display:block;width:100%;margin:.5rem 0 1rem;padding:.7rem;border:1px solid var(--line);border-radius:10px}.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}
+
+@media (max-width: 900px) {
+  .learning-lenses,
+  .contract-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .contract-rubric {
+    font-size: .8rem;
+  }
+
+  .visual-frame {
+    overflow: hidden;
+  }
+
+  .visual-frame img {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .mobile-visual-composition {
+    display: block;
+    margin: 16px 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--wash);
+  }
+
+  .mobile-visual-composition > h4 {
+    margin: 0 0 12px;
+  }
+
+  .mobile-visual-composition ol {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-visual-composition li {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #c9dddd;
+    border-radius: 13px;
+    background: #ffffff;
+  }
+
+  .mobile-visual-step-number {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #ffffff;
+    font-weight: 850;
+  }
+
+  .mobile-visual-composition h4,
+  .mobile-visual-composition p {
+    margin: 0;
+  }
+
+  .mobile-visual-composition p {
+    margin-top: 4px;
+  }
+
+  .visual-actions {
+    display: block;
+  }
+
+  .visual-detail-dialog {
+    width: 100vw;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .visual-detail-header {
+    align-items: flex-start;
+  }
+
+  .visual-detail-pan {
+    height: 56dvh;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar {
+    position: static;
+    backdrop-filter: none;
+  }
+
+  .topbar-inner,
+  .top-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .top-actions .button {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1220,6 +1416,7 @@ footer {
       <a class="brand" href="course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
       <nav class="top-actions" aria-label="Lesson tools">
         <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="community">Community</button>
         <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
         <a class="button primary" href="#lesson-start">Start</a>
       </nav>
@@ -1245,6 +1442,11 @@ footer {
         <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
         <div class="prose"><ul><li>Explain why an ontology file is not a running service</li><li>Identify governance semantic connection consumption and reliability responsibilities</li><li>Route one utility question to source-bounded evidence</li><li>Assign accountable owners across the operating path</li><li>Design a bounded Knowledge Spine without copying everything</li></ul><p><strong>Misconception we will change:</strong> A graph database or ontology diagram is already a Knowledge Spine.</p></div>
       </section>
+      <section class="learning-lenses" aria-label="Foundation, practitioner, and leader views">
+        <article data-lens="foundation"><span class="kind">Foundation</span><h3>Know enough, permit deliberately, prove the result</h3><p>Ask whether the evidence is fit, whether this actor may act, and whether the result can be verified.</p></article>
+        <article data-lens="practitioner"><span class="kind">Practitioner</span><h3>Implement the boundaries</h3><p>Define identities, validation, policy decisions, tool schemas, request keys, recovery, verification, and audit events.</p></article>
+        <article data-lens="leader"><span class="kind">Leader</span><h3>Own the delegation</h3><p>Name approval thresholds, prohibited actions, accountable owners, review cadence, incident response, and correction authority.</p></article>
+      </section>
 
 <section class="lesson-section" id="opening">
   <header class="section-heading">
@@ -1259,9 +1461,36 @@ footer {
   <h3>A running Knowledge Spine has operating layers</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read upward from owned sources and across the reliability rail</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-12-running-knowledge-spine-service-stack.svg" alt="A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers">
+    <img src="meaning-before-models-module-12-running-knowledge-spine-service-stack.svg" alt="A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers" data-visual-overview>
   </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm12-service-stack-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A model or graph store alone is not a running spine</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm12-service-stack-detail" data-visual-detail
+    aria-labelledby="mbm12-service-stack-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm12-service-stack-detail-title">A running Knowledge Spine has operating layers</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="meaning-before-models-module-12-running-knowledge-spine-service-stack.svg" alt="A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A layered Knowledge Spine connects sources through connection fabric semantic services and governance to consumers with reliability controls across all layers</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm12-opening" data-choice-group
@@ -1294,9 +1523,36 @@ footer {
   <h3>Meaning can connect data without moving all of it</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow each source into the central semantic services and then to different consumers</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-12-running-knowledge-spine-estate-map.svg" alt="GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards">
+    <img src="meaning-before-models-module-12-running-knowledge-spine-estate-map.svg" alt="GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards" data-visual-overview>
   </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm12-estate-map-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The architecture may mix virtual indexed cached and materialized access</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm12-estate-map-detail" data-visual-detail
+    aria-labelledby="mbm12-estate-map-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm12-estate-map-detail-title">Meaning can connect data without moving all of it</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="meaning-before-models-module-12-running-knowledge-spine-estate-map.svg" alt="GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>GIS CMMS telemetry and documents connect through mapped and indexed routes to semantic services that supply dashboards applications agents and stewards</p></details>
+  </dialog>
 </figure>
 <section class="component signature-component decision-lab" id="mbm12-spine-router" data-knowledge-spine-router
  data-purposeful-interaction="knowledge-spine-router" data-component-source="structured-module-package" data-completion="spine-router">
@@ -1317,9 +1573,36 @@ footer {
   <h3>A question becomes a bounded evidence package</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the six numbered hops from request to evidence package</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-12-running-knowledge-spine-answer-route.svg" alt="A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent">
+    <img src="meaning-before-models-module-12-running-knowledge-spine-answer-route.svg" alt="A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent" data-visual-overview>
   </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm12-answer-route-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Consumers should see source time proof validation and permissions</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm12-answer-route-detail" data-visual-detail
+    aria-labelledby="mbm12-answer-route-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm12-answer-route-detail-title">A question becomes a bounded evidence package</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="meaning-before-models-module-12-running-knowledge-spine-answer-route.svg" alt="A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A hospital impact question passes identity resolution mapping query validation provenance and permission steps before an evidence package reaches an agent</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm12-packet" data-matching
@@ -1378,9 +1661,36 @@ footer {
   <h3>Operational corrections return through governed release</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Move clockwise from detected defect through investigation and release back to runtime</div>
   <div class="visual-frame">
-    <img src="meaning-before-models-module-12-running-knowledge-spine-feedback-loop.svg" alt="A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification">
+    <img src="meaning-before-models-module-12-running-knowledge-spine-feedback-loop.svg" alt="A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification" data-visual-overview>
   </div>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm12-feedback-loop-detail">Open detailed view</button>
+  </p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Corrections need evidence tests approval versioning and consumer notice</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm12-feedback-loop-detail" data-visual-detail
+    aria-labelledby="mbm12-feedback-loop-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm12-feedback-loop-detail-title">Operational corrections return through governed release</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="meaning-before-models-module-12-running-knowledge-spine-feedback-loop.svg" alt="A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A steward feedback loop moves from detected wrong link through evidence owner regression test approval release and affected-consumer notification</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm12-feedback" data-multi-select
@@ -1431,10 +1741,18 @@ footer {
 
 <section class="component" id="mbm12-operating-brief"
   data-purposeful-interaction="applied-work-product"
-  data-component-source="structured-module-package">
+  data-component-source="structured-module-package"
+  data-final-applied-check data-artifact-ref="mbm12-operating-brief">
   <header class="component-header"><h3>Utility Knowledge Spine Operating Brief</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">Record one question and its complete operating path.</p>
+
+    <div class="contract-teaching">
+      <h4>Score the contract before you defend it</h4>
+      <table class="contract-rubric"><thead><tr><th>Dimension</th><th>Full-credit evidence</th><th>Points</th></tr></thead><tbody></tbody></table>
+      <div class="contract-comparison"><article><b>Weak boundary</b><p></p></article><article><b>Strong boundary</b><p></p></article></div>
+      <details><summary>Open the completed wastewater exemplar</summary><p></p></details>
+    </div>
     <form class="work-product" data-work-product="mbm12-operating-brief"
       data-artifact="mbm12-operating-brief"
       data-completion="operating-brief"
@@ -1442,7 +1760,11 @@ footer {
       data-incorrect-feedback="Complete every operating layer, failure control, and correction route.">
       <div class="field-grid"><label>Bounded utility question<textarea name="question" rows="3" required></textarea></label><label>Ontology shapes mappings and policies<textarea name="governance_core" rows="3" required></textarea></label><label>Query reasoning validation and reconciliation services<textarea name="semantic_services" rows="3" required></textarea></label><label>Sources interfaces and data placement<textarea name="source_connections" rows="3" required></textarea></label><label>Business intelligence applications agents and stewards<textarea name="consumers" rows="3" required></textarea></label><label>Identity access and action boundary<textarea name="permissions" rows="3" required></textarea></label><label>Latency freshness and availability<textarea name="service_levels" rows="3" required></textarea></label><label>Failure and stale-data behavior<textarea name="fallback" rows="3" required></textarea></label><label>Accountable owners by decision<textarea name="owners" rows="3" required></textarea></label><label>Source time version and proof receipt<textarea name="evidence_receipt" rows="3" required></textarea></label></div>
       <label>Correction investigation test and release path<textarea name="feedback_route" rows="3" required></textarea></label>
+
+      <fieldset class="contract-defense"><legend>Defend the completed contract</legend></fieldset>
+      <section class="handoff-contract"><h4>Module 19 handoff contract</h4><p></p><ul></ul></section>
       <button class="button primary" type="submit">Save Utility Knowledge Spine Operating Brief</button>
+      <button class="button secondary" type="button" data-export-artifact>Export contract</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -1467,8 +1789,12 @@ footer {
 </section>
       <section id="owos-course-community" class="connected">
         <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
-        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real action boundary</h3><p>Discuss which utility action should act, ask, refresh, clarify, or stop. Community discussion is not governed evidence.</p><button class="button" type="button" data-open-drawer="community">Open Community</button></article>
       </section>
+      <nav class="footnav" aria-label="Lesson navigation">
+        <a class="button" href="course-meaning-before-models.html">Return to course</a>
+        <a class="button" href="#lesson-start">Start at the top</a>
+      </nav>
       <section class="completion">
         <h2>Complete the working candidate</h2>
         <p>Complete the operating-gap decision, routing studio, evidence packet, accountability handoff, correction check, and Operating Brief.</p>
@@ -1478,15 +1804,30 @@ footer {
     </div>
   </main>
   <div class="drawer-scrim" data-drawer-scrim></div>
-  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+  <aside class="drawer" data-drawer="graph" data-component-source="structured-module-package" aria-hidden="true">
     <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <p data-graph-kind="concept">Concept: a grounded proposal does not create permission to act.</p>
+    <p data-graph-kind="relationship">Relationship: evidence supports proposal; policy and authority govern action.</p>
+    <p data-graph-kind="role">Role: utility leader, operator, maintainer, data steward, cybersecurity owner, and approver.</p>
+    <p data-graph-kind="competency">Competency: define and defend one bounded Agent Action Contract.</p>
+    <p data-graph-kind="source">Sources: W3C, OWASP, and NIST evidence listed below.</p>
     <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>RDF graph and dataset foundations</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>SPARQL 1.1 Query Language</h3><p>Graph pattern querying</p><a href="https://www.w3.org/TR/sparql11-query/">Open source</a></article><article><h3>Shapes Constraint Language</h3><p>Graph validation</p><a href="https://www.w3.org/TR/shacl/">Open source</a></article><article><h3>PROV-O: The PROV Ontology</h3><p>Provenance relationships</p><a href="https://www.w3.org/TR/prov-o/">Open source</a></article></div>
   </aside>
-  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
-    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <div class="glossary-list"><article><h3>Knowledge Spine</h3><p>A governed architecture that connects shared meaning, source data, semantic services, consumers, and corrections.</p></article><article><h3>semantic service</h3><p>A runtime capability such as graph query, reasoning, validation, reconciliation, or explanation.</p></article><article><h3>connection fabric</h3><p>Governed interfaces and mappings that connect concepts to owned sources.</p></article><article><h3>consumption plane</h3><p>The services that package governed evidence for business intelligence, applications, agents, and stewards.</p></article><article><h3>service level</h3><p>A measurable promise for latency, freshness, availability, or recovery.</p></article><article><h3>evidence receipt</h3><p>A record of the sources, time, version, proof, validation, and permissions behind an answer.</p></article></div>
+  <aside class="drawer" data-drawer="community" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Community</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>Community discussion helps compare practice. It never replaces governed evidence, utility policy, or approval.</p>
+    <label data-community-feature="search">Search this discussion<input type="search" placeholder="Search action boundaries"></label>
+    <div data-community-feature="filters"><button class="button" type="button">Operations</button> <button class="button" type="button">Maintenance</button> <button class="button" type="button">Cybersecurity</button></div>
+    <p data-community-feature="bookmarks"><strong>Bookmarks:</strong> Save a useful practitioner example for later review.</p>
+    <p data-community-feature="threaded-replies"><strong>Threaded replies:</strong> Compare why another utility would ACT, ASK, REFRESH, CLARIFY, or STOP.</p>
+    <p data-community-feature="presence"><strong>Presence:</strong> Participant presence is supplied by the authenticated platform runtime.</p>
+    <p data-community-feature="instructor-treatment"><strong>Instructor boundary:</strong> Examples remain discussion until evidence and authority are reviewed.</p>
   </aside>
+  <aside class="drawer" data-drawer="glossary" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article data-defined-term><h3 class="term" data-def="A governed architecture that connects shared meaning, source data, semantic services, consumers, and corrections.">Knowledge Spine</h3><p>A governed architecture that connects shared meaning, source data, semantic services, consumers, and corrections.</p></article><article data-defined-term><h3 class="term" data-def="A runtime capability such as graph query, reasoning, validation, reconciliation, or explanation.">semantic service</h3><p>A runtime capability such as graph query, reasoning, validation, reconciliation, or explanation.</p></article><article data-defined-term><h3 class="term" data-def="Governed interfaces and mappings that connect concepts to owned sources.">connection fabric</h3><p>Governed interfaces and mappings that connect concepts to owned sources.</p></article><article data-defined-term><h3 class="term" data-def="The services that package governed evidence for business intelligence, applications, agents, and stewards.">consumption plane</h3><p>The services that package governed evidence for business intelligence, applications, agents, and stewards.</p></article><article data-defined-term><h3 class="term" data-def="A measurable promise for latency, freshness, availability, or recovery.">service level</h3><p>A measurable promise for latency, freshness, availability, or recovery.</p></article><article data-defined-term><h3 class="term" data-def="A record of the sources, time, version, proof, validation, and permissions behind an answer.">evidence receipt</h3><p>A record of the sources, time, version, proof, validation, and permissions behind an answer.</p></article></div>
+  </aside>
+  <div id="tt" role="tooltip" hidden></div>
   <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-structured-candidate. No credential or operational authority.</div></footer>
   <script>(() => {
   "use strict";
@@ -1975,6 +2316,8 @@ footer {
     ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
     ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
+    ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
+    ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -1997,21 +2340,95 @@ footer {
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const fields = [...form.querySelectorAll("[required]")];
-      const complete = fields.every((field) => field.value.trim());
+      const fields = [...form.querySelectorAll("input[required]:not([type=radio]), textarea[required], select[required]")];
+      const defense = form.querySelector("input[name=contract_defense]:checked");
+      const defenseCorrect = !form.querySelector("input[name=contract_defense]") || defense?.dataset.correct === "true";
+      const complete = fields.every((field) => field.value.trim()) && defenseCorrect;
       const feedback = form.querySelector("[data-feedback]");
       if (!complete) {
-        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.textContent = defense && !defenseCorrect ? "The contract is not defensible merely because its boxes are filled. Use the rubric, strengthen the boundaries, and try again." : form.dataset.incorrectFeedback;
         feedback.className = "feedback bad";
         return;
       }
       const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      record.contract_defense = defense?.value || "not-required";
       form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
       localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
       feedback.textContent = form.dataset.correctFeedback;
       feedback.className = "feedback good";
       mark(form.dataset.completion);
     });
+    form.querySelector("[data-export-artifact]")?.addEventListener("click", () => {
+      const preview = form.querySelector("[data-artifact-preview]").textContent;
+      if (!preview || preview.includes("local preview")) {
+        form.querySelector("[data-feedback]").textContent = "Save and defend the contract before exporting it.";
+        return;
+      }
+      const blob = new Blob([preview], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${form.dataset.workProduct}.json`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
+    });
+  });
+
+  document.querySelectorAll(".learning-visual").forEach((visual) => {
+    const trigger = visual.querySelector("[data-open-visual-detail]");
+    const dialog = visual.querySelector("[data-visual-detail]");
+    const image = dialog?.querySelector("[data-visual-detail-image]");
+    const canvas = dialog?.querySelector("[data-visual-detail-canvas]");
+    const pan = dialog?.querySelector("[data-visual-pan]");
+    const status = dialog?.querySelector("[data-visual-zoom-status]");
+    if (!trigger || !dialog || !image || !canvas || !pan || !status) return;
+
+    let zoom = 1;
+    const renderZoom = () => {
+      const baseWidth = pan.clientWidth;
+      canvas.style.setProperty("width", `${baseWidth * zoom}px`, "important");
+      canvas.style.setProperty("min-width", `${baseWidth * zoom}px`, "important");
+      canvas.style.zoom = "1";
+      canvas.style.transform = "none";
+      canvas.style.margin = "0";
+      status.value = `${Math.round(zoom * 100)}%`;
+      status.textContent = status.value;
+    };
+    const resetDetail = () => {
+      zoom = 1;
+      pan.scrollTo({ left: 0, top: 0, behavior: "instant" });
+      renderZoom();
+    };
+
+    trigger.addEventListener("click", () => {
+      dialog.showModal();
+      resetDetail();
+      dialog.querySelector("[data-close-visual-detail]")?.focus();
+    });
+    dialog.querySelector("[data-close-visual-detail]")?.addEventListener("click", () => {
+      dialog.close();
+    });
+    dialog.querySelector("[data-visual-zoom-in]")?.addEventListener("click", () => {
+      zoom = Math.min(4, zoom + .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-zoom-out]")?.addEventListener("click", () => {
+      zoom = Math.max(1, zoom - .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-reset]")?.addEventListener("click", resetDetail);
+    pan.addEventListener("keydown", (event) => {
+      const movement = 80;
+      const directions = {
+        ArrowLeft: [-movement, 0],
+        ArrowRight: [movement, 0],
+        ArrowUp: [0, -movement],
+        ArrowDown: [0, movement],
+      };
+      if (!directions[event.key]) return;
+      event.preventDefault();
+      pan.scrollBy({ left: directions[event.key][0], top: directions[event.key][1] });
+    });
+    dialog.addEventListener("close", () => trigger.focus());
   });
 
   function openDrawer(name, trigger) {

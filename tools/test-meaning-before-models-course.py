@@ -37,6 +37,12 @@ records[5] = {
     "script": COURSE / "curriculum/scripts/module-05-five-layers-of-meaning-video-script.md",
     "qa": COURSE / "qa/module-05-quality-control-report.md",
 }
+records[18] = {
+    "lesson": COURSE / "curriculum/module-18-graph-grounded-agentic-applications.html",
+    "brief": COURSE / "modules/module-18-graph-grounded-agentic-applications/design-brief.md",
+    "script": None,
+    "qa": COURSE / "modules/module-18-graph-grounded-agentic-applications/qa.yaml",
+}
 
 full_conformance = audit_full_conformance(COURSE)
 results = full_conformance["lessons"]

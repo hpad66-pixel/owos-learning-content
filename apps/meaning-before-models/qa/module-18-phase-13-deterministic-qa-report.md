@@ -86,7 +86,6 @@ accessibility behavior. The resulting deterministic checksum is
 
 The following were not performed and are not represented as passed:
 
-- Hardeep working approval
 - utility practitioner review
 - novice-learner observation
 - independent factual and source review
@@ -127,11 +126,13 @@ The following were not performed and are not represented as passed:
   overviews fit; no default graphic scrolling; five mobile compositions rendered; five detail
   viewers passed in every applicable responsive mode; final release remained blocked
 
-## 6. Recommendation for resuming Phase 14
+## 6. Phase 14 owner decision and next gate
 
-Return the corrected candidate to Phase 14 owner review in One Water OS Author Studio. Reinspect all
-five graphics in Desktop, iPad, iPhone, 200%, and 400% views. Confirm practical label legibility,
-vertical reading order, touch usability, detailed-view behavior, and preservation of the same
-instructional conclusion. Then route the same candidate to the named practitioner, novice, factual,
-security, accessibility, credential, and course-coherence reviewers. Do not publish or mark final
-release approved until those gates have documented evidence.
+Hardeep Anand approved the corrected Phase 14 owner-review candidate on 2026-07-25. The approved
+candidate checksum is
+`3e22f25705f3c3efaab6e6ed53c703b72dfd8fdbdada357724b31dc724bb8e8e`.
+The immutable candidate is now routed through
+`qa/module-18-human-review-package/README.md` for utility-practitioner, novice-learner, factual,
+security, accessibility, physical-device, credential, and course-coherence review. No independent
+lane is passed without a named reviewer, date, evidence, findings, disposition, and signature.
+Live-review availability is permitted. Credential and final-release approval remain blocked.

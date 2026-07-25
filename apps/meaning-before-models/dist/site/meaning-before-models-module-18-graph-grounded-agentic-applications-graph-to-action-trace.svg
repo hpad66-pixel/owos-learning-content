@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">LS-7 graph-to-action trace</title>
+  <desc id="desc">A wastewater evidence graph passes through validation, policy, approval, bounded tool execution, verification, and audit. Stale inspection evidence and draft-only authority prevent Priority 1 execution.</desc>
+  <rect width="1200" height="760" rx="28" fill="#f4faf8"/>
+  <text x="56" y="66" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="800" fill="#102a43">From explicit triples to a controlled action</text>
+  <text x="56" y="100" font-family="Inter,Arial,sans-serif" font-size="17" fill="#526d7d">Read left to right. Every gate produces evidence; no gate inherits permission from the graph.</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="56" y="142" width="1088" height="172" rx="20" fill="#ffffff" stroke="#b9d6d0" stroke-width="2"/>
+    <text x="82" y="178" font-size="18" font-weight="800" fill="#147d88">EXPLICIT WASTEWATER GRAPH</text>
+    <g font-size="16" fill="#17324d">
+      <text x="82" y="216">LS-7  →  contributes_to  →  Overflow-21</text>
+      <text x="82" y="250">Inspection-443  →  inspected_asset  →  LS-7</text>
+      <text x="82" y="284">Inspection-443  →  recorded_at  →  2026-06-01T09:00Z</text>
+      <text x="620" y="216">Policy-12  →  freshness_limit  →  24 hours</text>
+      <text x="620" y="250">Operator-77  →  may_create  →  Draft-Work-Order</text>
+      <text x="620" y="284">Operator-77  →  may_not_assign  →  Priority-1</text>
+    </g>
+    <g transform="translate(56 358)">
+      <g fill="#fff" stroke-width="2">
+        <rect width="166" height="126" rx="17" stroke="#66aeb2"/><rect x="184" width="166" height="126" rx="17" stroke="#7b9cc6"/>
+        <rect x="368" width="166" height="126" rx="17" stroke="#c3934f"/><rect x="552" width="166" height="126" rx="17" stroke="#9b7fc7"/>
+        <rect x="736" width="166" height="126" rx="17" stroke="#e8752f"/><rect x="920" width="168" height="126" rx="17" stroke="#4e9b78"/>
+      </g>
+      <g font-size="16" font-weight="800" fill="#17324d" text-anchor="middle">
+        <text x="83" y="34">1. GRAPH</text><text x="267" y="34">2. VALIDATE</text><text x="451" y="34">3. AUTHORIZE</text>
+        <text x="635" y="34">4. APPROVE</text><text x="819" y="34">5. EXECUTE</text><text x="1004" y="34">6. VERIFY + AUDIT</text>
+      </g>
+      <g font-size="14" fill="#526d7d" text-anchor="middle">
+        <text x="83" y="64">Resolve identity</text><text x="83" y="86">and evidence</text>
+        <text x="267" y="64">Freshness fails</text><text x="267" y="86">REFRESH</text>
+        <text x="451" y="64">Draft allowed</text><text x="451" y="86">Priority denied</text>
+        <text x="635" y="64">Supervisor needed</text><text x="635" y="86">ASK</text>
+        <text x="819" y="64">Bounded draft only</text><text x="819" y="86">after refresh</text>
+        <text x="1004" y="64">Read CMMS state</text><text x="1004" y="86">record receipt</text>
+      </g>
+      <g stroke="#147d88" stroke-width="3" fill="none">
+        <path d="M166 63h18"/><path d="M350 63h18"/><path d="M534 63h18"/><path d="M718 63h18"/><path d="M902 63h18"/>
+      </g>
+    </g>
+    <rect x="56" y="530" width="1088" height="154" rx="20" fill="#102a43"/>
+    <text x="82" y="570" font-size="18" font-weight="800" fill="#ffffff">RESULTING CONTROL DECISION</text>
+    <text x="82" y="608" font-size="17" fill="#dceff0">Current result: REFRESH the inspection evidence, then ASK the named supervisor before Priority 1.</text>
+    <text x="82" y="640" font-size="17" fill="#dceff0">Permitted minimum: create one draft work order only after the refreshed evidence passes validation.</text>
+    <text x="82" y="672" font-size="15" fill="#8ed8c8">The graph explains why the proposal exists. Policy, identity, approval, and tool controls decide what may happen.</text>
+  </g>
+</svg>

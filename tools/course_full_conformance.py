@@ -196,6 +196,8 @@ def _validate_structured_delivery(
         if value.startswith(("http:", "https:", "data:", "/")):
             continue
         target = (lesson.parent / value).resolve()
+        if not target.is_file() and value.startswith("../visuals/"):
+            target = package_dir / "visuals" / Path(value).name
         if not target.is_file():
             errors.append(f"compiled delivery has missing visual asset: {value}")
     if errors:
@@ -313,13 +315,34 @@ def audit(course: Path, *, require_release_ready: bool = False) -> dict:
         lesson = lesson_dir / lesson_name
         stem = lesson.stem
         prefix = _module_prefix(stem)
+        structured_package = None
+        structured_value = config.get("structured_package")
+        if structured_value not in (None, ""):
+            if not isinstance(structured_value, str):
+                lesson_errors.append(
+                    f"{lesson_name} structured_package must be a string"
+                )
+            else:
+                try:
+                    structured_package = _safe_course_path(
+                        course,
+                        structured_value,
+                        f"{lesson_name} structured package",
+                    )
+                except CourseFullConformanceError as error:
+                    lesson_errors.append(str(error))
 
         brief = _declared_path(
             course, config, "brief", f"{lesson_name} design brief", lesson_errors
         )
         if brief is None:
+            brief_candidates = (
+                [structured_package / "design-brief.md"]
+                if structured_package is not None
+                else [brief_dir / f"{stem}.md"]
+            )
             brief = _existing_candidate(
-                [brief_dir / f"{stem}.md"],
+                brief_candidates,
                 f"{lesson_name} module design brief",
                 lesson_errors,
                 required=True,
@@ -329,9 +352,13 @@ def audit(course: Path, *, require_release_ready: bool = False) -> dict:
             course, config, "qa", f"{lesson_name} scored QA report", lesson_errors
         )
         if qa is None:
-            qa_candidates = [qa_dir / f"{stem}-quality-control-report.md"]
+            qa_candidates = (
+                [structured_package / "qa.yaml"]
+                if structured_package is not None
+                else [qa_dir / f"{stem}-quality-control-report.md"]
+            )
             fallback = qa_dir / f"{prefix}-quality-control-report.md"
-            if fallback not in qa_candidates:
+            if structured_package is None and fallback not in qa_candidates:
                 qa_candidates.append(fallback)
             qa = _existing_candidate(
                 qa_candidates,
@@ -375,22 +402,6 @@ def audit(course: Path, *, require_release_ready: bool = False) -> dict:
                 )
 
         if not lesson_errors and brief and qa:
-            structured_value = config.get("structured_package")
-            structured_package = None
-            if structured_value not in (None, ""):
-                if not isinstance(structured_value, str):
-                    lesson_errors.append(
-                        f"{lesson_name} structured_package must be a string"
-                    )
-                else:
-                    try:
-                        structured_package = _safe_course_path(
-                            course,
-                            structured_value,
-                            f"{lesson_name} structured package",
-                        )
-                    except CourseFullConformanceError as error:
-                        lesson_errors.append(str(error))
             try:
                 if structured_package is not None:
                     module_result = _validate_structured_delivery(

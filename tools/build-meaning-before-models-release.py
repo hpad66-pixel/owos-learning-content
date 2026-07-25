@@ -70,7 +70,7 @@ LINKS = {
 }
 
 
-def transform(text: str, *, landing: bool) -> str:
+def transform(text: str, *, landing: bool, lesson_source: Path | None = None) -> str:
     for source, output in LINKS.items():
         text = text.replace(f'href="{source}', f'href="{output}')
     for source, output in ASSETS.items():
@@ -79,6 +79,25 @@ def transform(text: str, *, landing: bool) -> str:
     for source, (_, output) in STRUCTURED_ASSETS.items():
         text = text.replace(f'href="{source}"', f'href="{output}"')
         text = text.replace(f'src="{source}"', f'src="{output}"')
+    if lesson_source is not None:
+        architecture = json.loads(
+            (COURSE / ".course/experience-architecture.json").read_text(encoding="utf-8")
+        )
+        lesson_config = architecture.get("lessons", {}).get(lesson_source.name, {})
+        package_value = lesson_config.get("structured_package")
+        if package_value:
+            package_dir = COURSE / package_value
+            manifest_path = package_dir / "visuals/visual-manifest.yaml"
+            manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
+            for visual in manifest.get("visuals", []):
+                locator = str(visual.get("locator", ""))
+                if not locator:
+                    continue
+                source_path = package_dir / locator
+                output = f"meaning-before-models-{package_dir.name}-{source_path.name}"
+                legacy_reference = f"../visuals/{source_path.name}"
+                text = text.replace(f'href="{legacy_reference}"', f'href="{output}"')
+                text = text.replace(f'src="{legacy_reference}"', f'src="{output}"')
 
     text = re.sub(
         r'(<meta name="owos-release-state" content=")[^"]+(">)',
@@ -137,7 +156,11 @@ def main() -> None:
     for source in LESSONS:
         target = DIST / lesson_output(source)
         target.write_text(
-            transform(source.read_text(encoding="utf-8"), landing=False),
+            transform(
+                source.read_text(encoding="utf-8"),
+                landing=False,
+                lesson_source=source,
+            ),
             encoding="utf-8",
         )
 

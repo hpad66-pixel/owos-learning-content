@@ -1,13 +1,14 @@
 # Course State
 
-Updated: 2026-07-24
+Updated: 2026-07-25
 
 ## Current phase
 
-Progressive structured production from Module 01 through Module 19 under standing owner
-authorization for governed production and live-review publication. The Module 05 benchmark governs
-capability and quality, not page composition. Modules 01 through 05 are compiled structured lessons
-and have replaced their curriculum and distributable outputs.
+Module 18 is an immutable Phase 14 human-review candidate at checksum
+`3e22f25705f3c3efaab6e6ed53c703b72dfd8fdbdada357724b31dc724bb8e8e`. Owner review is approved.
+Eight named independent human-review lanes remain open. The corrected eighteen-module course
+landing and Module 18 are authorized for live review, but credential and final-release status remain
+blocked until those lanes approve the same checksum.
 
 ## Approved
 
@@ -165,9 +166,10 @@ override a blocked hard gate.
 
 ## Next action
 
-Complete the approved Modules 09 to 11 structured batch through source packages, original visual
-assets, simulations, browser QA, Git publication, platform intake, deployment, and public
-verification.
+Deploy and verify the corrected live-review landing, Module 18, Author Studio Phase 14 state, and
+Course Production Bible. Then collect the eight named human-review records against the immutable
+Module 18 checksum. Begin Module 19 from Phase 0 only after Module 18 review evidence and the
+Module 17-to-18-to-19 coherence gate are resolved.
 
 ## Modules 09 to 11 batch design start
 

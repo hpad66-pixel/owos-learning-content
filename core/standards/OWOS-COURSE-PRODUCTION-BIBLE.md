@@ -1,7 +1,7 @@
 # OWOS Course Production Bible
 
-Version: 1.0.0  
-Status: Review candidate, not yet pushed  
+Version: 2.0.0
+Status: Approved operating source of truth
 Owner: Hardeep Anand  
 Companion: `core/standards/OWOS-COURSE-PRODUCTION-BIBLE.html`
 
@@ -625,40 +625,117 @@ Validate the saved structured package, rebuild the preview, compare the source c
 affected module tests, and show me exactly what changed. Do not publish yet.
 ```
 
-## Phase 9: Visual, interaction, and assessment QA
+## Phase 9: Phase 13 deterministic QA
 
 ### Prompt
 
 ```text
-Run the complete module QA suite.
+Proceed with Phase 13 deterministic QA for [COURSE] and [MODULE].
 
-Verify:
-- every visual resolves to a real asset or governed component;
-- SVG text stays inside intended boxes;
-- text does not clip, overlap, or become unreadable;
-- connectors preserve their relationships;
-- desktop, tablet, phone, zoom, touch, keyboard, focus return, and reduced motion;
-- no dark-text contrast failures;
-- no horizontal overflow;
-- no empty controls;
-- simulations and assessments complete correctly;
-- immediate feedback and retry;
-- work-product completion;
-- Graph, Community, Start, drawers, and bottom connected learning;
-- no console or page errors;
-- source and evidence boundaries;
-- distinctiveness from adjacent lessons.
+Validate the structured package and lesson contract, compile deterministic HTML, run full-module
+conformance and course distinctiveness, inspect every real visual asset, and run desktop, iPad,
+iPhone, 200 percent, 400 percent, keyboard, focus, touch, reduced-motion, contrast, simulation,
+assessment, work-product, export, Graph, Community, and completion QA.
 
-Save screenshots and results. Complete the Module Quality-Control Report with a score out of 100 and
-five hard gates. Do not convert an unperformed human review into a pass.
+For every graphic, require:
+- a complete fit-to-screen overview;
+- no default horizontal scrolling;
+- a subject-specific mobile composition when the graphic is dense;
+- an accessible detail viewer with zoom, pan, reset, close, and focus return; and
+- a structured text equivalent.
+
+Save individual screenshots and complete the evidence-backed scorecard. Keep every unperformed
+human gate pending. Do not publish or mark final release approved.
 ```
 
-## Phase 10: Course landing page
+### Exit gate
+
+Automated and rendered checks pass, exact evidence and checksum are recorded, and the candidate is
+ready for owner judgment.
+
+## Phase 10: Phase 14 owner review
+
+### Where
+
+One Water OS Author Studio, Courses:
+
+```text
+https://owos.ai/capture#studio?tab=courses
+```
 
 ### Prompt
 
 ```text
-Build the course-specific landing page from the approved curriculum and experience architecture.
+Review [MODULE] in One Water OS Author Studio using Desktop, iPad, iPhone, 200 percent, and 400
+percent views.
+
+Evaluate narrative, instructional sequence, graphics, mobile reading order, detail viewers,
+simulations, assessments, professional work product, utility realism, evidence boundaries,
+accessibility, and course fit.
+
+Separate release-blocking findings from optional improvements. Do not modify anything until I
+return my decision.
+```
+
+### Owner decisions
+
+Approve Phase 14, or return exact findings to Phase 11. Owner approval does not substitute for
+specialist human review.
+
+## Phase 11: Owner-finding remediation loop
+
+### Prompt
+
+```text
+Apply the Phase 14 owner-review findings for [MODULE].
+
+Preserve every approved element outside the finding. Repair governed source and shared production
+controls where the defect could recur. Revalidate, recompile, rerun the complete affected Phase 13
+matrix, update the evidence report and checksum, and return the corrected candidate to Author
+Studio.
+
+Do not publish or mark final release approved.
+```
+
+Repeat Phase 13 and Phase 14 only for evidence affected by the change. Do not duplicate approved
+research, curriculum, contracts, or teaching without cause.
+
+## Phase 12: Remaining human-review package
+
+### Required review lanes
+
+- utility-practitioner realism;
+- novice-learner comprehension;
+- factual and source accuracy;
+- cybersecurity and industrial-control safety;
+- screen-reader accessibility;
+- physical iPhone and iPad usability;
+- credential and authority boundaries; and
+- adjacent-module and whole-course coherence.
+
+### Prompt
+
+```text
+Prepare the remaining human-review package for [COURSE] and [MODULE] using the approved Phase 14
+checksum.
+
+Create one reviewer brief and separate evidence forms for utility practice, novice comprehension,
+factual and source accuracy, cybersecurity and industrial-control safety, screen-reader
+accessibility, physical iPhone and iPad usability, credential boundaries, and adjacent-module
+course coherence.
+
+Give every reviewer exact questions, evidence locations, severity definitions, decision choices,
+name, role, date, and signature fields. Do not mark any review passed until a named human returns
+completed evidence against the same checksum.
+```
+
+## Phase 13: Course assembly and landing page
+
+### Prompt
+
+```text
+Build or reconcile the course landing page from the approved curriculum, structured-authoring
+inventory, and actual delivery files.
 
 Show:
 - course promise;
@@ -666,18 +743,19 @@ Show:
 - graduation capability;
 - learning route;
 - course parts;
-- module sequence and prerequisites;
+- module sequence;
+- available-module count;
+- pending-module state;
 - expected work products;
-- duration or effort when evidence supports it;
 - current release state;
 - where to begin.
 
-Give the landing page its own visual identity. Test typography, hierarchy, line length, spacing,
-links, navigation, drawers, desktop, tablet, phone, zoom, contrast, and overflow. Do not use a
-generic course catalog layout.
+Remove stale titles and dead links. Give the landing page its own visual identity. Test typography,
+hierarchy, line length, spacing, every module link, navigation, drawers, desktop, iPad, iPhone, 200
+percent, 400 percent, contrast, and overflow.
 ```
 
-## Phase 11: Course Quality-Control Dossier
+## Phase 14: Course Quality-Control Dossier
 
 ### Prompt
 
@@ -696,7 +774,7 @@ Include:
 - distinctiveness and coherence;
 - source and claims status;
 - defect and correction ledger;
-- human-review register;
+- completed human-review register with names, roles, dates, decisions, and candidate checksums;
 - hard release gates;
 - release manifest;
 - Git and deployment proof when published.
@@ -705,18 +783,22 @@ A numeric score cannot override a blocked factual, practitioner, accessibility, 
 security, credential, or release gate.
 ```
 
-## Phase 12: Git, platform, and production
+## Phase 15: Final release, platform, and production
 
 ### Prompt
 
 ```text
-Publish the approved course end to end.
+Release the exact approved course candidate end to end.
+
+First verify that Phase 14 owner approval and every required human review name the same checksum and
+that no blocking finding remains.
 
 Run all source, compiler, module, course, distinctiveness, visual, accessibility, release, and
 formatting gates. Commit intentional source and reproducible output. Push GitHub. Import the exact
 learning-content commit into the OWOS platform. Run platform registry, navigation, release, and
 build tests. Push the exact production commit. Deploy it. Verify custom-domain files byte for byte.
-Run the live desktop, tablet, and phone browser suite.
+Run live desktop, iPad, iPhone, 200 percent, 400 percent, interaction, completion, and navigation
+QA.
 
 Do not stop between approved publication, Git push, platform intake, deployment, and live
 verification. Do not claim publication until the custom domain is verified.
@@ -744,14 +826,17 @@ Execute:
 6. lesson contracts;
 7. golden lesson selection, production, testing, scoring, and approval;
 8. structured module production in prerequisite order;
-9. Author Studio-compatible review;
-10. deterministic compilation;
-11. module-level rendered QA and evidence-backed scoring;
-12. course coherence and distinctiveness review;
-13. course-specific landing-page production;
-14. Course Quality-Control Dossier;
-15. Git publication, platform intake, production deployment, custom-domain verification, and live
-    browser QA when publication is authorized.
+9. Author Studio working-candidate preparation;
+10. Phase 13 deterministic compilation, rendered QA, per-graphic responsive QA, and evidence-backed
+    scoring;
+11. Phase 14 owner review in Desktop, iPad, iPhone, 200 percent, and 400 percent views;
+12. bounded owner-finding remediation followed by affected Phase 13 and Phase 14 reruns;
+13. immutable-checksum human review for practice, novice comprehension, factual accuracy, security,
+    accessibility, physical devices, credential boundaries, and course coherence;
+14. course assembly and course-specific landing-page reconciliation;
+15. Course Quality-Control Dossier;
+16. final Git publication, platform intake, production deployment, custom-domain verification, and
+    live browser QA only after all required approvals name the same checksum.
 
 For the curriculum, determine what the learner must understand first, second, third, and
 thereafter. Let learning jobs and prerequisites determine the module count.
@@ -783,8 +868,9 @@ Complete an evidence-backed Module Quality-Control Report for every module and a
 Quality-Control Dossier for the course. A score cannot override blocked factual, practitioner,
 accessibility, technical, security, credential, or release gates.
 
-Do not report publication until the exact source commit is imported, platform tests pass,
-production deployment completes, custom-domain files match, and live desktop, tablet, and phone
+Do not report final publication until owner approval and every required human review name the exact
+candidate checksum, the source commit is imported, platform tests pass, production deployment
+completes, custom-domain files match, and live desktop, iPad, iPhone, 200 percent, and 400 percent
 tests pass.
 
 Before each major phase, report:
