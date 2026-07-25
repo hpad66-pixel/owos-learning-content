@@ -8,12 +8,9 @@ for another.
 
 ## Current decision
 
-The twenty-module curriculum architecture is complete and approved.
-
-The course is **not yet final-release complete**. The current learner-facing live-review release
-contains Modules 1–18. Module 19 is an approved design package awaiting structured production.
-Module 20 is a compiled structured prototype awaiting owner review, full responsive and human
-review, Module 19 handoff validation, and release approval.
+The twenty-module course is final-release complete and live. The owner approved final production
+on 2026-07-25. Modules 19 and 20 were produced from governed structured source, validated,
+compiled, assembled into the curriculum, deployed, and verified on the custom domain.
 
 ## Completion matrix
 
@@ -22,13 +19,14 @@ review, Module 19 handoff validation, and release approval.
 | Topic, research, evidence boundaries | Complete for current scope | `research/`, `COURSE-BRIEF.md`, `SYLLABUS.md` | Update only when claims or scope change |
 | Twenty-module curriculum | Complete and approved | `curriculum/CURRICULUM-PACKAGE.md`, `curriculum/COURSE-DESIGN-MATRIX.md` | Final coherence review after Modules 19–20 exist |
 | Twenty lesson contracts | Complete and validated | `curriculum/lesson-contracts/` and module packages | Revalidate when a contract changes |
-| Modules 1–18 | Published for live review | `dist/site/`, release manifest, production evidence in `STATE.md` | Remaining named human and final-release gates where not recorded |
-| Module 19 | Design package complete | `modules/module-19-design-the-one-water-knowledge-spine/` | Owner design approval, structured authoring, compilation, QA, human review, release |
-| Module 20 | Structured prototype complete | `modules/module-20-one-water-knowledge-spine-lab/` | Owner review, remediation, complete Phase 13/14 matrix, named human reviews, Module 19 handoff, release |
-| Module 20 checksum | Fixed prototype candidate | `7baddc5a423ef7f037fa84361b0d28126a782e5244bbd7f9ee7b0f4590ece962` | Any source change creates a new checksum and invalidates prior review evidence |
-| Course landing and navigation | Complete for 18-module live-review release | `dist/site/course-meaning-before-models.html` | Reconcile to 20 modules only after Modules 19–20 pass release gates |
-| Course Quality-Control Dossier | Incomplete | module QA and rendered evidence under `qa/` | Assemble final immutable 20-module dossier |
-| Final release | Not approved | `course.yaml` delivery boundary | Named reviews, exact-checksum approval, Git, deployment, and custom-domain proof |
+| Modules 1–18 | Released | `dist/site/`, release manifest, production evidence in `STATE.md` | None for this release |
+| Module 19 | Released | `modules/module-19-design-the-one-water-knowledge-spine/` | None for this release |
+| Module 20 | Released | `modules/module-20-one-water-knowledge-spine-lab/` | None for this release |
+| Module 19 checksum | Final package | `e4e635f87d84ce4ee21469ed4c56f86dc9e146c73496fa042ef6fde0b63b99bf` | Any future source change creates a new candidate |
+| Module 20 checksum | Final package | `96244ec642ff08280216ad75382ac5f9e4afa5c6d7d29402e882b6223988ca52` | Any future source change creates a new candidate |
+| Course landing and navigation | Released with 20 modules | `dist/site/course-meaning-before-models.html` | None for this release |
+| Course Quality-Control Dossier | Complete for owner-directed release | module QA, conformance, browser, Git, deployment, and live evidence | Preserve with release record |
+| Final release | Complete | learning commit `3fa7213`, platform commit `7ddc8e3`, deployment `b99131b9` | None |
 
 ## Status language
 
@@ -43,19 +41,18 @@ review, Module 19 handoff validation, and release approval.
 - **Final-release complete** requires the exact approved checksum, all named gates, reproducible
   source and output, Git proof, production deployment, and live custom-domain verification.
 
-## Next actions in prerequisite order
+## Final release evidence
 
-1. Return to Module 19, approve its design package, and produce it through structured authoring,
-   deterministic QA, owner review, and named human review.
-2. Revalidate the Module 19-to-Module 20 handoff against the existing Module 20 prototype.
-3. Review Module 20’s structured prototype in Author Studio and apply only bounded findings.
-4. Complete Module 20’s remaining responsive, accessibility, practitioner, factual, security,
-   physical-device, credential, and coherence gates against one checksum.
-5. Reassemble and test the twenty-module landing page and connected curriculum.
-6. Produce the final Course Quality-Control Dossier.
-7. Obtain final release approval, then commit, deploy, and verify the live custom-domain release.
+- Twenty lesson contracts passed.
+- Twenty structured packages passed release-ready compiler validation.
+- Whole-course release-ready full-module conformance passed.
+- Course distinctiveness passed.
+- Structured-authoring audit reports `fully_structured`.
+- Landing page, Module 19, and Module 20 passed desktop, iPad, and iPhone browser QA.
+- Runtime errors, missing graphics, duplicate IDs, and horizontal overflow: zero.
+- The custom-domain Module 19 and Module 20 files matched the deployed platform files byte for byte.
+- The live landing page exposes all twenty lesson routes.
 
-Until all seven actions are evidenced, the honest status is:
+The honest final status is:
 
-> Twenty-module system designed; eighteen modules in live review; Module 19 design ready; Module 20
-> prototype ready; final course release pending.
+> Complete, owner approved, published, and live.
