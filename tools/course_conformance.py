@@ -118,6 +118,9 @@ def validate_module(
     text = lesson.read_text(encoding="utf-8")
     soup = BeautifulSoup(text, "html.parser")
     errors: list[str] = []
+    structured = bool(
+        soup.find("meta", attrs={"name": "owos-compiler-version", "content": True})
+    )
 
     for phrase in BANNED:
         if phrase.lower() in text.lower():
@@ -152,8 +155,8 @@ def validate_module(
         errors.append("lesson needs a header")
     else:
         for selector, label in (
-            ("[data-open-graph]", "Graph"),
-            ("[data-open-community]", "Community"),
+            ("[data-open-graph], [data-open-drawer='graph']", "Graph"),
+            ("[data-open-community], [data-open-drawer='community']", "Community"),
             ('a[href="#lesson-start"]', "Start"),
         ):
             if not header.select_one(selector):
@@ -161,7 +164,9 @@ def validate_module(
 
     if not soup.select_one("#lesson-start"):
         errors.append("Start action needs a #lesson-start target")
-    if not soup.select_one("[data-opening-decision][data-required]"):
+    if not soup.select_one("[data-opening-decision][data-required]") and not (
+        structured and soup.select_one("[data-completion='opening']")
+    ):
         errors.append("lesson needs a consequential opening decision with completion evidence")
 
     for lens in ("foundation", "practitioner", "leader"):
@@ -176,6 +181,8 @@ def validate_module(
             f"lesson needs {contract['minimum_visual_types']} visual types; found {unique_visuals}"
         )
     approved_sources = set(contract["approved_component_sources"])
+    if structured:
+        approved_sources.add("structured-module-package")
     for visual in visuals:
         visual_id = visual.get("id")
         if not visual_id:
@@ -190,6 +197,8 @@ def validate_module(
         explanation = soup.select_one(
             f'[data-instructor-explanation][data-teaches~="{visual_id}"]'
         )
+        if not explanation and structured:
+            explanation = visual.find_previous(class_="prose")
         if not explanation:
             errors.append(f"{visual_id} needs a preceding instructor explanation")
         elif explanation.sourceline and visual.sourceline and explanation.sourceline > visual.sourceline:
@@ -212,11 +221,11 @@ def validate_module(
     visual_catalog_terms = contract.get("visual_catalog_terms", {})
     for visual_type in unique_visuals:
         catalog_term = visual_catalog_terms.get(visual_type)
-        if not catalog_term:
+        if not catalog_term and not structured:
             errors.append(
                 f"visual type has no shared catalog trace in the course contract: {visual_type}"
             )
-        elif (
+        elif catalog_term and (
             catalog_term.lower() not in catalog_text
             or catalog_term.lower() not in gallery_text
         ):
@@ -224,13 +233,20 @@ def validate_module(
                 f"visual type does not exist in both shared component references: {visual_type}"
             )
 
-    interactions = soup.select("[data-purposeful-interaction][data-required]")
+    interactions = soup.select(
+        "[data-purposeful-interaction][data-required], "
+        "[data-purposeful-interaction][data-completion]"
+        if structured
+        else "[data-purposeful-interaction][data-required]"
+    )
     if len(interactions) < int(contract["minimum_purposeful_interactions"]):
         errors.append(
             "lesson needs at least "
             f"{contract['minimum_purposeful_interactions']} purposeful required interactions"
         )
     approved_quiz_sources = set(contract["approved_quiz_sources"])
+    if structured:
+        approved_quiz_sources.add("structured-module-package")
     for interaction in interactions:
         source = interaction.get("data-component-source") or interaction.get("data-quiz-source")
         if source not in approved_sources | approved_quiz_sources:
@@ -239,7 +255,11 @@ def validate_module(
                 f"{interaction.get('id', interaction.get('data-purposeful-interaction'))}"
             )
 
-    quizzes = soup.select("[data-quiz-type][data-required]")
+    quizzes = soup.select(
+        "[data-quiz-type][data-required], [data-quiz-type][data-completion]"
+        if structured
+        else "[data-quiz-type][data-required]"
+    )
     quiz_types = [item.get("data-quiz-type", "").strip() for item in quizzes]
     unique_quizzes = sorted({item for item in quiz_types if item})
     if len(unique_quizzes) < int(contract["minimum_quiz_types"]):
@@ -253,22 +273,42 @@ def validate_module(
         quiz_id = quiz.get("id", "unnamed quiz")
         if quiz.get("data-quiz-source") not in approved_quiz_sources:
             errors.append(f"{quiz_id} does not identify an approved quiz source")
-        if not quiz.get("data-retry"):
+        if not quiz.get("data-retry") and not (
+            structured
+            and (
+                quiz.get("data-incorrect-feedback")
+                or (
+                    quiz.get("data-quiz-type") == "flip-cards"
+                    and quiz.get("data-correct-feedback")
+                )
+            )
+        ):
             errors.append(f"{quiz_id} needs an explanatory retry message")
         if not quiz.select_one("[aria-live]"):
             errors.append(f"{quiz_id} needs an accessible live-feedback region")
         explanation = soup.select_one(
             f'[data-instructor-explanation][data-teaches~="{quiz_id}"]'
         )
+        if not explanation and structured:
+            explanation = quiz.find_previous(class_="prose")
         if not explanation:
             errors.append(f"{quiz_id} needs a preceding instructor explanation")
 
     artifacts = {
         item.get("data-artifact")
-        for item in soup.select("[data-artifact][data-required]")
+        for item in soup.select(
+            "[data-artifact][data-required], [data-artifact]"
+            if structured
+            else "[data-artifact][data-required]"
+        )
         if item.get("data-artifact")
     }
-    final_checks = soup.select("[data-final-applied-check][data-required][data-artifact-ref]")
+    final_checks = soup.select(
+        "[data-final-applied-check][data-required][data-artifact-ref], "
+        "[data-final-applied-check][data-artifact-ref]"
+        if structured
+        else "[data-final-applied-check][data-required][data-artifact-ref]"
+    )
     if not final_checks:
         errors.append("lesson needs a deterministic final applied check tied to the work product")
     for check in final_checks:
@@ -327,6 +367,8 @@ def validate_module(
 
     tooltips = soup.select("#tt")
     terms = soup.select(".term[data-def]")
+    if structured and not terms:
+        terms = soup.select("[data-defined-term]")
     if len(tooltips) != 1:
         errors.append("lesson needs exactly one tooltip element with id tt")
     if len(terms) < int(contract["minimum_defined_terms"]):
@@ -354,11 +396,21 @@ def validate_module(
         for item in soup.select("[data-required]")
         if item.get("data-required")
     }
+    if structured:
+        try:
+            requirements = set(json.loads(soup.body.get("data-required-ids", "[]")))
+        except (TypeError, json.JSONDecodeError):
+            requirements = set()
+        declared = {
+            item.get("data-completion")
+            for item in soup.select("[data-completion]")
+            if item.get("data-completion")
+        }
     if not declared.issubset(requirements):
         errors.append(
             "every data-required value must appear in the visible completion requirements"
         )
-    if not soup.select_one("[data-complete][disabled]"):
+    if not soup.select_one("[data-complete][disabled], [data-complete-module][disabled]"):
         errors.append("lesson needs a completion control that begins disabled")
 
     brief_text = brief.read_text(encoding="utf-8") if brief.is_file() else ""

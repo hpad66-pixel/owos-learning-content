@@ -122,3 +122,53 @@ cybersecurity controls, or human accountability by itself.
   inspectable inside its own controlled viewport.
 - Module 19 must consume a contract scoring at least sixteen points and map every control to an
   architecture component, owner, and acceptance test.
+
+## Concept-to-experience plan
+
+The misconception that grounding grants authority is interrupted by a wastewater event, separated
+into two keys, traced through explicit graph and control gates, rehearsed through action and retry
+decisions, and transferred into a scored Agent Action Contract.
+
+## Module design fingerprint
+
+The dominant grammar is an agent authorization control room. Its visual types are
+`paired-evidence-authority-control-console`,
+`wastewater-graph-to-action-architecture-trace`,
+`branching-proposal-to-record-state-machine`, `nested-action-contract-exploded-view`, and
+`agent-action-audit-event-timeline`.
+
+## Instructor explanation plan
+
+Conversational prose precedes every visual and assessment. It explains what the learner sees, the
+decision to make, the controlled outcome to notice, and why that result matters in utility work.
+
+## Visual pacing review
+
+No more than two consecutive prose blocks appear without a consequential visual, simulation,
+assessment, worked example, or callout. The five visual classes perform different teaching jobs.
+
+## Explanatory graphic plan
+
+The paired console separates evidence from authority. The worked trace connects triples to action
+gates. The state machine shows branches. The exploded envelope shows nested controls. The audit
+timeline shows uncertain outcomes and reconciliation.
+
+## Learner FAQ plan
+
+Eight module-specific questions address authority, RDF, human approval, stale evidence,
+idempotency, timeout recovery, verification, and accountability.
+
+## Recording script
+
+No recording is required. The written module is complete instruction and must stand without video.
+
+## Diversity check
+
+The lesson uses `multiple-choice`, `matching`, `multi-select`, and `flip-cards` beside two
+subject-specific simulations and one scored professional artifact. Its sequence and mechanisms are
+distinct from Modules 17 and 19.
+
+## Approval
+
+Approved as a structured working candidate for Author Studio and Phase 13 review. Practitioner,
+source, accessibility, credential, and final-release approvals remain pending.

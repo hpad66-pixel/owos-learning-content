@@ -1085,7 +1085,8 @@ def render_work_product(assessment: dict[str, Any]) -> str:
     return f"""
 <section class="component" id="{esc(assessment['assessment_id'])}"
   data-purposeful-interaction="applied-work-product"
-  data-component-source="structured-module-package">
+  data-component-source="structured-module-package"
+  data-final-applied-check data-artifact-ref="{esc(assessment['assessment_id'])}">
   <header class="component-header"><h3>{esc(assessment.get('title', 'Professional Work Product'))}</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">{esc(assessment['prompt'])}</p>
@@ -1257,7 +1258,7 @@ def render_module(
     for term in package["glossary"]:
         short = f" ({esc(term['short'])})" if term.get("short") else ""
         glossary_items.append(
-            f'<article><h3>{esc(term["term"])}{short}</h3><p>{esc(term["definition"])}</p></article>'
+            f'<article data-defined-term><h3 class="term" data-def="{esc(term["definition"])}">{esc(term["term"])}{short}</h3><p>{esc(term["definition"])}</p></article>'
         )
     glossary = "".join(glossary_items)
     source_cards = "".join(
@@ -1291,6 +1292,7 @@ def render_module(
       <a class="brand" href="{esc(course_href)}">OW <span>One Water OS Academy</span></a>
       <nav class="top-actions" aria-label="Lesson tools">
         <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="community">Community</button>
         <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
         <a class="button primary" href="#lesson-start">Start</a>
       </nav>
@@ -1311,11 +1313,20 @@ def render_module(
         <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
         <div class="prose"><ul>{outcomes}</ul><p><strong>Misconception we will change:</strong> {esc(learning['misconception'])}</p></div>
       </section>
+      <section class="learning-lenses" aria-label="Foundation, practitioner, and leader views">
+        <article data-lens="foundation"><span class="kind">Foundation</span><h3>Know enough, permit deliberately, prove the result</h3><p>Ask whether the evidence is fit, whether this actor may act, and whether the result can be verified.</p></article>
+        <article data-lens="practitioner"><span class="kind">Practitioner</span><h3>Implement the boundaries</h3><p>Define identities, validation, policy decisions, tool schemas, request keys, recovery, verification, and audit events.</p></article>
+        <article data-lens="leader"><span class="kind">Leader</span><h3>Own the delegation</h3><p>Name approval thresholds, prohibited actions, accountable owners, review cadence, incident response, and correction authority.</p></article>
+      </section>
 {''.join(sections)}
       <section id="owos-course-community" class="connected">
         <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
-        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real action boundary</h3><p>Discuss which utility action should act, ask, refresh, clarify, or stop. Community discussion is not governed evidence.</p><button class="button" type="button" data-open-drawer="community">Open Community</button></article>
       </section>
+      <nav class="footnav" aria-label="Lesson navigation">
+        <a class="button" href="{esc(course_href)}">Return to course</a>
+        <a class="button" href="#lesson-start">Start at the top</a>
+      </nav>
       <section class="completion">
         <h2>Complete the working candidate</h2>
         <p>{esc(completion['rule'])}</p>
@@ -1325,15 +1336,30 @@ def render_module(
     </div>
   </main>
   <div class="drawer-scrim" data-drawer-scrim></div>
-  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+  <aside class="drawer" data-drawer="graph" data-component-source="structured-module-package" aria-hidden="true">
     <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <p data-graph-kind="concept">Concept: a grounded proposal does not create permission to act.</p>
+    <p data-graph-kind="relationship">Relationship: evidence supports proposal; policy and authority govern action.</p>
+    <p data-graph-kind="role">Role: utility leader, operator, maintainer, data steward, cybersecurity owner, and approver.</p>
+    <p data-graph-kind="competency">Competency: define and defend one bounded Agent Action Contract.</p>
+    <p data-graph-kind="source">Sources: W3C, OWASP, and NIST evidence listed below.</p>
     <div class="glossary-list">{source_cards}</div>
   </aside>
-  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
+  <aside class="drawer" data-drawer="community" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Community</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>Community discussion helps compare practice. It never replaces governed evidence, utility policy, or approval.</p>
+    <label data-community-feature="search">Search this discussion<input type="search" placeholder="Search action boundaries"></label>
+    <div data-community-feature="filters"><button class="button" type="button">Operations</button> <button class="button" type="button">Maintenance</button> <button class="button" type="button">Cybersecurity</button></div>
+    <p data-community-feature="bookmarks"><strong>Bookmarks:</strong> Save a useful practitioner example for later review.</p>
+    <p data-community-feature="threaded-replies"><strong>Threaded replies:</strong> Compare why another utility would ACT, ASK, REFRESH, CLARIFY, or STOP.</p>
+    <p data-community-feature="presence"><strong>Presence:</strong> Participant presence is supplied by the authenticated platform runtime.</p>
+    <p data-community-feature="instructor-treatment"><strong>Instructor boundary:</strong> Examples remain discussion until evidence and authority are reviewed.</p>
+  </aside>
+  <aside class="drawer" data-drawer="glossary" data-component-source="structured-module-package" aria-hidden="true">
     <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
     <div class="glossary-list">{glossary}</div>
   </aside>
+  <div id="tt" role="tooltip" hidden></div>
   <footer><div class="shell">{esc(release_label)}. Compiler {COMPILER_VERSION}. Source {esc(module['source_version'])}. No credential or operational authority.</div></footer>
   <script>{script}</script>
 </body>

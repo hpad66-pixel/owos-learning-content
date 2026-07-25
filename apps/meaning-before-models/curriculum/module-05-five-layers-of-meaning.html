@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-golden-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="c62449e8b7bcb4ce2011dab61a244058e1a8757b4837dea1495cf0515ebe9495">
+  <meta name="owos-package-checksum" content="2abe75caa5972c3ccefcff8fafb1eeda14fbef01c7dc48b681036cb0898fa090">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1185,7 +1185,24 @@ footer {
   }
 }
 
-.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+.learning-lenses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.learning-lenses article{padding:1rem;border:1px solid var(--line);border-radius:16px;background:#fff}.learning-lenses h3{margin:.35rem 0}.drawer input[type=search]{display:block;width:100%;margin:.5rem 0 1rem;padding:.7rem;border:1px solid var(--line);border-radius:10px}.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.learning-lenses,.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+
+@media (max-width: 420px) {
+  .topbar {
+    position: static;
+    backdrop-filter: none;
+  }
+
+  .topbar-inner,
+  .top-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .top-actions .button {
+    width: 100%;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1222,6 +1239,7 @@ footer {
       <a class="brand" href="../../curriculum/course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
       <nav class="top-actions" aria-label="Lesson tools">
         <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="community">Community</button>
         <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
         <a class="button primary" href="#lesson-start">Start</a>
       </nav>
@@ -1249,6 +1267,11 @@ footer {
       <section class="lesson-section">
         <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
         <div class="prose"><ul><li>Distinguish a data model, taxonomy, ontology, semantic layer, and runtime AI context by the question each answers.</li><li>Classify familiar utility artifacts by their primary meaning job in a bounded scenario.</li><li>Explain how shared concepts resolve to current enterprise records without confusing meaning with mapping.</li><li>Diagnose whether a failed answer begins in structure, classification, meaning, mapping, or runtime context.</li><li>Produce and defend a Five-Layer Meaning Map with named owners, a known gap, and an explicit limit.</li></ul><p><strong>Misconception we will change:</strong> Data models, taxonomies, ontologies, semantic layers, and AI context are interchangeable names for one technical layer.</p></div>
+      </section>
+      <section class="learning-lenses" aria-label="Foundation, practitioner, and leader views">
+        <article data-lens="foundation"><span class="kind">Foundation</span><h3>Know enough, permit deliberately, prove the result</h3><p>Ask whether the evidence is fit, whether this actor may act, and whether the result can be verified.</p></article>
+        <article data-lens="practitioner"><span class="kind">Practitioner</span><h3>Implement the boundaries</h3><p>Define identities, validation, policy decisions, tool schemas, request keys, recovery, verification, and audit events.</p></article>
+        <article data-lens="leader"><span class="kind">Leader</span><h3>Own the delegation</h3><p>Name approval thresholds, prohibited actions, accountable owners, review cadence, incident response, and correction authority.</p></article>
       </section>
 
 <section class="lesson-section" id="pressure-event">
@@ -1705,7 +1728,8 @@ footer {
 
 <section class="component" id="mbm05-five-layer-map"
   data-purposeful-interaction="applied-work-product"
-  data-component-source="structured-module-package">
+  data-component-source="structured-module-package"
+  data-final-applied-check data-artifact-ref="mbm05-five-layer-map">
   <header class="component-header"><h3>Five-Layer Meaning Map</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">Choose one bounded utility question. Name the artifact or responsibility for all five jobs, assign owners, record the first gap, and state what the map does not authorize.</p>
@@ -1753,8 +1777,12 @@ footer {
 </section>
       <section id="owos-course-community" class="connected">
         <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
-        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real action boundary</h3><p>Discuss which utility action should act, ask, refresh, clarify, or stop. Community discussion is not governed evidence.</p><button class="button" type="button" data-open-drawer="community">Open Community</button></article>
       </section>
+      <nav class="footnav" aria-label="Lesson navigation">
+        <a class="button" href="../../curriculum/course-meaning-before-models.html">Return to course</a>
+        <a class="button" href="#lesson-start">Start at the top</a>
+      </nav>
       <section class="completion">
         <h2>Complete the working candidate</h2>
         <p>Complete the decision, distinctions, triage desk, mapping and context checks, failure laboratory, transfer diagnosis, and Five-Layer Meaning Map.</p>
@@ -1764,15 +1792,30 @@ footer {
     </div>
   </main>
   <div class="drawer-scrim" data-drawer-scrim></div>
-  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+  <aside class="drawer" data-drawer="graph" data-component-source="structured-module-package" aria-hidden="true">
     <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <p data-graph-kind="concept">Concept: a grounded proposal does not create permission to act.</p>
+    <p data-graph-kind="relationship">Relationship: evidence supports proposal; policy and authority govern action.</p>
+    <p data-graph-kind="role">Role: utility leader, operator, maintainer, data steward, cybersecurity owner, and approver.</p>
+    <p data-graph-kind="competency">Competency: define and defend one bounded Agent Action Contract.</p>
+    <p data-graph-kind="source">Sources: W3C, OWASP, and NIST evidence listed below.</p>
     <div class="glossary-list"><article><h3>RDF 1.2 Concepts and Abstract Syntax</h3><p>RDF graph data model, resources, and statements</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article><article><h3>RDF 1.2 Schema</h3><p>Classes, properties, domains, ranges, and vocabulary description</p><a href="https://www.w3.org/TR/rdf12-schema/">Open source</a></article><article><h3>OWL 2 Web Ontology Language Document Overview</h3><p>Ontology language scope and relationship to RDF</p><a href="https://www.w3.org/TR/owl2-overview/">Open source</a></article><article><h3>Artificial Intelligence Risk Management Framework</h3><p>Risk governance boundary for generative AI applications</p><a href="https://www.nist.gov/itl/ai-risk-management-framework">Open source</a></article></div>
   </aside>
-  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
-    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <div class="glossary-list"><article><h3>data model</h3><p>A structured description of entities, attributes, relationships, keys, cardinalities, and constraints for a system, application, report, integration, or analytical use.</p></article><article><h3>taxonomy</h3><p>A controlled classification or hierarchy used to organize terms, categories, or types.</p></article><article><h3>ontology</h3><p>A shared description of domain concepts, relationships, classifications, and selected rules independently of one source system.</p></article><article><h3>semantic layer</h3><p>Governed mappings and services that connect shared business meaning to fields, tables, metrics, application interfaces, events, and authoritative sources.</p></article><article><h3>AI context</h3><p>The task-specific package of evidence, definitions, policy, time, permission, workflow state, conflicts, and output limits supplied at runtime.</p></article><article><h3>context engine</h3><p>A governed mechanism that retrieves, filters, validates, and assembles AI context for a task.</p></article><article><h3>mapping</h3><p>A controlled connection between a shared concept or relationship and its representation in an enterprise source.</p></article><article><h3>effective time</h3><p>The time at which a fact, rule, status, or policy applies to the decision.</p></article><article><h3>authority</h3><p>The recognized person, role, source, or process permitted to approve a definition, claim, policy, or action.</p></article><article><h3>provenance</h3><p>Information about where a statement came from, who asserted or transformed it, and under what conditions.</p></article></div>
+  <aside class="drawer" data-drawer="community" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Community</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>Community discussion helps compare practice. It never replaces governed evidence, utility policy, or approval.</p>
+    <label data-community-feature="search">Search this discussion<input type="search" placeholder="Search action boundaries"></label>
+    <div data-community-feature="filters"><button class="button" type="button">Operations</button> <button class="button" type="button">Maintenance</button> <button class="button" type="button">Cybersecurity</button></div>
+    <p data-community-feature="bookmarks"><strong>Bookmarks:</strong> Save a useful practitioner example for later review.</p>
+    <p data-community-feature="threaded-replies"><strong>Threaded replies:</strong> Compare why another utility would ACT, ASK, REFRESH, CLARIFY, or STOP.</p>
+    <p data-community-feature="presence"><strong>Presence:</strong> Participant presence is supplied by the authenticated platform runtime.</p>
+    <p data-community-feature="instructor-treatment"><strong>Instructor boundary:</strong> Examples remain discussion until evidence and authority are reviewed.</p>
   </aside>
+  <aside class="drawer" data-drawer="glossary" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article data-defined-term><h3 class="term" data-def="A structured description of entities, attributes, relationships, keys, cardinalities, and constraints for a system, application, report, integration, or analytical use.">data model</h3><p>A structured description of entities, attributes, relationships, keys, cardinalities, and constraints for a system, application, report, integration, or analytical use.</p></article><article data-defined-term><h3 class="term" data-def="A controlled classification or hierarchy used to organize terms, categories, or types.">taxonomy</h3><p>A controlled classification or hierarchy used to organize terms, categories, or types.</p></article><article data-defined-term><h3 class="term" data-def="A shared description of domain concepts, relationships, classifications, and selected rules independently of one source system.">ontology</h3><p>A shared description of domain concepts, relationships, classifications, and selected rules independently of one source system.</p></article><article data-defined-term><h3 class="term" data-def="Governed mappings and services that connect shared business meaning to fields, tables, metrics, application interfaces, events, and authoritative sources.">semantic layer</h3><p>Governed mappings and services that connect shared business meaning to fields, tables, metrics, application interfaces, events, and authoritative sources.</p></article><article data-defined-term><h3 class="term" data-def="The task-specific package of evidence, definitions, policy, time, permission, workflow state, conflicts, and output limits supplied at runtime.">AI context</h3><p>The task-specific package of evidence, definitions, policy, time, permission, workflow state, conflicts, and output limits supplied at runtime.</p></article><article data-defined-term><h3 class="term" data-def="A governed mechanism that retrieves, filters, validates, and assembles AI context for a task.">context engine</h3><p>A governed mechanism that retrieves, filters, validates, and assembles AI context for a task.</p></article><article data-defined-term><h3 class="term" data-def="A controlled connection between a shared concept or relationship and its representation in an enterprise source.">mapping</h3><p>A controlled connection between a shared concept or relationship and its representation in an enterprise source.</p></article><article data-defined-term><h3 class="term" data-def="The time at which a fact, rule, status, or policy applies to the decision.">effective time</h3><p>The time at which a fact, rule, status, or policy applies to the decision.</p></article><article data-defined-term><h3 class="term" data-def="The recognized person, role, source, or process permitted to approve a definition, claim, policy, or action.">authority</h3><p>The recognized person, role, source, or process permitted to approve a definition, claim, policy, or action.</p></article><article data-defined-term><h3 class="term" data-def="Information about where a statement came from, who asserted or transformed it, and under what conditions.">provenance</h3><p>Information about where a statement came from, who asserted or transformed it, and under what conditions.</p></article></div>
+  </aside>
+  <div id="tt" role="tooltip" hidden></div>
   <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-golden-candidate. No credential or operational authority.</div></footer>
   <script>(() => {
   "use strict";

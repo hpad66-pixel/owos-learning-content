@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="bf77a6e2ab74dcfad5434301cab2c1feeb14c1533c4f4d243eefdd2227d2e135">
+  <meta name="owos-package-checksum" content="bfb2d4152ee043a7881d2d9f90af1b9ca4665270356ba65ed952c110ae2dacc4">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1185,7 +1185,24 @@ footer {
   }
 }
 
-.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+.learning-lenses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.learning-lenses article{padding:1rem;border:1px solid var(--line);border-radius:16px;background:#fff}.learning-lenses h3{margin:.35rem 0}.drawer input[type=search]{display:block;width:100%;margin:.5rem 0 1rem;padding:.7rem;border:1px solid var(--line);border-radius:10px}.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.learning-lenses,.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+
+@media (max-width: 420px) {
+  .topbar {
+    position: static;
+    backdrop-filter: none;
+  }
+
+  .topbar-inner,
+  .top-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .top-actions .button {
+    width: 100%;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1222,6 +1239,7 @@ footer {
       <a class="brand" href="../../curriculum/course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
       <nav class="top-actions" aria-label="Lesson tools">
         <button class="button" type="button" data-open-drawer="graph">Graph</button>
+        <button class="button" type="button" data-open-drawer="community">Community</button>
         <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
         <a class="button primary" href="#lesson-start">Start</a>
       </nav>
@@ -1246,6 +1264,11 @@ footer {
       <section class="lesson-section">
         <header class="section-heading"><span class="section-number">✓</span><div><span class="kind">Learner promise</span><h2>What you will be able to do</h2></div></header>
         <div class="prose"><ul><li>Begin with competency questions</li><li>Define concepts relationships and boundaries</li><li>Test the model with examples and counterexamples</li><li>Evaluate reuse and alignment</li><li>Produce an ontology decision record</li></ul><p><strong>Misconception we will change:</strong> Ontology engineering means documenting everything the utility knows.</p></div>
+      </section>
+      <section class="learning-lenses" aria-label="Foundation, practitioner, and leader views">
+        <article data-lens="foundation"><span class="kind">Foundation</span><h3>Know enough, permit deliberately, prove the result</h3><p>Ask whether the evidence is fit, whether this actor may act, and whether the result can be verified.</p></article>
+        <article data-lens="practitioner"><span class="kind">Practitioner</span><h3>Implement the boundaries</h3><p>Define identities, validation, policy decisions, tool schemas, request keys, recovery, verification, and audit events.</p></article>
+        <article data-lens="leader"><span class="kind">Leader</span><h3>Own the delegation</h3><p>Name approval thresholds, prohibited actions, accountable owners, review cadence, incident response, and correction authority.</p></article>
       </section>
 
 <section class="lesson-section" id="definition-conflict">
@@ -1455,7 +1478,8 @@ footer {
 
 <section class="component" id="mbm07-decision-record"
   data-purposeful-interaction="applied-work-product"
-  data-component-source="structured-module-package">
+  data-component-source="structured-module-package"
+  data-final-applied-check data-artifact-ref="mbm07-decision-record">
   <header class="component-header"><h3>Ontology Decision Record</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">Record the question boundary concepts relationships exclusions unresolved issues reuse tests owner version and change route.</p>
@@ -1501,8 +1525,12 @@ footer {
 </section>
       <section id="owos-course-community" class="connected">
         <article><span class="kind">Knowledge Graph</span><h3>Inspect the lesson relationships</h3><p>See the concepts, sources, competency, and evidence boundary behind this module.</p><button class="button" type="button" data-open-drawer="graph">Open Graph</button></article>
-        <article><span class="kind">Community</span><h3>Compare one real relationship</h3><p>Discuss which relationship your utility repeatedly rebuilds by hand. Community discussion is not governed evidence.</p><button class="button" type="button" disabled>Community in platform runtime</button></article>
+        <article><span class="kind">Community</span><h3>Compare one real action boundary</h3><p>Discuss which utility action should act, ask, refresh, clarify, or stop. Community discussion is not governed evidence.</p><button class="button" type="button" data-open-drawer="community">Open Community</button></article>
       </section>
+      <nav class="footnav" aria-label="Lesson navigation">
+        <a class="button" href="../../curriculum/course-meaning-before-models.html">Return to course</a>
+        <a class="button" href="#lesson-start">Start at the top</a>
+      </nav>
       <section class="completion">
         <h2>Complete the working candidate</h2>
         <p>Complete the opening decision, competency-question check, ontology workshop, reuse and release decisions, and ontology decision record.</p>
@@ -1512,15 +1540,30 @@ footer {
     </div>
   </main>
   <div class="drawer-scrim" data-drawer-scrim></div>
-  <aside class="drawer" data-drawer="graph" aria-hidden="true">
+  <aside class="drawer" data-drawer="graph" data-component-source="structured-module-package" aria-hidden="true">
     <header class="drawer-head"><h2>Lesson Graph</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <p>This module connects an RDF triple, a utility relationship, a graph path, a source boundary, and the competency to construct one source-bounded relationship.</p>
+    <p data-graph-kind="concept">Concept: a grounded proposal does not create permission to act.</p>
+    <p data-graph-kind="relationship">Relationship: evidence supports proposal; policy and authority govern action.</p>
+    <p data-graph-kind="role">Role: utility leader, operator, maintainer, data steward, cybersecurity owner, and approver.</p>
+    <p data-graph-kind="competency">Competency: define and defend one bounded Agent Action Contract.</p>
+    <p data-graph-kind="source">Sources: W3C, OWASP, and NIST evidence listed below.</p>
     <div class="glossary-list"><article><h3>OWL 2 Web Ontology Language Primer</h3><p>ontology classes properties axioms and modeling examples</p><a href="https://www.w3.org/TR/owl2-primer/">Open source</a></article><article><h3>RDF 1.2 Concepts and Abstract Data Model</h3><p>RDF graph foundations</p><a href="https://www.w3.org/TR/rdf12-concepts/">Open source</a></article></div>
   </aside>
-  <aside class="drawer" data-drawer="glossary" aria-hidden="true">
-    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
-    <div class="glossary-list"><article><h3>ontology</h3><p>A shared model of concepts relationships and selected semantic rules.</p></article><article><h3>competency question</h3><p>A question used to test whether a model supports its intended job.</p></article><article><h3>ontology boundary</h3><p>The concepts uses and meanings explicitly included or excluded.</p></article><article><h3>upper ontology</h3><p>A reusable model of very general concepts.</p></article><article><h3>domain ontology</h3><p>A model for concepts and relationships in a particular field.</p></article><article><h3>application profile</h3><p>A selected and constrained use of terms for one implementation.</p></article><article><h3>alignment</h3><p>A recorded correspondence between concepts in different models.</p></article><article><h3>axiom</h3><p>A formal statement accepted within an ontology.</p></article><article><h3>deprecation</h3><p>A governed indication that a term should no longer be used in new work.</p></article></div>
+  <aside class="drawer" data-drawer="community" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Community</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <p>Community discussion helps compare practice. It never replaces governed evidence, utility policy, or approval.</p>
+    <label data-community-feature="search">Search this discussion<input type="search" placeholder="Search action boundaries"></label>
+    <div data-community-feature="filters"><button class="button" type="button">Operations</button> <button class="button" type="button">Maintenance</button> <button class="button" type="button">Cybersecurity</button></div>
+    <p data-community-feature="bookmarks"><strong>Bookmarks:</strong> Save a useful practitioner example for later review.</p>
+    <p data-community-feature="threaded-replies"><strong>Threaded replies:</strong> Compare why another utility would ACT, ASK, REFRESH, CLARIFY, or STOP.</p>
+    <p data-community-feature="presence"><strong>Presence:</strong> Participant presence is supplied by the authenticated platform runtime.</p>
+    <p data-community-feature="instructor-treatment"><strong>Instructor boundary:</strong> Examples remain discussion until evidence and authority are reviewed.</p>
   </aside>
+  <aside class="drawer" data-drawer="glossary" data-component-source="structured-module-package" aria-hidden="true">
+    <header class="drawer-head"><h2>Module Glossary</h2><button class="button" type="button" data-close-drawer>Close</button></header>
+    <div class="glossary-list"><article data-defined-term><h3 class="term" data-def="A shared model of concepts relationships and selected semantic rules.">ontology</h3><p>A shared model of concepts relationships and selected semantic rules.</p></article><article data-defined-term><h3 class="term" data-def="A question used to test whether a model supports its intended job.">competency question</h3><p>A question used to test whether a model supports its intended job.</p></article><article data-defined-term><h3 class="term" data-def="The concepts uses and meanings explicitly included or excluded.">ontology boundary</h3><p>The concepts uses and meanings explicitly included or excluded.</p></article><article data-defined-term><h3 class="term" data-def="A reusable model of very general concepts.">upper ontology</h3><p>A reusable model of very general concepts.</p></article><article data-defined-term><h3 class="term" data-def="A model for concepts and relationships in a particular field.">domain ontology</h3><p>A model for concepts and relationships in a particular field.</p></article><article data-defined-term><h3 class="term" data-def="A selected and constrained use of terms for one implementation.">application profile</h3><p>A selected and constrained use of terms for one implementation.</p></article><article data-defined-term><h3 class="term" data-def="A recorded correspondence between concepts in different models.">alignment</h3><p>A recorded correspondence between concepts in different models.</p></article><article data-defined-term><h3 class="term" data-def="A formal statement accepted within an ontology.">axiom</h3><p>A formal statement accepted within an ontology.</p></article><article data-defined-term><h3 class="term" data-def="A governed indication that a term should no longer be used in new work.">deprecation</h3><p>A governed indication that a term should no longer be used in new work.</p></article></div>
+  </aside>
+  <div id="tt" role="tooltip" hidden></div>
   <footer><div class="shell">structured working candidate. Compiler 1.1.0. Source 0.2.0-structured-candidate. No credential or operational authority.</div></footer>
   <script>(() => {
   "use strict";

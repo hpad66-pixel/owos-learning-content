@@ -9,7 +9,8 @@ const captureRoot = path.join(__dirname, "rendered/module-18");
 
 function lessonUrl() {
   if (process.env.OWOS_BASE_URL) {
-    return `${process.env.OWOS_BASE_URL.replace(/\/$/, "")}/lesson-meaning-before-models-18-graph-grounded-agentic-applications.html?module18=1`;
+    const lessonPath = process.env.OWOS_LESSON_PATH || "/lesson-meaning-before-models-18-graph-grounded-agentic-applications.html";
+    return `${process.env.OWOS_BASE_URL.replace(/\/$/, "")}${lessonPath}?module18=1`;
   }
   if (target === "dist") {
     return `file://${path.join(root, "dist/site/lesson-meaning-before-models-18-graph-grounded-agentic-applications.html")}`;
@@ -18,6 +19,7 @@ function lessonUrl() {
 }
 
 async function complete(page) {
+  let exportPassed = true;
   for (const group of await page.locator("[data-choice-group]").all()) {
     await group.locator("[data-choice][data-correct=true]").click();
     await group.locator("[data-check-choice]").click();
@@ -56,14 +58,21 @@ async function complete(page) {
     }
     await form.locator('input[name="contract_defense"][data-correct="true"]').check();
     await form.locator('button[type="submit"]').click();
+    const downloadPromise = page.waitForEvent("download");
+    await form.locator("[data-export-artifact]").click();
+    const download = await downloadPromise;
+    exportPassed = exportPassed && download.suggestedFilename().endsWith(".json");
   }
+  return exportPassed;
 }
 
 async function inspect(browser, mode) {
   const phone = mode === "phone";
   const tablet = mode === "tablet";
+  const zoom200 = mode === "zoom200";
+  const zoom400 = mode === "zoom400";
   const context = await browser.newContext({
-    viewport: phone ? { width: 390, height: 844 } : tablet ? { width: 820, height: 1080 } : { width: 1440, height: 1000 },
+    viewport: phone ? { width: 390, height: 844 } : tablet ? { width: 820, height: 1080 } : zoom200 ? { width: 720, height: 1000 } : zoom400 ? { width: 360, height: 900 } : { width: 1440, height: 1000 },
     reducedMotion: phone ? "reduce" : "no-preference",
     hasTouch: phone || tablet,
     isMobile: phone,
@@ -77,7 +86,8 @@ async function inspect(browser, mode) {
   await page.evaluate(async () => Promise.all([...document.images].map((image) => image.complete && image.naturalWidth ? Promise.resolve() : image.decode())));
 
   const graph = page.getByRole("button", { name: "Graph" }).first();
-  await graph.click();
+  await graph.focus();
+  await page.keyboard.press("Enter");
   const graphOpen = await page.locator('[data-drawer="graph"]').getAttribute("aria-hidden") === "false";
   await page.keyboard.press("Escape");
   const graphClosed = await page.locator('[data-drawer="graph"]').getAttribute("aria-hidden") === "true";
@@ -85,8 +95,14 @@ async function inspect(browser, mode) {
   await page.getByRole("button", { name: "Glossary", exact: true }).click();
   const glossaryOpen = await page.locator('[data-drawer="glossary"]').getAttribute("aria-hidden") === "false";
   await page.keyboard.press("Escape");
+  const community = page.getByRole("button", { name: "Community", exact: true }).first();
+  await community.focus();
+  await page.keyboard.press("Enter");
+  const communityOpen = await page.locator('[data-drawer="community"]').getAttribute("aria-hidden") === "false";
+  await page.keyboard.press("Escape");
+  const communityFocusReturned = await community.evaluate((node) => document.activeElement === node);
 
-  await complete(page);
+  const exportPassed = await complete(page);
   const state = await page.evaluate(() => ({
     h1: document.querySelectorAll("h1").length,
     sections: document.querySelectorAll(".lesson-section").length,
@@ -117,17 +133,18 @@ async function inspect(browser, mode) {
     await lab.screenshot({ path: path.join(directory, `signature-${index + 1}.png`) });
   }
   await context.close();
-  return { mode, errors, graphOpen, graphClosed, focusReturned, glossaryOpen, ...state };
+  return { mode, errors, graphOpen, graphClosed, focusReturned, glossaryOpen, communityOpen, communityFocusReturned, exportPassed, ...state };
 }
 
 (async () => {
   const browser = await chromium.launch({ headless: true, executablePath: chrome });
   const runs = [];
-  for (const mode of ["desktop", "tablet", "phone"]) runs.push(await inspect(browser, mode));
+  for (const mode of ["desktop", "tablet", "phone", "zoom200", "zoom400"]) runs.push(await inspect(browser, mode));
   await browser.close();
   const failures = runs.filter((run) =>
     run.errors.length ||
     !run.graphOpen || !run.graphClosed || !run.focusReturned || !run.glossaryOpen ||
+    !run.communityOpen || !run.communityFocusReturned || !run.exportPassed ||
     run.h1 !== 1 || run.sections !== 9 || run.visuals !== 5 ||
     new Set(run.visualTypes).size !== 5 || run.interactions !== 2 ||
     new Set(run.assessmentTypes).size !== 4 || !run.images || !run.completed || !run.enabled ||
