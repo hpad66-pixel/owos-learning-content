@@ -165,7 +165,7 @@ override a blocked hard gate.
 
 ## Next action
 
-Publish and verify the Modules 06 to 08 structured batch, then begin Module 09.
+Begin Module 09.
 
 ## Progressive Modules 06 to 08 structured batch
 
@@ -200,6 +200,16 @@ Publish and verify the Modules 06 to 08 structured batch, then begin Module 09.
 - Whole-course compiler, conformance, distinctiveness, structured-authoring, release-manifest, and
   formatting gates passed.
 - The release manifest contains 61 checksum-controlled files.
+
+### Batch publication evidence
+
+- Learning-content release commit: `74108cf7c09b6dea0c7dd206765f9decfb68359a`
+- Platform production commit: `103a0bb5f6f0c260a9719e6242e96a32a8f896e0`
+- Cloudflare production deployment: `6d6d8a0c`
+- All three public lessons returned HTTP 200 with their exact structured package checksums.
+- The final live browser suite passed nine of nine desktop, tablet, and phone runs with zero
+  failures, zero runtime errors, zero horizontal overflow, complete interaction paths, working
+  drawers, focus return, and reduced-motion compliance.
 
 ## Module 04 publication evidence
 
