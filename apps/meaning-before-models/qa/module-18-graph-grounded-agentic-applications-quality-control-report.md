@@ -8,7 +8,7 @@ score: 96
 score_out_of: 100
 working_status: automated_gates_passed_human_review_pending
 release_status: blocked
-package_checksum: 34f8325bd83447a1bb549da13a02b79c44b5d3e7c99b83e0b6aeaa9b8d8cf4ca
+package_checksum: 3e22f25705f3c3efaab6e6ed53c703b72dfd8fdbdada357724b31dc724bb8e8e
 compiler_version: 1.1.0
 ---
 
@@ -57,12 +57,15 @@ compiler_version: 1.1.0
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Lesson-contract gate | passed | 19 contracts validated |
-| Structured package validation | passed | revised checksum `34f8325bd83447a1bb549da13a02b79c44b5d3e7c99b83e0b6aeaa9b8d8cf4ca`; requested baseline `466bd24a0d94b09360dd7ccaa55425d78fbfde7dc288a4afa2195432dc3741e4` retained in Phase 13 chain of custody |
+| Structured package validation | passed | revised checksum `3e22f25705f3c3efaab6e6ed53c703b72dfd8fdbdada357724b31dc724bb8e8e`; requested baseline `466bd24a0d94b09360dd7ccaa55425d78fbfde7dc288a4afa2195432dc3741e4` retained in Phase 13 chain of custody |
 | Deterministic compilation | passed | `modules/module-18-graph-grounded-agentic-applications/build/index.html` |
 | Visual truth | passed automated | Five real SVG assets resolve through the visual manifest |
 | SVG containment | passed | 76 files, 1,244 text elements, zero violations |
 | Browser behavior | passed | Desktop, tablet, phone, 200% reflow, and 400% reflow; zero runtime errors |
 | Responsive layout | passed | 1440, 820, 390, 720, and 360 CSS-pixel widths; zero horizontal overflow |
+| Responsive graphic overviews | passed | All five overviews fit desktop, iPad, iPhone, 200%, and 400% widths with zero default graphic scrolling |
+| Mobile graphic compositions | passed | Five subject-specific vertical reading sequences appear at iPad, iPhone, 200%, and 400% widths |
+| Detailed graphic viewers | passed | Five viewers pass open, zoom, keyboard pan, reset, close, text-equivalent, and focus-return checks |
 | Reduced motion | passed | Phone maximum transition duration 0.01 milliseconds |
 | Drawers and focus | passed | Graph, Glossary, and Community open; Escape closes; keyboard focus returns |
 | Completion contract | passed | Seven required IDs complete and completion control enables |
@@ -104,7 +107,7 @@ NODE_PATH=/private/tmp/owos-module18-qa/node_modules node apps/meaning-before-mo
 Result: passed, 76 files, 1,244 text elements, zero violations
 
 NODE_PATH=/private/tmp/owos-module18-qa/node_modules node apps/meaning-before-models/qa/module-18-structured-browser-validation.cjs
-Result: passed, five page runs, zero failures
+Result: passed, six page runs and thirty individual graphic checks, zero failures
 
 python3 tools/course_distinctiveness.py --course apps/meaning-before-models
 Result: passed, 18 lessons, 18 archetypes

@@ -14,6 +14,14 @@
       "alternative_text": "Explicit LS-7 wastewater triples flow through graph retrieval, freshness validation, authorization, supervisor approval, bounded draft work-order execution, verification, and audit",
       "text_equivalent": "LS-7 contributes to Overflow-21. Inspection-443 inspected LS-7 and was recorded on June 1. Policy-12 requires evidence no older than 24 hours. Operator-77 may create a draft work order but may not assign Priority 1. Therefore the system refreshes evidence, asks the supervisor, executes only the permitted draft, verifies the CMMS record, and stores the audit receipt.",
       "mobile_treatment": "Offer a full-size view and preserve the complete six-gate text equivalent immediately below the image",
+      "mobile_steps": [
+        {"title": "Graph evidence", "body": "Retrieve the explicit LS-7, Overflow-21, Inspection-443, Policy-12, and Operator-77 relationships."},
+        {"title": "Freshness validation", "body": "Compare the inspection timestamp with the policy limit. The stale evidence cannot support immediate action."},
+        {"title": "Policy and authority", "body": "Confirm that Operator-77 may create a draft but may not assign Priority 1."},
+        {"title": "Human approval", "body": "Ask the supervisor to approve the bounded proposal after refreshed evidence is available."},
+        {"title": "Tool execution", "body": "Create only the permitted draft work order using the approved request identity and parameters."},
+        {"title": "Verification and audit", "body": "Read the CMMS record back, verify the postcondition, and store the complete decision and action receipt."}
+      ],
       "reduced_motion_treatment": "The complete static trace remains visible",
       "creator": "One Water OS course production",
       "source": "OWOS wastewater graph-to-action worked example",
@@ -34,6 +42,11 @@
       "reading_guide": "Read the knowledge key on the left, the authority key on the right, then combine their dispositions at the bottom",
       "alternative_text": "Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority",
       "mobile_treatment": "Stack the knowledge key above the authority key and place the combined disposition last",
+      "mobile_steps": [
+        {"title": "Knowledge key", "body": "The graph identifies a credible LS-7 path, but the inspection evidence is older than the allowed freshness window."},
+        {"title": "Authority key", "body": "The operator can create a draft work order but cannot assign Priority 1 without supervisor approval."},
+        {"title": "Combined disposition", "body": "Refresh the evidence, ask for approval, and execute only the permitted draft. Grounding alone does not authorize action."}
+      ],
       "reduced_motion_treatment": "The static console preserves the complete distinction",
       "creator": "One Water OS course production",
       "source": "OWOS agent-action governance teaching model",
@@ -54,6 +67,15 @@
       "reading_guide": "Follow the upper route from proposal to record, then inspect each downward branch and its return or stop condition",
       "alternative_text": "A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop",
       "mobile_treatment": "Stack the main route vertically and place each branch directly after its decision state",
+      "mobile_steps": [
+        {"title": "Propose", "body": "Form one candidate action from explicit evidence and declared intent."},
+        {"title": "Validate", "body": "If evidence is stale or malformed, refresh or clarify before continuing."},
+        {"title": "Authorize", "body": "If the actor lacks permission, ask an authorized person or stop."},
+        {"title": "Approve", "body": "Apply the utility policy threshold and record the responsible approver."},
+        {"title": "Execute", "body": "Send the bounded tool contract with a stable request identity."},
+        {"title": "Verify", "body": "If the result is uncertain, reconcile external state before any retry."},
+        {"title": "Record", "body": "Store evidence, policy, authority, request, result, verification, and disposition."}
+      ],
       "reduced_motion_treatment": "The complete lifecycle remains visible without animated transitions",
       "creator": "One Water OS course production",
       "source": "OWOS governed-action lifecycle",
@@ -74,6 +96,14 @@
       "reading_guide": "Read from the outer audit wrapper through authority and evidence boundaries to the exact tool call and postcondition",
       "alternative_text": "Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls",
       "mobile_treatment": "Stack the nested layers as labeled sections while preserving outer-to-inner reading order",
+      "mobile_steps": [
+        {"title": "Audit wrapper", "body": "Name the accountable owner, decision record, timestamps, and retained evidence."},
+        {"title": "Authority boundary", "body": "Declare the actor, permitted action, approval threshold, prohibited actions, and stop conditions."},
+        {"title": "Evidence boundary", "body": "Bind the exact graph assertions, sources, freshness rules, and validation results."},
+        {"title": "Tool contract", "body": "Specify the tool, schema, parameters, request identity, and least-privilege credential."},
+        {"title": "Recovery contract", "body": "Define timeout handling, reconciliation, retry limits, and duplicate prevention."},
+        {"title": "Postcondition", "body": "State what must be read back and verified before the action counts as complete."}
+      ],
       "reduced_motion_treatment": "No expansion motion is required to understand the layers",
       "creator": "One Water OS course production",
       "source": "OWOS action-envelope framework",
@@ -94,6 +124,14 @@
       "reading_guide": "Follow the timeline left to right and notice how request K-441 connects the timeout to the discovered work order",
       "alternative_text": "A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt",
       "mobile_treatment": "Convert the horizontal timeline to a vertical event sequence with the receipt last",
+      "mobile_steps": [
+        {"title": "Proposal recorded", "body": "The system records the LS-7 draft work-order proposal and supporting evidence."},
+        {"title": "Authority recorded", "body": "The operator permission and supervisor approval are attached to the action contract."},
+        {"title": "Request K-441 sent", "body": "The CMMS call times out, so the external outcome is unknown."},
+        {"title": "External state reconciled", "body": "The system searches by request K-441 and discovers work order WO-881 already exists."},
+        {"title": "Postcondition verified", "body": "The returned work order is compared with the approved parameters and permitted state."},
+        {"title": "Audit receipt sealed", "body": "The proposal, authority, request, uncertain result, reconciliation, verification, and final disposition remain reconstructable."}
+      ],
       "reduced_motion_treatment": "All events and links remain present in the static timeline",
       "creator": "One Water OS course production",
       "source": "OWOS action-audit teaching sequence",

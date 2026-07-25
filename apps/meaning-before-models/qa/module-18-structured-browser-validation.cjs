@@ -66,16 +66,84 @@ async function complete(page) {
   return exportPassed;
 }
 
+async function inspectVisuals(page, mobileCompositionExpected) {
+  const results = [];
+  for (const visual of await page.locator(".learning-visual").all()) {
+    const id = await visual.getAttribute("id");
+    const overview = visual.locator("[data-visual-overview]");
+    const frame = visual.locator(".visual-frame");
+    const composition = visual.locator("[data-mobile-visual-composition]");
+    const trigger = visual.locator("[data-open-visual-detail]");
+    const dialog = visual.locator("[data-visual-detail]");
+    const pan = dialog.locator("[data-visual-pan]");
+    const detailImage = dialog.locator("[data-visual-detail-image]");
+    const before = await overview.boundingBox();
+    const frameBox = await frame.boundingBox();
+    const overviewFits = Boolean(before && frameBox && before.width <= frameBox.width + 1);
+    const frameScrollLeft = await frame.evaluate((node) => node.scrollLeft);
+    const frameScrollable = await frame.evaluate((node) => node.scrollWidth > node.clientWidth + 1);
+    const compositionVisible = await composition.isVisible();
+
+    await trigger.focus();
+    await page.keyboard.press("Enter");
+    const dialogOpen = await dialog.evaluate((node) => node.open);
+    const initialWidth = (await detailImage.boundingBox())?.width || 0;
+    await dialog.locator("[data-visual-zoom-in]").click();
+    const zoomStatus = await dialog.locator("[data-visual-zoom-status]").textContent();
+    const zoomedWidth = (await detailImage.boundingBox())?.width || 0;
+    const zoomMetrics = await detailImage.evaluate((node) => ({
+      inlineStyle: node.parentElement.getAttribute("style"),
+      canvasComputedWidth: getComputedStyle(node.parentElement).width,
+      canvasRectWidth: node.parentElement.getBoundingClientRect().width,
+      computedWidth: getComputedStyle(node).width,
+      panClientWidth: node.parentElement.parentElement.clientWidth,
+      panScrollWidth: node.parentElement.parentElement.scrollWidth,
+    }));
+    await pan.focus();
+    await page.keyboard.press("ArrowRight");
+    await page.waitForTimeout(40);
+    const panned = await pan.evaluate((node) => node.scrollLeft > 0);
+    await dialog.locator("[data-visual-reset]").click();
+    const resetStatus = await dialog.locator("[data-visual-zoom-status]").textContent();
+    const resetScroll = await pan.evaluate((node) => node.scrollLeft === 0 && node.scrollTop === 0);
+    await dialog.locator("[data-close-visual-detail]").click();
+    const dialogClosed = !(await dialog.evaluate((node) => node.open));
+    const focusReturned = await trigger.evaluate((node) => document.activeElement === node);
+    const textEquivalentCount = await visual.locator(".visual-text-equivalent").count();
+
+    results.push({
+      id,
+      overviewFits,
+      frameScrollLeft,
+      frameScrollable,
+      compositionVisible,
+      compositionExpected: mobileCompositionExpected,
+      dialogOpen,
+      initialWidth,
+      zoomStatus: zoomStatus?.trim(),
+      zoomedWidth,
+      zoomMetrics,
+      zoomed: zoomStatus?.trim() === "150%" && zoomedWidth > initialWidth,
+      panned,
+      reset: resetStatus?.trim() === "100%" && resetScroll,
+      dialogClosed,
+      focusReturned,
+      textEquivalentCount,
+    });
+  }
+  return results;
+}
+
 async function inspect(browser, mode) {
-  const phone = mode === "phone";
+  const phone = mode === "phone" || mode === "reduced";
   const tablet = mode === "tablet";
   const zoom200 = mode === "zoom200";
   const zoom400 = mode === "zoom400";
   const context = await browser.newContext({
     viewport: phone ? { width: 390, height: 844 } : tablet ? { width: 820, height: 1080 } : zoom200 ? { width: 720, height: 1000 } : zoom400 ? { width: 360, height: 900 } : { width: 1440, height: 1000 },
-    reducedMotion: phone ? "reduce" : "no-preference",
+    reducedMotion: mode === "reduced" ? "reduce" : "no-preference",
     hasTouch: phone || tablet,
-    isMobile: phone,
+    isMobile: false,
   });
   const page = await context.newPage();
   const errors = [];
@@ -102,6 +170,7 @@ async function inspect(browser, mode) {
   await page.keyboard.press("Escape");
   const communityFocusReturned = await community.evaluate((node) => document.activeElement === node);
 
+  const visualChecks = await inspectVisuals(page, mode !== "desktop");
   const exportPassed = await complete(page);
   const state = await page.evaluate(() => ({
     h1: document.querySelectorAll("h1").length,
@@ -133,13 +202,14 @@ async function inspect(browser, mode) {
     await lab.screenshot({ path: path.join(directory, `signature-${index + 1}.png`) });
   }
   await context.close();
-  return { mode, errors, graphOpen, graphClosed, focusReturned, glossaryOpen, communityOpen, communityFocusReturned, exportPassed, ...state };
+  return { mode, errors, graphOpen, graphClosed, focusReturned, glossaryOpen, communityOpen, communityFocusReturned, exportPassed, visualChecks, ...state };
 }
 
 (async () => {
   const browser = await chromium.launch({ headless: true, executablePath: chrome });
   const runs = [];
-  for (const mode of ["desktop", "tablet", "phone", "zoom200", "zoom400"]) runs.push(await inspect(browser, mode));
+  const modes = (process.env.OWOS_MODES || "desktop,tablet,phone,zoom200,zoom400,reduced").split(",");
+  for (const mode of modes) runs.push(await inspect(browser, mode));
   await browser.close();
   const failures = runs.filter((run) =>
     run.errors.length ||
@@ -149,7 +219,13 @@ async function inspect(browser, mode) {
     new Set(run.visualTypes).size !== 5 || run.interactions !== 2 ||
     new Set(run.assessmentTypes).size !== 4 || !run.images || !run.completed || !run.enabled ||
     run.scrollWidth > run.width + 1 || run.emptyButtons || run.faqCount !== 8 ||
-    (run.mode === "phone" && run.maxTransition > 1)
+    run.visualChecks.some((visual) =>
+      !visual.overviewFits || visual.frameScrollLeft !== 0 || visual.frameScrollable ||
+      visual.compositionVisible !== visual.compositionExpected ||
+      !visual.dialogOpen || (run.mode !== "reduced" && (!visual.zoomed || !visual.panned)) || !visual.reset ||
+      !visual.dialogClosed || !visual.focusReturned || visual.textEquivalentCount < 2
+    ) ||
+    (run.mode === "reduced" && run.maxTransition > 1)
   );
   console.log(JSON.stringify({ pageRuns: runs, failureCount: failures.length, failures }, null, 2));
   if (failures.length) process.exitCode = 1;

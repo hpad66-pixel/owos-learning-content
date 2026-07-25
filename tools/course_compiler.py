@@ -319,6 +319,21 @@ def validate_package(module_dir: Path, *, release_ready: bool = False) -> dict[s
     )
     for visual_id, visual in visuals.items():
         require_fields(visual, visual_fields, f"visual {visual_id}", errors)
+        mobile_steps = visual.get("mobile_steps")
+        if mobile_steps is not None:
+            if not isinstance(mobile_steps, list) or len(mobile_steps) < 2:
+                errors.append(f"visual {visual_id}: mobile_steps needs at least two steps")
+            else:
+                for step_index, step in enumerate(mobile_steps, start=1):
+                    if not isinstance(step, dict):
+                        errors.append(f"visual {visual_id}: mobile step {step_index} must be an object")
+                        continue
+                    require_fields(
+                        step,
+                        ("title", "body"),
+                        f"visual {visual_id} mobile step {step_index}",
+                        errors,
+                    )
         locator = visual.get("locator")
         component_id = visual.get("component_id")
         if not locator and not component_id:
@@ -515,6 +530,21 @@ def validate_package(module_dir: Path, *, release_ready: bool = False) -> dict[s
 def render_visual(visual: dict[str, Any], asset_prefix: str) -> str:
     locator = asset_prefix + str(visual["locator"])
     text_equivalent = visual.get("text_equivalent") or visual["alternative_text"]
+    detail_id = f"{visual['visual_id']}-detail"
+    mobile_steps = visual.get("mobile_steps", [])
+    mobile_composition = ""
+    if mobile_steps:
+        steps = "".join(
+            f'<li><span class="mobile-visual-step-number">{index:02d}</span>'
+            f'<div><h4>{esc(step["title"])}</h4><p>{esc(step["body"])}</p></div></li>'
+            for index, step in enumerate(mobile_steps, start=1)
+        )
+        mobile_composition = f"""
+  <section class="mobile-visual-composition" data-mobile-visual-composition
+    aria-label="{esc(visual['title'])}, mobile reading sequence">
+    <h4>Mobile reading sequence</h4>
+    <ol>{steps}</ol>
+  </section>"""
     return f"""
 <figure class="learning-visual" id="{esc(visual['visual_id'])}"
   data-visual-type="{esc(visual['asset_class'])}"
@@ -522,11 +552,36 @@ def render_visual(visual: dict[str, Any], asset_prefix: str) -> str:
   <h3>{esc(visual['title'])}</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> {esc(visual['reading_guide'])}</div>
   <div class="visual-frame">
-    <img src="{esc(locator)}" alt="{esc(visual['alternative_text'])}">
+    <img src="{esc(locator)}" alt="{esc(visual['alternative_text'])}" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="{esc(locator)}" target="_blank" rel="noopener">Open full-size graphic</a></p>
+{mobile_composition}
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="{esc(detail_id)}">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>{esc(text_equivalent)}</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> {esc(visual['learner_conclusion'])}</figcaption>
+  <dialog class="visual-detail-dialog" id="{esc(detail_id)}" data-visual-detail
+    aria-labelledby="{esc(detail_id)}-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="{esc(detail_id)}-title">{esc(visual['title'])}</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="{esc(locator)}" alt="{esc(visual['alternative_text'])}" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>{esc(text_equivalent)}</p></details>
+  </dialog>
 </figure>"""
 
 

@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.1.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="34f8325bd83447a1bb549da13a02b79c44b5d3e7c99b83e0b6aeaa9b8d8cf4ca">
+  <meta name="owos-package-checksum" content="3e22f25705f3c3efaab6e6ed53c703b72dfd8fdbdada357724b31dc724bb8e8e">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -623,7 +623,93 @@ textarea:focus-visible {
 .visual-frame img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
+}
+
+.mobile-visual-composition {
+  display: none;
+}
+
+.visual-detail-dialog {
+  width: min(96vw, 1240px);
+  max-width: none;
+  height: min(92vh, 920px);
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 30px 90px rgba(9, 30, 49, .35);
+}
+
+.visual-detail-dialog::backdrop {
+  background: rgba(9, 30, 49, .76);
+}
+
+.visual-detail-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.visual-detail-header h3 {
+  margin: 2px 0 0;
+}
+
+.visual-detail-help,
+.visual-detail-controls {
+  margin: 14px 20px;
+}
+
+.visual-detail-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.visual-detail-controls output {
+  min-width: 64px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.visual-detail-pan {
+  width: calc(100% - 40px);
+  height: min(62vh, 680px);
+  margin: 0 20px 18px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #f7faf9;
+}
+
+.visual-detail-pan:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.visual-detail-canvas {
+  width: 100%;
+  transform-origin: top left;
+}
+
+.visual-detail-canvas img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  transform-origin: top left;
 }
 
 .component {
@@ -1185,7 +1271,98 @@ footer {
   }
 }
 
-.learning-lenses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.learning-lenses article{padding:1rem;border:1px solid var(--line);border-radius:16px;background:#fff}.learning-lenses h3{margin:.35rem 0}.drawer input[type=search]{display:block;width:100%;margin:.5rem 0 1rem;padding:.7rem;border:1px solid var(--line);border-radius:10px}.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.learning-lenses,.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+.learning-lenses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.learning-lenses article{padding:1rem;border:1px solid var(--line);border-radius:16px;background:#fff}.learning-lenses h3{margin:.35rem 0}.drawer input[type=search]{display:block;width:100%;margin:.5rem 0 1rem;padding:.7rem;border:1px solid var(--line);border-radius:10px}.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}
+
+@media (max-width: 900px) {
+  .learning-lenses,
+  .contract-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .contract-rubric {
+    font-size: .8rem;
+  }
+
+  .visual-frame {
+    overflow: hidden;
+  }
+
+  .visual-frame img {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .mobile-visual-composition {
+    display: block;
+    margin: 16px 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--wash);
+  }
+
+  .mobile-visual-composition > h4 {
+    margin: 0 0 12px;
+  }
+
+  .mobile-visual-composition ol {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-visual-composition li {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #c9dddd;
+    border-radius: 13px;
+    background: #ffffff;
+  }
+
+  .mobile-visual-step-number {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #ffffff;
+    font-weight: 850;
+  }
+
+  .mobile-visual-composition h4,
+  .mobile-visual-composition p {
+    margin: 0;
+  }
+
+  .mobile-visual-composition p {
+    margin-top: 4px;
+  }
+
+  .visual-actions {
+    display: block;
+  }
+
+  .visual-detail-dialog {
+    width: 100vw;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .visual-detail-header {
+    align-items: flex-start;
+  }
+
+  .visual-detail-pan {
+    height: 56dvh;
+  }
+}
 
 @media (max-width: 420px) {
   .topbar {
@@ -1285,11 +1462,41 @@ footer {
   <h3>Grounding and authority are independent keys</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the knowledge key on the left, the authority key on the right, then combine their dispositions at the bottom</div>
   <div class="visual-frame">
-    <img src="../visuals/two-key-console.svg" alt="Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority">
+    <img src="../visuals/two-key-console.svg" alt="Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/two-key-console.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <section class="mobile-visual-composition" data-mobile-visual-composition
+    aria-label="Grounding and authority are independent keys, mobile reading sequence">
+    <h4>Mobile reading sequence</h4>
+    <ol><li><span class="mobile-visual-step-number">01</span><div><h4>Knowledge key</h4><p>The graph identifies a credible LS-7 path, but the inspection evidence is older than the allowed freshness window.</p></div></li><li><span class="mobile-visual-step-number">02</span><div><h4>Authority key</h4><p>The operator can create a draft work order but cannot assign Priority 1 without supervisor approval.</p></div></li><li><span class="mobile-visual-step-number">03</span><div><h4>Combined disposition</h4><p>Refresh the evidence, ask for approval, and execute only the permitted draft. Grounding alone does not authorize action.</p></div></li></ol>
+  </section>
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm18-two-key-console-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The proposal must refresh evidence and obtain approval even when the graph path is credible</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm18-two-key-console-detail" data-visual-detail
+    aria-labelledby="mbm18-two-key-console-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm18-two-key-console-detail-title">Grounding and authority are independent keys</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/two-key-console.svg" alt="Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Two side-by-side control panels show a grounded LS-7 proposal held because inspection evidence is stale and the operator lacks Priority 1 authority</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm18-opening" data-choice-group
@@ -1365,11 +1572,41 @@ footer {
   <h3>A complete graph-to-action trace for LS-7</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the six explicit triples first, then follow the numbered gates from graph retrieval to the verified audit receipt</div>
   <div class="visual-frame">
-    <img src="../visuals/graph-to-action-trace.svg" alt="Explicit LS-7 wastewater triples flow through graph retrieval, freshness validation, authorization, supervisor approval, bounded draft work-order execution, verification, and audit">
+    <img src="../visuals/graph-to-action-trace.svg" alt="Explicit LS-7 wastewater triples flow through graph retrieval, freshness validation, authorization, supervisor approval, bounded draft work-order execution, verification, and audit" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/graph-to-action-trace.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <section class="mobile-visual-composition" data-mobile-visual-composition
+    aria-label="A complete graph-to-action trace for LS-7, mobile reading sequence">
+    <h4>Mobile reading sequence</h4>
+    <ol><li><span class="mobile-visual-step-number">01</span><div><h4>Graph evidence</h4><p>Retrieve the explicit LS-7, Overflow-21, Inspection-443, Policy-12, and Operator-77 relationships.</p></div></li><li><span class="mobile-visual-step-number">02</span><div><h4>Freshness validation</h4><p>Compare the inspection timestamp with the policy limit. The stale evidence cannot support immediate action.</p></div></li><li><span class="mobile-visual-step-number">03</span><div><h4>Policy and authority</h4><p>Confirm that Operator-77 may create a draft but may not assign Priority 1.</p></div></li><li><span class="mobile-visual-step-number">04</span><div><h4>Human approval</h4><p>Ask the supervisor to approve the bounded proposal after refreshed evidence is available.</p></div></li><li><span class="mobile-visual-step-number">05</span><div><h4>Tool execution</h4><p>Create only the permitted draft work order using the approved request identity and parameters.</p></div></li><li><span class="mobile-visual-step-number">06</span><div><h4>Verification and audit</h4><p>Read the CMMS record back, verify the postcondition, and store the complete decision and action receipt.</p></div></li></ol>
+  </section>
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm18-graph-to-action-trace-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>LS-7 contributes to Overflow-21. Inspection-443 inspected LS-7 and was recorded on June 1. Policy-12 requires evidence no older than 24 hours. Operator-77 may create a draft work order but may not assign Priority 1. Therefore the system refreshes evidence, asks the supervisor, executes only the permitted draft, verifies the CMMS record, and stores the audit receipt.</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The graph supports the proposal while each downstream gate makes its own controlled decision</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm18-graph-to-action-trace-detail" data-visual-detail
+    aria-labelledby="mbm18-graph-to-action-trace-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm18-graph-to-action-trace-detail-title">A complete graph-to-action trace for LS-7</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/graph-to-action-trace.svg" alt="Explicit LS-7 wastewater triples flow through graph retrieval, freshness validation, authorization, supervisor approval, bounded draft work-order execution, verification, and audit" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>LS-7 contributes to Overflow-21. Inspection-443 inspected LS-7 and was recorded on June 1. Policy-12 requires evidence no older than 24 hours. Operator-77 may create a draft work order but may not assign Priority 1. Therefore the system refreshes evidence, asks the supervisor, executes only the permitted draft, verifies the CMMS record, and stores the audit receipt.</p></details>
+  </dialog>
 </figure>
 <aside class="callout"><h3>The testable conclusion</h3><p>If another team cannot identify which graph statement, validation result, policy decision, approval receipt, tool request, verification record, and owner produced the outcome, the application is not yet governed.</p></aside>
 </section>
@@ -1386,11 +1623,41 @@ footer {
   <h3>A proposal moves through controlled action states</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow the upper route from proposal to record, then inspect each downward branch and its return or stop condition</div>
   <div class="visual-frame">
-    <img src="../visuals/state-machine.svg" alt="A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop">
+    <img src="../visuals/state-machine.svg" alt="A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/state-machine.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <section class="mobile-visual-composition" data-mobile-visual-composition
+    aria-label="A proposal moves through controlled action states, mobile reading sequence">
+    <h4>Mobile reading sequence</h4>
+    <ol><li><span class="mobile-visual-step-number">01</span><div><h4>Propose</h4><p>Form one candidate action from explicit evidence and declared intent.</p></div></li><li><span class="mobile-visual-step-number">02</span><div><h4>Validate</h4><p>If evidence is stale or malformed, refresh or clarify before continuing.</p></div></li><li><span class="mobile-visual-step-number">03</span><div><h4>Authorize</h4><p>If the actor lacks permission, ask an authorized person or stop.</p></div></li><li><span class="mobile-visual-step-number">04</span><div><h4>Approve</h4><p>Apply the utility policy threshold and record the responsible approver.</p></div></li><li><span class="mobile-visual-step-number">05</span><div><h4>Execute</h4><p>Send the bounded tool contract with a stable request identity.</p></div></li><li><span class="mobile-visual-step-number">06</span><div><h4>Verify</h4><p>If the result is uncertain, reconcile external state before any retry.</p></div></li><li><span class="mobile-visual-step-number">07</span><div><h4>Record</h4><p>Store evidence, policy, authority, request, result, verification, and disposition.</p></div></li></ol>
+  </section>
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm18-state-machine-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Ask, refresh, clarify, reconcile, and stop are successful controlled outcomes</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm18-state-machine-detail" data-visual-detail
+    aria-labelledby="mbm18-state-machine-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm18-state-machine-detail-title">A proposal moves through controlled action states</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/state-machine.svg" alt="A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A branching state machine routes proposals through validate, authorize, approve, execute, verify, and record with branches to refresh, clarify, ask, reconcile, and stop</p></details>
+  </dialog>
 </figure>
 <section class="component signature-component decision-lab" id="mbm18-action-control" data-agent-action-control
  data-purposeful-interaction="agent-action-control" data-component-source="structured-module-package" data-completion="action-control">
@@ -1411,11 +1678,41 @@ footer {
   <h3>An executable action travels inside a bounded envelope</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read from the outer audit wrapper through authority and evidence boundaries to the exact tool call and postcondition</div>
   <div class="visual-frame">
-    <img src="../visuals/action-envelope.svg" alt="Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls">
+    <img src="../visuals/action-envelope.svg" alt="Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/action-envelope.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <section class="mobile-visual-composition" data-mobile-visual-composition
+    aria-label="An executable action travels inside a bounded envelope, mobile reading sequence">
+    <h4>Mobile reading sequence</h4>
+    <ol><li><span class="mobile-visual-step-number">01</span><div><h4>Audit wrapper</h4><p>Name the accountable owner, decision record, timestamps, and retained evidence.</p></div></li><li><span class="mobile-visual-step-number">02</span><div><h4>Authority boundary</h4><p>Declare the actor, permitted action, approval threshold, prohibited actions, and stop conditions.</p></div></li><li><span class="mobile-visual-step-number">03</span><div><h4>Evidence boundary</h4><p>Bind the exact graph assertions, sources, freshness rules, and validation results.</p></div></li><li><span class="mobile-visual-step-number">04</span><div><h4>Tool contract</h4><p>Specify the tool, schema, parameters, request identity, and least-privilege credential.</p></div></li><li><span class="mobile-visual-step-number">05</span><div><h4>Recovery contract</h4><p>Define timeout handling, reconciliation, retry limits, and duplicate prevention.</p></div></li><li><span class="mobile-visual-step-number">06</span><div><h4>Postcondition</h4><p>State what must be read back and verified before the action counts as complete.</p></div></li></ol>
+  </section>
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm18-action-envelope-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A vague goal is not an executable contract</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm18-action-envelope-detail" data-visual-detail
+    aria-labelledby="mbm18-action-envelope-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm18-action-envelope-detail-title">An executable action travels inside a bounded envelope</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/action-envelope.svg" alt="Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Nested layers surround a create-draft-work-order call with audit, authority, evidence, tool, recovery, and postcondition controls</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm18-envelope-check" data-multi-select
@@ -1480,11 +1777,41 @@ footer {
   <h3>The action flight recorder preserves uncertain outcomes</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow the timeline left to right and notice how request K-441 connects the timeout to the discovered work order</div>
   <div class="visual-frame">
-    <img src="../visuals/audit-recorder.svg" alt="A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt">
+    <img src="../visuals/audit-recorder.svg" alt="A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/audit-recorder.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <section class="mobile-visual-composition" data-mobile-visual-composition
+    aria-label="The action flight recorder preserves uncertain outcomes, mobile reading sequence">
+    <h4>Mobile reading sequence</h4>
+    <ol><li><span class="mobile-visual-step-number">01</span><div><h4>Proposal recorded</h4><p>The system records the LS-7 draft work-order proposal and supporting evidence.</p></div></li><li><span class="mobile-visual-step-number">02</span><div><h4>Authority recorded</h4><p>The operator permission and supervisor approval are attached to the action contract.</p></div></li><li><span class="mobile-visual-step-number">03</span><div><h4>Request K-441 sent</h4><p>The CMMS call times out, so the external outcome is unknown.</p></div></li><li><span class="mobile-visual-step-number">04</span><div><h4>External state reconciled</h4><p>The system searches by request K-441 and discovers work order WO-881 already exists.</p></div></li><li><span class="mobile-visual-step-number">05</span><div><h4>Postcondition verified</h4><p>The returned work order is compared with the approved parameters and permitted state.</p></div></li><li><span class="mobile-visual-step-number">06</span><div><h4>Audit receipt sealed</h4><p>The proposal, authority, request, uncertain result, reconciliation, verification, and final disposition remain reconstructable.</p></div></li></ol>
+  </section>
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm18-audit-recorder-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A verifiable receipt is stronger than a tool success message or chat transcript</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm18-audit-recorder-detail" data-visual-detail
+    aria-labelledby="mbm18-audit-recorder-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm18-audit-recorder-detail-title">The action flight recorder preserves uncertain outcomes</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/audit-recorder.svg" alt="A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A timeline records proposal, evidence, authority, timed-out tool request K-441, reconciliation to work order WO-881, verification, and final audit receipt</p></details>
+  </dialog>
 </figure>
 </section>
 <section class="lesson-section" id="audit">
@@ -2175,6 +2502,64 @@ footer {
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 500);
     });
+  });
+
+  document.querySelectorAll(".learning-visual").forEach((visual) => {
+    const trigger = visual.querySelector("[data-open-visual-detail]");
+    const dialog = visual.querySelector("[data-visual-detail]");
+    const image = dialog?.querySelector("[data-visual-detail-image]");
+    const canvas = dialog?.querySelector("[data-visual-detail-canvas]");
+    const pan = dialog?.querySelector("[data-visual-pan]");
+    const status = dialog?.querySelector("[data-visual-zoom-status]");
+    if (!trigger || !dialog || !image || !canvas || !pan || !status) return;
+
+    let zoom = 1;
+    const renderZoom = () => {
+      const baseWidth = pan.clientWidth;
+      canvas.style.setProperty("width", `${baseWidth * zoom}px`, "important");
+      canvas.style.setProperty("min-width", `${baseWidth * zoom}px`, "important");
+      canvas.style.zoom = "1";
+      canvas.style.transform = "none";
+      canvas.style.margin = "0";
+      status.value = `${Math.round(zoom * 100)}%`;
+      status.textContent = status.value;
+    };
+    const resetDetail = () => {
+      zoom = 1;
+      pan.scrollTo({ left: 0, top: 0, behavior: "instant" });
+      renderZoom();
+    };
+
+    trigger.addEventListener("click", () => {
+      dialog.showModal();
+      resetDetail();
+      dialog.querySelector("[data-close-visual-detail]")?.focus();
+    });
+    dialog.querySelector("[data-close-visual-detail]")?.addEventListener("click", () => {
+      dialog.close();
+    });
+    dialog.querySelector("[data-visual-zoom-in]")?.addEventListener("click", () => {
+      zoom = Math.min(4, zoom + .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-zoom-out]")?.addEventListener("click", () => {
+      zoom = Math.max(1, zoom - .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-reset]")?.addEventListener("click", resetDetail);
+    pan.addEventListener("keydown", (event) => {
+      const movement = 80;
+      const directions = {
+        ArrowLeft: [-movement, 0],
+        ArrowRight: [movement, 0],
+        ArrowUp: [0, -movement],
+        ArrowDown: [0, movement],
+      };
+      if (!directions[event.key]) return;
+      event.preventDefault();
+      pan.scrollBy({ left: directions[event.key][0], top: directions[event.key][1] });
+    });
+    dialog.addEventListener("close", () => trigger.focus());
   });
 
   function openDrawer(name, trigger) {

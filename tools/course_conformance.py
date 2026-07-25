@@ -194,6 +194,28 @@ def validate_module(
             errors.append(f"{visual_id} needs a visible reading guide")
         if not visual.select_one("[data-learner-conclusion]"):
             errors.append(f"{visual_id} needs a learner conclusion")
+        if structured:
+            if not visual.select_one("[data-visual-overview]"):
+                errors.append(f"{visual_id} needs a governed fit-to-screen overview")
+            if not visual.select_one("[data-mobile-visual-composition]"):
+                errors.append(f"{visual_id} needs a mobile-specific reading composition")
+            detail = visual.select_one("[data-visual-detail]")
+            if not detail:
+                errors.append(f"{visual_id} needs an accessible detailed viewer")
+            else:
+                for selector, label in (
+                    ("[data-visual-zoom-in]", "zoom in"),
+                    ("[data-visual-zoom-out]", "zoom out"),
+                    ("[data-visual-reset]", "reset"),
+                    ("[data-close-visual-detail]", "close"),
+                    ("[data-visual-pan]", "pan surface"),
+                ):
+                    if not detail.select_one(selector):
+                        errors.append(f"{visual_id} detailed viewer is missing {label}")
+            if len(visual.select(".visual-text-equivalent")) < 2:
+                errors.append(
+                    f"{visual_id} needs structured text equivalents in the lesson and detailed viewer"
+                )
         explanation = soup.select_one(
             f'[data-instructor-explanation][data-teaches~="{visual_id}"]'
         )

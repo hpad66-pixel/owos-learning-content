@@ -259,6 +259,25 @@ verification.
   authoring audits pass.
 - The generated release manifest contains 34 checksum-controlled files.
 
+## Module 18 Phase 14 owner-review remediation
+
+- Owner review found that forced-width graphics were not acceptable in the Author Studio iPhone
+  view. The candidate returned to a bounded Phase 13 remediation loop.
+- The approved desktop lesson, narrative, lesson contract, completion identifiers, assessments,
+  simulations, work product, and evidence boundaries were preserved.
+- All five graphics now provide a complete fit-to-screen overview, a subject-specific vertical
+  mobile reading sequence, an accessible detail viewer, and structured textual equivalents.
+- The detail viewers support zoom in, zoom out, keyboard or touch panning, reset, close, Escape,
+  visible focus, and focus return.
+- The Course Production Contract and full-module conformance checker now reject forced-width
+  default graphics and page-containment-only evidence.
+- Six rendered modes passed with zero failures: desktop, iPad, iPhone, 200 percent reflow, 400
+  percent reflow, and reduced motion.
+- Physical iPhone and iPad, screen-reader, practitioner, novice, factual, security, credential,
+  course-coherence, and final-release reviews remain pending.
+- The corrected candidate returns to Author Studio for Phase 14 owner rereview. It is not a final
+  release and must not be represented as published.
+
 ## Progressive Modules 09 to 11 structured batch
 
 ### Module 09

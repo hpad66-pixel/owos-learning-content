@@ -6,6 +6,13 @@ owner: Hardeep Anand
 effective: 2026-07-23
 ---
 
+The reusable execution prompt is
+`core/standards/OWOS-COURSE-PRODUCTION-ACTIVATION-PROMPT.md`. Every new course, material retrofit,
+complete-course audit, and course-end packaging run must use that prompt or an equivalent instruction
+that preserves every requirement. Every completed course must include
+`qa/course-quality-control-dossier.md` based on
+`core/templates/COURSE-QUALITY-CONTROL-DOSSIER.md`.
+
 # OWOS Course Production Contract
 
 This is the binding build and quality contract for every OWOS course, Master Class, module, chapter, and lesson. It consolidates the decisions accumulated through the Project Delivery, Data Before AI, and What Is an AI Agent course builds. Other standards provide depth. This file defines the minimum complete result.
@@ -130,6 +137,34 @@ Cards, colored boxes, headings, icon rows, background shapes, and declared `data
 attributes do not count unless the rendered artifact visibly teaches the stated relationship,
 sequence, quantity, location, decision, or change. Automated checks must inspect resolvable assets
 and executable behavior, not labels alone.
+
+### Responsive graphic gate
+
+Page containment alone does not qualify a graphic as mobile-ready. Every explanatory graphic must
+pass all of the following:
+
+- The default overview fits completely inside the lesson content width on desktop, tablet, and
+  phone without forced minimum width or default horizontal scrolling.
+- A text-heavy or wide graphic has a readable mobile composition that reorders the same meaning for
+  a narrow screen. Horizontal processes become vertical sequences, side-by-side comparisons stack,
+  and dense labels move into structured sections without removing material meaning.
+- The overview remains available for orientation. The mobile composition does not replace the
+  original graphic or alter the approved desktop experience.
+- A complex graphic provides an accessible detailed viewer with zoom in, zoom out, reset, close,
+  pointer or touch panning, keyboard panning, Escape behavior, visible focus, and focus return to
+  the opening control.
+- A structured textual equivalent remains available outside and inside the detailed viewer.
+- Automated QA inspects each graphic individually for overview width, default scroll position,
+  mobile-composition presence, detail-view behavior, zoom change, reset, close, focus return, and
+  page containment.
+- Rendered evidence retains a full-page capture and an individual capture of every graphic at
+  desktop, tablet, phone, 200 percent reflow, and 400 percent reflow.
+- Human review still judges practical legibility, reading order, touch usability, and whether the
+  mobile transformation preserves the same instructional conclusion. Automated containment cannot
+  satisfy that human gate.
+
+Unreadable compression, clipped labels, a forced-width image presented as the default phone
+experience, or horizontal scrolling used as the only mobile treatment is a release blocker.
 
 ### Storyboard approval gate
 

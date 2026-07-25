@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="3390360b212db61ce7e8579cbfeb91a32c4db8f3eebe21cbb241e2071a9b2837">
+  <meta name="owos-package-checksum" content="4b7f735257e27d4bec677901e0c877bb91b0ca5c8f0029645d57046f1d5a828b">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -623,7 +623,93 @@ textarea:focus-visible {
 .visual-frame img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
+}
+
+.mobile-visual-composition {
+  display: none;
+}
+
+.visual-detail-dialog {
+  width: min(96vw, 1240px);
+  max-width: none;
+  height: min(92vh, 920px);
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 30px 90px rgba(9, 30, 49, .35);
+}
+
+.visual-detail-dialog::backdrop {
+  background: rgba(9, 30, 49, .76);
+}
+
+.visual-detail-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.visual-detail-header h3 {
+  margin: 2px 0 0;
+}
+
+.visual-detail-help,
+.visual-detail-controls {
+  margin: 14px 20px;
+}
+
+.visual-detail-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.visual-detail-controls output {
+  min-width: 64px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.visual-detail-pan {
+  width: calc(100% - 40px);
+  height: min(62vh, 680px);
+  margin: 0 20px 18px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #f7faf9;
+}
+
+.visual-detail-pan:focus-visible {
+  outline: 4px solid #ffd2ac;
+  outline-offset: 3px;
+}
+
+.visual-detail-canvas {
+  width: 100%;
+  transform-origin: top left;
+}
+
+.visual-detail-canvas img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  transform-origin: top left;
 }
 
 .component {
@@ -1185,7 +1271,98 @@ footer {
   }
 }
 
-.learning-lenses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.learning-lenses article{padding:1rem;border:1px solid var(--line);border-radius:16px;background:#fff}.learning-lenses h3{margin:.35rem 0}.drawer input[type=search]{display:block;width:100%;margin:.5rem 0 1rem;padding:.7rem;border:1px solid var(--line);border-radius:10px}.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.learning-lenses,.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+.learning-lenses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}.learning-lenses article{padding:1rem;border:1px solid var(--line);border-radius:16px;background:#fff}.learning-lenses h3{margin:.35rem 0}.drawer input[type=search]{display:block;width:100%;margin:.5rem 0 1rem;padding:.7rem;border:1px solid var(--line);border-radius:10px}.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}
+
+@media (max-width: 900px) {
+  .learning-lenses,
+  .contract-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .contract-rubric {
+    font-size: .8rem;
+  }
+
+  .visual-frame {
+    overflow: hidden;
+  }
+
+  .visual-frame img {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .mobile-visual-composition {
+    display: block;
+    margin: 16px 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--wash);
+  }
+
+  .mobile-visual-composition > h4 {
+    margin: 0 0 12px;
+  }
+
+  .mobile-visual-composition ol {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-visual-composition li {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #c9dddd;
+    border-radius: 13px;
+    background: #ffffff;
+  }
+
+  .mobile-visual-step-number {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #ffffff;
+    font-weight: 850;
+  }
+
+  .mobile-visual-composition h4,
+  .mobile-visual-composition p {
+    margin: 0;
+  }
+
+  .mobile-visual-composition p {
+    margin-top: 4px;
+  }
+
+  .visual-actions {
+    display: block;
+  }
+
+  .visual-detail-dialog {
+    width: 100vw;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .visual-detail-header {
+    align-items: flex-start;
+  }
+
+  .visual-detail-pan {
+    height: 56dvh;
+  }
+}
 
 @media (max-width: 420px) {
   .topbar {
@@ -1286,11 +1463,36 @@ footer {
   <h3>Five systems hold records but no cross-domain route</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Start with the question at the top then inspect each isolated source island and the missing route between them</div>
   <div class="visual-frame">
-    <img src="../visuals/source-islands.svg" alt="GIS customer maintenance operations and permit source islands contain local records but do not connect to answer one utility question">
+    <img src="../visuals/source-islands.svg" alt="GIS customer maintenance operations and permit source islands contain local records but do not connect to answer one utility question" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/source-islands.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm04-source-islands-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>GIS customer maintenance operations and permit source islands contain local records but do not connect to answer one utility question</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Data can be present while the relationship needed for the question is absent</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm04-source-islands-detail" data-visual-detail
+    aria-labelledby="mbm04-source-islands-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm04-source-islands-detail-title">Five systems hold records but no cross-domain route</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/source-islands.svg" alt="GIS customer maintenance operations and permit source islands contain local records but do not connect to answer one utility question" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>GIS customer maintenance operations and permit source islands contain local records but do not connect to answer one utility question</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm04-opening-edge" data-choice-group
@@ -1323,11 +1525,36 @@ footer {
   <h3>The statement ledger is the graph and the picture is one view</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the machine-readable statements on the left then follow the projection arrow to the movable node-link view</div>
   <div class="visual-frame">
-    <img src="../visuals/ledger-view.svg" alt="RDF triples appear in a machine-readable ledger on the left and as one node-link visualization on the right">
+    <img src="../visuals/ledger-view.svg" alt="RDF triples appear in a machine-readable ledger on the left and as one node-link visualization on the right" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/ledger-view.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm04-ledger-view-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>RDF triples appear in a machine-readable ledger on the left and as one node-link visualization on the right</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Changing a statement changes the graph while rearranging a diagram does not</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm04-ledger-view-detail" data-visual-detail
+    aria-labelledby="mbm04-ledger-view-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm04-ledger-view-detail-title">The statement ledger is the graph and the picture is one view</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/ledger-view.svg" alt="RDF triples appear in a machine-readable ledger on the left and as one node-link visualization on the right" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>RDF triples appear in a machine-readable ledger on the left and as one node-link visualization on the right</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm04-graph-literacy" data-flip-group
@@ -1383,11 +1610,36 @@ footer {
   <h3>Reviewed identities create meeting points across sources</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow each colored source statement into the governed center and then to the traversable route</div>
   <div class="visual-frame">
-    <img src="../visuals/shared-node-map.svg" alt="GIS maintenance operations and customer statements meet through governed Pump P-104 and Zone 3 identities">
+    <img src="../visuals/shared-node-map.svg" alt="GIS maintenance operations and customer statements meet through governed Pump P-104 and Zone 3 identities" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/shared-node-map.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm04-shared-node-map-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>GIS maintenance operations and customer statements meet through governed Pump P-104 and Zone 3 identities</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Statements connect because they refer to the same reviewed thing rather than merely sharing text</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm04-shared-node-map-detail" data-visual-detail
+    aria-labelledby="mbm04-shared-node-map-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm04-shared-node-map-detail-title">Reviewed identities create meeting points across sources</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/shared-node-map.svg" alt="GIS maintenance operations and customer statements meet through governed Pump P-104 and Zone 3 identities" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>GIS maintenance operations and customer statements meet through governed Pump P-104 and Zone 3 identities</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm04-relationship-match" data-matching
@@ -1465,11 +1717,36 @@ footer {
   <h3>One answer is supported by an exact sequence of edges</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Begin at Pump P-104 and follow every gold edge to the bounded answer while checking the source label below</div>
   <div class="visual-frame">
-    <img src="../visuals/answer-path.svg" alt="Pump P-104 connects through Zone 3 Premise 882 and Account 882 to an active hospital account with every predicate and source shown">
+    <img src="../visuals/answer-path.svg" alt="Pump P-104 connects through Zone 3 Premise 882 and Account 882 to an active hospital account with every predicate and source shown" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/answer-path.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm04-answer-path-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Pump P-104 connects through Zone 3 Premise 882 and Account 882 to an active hospital account with every predicate and source shown</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The customer result emerges from four explicit edges rather than one hidden join</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm04-answer-path-detail" data-visual-detail
+    aria-labelledby="mbm04-answer-path-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm04-answer-path-detail-title">One answer is supported by an exact sequence of edges</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/answer-path.svg" alt="Pump P-104 connects through Zone 3 Premise 882 and Account 882 to an active hospital account with every predicate and source shown" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Pump P-104 connects through Zone 3 Premise 882 and Account 882 to an active hospital account with every predicate and source shown</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm04-path-defense" data-path-tracer
@@ -1514,11 +1791,36 @@ footer {
   <h3>Thirty statements remain organized in five named source groups</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read the five graph containers inside the dataset then inspect the governance controls surrounding them</div>
   <div class="visual-frame">
-    <img src="../visuals/source-groups.svg" alt="Five colored named graph containers sit inside an RDF dataset with provenance authority time access and correction controls below">
+    <img src="../visuals/source-groups.svg" alt="Five colored named graph containers sit inside an RDF dataset with provenance authority time access and correction controls below" data-visual-overview>
   </div>
-  <p class="visual-actions"><a class="button secondary" href="../visuals/source-groups.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+
+  <p class="visual-actions">
+    <button class="button secondary" type="button" data-open-visual-detail
+      aria-controls="mbm04-source-groups-detail">Open detailed view</button>
+  </p>
   <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Five colored named graph containers sit inside an RDF dataset with provenance authority time access and correction controls below</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Source grouping helps attribution but does not replace governance controls</figcaption>
+  <dialog class="visual-detail-dialog" id="mbm04-source-groups-detail" data-visual-detail
+    aria-labelledby="mbm04-source-groups-detail-title">
+    <div class="visual-detail-header">
+      <div><span class="kind">Detailed graphic</span><h3 id="mbm04-source-groups-detail-title">Thirty statements remain organized in five named source groups</h3></div>
+      <button class="button" type="button" data-close-visual-detail>Close</button>
+    </div>
+    <p class="visual-detail-help">Zoom when you need label detail. Pan inside the graphic, then reset before closing.</p>
+    <div class="visual-detail-controls" aria-label="Graphic zoom controls">
+      <button class="button" type="button" data-visual-zoom-out aria-label="Zoom out">Zoom out</button>
+      <button class="button" type="button" data-visual-reset>Reset</button>
+      <button class="button" type="button" data-visual-zoom-in aria-label="Zoom in">Zoom in</button>
+      <output data-visual-zoom-status aria-live="polite">100%</output>
+    </div>
+    <div class="visual-detail-pan" data-visual-pan tabindex="0"
+      aria-label="Scrollable detailed graphic. Use two-finger scrolling or arrow keys to pan.">
+      <div class="visual-detail-canvas" data-visual-detail-canvas>
+        <img src="../visuals/source-groups.svg" alt="Five colored named graph containers sit inside an RDF dataset with provenance authority time access and correction controls below" data-visual-detail-image>
+      </div>
+    </div>
+    <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Five colored named graph containers sit inside an RDF dataset with provenance authority time access and correction controls below</p></details>
+  </dialog>
 </figure>
 
 <section class="component" id="mbm04-boundary-check" data-multi-select
@@ -2224,6 +2526,64 @@ footer {
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 500);
     });
+  });
+
+  document.querySelectorAll(".learning-visual").forEach((visual) => {
+    const trigger = visual.querySelector("[data-open-visual-detail]");
+    const dialog = visual.querySelector("[data-visual-detail]");
+    const image = dialog?.querySelector("[data-visual-detail-image]");
+    const canvas = dialog?.querySelector("[data-visual-detail-canvas]");
+    const pan = dialog?.querySelector("[data-visual-pan]");
+    const status = dialog?.querySelector("[data-visual-zoom-status]");
+    if (!trigger || !dialog || !image || !canvas || !pan || !status) return;
+
+    let zoom = 1;
+    const renderZoom = () => {
+      const baseWidth = pan.clientWidth;
+      canvas.style.setProperty("width", `${baseWidth * zoom}px`, "important");
+      canvas.style.setProperty("min-width", `${baseWidth * zoom}px`, "important");
+      canvas.style.zoom = "1";
+      canvas.style.transform = "none";
+      canvas.style.margin = "0";
+      status.value = `${Math.round(zoom * 100)}%`;
+      status.textContent = status.value;
+    };
+    const resetDetail = () => {
+      zoom = 1;
+      pan.scrollTo({ left: 0, top: 0, behavior: "instant" });
+      renderZoom();
+    };
+
+    trigger.addEventListener("click", () => {
+      dialog.showModal();
+      resetDetail();
+      dialog.querySelector("[data-close-visual-detail]")?.focus();
+    });
+    dialog.querySelector("[data-close-visual-detail]")?.addEventListener("click", () => {
+      dialog.close();
+    });
+    dialog.querySelector("[data-visual-zoom-in]")?.addEventListener("click", () => {
+      zoom = Math.min(4, zoom + .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-zoom-out]")?.addEventListener("click", () => {
+      zoom = Math.max(1, zoom - .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-reset]")?.addEventListener("click", resetDetail);
+    pan.addEventListener("keydown", (event) => {
+      const movement = 80;
+      const directions = {
+        ArrowLeft: [-movement, 0],
+        ArrowRight: [movement, 0],
+        ArrowUp: [0, -movement],
+        ArrowDown: [0, movement],
+      };
+      if (!directions[event.key]) return;
+      event.preventDefault();
+      pan.scrollBy({ left: directions[event.key][0], top: directions[event.key][1] });
+    });
+    dialog.addEventListener("close", () => trigger.focus());
   });
 
   function openDrawer(name, trigger) {

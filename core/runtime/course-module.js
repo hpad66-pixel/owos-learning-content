@@ -542,6 +542,64 @@
     });
   });
 
+  document.querySelectorAll(".learning-visual").forEach((visual) => {
+    const trigger = visual.querySelector("[data-open-visual-detail]");
+    const dialog = visual.querySelector("[data-visual-detail]");
+    const image = dialog?.querySelector("[data-visual-detail-image]");
+    const canvas = dialog?.querySelector("[data-visual-detail-canvas]");
+    const pan = dialog?.querySelector("[data-visual-pan]");
+    const status = dialog?.querySelector("[data-visual-zoom-status]");
+    if (!trigger || !dialog || !image || !canvas || !pan || !status) return;
+
+    let zoom = 1;
+    const renderZoom = () => {
+      const baseWidth = pan.clientWidth;
+      canvas.style.setProperty("width", `${baseWidth * zoom}px`, "important");
+      canvas.style.setProperty("min-width", `${baseWidth * zoom}px`, "important");
+      canvas.style.zoom = "1";
+      canvas.style.transform = "none";
+      canvas.style.margin = "0";
+      status.value = `${Math.round(zoom * 100)}%`;
+      status.textContent = status.value;
+    };
+    const resetDetail = () => {
+      zoom = 1;
+      pan.scrollTo({ left: 0, top: 0, behavior: "instant" });
+      renderZoom();
+    };
+
+    trigger.addEventListener("click", () => {
+      dialog.showModal();
+      resetDetail();
+      dialog.querySelector("[data-close-visual-detail]")?.focus();
+    });
+    dialog.querySelector("[data-close-visual-detail]")?.addEventListener("click", () => {
+      dialog.close();
+    });
+    dialog.querySelector("[data-visual-zoom-in]")?.addEventListener("click", () => {
+      zoom = Math.min(4, zoom + .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-zoom-out]")?.addEventListener("click", () => {
+      zoom = Math.max(1, zoom - .5);
+      renderZoom();
+    });
+    dialog.querySelector("[data-visual-reset]")?.addEventListener("click", resetDetail);
+    pan.addEventListener("keydown", (event) => {
+      const movement = 80;
+      const directions = {
+        ArrowLeft: [-movement, 0],
+        ArrowRight: [movement, 0],
+        ArrowUp: [0, -movement],
+        ArrowDown: [0, movement],
+      };
+      if (!directions[event.key]) return;
+      event.preventDefault();
+      pan.scrollBy({ left: directions[event.key][0], top: directions[event.key][1] });
+    });
+    dialog.addEventListener("close", () => trigger.focus());
+  });
+
   function openDrawer(name, trigger) {
     const drawer = document.querySelector(`[data-drawer="${name}"]`);
     if (!drawer) return;
