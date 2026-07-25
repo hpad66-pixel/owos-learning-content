@@ -118,6 +118,14 @@ The following were not performed and are not represented as passed:
 - Author Studio deployment: `https://41006770.owos-3n1.pages.dev`
 - Permanent review lesson: `https://owos.ai/lesson-author-module-18.html`
 - Live production-copy audit: six page runs, zero failures; final release remained blocked
+- Mobile-remediation learning-content commit: `16e2a52`
+- Corrected Author Studio platform commit: `0c604b8`
+- Corrected Author Studio deployment: `https://f4a69026.owos-3n1.pages.dev`
+- Corrected live checksum:
+  `3e22f25705f3c3efaab6e6ed53c703b72dfd8fdbdada357724b31dc724bb8e8e`
+- Corrected live audit: six page runs, thirty individual graphic checks, zero failures; all five
+  overviews fit; no default graphic scrolling; five mobile compositions rendered; five detail
+  viewers passed in every applicable responsive mode; final release remained blocked
 
 ## 6. Recommendation for resuming Phase 14
 
