@@ -297,3 +297,20 @@ verification.
 
 Commit and push the exact learning release, import that commit into the OWOS platform, run platform
 release checks, deploy production, and verify all three public pages and checksums.
+
+## Modules 09 to 11 publication evidence
+
+- Exact learning-content intake commit: `209977ef52010e2a16ee6124b2f092b62cf70f13`
+- Platform production commit: `c7bd9963ad86b6c94c740ea5e0d383bcad86a79a`
+- Cloudflare production deployment: `9640c22d`
+- The custom-domain HTML for all three lessons returned HTTP 200 and matched the deployed platform
+  files byte for byte.
+- The final live browser suite passed nine of nine desktop, tablet, and phone runs.
+- Live runtime errors: zero. Horizontal overflow: zero. All twelve graphics loaded.
+- The OWL Model Court, SHACL Validation Clinic, Evidence Reconciliation Hearing, distributed
+  assessments, flip cards, drawers, focus return, work products, and completion controls all passed.
+- Phone reduced-motion maximum remained 0.01 milliseconds.
+
+## Next action
+
+Begin the approved structured production of Modules 12 to 14.
