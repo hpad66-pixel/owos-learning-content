@@ -45,6 +45,7 @@ accessibility behavior. The resulting deterministic checksum is
 | Contract scoring and defense | Passed | Required fields, correct defense, scoring, save, and completion path executed |
 | Contract export | Passed | Browser download completed with a JSON artifact filename |
 | Author Studio production-copy structure | Passed | Permanent Courses workspace contains responsive preview controls and human-gate boundary |
+| Deployed Author Studio candidate | Passed | Live five-mode browser matrix returned zero failures; all five SVG assets returned HTTP 200 |
 
 ## 2. Repaired tooling defects
 
@@ -102,6 +103,11 @@ The following were not performed and are not represented as passed:
 - 400% capture: `qa/rendered/module-18/zoom400/full-page.png`
 - SVG audit: 76 files, 1,244 text elements, zero violations
 - Browser audit: five page runs, zero failures
+- Learning-content evidence commit: `c2a950e`
+- Author Studio platform commits: `391670b`, `3313eff`
+- Author Studio deployment: `https://41006770.owos-3n1.pages.dev`
+- Permanent review lesson: `https://owos.ai/lesson-author-module-18.html`
+- Live production-copy audit: five page runs, zero failures; final release remained blocked
 
 ## 6. Recommendation for Phase 14
 
