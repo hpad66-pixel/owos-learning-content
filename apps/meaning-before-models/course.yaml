@@ -22,8 +22,8 @@ quality_contract:
 provenance:
   repository: hpad66-pixel/owos-learning-content
   ref: main
-  content_baseline_commit: 387ebd8
-  content_baseline_reason: Full eighteen-module production candidate before live-review packaging
+  content_baseline_commit: f2f190bd12d479c17513662fd4795c4952d6116a
+  content_baseline_reason: Complete owner-approved twenty-module production release
 
 structure:
   parts: 5
@@ -120,6 +120,9 @@ delivery:
   runtime_store_key: mbm001
   runtime_canonical: /course-meaning-before-models
   learner_records: supabase
+  semantic_alignment: owos_knowledge_graph
+  edge_delivery: cloudflare_pages_and_worker
+  completion_events_enabled: false
 
 completion_status:
   curriculum_architecture: complete_20_modules
@@ -128,6 +131,3 @@ completion_status:
   module_20: owner_approved_release_candidate
   final_course_release: owner_approved_pending_deployment_verification
   authoritative_ledger: qa/COURSE-COMPLETION-LEDGER.md
-  semantic_alignment: owos_knowledge_graph
-  edge_delivery: cloudflare_pages_and_worker
-  completion_events_enabled: false
