@@ -136,3 +136,17 @@ The immutable candidate is now routed through
 security, accessibility, physical-device, credential, and course-coherence review. No independent
 lane is passed without a named reviewer, date, evidence, findings, disposition, and signature.
 Live-review availability is permitted. Credential and final-release approval remain blocked.
+
+## 7. Phase 14 live-review deployment evidence
+
+- Learning-content commit: `7c9aa28a41679cfc5131be5e412db741c2081741`
+- Platform commit: `4aa18c4`
+- Production deployment: `https://0ce149b2.owos-3n1.pages.dev`
+- Permanent course landing: `https://owos.ai/course-meaning-before-models`
+- Permanent Module 18 route:
+  `https://owos.ai/lesson-meaning-before-models-18-graph-grounded-agentic-applications`
+- Permanent Production Bible: `https://owos.ai/owos-course-production-bible`
+- Verification: all three permanent routes returned HTTP 200; Module 18 returned checksum
+  `3e22f25705f3c3efaab6e6ed53c703b72dfd8fdbdada357724b31dc724bb8e8e`.
+- Release boundary: live-review deployment is complete. Independent human gates, credential
+  authority, and final-release approval remain open.
