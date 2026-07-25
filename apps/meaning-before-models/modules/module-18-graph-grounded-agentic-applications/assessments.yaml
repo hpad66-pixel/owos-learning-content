@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:18",
+  "assessments": [
+    {
+      "assessment_id": "mbm18-opening",
+      "type": "multiple-choice",
+      "cognitive_job": "separate grounding from authority",
+      "prompt": "The evidence path is well grounded, but the operator lacks Priority 1 authority. What may the agent do?",
+      "options": [
+        {"text": "Present or draft the proposal inside its allowed boundary and request the required approval", "correct": true},
+        {"text": "Create the Priority 1 work order because the answer is correct", "correct": false},
+        {"text": "Raise its confidence score until the authority problem disappears", "correct": false}
+      ],
+      "feedback": {
+        "correct": "Correct. Grounding supports the proposal; policy and delegated authority control the action.",
+        "incorrect": "Answer confidence cannot create permission. Separate evidence fitness from action authority and try again."
+      },
+      "completion_id": "opening"
+    },
+    {
+      "assessment_id": "mbm18-state-meaning",
+      "type": "matching",
+      "cognitive_job": "distinguish controlled dispositions",
+      "prompt": "Match each action state to its operating meaning.",
+      "targets": ["ACT", "ASK", "REFRESH", "CLARIFY", "STOP"],
+      "pairs": [
+        {"prompt": "All preconditions and delegated limits pass", "answer": "ACT"},
+        {"prompt": "A named human decision is mandatory", "answer": "ASK"},
+        {"prompt": "Required evidence is outside its freshness window", "answer": "REFRESH"},
+        {"prompt": "Target identity or intent is ambiguous", "answer": "CLARIFY"},
+        {"prompt": "The action is prohibited or cannot be made safe", "answer": "STOP"}
+      ],
+      "feedback": {
+        "correct": "Correct. Each non-action state now has a specific purpose instead of one vague failure bucket.",
+        "incorrect": "Separate missing approval, stale evidence, ambiguity, prohibition, and a fully allowed action."
+      },
+      "completion_id": "state-meaning"
+    },
+    {
+      "assessment_id": "mbm18-envelope-check",
+      "type": "multi-select",
+      "cognitive_job": "assemble an executable action boundary",
+      "prompt": "Which controls belong in the action envelope for draft work-order creation?",
+      "options": [
+        {"text": "Resolved target identity and current evidence receipt", "correct": true},
+        {"text": "Authenticated role and delegated tool scope", "correct": true},
+        {"text": "Exact allowed parameters and prohibited actions", "correct": true},
+        {"text": "Idempotency key, verification rule, and audit destination", "correct": true},
+        {"text": "A general instruction to solve the overflow however necessary", "correct": false},
+        {"text": "The model's confidence score as a replacement for policy", "correct": false}
+      ],
+      "feedback": {
+        "correct": "Correct. The envelope binds evidence, identity, authority, parameters, recovery, verification, and audit.",
+        "incorrect": "Remove vague autonomy and confidence-as-policy. Include every control needed to bound and prove the action."
+      },
+      "completion_id": "envelope-check"
+    },
+    {
+      "assessment_id": "mbm18-audit-rehearsal",
+      "type": "flip-cards",
+      "cognitive_job": "rehearse audit reconstruction",
+      "prompt": "Predict the evidence a future investigator needs before turning each card.",
+      "cards": [
+        {"front": "Why was this proposed?", "back": "Question, target identity, graph path, source evidence, freshness, conflicts, and validation result."},
+        {"front": "Why was it permitted?", "back": "Authenticated actor, role, policy version, delegated scope, parameters, and approval receipt."},
+        {"front": "What actually happened?", "back": "Idempotency key, tool request, response, retries, external-state verification, and timestamps."},
+        {"front": "Who owns correction?", "back": "Policy owner, tool owner, evidence steward, operational approver, incident owner, and correction procedure."}
+      ],
+      "feedback": {
+        "correct": "The audit trail now connects proposal, evidence, authority, execution, verification, and accountable correction."
+      },
+      "completion_id": "audit-rehearsal"
+    },
+    {
+      "assessment_id": "mbm18-agent-action-contract",
+      "type": "applied-work-product",
+      "title": "Agent Action Contract",
+      "cognitive_job": "define and defend a governed external action",
+      "prompt": "Write a testable contract for one graph-grounded wastewater work-order action.",
+      "required_fields": [
+        "bounded_use",
+        "proposed_action",
+        "identity_evidence",
+        "freshness_validation",
+        "policy_role",
+        "tool_parameters",
+        "prohibited_actions",
+        "approval",
+        "state_rules",
+        "idempotency_retry",
+        "verification",
+        "audit_receipt",
+        "owners_tests",
+        "correction"
+      ],
+      "field_labels": {
+        "bounded_use": "Bounded question and intended decision use",
+        "proposed_action": "Exact external action and expected postcondition",
+        "identity_evidence": "Target identity, evidence, provenance, authority, and conflicts",
+        "freshness_validation": "Freshness thresholds and declared validation requirements",
+        "policy_role": "Applicable policy, authenticated role, and delegated authority",
+        "tool_parameters": "Approved tool, schema, parameters, and parameter limits",
+        "prohibited_actions": "Actions and parameter ranges the agent may never use",
+        "approval": "Mandatory human approver, trigger, and approval receipt",
+        "state_rules": "ACT, ASK, REFRESH, CLARIFY, and STOP conditions",
+        "idempotency_retry": "Request identity, retry, duplicate, reconciliation, and timeout rules",
+        "verification": "Authoritative postcondition and verification procedure",
+        "audit_receipt": "Events, timestamps, evidence, policy, approval, tool result, and retention",
+        "owners_tests": "Named owners and allowed, denied, stale, ambiguous, timeout, and failure tests",
+        "correction": "Rollback, containment, notification, and correction procedure"
+      },
+      "textarea_fields": [
+        "bounded_use",
+        "proposed_action",
+        "identity_evidence",
+        "freshness_validation",
+        "policy_role",
+        "tool_parameters",
+        "prohibited_actions",
+        "approval",
+        "state_rules",
+        "idempotency_retry",
+        "verification",
+        "audit_receipt",
+        "owners_tests",
+        "correction"
+      ],
+      "rubric": {
+        "maximum_score": 20,
+        "release_threshold": 16,
+        "dimensions": [
+          {"name": "Evidence fitness", "points": 4, "criterion": "Identity, evidence, provenance, freshness, validation, and conflicts are testable."},
+          {"name": "Authority boundary", "points": 4, "criterion": "The authenticated role, policy, delegation, approval, and prohibited actions are explicit."},
+          {"name": "Execution safety", "points": 4, "criterion": "The tool, parameters, idempotency, timeout, reconciliation, and retry rules are bounded."},
+          {"name": "Verification and audit", "points": 4, "criterion": "The authoritative postcondition, receipt, timestamps, retention, and correction owners are named."},
+          {"name": "Testability and transfer", "points": 4, "criterion": "Allowed, denied, stale, ambiguous, duplicate, failure, and correction cases can be tested without guessing."}
+        ]
+      },
+      "comparison": {
+        "weak": "Create a high-priority work order when the model is confident that LS-7 caused the overflow.",
+        "strong": "After LS-7 identity resolves and inspection evidence is within the utility-approved freshness window, Operator-77 may create one draft inspection work order through the approved CMMS endpoint using a stable request key. Priority 1, dispatch, operating changes, and closure require named human authority. Verify one linked draft in the CMMS and store the evidence, policy, approval, request, response, verification, and correction owners."
+      },
+      "exemplar": "Bounded use: support inspection planning for LS-7, not prove causation. Evidence: resolved asset identity, current inspection, graph path, provenance, conflicts, and SHACL report. Authority: authenticated operator may create a draft only; the maintenance supervisor approves priority and dispatch. Tool: createDraftWorkOrder with LS-7, approved description, evidence receipt, and idempotency key. Stop on stale evidence, ambiguous identity, policy conflict, unavailable reconciliation, or prohibited operating action. Verify exactly one draft in the CMMS. Record the full decision chain and notify the maintenance systems owner if correction is required.",
+      "defense_question": {
+        "prompt": "Which contract is ready to hand to Module 19?",
+        "options": [
+          {"text": "The contract scoring at least 16 of 20 with every evidence, authority, execution, verification, audit, and correction boundary testable", "correct": true},
+          {"text": "Any contract with all fourteen boxes filled", "correct": false},
+          {"text": "A contract that relies on model confidence when policy is incomplete", "correct": false}
+        ]
+      },
+      "module_19_handoff": {
+        "required_artifact": "Agent Action Contract scoring at least 16 of 20",
+        "acceptance_tests": [
+          "Module 19 names the exact bounded pilot action",
+          "Module 19 maps every contract control to an architecture owner and component",
+          "Module 19 includes allowed, denied, stale, ambiguous, timeout, duplicate, failed-verification, and correction tests",
+          "Module 19 cannot authorize graph publication, credentials, operational control, or final release"
+        ]
+      },
+      "feedback": {
+        "correct": "Your Agent Action Contract makes knowledge fitness, authority, execution, recovery, verification, and accountability testable.",
+        "incorrect": "Complete every evidence, authority, tool, stop, recovery, verification, audit, and correction boundary."
+      },
+      "completion_id": "agent-action-contract"
+    }
+  ]
+}

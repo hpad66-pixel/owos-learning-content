@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="46a05006e81c6d217283bbfde8530e553ec3e7bab71f7bf0a1aa59f76f5c9cfd">
+  <meta name="owos-package-checksum" content="92b4f6e56f71c4db50fc6f600709ae2e9ff614075df83dbc2906defb4868abe5">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1185,6 +1185,8 @@ footer {
   }
 }
 
+.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1261,6 +1263,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/case-file.svg" alt="A case file shows telemetry, maintenance note, procedure, and permit claims about Lift Station 7 with different times and authority">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/case-file.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A case file shows telemetry, maintenance note, procedure, and permit claims about Lift Station 7 with different times and authority</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Do not rank evidence by format alone</figcaption>
 </figure>
 
@@ -1319,6 +1323,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/method-matrix.svg" alt="A matrix compares keyword search, vector similarity, extraction, and graph assertion by job, preserved evidence, and boundary">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/method-matrix.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A matrix compares keyword search, vector similarity, extraction, and graph assertion by job, preserved evidence, and boundary</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The methods compose but do not confer approval</figcaption>
 </figure>
 
@@ -1368,6 +1374,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/promotion-rail.svg" alt="A six-stage rail moves from source document through retrieved passage, candidate claim, identity review, reviewed assertion, and approved use">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/promotion-rail.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A six-stage rail moves from source document through retrieved passage, candidate claim, identity review, reviewed assertion, and approved use</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Retrieved and extracted are intermediate states</figcaption>
 </figure>
 <section class="component signature-component decision-lab" id="mbm15-promotion" data-evidence-promotion
@@ -1403,6 +1411,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/conflict-network.svg" alt="A provenance network retains procedure, maintenance, and permit claims while a review node holds one action and approves notification use">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/conflict-network.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A provenance network retains procedure, maintenance, and permit claims while a review node holds one action and approves notification use</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Resolution does not require erasing history</figcaption>
 </figure>
 
@@ -1458,6 +1468,13 @@ footer {
   <header class="component-header"><h3>Structured-Unstructured Evidence Plan</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">Define the complete evidence path for one document family.</p>
+
+    <div class="contract-teaching">
+      <h4>Score the contract before you defend it</h4>
+      <table class="contract-rubric"><thead><tr><th>Dimension</th><th>Full-credit evidence</th><th>Points</th></tr></thead><tbody></tbody></table>
+      <div class="contract-comparison"><article><b>Weak boundary</b><p></p></article><article><b>Strong boundary</b><p></p></article></div>
+      <details><summary>Open the completed wastewater exemplar</summary><p></p></details>
+    </div>
     <form class="work-product" data-work-product="mbm15-evidence-plan"
       data-artifact="mbm15-evidence-plan"
       data-completion="evidence-plan"
@@ -1465,7 +1482,11 @@ footer {
       data-incorrect-feedback="Complete the source, promotion, authority, conflict, retention, and exclusion controls.">
       <div class="field-grid"><label>Bounded questions<textarea name="questions" rows="3" required></textarea></label><label>Source families versions and locators<textarea name="document_sources" rows="3" required></textarea></label><label>Permissions sensitivity and denied content<textarea name="access_controls" rows="3" required></textarea></label><label>Keyword vector hybrid or graph method<textarea name="retrieval" rows="3" required></textarea></label><label>Passage boundary and source preservation<textarea name="chunking" rows="3" required></textarea></label><label>Candidate entities relationships and confidence handling<textarea name="extraction" rows="3" required></textarea></label><label>Entity linking and conflict route<textarea name="identity" rows="3" required></textarea></label><label>Source activity agent model and time<textarea name="provenance" rows="3" required></textarea></label><label>Human and automated checks<textarea name="review" rows="3" required></textarea></label><label>Approval scope effective interval and supersession<textarea name="authority_time" rows="3" required></textarea></label><label>Preserve reconcile hold and escalate<textarea name="conflict_policy" rows="3" required></textarea></label><label>Index candidate and approved-claim lifecycle<textarea name="retention" rows="3" required></textarea></label><label>Tests for each evidence state<textarea name="promotion_tests" rows="3" required></textarea></label></div>
       <label>Content prohibited from runtime context<textarea name="excluded_content" rows="3" required></textarea></label>
+
+      <fieldset class="contract-defense"><legend>Defend the completed contract</legend></fieldset>
+      <section class="handoff-contract"><h4>Module 19 handoff contract</h4><p></p><ul></ul></section>
       <button class="button primary" type="submit">Save Structured-Unstructured Evidence Plan</button>
+      <button class="button secondary" type="button" data-export-artifact>Export contract</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -1998,6 +2019,8 @@ footer {
     ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
     ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
+    ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
+    ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -2020,20 +2043,36 @@ footer {
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const fields = [...form.querySelectorAll("[required]")];
-      const complete = fields.every((field) => field.value.trim());
+      const fields = [...form.querySelectorAll("input[required]:not([type=radio]), textarea[required], select[required]")];
+      const defense = form.querySelector("input[name=contract_defense]:checked");
+      const defenseCorrect = !form.querySelector("input[name=contract_defense]") || defense?.dataset.correct === "true";
+      const complete = fields.every((field) => field.value.trim()) && defenseCorrect;
       const feedback = form.querySelector("[data-feedback]");
       if (!complete) {
-        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.textContent = defense && !defenseCorrect ? "The contract is not defensible merely because its boxes are filled. Use the rubric, strengthen the boundaries, and try again." : form.dataset.incorrectFeedback;
         feedback.className = "feedback bad";
         return;
       }
       const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      record.contract_defense = defense?.value || "not-required";
       form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
       localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
       feedback.textContent = form.dataset.correctFeedback;
       feedback.className = "feedback good";
       mark(form.dataset.completion);
+    });
+    form.querySelector("[data-export-artifact]")?.addEventListener("click", () => {
+      const preview = form.querySelector("[data-artifact-preview]").textContent;
+      if (!preview || preview.includes("local preview")) {
+        form.querySelector("[data-feedback]").textContent = "Save and defend the contract before exporting it.";
+        return;
+      }
+      const blob = new Blob([preview], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${form.dataset.workProduct}.json`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
     });
   });
 

@@ -485,6 +485,8 @@
     ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
     ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
+    ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
+    ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -507,20 +509,36 @@
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const fields = [...form.querySelectorAll("[required]")];
-      const complete = fields.every((field) => field.value.trim());
+      const fields = [...form.querySelectorAll("input[required]:not([type=radio]), textarea[required], select[required]")];
+      const defense = form.querySelector("input[name=contract_defense]:checked");
+      const defenseCorrect = !form.querySelector("input[name=contract_defense]") || defense?.dataset.correct === "true";
+      const complete = fields.every((field) => field.value.trim()) && defenseCorrect;
       const feedback = form.querySelector("[data-feedback]");
       if (!complete) {
-        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.textContent = defense && !defenseCorrect ? "The contract is not defensible merely because its boxes are filled. Use the rubric, strengthen the boundaries, and try again." : form.dataset.incorrectFeedback;
         feedback.className = "feedback bad";
         return;
       }
       const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      record.contract_defense = defense?.value || "not-required";
       form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
       localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
       feedback.textContent = form.dataset.correctFeedback;
       feedback.className = "feedback good";
       mark(form.dataset.completion);
+    });
+    form.querySelector("[data-export-artifact]")?.addEventListener("click", () => {
+      const preview = form.querySelector("[data-artifact-preview]").textContent;
+      if (!preview || preview.includes("local preview")) {
+        form.querySelector("[data-feedback]").textContent = "Save and defend the contract before exporting it.";
+        return;
+      }
+      const blob = new Blob([preview], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${form.dataset.workProduct}.json`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
     });
   });
 

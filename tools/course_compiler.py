@@ -61,6 +61,8 @@ SUPPORTED_INTERACTIONS = {
     "permission-gate",
     "pipeline-rerun",
     "pipeline-stage-diagnosis",
+    "agent-action-control",
+    "idempotency-recovery",
 }
 SUPPORTED_ASSESSMENTS = {
     "multiple-choice",
@@ -512,6 +514,7 @@ def validate_package(module_dir: Path, *, release_ready: bool = False) -> dict[s
 
 def render_visual(visual: dict[str, Any], asset_prefix: str) -> str:
     locator = asset_prefix + str(visual["locator"])
+    text_equivalent = visual.get("text_equivalent") or visual["alternative_text"]
     return f"""
 <figure class="learning-visual" id="{esc(visual['visual_id'])}"
   data-visual-type="{esc(visual['asset_class'])}"
@@ -521,6 +524,8 @@ def render_visual(visual: dict[str, Any], asset_prefix: str) -> str:
   <div class="visual-frame">
     <img src="{esc(locator)}" alt="{esc(visual['alternative_text'])}">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="{esc(locator)}" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>{esc(text_equivalent)}</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> {esc(visual['learner_conclusion'])}</figcaption>
 </figure>"""
 
@@ -958,6 +963,14 @@ def render_pipeline_stage_diagnosis(interaction: dict[str, Any]) -> str:
     return render_decision_lab(interaction, "pipeline-stage-diagnosis", "Repeatability microscope", "data-stage-case", "data-stage-choice")
 
 
+def render_agent_action_control(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "agent-action-control", "Agent action control room", "data-action-case", "data-action-choice")
+
+
+def render_idempotency_recovery(interaction: dict[str, Any]) -> str:
+    return render_decision_lab(interaction, "idempotency-recovery", "Safe retry and receipt simulator", "data-retry-case", "data-retry-choice")
+
+
 def render_object_router(interaction: dict[str, Any]) -> str:
     cards = []
     for index, item in enumerate(interaction["config"]["items"]):
@@ -1046,6 +1059,29 @@ def render_work_product(assessment: dict[str, Any]) -> str:
             fields.append(
                 f'<label>{esc(labels.get(field, field.title()))}<input name="{esc(field)}" required></label>'
             )
+    rubric = assessment.get("rubric", {})
+    rubric_rows = "".join(
+        f"<tr><th>{esc(item['name'])}</th><td>{esc(item['criterion'])}</td><td>{esc(item['points'])}</td></tr>"
+        for item in rubric.get("dimensions", [])
+    )
+    comparison = assessment.get("comparison", {})
+    defense = assessment.get("defense_question", {})
+    defense_options = "".join(
+        f'<label class="defense-option"><input type="radio" name="contract_defense" value="{index}" data-correct="{str(bool(option["correct"])).lower()}" required> {esc(option["text"])}</label>'
+        for index, option in enumerate(defense.get("options", []))
+    )
+    handoff = assessment.get("module_19_handoff", {})
+    handoff_tests = "".join(f"<li>{esc(item)}</li>" for item in handoff.get("acceptance_tests", []))
+    teaching = f"""
+    <div class="contract-teaching">
+      <h4>Score the contract before you defend it</h4>
+      <table class="contract-rubric"><thead><tr><th>Dimension</th><th>Full-credit evidence</th><th>Points</th></tr></thead><tbody>{rubric_rows}</tbody></table>
+      <div class="contract-comparison"><article><b>Weak boundary</b><p>{esc(comparison.get('weak', ''))}</p></article><article><b>Strong boundary</b><p>{esc(comparison.get('strong', ''))}</p></article></div>
+      <details><summary>Open the completed wastewater exemplar</summary><p>{esc(assessment.get('exemplar', ''))}</p></details>
+    </div>"""
+    defense_html = f"""
+      <fieldset class="contract-defense"><legend>{esc(defense.get('prompt', 'Defend the completed contract'))}</legend>{defense_options}</fieldset>
+      <section class="handoff-contract"><h4>Module 19 handoff contract</h4><p>{esc(handoff.get('required_artifact', ''))}</p><ul>{handoff_tests}</ul></section>"""
     return f"""
 <section class="component" id="{esc(assessment['assessment_id'])}"
   data-purposeful-interaction="applied-work-product"
@@ -1053,6 +1089,7 @@ def render_work_product(assessment: dict[str, Any]) -> str:
   <header class="component-header"><h3>{esc(assessment.get('title', 'Professional Work Product'))}</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">{esc(assessment['prompt'])}</p>
+{teaching}
     <form class="work-product" data-work-product="{esc(assessment['assessment_id'])}"
       data-artifact="{esc(assessment['assessment_id'])}"
       data-completion="{esc(assessment['completion_id'])}"
@@ -1060,7 +1097,9 @@ def render_work_product(assessment: dict[str, Any]) -> str:
       data-incorrect-feedback="{esc(assessment['feedback']['incorrect'])}">
       <div class="field-grid">{''.join(fields[:-1])}</div>
       {fields[-1]}
+{defense_html}
       <button class="button primary" type="submit">Save {esc(assessment.get('title', 'Work Product'))}</button>
+      <button class="button secondary" type="button" data-export-artifact>Export contract</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -1156,6 +1195,10 @@ def render_block(
             return render_pipeline_rerun(interaction)
         if interaction["component"] == "pipeline-stage-diagnosis":
             return render_pipeline_stage_diagnosis(interaction)
+        if interaction["component"] == "agent-action-control":
+            return render_agent_action_control(interaction)
+        if interaction["component"] == "idempotency-recovery":
+            return render_idempotency_recovery(interaction)
         if interaction["component"] == "object-router":
             return render_object_router(interaction)
         return render_triple_repair_bench(interaction)

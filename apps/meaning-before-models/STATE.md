@@ -346,6 +346,33 @@ Produce Module 19, Design the One Water Knowledge Spine, then execute course ass
 alignment, dossier update, Git publication, platform intake, deployment, and live verification under
 the standing production and publication authorization.
 
+## Module 18 release-review revision
+
+- Preserved the approved lesson contract, prerequisite order, completion identifiers, evidence
+  boundary, and authorization-control-room archetype.
+- Added a six-triple LS-7 worked trace and a fifth original graph-to-action architecture visual.
+- Added visible graph, validation, policy, approval, execution, verification, and audit gates.
+- Labeled dates, priorities, roles, freshness limits, and approvals as illustrative utility policy
+  assumptions.
+- Added NIST SP 800-82 Revision 3, NIST SP 800-207, and the NIST AI Risk Management Framework.
+- Upgraded the Agent Action Contract with a twenty-point rubric, sixteen-point handoff threshold,
+  completed exemplar, weak-versus-strong comparison, final defense, export, and Module 19
+  acceptance tests.
+- Added full-size visual inspection and structured text equivalents for every graphic.
+- Structured checksum: `466bd24a0d94b09360dd7ccaa55425d78fbfde7dc288a4afa2195432dc3741e4`.
+- Browser QA passed desktop, tablet, and phone with zero runtime errors, zero page overflow, five
+  distinct visuals, complete interactions, and 0.01 millisecond reduced motion on phone.
+- SVG containment passed 76 files and 1,244 text elements with zero violations.
+- Lesson contracts, course distinctiveness, and portfolio structured-authoring audit passed after
+  mechanically recompiling the shared-runtime outputs.
+- The legacy `course_conformance.py` command failed against the structured compiler output by
+  reporting browser-proven Graph, Community, quizzes, interactions, completion controls, and
+  provenance as missing. This remains an explicit conformance-tool compatibility defect and is not
+  recorded as a pass.
+- Evidence-backed working score: 96 out of 100. Human practitioner, independent source,
+  screen-reader, physical-device, Module 19 coherence, credential, and final-release gates remain
+  blocked or pending.
+
 ## Author Studio access correction
 
 - The earlier localhost direction was rejected and superseded.

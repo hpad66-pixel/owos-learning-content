@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="cf903b7c36c603e543669e51e32e0731d4a6b80ddfc5e7cd5543add94d1c452b">
+  <meta name="owos-package-checksum" content="deb1b3c711d114796ad9d8b84b355dcef42ea3f4ce1247719b2d3d51dff3cc69">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1185,6 +1185,8 @@ footer {
   }
 }
 
+.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1261,6 +1263,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/evidence-envelope.svg" alt="A central Outfall O-7 has status Active triple is surrounded by source provenance authority time version review and access fields">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/evidence-envelope.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A central Outfall O-7 has status Active triple is surrounded by source provenance authority time version review and access fields</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> The triple remains central but cannot carry authority and time alone</figcaption>
 </figure>
 
@@ -1296,6 +1300,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/provenance-chain.svg" alt="A sensor observation entity passes through ingestion and unit normalization activities with gateway and steward agents before becoming a published RDF claim">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/provenance-chain.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A sensor observation entity passes through ingestion and unit normalization activities with gateway and steward agents before becoming a published RDF claim</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> A reviewer can inspect how evidence changed</figcaption>
 </figure>
 
@@ -1354,6 +1360,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/dual-timeline.svg" alt="Two aligned timelines show a permit effective in January, uploaded in April, corrected in May, and a decision in March governed by the January effective interval">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/dual-timeline.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Two aligned timelines show a permit effective in January, uploaded in April, corrected in May, and a decision in March governed by the January effective interval</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Select the clock relevant to the decision</figcaption>
 </figure>
 
@@ -1401,6 +1409,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/supersession-ledger.svg" alt="A layered procedure ledger shows version 1.2 superseded and retained for audit beneath current approved version 2.0 with effective intervals">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/supersession-ledger.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A layered procedure ledger shows version 1.2 superseded and retained for audit beneath current approved version 2.0 with effective intervals</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Current and historical claims can coexist safely</figcaption>
 </figure>
 
@@ -1456,6 +1466,13 @@ footer {
   <header class="component-header"><h3>Authority, Provenance, and Time Ledger</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">Document a contested claim and its complete decision envelope.</p>
+
+    <div class="contract-teaching">
+      <h4>Score the contract before you defend it</h4>
+      <table class="contract-rubric"><thead><tr><th>Dimension</th><th>Full-credit evidence</th><th>Points</th></tr></thead><tbody></tbody></table>
+      <div class="contract-comparison"><article><b>Weak boundary</b><p></p></article><article><b>Strong boundary</b><p></p></article></div>
+      <details><summary>Open the completed wastewater exemplar</summary><p></p></details>
+    </div>
     <form class="work-product" data-work-product="mbm11-authority-ledger"
       data-artifact="mbm11-authority-ledger"
       data-completion="authority-ledger"
@@ -1463,7 +1480,11 @@ footer {
       data-incorrect-feedback="Complete every evidence-envelope field before permitting decision use.">
       <div class="field-grid"><label>Claim<textarea name="claim" rows="3" required></textarea></label><label>Source and locator<textarea name="source" rows="3" required></textarea></label><label>How it was produced or transformed<textarea name="production_activity" rows="3" required></textarea></label><label>Person system or organization<textarea name="responsible_agent" rows="3" required></textarea></label><label>Observation time<textarea name="observation_time" rows="3" required></textarea></label><label>Record time<textarea name="record_time" rows="3" required></textarea></label><label>Effective interval<textarea name="effective_interval" rows="3" required></textarea></label><label>Version<textarea name="version" rows="3" required></textarea></label><label>Authority scope<textarea name="authority_scope" rows="3" required></textarea></label><label>Review state<textarea name="review_state" rows="3" required></textarea></label><label>Supersession relationship<textarea name="supersession" rows="3" required></textarea></label><label>Permissions and sensitivity<textarea name="access_boundary" rows="3" required></textarea></label></div>
       <label>Governing supporting superseded or hold for this use<textarea name="decision_use" rows="3" required></textarea></label>
+
+      <fieldset class="contract-defense"><legend>Defend the completed contract</legend></fieldset>
+      <section class="handoff-contract"><h4>Module 19 handoff contract</h4><p></p><ul></ul></section>
       <button class="button primary" type="submit">Save Authority, Provenance, and Time Ledger</button>
+      <button class="button secondary" type="button" data-export-artifact>Export contract</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -1995,6 +2016,8 @@ footer {
     ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
     ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
+    ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
+    ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -2017,20 +2040,36 @@ footer {
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const fields = [...form.querySelectorAll("[required]")];
-      const complete = fields.every((field) => field.value.trim());
+      const fields = [...form.querySelectorAll("input[required]:not([type=radio]), textarea[required], select[required]")];
+      const defense = form.querySelector("input[name=contract_defense]:checked");
+      const defenseCorrect = !form.querySelector("input[name=contract_defense]") || defense?.dataset.correct === "true";
+      const complete = fields.every((field) => field.value.trim()) && defenseCorrect;
       const feedback = form.querySelector("[data-feedback]");
       if (!complete) {
-        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.textContent = defense && !defenseCorrect ? "The contract is not defensible merely because its boxes are filled. Use the rubric, strengthen the boundaries, and try again." : form.dataset.incorrectFeedback;
         feedback.className = "feedback bad";
         return;
       }
       const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      record.contract_defense = defense?.value || "not-required";
       form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
       localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
       feedback.textContent = form.dataset.correctFeedback;
       feedback.className = "feedback good";
       mark(form.dataset.completion);
+    });
+    form.querySelector("[data-export-artifact]")?.addEventListener("click", () => {
+      const preview = form.querySelector("[data-artifact-preview]").textContent;
+      if (!preview || preview.includes("local preview")) {
+        form.querySelector("[data-feedback]").textContent = "Save and defend the contract before exporting it.";
+        return;
+      }
+      const blob = new Blob([preview], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${form.dataset.workProduct}.json`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
     });
   });
 

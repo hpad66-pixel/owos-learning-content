@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Proposal-to-Record State Machine</title>
+  <desc id="desc">A proposal moves through validation, authorization, approval, execution, verification, and recording, with branches to refresh, clarify, ask, stop, and reconcile.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#516178"/></marker></defs>
+  <rect width="1200" height="760" rx="34" fill="#f7f8fb"/>
+  <text x="62" y="70" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#14213d">Proposal-to-Record State Machine</text>
+  <text x="62" y="106" font-family="Arial,sans-serif" font-size="18" fill="#516178">The safe path includes successful non-action branches.</text>
+  <g font-family="Arial,sans-serif">
+    <g fill="#e9f1fb" stroke="#275d8c" stroke-width="3">
+      <rect x="58" y="174" width="148" height="94" rx="22"/><rect x="248" y="174" width="148" height="94" rx="22"/>
+      <rect x="438" y="174" width="148" height="94" rx="22"/><rect x="628" y="174" width="148" height="94" rx="22"/>
+      <rect x="818" y="174" width="148" height="94" rx="22"/><rect x="1008" y="174" width="134" height="94" rx="22"/>
+    </g>
+    <g text-anchor="middle" fill="#153954" font-size="18" font-weight="700">
+      <text x="132" y="211">PROPOSE</text><text x="132" y="237" font-size="14" font-weight="400">No side effect</text>
+      <text x="322" y="211">VALIDATE</text><text x="322" y="237" font-size="14" font-weight="400">Evidence fit</text>
+      <text x="512" y="211">AUTHORIZE</text><text x="512" y="237" font-size="14" font-weight="400">Policy + role</text>
+      <text x="702" y="211">APPROVE</text><text x="702" y="237" font-size="14" font-weight="400">Human threshold</text>
+      <text x="892" y="211">EXECUTE</text><text x="892" y="237" font-size="14" font-weight="400">Bounded tool</text>
+      <text x="1075" y="211">VERIFY</text><text x="1075" y="237" font-size="14" font-weight="400">External state</text>
+    </g>
+    <g stroke="#516178" stroke-width="4" marker-end="url(#arrow)">
+      <path d="M206 221h38"/><path d="M396 221h38"/><path d="M586 221h38"/><path d="M776 221h38"/><path d="M966 221h38"/>
+    </g>
+    <rect x="1008" y="330" width="134" height="82" rx="20" fill="#e8f4f1" stroke="#147d6f" stroke-width="3"/>
+    <text x="1075" y="365" text-anchor="middle" font-size="18" font-weight="700" fill="#123f39">RECORD</text>
+    <text x="1075" y="389" text-anchor="middle" font-size="14" fill="#285d57">Receipt + owner</text>
+    <path d="M1075 268v58" stroke="#147d6f" stroke-width="4" marker-end="url(#arrow)"/>
+    <g fill="#fff4d6" stroke="#b77900" stroke-width="3">
+      <rect x="248" y="436" width="148" height="82" rx="20"/><rect x="438" y="436" width="148" height="82" rx="20"/>
+      <rect x="628" y="436" width="148" height="82" rx="20"/><rect x="818" y="436" width="148" height="82" rx="20"/>
+    </g>
+    <g text-anchor="middle" fill="#704500" font-size="18" font-weight="700">
+      <text x="322" y="472">REFRESH</text><text x="322" y="496" font-size="14" font-weight="400">Stale evidence</text>
+      <text x="512" y="472">CLARIFY</text><text x="512" y="496" font-size="14" font-weight="400">Identity or intent</text>
+      <text x="702" y="472">ASK</text><text x="702" y="496" font-size="14" font-weight="400">Human decision</text>
+      <text x="892" y="472">RECONCILE</text><text x="892" y="496" font-size="14" font-weight="400">Unknown result</text>
+    </g>
+    <g stroke="#b77900" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M322 268v164"/><path d="M512 268v164"/><path d="M702 268v164"/><path d="M892 268v164"/>
+    </g>
+    <rect x="438" y="602" width="338" height="92" rx="24" fill="#fce9e8" stroke="#a7352f" stroke-width="3"/>
+    <text x="607" y="638" text-anchor="middle" font-size="21" font-weight="700" fill="#7f2622">STOP</text>
+    <text x="607" y="665" text-anchor="middle" font-size="15" fill="#7f2622">Prohibited, unsafe, unresolved, or unverifiable</text>
+    <g stroke="#a7352f" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M512 518v80"/><path d="M702 518v80"/>
+    </g>
+    <text x="62" y="715" font-size="16" fill="#516178">A proposal may loop for better evidence or approval. It must never skip directly from confidence to execution.</text>
+  </g>
+</svg>

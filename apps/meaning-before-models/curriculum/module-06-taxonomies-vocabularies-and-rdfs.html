@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="168642d74208fd98f55d82f8358300b8a02716addd28a94b6b6f1341e341d714">
+  <meta name="owos-package-checksum" content="b0f918689d869628a1ca498c3436df7626f661331c9c1d97b4d5444e907bfd8b">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1185,6 +1185,8 @@ footer {
   }
 }
 
+.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1217,7 +1219,7 @@ footer {
   <a class="skip-link" href="#lesson-start">Skip to lesson</a>
   <header class="topbar">
     <div class="shell topbar-inner">
-      <a class="brand" href="course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
+      <a class="brand" href="../../curriculum/course-meaning-before-models.html">OW <span>One Water OS Academy</span></a>
       <nav class="top-actions" aria-label="Lesson tools">
         <button class="button" type="button" data-open-drawer="graph">Graph</button>
         <button class="button" type="button" data-open-drawer="glossary">Glossary</button>
@@ -1259,8 +1261,10 @@ footer {
   <h3>Four meaning jobs share terms but not responsibilities</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read each drafting column from its governing question to its output</div>
   <div class="visual-frame">
-    <img src="../modules/module-06-taxonomies-vocabularies-and-rdfs/visuals/four-jobs.svg" alt="Four columns compare vocabulary taxonomy RDF Schema and SHACL by their different jobs">
+    <img src="../visuals/four-jobs.svg" alt="Four columns compare vocabulary taxonomy RDF Schema and SHACL by their different jobs">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/four-jobs.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Four columns compare vocabulary taxonomy RDF Schema and SHACL by their different jobs</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Do not use one term for four controls</figcaption>
 </figure>
 
@@ -1294,8 +1298,10 @@ footer {
   <h3>Classes instances and properties occupy different drawers</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Compare the three cabinet drawers and the example inside each</div>
   <div class="visual-frame">
-    <img src="../modules/module-06-taxonomies-vocabularies-and-rdfs/visuals/class-instance.svg" alt="A specimen cabinet separates Pump class Pump P-104 instance and serves property">
+    <img src="../visuals/class-instance.svg" alt="A specimen cabinet separates Pump class Pump P-104 instance and serves property">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/class-instance.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A specimen cabinet separates Pump class Pump P-104 instance and serves property</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> P-104 is an instance of Pump rather than a subclass</figcaption>
 </figure>
 
@@ -1352,8 +1358,10 @@ footer {
   <h3>Utility classes branch while P-104 belongs</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Follow class branches downward then inspect the circular P-104 instance beneath Pump</div>
   <div class="visual-frame">
-    <img src="../modules/module-06-taxonomies-vocabularies-and-rdfs/visuals/taxonomy-tree.svg" alt="Utility Asset branches into water wastewater and stormwater classes while Pump P-104 appears as an instance">
+    <img src="../visuals/taxonomy-tree.svg" alt="Utility Asset branches into water wastewater and stormwater classes while Pump P-104 appears as an instance">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/taxonomy-tree.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Utility Asset branches into water wastewater and stormwater classes while Pump P-104 appears as an instance</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Hierarchy and membership are not the same relationship</figcaption>
 </figure>
 
@@ -1401,8 +1409,10 @@ footer {
   <h3>One broad domain declaration can classify an unexpected record</h3>
   <div class="reading-guide" data-reading-guide><strong>How to read it:</strong> Read declaration data statement and inferred class from left to right then inspect what did not happen</div>
   <div class="visual-frame">
-    <img src="../modules/module-06-taxonomies-vocabularies-and-rdfs/visuals/consequence-map.svg" alt="A domain declaration and data statement lead to an unexpected WorkOrder class inference">
+    <img src="../visuals/consequence-map.svg" alt="A domain declaration and data statement lead to an unexpected WorkOrder class inference">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/consequence-map.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A domain declaration and data statement lead to an unexpected WorkOrder class inference</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Predict the inference before releasing the schema</figcaption>
 </figure>
 <section class="component signature-component" id="mbm06-hierarchy-repair" data-hierarchy-repair
@@ -1449,6 +1459,13 @@ footer {
   <header class="component-header"><h3>Governed Vocabulary and Taxonomy Sheet</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">Record the term definition hierarchy examples exclusions properties consequence owner release and validation boundary.</p>
+
+    <div class="contract-teaching">
+      <h4>Score the contract before you defend it</h4>
+      <table class="contract-rubric"><thead><tr><th>Dimension</th><th>Full-credit evidence</th><th>Points</th></tr></thead><tbody></tbody></table>
+      <div class="contract-comparison"><article><b>Weak boundary</b><p></p></article><article><b>Strong boundary</b><p></p></article></div>
+      <details><summary>Open the completed wastewater exemplar</summary><p></p></details>
+    </div>
     <form class="work-product" data-work-product="mbm06-vocabulary-sheet"
       data-artifact="mbm06-vocabulary-sheet"
       data-completion="vocabulary-sheet"
@@ -1456,7 +1473,11 @@ footer {
       data-incorrect-feedback="Complete every field with reviewable language and a clear validation boundary.">
       <div class="field-grid"><label>Preferred term and definition<textarea name="term_definition" rows="3" required></textarea></label><label>Broader and narrower classes<textarea name="hierarchy" rows="3" required></textarea></label><label>Examples and exclusions<textarea name="examples_exclusions" rows="3" required></textarea></label><label>Relevant properties<textarea name="properties" rows="3" required></textarea></label><label>Intended RDFS consequence<textarea name="semantic_consequence" rows="3" required></textarea></label><label>Accountable owner<textarea name="owner" rows="3" required></textarea></label><label>Version effective date and state<textarea name="release_state" rows="3" required></textarea></label></div>
       <label>What RDFS does not validate<textarea name="validation_boundary" rows="3" required></textarea></label>
+
+      <fieldset class="contract-defense"><legend>Defend the completed contract</legend></fieldset>
+      <section class="handoff-contract"><h4>Module 19 handoff contract</h4><p></p><ul></ul></section>
       <button class="button primary" type="submit">Save Governed Vocabulary and Taxonomy Sheet</button>
+      <button class="button secondary" type="button" data-export-artifact>Export contract</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -1988,6 +2009,8 @@ footer {
     ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
     ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
+    ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
+    ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -2010,20 +2033,36 @@ footer {
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const fields = [...form.querySelectorAll("[required]")];
-      const complete = fields.every((field) => field.value.trim());
+      const fields = [...form.querySelectorAll("input[required]:not([type=radio]), textarea[required], select[required]")];
+      const defense = form.querySelector("input[name=contract_defense]:checked");
+      const defenseCorrect = !form.querySelector("input[name=contract_defense]") || defense?.dataset.correct === "true";
+      const complete = fields.every((field) => field.value.trim()) && defenseCorrect;
       const feedback = form.querySelector("[data-feedback]");
       if (!complete) {
-        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.textContent = defense && !defenseCorrect ? "The contract is not defensible merely because its boxes are filled. Use the rubric, strengthen the boundaries, and try again." : form.dataset.incorrectFeedback;
         feedback.className = "feedback bad";
         return;
       }
       const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      record.contract_defense = defense?.value || "not-required";
       form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
       localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
       feedback.textContent = form.dataset.correctFeedback;
       feedback.className = "feedback good";
       mark(form.dataset.completion);
+    });
+    form.querySelector("[data-export-artifact]")?.addEventListener("click", () => {
+      const preview = form.querySelector("[data-artifact-preview]").textContent;
+      if (!preview || preview.includes("local preview")) {
+        form.querySelector("[data-feedback]").textContent = "Save and defend the contract before exporting it.";
+        return;
+      }
+      const blob = new Blob([preview], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${form.dataset.workProduct}.json`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
     });
   });
 

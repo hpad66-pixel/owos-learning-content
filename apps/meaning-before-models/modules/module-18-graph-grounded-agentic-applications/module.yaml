@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "module": {
+    "course_id": "owos-course-semantic-data-ai-001",
+    "module_id": "mbm001:18",
+    "slug": "module-18-graph-grounded-agentic-applications",
+    "title": "Graph-Grounded Agentic Applications",
+    "eyebrow": "Meaning Before Models, Module 18",
+    "promise": "Carry a grounded proposal through evidence fitness, authorization, approval, safe execution, verification, and an auditable stop or action.",
+    "duration": "85 to 100 minutes",
+    "level": "Foundation with Practitioner and Leader depth",
+    "archetype": "agent-authorization-control-room",
+    "signature_mechanism": "resolve-action-state-and-recover-uncertain-tool-results",
+    "source_version": "0.1.0-structured-candidate"
+  },
+  "learning": {
+    "audience": [
+      "Utility leaders and nontechnical professionals",
+      "Operations maintenance cybersecurity data governance and AI practitioners"
+    ],
+    "outcomes": [
+      "Separate answer confidence from permission to act",
+      "Choose act ask refresh clarify or stop for a bounded proposal",
+      "Explain tool contracts idempotency retries verification and external state",
+      "Trace evidence policy human approval tool result and audit receipt",
+      "Write and defend an Agent Action Contract"
+    ],
+    "prior_knowledge": "The learner understands Shapes Constraint Language validation, provenance and time, runtime context contracts, and answer-pipeline comparison.",
+    "misconception": "A correct or well-grounded answer grants permission to act.",
+    "transfer_task": "Govern an agent proposal to create a wastewater work order when evidence is stale and authority is limited."
+  },
+  "sections": [
+    {
+      "section_id": "interruption",
+      "title": "The answer is right. The action is still blocked.",
+      "kind": "Control-room opening",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "At 2:14 a.m., a graph-grounded assistant identifies Lift Station LS-7 as a likely upstream contributor to Overflow 21. The path is explicit, the identifiers resolve, and the cited maintenance history supports inspection. The assistant proposes creating a Priority 1 corrective work order.",
+            "Now the control room interrupts. The latest inspection is outside the approved freshness window. The signed-in operator may draft work but may not set Priority 1. A maintenance supervisor must approve that priority because it commits staff and may displace other emergency work. The answer may be useful and still be unauthorized.",
+            "This module is about that boundary. Knowledge supports a proposal. Policy and authority control whether software may change external state."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm18-two-key-console"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm18-opening"
+        }
+      ]
+    },
+    {
+      "section_id": "two-keys",
+      "title": "A safe action needs two independent keys",
+      "kind": "Foundation distinction",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "The first key asks whether the proposal is fit to consider. Did the agent resolve the right lift station? Are the relationships and source records traceable? Is required evidence present, current, within authority, and free of unresolved conflicts? Did declared validation checks pass?",
+            "The second key asks whether this actor may perform this action now. Who is authenticated? Which policy applies? What authority has been delegated to that role? Is the requested tool and parameter range allowed? Is human approval mandatory? What must make the system ask, refresh, clarify, or stop?",
+            "Do not collapse these keys into one confidence score. A high-confidence answer can be outside authority. An authorized operator can still lack adequate evidence. Both failures must remain visible."
+          ]
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm18-state-meaning"
+        },
+        {
+          "type": "callout",
+          "title": "Plain-language rule",
+          "text": "Do not ask only, 'Is the answer correct?' Ask, 'Is the evidence fit, is the action permitted, and can the outcome be verified and recorded?'"
+        }
+      ]
+    },
+    {
+      "section_id": "worked-trace",
+      "title": "Follow six triples all the way to a controlled result",
+      "kind": "Graph-to-action worked example",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Now make the grounding visible. The graph asserts that LS-7 contributes to Overflow-21, Inspection-443 inspected LS-7, and the inspection was recorded on June 1. A policy statement sets a twenty-four-hour freshness limit. Two authority statements say Operator-77 may create a draft work order but may not assign Priority 1.",
+            "Those statements do not collapse into one answer. Graph retrieval resolves the asset and evidence. Declared validation detects that the inspection is stale. The authorization service permits only a draft. Policy requires the named supervisor to approve Priority 1. After current evidence and approval exist, the tool receives one bounded request. The system then reads the Computerized Maintenance Management System to verify the resulting record and binds that result to an audit receipt.",
+            "The dates, priority names, roles, and approval thresholds in this example are illustrative utility policy assumptions, not universal industry rules. Every utility must replace them with its own approved classifications, delegation rules, emergency procedures, regulatory duties, and operational-technology boundaries."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm18-graph-to-action-trace"
+        },
+        {
+          "type": "callout",
+          "title": "The testable conclusion",
+          "text": "If another team cannot identify which graph statement, validation result, policy decision, approval receipt, tool request, verification record, and owner produced the outcome, the application is not yet governed."
+        }
+      ]
+    },
+    {
+      "section_id": "states",
+      "title": "The proposal moves through states, not one leap",
+      "kind": "Governed action lifecycle",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A proposal begins as a recommendation, not an action. Validation checks its required evidence and data contract. Authorization compares the authenticated role, policy, action, asset, time, and parameter limits. Approval records a human decision when policy requires one.",
+            "Only then may the tool execute. Verification reads the resulting external state instead of trusting a success message alone. Recording binds the proposal, evidence receipt, policy decision, approval, tool request, tool response, verification, time, and accountable owners.",
+            "ASK, REFRESH, CLARIFY, and STOP are not system failures. They are controlled outcomes that prevent uncertainty or missing authority from silently becoming action."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm18-state-machine"
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm18-action-control"
+        }
+      ]
+    },
+    {
+      "section_id": "envelope",
+      "title": "The action travels inside a contract",
+      "kind": "Executable boundary",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "A tool call should never be an unbounded sentence such as 'fix the overflow.' The action envelope names the exact tool, allowable parameters, target identity, preconditions, authenticated actor, policy decision, approval receipt, time window, and expected postcondition.",
+            "The envelope also names what the agent may not do. For this case, the system may draft a work order after evidence refresh. It may not assign Priority 1, dispatch a crew, change a setpoint, open a valve, or represent that the overflow cause is proven.",
+            "Resource Description Framework graph statements can connect the proposal to the asset, event, evidence, policy reference, approver, and receipt. The authorization service and operational tool still enforce permission and execution."
+          ]
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm18-action-envelope"
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm18-envelope-check"
+        }
+      ]
+    },
+    {
+      "section_id": "retry",
+      "title": "A timeout is not permission to repeat a side effect",
+      "kind": "Practitioner recovery",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Suppose the work-order tool times out after the request leaves the agent. The agent does not know whether the external system created the order. Repeating the same call may create a duplicate Priority 1 task.",
+            "An idempotency key gives one intended action a stable request identity. Before retrying, the agent or orchestration layer checks the tool receipt or reconciles external state using that key. If the result remains unknown, it stops and escalates. A retry policy must distinguish safe read operations, safe repeatable writes, duplicate-protected writes, and writes that require human reconciliation.",
+            "Verification is separate from execution. A success response says the tool accepted something. Verification confirms the intended postcondition, such as one draft work order linked to LS-7 with the approved priority and evidence receipt."
+          ]
+        },
+        {
+          "type": "interaction",
+          "interaction_id": "mbm18-retry-simulator"
+        },
+        {
+          "type": "visual",
+          "visual_id": "mbm18-audit-recorder"
+        }
+      ]
+    },
+    {
+      "section_id": "audit",
+      "title": "The audit trail must answer a future investigator",
+      "kind": "Accountability rehearsal",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Months later, an investigator should not have to infer why the action occurred from a chat transcript. The record should answer what was proposed, which evidence was used, what was stale or disputed, which policy version applied, who or what was authenticated, who approved, which tool call ran, whether it was retried, what external state resulted, and who owns correction.",
+            "Provenance describes where information and activities came from. It does not make the source authoritative for every purpose, and it does not assign legal or operational accountability automatically. Those boundaries belong in policy, role design, contracts, and review."
+          ]
+        },
+        {
+          "type": "assessment",
+          "assessment_id": "mbm18-audit-rehearsal"
+        }
+      ]
+    },
+    {
+      "section_id": "contract",
+      "title": "Write the boundary before the agent receives the tool",
+      "kind": "Professional application",
+      "blocks": [
+        {
+          "type": "prose",
+          "paragraphs": [
+            "Write the Agent Action Contract for the wastewater work-order scenario. Begin with the smallest useful action. A strong first boundary may permit a draft work order after current evidence is retrieved while reserving priority, dispatch, operating changes, and closure for named humans.",
+            "Use test cases before deployment: allowed, denied, stale, ambiguous identity, conflicting evidence, approval required, tool unavailable, timeout with unknown result, duplicate request, failed verification, and correction after a wrong action. Another team should be able to test the contract without guessing what you meant.",
+            "Your contract contributes the action-control layer to the final One Water Knowledge Spine capstone. Module 19 will ask whether the complete pilot is worth building. This module asks whether one proposed action is controlled well enough to permit."
+          ]
+        },
+        {
+          "type": "work_product",
+          "work_product_id": "mbm18-agent-action-contract"
+        },
+        {
+          "type": "faq",
+          "items": [
+            {
+              "question": "If the graph answer is correct, why not let the agent act?",
+              "answer": "Correctness addresses the knowledge question. Action also requires authenticated authority, policy eligibility, acceptable risk, tool scope, approval when required, safe execution, verification, and accountability."
+            },
+            {
+              "question": "Does RDF provide authorization?",
+              "answer": "No. RDF can represent relationships among actors, roles, policies, assets, evidence, and actions. An authorization service and operational controls must enforce permission."
+            },
+            {
+              "question": "Does every agent action require a human?",
+              "answer": "Not necessarily. Leaders can delegate low-risk, reversible, well-tested actions within explicit limits. Higher-impact, irreversible, ambiguous, stale, or exceptional cases can require human approval."
+            },
+            {
+              "question": "What should happen when evidence is stale?",
+              "answer": "The contract should name the freshness threshold and response. The system may refresh, ask for current evidence, downgrade to a draft, or stop. It should not silently treat stale evidence as current."
+            },
+            {
+              "question": "What is idempotency in plain English?",
+              "answer": "It means the same intended request can be recognized as the same request, so a retry does not accidentally create a second work order or repeat another side effect."
+            },
+            {
+              "question": "What if the tool times out after acting?",
+              "answer": "Treat the outcome as unknown. Check a receipt or reconcile external state using the idempotency key. If the result cannot be proven, stop and escalate instead of repeating blindly."
+            },
+            {
+              "question": "Is a tool success response enough?",
+              "answer": "No. Verify the intended postcondition in the authoritative system and record the verification result."
+            },
+            {
+              "question": "Who is accountable when an agent acts?",
+              "answer": "The organization must name owners for policy, delegated authority, tool integration, evidence, monitoring, incident response, and correction. The model itself is not an accountable utility officer."
+            }
+          ]
+        },
+        {
+          "type": "evidence",
+          "statement": "RDF, SHACL, and provenance can support grounding, declared validation, and traceability. They do not by themselves provide authentication, authorization, orchestration, cybersecurity, safe tool execution, or human accountability.",
+          "source_refs": [
+            "w3c-rdf",
+            "w3c-shacl",
+            "w3c-prov",
+            "owasp-agentic",
+            "nist-ot-security",
+            "nist-zero-trust",
+            "nist-ai-rmf"
+          ]
+        }
+      ]
+    }
+  ],
+  "completion": {
+    "required_ids": [
+      "opening",
+      "state-meaning",
+      "action-control",
+      "envelope-check",
+      "retry-simulator",
+      "audit-rehearsal",
+      "agent-action-contract"
+    ],
+    "rule": "Complete the opening boundary check, state matching, action control room, action-envelope check, retry simulator, audit rehearsal, and Agent Action Contract."
+  }
+}

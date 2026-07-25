@@ -10,7 +10,7 @@
   <meta name="owos-release-state" content="structured working candidate">
   <meta name="owos-source-version" content="0.2.0-structured-candidate">
   <meta name="owos-compiler-version" content="1.1.0">
-  <meta name="owos-package-checksum" content="5fe14b067aa6115778ccb0f6dd4efd19f6133d9294ed94cb81681d0a5f37e728">
+  <meta name="owos-package-checksum" content="99a41652db828a741eb2d91aa8a76d715e7dbdf90789ab8406aabe656540d957">
   <style>:root {
   color-scheme: light;
   --ink: #17324d;
@@ -1185,6 +1185,8 @@ footer {
   }
 }
 
+.visual-actions{margin:.75rem 0}.visual-text-equivalent{margin:.75rem 0;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff}.visual-text-equivalent summary{cursor:pointer;font-weight:800}.contract-teaching{margin:1rem 0 1.4rem}.contract-rubric{width:100%;border-collapse:collapse;font-size:.92rem}.contract-rubric th,.contract-rubric td{padding:.7rem;border:1px solid var(--line);text-align:left;vertical-align:top}.contract-comparison{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}.contract-comparison article{padding:1rem;border:1px solid var(--line);border-radius:14px;background:#fff}.contract-comparison article:first-child{border-left:5px solid var(--bad)}.contract-comparison article:last-child{border-left:5px solid var(--good)}.contract-defense{margin:1rem 0;padding:1rem;border:1px solid var(--line);border-radius:14px}.defense-option{display:block;margin:.65rem 0}.handoff-contract{margin:1rem 0;padding:1rem;border-radius:14px;background:var(--teal-soft)}@media(max-width:700px){.contract-comparison{grid-template-columns:1fr}.contract-rubric{font-size:.8rem}.visual-frame{overflow:auto}.visual-frame img{min-width:760px}.visual-actions{display:block}}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1261,6 +1263,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/dashboard-dead-end.svg" alt="Dashboard tiles stop before a graph path connecting event pump zone account and work order">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/dashboard-dead-end.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>Dashboard tiles stop before a graph path connecting event pump zone account and work order</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Use a graph pattern when the relationship route is the query</figcaption>
 </figure>
 
@@ -1296,6 +1300,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/variable-stencil.svg" alt="The pattern question-mark pump serves question-mark zone binds Pump P-104 and Zone 3">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/variable-stencil.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>The pattern question-mark pump serves question-mark zone binds Pump P-104 and Zone 3</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Variables bind graph values rather than asking the model to guess</figcaption>
 </figure>
 
@@ -1345,6 +1351,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/query-overlay.svg" alt="SPARQL clauses on the left align with event zone premise and account graph edges on the right">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/query-overlay.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>SPARQL clauses on the left align with event zone premise and account graph edges on the right</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Shared variables connect clauses into one route</figcaption>
 </figure>
 <section class="component signature-component" id="mbm08-sparql-builder" data-sparql-builder
@@ -1382,6 +1390,8 @@ footer {
   <div class="visual-frame">
     <img src="../visuals/binding-table.svg" alt="A SPARQL result row for account class and work order links to four supporting source statements while phone is unbound">
   </div>
+  <p class="visual-actions"><a class="button secondary" href="../visuals/binding-table.svg" target="_blank" rel="noopener">Open full-size graphic</a></p>
+  <details class="visual-text-equivalent"><summary>Read the structured text equivalent</summary><p>A SPARQL result row for account class and work order links to four supporting source statements while phone is unbound</p></details>
   <figcaption class="conclusion" data-learner-conclusion><strong>What this shows:</strong> Optional absence can leave a valid row while evidence remains visible</figcaption>
 </figure>
 
@@ -1462,6 +1472,13 @@ footer {
   <header class="component-header"><h3>Question-to-Query Sheet</h3><span class="kind">Professional work product</span></header>
   <div class="component-body">
     <p class="component-intro">Record the question variables patterns filter optional data expected bindings evidence sources and limitations.</p>
+
+    <div class="contract-teaching">
+      <h4>Score the contract before you defend it</h4>
+      <table class="contract-rubric"><thead><tr><th>Dimension</th><th>Full-credit evidence</th><th>Points</th></tr></thead><tbody></tbody></table>
+      <div class="contract-comparison"><article><b>Weak boundary</b><p></p></article><article><b>Strong boundary</b><p></p></article></div>
+      <details><summary>Open the completed wastewater exemplar</summary><p></p></details>
+    </div>
     <form class="work-product" data-work-product="mbm08-query-sheet"
       data-artifact="mbm08-query-sheet"
       data-completion="query-sheet"
@@ -1469,7 +1486,11 @@ footer {
       data-incorrect-feedback="Complete every field with a readable pattern and explicit dependencies.">
       <div class="field-grid"><label>Utility competency question<textarea name="utility_question" rows="3" required></textarea></label><label>Returned and join variables<textarea name="variables" rows="3" required></textarea></label><label>Required triple patterns<textarea name="graph_pattern" rows="3" required></textarea></label><label>Filter condition<textarea name="filter" rows="3" required></textarea></label><label>Optional patterns<textarea name="optional_data" rows="3" required></textarea></label><label>Expected result bindings<textarea name="expected_bindings" rows="3" required></textarea></label><label>Dataset source groups and evidence path<textarea name="evidence_sources" rows="3" required></textarea></label></div>
       <label>Time permission entailment and no-result boundaries<textarea name="limitations" rows="3" required></textarea></label>
+
+      <fieldset class="contract-defense"><legend>Defend the completed contract</legend></fieldset>
+      <section class="handoff-contract"><h4>Module 19 handoff contract</h4><p></p><ul></ul></section>
       <button class="button primary" type="submit">Save Question-to-Query Sheet</button>
+      <button class="button secondary" type="button" data-export-artifact>Export contract</button>
       <div class="feedback" data-feedback aria-live="polite"></div>
       <pre class="artifact-preview" data-artifact-preview>Your local preview will appear here.</pre>
     </form>
@@ -2001,6 +2022,8 @@ footer {
     ,["[data-permission-gate]", "[data-permission-case]", "[data-permission-choice]", "permissionChoice", "Every unsafe transition now stops at the correct gate."]
     ,["[data-pipeline-rerun]", "[data-pipeline-case]", "[data-pipeline-choice]", "pipelineChoice", "Every pipeline now has a defensible job and evidence path."]
     ,["[data-pipeline-stage-diagnosis]", "[data-stage-case]", "[data-stage-choice]", "stageChoice", "Every changed result now points to the responsible pipeline stage."]
+    ,["[data-agent-action-control]", "[data-action-case]", "[data-action-choice]", "actionChoice", "Every proposal now reaches the correct act, ask, or stop disposition."]
+    ,["[data-idempotency-recovery]", "[data-retry-case]", "[data-retry-choice]", "retryChoice", "Every uncertain tool result now has a duplicate-safe recovery path."]
   ].forEach(([labSelector, caseSelector, choiceSelector, choiceKey, success]) => {
     document.querySelectorAll(labSelector).forEach((lab) => {
       const cases = [...lab.querySelectorAll(caseSelector)];
@@ -2023,20 +2046,36 @@ footer {
   document.querySelectorAll("[data-work-product]").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const fields = [...form.querySelectorAll("[required]")];
-      const complete = fields.every((field) => field.value.trim());
+      const fields = [...form.querySelectorAll("input[required]:not([type=radio]), textarea[required], select[required]")];
+      const defense = form.querySelector("input[name=contract_defense]:checked");
+      const defenseCorrect = !form.querySelector("input[name=contract_defense]") || defense?.dataset.correct === "true";
+      const complete = fields.every((field) => field.value.trim()) && defenseCorrect;
       const feedback = form.querySelector("[data-feedback]");
       if (!complete) {
-        feedback.textContent = form.dataset.incorrectFeedback;
+        feedback.textContent = defense && !defenseCorrect ? "The contract is not defensible merely because its boxes are filled. Use the rubric, strengthen the boundaries, and try again." : form.dataset.incorrectFeedback;
         feedback.className = "feedback bad";
         return;
       }
       const record = Object.fromEntries(fields.map((field) => [field.name, field.value.trim()]));
+      record.contract_defense = defense?.value || "not-required";
       form.querySelector("[data-artifact-preview]").textContent = JSON.stringify(record, null, 2);
       localStorage.setItem(`${stateKey}:artifact:${form.dataset.workProduct}`, JSON.stringify(record));
       feedback.textContent = form.dataset.correctFeedback;
       feedback.className = "feedback good";
       mark(form.dataset.completion);
+    });
+    form.querySelector("[data-export-artifact]")?.addEventListener("click", () => {
+      const preview = form.querySelector("[data-artifact-preview]").textContent;
+      if (!preview || preview.includes("local preview")) {
+        form.querySelector("[data-feedback]").textContent = "Save and defend the contract before exporting it.";
+        return;
+      }
+      const blob = new Blob([preview], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${form.dataset.workProduct}.json`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(link.href), 500);
     });
   });
 

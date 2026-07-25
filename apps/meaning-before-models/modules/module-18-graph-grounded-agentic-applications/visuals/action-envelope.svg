@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Action Envelope Anatomy</title>
+  <desc id="desc">An executable action envelope contains evidence, authorization, tool, recovery, verification, and audit layers around one bounded draft work-order action.</desc>
+  <rect width="1200" height="760" rx="34" fill="#f6f7fb"/>
+  <text x="62" y="70" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#14213d">Action Envelope Anatomy</text>
+  <text x="62" y="106" font-family="Arial,sans-serif" font-size="18" fill="#516178">The agent receives a bounded executable contract, not a vague goal.</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="72" y="148" width="1056" height="550" rx="30" fill="#e9edf5" stroke="#738099" stroke-width="2"/>
+    <text x="104" y="188" font-size="17" font-weight="700" fill="#42526b">AUDIT WRAPPER</text>
+    <text x="104" y="215" font-size="15" fill="#516178">request ID • evidence receipt • policy decision • approval • tool result • verification • owners • time</text>
+    <rect x="126" y="246" width="948" height="394" rx="26" fill="#eeeafa" stroke="#6548a8" stroke-width="3"/>
+    <text x="158" y="286" font-size="17" font-weight="700" fill="#4b377f">AUTHORITY BOUNDARY</text>
+    <text x="158" y="313" font-size="15" fill="#5b4b7f">authenticated operator • draft-only role • supervisor threshold • prohibited valve operations</text>
+    <rect x="180" y="344" width="840" height="236" rx="24" fill="#e8f4f1" stroke="#147d6f" stroke-width="3"/>
+    <text x="212" y="384" font-size="17" font-weight="700" fill="#123f39">EVIDENCE + TOOL BOUNDARY</text>
+    <g fill="#fff" stroke="#9eb5b1" stroke-width="2">
+      <rect x="212" y="410" width="244" height="124" rx="18"/>
+      <rect x="478" y="410" width="244" height="124" rx="18"/>
+      <rect x="744" y="410" width="244" height="124" rx="18"/>
+    </g>
+    <text x="334" y="444" text-anchor="middle" font-size="16" font-weight="700" fill="#163b37">PRECONDITIONS</text>
+    <text x="236" y="474" font-size="14" fill="#285d57">• LS-7 identity resolved</text>
+    <text x="236" y="498" font-size="14" fill="#285d57">• inspection current</text>
+    <text x="236" y="522" font-size="14" fill="#285d57">• validation passed</text>
+    <text x="600" y="444" text-anchor="middle" font-size="16" font-weight="700" fill="#163b37">BOUNDED CALL</text>
+    <text x="502" y="474" font-size="14" fill="#285d57">tool: createDraftWO</text>
+    <text x="502" y="498" font-size="14" fill="#285d57">asset: LS-7</text>
+    <text x="502" y="522" font-size="14" fill="#285d57">priority: inspection only</text>
+    <text x="866" y="444" text-anchor="middle" font-size="16" font-weight="700" fill="#163b37">RECOVERY + PROOF</text>
+    <text x="768" y="474" font-size="14" fill="#285d57">• idempotency key</text>
+    <text x="768" y="498" font-size="14" fill="#285d57">• receipt lookup</text>
+    <text x="768" y="522" font-size="14" fill="#285d57">• postcondition check</text>
+    <rect x="382" y="600" width="436" height="66" rx="18" fill="#14213d"/>
+    <text x="600" y="627" text-anchor="middle" font-size="15" fill="#c9d4e5">EXPECTED POSTCONDITION</text>
+    <text x="600" y="652" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">Exactly one reviewable draft, no dispatch</text>
+  </g>
+</svg>

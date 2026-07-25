@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "module_id": "mbm001:18",
+  "interactions": [
+    {
+      "interaction_id": "mbm18-action-control",
+      "component": "agent-action-control",
+      "title": "Agent Action Control Room",
+      "teaching_purpose": "Choose the correct act, ask, refresh, clarify, or stop disposition from evidence and authority.",
+      "instructions": "Read the proposal, evidence, and declared control. Choose ACT, ASK, REFRESH, CLARIFY, or STOP. A controlled non-action can be the correct outcome.",
+      "completion_id": "action-control",
+      "config": {
+        "choices": ["ACT", "ASK", "REFRESH", "CLARIFY", "STOP"],
+        "cases": [
+          {
+            "label": "Allowed draft",
+            "claim": "Create one draft inspection work order for LS-7 with no dispatch and no priority escalation.",
+            "evidence": "Identity resolves, required current evidence passes validation, operator has draft authority, and the tool is limited to draft creation.",
+            "rule": "Low-impact draft creation is delegated when every precondition passes.",
+            "answer": "ACT",
+            "explanation": "Act is allowed because evidence, role, tool, parameters, and postcondition are inside the delegated envelope."
+          },
+          {
+            "label": "Stale inspection",
+            "claim": "Create a Priority 1 corrective work order using an inspection outside the approved freshness window.",
+            "evidence": "The graph path is credible, but current inspection evidence is required before priority can be assigned.",
+            "rule": "Expired evidence must be refreshed before this proposal can advance.",
+            "answer": "REFRESH",
+            "explanation": "Refresh the required evidence. Do not convert a useful historical relationship into a current operational claim."
+          },
+          {
+            "label": "Ambiguous identity",
+            "claim": "Create work against asset LS-7.",
+            "evidence": "The Computerized Maintenance Management System and Geographic Information System resolve LS-7 to different internal identifiers.",
+            "rule": "The target asset must resolve uniquely before a side effect.",
+            "answer": "CLARIFY",
+            "explanation": "Clarify identity before action. An ambiguous target can place work against the wrong asset."
+          },
+          {
+            "label": "Approval threshold",
+            "claim": "Set Priority 1 and dispatch the on-call crew.",
+            "evidence": "Evidence is current, but the signed-in operator has draft-only authority and policy requires supervisor approval.",
+            "rule": "Priority and dispatch cross a mandatory human approval threshold.",
+            "answer": "ASK",
+            "explanation": "Ask the named supervisor. The proposal is eligible for review, not autonomous execution."
+          },
+          {
+            "label": "Prohibited operation",
+            "claim": "Open a bypass valve to reduce wet-well level.",
+            "evidence": "The agent has no operational-control delegation, and the tool is not approved for autonomous valve operation.",
+            "rule": "The action class is prohibited for this agent regardless of answer confidence.",
+            "answer": "STOP",
+            "explanation": "Stop. No amount of graph grounding creates permission for a prohibited operating action."
+          }
+        ]
+      }
+    },
+    {
+      "interaction_id": "mbm18-retry-simulator",
+      "component": "idempotency-recovery",
+      "title": "Safe Retry and Receipt Simulator",
+      "teaching_purpose": "Recover uncertain tool outcomes without duplicating external side effects.",
+      "instructions": "Choose RETRY, CHECK RECEIPT, RECONCILE, ACCEPT EXISTING, or STOP AND ESCALATE.",
+      "completion_id": "retry-simulator",
+      "config": {
+        "choices": ["RETRY", "CHECK RECEIPT", "RECONCILE", "ACCEPT EXISTING", "STOP AND ESCALATE"],
+        "cases": [
+          {
+            "label": "Failed before send",
+            "claim": "Schema validation rejects the request before any network call.",
+            "evidence": "No tool request identifier exists and no external side effect occurred.",
+            "rule": "Correct the bounded request before making the first call.",
+            "answer": "RETRY",
+            "explanation": "Retry is safe after correcting the request because the original never left the control boundary."
+          },
+          {
+            "label": "Acknowledged success",
+            "claim": "The tool returns work order WO-881 and the receipt matches the idempotency key.",
+            "evidence": "One external record exists with the approved parameters.",
+            "rule": "A verified success is not retried.",
+            "answer": "ACCEPT EXISTING",
+            "explanation": "Accept and verify the existing work order. Repeating the write would add risk without value."
+          },
+          {
+            "label": "Timeout after send",
+            "claim": "The request times out after transmission, and the agent does not know whether creation occurred.",
+            "evidence": "The idempotency key exists, but no response reached the agent.",
+            "rule": "Look up the request receipt before considering another call.",
+            "answer": "CHECK RECEIPT",
+            "explanation": "Check the receipt using the same request identity. A timeout does not prove failure."
+          },
+          {
+            "label": "Receipt unavailable",
+            "claim": "The receipt service is unavailable after a timeout.",
+            "evidence": "The maintenance system can be searched for the idempotency key and target asset.",
+            "rule": "Compare authoritative external state before any retry.",
+            "answer": "RECONCILE",
+            "explanation": "Reconcile the maintenance system. External state, not the agent's memory, determines whether the action happened."
+          },
+          {
+            "label": "Outcome still unknown",
+            "claim": "Receipt lookup and external-state reconciliation are both unavailable.",
+            "evidence": "Repeating the call could create duplicate emergency work.",
+            "rule": "Unknown side effects cannot be retried blindly.",
+            "answer": "STOP AND ESCALATE",
+            "explanation": "Stop and escalate. Recovery needs an accountable human or restored evidence before another write."
+          }
+        ]
+      }
+    }
+  ]
+}
