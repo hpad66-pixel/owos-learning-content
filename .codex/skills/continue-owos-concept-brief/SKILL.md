@@ -177,6 +177,13 @@ escalation, accessibility, drawer behavior, and focus return in `community.yaml`
 Community discussion never silently changes verified instruction. Route a proposed correction back
 through source review, technical review, revision, and approval.
 
+When positive learner feedback may be shown publicly, use the existing Community record. Require an
+explicit, narrowly stated publication consent and a separate administrator approval for the exact
+comment. Give the administrator an unfeature control that preserves the discussion and moderation
+history. Publicly label the result as learner experience, never technical evidence, a verified
+answer, or a vendor endorsement. Provide topic-level view, engaged-read, completion-reach, comment,
+review, consent, and featured-testimonial metrics without collecting facility-sensitive content.
+
 ## Protect commercial integrity
 
 Support verified directory relevance, attributed contribution, disclosed sponsorship, and private

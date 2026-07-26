@@ -56,6 +56,11 @@ Describe the planned sequence in plain English. Do not turn the coverage jobs in
 - SOP boundary: outline only, or separately approved authenticated agent
 - Inactive commercial treatment: hidden
 - Short plain-language disclaimer:
+- Positive-feedback prompt:
+- Testimonial consent language and identity fields covered:
+- Moderator approval and withdrawal treatment:
+- Public reader-voices placement and evidence label:
+- Super-administrator audience and review metrics:
 
 ## Visual and interaction selection
 
