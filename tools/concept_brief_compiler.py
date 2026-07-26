@@ -1978,7 +1978,7 @@ def _render_public_finish(package: dict[str, Any], public_config: dict[str, Any]
       <div>
         <p class="section-kicker">COMMENT ON THIS BRIEF</p>
         <h3>See something we should check or improve?</h3>
-        <p>Technical corrections, source suggestions, questions, and field observations are welcome. Your comment enters the moderated OWOS Community and the Concept Brief review queue.</p>
+        <p>Tell us what worked, what connected across sectors, or what should be checked. Positive feedback, technical corrections, source suggestions, questions, and field observations all enter the moderated OWOS Community and Concept Brief review queue.</p>
       </div>
       <form data-concept-feedback action="{esc(forum_url)}" method="get">
         <label for="concept-feedback-kind">Comment type</label>

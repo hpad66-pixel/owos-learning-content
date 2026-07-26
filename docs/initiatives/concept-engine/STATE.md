@@ -81,6 +81,11 @@ status: active
   facility-SOP agent.
 - Three-part learner close, short facility-judgment disclaimer, and hidden inactive vendor
   placements.
+- Optional positive learner feedback with explicit testimonial consent, separate moderator approval,
+  public reader voices, and reversible unfeature controls that preserve Community history.
+- Super-administrator Concept Brief metrics for views, recent unique viewers, engaged reads,
+  completion reaches, comments, reviewed comments, consented appreciations, and featured
+  testimonials.
 - Integration manifest separating implemented current-edition behavior from Graph publication, Community
   release, commercial placement, and owner approval.
 - Durable in-package snapshots of the supplied HTML, strategy handoff, and visual-reference deck.

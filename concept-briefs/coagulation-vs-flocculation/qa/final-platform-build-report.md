@@ -40,6 +40,13 @@ Status: complete local implementation and current educational edition publicatio
   facility-judgment disclaimer.
 - The shared Community runtime uses drawer-only mode for Concept Briefs, preventing the full
   Community application from being duplicated at the bottom of the learning page.
+- The final comment form accepts positive learner feedback through “What worked for me” and keeps
+  publication permission as a separate optional checkbox.
+- A positive comment cannot appear publicly without both recorded learner consent and a separate
+  OWOS moderator approval. Unfeaturing removes it from the brief without deleting its Community
+  history.
+- The protected Author Studio reports views, recent unique viewers, engaged reads, completion
+  reaches, comments, reviewed comments, consented appreciations, and featured testimonials.
 
 ## Automated checks
 
@@ -55,6 +62,11 @@ Status: complete local implementation and current educational edition publicatio
 | Inactive vendor placeholder hidden | Passed |
 | Community drawer-only mode and focus return | Passed |
 | Public Learn claim-count subtraction | Passed |
+| Positive-feedback and testimonial-consent controls | Passed |
+| No-consent testimonial publication rejection | Passed |
+| Moderator feature and unfeature workflow | Passed |
+| Public approved-testimonial projection | Passed |
+| Topic-level view, engagement, comment, review, and testimonial analytics | Passed |
 | OWOS Concept Brief API and control-plane test | Passed |
 | Current-edition publication and indexability | Passed |
 | Inline feedback to Community and Author Studio | Passed |
