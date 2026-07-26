@@ -8,7 +8,7 @@ Status: complete local implementation and current educational edition publicatio
 ## Implemented
 
 - Concept Briefs are a distinct content type and filter inside OWOS Learn.
-- The stable candidate route is `/learn/briefs/coagulation-vs-flocculation`.
+- The stable current-edition route is `/learn/briefs/coagulation-vs-flocculation`.
 - The current educational edition is indexable and publicly available.
 - The administrator console links to a protected Concept Brief Author Studio.
 - The Author Studio controls metadata, compiled HTML, Graph, Community, commercial bindings,
@@ -21,18 +21,25 @@ Status: complete local implementation and current educational edition publicatio
   educational-publication contract or the independently verified release contract.
 - The active bundle supplies the OWOS Learn catalog, learner HTML, dynamic Graph, Community context,
   and commercial bindings.
-- APAS and vendor placements retain content targeting, directory linkage, account assignment,
-  aggregate impressions, clicks, contact starts, pause, resume, and soft archive.
+- The active APAS placement retains content targeting and administrator control. Vendor placement
+  infrastructure retains directory linkage, account assignment, aggregate impressions, clicks,
+  contact starts, pause, resume, and soft archive, but no inactive vendor placeholder is shown.
 - Commercial records have no claim, evidence, correction, reviewer, Graph-ranking, or neutral
   directory-ranking authority.
 - Public Graph nodes now cover the Concept Brief, coagulation, flocculation, jar testing,
   sedimentation, and filtration.
 - The authenticated learning Community is reused with the stable Concept Brief slug and content ID.
-- Readers can comment from the page header, Community section, or inline comment form.
+- Readers can open Community from the four-control header, use the compact Community connection,
+  or comment through the single form at the true end of the brief.
 - Technical feedback, source suggestions, questions, and field observations enter one moderated
   Author Studio queue.
 - The administrator can reply, mark feedback reviewed or incorporated, revise the compiled content,
   publish a new version, and retain the prior version.
+- The public page opens with an “In 30 seconds” orientation, removes claim-count marketing, keeps
+  the SOP as an outline, ends with the approved three-part recap, and shows the short
+  facility-judgment disclaimer.
+- The shared Community runtime uses drawer-only mode for Concept Briefs, preventing the full
+  Community application from being duplicated at the bottom of the learning page.
 
 ## Automated checks
 
@@ -43,6 +50,11 @@ Status: complete local implementation and current educational edition publicatio
 | Public-output QA | Passed |
 | Portfolio distinctiveness | Passed |
 | Final Concept Brief rendered QA | Passed, four modes, zero failures |
+| Learner orientation, four-control navigation, and three-part close | Passed |
+| End feedback after active commercial content | Passed |
+| Inactive vendor placeholder hidden | Passed |
+| Community drawer-only mode and focus return | Passed |
+| Public Learn claim-count subtraction | Passed |
 | OWOS Concept Brief API and control-plane test | Passed |
 | Current-edition publication and indexability | Passed |
 | Inline feedback to Community and Author Studio | Passed |
