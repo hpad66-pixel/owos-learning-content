@@ -54,11 +54,20 @@ async function inspect(browser, mode) {
   await stageCheck.locator(".assessment-check").click();
   const stageCheckComplete = await stageCheck.getAttribute("data-complete");
   const reflection = page.locator('[data-concept-assessment="reflection"]');
+  const rehearsalSteps = reflection.locator("[data-rehearsal-step]");
+  const rehearsalStepCount = await rehearsalSteps.count();
+  await reflection.locator(".rehearsal-next").click();
+  await reflection.locator(".rehearsal-next").click();
+  await reflection.locator(".rehearsal-next").click();
+  const rehearsalFinalStepVisible = await rehearsalSteps.nth(rehearsalStepCount - 1).isVisible();
+  await reflection.locator(".practice-toggle").click();
+  const optionalPracticeVisible = await reflection.locator(".practice-panel").isVisible();
   await reflection.locator("textarea").fill(
     "Which source, sample, process, procedure, reviewer, monitoring, and rollback evidence is missing?",
   );
   await reflection.locator(".assessment-reveal").click();
   const reflectionComplete = await reflection.getAttribute("data-complete");
+  const optionalLabelVisible = await reflection.getByText("OPTIONAL PRACTICE", { exact: true }).isVisible();
   const communityOpener = page.getByRole("button", { name: "Community", exact: true });
   await communityOpener.click();
   const communityDrawerVisible = await page.locator("#community-drawer").isVisible();
@@ -149,6 +158,9 @@ async function inspect(browser, mode) {
   await page.locator("#block-system-fit").screenshot({
     path: path.join(outputDir, `coagulation-brief-${mode.name}-treatment-train.png`),
   });
+  await reflection.screenshot({
+    path: path.join(outputDir, `coagulation-brief-${mode.name}-decision-rehearsal.png`),
+  });
   await page.locator("#owos-concept-related").screenshot({
     path: path.join(outputDir, `coagulation-brief-${mode.name}-related.png`),
   });
@@ -174,6 +186,10 @@ async function inspect(browser, mode) {
     modelState,
     stageCheckComplete,
     reflectionComplete,
+    rehearsalStepCount,
+    rehearsalFinalStepVisible,
+    optionalPracticeVisible,
+    optionalLabelVisible,
     focusOutline,
     focusedJarControl,
     communityDrawerVisible,
@@ -245,7 +261,11 @@ async function inspectNoJavaScript(browser) {
     || !item.canvasReady
     || item.assessmentCount < 2
     || item.stageCheckComplete !== "true"
-    || item.reflectionComplete !== "true"
+    || item.reflectionComplete !== null
+    || item.rehearsalStepCount !== 4
+    || !item.rehearsalFinalStepVisible
+    || !item.optionalPracticeVisible
+    || !item.optionalLabelVisible
     || !item.crossSectorVisual
     || (item.mode === "phone-reduced-motion" ? item.canvasChanged : !item.canvasChanged)
     || item.emptyButtons

@@ -86,6 +86,12 @@ with tempfile.TemporaryDirectory() as directory:
         "What worked for me",
         "data-concept-testimonials",
         "data-testimonial-consent",
+        "WORKED DECISION REHEARSAL",
+        "TEMPTING SHORTCUT",
+        "THE BETTER QUESTION",
+        "OPTIONAL PRACTICE",
+        "Try it yourself",
+        'data-optional="true"',
         "This brief explains the concept. Facility decisions still require your approved procedures and qualified judgment.",
         "Educational concept brief",
         "Built and powered by APAS",
@@ -117,6 +123,8 @@ with tempfile.TemporaryDirectory() as directory:
             )
     if "Paid vendor placement" in public_text or "Vendor placeholder" in public_text:
         raise AssertionError("inactive vendor placeholders must not appear in public output")
+    if "without turning public instruction into facility authority" in public_text:
+        raise AssertionError("public preview retained the cryptic transfer instruction")
     if public_text.index('id="owos-commercial-placements"') > public_text.index(
         'id="owos-concept-finish"'
     ):

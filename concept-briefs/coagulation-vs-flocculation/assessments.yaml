@@ -22,15 +22,35 @@ assessments:
     final_applied_check: false
     review_status: working_implementation_pending_qualified_review
   - assessment_id: assessment-evidence-question
-    version: 1.0.0
+    version: 1.1.0
     type: reflection
     cognitive_job: transfer
-    prompt: Rewrite one tempting dose or mixing shortcut as an evidence question your role can responsibly ask.
-    model_response: A strong response names the observed symptom, sample location, relevant water and process conditions, approved procedure, missing evidence, authorized reviewer, monitoring plan, and rollback boundary without proposing a universal setting.
+    prompt: Watch one shortcut become a responsible evidence question
+    introduction: This is a decision rehearsal, not an operating recommendation. Step through how a learner can investigate a symptom without guessing at a cause or setting.
+    guided_rehearsal: true
+    worked_example:
+      scenario: After a source-water change, a filter run becomes shorter than usual. The learner can see the symptom, but does not yet know its cause.
+      shortcut: Increase the coagulant dose. Short filter runs must mean the plant is underdosing.
+      steps:
+        - label: Start with the observation
+          body: Record what changed, when it changed, and where it was observed. In this example, the observation is a shorter filter run after a source-water change.
+        - label: Separate the symptom from the cause
+          body: A short filter run can narrow the investigation, but it does not prove underdosing. Chemistry, feed condition, mixing, clarification, filtration, sampling, and equipment remain possible evidence paths.
+        - label: Name what is missing
+          body: Ask for time-aligned source-water measurements, chemical and feed records, process conditions, sample locations, downstream observations, and the approved test or procedure.
+        - label: Preserve authority and control
+          body: Identify who may review or authorize a change, what will be monitored, and what rollback or escalation boundary applies before anyone changes a setting.
+      result: What evidence do we need from the source water, chemical feed, mixing, clarification, filter, and approved facility procedure to explain the shorter run, and who is authorized to decide, monitor, and reverse any change?
+    optional: true
+    try_title: Want to try it yourself?
+    try_intro: This practice is optional. Use a familiar symptom, but do not enter facility-sensitive values, security information, customer data, or a proposed operating setting.
+    response_label: Write one evidence question
+    response_placeholder: "We observed… Before changing anything, what evidence, approved procedure, authorized reviewer, monitoring, and rollback boundary do we need?"
+    model_response: A useful question identifies the observation and location, asks for the missing water and process evidence, names the approved procedure and authorized reviewer, and preserves monitoring and rollback without proposing a universal setting.
     feedback:
       correct: The response preserves the distinction between investigation and authorization.
       incorrect: Add the missing evidence, authority, monitoring, and rollback boundary.
-    retry: Revise the question until it can guide investigation without acting as an operating instruction.
+    retry: Revise the question until it guides investigation without becoming an operating instruction.
     completion_id: evidence-question-transfer
     final_applied_check: true
     review_status: working_implementation_pending_qualified_review

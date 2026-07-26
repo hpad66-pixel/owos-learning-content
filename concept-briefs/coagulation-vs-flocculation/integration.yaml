@@ -1,7 +1,7 @@
 schema_version: 1
 contract: owos-concept-brief/2
 brief_id: owos:concept-brief:001
-candidate_version: 1.0.0-federal-publication-candidate
+current_edition_version: 1.0.0
 library:
   state: implemented_in_learning_repository
   registry: ../../library.yaml
@@ -18,7 +18,7 @@ community:
   target_route: /course-community.html
   context_parameters:
     brief: owos:concept-brief:001
-    version: 1.0.0-federal-publication-candidate
+    version: 1.0.0
   production_runtime_wiring: implemented_in_onewater_os_platform_worktree
   moderation_owner: OWOS Learning Steward
 commercial:
@@ -44,11 +44,17 @@ sop:
   facility_specific_sop: blocked_until_facility_inputs_and_named_approvals
   operating_authority: none
 release_boundary:
-  public_page_state: final_federal_publication_candidate_not_formal_release
+  public_page_state: current_educational_edition_publicly_available
   graph_publication: pending
   community_release: pending
   commercial_placement: owner_approved_candidate_pending_legal_conflict_and_deployment_review
   owner_release: pending
+course_connection:
+  shared_capability_registry: active
+  shared_learning_record_contract: active
+  direct_course_route: not_connected
+  reason: No governed coagulation or water-treatment course currently exists under apps.
+  required_next_action: Add an exact course and module identifier after that course package exists and its placement is reviewed.
 placement_decision:
   destination: owos_learn
   presentation: distinct_content_type_and_filter

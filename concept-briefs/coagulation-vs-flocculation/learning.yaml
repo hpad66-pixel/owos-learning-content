@@ -9,7 +9,7 @@ learning:
   prior_knowledge:
     - Basic awareness that drinking-water clarification removes particles before filtration.
   misconception: Coagulation and flocculation are two names for one mixing step and a visible symptom identifies the setting to change.
-  transfer_task: Rewrite one tempting facility shortcut as a bounded evidence question with a named authority and next observation.
+  transfer_task: Step through a worked decision rehearsal, then optionally rewrite one tempting facility shortcut as a bounded evidence question.
   cross_sector_connections:
     - Wastewater chemical phosphorus removal and solids separation use related particle-conditioning and separation ideas within different process and regulatory boundaries.
     - Stormwater treatment practices may use settling, filtration, or chemical treatment, but the source, loading, operation, and authority boundaries differ.
@@ -28,6 +28,8 @@ placement:
     - concept:filtration
     - practice:jar-testing
   course_connections: []
+  course_connection_status: Shared course and Concept Brief capabilities are active, but no governed coagulation or water-treatment course currently exists in this repository to receive a direct route.
+  course_connection_next_step: Add the exact course and module identifier only after that governed course package exists and its placement is reviewed.
 capability_lock:
   registry_id: owos-learning-capabilities/1
   registry_version: 1
@@ -43,7 +45,7 @@ learning_events:
     - interaction.jar_diagnosis.completed
     - assessment.stage_check.attempted
     - assessment.stage_check.passed
-    - assessment.evidence_question.completed
+    - assessment.evidence_question.optional_practice_completed
     - concept_brief.completed
   attempt_policy: Preserve assessment attempts and final completion against the exact brief and capability versions.
   record_authority: OWOS authenticated learning record after consent; browser state is convenience only.
@@ -55,7 +57,7 @@ learning_events:
   supersession_policy: Preserve the completed brief, assessment, capability, and compiler versions; never rewrite prior completion history.
   material_correction_notification: Notify affected authenticated learners when an approved correction changes the meaning of a completed assessment or credited offering.
 assessment_governance:
-  passing_rule: Pass the diagnosis check and complete the applied evidence-question transfer.
+  passing_rule: Pass the diagnosis check. The evidence-question rehearsal and personal practice support transfer but are not mandatory for completion.
   retry_policy: Unlimited instructional retry with every attempt retained for a credit-bearing offering.
   item_version_policy: Assessment identifiers and answer logic change version whenever meaning or scoring changes.
   feedback_policy: Every scored response receives immediate explanatory feedback and a retry path.
@@ -94,8 +96,7 @@ completion:
   required_ids:
     - jar-diagnosis
     - clarification-stage-check
-    - evidence-question-transfer
-  rule: Complete the dynamic diagnosis, pass the stage check, and record the applied evidence question.
+  rule: Complete the dynamic diagnosis and pass the stage check. The evidence-question practice remains optional.
 continuing_education:
   state: readiness_only
   credit_claim: disabled

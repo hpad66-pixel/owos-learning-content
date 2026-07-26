@@ -1,14 +1,14 @@
 # Final Federal Publication QA/QC
 
 Brief: `owos:concept-brief:001`  
-Edition: `1.0.0-federal-publication-candidate`  
+Edition: `1.0.0 current educational edition`
 Evidence cutoff: 2026-07-26  
 HTML: `dist/final-federal-publication.html`  
 HTML SHA-256: recorded in `dist/final-federal-publication.build.json`
 
 ## Final verdict
 
-The learner-facing content is approved as the final federal-only publication candidate. Its
+The learner-facing content is approved as the current federal-only educational edition. Its
 governing frame is limited to current United States federal requirements and EPA guidance. The AWWA
 presentation is retained only as clearly labeled professional engineering context. No state
 regulation, state training source, or state-specific requirement appears in the published HTML.
@@ -86,10 +86,15 @@ The public source manifest contains only:
 - Reduced-motion behavior: passed.
 - No-JavaScript text equivalent and containment: passed.
 - Community, related-learning, SOP-outline, and commercial mounts: present.
+- Guided decision rehearsal: four authored steps rendered and operated successfully.
+- Optional practice: clearly labeled, expandable, keyboard reachable, and excluded from completion.
+- Rehearsal contrast: visually inspected after the pale comparison text was corrected.
+- Direct course route: not connected because no governed coagulation or water-treatment course
+  currently exists in the repository.
 
 ## Hard release boundary
 
-The file is complete as the final owner-directed federal-only publication candidate. The governed
+The file is complete as the current owner-directed federal-only educational edition. The governed
 release manifest cannot be issued yet because the repository still lacks a named independent
 verifier, a qualified technical practitioner signoff, and the remaining required human
 accessibility and release reviews. The compiler correctly reports zero formal verification coverage

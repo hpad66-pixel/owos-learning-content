@@ -1054,8 +1054,31 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
                 errors.append(
                     f"assessment {assessment_id}: multi-select needs a correct option"
                 )
-        if assessment_type == "reflection" and not assessment.get("model_response"):
-            errors.append(f"assessment {assessment_id}: reflection needs model_response")
+        if assessment_type == "reflection":
+            if not assessment.get("model_response"):
+                errors.append(f"assessment {assessment_id}: reflection needs model_response")
+            worked_example = assessment.get("worked_example")
+            if assessment.get("guided_rehearsal") is True:
+                if not isinstance(worked_example, dict):
+                    errors.append(
+                        f"assessment {assessment_id}: guided reflection needs worked_example"
+                    )
+                else:
+                    require_fields(
+                        worked_example,
+                        ("scenario", "shortcut", "steps", "result"),
+                        f"assessment {assessment_id} worked_example",
+                        errors,
+                    )
+                    steps = worked_example.get("steps")
+                    if not isinstance(steps, list) or len(steps) < 3:
+                        errors.append(
+                            f"assessment {assessment_id}: worked_example needs at least three steps"
+                        )
+            if assessment.get("optional") is not True:
+                errors.append(
+                    f"assessment {assessment_id}: public reflection practice must be optional"
+                )
         if assessment_type == "flip-cards":
             cards = assessment.get("cards")
             if not isinstance(cards, list) or len(cards) < 3:
@@ -1591,6 +1614,52 @@ def _render_assessment(assessment: dict[str, Any]) -> str:
             '</section>'
         )
     if assessment_type == "reflection":
+        worked_example = assessment.get("worked_example") or {}
+        if assessment.get("guided_rehearsal") is True and worked_example:
+            steps = "".join(
+                f'<article class="rehearsal-step" data-rehearsal-step="{index}">'
+                f'<span>STEP {index + 1:02d}</span>'
+                f'<h4>{esc(step.get("label", ""))}</h4>'
+                f'<p>{esc(step.get("body", ""))}</p></article>'
+                for index, step in enumerate(worked_example.get("steps") or [])
+            )
+            return (
+                f'<section class="concept-assessment guided-rehearsal" id="{esc(assessment_id)}" '
+                f'data-concept-assessment="reflection" data-optional="true" '
+                f'data-completion="{esc(assessment["completion_id"])}">'
+                '<p class="assessment-kicker">WORKED DECISION REHEARSAL</p>'
+                f'<h3>{esc(assessment["prompt"])}</h3>'
+                f'<p class="rehearsal-intro">{esc(assessment.get("introduction", ""))}</p>'
+                '<div class="rehearsal-case">'
+                '<div><span class="rehearsal-label">SCENARIO</span>'
+                f'<p>{esc(worked_example.get("scenario", ""))}</p></div>'
+                '<div class="rehearsal-shortcut"><span class="rehearsal-label">TEMPTING SHORTCUT</span>'
+                f'<p>{esc(worked_example.get("shortcut", ""))}</p></div></div>'
+                f'<div class="rehearsal-steps">{steps}</div>'
+                '<div class="rehearsal-controls" aria-label="Worked example controls">'
+                '<button type="button" class="rehearsal-back">Previous step</button>'
+                '<span class="rehearsal-progress" role="status" aria-live="polite"></span>'
+                '<button type="button" class="rehearsal-next">Next step</button></div>'
+                '<div class="rehearsal-result"><span class="rehearsal-label">THE BETTER QUESTION</span>'
+                f'<p>{esc(worked_example.get("result", ""))}</p></div>'
+                '<div class="optional-practice">'
+                '<div><span class="assessment-kicker">OPTIONAL PRACTICE</span>'
+                f'<h4>{esc(assessment.get("try_title", "Want to try it yourself?"))}</h4>'
+                f'<p>{esc(assessment.get("try_intro", ""))}</p></div>'
+                '<button type="button" class="practice-toggle" aria-expanded="false">Try it yourself</button>'
+                '<div class="practice-panel" hidden>'
+                f'<label>{esc(assessment.get("response_label", "Write your evidence question"))}'
+                f'<textarea rows="5" data-reflection-response '
+                f'placeholder="{esc(assessment.get("response_placeholder", ""))}"></textarea></label>'
+                '<button type="button" class="assessment-reveal">Compare with the example</button>'
+                f'<div class="assessment-model" hidden><p>{esc(assessment.get("model_response", ""))}</p>'
+                f'<p><b>Try again:</b> {esc(assessment.get("retry", ""))}</p></div>'
+                '<p class="assessment-feedback" role="status" aria-live="polite"></p>'
+                '</div></div>'
+                '<noscript><p>The worked example remains complete above. Optional practice requires '
+                'JavaScript, but it is not required to use or finish this brief.</p></noscript>'
+                '</section>'
+            )
         return (
             f'<section class="concept-assessment" id="{esc(assessment_id)}" '
             f'data-concept-assessment="reflection" '
@@ -2437,6 +2506,34 @@ background:#174f77;color:#fff;font:inherit;font-weight:800;cursor:pointer}}
 outline-offset:3px}}.assessment-feedback{{font-weight:800}}.assessment-retry{{font-size:14px}}
 .concept-assessment textarea{{display:block;width:100%;margin:10px 0 14px;padding:12px;
 font:inherit}}.assessment-model{{margin-top:16px;padding:16px;background:#e5f0f5}}
+.guided-rehearsal{{border-color:#43697d;background:#10232e;color:#f2f1ec}}
+.guided-rehearsal .assessment-kicker{{color:#8ed0ed}}.rehearsal-intro{{max-width:760px;
+color:#d9d6cf}}.rehearsal-case{{display:grid;grid-template-columns:1fr 1fr;gap:1px;
+margin:20px 0;background:#43697d;border:1px solid #43697d}}.rehearsal-case>div{{padding:18px;
+background:#1c1b19}}.rehearsal-shortcut{{border-left:4px solid #e0a64a}}
+.rehearsal-label{{display:block;margin-bottom:7px;color:#8ed0ed;font:700 11px
+ui-monospace,monospace;letter-spacing:.12em}}.rehearsal-shortcut .rehearsal-label{{color:#e0a64a}}
+.rehearsal-steps{{min-height:172px;padding:22px;border:1px solid #43697d;background:#292826}}
+.rehearsal-step span{{color:#8ed0ed;font:700 11px ui-monospace,monospace;letter-spacing:.12em}}
+.rehearsal-step h4{{margin:.45em 0;font-size:23px}}.rehearsal-step p{{margin-bottom:0;
+color:#d9d6cf}}.rehearsal-controls{{display:flex;align-items:center;justify-content:space-between;
+gap:12px;margin:12px 0 22px}}.rehearsal-controls button,.practice-toggle{{min-height:44px;
+padding:10px 15px;border:1px solid #7dc6e8;background:transparent;color:#f2f1ec;
+font:inherit;font-weight:800;cursor:pointer}}.rehearsal-controls button:disabled{{opacity:.45;
+cursor:default}}.rehearsal-progress{{color:#a29c91;font:700 11px ui-monospace,monospace;
+letter-spacing:.08em}}.rehearsal-result{{padding:20px;border-left:4px solid #4ac88c;
+background:#172d28}}.rehearsal-result p{{margin:0;font-size:18px;font-weight:750}}
+.optional-practice{{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+margin-top:24px;padding-top:22px;border-top:1px solid #43697d}}.optional-practice h4{{margin:.35em 0}}
+.optional-practice p{{margin:0;color:#d9d6cf}}.practice-panel{{grid-column:1/-1;padding:20px;
+border:1px solid #43697d;background:#1c1b19}}.guided-rehearsal textarea{{border:1px solid #7b8d98;
+background:#f2f1ec;color:#10232e}}.guided-rehearsal .assessment-model{{background:#dfeff6;
+color:#10263b}}.guided-rehearsal .assessment-model p,
+.guided-rehearsal .assessment-model b{{color:#10263b}}.guided-rehearsal .assessment-feedback{{color:#8ed0ed}}
+.practice-toggle:focus-visible,.rehearsal-controls button:focus-visible{{outline:3px solid #e0a64a;
+outline-offset:3px}}@media(max-width:640px){{.rehearsal-case,.optional-practice{{grid-template-columns:1fr}}
+.practice-toggle{{width:100%}}.rehearsal-controls{{display:grid;grid-template-columns:1fr 1fr}}
+.rehearsal-progress{{grid-column:1/-1;grid-row:1;text-align:center}}}}
 .assessment-card-grid,.assessment-work-grid,.assessment-match-grid{{display:grid;gap:12px;
 margin:16px 0}}.assessment-card-grid{{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
 .assessment-card{{min-height:120px;padding:16px;border:1px solid #8cb8cf;background:#fff;
@@ -2722,6 +2819,35 @@ document.querySelectorAll('[data-concept-assessment="multiple-choice"]').forEach
   }});
 }});
 document.querySelectorAll('[data-concept-assessment="reflection"]').forEach(function(check){{
+  var steps=[...check.querySelectorAll('[data-rehearsal-step]')];
+  var stepIndex=0;
+  var back=check.querySelector('.rehearsal-back');
+  var next=check.querySelector('.rehearsal-next');
+  var progress=check.querySelector('.rehearsal-progress');
+  function showStep(){{
+    steps.forEach(function(step,index){{step.hidden=index!==stepIndex;}});
+    if(back)back.disabled=stepIndex===0;
+    if(next){{
+      next.disabled=stepIndex===steps.length-1;
+      next.textContent=stepIndex===steps.length-1?'Example complete':
+        (stepIndex===steps.length-2?'Show the better question':'Next step');
+    }}
+    if(progress)progress.textContent='Step '+(stepIndex+1)+' of '+steps.length;
+  }}
+  if(steps.length){{
+    showStep();
+    back?.addEventListener('click',function(){{if(stepIndex>0){{stepIndex-=1;showStep();}}}});
+    next?.addEventListener('click',function(){{if(stepIndex<steps.length-1){{stepIndex+=1;showStep();}}}});
+  }}
+  var toggle=check.querySelector('.practice-toggle');
+  var panel=check.querySelector('.practice-panel');
+  toggle?.addEventListener('click',function(){{
+    var opening=toggle.getAttribute('aria-expanded')!=='true';
+    toggle.setAttribute('aria-expanded',opening?'true':'false');
+    toggle.textContent=opening?'Close optional practice':'Try it yourself';
+    if(panel)panel.hidden=!opening;
+    if(opening)panel?.querySelector('textarea')?.focus();
+  }});
   var button=check.querySelector('.assessment-reveal');
   if(!button)return;
   button.addEventListener('click',function(){{
@@ -2733,8 +2859,8 @@ document.querySelectorAll('[data-concept-assessment="reflection"]').forEach(func
       return;
     }}
     model.hidden=false;
-    output.textContent='Compare your explanation, revise it if needed, and keep the evidence boundary visible.';
-    check.dataset.complete='true';
+    output.textContent='Compare the two questions. Keep your observation, missing evidence, authority, monitoring, and rollback boundary visible.';
+    if(check.dataset.optional!=='true')check.dataset.complete='true';
   }});
 }});
 document.querySelectorAll('[data-concept-assessment="multi-select"]').forEach(function(check){{
