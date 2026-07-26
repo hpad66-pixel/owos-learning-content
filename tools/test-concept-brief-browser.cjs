@@ -104,6 +104,9 @@ async function inspect(browser, mode) {
       primaryNavControls: document.querySelectorAll(".quick-nav > a, .quick-nav > button").length,
       finalRecapItems: document.querySelectorAll(".final-recap-grid article").length,
       feedbackForm: Boolean(document.querySelector("#owos-concept-finish [data-concept-feedback]")),
+      testimonialMount: Boolean(document.querySelector("[data-concept-testimonials]")),
+      testimonialConsent: Boolean(document.querySelector("[data-testimonial-consent]")),
+      appreciationOption: Boolean(document.querySelector('#concept-feedback-kind option[value="appreciation"]')),
       feedbackAfterCommercial: Boolean(
         document.querySelector("#owos-commercial-placements")
         && document.querySelector("#owos-concept-finish")
@@ -233,6 +236,9 @@ async function inspectNoJavaScript(browser) {
     || item.primaryNavControls !== 4
     || item.finalRecapItems !== 3
     || !item.feedbackForm
+    || !item.testimonialMount
+    || !item.testimonialConsent
+    || !item.appreciationOption
     || !item.feedbackAfterCommercial
     || !item.inactiveVendorHidden
     || !item.relatedDrawerVisible
