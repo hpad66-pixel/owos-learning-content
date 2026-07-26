@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="owos-contract" content="owos-concept-brief/2">
 <meta name="owos-compiler-version" content="2.1.0">
-<meta name="owos-package-checksum" content="45bfdb1532b0e888ca2f80c3e625b6164fc42aaedc72bf9b9c97c7d8c2a8045a">
+<meta name="owos-package-checksum" content="b6070315c4cf61a0d31d4aa84d7fb8ff427533632fd68a9aa0c8c1621515c720">
 <meta name="owos-brief-id" content="owos:concept-brief:001">
 <meta name="owos-brief-version" content="EDITION 1.0">
 <meta name="owos-release-state" content="public-review-preview">
@@ -1367,6 +1367,46 @@ footer {
   padding: clamp(64px, 9vw, 120px) 0;
 }
 
+.quick-takeaway {
+  padding: clamp(34px, 5vw, 58px) 0;
+  background: #10232e;
+  color: #f8f5ef;
+}
+
+.quick-takeaway h2 {
+  margin: 0 0 22px;
+  font: 800 clamp(28px, 4vw, 46px)/1 Arial, "Barlow", sans-serif;
+  letter-spacing: -.03em;
+}
+
+.quick-takeaway ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  list-style: none;
+  background: #48606d;
+}
+
+.quick-takeaway li {
+  position: relative;
+  min-height: 106px;
+  padding: 23px 22px 23px 54px;
+  background: #172f3c;
+  color: #f2f1ec;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.quick-takeaway li::before {
+  content: counter(list-item);
+  position: absolute;
+  left: 21px;
+  color: var(--blue);
+  font: 700 12px "Space Mono", monospace;
+}
+
 .connected-learning {
   background: #171614;
   color: #f8f5ef;
@@ -1422,6 +1462,51 @@ footer {
   margin-top: 54px;
   padding-top: 42px;
   border-top: 1px solid #cfc7ba;
+}
+
+.concept-finish {
+  padding: clamp(64px, 8vw, 104px) 0;
+  background: #f3efe8;
+  color: #211f1b;
+}
+
+.final-recap {
+  padding-bottom: 46px;
+  border-bottom: 1px solid #cfc7ba;
+}
+
+.final-recap h2 {
+  margin: 0 0 28px;
+  font: 800 clamp(34px, 5vw, 62px)/1 Arial, "Barlow", sans-serif;
+  letter-spacing: -.035em;
+}
+
+.final-recap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: #cfc7ba;
+  border: 1px solid #cfc7ba;
+}
+
+.final-recap-grid article {
+  padding: 24px;
+  background: #fff;
+}
+
+.final-recap-grid span {
+  display: block;
+  margin-bottom: 9px;
+  color: #174f77;
+  font: 700 10px "Space Mono", monospace;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.final-recap-grid p {
+  margin: 0;
+  color: #4e4941;
+  line-height: 1.55;
 }
 
 .community-feedback h3 {
@@ -1514,9 +1599,16 @@ footer {
 }
 
 @media (max-width: 760px) {
+  .quick-takeaway ol,
+  .final-recap-grid,
   .community-feedback {
     grid-template-columns: 1fr;
   }
+}
+
+.commercial-card:only-child {
+  grid-column: 1 / -1;
+  max-width: 780px;
 }
 
 .connection-grid,
@@ -1810,12 +1902,16 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
 </div><div class="hero-side"><div class="meta">OWOS CONCEPT BRIEF · EDITION 1.0</div>
 <p>Two different jobs. Two different mixing purposes. One connected treatment sequence.</p>
 <nav class="quick-nav" aria-label="Concept Brief">
-<a href="../../dist/index.html">All briefs</a>
-<a href="#beat-01-why">Start</a><a href="#block-jar">Live jar</a>
-<a href="#block-terms">Key terms</a><a href="#block-evidence-boundary">Sources</a>
-<button type="button" data-drawer-open="related-drawer">Related learning</button><button type="button" data-drawer-open="community-drawer">Community</button><button type="button" data-drawer-open="sop-drawer">SOP outline</button>
+<a href="#beat-01-why">Start</a><a href="#block-jar">Live jar</a><a href="#block-evidence-boundary">Sources</a><button type="button" data-drawer-open="community-drawer">Community</button>
 </nav></div></div></header>
 <main>
+<section class="quick-takeaway" aria-labelledby="quick-takeaway-title">
+  <div class="wrap">
+    <p class="section-kicker">IN 30 SECONDS</p>
+    <h2 id="quick-takeaway-title">Three different jobs, in the right order.</h2>
+    <ol><li>Coagulation changes particle stability or creates precipitates that can capture particles.</li><li>Flocculation creates controlled contact so destabilized material can grow into removable aggregates.</li><li>Sedimentation and filtration remove what the upstream chemistry and contact stages prepared.</li></ol>
+  </div>
+</section>
 <div class="band"><div class="band-in"><div class="band-n">01</div><div class="band-txt"><div class="band-k">Why does the distinction matter?</div><div class="band-h">Chemistry changes the particle before physics can remove it</div></div></div></div><section class="beat surface-white" id="beat-01-why"><div class="wrap"><p class="learner-question">Why does the distinction matter?</p><article class="block block-prose" id="block-opening"><h2>Chemistry changes the particle before physics can remove it</h2><p>Coagulation and flocculation are often spoken about as one operation, but they solve different problems. Coagulation changes particle stability or creates precipitates that can capture particles. Flocculation gives those destabilized particles and precipitates controlled opportunities to collide and grow into aggregates that the next separation step can handle.</p><p>Use a simple mental model: change the condition, create contact, then separate. Charge neutralization can be part of the first step, but it is not the only coagulation mechanism. Water chemistry, coagulant, dose, pH, alkalinity, temperature, particles, and mixing all affect what actually happens.</p><div class="card-grid stakes"><div class="card"><h3>REGULATORY</h3><p>United States federal drinking water rules evaluate filtered-water performance and the complete treatment train. The rule language does not support saying that regulatory credit is earned at coagulation instead of at the filter.</p><span class="card-label">FEDERAL FRAME</span></div><div class="card"><h3>OPERATIONAL</h3><p>Too little, too much, or poorly applied chemical can change solids loading, clarification, filtration, residuals, and cost. The symptom does not identify one universal cause.</p><span class="card-label">PROCESS CONSEQUENCE</span></div><div class="card"><h3>PUBLIC TRUST</h3><p>Turbidity is an important treatment-performance indicator. It is not a direct pathogen measurement, and it must be interpreted within the applicable treatment and monitoring requirements.</p><span class="card-label">EVIDENCE BOUNDARY</span></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">02</div><div class="band-txt"><div class="band-k">What changes when one condition is weak?</div><div class="band-h">The live jar</div></div></div></div><section class="beat surface-black" id="beat-02-live-jar"><div class="wrap"><p class="learner-question">What changes when one condition is weak?</p><article class="block block-interaction" id="block-jar"><h2>The live jar</h2><p>Start with the balanced teaching state. Change one qualitative condition at a time. Watch which part of the sequence becomes weak, then read the diagnostic explanation. The controls are deliberately non-numeric. They teach cause and consequence without pretending that one dose or mixing value applies to every facility.</p><div class="interaction jar-model" data-stage="raw" data-coagulant="balanced" data-flocculation="balanced"><h3>Qualitative clarification sequence</h3><p>Reveal how chemical condition and flocculation energy affect different stages without presenting a transferable dose or mixing threshold.</p><p class="boundary"><b>Model boundary:</b> Educational qualitative model. Low, balanced, and excess are not quantities or recommendations. Results do not represent a facility, product, water, design, regulation, safety limit, or health limit.</p><div class="sim"><div class="sim-top"><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="raw" aria-label="Raw water" aria-pressed="true"><span class="stage-number">STAGE 00</span><span class="stage-title">Raw water</span><span class="stage-note">Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="coagulation" aria-label="Coagulation" aria-pressed="false"><span class="stage-number">STAGE 01</span><span class="stage-title">Coagulation</span><span class="stage-note">Chemical conditions change particle stability or create precipitates that can capture particles.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="flocculation" aria-label="Flocculation" aria-pressed="false"><span class="stage-number">STAGE 02</span><span class="stage-title">Flocculation</span><span class="stage-note">Controlled contact allows destabilized particles and precipitates to form larger aggregates.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="separation" aria-label="Separation" aria-pressed="false"><span class="stage-number">STAGE 03</span><span class="stage-title">Separation</span><span class="stage-note">Settling or another separation step receives the aggregate population created upstream.</span></button></div><div class="canvas-shell" aria-hidden="true"><canvas class="jar-canvas"></canvas><div class="canvas-label">QUALITATIVE PARTICLE MODEL</div></div><div class="condition-rail"><fieldset><legend>COAGULANT CONDITION</legend><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="low" aria-pressed="false">Insufficient condition</button><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="balanced" aria-pressed="true">Effective teaching condition</button><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="excess" aria-pressed="false">Excess condition</button></fieldset><fieldset><legend>FLOCCULATION ENERGY</legend><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="low" aria-pressed="false">Limited contact</button><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="balanced" aria-pressed="true">Controlled contact</button><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="excess" aria-pressed="false">Excessive energy</button></fieldset></div><div class="sim-cap"><div class="jar-result" role="status" aria-live="polite" aria-atomic="true"><p class="jar-stage-result"></p><p class="jar-condition-result"></p><p class="jar-question"></p></div><div class="qualitative-readout"><span>PARTICLE STATE <b class="readout-particle">DISPERSED</b></span><span>AGGREGATE STATE <b class="readout-aggregate">FINE</b></span><span>NEXT PROCESS <b class="readout-next">COAGULATION</b></span></div></div></div><div class="stability-graphic"><svg viewBox="0 0 900 260" role="img" aria-labelledby="stability-title stability-desc"><title id="stability-title">From particle stability to separable aggregates</title><desc id="stability-desc">A qualitative sequence shows a dispersed particle population, a changed coagulation condition, controlled contact, and larger aggregates that can reach separation.</desc><rect width="900" height="260" fill="#151515"/><text x="24" y="30" class="svg-kicker">FROM STABILITY TO SEPARATION</text><g class="dispersed-particles"><circle cx="105" cy="126" r="25"/><circle cx="196" cy="100" r="18"/><circle cx="184" cy="178" r="15"/><circle cx="90" cy="191" r="11"/></g><text x="145" y="235" class="svg-label">A particle population may remain dispersed</text><path d="M265 132H350" class="svg-arrow"/><text x="307" y="112" class="svg-step">CHANGE CONDITION</text><g class="prepared-particles"><circle cx="430" cy="126" r="22"/><circle cx="481" cy="126" r="22"/><circle cx="456" cy="171" r="17"/></g><text x="455" y="235" class="svg-label">A changed condition creates contact</text><path d="M545 132H630" class="svg-arrow"/><text x="587" y="112" class="svg-step">CONTROL CONTACT</text><g class="aggregate"><circle cx="744" cy="139" r="52"/><circle cx="727" cy="124" r="16"/><circle cx="762" cy="130" r="18"/><circle cx="742" cy="159" r="15"/></g><text x="744" y="235" class="svg-label">Aggregates reach separation</text></svg><div class="stability-mobile"><div><b>01 · DISPERSED</b><span>A particle population may remain dispersed.</span></div><div><b>02 · CONDITION CHANGES</b><span>Destabilization or precipitate capture creates contact.</span></div><div><b>03 · AGGREGATES GROW</b><span>Larger aggregates can reach the next separation step.</span></div></div></div><noscript><div class="jar-fallback"><h4>Text equivalent</h4><ol><li><b>Raw water:</b> Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.</li><li><b>Coagulation:</b> Chemical conditions change particle stability or create precipitates that can capture particles.</li><li><b>Flocculation:</b> Controlled contact allows destabilized particles and precipitates to form larger aggregates.</li><li><b>Separation:</b> Settling or another separation step receives the aggregate population created upstream.</li></ol><ul><li><b>Insufficient condition:</b> The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness.</li><li><b>Effective teaching condition:</b> The model shows particles prepared for contact. This is a teaching state, not a dose target.</li><li><b>Excess condition:</b> The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence.</li><li><b>Limited contact:</b> The model shows small aggregates because contact opportunity is limited.</li><li><b>Controlled contact:</b> The model shows aggregate growth under a qualitative teaching condition.</li><li><b>Excessive energy:</b> The model shows aggregate breakage as a possible consequence of excessive shear.</li></ul><p><b>Next evidence question:</b> Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?</p></div></noscript><script type="application/json" class="jar-data">{"stages":[{"id":"raw","label":"Raw water","explanation":"Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary."},{"id":"coagulation","label":"Coagulation","explanation":"Chemical conditions change particle stability or create precipitates that can capture particles."},{"id":"flocculation","label":"Flocculation","explanation":"Controlled contact allows destabilized particles and precipitates to form larger aggregates."},{"id":"separation","label":"Separation","explanation":"Settling or another separation step receives the aggregate population created upstream."}],"coagulant":[{"id":"low","label":"Insufficient condition","result":"The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness."},{"id":"balanced","label":"Effective teaching condition","result":"The model shows particles prepared for contact. This is a teaching state, not a dose target."},{"id":"excess","label":"Excess condition","result":"The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence."}],"flocculation":[{"id":"low","label":"Limited contact","result":"The model shows small aggregates because contact opportunity is limited."},{"id":"balanced","label":"Controlled contact","result":"The model shows aggregate growth under a qualitative teaching condition."},{"id":"excess","label":"Excessive energy","result":"The model shows aggregate breakage as a possible consequence of excessive shear."}],"next_evidence_question":"Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?"}</script></div><div class="pullquote"><p>Coagulation changes the condition. Flocculation creates the contact. Separation reveals whether the upstream sequence worked.</p><span>ONE WATER FOUNDATION · CONCEPT BRIEF 001</span></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">03</div><div class="band-txt"><div class="band-k">What language do I need to describe the sequence accurately?</div><div class="band-h">Key terms explained</div></div></div></div><section class="beat surface-white" id="beat-03-terms"><div class="wrap"><p class="learner-question">What language do I need to describe the sequence accurately?</p><article class="block block-prose" id="block-terms"><h2>Key terms explained</h2><p>The language matters because each term points to a different observation, measurement, or decision.</p><div class="card-grid "><div class="card"><h3>COLLOID</h3><p>A very small suspended particle. Whether it settles depends on size, density, shape, water conditions, and particle interactions. Do not treat one size range as a universal settling verdict.</p><div class="example"><b>AT THE PLANT</b>At the plant, ask what the particle population is and how it behaves through the actual train.</div></div><div class="card"><h3>ZETA POTENTIAL</h3><p>An electrokinetic measurement associated with particle interactions. It can inform an investigation, but there is no universal target that applies to every water and coagulant.</p><div class="example"><b>AT THE PLANT</b>Use the instrument as evidence alongside chemistry, jar results, and process performance.</div></div><div class="card"><h3>COAGULANT</h3><p>A chemical that can destabilize particles or form hydroxide precipitates that capture particles. Charge neutralization is one mechanism, not the whole story.</p><div class="example"><b>AT THE PLANT</b>Product chemistry, dose basis, pH, alkalinity, temperature, and application point all matter.</div></div><div class="card"><h3>FLOCCULANT OR POLYMER</h3><p>A polymer can have different jobs, but those jobs cannot be transferred casually between drinking water, wastewater, filtration, and residuals handling.</p><div class="example"><b>AT THE PLANT</b>Define the exact product, sector, purpose, dose basis, and application point before assigning it one fixed job.</div></div><div class="card"><h3>G VALUE</h3><p>G is the mean velocity-gradient parameter used to summarize bulk mixing intensity. It is useful for design and diagnosis, but it does not reveal every local shear condition or prove wasted energy.</p><div class="example"><b>AT THE PLANT</b>Treat G and detention time as design and diagnostic inputs, not universal setpoints or diagnoses.</div></div><div class="card"><h3>TAPERED FLOCCULATION</h3><p>Mixing intensity is reduced through successive stages so aggregate growth can continue with less avoidable breakage.</p><div class="example"><b>AT THE PLANT</b>The actual staging and range must follow the facility design basis and current conditions.</div></div><div class="card"><h3>ALKALINITY</h3><p>The water&#x27;s buffering capacity. Aluminum and iron salts can consume alkalinity and lower pH, which can change coagulation performance.</p><div class="example"><b>AT THE PLANT</b>Review pH and alkalinity with product, dose, and raw-water changes.</div></div><div class="card"><h3>JAR TEST</h3><p>A bench-scale comparison used to examine treatment conditions. It can support a decision when it represents the process and follows the approved facility method.</p><div class="example"><b>AT THE PLANT</b>A jar result is evidence. It is not automatic permission to change a full-scale process.</div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">04</div><div class="band-txt"><div class="band-k">Where does the consequence appear downstream?</div><div class="band-h">Where it sits in the treatment train</div></div></div></div><section class="beat surface-black" id="beat-04-system"><div class="wrap"><p class="learner-question">Where does the consequence appear downstream?</p><article class="block block-visual" id="block-system-fit"><h2>Where it sits in the treatment train</h2><p>Read the map from top to bottom. A weak chemical condition can leave particles poorly prepared for contact. Weak or excessive flocculation can leave aggregates too small, too fragile, or broken. Clarification and filtration then receive a different solids load and particle population. A downstream symptom narrows the investigation, but it does not prove one cause.</p><figure><img src="../visuals/treatment-train-placeholder.svg" alt="Horizontal conventional surface-water treatment train from source through rapid mix, flocculation, separation, filtration, and disinfection. A lower diagnostic rail lists evidence to review before assigning one cause."><figcaption><b>How to read this:</b> Read the treatment train from left to right, then use the lower diagnostic rail to trace a downstream symptom backward through source water, chemistry, mixing, and observations. <b>Conclusion:</b> A problem at one stage changes the load and conditions seen downstream.</figcaption></figure><div class="card-grid "><div class="card"><h3>DRINKING WATER</h3><p>This brief centers conventional and direct filtration drinking-water treatment under United States authority. Facility design and rule applicability still control.</p></div><div class="card"><h3>WASTEWATER</h3><p>Some particle and chemical mechanisms may recur, but objectives, residuals, permits, equipment, and evidence differ. Use a separately governed brief.</p></div><div class="card"><h3>STORMWATER</h3><p>Chemically assisted treatment may be used in specific systems, but flashy flows, permits, receiving waters, and site controls require their own evidence.</p></div><div class="card"><h3>REUSE AND INDUSTRIAL</h3><p>Pretreatment may affect downstream separation and fouling, but the application, water matrix, product, and performance objective must be reviewed separately.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">05</div><div class="band-txt"><div class="band-k">What does a defensible jar-test workflow preserve?</div><div class="band-h">Jar test protocol</div></div></div></div><section class="beat surface-black" id="beat-07-protocol"><div class="wrap"><p class="learner-question">What does a defensible jar-test workflow preserve?</p><article class="block block-protocol" id="block-protocol"><h2>Jar test protocol</h2><p>The original timers and revolutions per minute looked facility-ready. This governed version preserves the three-stage workflow but removes universal settings.</p><div class="protocol-grid"><div class="protocol-step"><div class="step-number">1</div><h3>RAPID MIX</h3><p>Add the approved coagulant according to the facility method and reproduce the relevant rapid-mix condition. Record product, dose basis, water, time, and equipment.</p></div><div class="protocol-step"><div class="step-number">2</div><h3>CONTROLLED FLOCCULATION</h3><p>Reproduce the approved staged contact sequence. Observe formation, size, strength, breakage, and clarity between aggregates without inventing a universal speed.</p></div><div class="protocol-step"><div class="step-number">3</div><h3>SEPARATE AND SAMPLE</h3><p>Stop mixing, use the approved settling or separation interval, and sample from the same defined location and depth so comparisons remain meaningful.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">06</div><div class="band-txt"><div class="band-k">What should I do before changing a setting?</div><div class="band-h">Do this, not that</div></div></div></div><section class="beat surface-white" id="beat-08-judgment"><div class="wrap"><p class="learner-question">What should I do before changing a setting?</p><article class="block block-decision" id="block-decisions"><h2>Do this, not that</h2><p>Good operating judgment starts by separating a symptom from an authorized change. The written change-control pattern below is OWOS recommended governance, not a federal regulatory requirement.</p><div class="comparisons"><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Add every chemical at one convenient point because the process is described as coagulation and flocculation.</p></div><div class="do-this"><span>DO THIS</span><p>Match chemical application to the approved product purpose, process stage, mixing condition, and facility procedure.</p><div class="consequence">Product chemistry and application determine whether a polymer survives, contacts the intended solids, and performs its assigned job.</div></div></div><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Hold one coagulant dose through every source-water condition because it worked before.</p></div><div class="do-this"><span>DO THIS</span><p>Investigate meaningful raw-water and process shifts with the approved monitoring and test method, then follow change authority and documentation.</p><div class="consequence">A facility-specific record explains why a change was considered, authorized, monitored, and reversed if needed.</div></div></div><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Respond to one turbidity result by raising dose alone.</p></div><div class="do-this"><span>DO THIS</span><p>Confirm sample location, pH, alkalinity, temperature, product and feed condition, raw-water change, flow, mixing equipment, and downstream observations.</p><div class="consequence">The same symptom can arise from different chemical, mechanical, sampling, or process causes.</div></div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">07</div><div class="band-txt"><div class="band-k">What is missing from our current decision record?</div><div class="band-h">Where does your plant stand?</div></div></div></div><section class="beat surface-black" id="beat-09-diagnostic"><div class="wrap"><p class="learner-question">What is missing from our current decision record?</p><article class="block block-diagnostic" id="block-diagnostic"><h2>Where does your plant stand?</h2><p>Eight questions. The point is not a score. The point is to expose the missing record before someone reaches for a setting.</p><ol class="audit-list"><li><span>01</span><p>When was the last representative jar or pilot test tied to a meaningful water or process change?</p></li><li><span>02</span><p>Is the rapid-mix and flocculation design basis documented and still representative of the installed equipment?</p></li><li><span>03</span><p>Is each chemical product, purpose, feed point, and authority current and documented?</p></li><li><span>04</span><p>Are pH, alkalinity, temperature, turbidity, flow, dose, and process observations time aligned?</p></li><li><span>05</span><p>Can staff distinguish intended microfloc from a downstream separation problem?</p></li><li><span>06</span><p>Is there a written dose-change procedure with limits, monitoring, rollback, and escalation?</p></li><li><span>07</span><p>Are residuals production and disposal consequences reviewed with chemical changes?</p></li><li><span>08</span><p>Can the facility trace a change from observation to test, authorization, performance, and final record?</p></li></ol><div class="pullquote"><p>A dictionary tells you what a word means. A concept brief tells you what to look for when the process goes wrong.</p><span>ONE WATER FOUNDATION</span></div></article><article class="block block-visual" id="block-cross-sector-transfer"><h2>Carry the question across sectors, not the setting</h2><p>Drinking water, wastewater, and stormwater professionals can share the particle-conditioning and separation mental model. Each sector must reestablish its own source, loading, process, procedure, monitoring, and authority boundary.</p><figure><img src="../visuals/cross-sector-particle-pathways.svg" alt="Three sector-specific rows trace particles or solids from source through conditioning or aggregation to separation. A boundary states that shared physics does not create shared settings or authority."><figcaption><b>How to read this:</b> Read each sector row from left to right, then read the lower boundary rail to see what must be reverified before the concept transfers. <b>Conclusion:</b> Transfer the diagnostic question across sectors, but never transfer a setting or operating instruction without new evidence and qualified authority.</figcaption></figure></article><article class="block block-assessment" id="block-stage-check"><h2>Diagnose before changing</h2><p>Use the complete treatment sequence to decide what a downstream symptom does and does not prove.</p><section class="concept-assessment" id="assessment-stage-check" data-concept-assessment="multiple-choice" data-completion="clarification-stage-check"><p class="assessment-kicker">LEARNING CHECK</p><h3>A filter run becomes short after a source-water change. What is the strongest first conclusion from this brief?</h3><div class="assessment-options"><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="0" data-correct="false"> Increase coagulant dose because short filter runs prove underdosing.</label><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="1" data-correct="true"> Trace source water, chemistry, mixing, clarification, and filter evidence before assigning one cause.</label><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="2" data-correct="false"> Backwash more often because filtration is independent of upstream treatment.</label></div><button type="button" class="assessment-check">Check answer</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. A downstream symptom narrows the investigation but does not prove one upstream cause.</template><template data-incorrect-feedback>The symptom does not authorize a setting change. Follow the evidence chain across the complete clarification and filtration sequence.</template><p class="assessment-retry">Review the treatment-train reading guide and choose the answer that preserves uncertainty and change authority.</p><noscript><p>Enable JavaScript to record this check. The explanation remains in the evidence-backed lesson and structured assessment record.</p></noscript></section></article><article class="block block-assessment" id="block-transfer-check"><h2>Turn a shortcut into an evidence question</h2><p>Apply the concept to your role without turning public instruction into facility authority.</p><section class="concept-assessment" id="assessment-evidence-question" data-concept-assessment="reflection" data-completion="evidence-question-transfer"><p class="assessment-kicker">APPLIED CHECK</p><h3>Rewrite one tempting dose or mixing shortcut as an evidence question your role can responsibly ask.</h3><label>Record your explanation<textarea rows="5" data-reflection-response></textarea></label><button type="button" class="assessment-reveal">Compare with the model response</button><div class="assessment-model" hidden><p>A strong response names the observed symptom, sample location, relevant water and process conditions, approved procedure, missing evidence, authorized reviewer, monitoring plan, and rollback boundary without proposing a universal setting.</p><p><b>Retry:</b> Revise the question until it can guide investigation without acting as an operating instruction.</p></div><p class="assessment-feedback" role="status" aria-live="polite"></p></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">08</div><div class="band-txt"><div class="band-k">What does this mean for my role?</div><div class="band-h">What this means for you</div></div></div></div><section class="beat surface-white" id="beat-10-roles"><div class="wrap"><p class="learner-question">What does this mean for my role?</p><article class="block block-role" id="block-role-actions"><h2>What this means for you</h2><p>One mechanism creates different responsibilities. Each role should leave with one bounded question, not a generic operating instruction.</p><div class="card-grid "><div class="card"><h3>UTILITY DIRECTOR</h3><p>Ask whether recurring clarification problems point to training, instrumentation, maintenance, procedure, source-water change, or capital need.</p><div class="example"><b>AT THE PLANT</b>Monday: request one time-aligned view of source conditions, chemical use, clarification, filtration, and residuals.</div></div><div class="card"><h3>PLANT OPERATOR</h3><p>Document the symptom, sample location, water conditions, equipment state, approved test, and what changed before the symptom appeared.</p><div class="example"><b>AT THE PLANT</b>Monday: verify that the current jar-test and dose-change procedures match the plant.</div></div><div class="card"><h3>COMPLIANCE AND ENGINEERING</h3><p>Confirm the applicable United States federal rule, facility design basis, monitoring provisions, and record retention before interpreting performance.</p><div class="example"><b>AT THE PLANT</b>Monday: trace one recent process change through approval, monitoring, and the compliance record.</div></div><div class="card"><h3>IT AND SCADA</h3><p>Make source, chemistry, process, and performance records queryable at compatible timestamps without turning the data model into automatic operating authority.</p><div class="example"><b>AT THE PLANT</b>Monday: inspect tag definitions, time resolution, gaps, units, and historian alignment.</div></div><div class="card"><h3>GIS AND SOURCE WATER</h3><p>Connect rainfall, source conditions, intake observations, and plant response as evidence for investigation, not as an automatic dose command.</p><div class="example"><b>AT THE PLANT</b>Monday: compare one documented source-water event with the plant record.</div></div><div class="card"><h3>FINANCE AND RATES</h3><p>Evaluate chemical, energy, residuals, production, labor, monitoring, and risk together. Do not promise savings before the technical case exists.</p><div class="example"><b>AT THE PLANT</b>Monday: define the full cost baseline and the evidence required to test an optimization case.</div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">09</div><div class="band-txt"><div class="band-k">Where can I check the source material?</div><div class="band-h">Sources and scope</div></div></div></div><section class="beat surface-off_white" id="beat-11-evidence"><div class="wrap"><p class="learner-question">Where can I check the source material?</p><article class="block block-evidence" id="block-evidence-boundary"><h2>Sources and scope</h2><p>This brief is grounded in United States federal regulations, EPA guidance, and clearly labeled United States professional context. The links below let readers inspect the original sources.</p><p>Federal requirements depend on the system, treatment technology, and current rule text. This brief explains the concept. It does not replace the applicable regulation, approved facility procedure, or qualified professional judgment.</p><div class="table-wrap"><table class="editorial-table source-table"><thead><tr><th>TYPE</th><th>SOURCE</th><th>HOW TO USE IT</th></tr></thead><tbody><tr><td><span class="source-tier">federal regulation</span></td><td><a href="https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-141/subpart-P/section-141.173">40 CFR 141.173 Filtration</a><small>United States Government Publishing Office</small></td><td>Federal filtration requirements for covered systems serving 10,000 or more people. Confirm system and treatment applicability.</td></tr><tr><td><span class="source-tier">federal regulation</span></td><td><a href="https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-141/subpart-T/section-141.551">40 CFR 141.551 Strengthened combined filter effluent turbidity limits</a><small>United States Government Publishing Office</small></td><td>Federal combined-filter-effluent requirements for covered systems serving fewer than 10,000 people. Confirm system and treatment applicability.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://www.epa.gov/sites/default/files/2020-06/documents/swtr_turbidity_gm_final_508.pdf">Surface Water Treatment Rule Turbidity Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal guidance for interpreting turbidity requirements and treatment optimization. Guidance, not regulation.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=30005ZHV.TXT">Long Term 1 Enhanced Surface Water Treatment Rule Turbidity Provisions Technical Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal technical guidance on coagulation, rapid mixing, flocculation, and turbidity.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1009JLI.TXT">Long Term 2 Enhanced Surface Water Treatment Rule Toolbox Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal guidance on optimization, jar testing, source-water variability, and pilot evaluation.</td></tr><tr><td><span class="source-tier">professional presentation</span></td><td><a href="https://www.pnws-awwa.org/wp-content/uploads/2024/06/Chemical-Mixing-Nothing-but-a-G-Thing.pdf">Chemical Mixing, Nothing But a G Thing?</a><small>Pacific Northwest Section AWWA and Carollo</small></td><td>United States professional engineering context for G and equipment-specific mixing. Not a regulation or standard.</td></tr></tbody></table></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">10</div><div class="band-txt"><div class="band-k">What should I do next?</div><div class="band-h">From understanding to action</div></div></div></div><section class="beat surface-white" id="beat-12-connected"><div class="wrap"><p class="learner-question">What should I do next?</p><article class="block block-connected_learning" id="block-sop-boundary"><h2>From understanding to action</h2><p>Use this brief to build a better question and collect the right evidence. A facility procedure is a different product. It must identify the actual water, approved chemicals, equipment, limits, monitoring, authority, rollback steps, and named approvers.</p><p>Keep the public explanation general. Keep facility-specific operating instructions inside the utility&#x27;s approved procedure and access controls.</p></article><article class="block block-faq" id="block-faq"><details><summary>Should I change dose or mixing based on this brief?</summary><p>No. Use the brief to locate the stage, formulate the question, and collect evidence. A facility change requires site-specific water data, the approved procedure, applicable United States federal requirements, and qualified professional or operational authority.</p></details></article></div></section>
 
 <section class="connected-learning" id="owos-concept-related">
@@ -1837,32 +1933,6 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
     </div>
     <div class="question-list" aria-label="Conversation starters"><button type="button" class="seed-question">What symptom and sample location make coagulation and flocculation hardest to distinguish at your facility?</button><button type="button" class="seed-question">Which source-water change most often triggers a new investigation?</button><button type="button" class="seed-question">What evidence must be present before your facility authorizes a chemical or mixing change?</button><button type="button" class="seed-question">Which statement or visual needs correction, qualification, or a better source?</button></div>
   </div>
-  <div class="wrap community-feedback">
-    <div>
-      <p class="section-kicker">COMMENT ON THIS BRIEF</p>
-      <h3>See something we should check or improve?</h3>
-      <p>Technical corrections, source suggestions, questions, and field observations are welcome. Your comment enters the moderated OWOS Community and the Concept Brief review queue.</p>
-    </div>
-    <form data-concept-feedback action="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition" method="get">
-      <label for="concept-feedback-kind">Comment type</label>
-      <select id="concept-feedback-kind" name="kind">
-        <option value="technical-feedback">Technical accuracy</option>
-        <option value="source-suggestion">Source suggestion</option>
-        <option value="question">Question</option>
-        <option value="field-note">Field observation</option>
-      </select>
-      <label for="concept-feedback-body">Comment</label>
-      <textarea id="concept-feedback-body" name="body" maxlength="1800" required placeholder="Tell us what should be checked, corrected, clarified, or discussed. Do not include confidential facility information."></textarea>
-      <div class="feedback-actions">
-        <button class="primary-action" type="submit">Post comment</button>
-        <a href="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition">Open the full Community</a>
-      </div>
-      <p class="feedback-status" data-concept-feedback-status role="status" aria-live="polite"></p>
-    </form>
-  </div>
-  <div class="wrap feedback-disclaimer">
-    This is educational content, not facility-specific operating, engineering, regulatory, safety, or health guidance. Technical comments and source corrections are welcome. Accepted corrections are reviewed and published through version control.
-  </div>
 </section>
 <section class="sop-workspace" id="owos-concept-sop">
   <div class="wrap">
@@ -1882,7 +1952,7 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
       <aside class="sop-boundary-card">
         <p class="section-kicker">WHERE THE BRIEF STOPS</p>
         <h3>A real SOP is a separate product.</h3>
-        <p>A facility-specific SOP needs controlled inputs, applicable United States federal and state review, approved chemicals and equipment, named change authority, monitoring, rollback, safety review, version history, and approvals.</p>
+        <p>A facility-specific SOP needs controlled inputs, applicable authority review, approved chemicals and equipment, named change authority, monitoring, rollback, safety review, version history, and approvals.</p>
         <p>If OWOS builds that later, it should be an authenticated agent workflow. The agent would assemble evidence and route review. It would never invent settings or approve its own work.</p>
       </aside>
     </div>
@@ -1930,21 +2000,44 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
     <p data-placement-body>APAS builds the agentic content system behind this Concept Brief lifecycle.</p>
     <a class="commercial-action" data-placement-link href="https://apas.ai" target="_blank" rel="noopener sponsored">Talk with APAS</a>
   </div>
-</article><article class="commercial-card placeholder"
- data-placement-id="vendor-concept-placeholder" data-placement-slot="concept-vendor">
-  <div class="commercial-label" data-placement-label>Paid vendor placement · Placeholder</div>
-  <div class="commercial-logo-wrap"><img data-placement-logo src="../visuals/vendor-logo-placeholder.svg"
-    alt="Vendor placeholder"></div>
-  <div class="commercial-copy">
-    <h3 data-placement-headline>A clearly labeled vendor can appear here.</h3>
-    <p data-placement-body>This preview shows the available placement without implying endorsement or influence over the lesson.</p>
-    <span class="commercial-action disabled">Reserved preview</span>
-  </div>
 </article></div>
     <p class="commercial-directory-note">Commercial placement is separate from evidence and neutral
       directory results. <a href="/directory">Browse the vendor community</a>.</p>
   </div>
 </aside>
+<section class="concept-finish" id="owos-concept-finish">
+  <div class="wrap">
+    <div class="final-recap" aria-labelledby="final-recap-title">
+      <p class="section-kicker">BEFORE YOU LEAVE</p>
+      <h2 id="final-recap-title">Carry three things forward.</h2>
+      <div class="final-recap-grid"><article><span>What changed</span><p>The particle condition changes first, then controlled contact builds aggregates, then separation removes them.</p></article><article><span>What to observe</span><p>Trace source water, chemistry, mixing, clarification, sample location, and downstream filtration together.</p></article><article><span>What not to assume</span><p>One symptom, one jar result, or this educational model does not identify or authorize a facility setting change.</p></article></div>
+    </div>
+    <div class="community-feedback">
+      <div>
+        <p class="section-kicker">COMMENT ON THIS BRIEF</p>
+        <h3>See something we should check or improve?</h3>
+        <p>Technical corrections, source suggestions, questions, and field observations are welcome. Your comment enters the moderated OWOS Community and the Concept Brief review queue.</p>
+      </div>
+      <form data-concept-feedback action="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition" method="get">
+        <label for="concept-feedback-kind">Comment type</label>
+        <select id="concept-feedback-kind" name="kind">
+          <option value="technical-feedback">Technical accuracy</option>
+          <option value="source-suggestion">Source suggestion</option>
+          <option value="question">Question</option>
+          <option value="field-note">Field observation</option>
+        </select>
+        <label for="concept-feedback-body">Comment</label>
+        <textarea id="concept-feedback-body" name="body" maxlength="1800" required placeholder="Tell us what should be checked, corrected, clarified, or discussed. Do not include confidential facility information."></textarea>
+        <div class="feedback-actions">
+          <button class="primary-action" type="submit">Post comment</button>
+          <a href="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition">Open the full Community</a>
+        </div>
+        <p class="feedback-status" data-concept-feedback-status role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <p class="feedback-disclaimer">This brief explains the concept. Facility decisions still require your approved procedures and qualified judgment.</p>
+  </div>
+</section>
 
 </main>
 <footer><div class="wrap">Educational content. Not facility-specific operating, engineering, regulatory, safety, or health guidance. Technical comments and source corrections are welcome through the OWOS Community.</div></footer>
@@ -2286,7 +2379,7 @@ document.querySelectorAll('.commercial-card[data-placement-slot]').forEach(async
       if(ad&&ad.creative){
         card.dataset.placementId=ad.id;
         card.querySelector('[data-placement-label]').textContent=ad.disclosureLabel||
-          (slot==='concept-house'?'Built and powered by APAS':'Paid vendor placement');
+          (slot==='concept-house'?'Built and powered by APAS':'Commercial connection');
         card.querySelector('[data-placement-headline]').textContent=ad.creative.headline||'';
         card.querySelector('[data-placement-body]').textContent=ad.creative.body||'';
         var logo=card.querySelector('[data-placement-logo]');

@@ -184,7 +184,6 @@ for required_markup in (
     'id="copy-sop-outline"',
     'id="owos-commercial-placements"',
     "Built and powered by APAS",
-    "Paid vendor placement",
     "Vendors and sponsors do not select, approve, rank, suppress, or modify",
 ):
     if required_markup not in html_text:
