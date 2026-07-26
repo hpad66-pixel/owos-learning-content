@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="owos-contract" content="owos-concept-brief/2">
 <meta name="owos-compiler-version" content="2.1.0">
-<meta name="owos-package-checksum" content="5dd385926bd266ff4532514d22e95efdc075f3cb9ac2f7665a723b20e3684791">
+<meta name="owos-package-checksum" content="d83178d655ea336e2d877eaced14a104ffae78a254d37c2d82c821a92cacc295">
 <meta name="owos-brief-id" content="owos:concept-brief:001">
 <meta name="owos-brief-version" content="EDITION 1.0">
 <meta name="owos-release-state" content="public-review-preview">
@@ -1507,6 +1507,57 @@ footer {
   line-height: 1.55;
 }
 
+.reader-voices {
+  margin-top: 42px;
+  padding: 34px;
+  border: 1px solid #cfc7ba;
+  background: #211f1b;
+  color: #f3efe8;
+}
+
+.reader-voices[hidden] {
+  display: none;
+}
+
+.reader-voices h2 {
+  margin: 0 0 24px;
+  color: #f3efe8;
+  font: 800 clamp(30px, 4vw, 48px)/1 Arial, "Barlow", sans-serif;
+  letter-spacing: -.03em;
+}
+
+.reader-voices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.reader-voice {
+  margin: 0;
+  padding: 24px;
+  border: 1px solid #49463f;
+  background: #2b2926;
+}
+
+.reader-voice blockquote {
+  margin: 0 0 20px;
+  color: #f3efe8;
+  font: 700 18px/1.55 "Libre Baskerville", Georgia, serif;
+}
+
+.reader-voice figcaption {
+  color: #80c9eb;
+  font: 700 10px/1.55 "Space Mono", monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.reader-voices-note {
+  margin: 18px 0 0;
+  color: #bbb4a9;
+  font-size: 11px;
+}
+
 .community-feedback h3 {
   margin: 0 0 14px;
   color: #211f1b;
@@ -1541,6 +1592,23 @@ footer {
   background: #fff;
   color: #211f1b;
   font: 15px/1.5 Arial, "Barlow", sans-serif;
+}
+
+.community-feedback .testimonial-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0 0 18px;
+  color: #4e4941;
+  font: 12px/1.5 Arial, "Barlow", sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.community-feedback .testimonial-consent input {
+  width: auto;
+  margin: 3px 0 0;
+  flex: none;
 }
 
 .community-feedback textarea {
@@ -1599,6 +1667,7 @@ footer {
 @media (max-width: 760px) {
   .quick-takeaway ol,
   .final-recap-grid,
+  .reader-voices-grid,
   .community-feedback {
     grid-template-columns: 1fr;
   }
@@ -1996,6 +2065,12 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
       <h2 id="final-recap-title">Carry three things forward.</h2>
       <div class="final-recap-grid"><article><span>What changed</span><p>The particle condition changes first, then controlled contact builds aggregates, then separation removes them.</p></article><article><span>What to observe</span><p>Trace source water, chemistry, mixing, clarification, sample location, and downstream filtration together.</p></article><article><span>What not to assume</span><p>One symptom, one jar result, or this educational model does not identify or authorize a facility setting change.</p></article></div>
     </div>
+    <section class="reader-voices" data-concept-testimonials aria-labelledby="reader-voices-title" hidden>
+      <p class="section-kicker">FROM THE LEARNING COMMUNITY</p>
+      <h2 id="reader-voices-title">What readers carried forward.</h2>
+      <div class="reader-voices-grid" data-concept-testimonial-list></div>
+      <p class="reader-voices-note">Shared with the reader's permission and approved by an OWOS learning steward. Reader comments are not technical evidence or vendor endorsements.</p>
+    </section>
     <div class="community-feedback">
       <div>
         <p class="section-kicker">COMMENT ON THIS BRIEF</p>
@@ -2005,6 +2080,7 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
       <form data-concept-feedback action="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition" method="get">
         <label for="concept-feedback-kind">Comment type</label>
         <select id="concept-feedback-kind" name="kind">
+          <option value="appreciation">What worked for me</option>
           <option value="technical-feedback">Technical accuracy</option>
           <option value="source-suggestion">Source suggestion</option>
           <option value="question">Question</option>
@@ -2012,6 +2088,10 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
         </select>
         <label for="concept-feedback-body">Comment</label>
         <textarea id="concept-feedback-body" name="body" maxlength="1800" required placeholder="Tell us what should be checked, corrected, clarified, or discussed. Do not include confidential facility information."></textarea>
+        <label class="testimonial-consent" data-testimonial-consent-row>
+          <input type="checkbox" name="testimonial-consent" value="yes" data-testimonial-consent>
+          If I selected “What worked for me,” OWOS may publish this comment with my name, role, and organization after moderator approval.
+        </label>
         <div class="feedback-actions">
           <button class="primary-action" type="submit">Post comment</button>
           <a href="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition">Open the full Community</a>
