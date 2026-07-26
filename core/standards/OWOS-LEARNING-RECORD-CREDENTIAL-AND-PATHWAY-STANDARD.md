@@ -1,6 +1,6 @@
 ---
 title: OWOS Learning Record, Credential, and Pathway Standard
-version: 1.0.0
+version: 1.1.0
 status: APPROVED IMPLEMENTATION DIRECTION
 owner: Hardeep Anand
 effective: 2026-07-26
@@ -98,8 +98,10 @@ A certificate or credit record is issued only when all applicable gates pass:
    present.
 5. **Assessment gate**: the exact assessment version and passing rule passed.
 6. **Evaluation gate**: any required learner evaluation is complete.
-7. **Accreditor gate**: the named accreditor, licensing board, or customer program approved the exact
-   offering and credit claim.
+7. **Accreditor gate**: required only for an external PDH, CEU, CU, contact-hour, or jurisdictional
+   claim. The named accreditor, licensing board, or customer program approved the exact offering
+   and credit claim. This gate does not prevent OWOS from issuing a clearly labeled provider
+   learning-hour record.
 8. **Issuance gate**: issuer identity, signer, unique credential identifier, verification URL,
    status record, and retention period are active.
 
@@ -111,16 +113,38 @@ manually bypass the rule without a separately recorded exception authority and r
 Do not treat CU, CEU, PDH, contact hour, CPC credit, certificate, badge, and certification as
 interchangeable.
 
-- A **certificate of completion** proves completion of an OWOS offering. It does not automatically
-  prove third-party credit.
+- An **OWOS Provider Learning Hour** proves one measured hour of completed OWOS learning under the
+  displayed offering and evidence record. It is provider-issued, is never described as accredited,
+  and does not automatically satisfy a licensing-board requirement.
+- A **certificate of completion** proves completion of an OWOS offering. It may display OWOS
+  Provider Learning Hours, but it does not automatically prove third-party credit.
 - A **PDH, CEU, CU, or contact hour** is recorded only under a named, verified program rule.
 - A **badge** is a portable digital achievement record.
 - A **certification** normally represents a broader assessment and maintenance program and must not
   be claimed for ordinary course completion.
 
-The proposed “NCCS CU” label remains unresolved. The system may prepare evidence, but it must display
-`credit claim disabled` until the legal entity, program name, unit definition, provider process,
-acceptance rules, and verification method are confirmed.
+The captured “NCCS CU” label remains unresolved. NCEES CPC Tracking is the documented likely match,
+but NCEES tracking is not blanket course approval and individual state boards may differ. The
+system keeps NCEES/PDH, IACET/CEU, state-operator CEU, CU, and other profiles visible as
+`external_approval_pending` until the legal entity, exact program, unit definition, provider
+process, offering approval, acceptance rules, and verification method are confirmed.
+
+## Two-layer credit model
+
+Every credit-bearing course uses two distinct layers:
+
+1. **Provider layer** — after measured time, identity, participation, assessment, content-release,
+   and issuance gates pass, OWOS records immutable `provider_issued` learning hours. These hours
+   appear on the certificate and annual learner ledger.
+2. **External layer** — PDH, CEU, CU, contact-hour, and jurisdictional profiles remain wired to the
+   same offering and evidence package. They are displayed as `external_approval_pending` until the
+   exact agency approval becomes effective. Only `approved_external` awards count in an externally
+   approved total.
+
+Provider-issued and externally approved amounts must never be combined into one unlabeled number.
+Applications, submissions, approvals, effective periods, approval identifiers, expiry, audit
+records, and corrections are versioned records. A status change creates or supersedes a record; it
+does not rewrite historical evidence.
 
 ## Certificate contract
 
@@ -151,6 +175,9 @@ Every authenticated learner dashboard provides:
 - learning in progress and completed learning;
 - credentials with active, pending, expired, superseded, and revoked states;
 - a credit ledger grouped by program, jurisdiction, renewal period, and credit type;
+- a calendar-year summary of OWOS Provider Learning Hours, completed offerings, and separately
+  labeled externally approved PDH, CEU, CU, or contact-hour totals;
+- downloadable annual audit transcripts in human-readable PDF and machine-readable CSV;
 - downloadable certificates and portable credential exports;
 - the evidence behind each completion and credit decision;
 - competencies demonstrated, developing, and not yet assessed;
@@ -207,3 +234,8 @@ Before production use, complete:
 
 An attractive certificate or successful LMS completion event is never evidence that these gates
 passed.
+
+Practitioner review is not a prerequisite for recording a provider completion hour unless the
+offering contract explicitly makes it one. It remains a separate content-quality or release gate
+where required and may not be silently bypassed to make an external credit application appear
+complete.
