@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OWOS Learner Dashboard Specimen</title>
+<style>
+:root{--graphite:#151515;--charcoal:#242424;--paper:#f2f1ec;--white:#fff;--ink:#20201e;
+--muted:#68655f;--line:#d7d3ca;--blue:#2d7db3;--amber:#d89b2b;--green:#2f7d61;--red:#b84a4a}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}.top{background:var(--graphite);color:var(--paper);padding:26px clamp(18px,5vw,70px)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1280px;
+margin:auto}.brand{font-size:14px;font-weight:800;letter-spacing:.14em}.specimen{border:1px solid #716f69;
+padding:7px 10px;font-size:11px;letter-spacing:.12em}.hero{max-width:1280px;margin:auto;padding:44px 0 22px}
+.eyebrow{color:#84c8f2;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(38px,7vw,76px);line-height:.98;max-width:900px;margin:14px 0 18px}
+.hero p{color:#cac8c1;max-width:720px;font-size:18px;line-height:1.55}
+main{max-width:1280px;margin:auto;padding:32px clamp(18px,5vw,70px) 80px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:34px}
+.stat{background:var(--white);border-top:4px solid var(--blue);padding:20px}.stat:nth-child(2){border-color:var(--green)}
+.stat:nth-child(3){border-color:var(--amber)}.stat:nth-child(4){border-color:#777}
+.stat b{display:block;font-size:32px}.stat span{color:var(--muted);font-size:13px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;border-bottom:1px solid var(--line);
+padding-bottom:13px;margin:38px 0 18px}.section-head h2{font-size:28px;margin:0}.section-head p{margin:0;color:var(--muted)}
+.learning-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.panel{background:var(--white);padding:24px}
+.panel h3{margin:0 0 8px;font-size:21px}.meta{color:var(--muted);font-size:13px;line-height:1.5}
+.progress{height:8px;background:#e4e1da;margin:18px 0 8px}.progress span{display:block;height:100%;width:35%;
+background:var(--blue)}.credential{display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:start}
+.seal{width:82px;height:82px;border-radius:50%;display:grid;place-items:center;background:var(--graphite);
+color:var(--paper);font-weight:900;letter-spacing:.08em}.status{display:inline-block;margin-top:10px;padding:5px 8px;
+background:#fff1cf;color:#67470a;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.ledger{width:100%;border-collapse:collapse;background:var(--white)}.ledger th,.ledger td{text-align:left;
+padding:14px 16px;border-bottom:1px solid var(--line);font-size:14px}.ledger th{font-size:11px;letter-spacing:.09em;
+text-transform:uppercase;color:var(--muted)}.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.path{background:var(--white);padding:22px;border-top:4px solid var(--blue)}.path[data-lane=reskill]{border-color:var(--amber)}
+.path[data-lane=cross-skill]{border-color:var(--green)}.lane{font-size:11px;font-weight:800;letter-spacing:.1em;
+text-transform:uppercase}.path h3{font-size:21px;margin:12px 0 9px}.why{color:var(--muted);font-size:14px;line-height:1.55}
+.reason{padding:12px 0;border-top:1px solid var(--line);font-size:13px}.controls{display:flex;gap:8px;flex-wrap:wrap}
+button{min-height:42px;border:1px solid #aaa69e;background:transparent;padding:0 14px;font:inherit;font-weight:700}
+button.primary{background:var(--graphite);color:var(--paper);border-color:var(--graphite)}
+button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}.boundary{margin-top:34px;padding:18px 20px;
+background:#ebe7df;border-left:5px solid var(--amber);font-size:14px;line-height:1.55}
+@media(max-width:850px){.summary,.paths{grid-template-columns:repeat(2,minmax(0,1fr))}
+.learning-grid{grid-template-columns:1fr}}@media(max-width:520px){.topline{align-items:flex-start}
+.summary,.paths{grid-template-columns:1fr}.credential{grid-template-columns:1fr}.ledger{display:block;overflow-x:auto}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="topline"><div class="brand">ONE WATER OPERATING SYSTEM</div><div class="specimen">DASHBOARD SPECIMEN</div></div>
+  <div class="hero">
+    <div class="eyebrow">My learning record</div>
+    <h1>Jordan, here is what you know and what could come next.</h1>
+    <p>One place for governed learning, completion evidence, credentials, professional credit, and
+    explainable next-learning choices.</p>
+  </div>
+</header>
+<main>
+  <section class="summary" aria-label="Learning summary">
+    <div class="stat"><b>1</b><span>Completed learning item</span></div>
+    <div class="stat"><b>3</b><span>Competencies in the record</span></div>
+    <div class="stat"><b>0</b><span>Approved third-party credits</span></div>
+    <div class="stat"><b>3</b><span>Next-learning choices</span></div>
+  </section>
+
+  <div class="section-head"><h2>Learning and credentials</h2><p>Evidence first, certificate second.</p></div>
+  <section class="learning-grid">
+    <article class="panel">
+      <div class="eyebrow">In progress</div>
+      <h3>Meaning Before Models</h3>
+      <p class="meta">AI and data foundations for governed utility decisions</p>
+      <div class="progress" aria-label="35 percent complete"><span></span></div>
+      <p class="meta">35% complete</p>
+    </article>
+    <article class="panel credential">
+      <div class="seal" aria-hidden="true">OWOS</div>
+      <div>
+        <div class="eyebrow">Completion evidence</div>
+        <h3>Coagulation vs Flocculation</h3>
+        <p class="meta">Credential specimen-001. Credit claim remains disabled while provider,
+        identity, review, time, and accreditor gates are pending.</p>
+        <span class="status">Evidence pending</span>
+      </div>
+    </article>
+  </section>
+
+  <div class="section-head"><h2>Professional credit ledger</h2><p>Completion is not automatically a PDH, CEU, or CU.</p></div>
+  <table class="ledger">
+    <thead><tr><th>Learning</th><th>Completion</th><th>Credit profile</th><th>Amount</th><th>Status</th></tr></thead>
+    <tbody><tr><td>Coagulation vs Flocculation</td><td>Recorded</td><td>NCCS CU unresolved</td><td>Not claimed</td><td>Blocked</td></tr></tbody>
+  </table>
+
+  <div class="section-head"><h2>What could come next</h2><p>AI-assisted skills-based learning pathways</p></div>
+  <section class="paths" aria-label="Next-best-learning recommendations">
+    <article class="path" data-lane="deepen">
+      <div class="lane">Deepen</div><h3>Sedimentation and Filtration</h3>
+      <p class="why">Continue the particle-conditioning sequence into downstream separation.</p>
+      <div class="reason"><b>Why:</b> completed Coagulation vs Flocculation and its next-learning edge.</div>
+      <div class="controls"><button class="primary">Add to plan</button><button>Dismiss</button></div>
+    </article>
+    <article class="path" data-lane="reskill">
+      <div class="lane">Reskill</div><h3>Meaning Before Models</h3>
+      <p class="why">Build the data and provenance foundation needed for responsible AI use.</p>
+      <div class="reason"><b>Why:</b> declared AI goal and developing evidence-boundary competency.</div>
+      <div class="controls"><button class="primary">Continue</button><button>Snooze</button></div>
+    </article>
+    <article class="path" data-lane="cross-skill">
+      <div class="lane">Cross-skill</div><h3>Stormwater Control Measure Maintenance</h3>
+      <p class="why">Carry evidence tracing into an adjacent sector without transferring process rules.</p>
+      <div class="reason"><b>Gap:</b> complete the Urban Watershed orientation first.</div>
+      <div class="controls"><button class="primary">View pathway</button><button>Correct profile</button></div>
+    </article>
+  </section>
+
+  <p class="boundary"><b>Specimen boundary:</b> This page demonstrates the governed dashboard
+  contract. It is not connected to a production identity provider, LRS, certificate signer,
+  accreditor, licensing board, or live recommendation service.</p>
+</main>
+</body>
+</html>

@@ -28,6 +28,7 @@ public_feedback:
     - community_section
     - bottom_inline_comment_form
   accepted_types:
+    - appreciation
     - technical_feedback
     - source_suggestion
     - question
@@ -37,7 +38,25 @@ public_feedback:
     - reply
     - mark_reviewed
     - mark_incorporated
+    - approve_testimonial
+    - remove_testimonial
     - close
+  testimonial_policy:
+    consent_required: true
+    consent_scope: Comment text, member name, role, and organization may be displayed on this Concept Brief only.
+    moderator_approval_required: true
+    public_location: End-of-brief reader voices section before the comment form.
+    evidence_boundary: Testimonials are learner experience comments, not technical evidence, verified answers, or vendor endorsements.
+    withdrawal_path: A member may request removal through Community; the administrator can unfeature the comment without deleting the governed discussion record.
+  administrator_metrics:
+    - total_views
+    - unique_viewers_90_days
+    - engaged_reads
+    - completion_reaches
+    - comments
+    - reviewed_comments
+    - consented_appreciations
+    - featured_testimonials
   version_control_rule: A comment never overwrites published content. An accepted correction creates a new governed version with preserved history.
 abuse_and_conflict_handling: Moderators disclose conflicts, separate vendor participation from evidence review, remove unsafe operating directives, and retain a record of substantive correction proposals.
 accessibility_behavior: Search, filters, labels, reply controls, status, and correction forms use programmatic names, keyboard access, visible focus, and announced updates.

@@ -56,10 +56,35 @@ assessment:
   deterministic_scoring: required_before_release
 
 credential:
-  status: not_configured
-  name: pending
+  status: readiness_only
+  name: OWOS course completion
   type: course_completion
   certification_claim: false
+  contract: owos-learning-record-credential/1
+  credit_profile_id: accreditor:nccs-cu-unresolved
+  credit_claim: disabled
+  certificate_state: specimen_only
+
+learning_record:
+  canonical_event_profile: owos-xapi-profile/1
+  lms_launch_preferred: cmi5
+  legacy_lms_adapter: SCORM 2004
+  portable_credential_target: Open Badges 3.0
+  learner_record_export_target: Comprehensive Learner Record 2.0
+  authenticated_identity_required: true
+  immutable_event_history_required: true
+  completion_events_enabled: false
+
+learning_pathways:
+  recommendation_policy: owos-next-best-learning/1
+  lanes:
+    - deepen
+    - reskill
+    - cross-skill
+  explainability_required: true
+  learner_control_required: true
+  protected_traits_prohibited: true
+  facility_sensitive_data_prohibited: true
 
 source_files:
   syllabus: SYLLABUS.md

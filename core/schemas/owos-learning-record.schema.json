@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://owos.ai/schemas/owos-learning-record.schema.json",
+  "title": "OWOS learning record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_profile",
+    "learner_id",
+    "activity_id",
+    "activity_version",
+    "verb",
+    "occurred_at",
+    "recorded_at",
+    "source_receipt",
+    "privacy_classification"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "event_id": {"type": "string", "pattern": "^urn:uuid:"},
+    "event_profile": {"const": "owos-xapi-profile/1"},
+    "learner_id": {"type": "string", "pattern": "^learner:"},
+    "activity_id": {"type": "string", "minLength": 1},
+    "activity_version": {"type": "string", "minLength": 1},
+    "verb": {
+      "enum": [
+        "registered",
+        "consented",
+        "launched",
+        "experienced",
+        "attempted",
+        "passed",
+        "completed",
+        "evaluated",
+        "credential-issued",
+        "credential-verified",
+        "credential-revoked",
+        "credential-superseded",
+        "recommendation-presented",
+        "recommendation-accepted",
+        "recommendation-dismissed"
+      ]
+    },
+    "result": {"type": "object"},
+    "context": {
+      "type": "object",
+      "required": ["source_commit", "compiler_version", "package_checksum"],
+      "properties": {
+        "source_commit": {"type": "string", "minLength": 7},
+        "compiler_version": {"type": "string", "minLength": 1},
+        "package_checksum": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "assessment_version": {"type": "string"},
+        "capability_registry": {"type": "string"},
+        "launch_standard": {"enum": ["native", "cmi5", "scorm-2004-adapter"]}
+      },
+      "additionalProperties": true
+    },
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "source_receipt": {"type": "string", "minLength": 1},
+    "privacy_classification": {"enum": ["learning_record", "credential_record"]},
+    "voids_event_id": {"type": "string", "pattern": "^urn:uuid:"}
+  },
+  "additionalProperties": false
+}

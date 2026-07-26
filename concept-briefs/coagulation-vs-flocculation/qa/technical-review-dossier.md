@@ -19,7 +19,8 @@ Water-sector OWOS instruction uses United States governing authorities only:
 
 1. current federal statute and regulation;
 2. current federal agency guidance tied to that authority;
-3. applicable state requirements labeled with the state and effective date;
+3. United States federal and EPA public authority only; any state-specific application belongs in
+   a separate private jurisdiction-specific work product;
 4. United States professional standards and practice references; and
 5. peer-reviewed research presented within its experimental scope.
 
@@ -35,7 +36,7 @@ infallibility. Release requires:
 1. every material assertion inventoried;
 2. an exact source trace for sourced assertions;
 3. federal regulatory text for federal requirements;
-4. state primary authority for state-specific requirements;
+4. federal primary authority for public claims, with state material excluded from the public brief;
 5. a qualified technical reviewer for technical assertions;
 6. jurisdiction and effective-date review for regulatory assertions;
 7. visible scope, limitations, and conflict treatment;
@@ -69,7 +70,7 @@ infallibility. Release requires:
 | Colloids are universally 0.001 to 1 micrometre and never settle. | Rejected as an absolute definition. | Use a sourced operational definition and discuss slow settling. |
 | Metal coagulants work only by cancelling negative charge. | Incomplete. Hydrolysis, precipitation, sweep capture, adsorption, and other mechanisms can matter. | Teach multiple mechanisms at introductory depth. |
 | Polymer never replaces coagulant. | Rejected. The cited Tennessee material states that some cationic polymers can be primary coagulants or aids. | Define roles by product and application. |
-| One universal rapid-mix and flocculation range applies. | Rejected. Federal guidance and state references provide context-specific information. | Separate federal guidance, named state requirements, and study-specific results. |
+| One universal rapid-mix and flocculation range applies. | Rejected. Federal guidance and facility conditions are context-specific. | Keep the public brief federal and conceptual; route jurisdiction-specific values to a separately governed private work product. |
 | PACl at G 900 per second is probably wasting energy and shearing floc. | Unsupported application inference. | Reframe as a facility-specific investigation question. |
 | Jar testing is the only defensible dose-setting method. | Rejected as absolute. | Explain jar tests, filterability tests, pilot tests, and full-scale confirmation. |
 | Fixed jar-test rpm values form a transferable protocol. | Rejected. RPM is apparatus-specific and should represent the process being tested. | Build a governed SOP only after equipment-specific review. |
@@ -105,7 +106,7 @@ The qualified reviewer should record:
 
 1. whether the revised mechanism description is chemically and operationally sound;
 2. which federal rule subpart applies to each intended system class;
-3. which state requirements need separate variants or warnings;
+3. which jurisdiction-specific questions must be routed to a separate private work product;
 4. which quantitative values, if any, belong in learner-facing content;
 5. whether the alum and ferric teaching reactions are balanced, appropriately simplified, and
    correctly bounded;

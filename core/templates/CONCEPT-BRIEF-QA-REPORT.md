@@ -69,6 +69,12 @@ blocked hard gate.
 - [ ] Inactive vendor placements are hidden and active placements retain the editorial-independence
   disclosure.
 - [ ] The short facility-judgment disclaimer matches the approved plain-language form.
+- [ ] Positive feedback requires explicit testimonial consent and separate moderator approval before
+  public display.
+- [ ] Featured testimonials expose only consented identity fields and are labeled as learner
+  experience, not technical evidence or vendor endorsement.
+- [ ] The administrator can inspect views, unique viewers, engaged reads, completion reaches,
+  comments, reviewed comments, consented appreciation, and featured testimonials.
 
 ## Verification coverage
 

@@ -1,0 +1,74 @@
+[
+  {
+    "schema_version": 1,
+    "recommendation_id": "owos:recommendation:sample-deepen-001",
+    "learner_id": "learner:sample-001",
+    "lane": "deepen",
+    "learning_item": {
+      "id": "concept:sedimentation",
+      "title": "Sedimentation and Filtration",
+      "version": "candidate",
+      "domain": "drinking-water"
+    },
+    "reason": "This continues the particle-conditioning sequence into the downstream separation decisions affected by coagulation and flocculation.",
+    "evidence": [
+      "Completed owos:concept-brief:001",
+      "Next-learning edge concept:sedimentation"
+    ],
+    "competencies": ["competency:clarification-train-reasoning"],
+    "prerequisites": {"satisfied": ["owos:concept-brief:001"], "missing": []},
+    "ranking_method": "rules-plus-ai",
+    "confidence": 0.92,
+    "freshness": "2026-07-26",
+    "learner_controls": ["accept", "dismiss", "snooze", "correct-profile"]
+  },
+  {
+    "schema_version": 1,
+    "recommendation_id": "owos:recommendation:sample-cross-001",
+    "learner_id": "learner:sample-001",
+    "lane": "cross-skill",
+    "learning_item": {
+      "id": "concept:stormwater-control-measure-maintenance",
+      "title": "Stormwater Control Measure Maintenance",
+      "version": "candidate",
+      "domain": "stormwater"
+    },
+    "reason": "The learner has practiced tracing process evidence and downstream consequences. This adjacent topic applies the same evidence discipline to changing stormwater controls without treating the process rules as interchangeable.",
+    "evidence": [
+      "Demonstrated competency:particle-conditioning",
+      "Declared goal: cross-sector stormwater awareness"
+    ],
+    "competencies": ["competency:cross-sector-systems-thinking"],
+    "prerequisites": {
+      "satisfied": ["competency:evidence-bounded-investigation"],
+      "missing": ["concept:urban-watershed-orientation"]
+    },
+    "ranking_method": "rules-plus-ai",
+    "confidence": 0.78,
+    "freshness": "2026-07-26",
+    "learner_controls": ["accept", "dismiss", "snooze", "correct-profile"]
+  },
+  {
+    "schema_version": 1,
+    "recommendation_id": "owos:recommendation:sample-reskill-001",
+    "learner_id": "learner:sample-001",
+    "lane": "reskill",
+    "learning_item": {
+      "id": "owos:course:meaning-before-models",
+      "title": "Meaning Before Models",
+      "version": "0.7.0-live-review",
+      "domain": "artificial-intelligence"
+    },
+    "reason": "This builds the data and meaning foundations needed to use AI recommendations with provenance instead of treating model output as operational authority.",
+    "evidence": [
+      "Declared goal: practical AI and data foundations",
+      "Developing competency:evidence-bounded-investigation"
+    ],
+    "competencies": ["competency:governed-ai-context"],
+    "prerequisites": {"satisfied": [], "missing": []},
+    "ranking_method": "rules-plus-ai",
+    "confidence": 0.86,
+    "freshness": "2026-07-26",
+    "learner_controls": ["accept", "dismiss", "snooze", "correct-profile"]
+  }
+]

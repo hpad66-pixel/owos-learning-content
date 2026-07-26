@@ -10,6 +10,9 @@ Give the user one conversational workspace. Never make the user operate internal
 Use the standard name **OWOS Course Engine** for this lifecycle and **OWOS Course Compiler** for its
 renderer. Visuals, interactions, animations, and quizzes resolve through the shared
 `core/learning-capabilities/registry.yaml`; do not create a course-only copy of a shared capability.
+Also apply `core/standards/OWOS-LEARNING-RECORD-CREDENTIAL-AND-PATHWAY-STANDARD.md`. Preserve the
+canonical xAPI record, cmi5 preference, SCORM 2004 compatibility boundary, fail-closed credential
+gates, and learner-controlled deepen, reskill, and cross-skill recommendations.
 
 ## Start
 
@@ -19,6 +22,9 @@ renderer. Visuals, interactions, animations, and quizzes resolve through the sha
    - `../../../hardeep-soul/SOUL.md` and `../../../hardeep-soul/authoring/AUTHORING_STANDARD.md`;
    - `../../core/standards/COURSE-PRODUCTION-CONTRACT.md`, `../../core/standards/COURSE-OPERATING-STANDARD.md`, `../../core/standards/COURSE-DESIGN-SYSTEM.md`, `../../core/standards/VISUAL-ARSENAL.md`, and `../../core/standards/WRITING-STANDARD.md`;
    - `../../core/components/COMPONENTS.md`, `../../core/components/QUIZ-TYPES.md`, and the rendered component and quiz galleries, resolving paths from the course directory.
+   - `../../core/standards/OWOS-COURSE-PRODUCTION-ACTIVATION-PROMPT.md`,
+     `../../core/standards/OWOS-LEARNING-RECORD-CREDENTIAL-AND-PATHWAY-STANDARD.md`, and
+     `../../core/templates/COURSE-QUALITY-CONTROL-DOSSIER.md`.
 3. Treat the current user message as course input. Preserve the user's substantive wording in a dated file under `conversations/` unless it is already recorded.
 4. Run the internal workspace scan. Do not ask the user to run it:
 

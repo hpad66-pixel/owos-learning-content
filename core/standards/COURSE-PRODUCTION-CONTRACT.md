@@ -117,9 +117,16 @@ required teaching sections viewed
 
 - Scoring rules, accepted responses, feedback, retry, and completion requirements must be explicit and testable.
 - Scrolling alone never means completion.
-- Browser state is a convenience cache. Supabase is the learner-record authority after consent and authentication.
+- Browser state is a convenience cache. The OWOS Learning Record Service is the authority after
+  consent and authentication; Supabase may be its approved implementation store.
 - Stable course, lesson, competency, graph, assessment, and event identifiers are required.
 - Credentials and certification claims stay disabled until their separate evidence and approval gates pass.
+- Courses implement `core/standards/OWOS-LEARNING-RECORD-CREDENTIAL-AND-PATHWAY-STANDARD.md`
+  through the same registry used by Concept Briefs. xAPI is canonical; cmi5 is the preferred LMS
+  launch; SCORM 2004 is a compatibility adapter; and credential issuance always fails closed.
+- Every course declares explainable deepen, reskill, and cross-skill learning-pathway behavior.
+  Rules determine eligibility; AI may rank eligible learning but may not issue credit, waive a
+  prerequisite, or make employment decisions.
 
 ## 9. Quality assurance and release
 

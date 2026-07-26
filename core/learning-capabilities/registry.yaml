@@ -130,3 +130,22 @@ learning_record_contract:
   simulation_model_version_required: true
   language_and_unit_policy_required: true
   measured_time_basis_required: true
+
+credential_and_pathway_contract:
+  standard: core/standards/OWOS-LEARNING-RECORD-CREDENTIAL-AND-PATHWAY-STANDARD.md
+  contract: owos-learning-record-credential/1
+  canonical_event_profile: owos-xapi-profile/1
+  preferred_lms_launch: cmi5
+  legacy_lms_adapter: SCORM 2004
+  portable_credential_target: Open Badges 3.0
+  learner_record_export_target: Comprehensive Learner Record 2.0
+  credential_schema: core/schemas/owos-credential-record.schema.json
+  learning_record_schema: core/schemas/owos-learning-record.schema.json
+  recommendation_schema: core/schemas/owos-learning-recommendation.schema.json
+  required_recommendation_lanes: [deepen, reskill, cross-skill]
+  explainability_required: true
+  learner_control_required: true
+  protected_traits_prohibited: true
+  facility_sensitive_data_prohibited: true
+  accreditor_gate_required_for_credit: true
+  issuance_fail_closed: true

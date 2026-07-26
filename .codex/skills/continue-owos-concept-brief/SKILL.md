@@ -114,6 +114,11 @@ learning module with dynamic explanation, distributed checks, an applied transfe
 cross-sector connection, and deterministic completion evidence unless an approved exception is more
 accurate.
 
+Read and apply `core/standards/OWOS-LEARNING-RECORD-CREDENTIAL-AND-PATHWAY-STANDARD.md`. Bind each
+brief to the canonical xAPI record, cmi5 launch preference, governed SCORM 2004 compatibility
+adapter, fail-closed credential profile, and explainable learner-controlled deepen, reskill, and
+cross-skill pathways. Never let an LMS completion value become credential authority.
+
 Complete the six durable learning-system records before implementation: placement and remediation;
 shared-registry capability lock; stable learning events with consent, privacy, authority, and
 retention plus completion-version preservation and correction notification; assessment governance;
