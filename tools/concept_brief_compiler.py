@@ -2004,13 +2004,6 @@ def _render_public_connections(package: dict[str, Any], public_config: dict[str,
   </div>
 </section>
 <div class="drawer-backdrop" data-drawer-close hidden></div>
-<aside class="context-drawer" id="related-drawer" role="dialog" aria-modal="true" aria-labelledby="related-drawer-title" hidden>
-  <button class="drawer-close" type="button" data-drawer-close aria-label="Close related learning">Close</button>
-  <p class="section-kicker">RELATED LEARNING</p>
-  <h2 id="related-drawer-title">Where this concept connects</h2>
-  <div class="drawer-cards">{related_cards}</div>
-  <a class="drawer-bottom-link" href="#owos-concept-related">See all related learning on this page</a>
-</aside>
 <aside class="context-drawer" id="community-drawer" role="dialog" aria-modal="true" aria-labelledby="community-drawer-title" hidden>
   <button class="drawer-close" type="button" data-drawer-close aria-label="Close discussion">Close</button>
   <p class="section-kicker">DISCUSS</p>
@@ -2019,13 +2012,6 @@ def _render_public_connections(package: dict[str, Any], public_config: dict[str,
   <p class="privacy-warning">{esc(package["community"]["facility_information_warning"])}</p>
   <a class="primary-action" href="{esc(forum_url)}">Continue in the OWOS Community</a>
   <a class="drawer-bottom-link" href="#owos-concept-community">Read the discussion boundary</a>
-</aside>
-<aside class="context-drawer" id="sop-drawer" role="dialog" aria-modal="true" aria-labelledby="sop-drawer-title" hidden>
-  <button class="drawer-close" type="button" data-drawer-close aria-label="Close SOP pathway">Close</button>
-  <p class="section-kicker">SOP PATHWAY</p>
-  <h2 id="sop-drawer-title">A brief explains. A facility SOP governs.</h2>
-  <p>Use the public outline to start the internal conversation. A full facility procedure belongs in a separate authenticated workflow with controlled evidence, named reviewers, version history, and approval.</p>
-  <a class="primary-action" href="#owos-concept-sop">See the SOP outline</a>
 </aside>"""
 
 

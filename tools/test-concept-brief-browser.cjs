@@ -59,16 +59,14 @@ async function inspect(browser, mode) {
   );
   await reflection.locator(".assessment-reveal").click();
   const reflectionComplete = await reflection.getAttribute("data-complete");
-  const relatedOpener = page.getByRole("button", { name: "Related learning", exact: true });
-  await relatedOpener.click();
-  const relatedDrawerVisible = await page.locator("#related-drawer").isVisible();
+  const communityOpener = page.getByRole("button", { name: "Community", exact: true });
+  await communityOpener.click();
+  const communityDrawerVisible = await page.locator("#community-drawer").isVisible();
   await page.keyboard.press("Escape");
-  const drawerFocusReturned = await relatedOpener.evaluate(
+  const drawerFocusReturned = await communityOpener.evaluate(
     (node) => document.activeElement === node,
   );
-  await page.getByRole("button", { name: "SOP outline", exact: true }).click();
-  const sopDrawerVisible = await page.locator("#sop-drawer").isVisible();
-  await page.getByRole("link", { name: "See the SOP outline", exact: true }).click();
+  await page.locator("#owos-concept-sop").scrollIntoViewIfNeeded();
   await page.getByRole("button", { name: "Copy the outline", exact: true }).click();
   await page.waitForFunction(
     () => /copied|blocked/i.test(document.querySelector("#copy-sop-status")?.textContent || ""),
@@ -178,9 +176,8 @@ async function inspect(browser, mode) {
     reflectionComplete,
     focusOutline,
     focusedJarControl,
-    relatedDrawerVisible,
+    communityDrawerVisible,
     drawerFocusReturned,
-    sopDrawerVisible,
     sopCopyStatus,
     ...state,
   };
@@ -241,9 +238,8 @@ async function inspectNoJavaScript(browser) {
     || !item.appreciationOption
     || !item.feedbackAfterCommercial
     || !item.inactiveVendorHidden
-    || !item.relatedDrawerVisible
+    || !item.communityDrawerVisible
     || !item.drawerFocusReturned
-    || !item.sopDrawerVisible
     || !/copied|blocked/i.test(item.sopCopyStatus)
     || !item.boundaryVisible
     || !item.canvasReady
