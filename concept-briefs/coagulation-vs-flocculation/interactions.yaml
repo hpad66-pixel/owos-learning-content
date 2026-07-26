@@ -1,0 +1,73 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+interactions:
+  - interaction_id: interaction-jar
+    title: Qualitative clarification sequence
+    component: concept-jar-model
+    dynamic_concept: true
+    teaching_job: Reveal how chemical condition and flocculation energy affect different stages without presenting a transferable dose or mixing threshold.
+    model_boundary: Educational qualitative model. Low, balanced, and excess are not quantities or recommendations. Results do not represent a facility, product, water, design, regulation, safety limit, or health limit.
+    inputs:
+      - process_stage
+      - qualitative_coagulant_condition
+      - qualitative_flocculation_energy
+    outputs:
+      - qualitative_particle_state
+      - qualitative_floc_state
+      - diagnostic_explanation
+      - next_evidence_question
+    initial_state:
+      stage: raw
+      coagulant_condition: balanced
+      flocculation_energy: balanced
+    stages:
+      - id: raw
+        label: Raw water
+        explanation: Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.
+      - id: coagulation
+        label: Coagulation
+        explanation: Chemical conditions change particle stability or create precipitates that can capture particles.
+      - id: flocculation
+        label: Flocculation
+        explanation: Controlled contact allows destabilized particles and precipitates to form larger aggregates.
+      - id: separation
+        label: Separation
+        explanation: Settling or another separation step receives the aggregate population created upstream.
+    conditions:
+      coagulant:
+        - id: low
+          label: Insufficient condition
+          result: The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness.
+        - id: balanced
+          label: Effective teaching condition
+          result: The model shows particles prepared for contact. This is a teaching state, not a dose target.
+        - id: excess
+          label: Excess condition
+          result: The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence.
+      flocculation:
+        - id: low
+          label: Limited contact
+          result: The model shows small aggregates because contact opportunity is limited.
+        - id: balanced
+          label: Controlled contact
+          result: The model shows aggregate growth under a qualitative teaching condition.
+        - id: excess
+          label: Excessive energy
+          result: The model shows aggregate breakage as a possible consequence of excessive shear.
+    next_evidence_question: Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?
+    failure_states:
+      - insufficient_coagulation_condition
+      - possible_excess_condition
+      - limited_particle_contact
+      - illustrative_floc_breakage
+    keyboard_behavior: All controls are native buttons grouped by purpose. Arrow keys are not required. Focus is visible and feedback is announced.
+    touch_behavior: Controls use at least 44 by 44 CSS pixels and do not require hover, dragging, or precision.
+    live_feedback: The selected stage, qualitative result, boundary, and next evidence question remain visible and are announced in a polite live region.
+    motion_behavior: The full-width canvas uses the supplied prototype's particle movement pattern as the experience reference. Particles disperse, mix, aggregate, break, or settle according to the selected qualitative state. Motion carries no numeric or time-dependent operating meaning.
+    mobile_treatment: Four stage controls form a two-by-two grid above a full-width canvas. Qualitative condition controls and results stack below it.
+    reduced_motion_treatment: The canvas renders the selected particle state as a static frame. The textual explanation and qualitative readout carry the complete meaning.
+    no_javascript_treatment: All four stages, all condition labels, the model boundary, and the evidence question remain readable in a structured fallback.
+    completion_id: jar-diagnosis
+    completion_evidence: Learner selects one weak condition, identifies the affected stage, and states why the model cannot authorize a facility change.
+    review_status: working_implementation_pending_qualified_review

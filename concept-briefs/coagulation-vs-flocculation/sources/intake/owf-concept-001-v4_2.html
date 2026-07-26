@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coagulation vs Flocculation — One Water Foundation · Concept Brief 001</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital@0;1&family=Space+Mono:wght@400;700&family=Barlow:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808; --black2:#0F0F0F; --panel:#151515; --panel2:#1E1E1E;
+  --line:#2A2A2A;
+  --white:#FFFFFF; --off:#F4F7FA; --w2:#E8E8E8; --w3:#B4B4B4;
+  --ink:#111111; --ink2:#3A3A3A;
+  --gold:#EBCA62;            /* gold — DARK SURFACES ONLY as text */
+  --gold-deep:#8A6608;       /* gold for text on white — 5.27:1 */
+  --gold-dim:rgba(235,202,98,0.14);
+  --blue:#1D5C90;            /* heading band + text on white — 7:1 */
+  --blue-lt:#387DB8;         /* action blue */
+  --cyan:#BAE7F9;
+  --green:#6DD0A3; --green-d:#1B7A52;
+  --red:#F2777A;   --red-d:#B02B2E;
+  --amber:#E8A33D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--w2);font-family:'Barlow',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+
+/* ── SURFACES ─────────────────────────────── */
+.s-black{background:var(--black);color:var(--w2)}
+.s-white{background:var(--white)}
+.s-white,.s-white p,.s-white td,.s-white li{color:var(--ink2)}
+.s-white h2,.s-white h3,.s-white h4,.s-white b,.s-white strong{color:var(--ink)}
+.s-white .kicker{color:var(--blue)}
+.s-off{background:var(--off)}
+.s-off,.s-off p,.s-off td{color:var(--ink2)}
+.s-off h2,.s-off h3,.s-off b,.s-off strong{color:var(--ink)}
+.s-off .kicker{color:var(--blue)}
+section{padding:88px 0}
+section.tight{padding:64px 0}
+
+/* ── BLUE HEADING BAND ─────────────────────── */
+.band{background:var(--blue);padding:44px 0 46px;position:relative;overflow:hidden}
+.band::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--gold)}
+.band-in{max-width:1160px;margin:0 auto;padding:0 40px;display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap}
+.band-n{font-family:'Bebas Neue',sans-serif;font-size:70px;line-height:.8;color:rgba(255,255,255,0.26);letter-spacing:2px;flex:none}
+.band-txt{flex:1;min-width:260px}
+.band-k{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:2.4px;color:var(--cyan);text-transform:uppercase;margin-bottom:8px}
+.band-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.4vw,50px);line-height:1;letter-spacing:1px;color:#fff}
+
+/* ── TYPE ──────────────────────────────────── */
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,8vw,100px);line-height:.9;letter-spacing:1px;color:#fff}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.2vw,48px);line-height:1;letter-spacing:1px;margin-bottom:16px}
+h3{font-family:'Bebas Neue',sans-serif;font-size:23px;letter-spacing:.8px;margin-bottom:8px}
+.kicker{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:2.4px;color:var(--cyan);text-transform:uppercase;margin-bottom:13px}
+.lede{font-size:18px;max-width:840px;margin-bottom:40px}
+.s-black .lede{color:var(--w2)}
+.rule{width:56px;height:3px;background:var(--gold);margin:0 0 22px}
+
+/* ── HERO ──────────────────────────────────── */
+.hero{background:var(--black);padding:86px 0 92px;border-bottom:1px solid var(--line)}
+.hgrid{display:grid;grid-template-columns:1.32fr 1fr;gap:56px;align-items:center}
+.dek{font-family:'Libre Baskerville',serif;font-size:18px;line-height:1.72;color:var(--w2);margin-top:26px;max-width:620px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.2px;color:var(--w3);border:1px solid var(--line);padding:6px 11px}
+.mon{border-left:3px solid var(--gold);padding-left:20px;margin-bottom:24px}
+.mon-n{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:var(--gold)}
+.mon-l{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.4px;color:var(--w3);text-transform:uppercase}
+
+/* ── NAV ───────────────────────────────────── */
+nav{position:sticky;top:0;z-index:120;background:rgba(8,8,8,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{max-width:1160px;margin:0 auto;padding:12px 40px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.tile{width:33px;height:33px;border-radius:9px;background:var(--blue-lt);display:flex;align-items:center;justify-content:center;flex:none}
+.tile svg{width:17px;height:17px}
+.bname{font-weight:800;font-size:16.5px;color:#fff;letter-spacing:-.01em;line-height:1.15}
+.bsub{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.4px;color:var(--w3)}
+.bsub b{color:var(--gold)}
+.nbadge{margin-left:auto;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--gold);border:1px solid rgba(235,202,98,.4);padding:5px 12px;border-radius:20px;display:flex;align-items:center;gap:7px}
+.dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pl 2.2s infinite}
+@keyframes pl{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.55)}}
+
+/* ── REVEAL ────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.rd1{transition-delay:.09s}.rd2{transition-delay:.18s}.rd3{transition-delay:.27s}
+
+/* ── TIER BADGES ───────────────────────────── */
+.tier{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.3px;padding:3px 8px;border-radius:3px;display:inline-block;margin-left:6px;white-space:nowrap;vertical-align:middle}
+.t-reg{background:var(--blue);color:#fff}
+.t-std{background:var(--green-d);color:#fff}
+.t-prac{background:var(--gold);color:#241d05}
+.t-con{background:var(--amber);color:#2a1a03}
+.t-judg{background:var(--ink);color:#fff}
+.s-black .t-judg{background:var(--cyan);color:#08283a}
+
+/* ── CARDS ─────────────────────────────────── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{padding:26px;border-radius:5px;transition:.3s}
+.s-white .card,.s-off .card{background:var(--off);border:1px solid #E2E8EE;border-left:4px solid var(--gold)}
+.s-off .card{background:#fff}
+.s-white .card:hover,.s-off .card:hover{transform:translateY(-3px);border-left-color:var(--blue)}
+.s-black .card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--gold)}
+.s-black .card:hover{background:var(--panel2);transform:translateY(-3px)}
+.card p{font-size:15px}
+.ex{margin-top:14px;padding:12px 14px;border-radius:0 4px 4px 0;font-size:13.5px}
+.s-white .ex,.s-off .ex{background:rgba(29,92,144,.08);border-left:3px solid var(--blue);color:var(--ink2)}
+.s-black .ex{background:var(--gold-dim);border-left:3px solid var(--gold);color:var(--w2)}
+.ex b{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.3px;display:block;margin-bottom:5px}
+.s-white .ex b,.s-off .ex b{color:var(--blue)}
+.s-black .ex b{color:var(--gold)}
+
+/* ── SIM (always black) ────────────────────── */
+.sim{border:1px solid var(--line);background:var(--panel);border-radius:6px;overflow:hidden}
+.sim-top{display:flex;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sb{flex:1;min-width:150px;background:transparent;border:0;border-right:1px solid var(--line);padding:16px 13px;cursor:pointer;text-align:left;transition:background .25s}
+.sb:hover{background:var(--panel2)}
+.sb.on{background:var(--gold)}
+.sb.on .sb-n,.sb.on .sb-t,.sb.on .sb-d{color:#241d05!important}
+.sb-n{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:1.3px;color:var(--cyan);display:block}
+.sb-t{font-family:'Bebas Neue',sans-serif;font-size:21px;color:#fff;display:block;letter-spacing:.7px;line-height:1.1;margin-top:2px}
+.sb-d{font-size:11.5px;color:var(--w3);display:block}
+#cw{background:#000}
+canvas{display:block;width:100%;height:340px}
+.sim-cap{padding:20px 24px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.sim-cap p{font-size:15px;color:var(--w2)}
+.sim-cap strong{color:var(--gold)}
+.ro{font-family:'Space Mono',monospace;font-size:11px;color:var(--w3);text-align:right;line-height:1.95;white-space:nowrap}
+.ro b{color:var(--gold)}
+.ctrl{display:flex;gap:12px;padding:14px 24px;border-top:1px solid var(--line);align-items:center;flex-wrap:wrap}
+.sl{font-family:'Space Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:1px}
+input[type=range]{accent-color:var(--gold);width:140px}
+.btn{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.2px;background:var(--blue-lt);color:#fff;border:0;padding:9px 17px;border-radius:4px;cursor:pointer;transition:.25s}
+.btn:hover{background:var(--gold);color:#241d05}
+
+/* ── DO / NOT ──────────────────────────────── */
+.dn{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px}
+.bad,.good{border-radius:5px;padding:24px}
+.s-white .bad{background:rgba(176,43,46,.06);border:1px solid rgba(176,43,46,.3)}
+.s-white .good{background:rgba(27,122,82,.06);border:1px solid rgba(27,122,82,.3)}
+.dnl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;margin-bottom:9px}
+.s-white .bad .dnl{color:var(--red-d)}.s-white .good .dnl{color:var(--green-d)}
+.cq{margin-top:13px;font-family:'Space Mono',monospace;font-size:11px;border-top:1px dashed #D3DCE4;padding-top:10px;color:#6B7A87}
+
+/* ── TABLE ─────────────────────────────────── */
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl th{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-align:left;padding:13px 14px;vertical-align:bottom}
+.s-white .tbl th,.s-off .tbl th{border-bottom:3px solid var(--gold);color:var(--blue)}
+.s-black .tbl th{border-bottom:3px solid var(--gold);color:var(--gold)}
+.tbl td{padding:14px;vertical-align:top}
+.s-white .tbl td,.s-off .tbl td{border-bottom:1px solid #E2E8EE}
+.s-black .tbl td{border-bottom:1px solid var(--line);color:var(--w2)}
+.s-white .tbl a,.s-off .tbl a{color:var(--blue);font-size:12px;word-break:break-all}
+.s-black .tbl a{color:var(--cyan);font-size:12px;word-break:break-all}
+.pill{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:1px;padding:4px 9px;border-radius:3px;display:inline-block}
+.p-g{background:var(--green-d);color:#fff}.p-a{background:var(--amber);color:#2a1a03}.p-r{background:var(--red-d);color:#fff}
+
+/* ── PULL QUOTE ────────────────────────────── */
+.pq{background:var(--gold);padding:64px 40px;text-align:center}
+.pq *{color:#1F1904!important}
+.pq-t{font-family:'Libre Baskerville',serif;font-style:italic;font-size:clamp(21px,3.2vw,34px);line-height:1.42;max-width:900px;margin:0 auto}
+.pq-c{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.8px;margin-top:20px;opacity:.62}
+
+/* ── SVG BOX (black) ───────────────────────── */
+.svgbox{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:24px;margin:30px 0}
+svg.resp{width:100%;height:auto;display:block}
+
+/* ── PROTOCOL ──────────────────────────────── */
+.proto{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:24px}
+.step p{color:var(--w2)}
+.stepn{font-family:'Bebas Neue',sans-serif;font-size:50px;color:var(--gold);line-height:1}
+.timer{font-family:'Space Mono',monospace;font-size:28px;color:#fff;margin:10px 0}
+.bar{height:4px;background:#2A2A2A;border-radius:2px;overflow:hidden;margin-top:10px}
+.barf{height:100%;width:0;background:var(--gold);transition:width .3s linear}
+
+/* ── ACCURACY ──────────────────────────────── */
+.acc{border-radius:5px;padding:28px}
+.s-off .acc,.s-white .acc{background:#fff;border:1px solid #DCE5EC;border-left:5px solid var(--blue)}
+.s-black .acc{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--blue-lt)}
+.legend{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 10px}
+
+/* ── SITE NAV ROW ──────────────────────────── */
+.navrow{background:var(--black2);border-bottom:1px solid var(--line);overflow-x:auto}
+.navrow-in{max-width:1160px;margin:0 auto;padding:0 40px;display:flex;gap:2px;white-space:nowrap}
+.nl{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.2px;color:var(--w3);padding:11px 14px;text-decoration:none;border-bottom:2px solid transparent;transition:.2s}
+.nl:hover{color:var(--gold);background:#151515}
+.nl.here{color:#fff;border-bottom-color:var(--gold);background:#151515}
+.crumb{max-width:1160px;margin:0 auto;padding:11px 40px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.3px;color:var(--w3)}
+.crumb a{color:var(--cyan);text-decoration:none}
+.crumb span{color:#555;margin:0 8px}
+
+/* ── GRAPH LINKS ───────────────────────────── */
+.gnode{display:block;padding:16px 18px;border-radius:5px;text-decoration:none;transition:.25s;border:1px solid #E2E8EE;background:#fff}
+.gnode:hover{border-color:var(--blue);transform:translateY(-2px)}
+.gnode-k{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.4px;color:var(--blue);display:block;margin-bottom:5px}
+.gnode-t{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.6px;color:var(--ink);display:block;line-height:1.15}
+.gnode-d{font-size:13px;color:#5A6874;display:block;margin-top:4px}
+.gedge{display:flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.2px;color:var(--blue);margin:22px 0 12px}
+.gedge::after{content:'';flex:1;height:1px;background:#DCE5EC}
+
+/* ── SPONSOR RAIL ──────────────────────────── */
+.rail{background:var(--black2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden}
+.rail-h{max-width:1160px;margin:0 auto 16px;padding:0 40px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px}
+.rail-k{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--w3)}
+.rail-k b{color:var(--gold)}
+.rail-cta{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.2px;color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(186,231,249,.4)}
+.track{display:flex;gap:14px;width:max-content;animation:slide 42s linear infinite}
+.rail:hover .track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.spon{display:block;min-width:260px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue-lt);border-radius:5px;padding:15px 18px;text-decoration:none;transition:.25s}
+.spon:hover{background:var(--panel2);border-left-color:var(--gold)}
+.spon-t{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.3px;color:var(--w3);display:block}
+.spon-n{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:.7px;display:block;line-height:1.2;margin-top:3px}
+.spon-d{font-size:12.5px;color:var(--w3);display:block;margin-top:2px}
+.spon-tag{font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:1.1px;color:var(--gold);display:block;margin-top:6px}
+.disclose{max-width:1160px;margin:16px auto 0;padding:0 40px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.8px;color:#6A6A6A;line-height:1.9}
+
+footer{background:var(--black);border-top:3px solid var(--gold);padding:54px 0}
+.fbrand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.fmeta{font-family:'Space Mono',monospace;font-size:11px;color:var(--w3);line-height:2}
+.fmeta b{color:var(--gold)}
+
+@media(max-width:1100px){.hgrid{grid-template-columns:1fr;gap:36px}.g3,.proto{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){
+.wrap,.band-in{padding:0 20px}section{padding:56px 0}.navin{padding:11px 20px}
+.g2,.g3,.dn,.proto{grid-template-columns:1fr}
+.sim-cap{grid-template-columns:1fr}.ro{text-align:left}
+.band-n{font-size:46px}.tbl{font-size:13px}.tbl td,.tbl th{padding:10px 8px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navin">
+    <div class="tile"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2c4 6 7 9.2 7 13a7 7 0 0 1-14 0c0-3.8 3-7 7-13z"/></svg></div>
+    <div><div class="bname">One Water Foundation</div><div class="bsub">POWERED BY <b>APAS.AI</b></div></div>
+    <div class="nbadge"><span class="dot"></span>CONCEPT BRIEF 001</div>
+  </div>
+  <div class="navrow"><div class="navrow-in">
+    <a class="nl" href="https://owos.ai/os">ASK THE GRAPH</a>
+    <a class="nl" href="https://owos.ai/lexicon">DICTIONARY</a>
+    <a class="nl here" href="#">CONCEPT BRIEFS</a>
+    <a class="nl" href="https://owos.ai/learn">COURSES</a>
+    <a class="nl" href="https://owos.ai/learning-pathways">PATHWAYS</a>
+    <a class="nl" href="https://owos.ai/work">CREATE WORK</a>
+    <a class="nl" href="https://owos.ai/directory">DIRECTORY</a>
+    <a class="nl" href="https://owos.ai/knowledge-commons">COMMONS</a>
+    <a class="nl" href="https://owos.ai/trust">TRUST</a>
+  </div></div>
+  <div style="background:var(--black);border-bottom:1px solid var(--line)"><div class="crumb">
+    <a href="https://owos.ai/">OWOS</a><span>›</span><a href="#">CONCEPT BRIEFS</a><span>›</span><a href="#">CLARIFICATION</a><span>›</span>COAGULATION VS FLOCCULATION
+  </div></div>
+</nav>
+
+<!-- HERO — BLACK -->
+<section class="hero">
+  <div class="wrap hgrid">
+    <div class="reveal">
+      <div class="kicker">Unit Process · Clarification Train</div>
+      <h1>COAGULATION<br><span style="color:var(--gold)">VS</span> FLOCCULATION</h1>
+      <p class="dek">Two different jobs. Two different chemistries. Two different mixing energies. Confusing them is the most common reason a clarifier underperforms and a filter runs short.</p>
+      <div class="tags"><span class="tag">DRINKING WATER</span><span class="tag">WASTEWATER</span><span class="tag">STORMWATER</span><span class="tag">SDWA · SWTR</span><span class="tag">NPDES</span><span class="tag">JAR TESTING</span></div>
+    </div>
+    <div>
+      <div class="mon reveal"><div class="mon-n">&lt;1 µm</div><div class="mon-l">Colloid size that never settles unaided</div></div>
+      <div class="mon reveal rd1"><div class="mon-n">600–1000</div><div class="mon-l">Conventional rapid-mix G value, s⁻¹</div></div>
+      <div class="mon reveal rd2"><div class="mon-n">20–80</div><div class="mon-l">Flocculation G value, s⁻¹</div></div>
+      <div class="mon reveal rd3"><div class="mon-n">0.45–0.5</div><div class="mon-l">mg/L alkalinity consumed per mg/L alum</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 01 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">01</div><div class="band-txt"><div class="band-k">Why This Exists</div><div class="band-h">Chemistry changes the particle before physics can remove it</div></div></div></div>
+
+<section class="s-white">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="rule"></div>
+      <p class="lede">Raw water carries particles too small and too electrically stable to ever settle. Clay, silt, algae, organic color, bacteria, and precipitated metals all sit in the same trap: they repel each other, so they stay suspended. Gravity alone cannot solve this.</p>
+    </div>
+    <div class="g3">
+      <div class="card reveal"><h3>REGULATORY</h3><p>Under the Surface Water Treatment Rule, conventional plants demonstrate turbidity and log-removal credit. That credit is earned in coagulation, not at the filter. <span class="tier t-reg">REGULATORY</span></p></div>
+      <div class="card reveal rd1"><h3>OPERATIONAL</h3><p>Every dollar of overdose becomes sludge you dewater and haul. Alum produces roughly 0.26 mg/L sludge per mg/L fed. Underdose becomes short filter runs and lost production. <span class="tier t-std">STANDARD</span></p></div>
+      <div class="card reveal rd2"><h3>PUBLIC TRUST</h3><p>Turbidity is the visible proxy for pathogen protection. A clarifier that carries over is the failure the public can see and a consent order will name. <span class="tier t-judg">JUDGMENT</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 02 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">02</div><div class="band-txt"><div class="band-k">See It Happen</div><div class="band-h">The live jar</div></div></div></div>
+
+<section class="s-black">
+  <div class="wrap">
+    <p class="lede reveal">Step through the four stages. Push the dose past 88 and watch charge reversal. Push mixing energy above 78 during flocculation and watch the floc shear apart.</p>
+    <div class="sim reveal">
+      <div class="sim-top">
+        <button class="sb on" data-s="0"><span class="sb-n">STAGE 00</span><span class="sb-t">RAW WATER</span><span class="sb-d">Stable colloids</span></button>
+        <button class="sb" data-s="1"><span class="sb-n">STAGE 01</span><span class="sb-t">COAGULATION</span><span class="sb-d">Rapid mix · charge neutralized</span></button>
+        <button class="sb" data-s="2"><span class="sb-n">STAGE 02</span><span class="sb-t">FLOCCULATION</span><span class="sb-d">Slow mix · floc grows</span></button>
+        <button class="sb" data-s="3"><span class="sb-n">STAGE 03</span><span class="sb-t">SEDIMENTATION</span><span class="sb-d">Quiescent · floc settles</span></button>
+      </div>
+      <div id="cw"><canvas id="jar"></canvas></div>
+      <div class="ctrl">
+        <span class="sl">MIX ENERGY (G)</span><input type="range" id="gv" min="5" max="100" value="50">
+        <span class="sl">COAGULANT DOSE</span><input type="range" id="dose" min="0" max="100" value="60">
+        <button class="btn" id="reset">RESET JAR</button>
+      </div>
+      <div class="sim-cap">
+        <p id="cap"><strong>Raw water.</strong> Every particle carries the same negative surface charge, so they push each other apart. They will stay suspended indefinitely. No amount of settling time fixes this.</p>
+        <div class="ro">ZETA POTENTIAL <b id="r1">−28 mV</b><br>MEAN FLOC SIZE <b id="r2">1 µm</b><br>SETTLED TURBIDITY <b id="r3">18 NTU</b></div>
+      </div>
+    </div>
+
+    <div class="svgbox reveal">
+      <svg class="resp" viewBox="0 0 900 240" role="img" aria-label="Stability trap">
+        <rect width="900" height="240" fill="#151515"/>
+        <text x="20" y="28" font-family="Space Mono" font-size="11" fill="#BAE7F9" letter-spacing="2">THE STABILITY TRAP</text>
+        <circle cx="120" cy="126" r="27" fill="#387DB8" opacity=".28" stroke="#387DB8" stroke-width="2"/><text x="120" y="132" font-family="Space Mono" font-size="16" fill="#BAE7F9" text-anchor="middle">−</text>
+        <circle cx="232" cy="108" r="23" fill="#387DB8" opacity=".28" stroke="#387DB8" stroke-width="2"/><text x="232" y="114" font-family="Space Mono" font-size="15" fill="#BAE7F9" text-anchor="middle">−</text>
+        <circle cx="206" cy="180" r="18" fill="#387DB8" opacity=".28" stroke="#387DB8" stroke-width="2"/><text x="206" y="186" font-family="Space Mono" font-size="13" fill="#BAE7F9" text-anchor="middle">−</text>
+        <path d="M150 120 L202 111" stroke="#F2777A" stroke-width="2" stroke-dasharray="5 4"><animate attributeName="stroke-dashoffset" from="0" to="18" dur="1.1s" repeatCount="indefinite"/></path>
+        <path d="M142 149 L190 170" stroke="#F2777A" stroke-width="2" stroke-dasharray="5 4"><animate attributeName="stroke-dashoffset" from="0" to="18" dur="1.1s" repeatCount="indefinite"/></path>
+        <text x="176" y="224" font-family="Barlow" font-size="13" fill="#B4B4B4" text-anchor="middle">Like charges repel → permanent suspension</text>
+        <defs><marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#EBCA62"/></marker></defs>
+        <path d="M318 134 L388 134" stroke="#EBCA62" stroke-width="3" marker-end="url(#a1)"/>
+        <text x="353" y="122" font-family="Space Mono" font-size="10" fill="#EBCA62" text-anchor="middle">COAGULANT</text>
+        <circle cx="488" cy="134" r="24" fill="#EBCA62" opacity=".3" stroke="#EBCA62" stroke-width="2"/><text x="488" y="140" font-family="Space Mono" font-size="14" fill="#EBCA62" text-anchor="middle">0</text>
+        <circle cx="542" cy="134" r="24" fill="#EBCA62" opacity=".3" stroke="#EBCA62" stroke-width="2"/><text x="542" y="140" font-family="Space Mono" font-size="14" fill="#EBCA62" text-anchor="middle">0</text>
+        <text x="515" y="224" font-family="Barlow" font-size="13" fill="#B4B4B4" text-anchor="middle">Charge neutralized → particles can touch</text>
+        <path d="M606 134 L676 134" stroke="#EBCA62" stroke-width="3" marker-end="url(#a1)"/>
+        <text x="641" y="122" font-family="Space Mono" font-size="10" fill="#EBCA62" text-anchor="middle">POLYMER + G</text>
+        <circle cx="782" cy="134" r="43" fill="#6DD0A3" opacity=".2" stroke="#6DD0A3" stroke-width="2"><animate attributeName="r" values="41;45;41" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="767" cy="122" r="13" fill="#6DD0A3" opacity=".55"/><circle cx="797" cy="130" r="15" fill="#6DD0A3" opacity=".55"/><circle cx="778" cy="152" r="12" fill="#6DD0A3" opacity=".55"/>
+        <text x="782" y="224" font-family="Barlow" font-size="13" fill="#B4B4B4" text-anchor="middle">Floc grows → gravity finally works</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="pq"><div class="pq-t">Coagulation is a chemical event measured in seconds. Flocculation is a physical event measured in minutes. Design the mixing for the wrong one and both fail.</div><div class="pq-c">ONE WATER FOUNDATION · CONCEPT BRIEF 001</div></div>
+
+<!-- BAND 03 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">03</div><div class="band-txt"><div class="band-k">Plain English</div><div class="band-h">Key terms explained</div></div></div></div>
+
+<section class="s-white">
+  <div class="wrap">
+    <div class="reveal"><div class="rule"></div><p class="lede">No jargon used to explain jargon. Every term gets a meaning and a plant-floor example.</p></div>
+    <div class="g2">
+      <div class="card reveal"><h3>COLLOID</h3><p>A particle small enough that it never settles — roughly 0.001 to 1 micron. Not dissolved, not settleable. It lives in the gap between the two. <span class="tier t-std">STANDARD</span></p><div class="ex"><b>AT THE PLANT</b>Clay from a rain event. Raw water reads 40 NTU and the sed basin still reads 38 NTU after four hours without chemistry.</div></div>
+      <div class="card reveal rd1"><h3>ZETA POTENTIAL</h3><p>A measure of how strongly particles repel each other. Raw water typically sits near −15 to −30 mV. Coagulation drives that toward zero. <span class="tier t-std">STANDARD</span></p><div class="ex"><b>AT THE PLANT</b>A streaming current monitor is the practical real-time proxy. It tells you charge status between jar tests.</div></div>
+      <div class="card reveal rd2"><h3>COAGULANT</h3><p>An inorganic metal salt — aluminum or iron based — that hydrolyzes in water, releases positively charged species, and cancels the particle's negative charge. <span class="tier t-std">STANDARD</span></p><div class="ex"><b>AT THE PLANT</b>Alum, ferric chloride, ferric sulfate, PACl (polyaluminum chloride), ACH (aluminum chlorohydrate).</div></div>
+      <div class="card reveal"><h3>FLOCCULANT / POLYMER</h3><p>A long-chain organic molecule that bridges already-destabilized particles into larger, stronger floc. It does not replace the coagulant. It amplifies it. <span class="tier t-std">STANDARD</span></p><div class="ex"><b>AT THE PLANT</b>Anionic polymer as a settling aid ahead of the sed basin; cationic polymer for sludge conditioning ahead of the belt press.</div></div>
+      <div class="card reveal rd1"><h3>G VALUE</h3><p>Velocity gradient in reciprocal seconds — the engineering number for mixing intensity. G = √(P / µV). High G disperses chemical; low G grows floc; high G applied late shears floc apart. <span class="tier t-std">STANDARD</span></p><div class="ex"><b>AT THE PLANT</b>Gt (the Camp number) is the flocculation design parameter, typically 2×10⁴ to 10⁵. Large G with short time gives small dense floc; small G with long time gives large light floc.</div></div>
+      <div class="card reveal rd2"><h3>TAPERED FLOCCULATION</h3><p>Decreasing G across successive stages. Build small dense floc first, then aggregate gently into large dense floc. <span class="tier t-std">STANDARD</span></p><div class="ex"><b>AT THE PLANT</b>A commonly cited three-stage taper is 50, 20, 10 s⁻¹. Mechanical flocculators should have variable-speed drives with roughly 4:1 turndown.</div></div>
+      <div class="card reveal"><h3>ALKALINITY</h3><p>The water's buffering capacity. Coagulants consume it. Too little and pH crashes, the coagulant stops hydrolyzing correctly, and the dose stops working. <span class="tier t-std">STANDARD</span></p><div class="ex"><b>AT THE PLANT</b>Alum consumes 0.45–0.5 mg/L alkalinity as CaCO₃ per mg/L fed. ACH consumes roughly 0.18 mg/L, which is why it is chosen where pH control is tight.</div></div>
+      <div class="card reveal rd1"><h3>JAR TEST</h3><p>Bench-scale replication of the full-scale train. The only defensible way to set a dose, and the record a regulator will ask for. <span class="tier t-judg">JUDGMENT</span></p><div class="ex"><b>AT THE PLANT</b>Run it on every meaningful raw-water shift — storm event, seasonal turnover, source switch — not on a fixed calendar.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 04 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">04</div><div class="band-txt"><div class="band-k">System Fit</div><div class="band-h">Where it sits in the treatment train</div></div></div></div>
+
+<section class="s-black">
+  <div class="wrap">
+    <p class="lede reveal">Not a standalone process. It is the front end that decides how every downstream unit performs.</p>
+    <div class="svgbox reveal">
+      <svg class="resp" viewBox="0 0 980 288" role="img" aria-label="Treatment train">
+        <rect width="980" height="288" fill="#151515"/>
+        <text x="20" y="26" font-family="Space Mono" font-size="11" fill="#BAE7F9" letter-spacing="2">CONVENTIONAL SURFACE WATER TRAIN</text>
+        <g font-family="Bebas Neue" font-size="17" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+          <rect x="20" y="60" width="118" height="62" rx="4" fill="#1E1E1E" stroke="#2A2A2A"/><text x="79" y="97">INTAKE</text>
+          <rect x="156" y="60" width="130" height="62" rx="4" fill="#1E1E1E" stroke="#EBCA62" stroke-width="2"/><text x="221" y="90">RAPID MIX</text><text x="221" y="108" font-family="Space Mono" font-size="8.5" fill="#EBCA62" letter-spacing="0">COAGULATION</text>
+          <rect x="304" y="60" width="150" height="62" rx="4" fill="#1E1E1E" stroke="#EBCA62" stroke-width="2"/><text x="379" y="90">FLOCCULATION</text><text x="379" y="108" font-family="Space Mono" font-size="8.5" fill="#EBCA62" letter-spacing="0">3-STAGE TAPERED</text>
+          <rect x="472" y="60" width="140" height="62" rx="4" fill="#1E1E1E" stroke="#2A2A2A"/><text x="542" y="97">SEDIMENTATION</text>
+          <rect x="630" y="60" width="118" height="62" rx="4" fill="#1E1E1E" stroke="#2A2A2A"/><text x="689" y="97">FILTRATION</text>
+          <rect x="766" y="60" width="194" height="62" rx="4" fill="#1E1E1E" stroke="#2A2A2A"/><text x="863" y="97">DISINFECTION</text>
+        </g>
+        <g stroke="#387DB8" stroke-width="2.5" stroke-dasharray="6 5">
+          <path d="M138 91 L154 91"><animate attributeName="stroke-dashoffset" from="22" to="0" dur="1.2s" repeatCount="indefinite"/></path>
+          <path d="M286 91 L302 91"><animate attributeName="stroke-dashoffset" from="22" to="0" dur="1.2s" repeatCount="indefinite"/></path>
+          <path d="M454 91 L470 91"><animate attributeName="stroke-dashoffset" from="22" to="0" dur="1.2s" repeatCount="indefinite"/></path>
+          <path d="M612 91 L628 91"><animate attributeName="stroke-dashoffset" from="22" to="0" dur="1.2s" repeatCount="indefinite"/></path>
+          <path d="M748 91 L764 91"><animate attributeName="stroke-dashoffset" from="22" to="0" dur="1.2s" repeatCount="indefinite"/></path>
+        </g>
+        <g font-family="Space Mono" font-size="10" fill="#B4B4B4">
+          <text x="221" y="148" text-anchor="middle">30–60 sec</text><text x="379" y="148" text-anchor="middle">20–60 min</text><text x="542" y="148" text-anchor="middle">2–4 hr</text>
+        </g>
+        <rect x="20" y="188" width="940" height="76" rx="4" fill="#1E1E1E" stroke="#2A2A2A"/>
+        <text x="40" y="214" font-family="Space Mono" font-size="10" fill="#EBCA62" letter-spacing="1.5">DOWNSTREAM CONSEQUENCE</text>
+        <text x="40" y="238" font-family="Barlow" font-size="14" fill="#E8E8E8">Weak coagulation → carryover to filters → short runs, higher backwash volume, turbidity</text>
+        <text x="40" y="256" font-family="Barlow" font-size="14" fill="#E8E8E8">excursions, and a reportable SWTR event.</text>
+      </svg>
+    </div>
+    <div class="g3">
+      <div class="card reveal"><h3>WASTEWATER</h3><p>Same physics, different target. Chemically enhanced primary treatment uses ferric or alum to strip TSS and phosphorus ahead of biology. Polymer conditions sludge before dewatering.</p></div>
+      <div class="card reveal rd1"><h3>STORMWATER</h3><p>Ballasted and chemically assisted clarification for wet-weather flows and construction turbidity, where detention time is short and flows are flashy.</p></div>
+      <div class="card reveal rd2"><h3>REUSE / INDUSTRIAL</h3><p>Pretreatment ahead of membranes. Fouling control is largely a coagulation problem solved upstream of the RO train, not at the membrane.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 05 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">05</div><div class="band-txt"><div class="band-k">Where The Evidence Splits</div><div class="band-h">The rapid-mix energy debate</div></div></div></div>
+
+<section class="s-white">
+  <div class="wrap">
+    <div class="reveal"><div class="rule"></div><p class="lede">This is the section a dictionary cannot give you. The design convention and the peer-reviewed literature do not agree, and knowing that is worth more than knowing either one alone.</p></div>
+    <table class="tbl reveal">
+      <tr><th style="width:20%">POSITION</th><th style="width:50%">WHAT IT SAYS</th><th style="width:30%">TIER &amp; SOURCE</th></tr>
+      <tr><td><b>Design convention</b></td><td>Rapid mix at G of 600–1000 s⁻¹ for 30–60 seconds. Flocculation at 20–80 s⁻¹ for 20–60 minutes. This is what plants are built to and what most operator study guides teach.</td><td><span class="tier t-std">STANDARD</span><br><a href="https://www.pnws-awwa.org/wp-content/uploads/2024/06/Chemical-Mixing-Nothing-but-a-G-Thing.pdf">PNWS-AWWA 2024, Carollo</a></td></tr>
+      <tr><td><b>Research challenge</b></td><td>Studies argue intense mixing in coagulation is largely unnecessary and consumes disproportionate energy. One study found maximum macrofloc growth at G of 200 s⁻¹ over 150 seconds, with breakup beginning after 180 seconds.</td><td><span class="tier t-con">CONTESTED</span><br><a href="https://pubs.acs.org/doi/10.1021/acs.est.6b06281">Environ. Sci. Technol.</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/16752769/">PubMed 16752769</a></td></tr>
+      <tr><td><b>Coagulant-specific</b></td><td>The breakpoint depends on the coagulant. For PACl flocs, above roughly 390 s⁻¹ breakup dominates over formation; for polysilica iron the threshold is around 546 s⁻¹. A single plant-wide G target ignores this.</td><td><span class="tier t-con">CONTESTED</span><br>Aktas et al., floc growth study</td></tr>
+      <tr><td><b>Regulatory posture</b></td><td>State code generally does not fix a number. Virginia requires the owner's engineer to submit the basis for the selected velocity gradient, considering chemicals added and water temperature, and requires coagulant application at the point of maximum mixing intensity.</td><td><span class="tier t-reg">REGULATORY</span><br><a href="https://law.lis.virginia.gov/admincode/title12/agency5/chapter590/section871/">12VAC5-590-871</a></td></tr>
+    </table>
+    <p style="margin-top:24px;font-size:15px"><b style="color:var(--blue)">What to do with this:</b> if your rapid mix runs at 900 s⁻¹ on PACl, you may be spending energy to shear floc you just made. That is a jar test and an energy audit, not a rebuild.</p>
+  </div>
+</section>
+
+<!-- BAND 06 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">06</div><div class="band-txt"><div class="band-k">Common Errors In Circulation</div><div class="band-h">Corrections</div></div></div></div>
+
+<section class="s-off">
+  <div class="wrap">
+    <div class="reveal"><div class="rule"></div><p class="lede">These five errors appear repeatedly in widely shared industry graphics. Each is corrected here with the reason it matters.</p></div>
+    <table class="tbl reveal">
+      <tr><th style="width:18%">ITEM</th><th style="width:32%">COMMONLY POSTED</th><th style="width:50%">CORRECT</th></tr>
+      <tr><td><b>Alum reaction</b></td><td>Al₂(SO₄)₃ + 6H₂O → 2Al(OH)₃</td><td>Al₂(SO₄)₃·14H₂O + 6HCO₃⁻ → 2Al(OH)₃↓ + 3SO₄²⁻ + 6CO₂ + 14H₂O. The bicarbonate term is what gets consumed. Omitting it hides why alkalinity drops and pH falls. <span class="tier t-std">STANDARD</span></td></tr>
+      <tr><td><b>Ferric reaction</b></td><td>FeCl₃ + 3H₂O → Fe(OH)₃ + 3HCl</td><td>Directionally right, but in practice FeCl₃ + 3HCO₃⁻ → Fe(OH)₃↓ + 3Cl⁻ + 3CO₂. Same alkalinity consumption story. <span class="tier t-std">STANDARD</span></td></tr>
+      <tr><td><b>"Result: cloudy water"</b></td><td>Listed as the outcome of coagulation</td><td>Coagulation produces pin floc / microfloc — destabilized particles too small to settle yet. Not a failure state. It is the intended intermediate. <span class="tier t-std">STANDARD</span></td></tr>
+      <tr><td><b>PAC listed twice</b></td><td>Once as pre-hydrolyzed Al, once as pH/hardness adjustment</td><td>PACl = polyaluminum chloride, a pre-hydrolyzed coagulant. PAC = powdered activated carbon, an adsorbent for taste, odor, and organics. Different chemicals entirely. Lime handles pH and hardness. <span class="tier t-std">STANDARD</span></td></tr>
+      <tr><td><b>Polymer charge</b></td><td>Cationic / anionic listed under both columns</td><td>Cationic: sludge conditioning, dewatering, some primary coagulation. Anionic: settling aid and filter aid on already-coagulated water. Non-ionic: bridging where charge is already handled. <span class="tier t-prac">PRACTICE</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- BAND 07 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">07</div><div class="band-txt"><div class="band-k">Run It</div><div class="band-h">Jar test protocol</div></div></div></div>
+
+<section class="s-black">
+  <div class="wrap">
+    <p class="lede reveal">Click any step to run the timer. Rapid mix is short and violent, flocculation is long and gentle, settling is untouched.</p>
+    <div class="proto">
+      <div class="step reveal" data-sec="60"><div class="stepn">01</div><h3>RAPID MIX</h3><p style="font-size:14px">100–300 rpm. Coagulant added here and nowhere else. 30–60 seconds. <span class="tier t-prac">PRACTICE</span></p><div class="timer">01:00</div><div class="bar"><div class="barf"></div></div><button class="btn" style="margin-top:14px">START</button></div>
+      <div class="step reveal rd1" data-sec="900"><div class="stepn">02</div><h3>SLOW MIX</h3><p style="font-size:14px">20–40 rpm, tapered down. Polymer added here if used. Watch for floc formation and clearing between floc. <span class="tier t-prac">PRACTICE</span></p><div class="timer">15:00</div><div class="bar"><div class="barf"></div></div><button class="btn" style="margin-top:14px">START</button></div>
+      <div class="step reveal rd2" data-sec="1200"><div class="stepn">03</div><h3>SETTLE</h3><p style="font-size:14px">Paddles off, zero disturbance. Sample from a fixed depth every time so results are comparable. <span class="tier t-prac">PRACTICE</span></p><div class="timer">20:00</div><div class="bar"><div class="barf"></div></div><button class="btn" style="margin-top:14px">START</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 08 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">08</div><div class="band-txt"><div class="band-k">Operating Judgment</div><div class="band-h">Do this, not that</div></div></div></div>
+
+<section class="s-white">
+  <div class="wrap">
+    <div class="dn reveal">
+      <div class="bad"><div class="dnl">NOT THIS</div><p>Add polymer at the rapid mix along with the coagulant, because it's one dosing point and it's easier.</p><div class="cq">→ The polymer chain is sheared into fragments before it can bridge anything. You pay for polymer and get nothing.</div></div>
+      <div class="good"><div class="dnl">DO THIS</div><p>Coagulant at rapid mix. Polymer at the first or second flocculation stage, where G is low enough for the chain to survive and work.</p><div class="cq">→ Larger, denser floc, better settling, lower solids loading on the filters.</div></div>
+    </div>
+    <div class="dn reveal rd1">
+      <div class="bad"><div class="dnl">NOT THIS</div><p>Hold a fixed coagulant dose year-round because that's what has always been run.</p><div class="cq">→ Overdose in clear-water season builds sludge cost and can restabilize particles. Underdose during a storm pushes turbidity through the filters.</div></div>
+      <div class="good"><div class="dnl">DO THIS</div><p>Jar test on every meaningful raw-water shift. Trend dose against turbidity, TOC, temperature, pH, and alkalinity.</p><div class="cq">→ A defensible dose record, lower chemical spend, and documentation a regulator will accept.</div></div>
+    </div>
+    <div class="dn reveal rd2">
+      <div class="bad"><div class="dnl">NOT THIS</div><p>Chase a turbidity problem by raising the coagulant dose alone.</p><div class="cq">→ In low-alkalinity water, pH falls out of the coagulant's effective range and more chemical makes it worse, not better.</div></div>
+      <div class="good"><div class="dnl">DO THIS</div><p>Check pH and alkalinity first. Confirm you are inside the coagulant's operating window. Consider supplementing alkalinity with lime or soda ash.</p><div class="cq">→ Iron salts operate over a wider pH range than alum and form a heavier floc, at the cost of being corrosive and staining.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 09 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">09</div><div class="band-txt"><div class="band-k">Self-Diagnostic</div><div class="band-h">Where does your plant stand?</div></div></div></div>
+
+<section class="s-black">
+  <div class="wrap">
+    <p class="lede reveal">Eight questions. Honest answers only.</p>
+    <table class="tbl reveal">
+      <tr><th style="width:52%">QUESTION</th><th style="width:24%">STRONG</th><th style="width:24%">NEEDS WORK</th></tr>
+      <tr><td>When did you last run a jar test?</td><td><span class="pill p-g">LAST EVENT</span></td><td><span class="pill p-r">CAN'T RECALL</span></td></tr>
+      <tr><td>Do you know your rapid mix G value?</td><td><span class="pill p-g">DOCUMENTED</span></td><td><span class="pill p-a">ESTIMATED</span></td></tr>
+      <tr><td>Is polymer dosed downstream of rapid mix?</td><td><span class="pill p-g">YES</span></td><td><span class="pill p-r">SAME POINT</span></td></tr>
+      <tr><td>Do you trend alkalinity alongside dose?</td><td><span class="pill p-g">DAILY</span></td><td><span class="pill p-a">OCCASIONAL</span></td></tr>
+      <tr><td>Is flocculation tapered across stages?</td><td><span class="pill p-g">3-STAGE TAPER</span></td><td><span class="pill p-a">SINGLE SPEED</span></td></tr>
+      <tr><td>Do flocculators have variable-speed drives?</td><td><span class="pill p-g">4:1 TURNDOWN</span></td><td><span class="pill p-a">FIXED SPEED</span></td></tr>
+      <tr><td>Is there a written dose-change SOP?</td><td><span class="pill p-g">SIGNED SOP</span></td><td><span class="pill p-r">OPERATOR CALL</span></td></tr>
+      <tr><td>Is sludge production tracked against dose?</td><td><span class="pill p-g">TRACKED</span></td><td><span class="pill p-a">NOT LINKED</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="pq"><div class="pq-t">A dictionary tells you what a word means. A concept brief tells you what happens on your plant floor at 3 a.m. when it goes wrong.</div><div class="pq-c">THE CONCEPT ENGINE PRINCIPLE</div></div>
+
+<!-- BAND 10 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">10</div><div class="band-txt"><div class="band-k">Role-Based Takeaways</div><div class="band-h">What this means for you</div></div></div></div>
+
+<section class="s-white">
+  <div class="wrap">
+    <div class="g3">
+      <div class="card reveal"><h3>UTILITY DIRECTOR</h3><p>Chemical spend and sludge hauling are two lines on the same budget, and both are set by coagulation practice.</p><div class="ex"><b>→ MONDAY</b>Ask for 12 months of dose vs. raw turbidity vs. sludge tonnage on one chart.</div></div>
+      <div class="card reveal rd1"><h3>PLANT OPERATOR</h3><p>You are the sensor the plant depends on. Floc appearance and clarity between floc tell you more than any single meter.</p><div class="ex"><b>→ MONDAY</b>Run a five-jar dose series on today's raw water and log it.</div></div>
+      <div class="card reveal rd2"><h3>COMPLIANCE / PE</h3><p>Log-removal credit lives here. Your record of dose rationale is the evidence in an inspection.</p><div class="ex"><b>→ MONDAY</b>Confirm jar test records are retained and traceable to dose changes.</div></div>
+      <div class="card reveal"><h3>IT / SCADA</h3><p>Dose, raw turbidity, settled turbidity, pH, alkalinity, and streaming current should be one queryable dataset, not six screens.</p><div class="ex"><b>→ MONDAY</b>Verify all six tags are historized at the same interval.</div></div>
+      <div class="card reveal rd1"><h3>GIS / SOURCE WATER</h3><p>Raw water quality is a watershed output. Storm response and land use predict your dose before the storm arrives.</p><div class="ex"><b>→ MONDAY</b>Overlay rainfall gauges with historical raw turbidity spikes.</div></div>
+      <div class="card reveal rd2"><h3>FINANCE / RATES</h3><p>Chemical optimization is one of the few operating savings that needs no capital and is defensible in a rate case.</p><div class="ex"><b>→ MONDAY</b>Model a 10% dose reduction against chemical plus residuals cost.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 11 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">11</div><div class="band-txt"><div class="band-k">Evidence</div><div class="band-h">Accuracy &amp; source manifest</div></div></div></div>
+
+<section class="s-off">
+  <div class="wrap">
+    <div class="acc reveal">
+      <h3 style="margin-bottom:12px">Every number in this brief carries a tier and a source.</h3>
+      <p style="font-size:15px">One Water Foundation does not publish unsourced figures. Each claim is tagged by evidence class so you can see how much weight it carries, and where design convention and peer-reviewed findings disagree. Where sources conflict, we publish the conflict rather than picking a side.</p>
+      <div class="legend"><span class="tier t-reg">REGULATORY</span><span class="tier t-std">STANDARD</span><span class="tier t-prac">PRACTICE</span><span class="tier t-con">CONTESTED</span><span class="tier t-judg">JUDGMENT</span></div>
+      <p style="font-size:13.5px;color:#5A6874"><b>REGULATORY</b> — codified in CFR or state code · <b>STANDARD</b> — AWWA, WEF MOP, Ten States, state operator guides · <b>PRACTICE</b> — typical design range · <b>CONTESTED</b> — literature disputes the convention · <b>JUDGMENT</b> — operating experience, labeled as such</p>
+    </div>
+
+    <table class="tbl reveal" style="margin-top:36px">
+      <tr><th style="width:14%">TIER</th><th style="width:42%">SOURCE</th><th style="width:44%">SUPPORTS</th></tr>
+      <tr><td><span class="tier t-reg">REGULATORY</span></td><td><a href="https://law.lis.virginia.gov/admincode/title12/agency5/chapter590/section871/">12VAC5-590-871 — Coagulation and flocculation</a></td><td>Engineer must justify selected G; coagulant applied at point of maximum mixing intensity; mixer speed variation requirements</td></tr>
+      <tr><td><span class="tier t-std">STANDARD</span></td><td><a href="https://www.tn.gov/content/dam/tn/environment/water/ftc/references/study-guides/ftc_study-307_coag-flocc.pdf">TDEC Coagulation/Flocculation Workshop, Course 307 (2022)</a></td><td>Alum consumes 0.5 mg/L alkalinity as CaCO₃ and produces 0.26 mg/L sludge per mg/L; ACH consumes 0.18 mg/L; iron salt characteristics</td></tr>
+      <tr><td><span class="tier t-std">STANDARD</span></td><td><a href="https://www.pnws-awwa.org/wp-content/uploads/2024/06/Chemical-Mixing-Nothing-but-a-G-Thing.pdf">PNWS-AWWA 2024 — "Chemical Mixing: Nothing But a G Thing?" (Carollo)</a></td><td>G = √(P/µV) as the standard design parameter; temperature and flow effects on G</td></tr>
+      <tr><td><span class="tier t-std">STANDARD</span></td><td><a href="https://water.mecc.edu/exam_prep/flocculation.html">MECC operator exam prep — Flocculation</a></td><td>Tapered flocculation values; 4:1 variable-speed drive turndown</td></tr>
+      <tr><td><span class="tier t-con">CONTESTED</span></td><td><a href="https://pubs.acs.org/doi/10.1021/acs.est.6b06281">Environmental Science &amp; Technology — mixing energy and floc aggregation</a></td><td>600–1000 s⁻¹ convention; argument that intense rapid mixing is largely unnecessary</td></tr>
+      <tr><td><span class="tier t-con">CONTESTED</span></td><td><a href="https://pubmed.ncbi.nlm.nih.gov/16752769/">Effects of velocity gradient and mixing time on particle growth (PubMed 16752769)</a></td><td>Optimum macrofloc growth at G 200 s⁻¹ / 150 s; breakup after 180 s</td></tr>
+      <tr><td><span class="tier t-con">CONTESTED</span></td><td>Aktas et al. — floc formation with PSI and PACl</td><td>Breakup thresholds: ~390 s⁻¹ for PACl, ~546 s⁻¹ for polysilica iron</td></tr>
+      <tr><td><span class="tier t-prac">PRACTICE</span></td><td>Alliance Chemical — aluminum sulfate dosing guidance</td><td>Alternative alkalinity figure of ~0.45 mg/L per mg/L alum; PACl consumes roughly 50% less</td></tr>
+    </table>
+
+    <div class="acc reveal" style="margin-top:32px">
+      <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:2px;color:var(--blue);margin-bottom:10px">CORRECTIONS LOG</div>
+      <p style="font-size:14.5px"><b>v1.0 → v2.0</b> — Rapid-mix G revised from 700–1000 s⁻¹ to 600–1000 s⁻¹ with a CONTESTED section added after literature review showed the convention is disputed. Alum alkalinity consumption revised from a point value of 0.5 to a range of 0.45–0.5 mg/L. Coagulant pH operating windows removed pending a citable source. Sludge production figure added.</p>
+      <p style="font-size:14.5px;margin-top:10px"><b>v2.0 → v3.0</b> — Visual system revised to alternating light and dark surfaces with blue section bands. Gold restricted to dark surfaces and non-text accents on light surfaces for WCAG contrast. No content changes.</p>
+      <p style="font-size:14px;color:#5A6874;margin-top:12px">Found an error? One Water Foundation publishes corrections with attribution. Submit to the editorial address on owos.ai.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 12 -->
+<div class="band"><div class="band-in reveal"><div class="band-n">12</div><div class="band-txt"><div class="band-k">Where This Sits</div><div class="band-h">Connected in the graph</div></div></div></div>
+
+<section class="s-white">
+  <div class="wrap">
+    <div class="reveal"><div class="rule"></div><p class="lede">This brief is a node, not a document. Every term it defines resolves to the Dictionary. Every concept it explains feeds a course. Every failure mode it names becomes a question the Graph can answer.</p></div>
+
+    <div class="gedge reveal">DEFINES → ONE WATER DICTIONARY</div>
+    <div class="g3">
+      <a class="gnode reveal" href="https://owos.ai/lexicon"><span class="gnode-k">LEXICON TERM</span><span class="gnode-t">COAGULATION</span><span class="gnode-d">Definition · this brief is the explainer</span></a>
+      <a class="gnode reveal rd1" href="https://owos.ai/lexicon"><span class="gnode-k">LEXICON TERM</span><span class="gnode-t">ZETA POTENTIAL</span><span class="gnode-d">Definition · explained in Section 03</span></a>
+      <a class="gnode reveal rd2" href="https://owos.ai/lexicon"><span class="gnode-k">LEXICON TERM</span><span class="gnode-t">VELOCITY GRADIENT (G)</span><span class="gnode-d">Definition · contested range in Section 05</span></a>
+    </div>
+
+    <div class="gedge reveal">TEACHES INTO → COURSES</div>
+    <div class="g3">
+      <a class="gnode reveal" href="https://owos.ai/learn"><span class="gnode-k">COURSE MODULE</span><span class="gnode-t">SURFACE WATER TREATMENT</span><span class="gnode-d">This brief is prerequisite reading</span></a>
+      <a class="gnode reveal rd1" href="https://owos.ai/learn"><span class="gnode-k">COURSE MODULE</span><span class="gnode-t">CHEMICAL OPTIMIZATION</span><span class="gnode-d">Jar test protocol used as lab exercise</span></a>
+      <a class="gnode reveal rd2" href="https://owos.ai/learning-pathways"><span class="gnode-k">PATHWAY</span><span class="gnode-t">OPERATOR → SUPERVISOR</span><span class="gnode-d">Competency evidence on completion</span></a>
+    </div>
+
+    <div class="gedge reveal">ANSWERS → GRAPH QUESTIONS</div>
+    <div class="g3">
+      <a class="gnode reveal" href="https://owos.ai/os"><span class="gnode-k">QUESTION</span><span class="gnode-t">WHY ARE MY FILTER RUNS SHORT?</span><span class="gnode-d">Routes to Sections 04 and 08</span></a>
+      <a class="gnode reveal rd1" href="https://owos.ai/os"><span class="gnode-k">QUESTION</span><span class="gnode-t">CAN WE CUT CHEMICAL SPEND?</span><span class="gnode-d">Routes to Sections 05 and 10</span></a>
+      <a class="gnode reveal rd2" href="https://owos.ai/os"><span class="gnode-k">QUESTION</span><span class="gnode-t">WHAT DOES A REGULATOR ASK FOR?</span><span class="gnode-d">Routes to Sections 05 and 09</span></a>
+    </div>
+
+    <div class="gedge reveal">ADJACENT CONCEPT BRIEFS</div>
+    <div class="g3">
+      <a class="gnode reveal" href="#"><span class="gnode-k">BRIEF 002</span><span class="gnode-t">SEDIMENTATION &amp; SETTLING</span><span class="gnode-d">Downstream of this process</span></a>
+      <a class="gnode reveal rd1" href="#"><span class="gnode-k">BRIEF 003</span><span class="gnode-t">FILTRATION &amp; BACKWASH</span><span class="gnode-d">Inherits this process's failures</span></a>
+      <a class="gnode reveal rd2" href="#"><span class="gnode-k">BRIEF 004</span><span class="gnode-t">RESIDUALS &amp; DEWATERING</span><span class="gnode-d">Receives the sludge this creates</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSOR RAIL -->
+<div class="rail">
+  <div class="rail-h">
+    <div class="rail-k">PRACTICE PARTNERS FOR <b>CLARIFICATION</b> · VERIFIED IN THE WATER DIRECTORY</div>
+    <a class="rail-cta" href="https://owos.ai/directory">LIST YOUR ORGANIZATION →</a>
+  </div>
+  <div class="track">
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">COAGULANT SUPPLY</span><span class="spon-n">[VENDOR NAME]</span><span class="spon-d">Alum · ferric · PACl · ACH</span><span class="spon-tag">DIRECTORY VERIFIED</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">INSTRUMENTATION</span><span class="spon-n">[VENDOR NAME]</span><span class="spon-d">Streaming current · turbidimetry</span><span class="spon-tag">DIRECTORY VERIFIED</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">ENGINEERING</span><span class="spon-n">[FIRM NAME]</span><span class="spon-d">Rapid mix &amp; flocculator design</span><span class="spon-tag">PE ON STAFF</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">JAR TEST EQUIPMENT</span><span class="spon-n">[VENDOR NAME]</span><span class="spon-d">Programmable gang stirrers</span><span class="spon-tag">DIRECTORY VERIFIED</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">RESIDUALS</span><span class="spon-n">[VENDOR NAME]</span><span class="spon-d">Dewatering &amp; polymer systems</span><span class="spon-tag">DIRECTORY VERIFIED</span></a>
+    <a class="spon" href="https://owos.ai/practice-domain"><span class="spon-t">COLLABORATIVE</span><span class="spon-n">CLARIFICATION PRACTICE</span><span class="spon-d">Join the domain group</span><span class="spon-tag">OPEN TO MEMBERS</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">COAGULANT SUPPLY</span><span class="spon-n">[VENDOR NAME]</span><span class="spon-d">Alum · ferric · PACl · ACH</span><span class="spon-tag">DIRECTORY VERIFIED</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">INSTRUMENTATION</span><span class="spon-n">[VENDOR NAME]</span><span class="spon-d">Streaming current · turbidimetry</span><span class="spon-tag">DIRECTORY VERIFIED</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">ENGINEERING</span><span class="spon-n">[FIRM NAME]</span><span class="spon-d">Rapid mix &amp; flocculator design</span><span class="spon-tag">PE ON STAFF</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">JAR TEST EQUIPMENT</span><span class="spon-n">[VENDOR NAME]</span><span class="spon-d">Programmable gang stirrers</span><span class="spon-tag">DIRECTORY VERIFIED</span></a>
+    <a class="spon" href="https://owos.ai/directory"><span class="spon-t">RESIDUALS</span><span class="spon-n">[VENDOR NAME]</span><span class="spon-d">Dewatering &amp; polymer systems</span><span class="spon-tag">DIRECTORY VERIFIED</span></a>
+    <a class="spon" href="https://owos.ai/practice-domain"><span class="spon-t">COLLABORATIVE</span><span class="spon-n">CLARIFICATION PRACTICE</span><span class="spon-d">Join the domain group</span><span class="spon-tag">OPEN TO MEMBERS</span></a>
+  </div>
+  <div class="disclose">
+    EDITORIAL FIREWALL — Practice partners are matched to this brief by topic, not by payment. Partners have no review rights over content, no influence on the evidence tiers, and no ability to alter or remove a correction. No claim in this brief is sponsored. Partner listings are labeled and separated from all editorial sections.
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">
+      <div class="tile"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2c4 6 7 9.2 7 13a7 7 0 0 1-14 0c0-3.8 3-7 7-13z"/></svg></div>
+      <div><div class="bname">One Water Foundation</div><div class="bsub">POWERED BY <b>APAS.AI</b></div></div>
+    </div>
+    <div class="fmeta">
+      <b>CONCEPT BRIEF 001</b> · COAGULATION VS FLOCCULATION · v3.0 · VERIFIED 25 JULY 2026<br>
+      SECTORS: DRINKING WATER · WASTEWATER · STORMWATER · REUSE<br>
+      REGULATORY ANCHORS: SDWA · SWTR · NPDES · CWA<br>
+      CLAIMS TIERED: 1 REGULATORY · 8 STANDARD · 3 CONTESTED · 4 PRACTICE · 2 JUDGMENT<br><br>
+      © 2026 One Water Foundation. All rights reserved.<br>
+      This brief is educational and does not constitute engineering advice for any specific facility.<br>
+      Design and dosing decisions require site-specific analysis by a licensed professional engineer.<br>
+      Source graphic that prompted this brief credited to Chemist Mohamed Mostafa via the Water Treatment Industry Group; errors identified and corrected in Section 06.
+    </div>
+  </div>
+</footer>
+
+<script>
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+
+var cv=document.getElementById('jar'),ctx=cv.getContext('2d'),stage=0,parts=[],W=0,H=0;
+var gv=document.getElementById('gv'),dose=document.getElementById('dose');
+var cap=document.getElementById('cap'),r1=document.getElementById('r1'),r2=document.getElementById('r2'),r3=document.getElementById('r3');
+function size(){var d=window.devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
+function init(){parts=[];for(var i=0;i<160;i++){parts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.9,vy:(Math.random()-.5)*.9,r:1.8+Math.random()*1.2,m:1})}}
+window.addEventListener('resize',function(){size();init()});
+var T=[
+['<strong>Raw water.</strong> Every particle carries the same negative surface charge, so they push each other apart. They will stay suspended indefinitely. No amount of settling time fixes this.','−28 mV','1 µm','18 NTU'],
+['<strong>Coagulation.</strong> Metal salt hydrolyzes in seconds and neutralizes the charge. Rapid mix disperses it before it precipitates locally. Particles stop repelling, but they are still too small to settle. This is pin floc, and it is exactly what you want here.','−4 mV','8 µm','14 NTU'],
+['<strong>Flocculation.</strong> Gentle tapered mixing brings neutralized particles into contact so they aggregate. Polymer bridges them into larger, denser floc. Too much energy here shears the floc apart.','−2 mV','450 µm','9 NTU'],
+['<strong>Sedimentation.</strong> Mixing stops. Floc is now heavy enough that gravity does the work. Clear supernatant goes to the filters with a solids load they can actually handle.','−2 mV','600 µm','1.2 NTU']];
+function setStage(s){stage=s;document.querySelectorAll('.sb').forEach(function(b,i){b.classList.toggle('on',i===s)});if(s===0)init();if(s===3)parts.forEach(function(p){p.vy=Math.abs(p.vy)});upd()}
+function upd(){var d=+dose.value,g=+gv.value,t=T[stage];
+if(stage>0&&d<25){r1.textContent='−22 mV';r2.textContent='3 µm';r3.textContent='15 NTU';cap.innerHTML='<strong>Underdosed.</strong> Not enough coagulant to neutralize the charge. Particles stay stable, floc never forms, and turbidity carries straight through to the filters.';return}
+if(stage>0&&d>88){r1.textContent='+9 mV';r2.textContent='40 µm';r3.textContent='11 NTU';cap.innerHTML='<strong>Overdosed.</strong> Charge reversal. Particles are now positively charged and repel each other again — restabilization. More chemical, more sludge, worse water.';return}
+if(stage===2&&g>78){r1.textContent='−2 mV';r2.textContent='60 µm';r3.textContent='12 NTU';cap.innerHTML='<strong>Floc shear.</strong> Mixing energy is too high for flocculation. Floc is being torn apart faster than it can grow. Taper the G value down across stages.';return}
+cap.innerHTML=t[0];r1.textContent=t[1];r2.textContent=t[2];r3.textContent=t[3]}
+document.querySelectorAll('.sb').forEach(function(b){b.addEventListener('click',function(){setStage(+b.dataset.s)})});
+gv.addEventListener('input',upd);dose.addEventListener('input',upd);
+document.getElementById('reset').addEventListener('click',function(){init();setStage(0)});
+function step(){ctx.clearRect(0,0,W,H);
+var d=+dose.value,g=+gv.value/50;
+var rep=(stage===0)?1:(d<25?.85:(d>88?.9:0));
+var att=(stage>=2&&rep===0)?1:0;
+var sh=(stage===2&&g>1.56)?1:0;
+for(var i=0;i<parts.length;i++){var p=parts[i];
+if(stage===1){p.vx+=(Math.random()-.5)*.7*g;p.vy+=(Math.random()-.5)*.7*g}
+else if(stage===2){p.vx+=(Math.random()-.5)*.16*g;p.vy+=(Math.random()-.5)*.16*g}
+else if(stage===3){p.vy+=.045*p.m;p.vx*=.93}
+else{p.vx+=(Math.random()-.5)*.14;p.vy+=(Math.random()-.5)*.14}
+for(var j=i+1;j<parts.length;j++){var q=parts[j],dx=q.x-p.x,dy=q.y-p.y,dd=Math.sqrt(dx*dx+dy*dy)||1;
+if(dd<26){if(rep){var f=.16*rep/dd;p.vx-=dx*f;p.vy-=dy*f;q.vx+=dx*f;q.vy+=dy*f}
+else if(att&&dd<22&&p.m<9&&q.m<9&&!sh){if(dd<10){p.m+=q.m;p.r=1.8*Math.sqrt(p.m);q.m=0;q.r=0}else{var a=.03/dd;p.vx+=dx*a;p.vy+=dy*a;q.vx-=dx*a;q.vy-=dy*a}}
+else if(sh&&dd<12){var s2=.05/dd;p.vx-=dx*s2;p.vy-=dy*s2}}}
+p.vx*=(stage===3?.97:.94);p.vy*=(stage===3?.99:.94);p.x+=p.vx;p.y+=p.vy;
+if(p.x<4){p.x=4;p.vx*=-.6}if(p.x>W-4){p.x=W-4;p.vx*=-.6}
+if(p.y<4){p.y=4;p.vy*=-.6}if(p.y>H-6){p.y=H-6;p.vy*=-.3}}
+if(stage===3){ctx.fillStyle='rgba(235,202,98,0.07)';ctx.fillRect(0,H-24,W,24)}
+for(var k=0;k<parts.length;k++){var pt=parts[k];if(pt.m===0)continue;
+var col=(stage===0||(stage>0&&d<25))?'56,125,184':(d>88&&stage>0?'242,119,122':(pt.m>2?'109,208,163':'235,202,98'));
+ctx.beginPath();ctx.arc(pt.x,pt.y,pt.r,0,Math.PI*2);ctx.fillStyle='rgba('+col+',0.82)';ctx.fill();
+if(pt.m>2){ctx.strokeStyle='rgba('+col+',0.32)';ctx.lineWidth=1;ctx.stroke()}}
+requestAnimationFrame(step)}
+size();init();step();
+
+document.querySelectorAll('.step').forEach(function(st){
+var tot=+st.dataset.sec,left=tot,id=null;
+var tE=st.querySelector('.timer'),bar=st.querySelector('.barf'),btn=st.querySelector('.btn');
+function f(s){var m=Math.floor(s/60),r=s%60;return (m<10?'0':'')+m+':'+(r<10?'0':'')+r}
+btn.addEventListener('click',function(){
+if(id){clearInterval(id);id=null;btn.textContent='RESUME';return}
+if(left<=0){left=tot}
+btn.textContent='PAUSE';
+id=setInterval(function(){left--;tE.textContent=f(left);bar.style.width=((tot-left)/tot*100)+'%';
+if(left<=0){clearInterval(id);id=null;btn.textContent='RESTART';tE.textContent='DONE'}},1000)})});
+</script>
+</body>
+</html>

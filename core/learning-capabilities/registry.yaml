@@ -1,0 +1,132 @@
+registry_version: 1
+registry_id: owos-learning-capabilities/1
+owner: Hardeep Anand
+authority: Shared source of truth for OWOS learning components used by both compiler engines.
+
+engines:
+  course:
+    standard_name: OWOS Course Engine
+    compiler_name: OWOS Course Compiler
+    contract: owos-course-compiler/1
+    package_unit: multi-module course
+  concept_brief:
+    standard_name: OWOS Concept Engine
+    compiler_name: OWOS Concept Brief Compiler
+    contract: owos-concept-brief/2
+    package_unit: one-module concept brief
+
+catalog_sources:
+  visual_arsenal: core/standards/VISUAL-ARSENAL.md
+  component_catalog: core/components/COMPONENTS.md
+  component_gallery: core/components/component-gallery.html
+  quiz_catalog: core/components/QUIZ-TYPES.md
+  quiz_gallery: core/components/quiz-gallery.html
+
+assessment_types:
+  multiple-choice: {catalog_label: Multiple choice, cognitive_jobs: [judgment, diagnosis, selection], compiler_support: [course, concept_brief]}
+  multi-select: {catalog_label: Multi-select, cognitive_jobs: [boundary, evidence_selection, diagnosis], compiler_support: [course, concept_brief]}
+  flip-cards: {catalog_label: Flip cards, cognitive_jobs: [retrieval, terminology], compiler_support: [course, concept_brief]}
+  matching: {catalog_label: Matching, cognitive_jobs: [relationship, terminology], compiler_support: [course, concept_brief]}
+  classify-sort: {catalog_label: Classify / sort, cognitive_jobs: [classification, boundary], compiler_support: []}
+  estimate: {catalog_label: Estimate, cognitive_jobs: [quantity_sense, calibration], compiler_support: []}
+  true-false: {catalog_label: True / false, cognitive_jobs: [misconception, retrieval], compiler_support: []}
+  fill-blank: {catalog_label: Fill in the blank, cognitive_jobs: [retrieval], compiler_support: []}
+  put-in-order: {catalog_label: Put in order, cognitive_jobs: [sequence, process], compiler_support: []}
+  reflection: {catalog_label: Reflection, cognitive_jobs: [explanation, transfer], compiler_support: [concept_brief]}
+  applied-work-product: {catalog_label: Applied work product, cognitive_jobs: [application, transfer], compiler_support: [course, concept_brief]}
+
+interaction_components:
+  - concept-jar-model
+  - governed-process-stepper
+  - handoff-simulator
+  - applicability-gate
+  - provenance-network
+  - utility-data-estate-map
+  - shared-identity-bridge
+  - before-after-slider
+  - artifact-tracker
+  - fragmentation-tax-model
+  - artifact-builder
+  - quality-by-use-model
+  - controlled-classification-sorter
+  - triple-builder
+  - path-tracer
+  - artifact-classifier
+  - failure-trace
+  - object-router
+  - triple-repair-bench
+  - identity-adjudication
+  - graph-growth-lab
+  - hierarchy-repair
+  - ontology-canvas
+  - sparql-builder
+  - inference-court
+  - shacl-clinic
+  - evidence-reconciliation
+  - knowledge-spine-router
+  - accountability-handoff
+  - mapping-workbench
+  - mapping-break-repair
+  - access-pattern-stress-test
+  - stale-copy-diagnosis
+  - evidence-promotion
+  - evidence-state-classifier
+  - context-assembly
+  - permission-gate
+  - pipeline-rerun
+  - pipeline-stage-diagnosis
+  - agent-action-control
+  - idempotency-recovery
+  - knowledge-spine-live-lab
+  - graph-path-illuminator
+  - scenario-transfer-lab
+  - prompt-graph-simulator
+
+visual_component_ids:
+  - layered-stack
+  - before-after-slider
+  - handoff-simulator
+  - fragmentation-tax-model
+  - artifact-builder
+  - provenance-network
+  - quality-by-use-model
+  - applicability-gate
+  - utility-data-estate-map
+  - shared-identity-bridge
+
+experience_contract:
+  visual_explanations_minimum: 2
+  distributed_checks_minimum: 2
+  dynamic_explanation_required: true
+  final_applied_check_required: true
+  cross_sector_connection_required: true
+  allowed_dynamic_modes: [step, play, pause, back, reset, compare, manipulate, trace, diagnose]
+  animation_meaning_jobs: [change, cause, consequence, sequence, dependency, hidden_structure]
+  required_equivalents: [mobile, reduced_motion, no_javascript, structured_text]
+
+continuing_education:
+  default_state: readiness_only
+  credit_claim_allowed_without_approval: false
+  required_evidence:
+    - authenticated_learner_identity
+    - stated_learning_outcomes
+    - instructional_time_basis
+    - participation_evidence
+    - assessment_and_passing_rule
+    - completion_record
+    - content_version
+    - instructor_or_provider_record
+    - evaluation_record
+    - accreditor_approval
+
+learning_record_contract:
+  placement_required: true
+  capability_lock_required: true
+  stable_event_namespace_required: true
+  privacy_classification_required: true
+  supersession_and_correction_notification_required: true
+  facility_sensitive_data_default: prohibited
+  assessment_version_required: true
+  simulation_model_version_required: true
+  language_and_unit_policy_required: true
+  measured_time_basis_required: true

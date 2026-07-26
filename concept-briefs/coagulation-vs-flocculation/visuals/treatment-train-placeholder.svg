@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 430" role="img" aria-labelledby="title desc">
+  <title id="title">Clarification inside a conventional surface-water treatment train</title>
+  <desc id="desc">A horizontal train moves from source water through rapid mix, flocculation, separation, filtration, and disinfection. A lower diagnostic rail shows the observations that should be traced before assigning one cause.</desc>
+  <style>
+    .kicker{font:700 11px "Space Mono",monospace;letter-spacing:2px;fill:#bae7f9}
+    .node-title{font:400 20px "Bebas Neue",Arial,sans-serif;letter-spacing:1px;fill:#fff;text-anchor:middle}
+    .node-note{font:700 8.5px "Space Mono",monospace;fill:#ebca62;text-anchor:middle}
+    .small{font:400 12px "Barlow",Arial,sans-serif;fill:#b4b4b4;text-anchor:middle}
+    .rail-title{font:700 10px "Space Mono",monospace;letter-spacing:1.5px;fill:#ebca62}
+    .rail-text{font:400 14px "Barlow",Arial,sans-serif;fill:#e8e8e8}
+    .flow{stroke:#387db8;stroke-width:3;stroke-dasharray:7 6;animation:move 1.2s linear infinite}
+    @keyframes move{to{stroke-dashoffset:-26}}
+    @media (prefers-reduced-motion:reduce){.flow{animation:none}}
+  </style>
+  <rect width="980" height="430" fill="#151515"/>
+  <text x="24" y="34" class="kicker">CONVENTIONAL SURFACE WATER TRAIN · QUALITATIVE PROCESS VIEW</text>
+
+  <g>
+    <rect x="22" y="80" width="120" height="82" rx="5" fill="#1e1e1e" stroke="#2a2a2a"/>
+    <text x="82" y="116" class="node-title">SOURCE</text>
+    <text x="82" y="139" class="small">Water and particles</text>
+
+    <rect x="174" y="80" width="132" height="82" rx="5" fill="#1e1e1e" stroke="#ebca62" stroke-width="2"/>
+    <text x="240" y="111" class="node-title">RAPID MIX</text>
+    <text x="240" y="135" class="node-note">COAGULATION CONDITION</text>
+
+    <rect x="338" y="80" width="144" height="82" rx="5" fill="#1e1e1e" stroke="#ebca62" stroke-width="2"/>
+    <text x="410" y="111" class="node-title">FLOCCULATION</text>
+    <text x="410" y="135" class="node-note">CONTROLLED CONTACT</text>
+
+    <rect x="514" y="80" width="134" height="82" rx="5" fill="#1e1e1e" stroke="#2a2a2a"/>
+    <text x="581" y="111" class="node-title">SEPARATION</text>
+    <text x="581" y="139" class="small">Settling or other step</text>
+
+    <rect x="680" y="80" width="118" height="82" rx="5" fill="#1e1e1e" stroke="#2a2a2a"/>
+    <text x="739" y="116" class="node-title">FILTRATION</text>
+    <text x="739" y="139" class="small">Receives upstream load</text>
+
+    <rect x="830" y="80" width="128" height="82" rx="5" fill="#1e1e1e" stroke="#2a2a2a"/>
+    <text x="894" y="116" class="node-title">DISINFECTION</text>
+    <text x="894" y="139" class="small">Complete train</text>
+  </g>
+
+  <g class="flow">
+    <path d="M142 121H174"/>
+    <path d="M306 121H338"/>
+    <path d="M482 121H514"/>
+    <path d="M648 121H680"/>
+    <path d="M798 121H830"/>
+  </g>
+
+  <g>
+    <path d="M240 162V214" stroke="#ebca62" stroke-width="2"/>
+    <path d="M410 162V214" stroke="#ebca62" stroke-width="2"/>
+    <path d="M581 162V214" stroke="#7dbcd7" stroke-width="2"/>
+    <path d="M739 162V214" stroke="#7dbcd7" stroke-width="2"/>
+
+    <rect x="22" y="214" width="936" height="178" rx="5" fill="#1e1e1e" stroke="#2a2a2a"/>
+    <text x="46" y="244" class="rail-title">FOLLOW THE CONSEQUENCE BACKWARD</text>
+
+    <circle cx="63" cy="282" r="8" fill="#ebca62"/>
+    <text x="84" y="287" class="rail-text">Confirm source-water change, product, feed condition, pH, alkalinity, temperature, and flow.</text>
+
+    <circle cx="63" cy="320" r="8" fill="#6dd0a3"/>
+    <text x="84" y="325" class="rail-text">Observe where aggregates form, remain small, become fragile, break, carry over, or settle.</text>
+
+    <circle cx="63" cy="358" r="8" fill="#387db8"/>
+    <text x="84" y="363" class="rail-text">Compare the sequence with the approved facility procedure, design basis, and current United States requirements.</text>
+  </g>
+
+  <rect x="22" y="404" width="936" height="4" fill="#ebca62"/>
+</svg>

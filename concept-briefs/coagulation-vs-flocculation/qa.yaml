@@ -1,0 +1,125 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+verification_coverage_percent: 0.0
+hard_gates:
+  source_preservation: passed
+  claim_verification_accuracy: blocked
+  learning_editorial_design: blocked
+  utility_technical_practice: blocked
+  visual_interaction_accessibility: blocked
+  graph_community_integrity: blocked
+  commercial_integrity: provisional_pass_candidate
+  release_control: blocked
+manual_reviews:
+  independent_source: pending
+  qualified_technical_practitioner: pending
+  editorial: pending
+  desktop: completed_integrated_candidate
+  tablet: automated_pass_manual_pending
+  phone: completed_integrated_candidate
+  keyboard: automated_pass_manual_pending
+  touch: pending
+  screen_reader: pending
+  reduced_motion: automated_pass_manual_pending
+  no_javascript: automated_pass_manual_pending
+  read_without_animation: pending
+  novice_reader: pending
+  graph: pending
+  community: pending
+  commercial_conflict: pending
+  owner_release: pending
+automated_checks:
+  package_validation:
+    status: passed_working
+    evidence: python3 tools/concept_brief_compiler.py validate concept-briefs/coagulation-vs-flocculation
+  deterministic_build:
+    status: passed
+    evidence: python3 tools/test-concept-brief-compiler.py
+  portfolio_distinctiveness:
+    status: passed_one_pilot
+    evidence: python3 tools/concept_brief_compiler.py portfolio-check concept-briefs
+  release_gate:
+    status: blocked_as_required
+    evidence: Release validation reported incomplete claim verification, technical review, manual reviews, Graph and Community review, commercial review, and approvals.
+  source_snapshot_integrity:
+    status: passed
+    evidence: All three owner-supplied originals are preserved in sources/intake and match the recorded SHA-256 checksums.
+  public_integration_surfaces:
+    status: passed_working
+    evidence: The current educational edition contains library navigation, curated related learning, Community context, an inline comment form, a privacy boundary, and a copyable eight-section SOP outline.
+  desktop_containment:
+    status: passed_working_preview
+    evidence: Headless Chrome at 1440 pixels reported scroll width equal to viewport width.
+  phone_containment:
+    status: passed_after_compiler_fix
+    evidence: Headless Chrome at 390 pixels reported scroll width 390 and no overflow.
+  qualitative_interaction:
+    status: passed_working
+    evidence: Headless browser selected the flocculation stage and excessive-energy state, updated the model data state, and exposed a breakage explanation in the polite live region.
+  canvas_animation:
+    status: passed_working
+    evidence: Browser frames changed under standard motion at desktop and tablet widths, remained static under reduced motion at phone width, and retained the complete text fallback without JavaScript.
+  tablet_containment:
+    status: passed_working
+    evidence: Headless Chrome at 820 pixels reported scroll width equal to viewport width.
+  keyboard_focus:
+    status: passed_working
+    evidence: Tab navigation reached a native jar control, displayed a solid focus outline, and drawer close returned focus to its opener.
+  public_sop_outline:
+    status: passed_working
+    evidence: The browser copied the complete eight-section outline without storing facility information or presenting a public intake as a finished SOP.
+  reduced_motion:
+    status: passed_working
+    evidence: The 390-pixel reduced-motion context reported reduced motion active and automatic rather than smooth scrolling.
+  no_javascript:
+    status: passed_working
+    evidence: The JavaScript-disabled phone context retained the text equivalent, model boundary, and page containment.
+  united_states_authority_scope:
+    status: passed_working
+    evidence: Package audit found no excluded jurisdiction references, and the compiler regression rejected a non-United States governing source.
+  governed_commercial_placement:
+    status: passed_working_candidate
+    evidence: The compiler renders an APAS house placement and a visibly non-live vendor placeholder; the OWOS platform registry controls logos, copy, links, content targeting, directory linkage, vendor-account assignment, aggregate events, pause, resume, and soft archive.
+  commercial_firewall:
+    status: passed_automated_pending_human_review
+    evidence: The package requires editorial_rights none; the platform requires an explicit independence attestation for Concept Brief and directory placements; commercial ordering cannot change claims, evidence, corrections, reviewers, related learning, Graph ranking, or neutral directory results.
+  platform_control_plane:
+    status: passed_local_platform_qa
+    evidence: The OWOS platform worktree now includes indexable current-edition delivery, Concept Brief catalog placement, a protected Author Studio, a moderated reader-feedback queue with reply and review states, immutable version bundles, separate current-edition and independently verified publication controls, a single active pointer, rollback, dynamic Graph projection, Community context, and commercial runtime bindings. tools/test-concept-briefs.mjs passed.
+  public_feedback_workflow:
+    status: passed_local_platform_qa
+    evidence: Inline technical comments, source suggestions, questions, and field observations post to the authenticated Community. The Author Studio receives the same records and supports steward replies plus open, reviewed, incorporated, and closed states.
+  current_edition_publication:
+    status: passed_local_platform_qa
+    evidence: The catalog and route expose the brief as Current edition with indexable published-educational headers. Public-facing candidate language and noindex behavior were removed. Independently verified release remains a separate stricter control.
+  learn_catalog_render:
+    status: passed_desktop_and_phone
+    evidence: Headless Chrome rendered the Concept Brief card and filter in OWOS Learn at 1440 and 390 pixels with no horizontal overflow and correct type filtering.
+  author_studio_render:
+    status: passed_local_platform_qa
+    evidence: Headless Chrome loaded the registered brief, Graph record, Community record, commercial contract, approvals, compiled HTML, and fail-closed release controls in the administrator Author Studio.
+  public_graph_build:
+    status: passed_local_platform_qa
+    evidence: The OWOS public Graph builder completed with 124 public pages and 356 links, including the Concept Brief, coagulation, flocculation, jar testing, sedimentation, and filtration nodes.
+  expert_claim_review_packet:
+    status: generated_pending_expert_completion
+    evidence: qa/expert-claim-review-packet.md contains all 36 candidate material claims and all 13 rejected or withheld claims; qa/expert-claim-review-register.csv provides one structured response row for each of the 49 inventoried claims.
+notes:
+  - Working package created from the supplied prototype and product direction.
+  - The corrected preview restores the supplied v4.2 page's twelve numbered sections, black, blue, white, and gold surface rhythm, Bebas Neue, Barlow, Libre Baskerville, and Space Mono hierarchy, dense cards, evidence tables, role views, and connected-learning close.
+  - The second visual correction restores the original full-width canvas interaction pattern, four-stage tabs, stability graphic, horizontal treatment train, scroll reveals, and gold pull-quote pacing.
+  - Numeric simulator thresholds, universal jar-test settings, unsupported chemistry equations, and overbroad regulatory statements were not restored as confident instruction.
+  - The controlled commercial-placement candidate is owner-approved. No real vendor, fact, technical value, Graph edge, Community policy, legal clearance, or release is approved.
+  - The APAS and vendor-placeholder block passed desktop, tablet, and phone rendering with no horizontal overflow. The provisional APAS wordmark is a preview asset and remains replaceable from the administrator-controlled campaign record.
+  - The expert claim-review packet and editable CSV register are ready for independent practitioner review. They do not change verification status until a named qualified reviewer returns claim-level decisions and evidence locators.
+  - The supplied HTML material-claim inventory is complete for version 4.2: 49 traced claims, including 36 candidate delivery claims and 13 rejected original propositions retained for correction history.
+  - The supplied HTML, strategy handoff, and FOG OS visual-reference deck are preserved inside the package with matching SHA-256 checksums.
+  - The Concept Brief library, curated related-learning drawer and section, Community context handoff, inline comment form, and copyable SOP outline are implemented in the current educational edition.
+  - The browser-saved JSON intake was removed after owner review because it added workflow without delivering a governed facility procedure. A full SOP builder is reserved for a separate authenticated agent product.
+  - Primary-source research trace is complete for the current delivery claims, but independent verification and qualified technical review are not complete.
+  - The current educational edition uses only current United States federal requirements and EPA guidance for its governing frame. State regulations and state training sources are excluded from learner-facing content; AWWA material remains clearly labeled professional context.
+  - Reviewer packet: qa/technical-review-dossier.md.
+  - Working QA report: qa/working-build-report.md.
+  - In-app browser initialization failed; the bundled headless Chrome runtime completed the rendered checks.
+  - The complete platform control plane is implemented and locally validated. The public route is the indexable current educational edition. A separate independently verified release state remains unavailable until its stricter evidence records exist.

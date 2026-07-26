@@ -1,0 +1,236 @@
+#!/usr/bin/env python3
+"""Regression checks for the OWOS Concept Brief Compiler."""
+
+from __future__ import annotations
+
+import shutil
+import tempfile
+from pathlib import Path
+
+import yaml
+
+from concept_brief_compiler import (
+    ConceptBriefError,
+    build_html,
+    portfolio_check,
+    validate_package,
+)
+
+
+ROOT = Path(__file__).resolve().parents[1]
+PILOT = ROOT / "concept-briefs/coagulation-vs-flocculation"
+
+
+package = validate_package(PILOT)
+if package["brief"]["brief_id"] != "owos:concept-brief:001":
+    raise AssertionError("pilot brief identifier did not resolve")
+if package["verification_coverage_percent"] != 0.0:
+    raise AssertionError("unverified pilot must report zero verification coverage")
+if not package["warnings"]:
+    raise AssertionError("working validation did not expose unresolved claims")
+
+with tempfile.TemporaryDirectory() as directory:
+    first = Path(directory) / "first.html"
+    second = Path(directory) / "second.html"
+    cited_html_allowed = bool(
+        yaml.safe_load((PILOT / "research-plan.yaml").read_text(encoding="utf-8"))
+        .get("cited_html", {})
+        .get("allowed")
+    )
+    if cited_html_allowed:
+        build_html(PILOT, first)
+    else:
+        try:
+            build_html(PILOT, first)
+        except ConceptBriefError as error:
+            if "cited HTML generation is blocked" not in str(error):
+                raise AssertionError("pre-research generation failed for the wrong reason") from error
+        else:
+            raise AssertionError("pre-research package generated cited HTML without an override")
+    first_result = build_html(PILOT, first, allow_pre_research_prototype=True)
+    second_result = build_html(PILOT, second, allow_pre_research_prototype=True)
+    if first.read_bytes() != second.read_bytes():
+        raise AssertionError("the same package did not compile deterministically")
+    if first_result["package_checksum"] != second_result["package_checksum"]:
+        raise AssertionError("deterministic builds reported different package checksums")
+    text = first.read_text(encoding="utf-8")
+    for phrase in (
+        "Working preview",
+        "Verification coverage: 0.0%",
+        'id="owos-concept-community"',
+        "Community discussion is practitioner conversation",
+        "treatment-train-placeholder.svg",
+        "prefers-reduced-motion",
+    ):
+        if phrase not in text:
+            raise AssertionError(f"compiled pilot is missing: {phrase}")
+
+    public_output = Path(directory) / "public-preview.html"
+    build_html(
+        PILOT,
+        public_output,
+        allow_pre_research_prototype=True,
+        public_preview=True,
+    )
+    public_text = public_output.read_text(encoding="utf-8")
+    for phrase in (
+        "OWOS CONCEPT BRIEF",
+        "Live jar",
+        "Sources and scope",
+        "From understanding to action",
+        "IN 30 SECONDS",
+        "What changed",
+        "What to observe",
+        "What not to assume",
+        "COMMENT ON THIS BRIEF",
+        "This brief explains the concept. Facility decisions still require your approved procedures and qualified judgment.",
+        "Educational concept brief",
+        "Built and powered by APAS",
+        'id="owos-commercial-placements"',
+    ):
+        if phrase not in public_text:
+            raise AssertionError(f"public preview is missing: {phrase}")
+    if (
+        "GRAPHITE EDITION" not in public_text
+        and "FINAL FEDERAL EDITION" not in public_text
+        and "EDITION 1.0" not in public_text
+    ):
+        raise AssertionError("public preview is missing an approved edition label")
+    for internal_phrase in (
+        "Perplexity",
+        "What the research changed",
+        "Evidence and research decisions",
+        "Verification coverage:",
+        "Pending material claims:",
+        'id="owos-concept-graph"',
+        "Concept Brief Compiler",
+        "source checked",
+        "claim review pending",
+        "Connected in the graph",
+    ):
+        if internal_phrase in public_text:
+            raise AssertionError(
+                f"public preview exposed internal production language: {internal_phrase}"
+            )
+    if "Paid vendor placement" in public_text or "Vendor placeholder" in public_text:
+        raise AssertionError("inactive vendor placeholders must not appear in public output")
+    if public_text.index('id="owos-commercial-placements"') > public_text.index(
+        'id="owos-concept-finish"'
+    ):
+        raise AssertionError("the compact comment and recap must follow commercial content")
+    nav = public_text.split('<nav class="quick-nav"', 1)[1].split("</nav>", 1)[0]
+    if nav.count("<a ") + nav.count("<button ") != 4:
+        raise AssertionError("public primary navigation must contain exactly four controls")
+
+try:
+    validate_package(PILOT, release_ready=True)
+except ConceptBriefError as error:
+    message = str(error)
+    for phrase in (
+        "release requires 100 percent material-claim verification coverage",
+        "qualified technical review",
+        "owner_release must be completed",
+        "approval release must be approved",
+        "release requires approved privacy review",
+        "assessment governance: release requires approved review",
+    ):
+        if phrase not in message:
+            raise AssertionError(f"release gate did not expose: {phrase}") from error
+else:
+    raise AssertionError("the unverified pilot passed the release gate")
+
+with tempfile.TemporaryDirectory() as directory:
+    fixture = Path(directory) / "brief"
+    shutil.copytree(PILOT, fixture)
+    commercial_path = fixture / "commercial.yaml"
+    commercial = yaml.safe_load(commercial_path.read_text(encoding="utf-8"))
+    commercial["relationships"] = [
+        {
+            "organization_node": "org:test-sponsor",
+            "relationship_type": "sponsor",
+            "disclosure": "Paid placement",
+            "editorial_rights": "approve_claims",
+        }
+    ]
+    commercial_path.write_text(
+        yaml.safe_dump(commercial, sort_keys=False),
+        encoding="utf-8",
+    )
+    try:
+        validate_package(fixture)
+    except ConceptBriefError as error:
+        if "editorial_rights must be none" not in str(error):
+            raise AssertionError("commercial firewall failed for the wrong reason") from error
+    else:
+        raise AssertionError("a sponsor with claim approval rights passed validation")
+
+with tempfile.TemporaryDirectory() as directory:
+    portfolio_root = Path(directory) / "briefs"
+    shutil.copytree(PILOT, portfolio_root / "001")
+    shutil.copytree(PILOT, portfolio_root / "002")
+    second_brief_path = portfolio_root / "002/brief.yaml"
+    second_brief = yaml.safe_load(second_brief_path.read_text(encoding="utf-8"))
+    second_brief["brief"]["brief_id"] = "owos:concept-brief:002"
+    second_brief_path.write_text(
+        yaml.safe_dump(second_brief, sort_keys=False),
+        encoding="utf-8",
+    )
+    try:
+        portfolio_check(portfolio_root)
+    except ConceptBriefError as error:
+        if "full design fingerprint duplicates" not in str(error):
+            raise AssertionError("duplicate design failed for the wrong reason") from error
+    else:
+        raise AssertionError("a duplicate Concept Brief design fingerprint passed")
+
+with tempfile.TemporaryDirectory() as directory:
+    fixture = Path(directory) / "brief"
+    shutil.copytree(PILOT, fixture)
+    sources_path = fixture / "sources.yaml"
+    sources = yaml.safe_load(sources_path.read_text(encoding="utf-8"))
+    for source in sources["sources"]:
+        if source["source_id"] == "source-epa-lt1":
+            source["country"] = "Canada"
+            break
+    sources_path.write_text(
+        yaml.safe_dump(sources, sort_keys=False),
+        encoding="utf-8",
+    )
+    try:
+        validate_package(fixture)
+    except ConceptBriefError as error:
+        if "governing authority must be from the United States" not in str(error):
+            raise AssertionError("United States authority guard failed for the wrong reason") from error
+    else:
+        raise AssertionError("a non-United States governing source passed validation")
+
+with tempfile.TemporaryDirectory() as directory:
+    fixture = Path(directory) / "brief"
+    shutil.copytree(PILOT, fixture)
+    learning_path = fixture / "learning.yaml"
+    learning = yaml.safe_load(learning_path.read_text(encoding="utf-8"))
+    learning["learning_events"]["facility_sensitive_data_collection"] = "allowed"
+    learning["capability_lock"]["required_capability_ids"].remove("reflection")
+    learning_path.write_text(
+        yaml.safe_dump(learning, sort_keys=False),
+        encoding="utf-8",
+    )
+    try:
+        validate_package(fixture)
+    except ConceptBriefError as error:
+        for phrase in (
+            "facility_sensitive_data_collection must be prohibited",
+            "learning capability lock is missing used capabilities: reflection",
+        ):
+            if phrase not in str(error):
+                raise AssertionError(
+                    f"durable learning-record guard did not expose: {phrase}"
+                ) from error
+    else:
+        raise AssertionError("an unsafe or incomplete learning-record contract passed")
+
+print(
+    "OWOS Concept Brief Compiler QA passed: deterministic working builds, complete verification "
+    "coverage, qualified review, United States authority scope, commercial firewall, Community "
+    "mount, durable learning records, and portfolio uniqueness are fail-closed."
+)

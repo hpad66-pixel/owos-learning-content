@@ -1,0 +1,45 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+publication_state: internal_working_graph
+presentation_state: curated_related_learning_candidate_built_raw_edges_not_exposed
+nodes:
+  - {node_id: "owos:concept-brief:001", node_type: concept_brief, label: Coagulation vs Flocculation}
+  - {node_id: "term:coagulation", node_type: lexicon_term, label: Coagulation}
+  - {node_id: "term:flocculation", node_type: lexicon_term, label: Flocculation}
+  - {node_id: "term:zeta-potential", node_type: lexicon_term, label: Zeta potential}
+  - {node_id: "term:velocity-gradient", node_type: lexicon_term, label: Velocity gradient}
+  - {node_id: "term:alkalinity", node_type: lexicon_term, label: Alkalinity}
+  - {node_id: "practice:jar-testing", node_type: practice, label: Jar testing}
+  - {node_id: "question:short-filter-runs", node_type: graph_question, label: "Why are filter runs short?"}
+  - {node_id: "question:before-dose-change", node_type: graph_question, label: "What evidence is needed before changing coagulant dose?"}
+  - {node_id: "concept:sedimentation", node_type: concept, label: Sedimentation}
+  - {node_id: "concept:filtration", node_type: concept, label: Filtration}
+  - {node_id: "concept:residuals-management", node_type: concept, label: Residuals management}
+  - {node_id: "role:operator", node_type: role, label: Operator}
+  - {node_id: "role:engineer", node_type: role, label: Engineer}
+  - {node_id: "role:utility-leader", node_type: role, label: Utility leader}
+  - {node_id: "competency:clarification-diagnosis", node_type: competency, label: Clarification diagnosis}
+  - {node_id: "work-product:coagulation-response-sop", node_type: work_product, label: Facility coagulation response SOP}
+  - {node_id: "source:source-ecfr-141-173", node_type: source, label: 40 CFR 141.173}
+  - {node_id: "source:source-ecfr-141-551", node_type: source, label: 40 CFR 141.551}
+  - {node_id: "source:source-epa-swtr-turbidity", node_type: source, label: EPA Surface Water Treatment Rule turbidity guidance}
+edges:
+  - {edge_id: edge-defines-coagulation, edge_type: DEFINES, from_node: "owos:concept-brief:001", to_node: "term:coagulation", provenance: claim-distinct-jobs, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-defines-flocculation, edge_type: DEFINES, from_node: "owos:concept-brief:001", to_node: "term:flocculation", provenance: claim-distinct-jobs, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-defines-g, edge_type: DEFINES, from_node: "owos:concept-brief:001", to_node: "term:velocity-gradient", provenance: claim-g-equation, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-defines-alkalinity, edge_type: DEFINES, from_node: "owos:concept-brief:001", to_node: "term:alkalinity", provenance: claim-alkalinity, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-answers-filter, edge_type: ANSWERS, from_node: "owos:concept-brief:001", to_node: "question:short-filter-runs", provenance: claim-downstream, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-answers-dose, edge_type: ANSWERS, from_node: "owos:concept-brief:001", to_node: "question:before-dose-change", provenance: claim-dose-change-sop, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-adjacent-sedimentation, edge_type: ADJACENT_TO, from_node: "owos:concept-brief:001", to_node: "concept:sedimentation", provenance: design-brief.md, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-downstream-filtration, edge_type: FAILS_DOWNSTREAM_IN, from_node: "owos:concept-brief:001", to_node: "concept:filtration", provenance: claim-downstream, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-downstream-residuals, edge_type: FAILS_DOWNSTREAM_IN, from_node: "owos:concept-brief:001", to_node: "concept:residuals-management", provenance: claim-downstream, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-prerequisite-jar, edge_type: PREREQUISITE_FOR, from_node: "owos:concept-brief:001", to_node: "practice:jar-testing", provenance: claim-jar-purpose, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-role-operator, edge_type: APPLIES_TO_ROLE, from_node: "owos:concept-brief:001", to_node: "role:operator", provenance: claim-role-actions, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-role-engineer, edge_type: APPLIES_TO_ROLE, from_node: "owos:concept-brief:001", to_node: "role:engineer", provenance: claim-role-actions, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-role-leader, edge_type: APPLIES_TO_ROLE, from_node: "owos:concept-brief:001", to_node: "role:utility-leader", provenance: claim-role-actions, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-competency-diagnosis, edge_type: DEVELOPS_COMPETENCY, from_node: "owos:concept-brief:001", to_node: "competency:clarification-diagnosis", provenance: design-brief.md, review_status: pending, visibility: internal, editorial_use: allowed_after_review}
+  - {edge_id: edge-generates-sop, edge_type: GENERATES_WORK_PRODUCT, from_node: "owos:concept-brief:001", to_node: "work-product:coagulation-response-sop", provenance: claim-dose-change-sop, review_status: pending, visibility: internal, editorial_use: private_tenant_only_after_review}
+  - {edge_id: edge-cites-us-large-system-rule, edge_type: CITES, from_node: "owos:concept-brief:001", to_node: "source:source-ecfr-141-173", provenance: claim-us-filtered-water-turbidity, review_status: pending, visibility: internal, editorial_use: evidence_after_regulatory_review}
+  - {edge_id: edge-cites-us-small-system-rule, edge_type: CITES, from_node: "owos:concept-brief:001", to_node: "source:source-ecfr-141-551", provenance: claim-us-filtered-water-turbidity, review_status: pending, visibility: internal, editorial_use: evidence_after_regulatory_review}
+  - {edge_id: edge-cites-epa-turbidity, edge_type: CITES, from_node: "owos:concept-brief:001", to_node: "source:source-epa-swtr-turbidity", provenance: claim-turbidity-proxy, review_status: pending, visibility: internal, editorial_use: evidence_after_claim_review}

@@ -1,0 +1,2327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="owos-contract" content="owos-concept-brief/2">
+<meta name="owos-compiler-version" content="2.1.0">
+<meta name="owos-package-checksum" content="45bfdb1532b0e888ca2f80c3e625b6164fc42aaedc72bf9b9c97c7d8c2a8045a">
+<meta name="owos-brief-id" content="owos:concept-brief:001">
+<meta name="owos-brief-version" content="EDITION 1.0">
+<meta name="owos-release-state" content="public-review-preview">
+<meta name="owos-evidence-cutoff" content="2026-07-26">
+<title>Coagulation vs Flocculation | OWOS Concept Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Libre+Baskerville:ital@0;1&amp;family=Space+Mono:wght@400;700&amp;family=Barlow:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--black:#080808;--panel:#151515;--white:#fff;--off:#f4f7fa;--ink:#10263b;
+--blue:#1d5c90;--gold:#ebca62;--cyan:#bae7f9;--line:#d7e4eb;--red:#9c2226}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.65
+system-ui,sans-serif;color:var(--ink);background:var(--off)}.wrap{width:min(1080px,calc(100% -
+32px));margin:auto}.status{padding:14px 16px;background:#fff3cd;color:#4f3c00;border-bottom:2px
+solid #d4a600;font-weight:700}header{padding:72px 0;background:var(--black);color:#fff}header
+h1{font-size:clamp(42px,7vw,82px);line-height:.98;margin:.15em 0}header p{max-width:760px;
+color:#e8e8e8}.meta{font:12px ui-monospace,monospace;color:var(--gold);overflow-wrap:anywhere}
+.beat{padding:64px 0}
+.surface-white{background:var(--white)}.surface-off_white{background:var(--off)}
+.surface-black{background:var(--black);color:#eee}.surface-blue{background:var(--blue);
+color:#fff;border-bottom:4px solid var(--gold)}.learner-question{font:700 12px ui-monospace,
+monospace;text-transform:uppercase;letter-spacing:1.3px;color:var(--blue)}
+.surface-black .learner-question,.surface-blue .learner-question{color:var(--cyan)}.block{
+margin:26px 0;max-width:900px}.block h2{font-size:clamp(28px,4vw,45px);line-height:1.08}
+.block-callout,.block-decision,.block-protocol,.block-diagnostic{padding:24px;border-left:4px
+solid var(--gold);background:rgba(29,92,144,.08)}.surface-black .block-callout,
+.surface-black .block-decision,.surface-black .block-protocol,.surface-black .block-diagnostic{
+background:#151515}.claim{display:inline-block;margin:0 7px 8px 0;padding:4px 8px;border-radius:3px;
+font:700 10px ui-monospace,monospace;text-transform:uppercase;background:#dbeaf3;color:#164f74}
+.claim-pending,.claim-rejected{background:#fde4e4;color:var(--red)}figure{margin:20px 0}
+figure img{max-width:100%;height:auto;display:block}figcaption{padding:14px;background:#edf5f8;
+color:#173145}.interaction{padding:24px;background:#000;color:#fff;border:1px solid #333}
+.boundary{color:#c7d8e2;font-size:14px}.quick-nav{display:flex;flex-wrap:wrap;gap:10px;
+margin-top:28px}.quick-nav a{display:inline-block;padding:10px 14px;border:1px solid #5f7483;
+border-radius:999px;color:#fff;text-decoration:none;font-weight:700}.quick-nav a:hover,
+.quick-nav a:focus-visible{background:#fff;color:#07131d;outline:3px solid var(--gold);
+outline-offset:2px}.jar-layout{display:grid;grid-template-columns:minmax(0,1.35fr)
+minmax(250px,.65fr);gap:24px;align-items:start}.jar-controls fieldset{border:1px solid #3e5869;
+border-radius:8px;margin:0 0 16px;padding:14px}.jar-controls legend{padding:0 7px;
+font-weight:800}.jar-control{min-height:44px;margin:4px;padding:9px 12px;border:1px solid #7dbcd7;
+border-radius:6px;background:#102f45;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.jar-control[aria-pressed="true"]{background:var(--gold);color:#1f1900;border-color:var(--gold)}
+.jar-control:focus-visible{outline:3px solid #fff;outline-offset:2px}.jar-view{max-width:330px;
+margin:auto}.jar-water{position:relative;min-height:360px;border:4px solid #bae7f9;
+border-top:0;border-radius:0 0 34px 34px;overflow:hidden;background:linear-gradient(#183b54,#0d273a)}
+.jar-water:before{content:"";position:absolute;left:0;right:0;top:0;border-top:3px solid #7dbcd7}
+.particle-field{position:absolute;inset:18px}.particle-field i{position:absolute;width:8px;
+height:8px;border-radius:50%;background:#eaf9ff;box-shadow:0 0 0 1px #66b7d6}
+.particle-field i:nth-child(3n+1){left:18%;top:15%}.particle-field i:nth-child(3n+2){left:52%;top:43%}
+.particle-field i:nth-child(3n){left:78%;top:72%}.particle-field i:nth-child(4n){left:35%;top:68%}
+.particle-field i:nth-child(5n){left:68%;top:22%}.particle-field i:nth-child(7n){left:12%;top:82%}
+.jar-model[data-stage="coagulation"] .particle-field i{width:12px;height:12px}
+.jar-model[data-stage="flocculation"] .particle-field i{width:22px;height:22px}
+.jar-model[data-stage="separation"] .particle-field i{width:24px;height:24px;top:auto;bottom:10%}
+.jar-model[data-coagulant="low"] .particle-field i{width:7px;height:7px}
+.jar-model[data-coagulant="excess"] .particle-field i{background:#ffd6d6;box-shadow:0 0 0 2px #9c2226}
+.jar-model[data-flocculation="low"] .particle-field i{max-width:13px;max-height:13px}
+.jar-model[data-flocculation="excess"] .particle-field i{border-radius:2px;transform:rotate(25deg);
+background:#ffbea8}.jar-visual-label{text-align:center;color:#bae7f9;font-size:13px}
+.jar-result{margin-top:18px;padding:18px;border-left:4px solid var(--gold);background:#10212e}
+.jar-result p{margin:.35em 0}.jar-question{color:#fff5ca;font-weight:700}
+.jar-fallback{padding:18px;background:#fff;color:#10263b}details{padding:15px 0;
+border-bottom:1px solid var(--line)}
+.concept-assessment{margin:24px 0;padding:24px;border:2px solid #8cb8cf;background:#f7fbfd;
+color:#10263b}.assessment-kicker{font:700 11px ui-monospace,monospace;letter-spacing:.12em;
+color:#1d5c90}.assessment-options{display:grid;gap:10px;margin:18px 0}
+.assessment-option{display:block;padding:12px;border:1px solid #b7ccd7;background:#fff}
+.assessment-check,.assessment-reveal{min-height:44px;padding:10px 16px;border:0;
+background:#174f77;color:#fff;font:inherit;font-weight:800;cursor:pointer}
+.assessment-check:focus-visible,.assessment-reveal:focus-visible{outline:3px solid #ebca62;
+outline-offset:3px}.assessment-feedback{font-weight:800}.assessment-retry{font-size:14px}
+.concept-assessment textarea{display:block;width:100%;margin:10px 0 14px;padding:12px;
+font:inherit}.assessment-model{margin-top:16px;padding:16px;background:#e5f0f5}
+.assessment-card-grid,.assessment-work-grid,.assessment-match-grid{display:grid;gap:12px;
+margin:16px 0}.assessment-card-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.assessment-card{min-height:120px;padding:16px;border:1px solid #8cb8cf;background:#fff;
+color:#10263b;font:inherit;font-weight:800;cursor:pointer}.assessment-card[aria-pressed="true"]{
+background:#10232e;color:#f2f1ec}.assessment-match-row{display:grid;
+grid-template-columns:minmax(0,1fr) minmax(180px,.6fr);gap:12px;align-items:center}
+.assessment-match-row select{min-height:44px;padding:8px;font:inherit}
+.assessment-work-check{min-height:44px;padding:10px 16px;border:0;background:#174f77;color:#fff;
+font:inherit;font-weight:800}@media(max-width:640px){.assessment-match-row{grid-template-columns:1fr}}
+summary{font-weight:750;cursor:pointer}.connected{padding:60px 0;background:#fff}
+.evidence-trace{margin-top:28px;padding:0;border:1px solid #b9cfdb;border-radius:8px;
+background:#f7fbfd;color:#10263b;overflow:hidden}.evidence-trace>summary{padding:14px 16px;
+font:700 12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.6px;
+background:#e5f0f5;color:#164f74}.evidence-trace>summary span{float:right;color:#5a6c76}
+.evidence-trace-intro{padding:14px 16px;border-bottom:1px solid #d7e4eb;font-size:14px}
+.evidence-claim-grid{display:grid;gap:1px;background:#d7e4eb}
+.evidence-claim{padding:16px;background:#fff}.evidence-claim p{margin:.45em 0}
+.evidence-claim-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.evidence-claim-head code{font:700 11px ui-monospace,monospace;color:#164f74;
+overflow-wrap:anywhere}.evidence-claim-head span,.claim-use-status{display:inline-block;
+padding:3px 6px;border-radius:3px;background:#fff0c7;color:#674800;font:700 9px
+ui-monospace,monospace;text-transform:uppercase}.evidence-decision{color:#164f74}
+.evidence-claim ul{margin:10px 0;padding-left:20px}.evidence-claim li{margin:10px 0}
+.evidence-claim li span,.evidence-claim li small{display:block;color:#526774;font-size:12px}
+.evidence-limit{font-size:13px;color:#526774}.claim-use-status{margin:0 0 5px 6px;
+background:#fde4e4;color:var(--red)}.surface-black .evidence-trace{border-color:#3c5666}
+.surface-black .evidence-trace>summary{background:#173448;color:#bae7f9}
+#owos-concept-community{padding:60px 0;background:#fff;border-top:1px solid var(--line)}
+.commercial-zone{padding:64px 0;background:#f3efe8;border-top:1px solid #d6d0c5}
+.commercial-head{display:grid;grid-template-columns:minmax(0,.8fr) minmax(280px,1.2fr);
+gap:28px;align-items:end;margin-bottom:24px}.commercial-head h2{font-size:clamp(32px,5vw,58px);
+line-height:1;margin:0;color:#211f1b}.commercial-head>p{margin:0;color:#565047;font-size:13px}
+.commercial-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.commercial-card{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px;position:relative;
+padding:22px;border:1px solid #c8c0b4;background:#fff;color:#211f1b}
+.commercial-card.placeholder{background:#211f1b;color:#f8f5ef;border-style:dashed}
+.commercial-label{grid-column:1/-1;font:700 9px "Space Mono",monospace;letter-spacing:.12em;
+text-transform:uppercase;color:#1d5c90}.commercial-card.placeholder .commercial-label{color:#ebca62}
+.commercial-logo-wrap{display:grid;place-items:center;min-height:86px;background:#f8f5ef}
+.commercial-logo-wrap img{display:block;width:100%;height:auto;max-height:86px;object-fit:contain}
+.commercial-copy h3{margin:0 0 7px;font-size:20px;line-height:1.15}
+.commercial-copy p{margin:0 0 14px;font-size:13px;line-height:1.5;color:#565047}
+.commercial-card.placeholder .commercial-copy p{color:#c8c1b6}
+.commercial-action{display:inline-flex;min-height:42px;align-items:center;color:#174f77;
+font-weight:800;text-decoration:none}.commercial-card.placeholder .commercial-action{color:#aaa49a}
+.commercial-action:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.commercial-directory-note{margin:18px 0 0;color:#565047;font-size:12px}
+.commercial-directory-note a{color:#174f77;font-weight:800}
+footer{padding:32px 0;background:#061f31;color:#bdd5e2;font-size:13px;overflow-wrap:anywhere}
+@media(max-width:760px){.jar-layout{grid-template-columns:1fr}.jar-view{width:min(100%,330px)}}
+@media(max-width:760px){.commercial-head,.commercial-grid{grid-template-columns:1fr}
+.commercial-card{grid-template-columns:130px minmax(0,1fr)}}
+@media(max-width:640px){header{padding:50px 0}.beat{padding:46px 0}.interaction{padding:18px}
+.commercial-card{grid-template-columns:1fr}.commercial-logo-wrap{max-width:220px}
+.jar-control{width:calc(100% - 8px)}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;
+transition:none!important}}
+</style>
+<style>:root {
+  --black: #080808;
+  --black2: #0f0f0f;
+  --panel: #151515;
+  --panel2: #1e1e1e;
+  --line-dark: #2a2a2a;
+  --white: #ffffff;
+  --off: #f4f7fa;
+  --w2: #e8e8e8;
+  --w3: #b4b4b4;
+  --ink: #111111;
+  --ink2: #3a3a3a;
+  --gold: #ebca62;
+  --gold-deep: #8a6608;
+  --blue: #1d5c90;
+  --blue-lt: #387db8;
+  --cyan: #bae7f9;
+  --green: #1b7a52;
+  --red: #b02b2e;
+  --amber: #9a5a00;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--w2);
+  font-family: "Barlow", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { width: min(1160px, calc(100% - 80px)); margin: 0 auto; }
+.status {
+  position: relative;
+  z-index: 10;
+  padding: 11px 20px;
+  background: #fff4cc;
+  border-bottom: 3px solid var(--gold-deep);
+  color: #3e3100;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  text-align: center;
+}
+header {
+  position: relative;
+  padding: 84px 0 92px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 84% 20%, rgba(29,92,144,.34), transparent 26rem),
+    var(--black);
+  border-bottom: 1px solid var(--line-dark);
+}
+header:after {
+  content: "CONDITION / CONTACT / SEPARATION";
+  position: absolute;
+  right: -24px;
+  bottom: -22px;
+  color: rgba(255,255,255,.035);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(72px, 12vw, 180px);
+  line-height: .8;
+  white-space: nowrap;
+  pointer-events: none;
+}
+header .wrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+  gap: 60px;
+  align-items: end;
+}
+header h1 {
+  max-width: 760px;
+  margin: 10px 0 24px;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(62px, 9.5vw, 116px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: .84;
+  text-transform: uppercase;
+}
+header h1:after {
+  content: "TWO DIFFERENT JOBS";
+  display: block;
+  margin-top: 22px;
+  color: var(--gold);
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  line-height: 1.4;
+}
+header p {
+  max-width: 680px;
+  color: var(--w2);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+header .meta {
+  color: var(--gold);
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  overflow-wrap: anywhere;
+}
+.quick-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 28px;
+}
+.quick-nav a {
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 1px solid #47515a;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.quick-nav a:hover, .quick-nav a:focus-visible {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #241d05;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.band {
+  position: relative;
+  padding: 44px 0 46px;
+  overflow: hidden;
+  background: var(--blue);
+}
+.band:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: var(--gold);
+}
+.band-in {
+  width: min(1160px, calc(100% - 80px));
+  margin: auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 26px;
+}
+.band-n {
+  flex: none;
+  color: rgba(255,255,255,.25);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 72px;
+  letter-spacing: 2px;
+  line-height: .78;
+}
+.band-txt { min-width: 0; }
+.band-k {
+  margin-bottom: 8px;
+  color: var(--cyan);
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+.band-h {
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(34px, 4.5vw, 52px);
+  letter-spacing: .8px;
+  line-height: .95;
+}
+.beat { padding: 84px 0 92px; }
+.surface-white { background: var(--white); color: var(--ink2); }
+.surface-off_white { background: var(--off); color: var(--ink2); }
+.surface-black { background: var(--black); color: var(--w2); }
+.surface-blue { background: var(--blue); color: #fff; }
+.learner-question {
+  margin: 0 0 14px;
+  color: var(--blue);
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.surface-black .learner-question { color: var(--cyan); }
+.block {
+  max-width: none;
+  margin: 0;
+}
+.beat .block > h2:first-child { display: none; }
+.block > h2 {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(36px, 5vw, 55px);
+  font-weight: 400;
+  letter-spacing: .8px;
+  line-height: 1;
+}
+.surface-black .block > h2 { color: #fff; }
+.block > p {
+  max-width: 900px;
+  margin: 0 0 20px;
+  font-size: 17px;
+}
+.block > p:first-of-type {
+  font-size: 18px;
+}
+.claim {
+  display: inline-block;
+  margin: 0 6px 18px 0;
+  padding: 4px 8px;
+  border-radius: 2px;
+  background: #dceaf2;
+  color: #164f74;
+  font-family: "Space Mono", monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: .65px;
+  text-transform: uppercase;
+}
+.claim-pending, .claim-rejected {
+  background: #f8dddd;
+  color: #8d1f23;
+}
+.surface-black .claim {
+  background: #293b48;
+  color: var(--cyan);
+}
+.surface-black .claim-pending, .surface-black .claim-rejected {
+  background: #562b2d;
+  color: #ffd9da;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+.card {
+  min-width: 0;
+  padding: 25px 24px;
+  border: 1px solid #dfe6eb;
+  border-left: 4px solid var(--gold);
+  background: var(--off);
+}
+.surface-black .card {
+  border-color: var(--line-dark);
+  border-left-color: var(--gold);
+  background: var(--panel);
+}
+.card h3, .protocol-step h3, .accuracy-panel h3 {
+  margin: 0 0 9px;
+  color: var(--ink);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: .7px;
+  line-height: 1;
+}
+.surface-black .card h3, .surface-black .protocol-step h3 { color: #fff; }
+.card p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.6; }
+.card-label {
+  display: inline-block;
+  color: var(--blue);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.example {
+  margin-top: 16px;
+  padding: 13px 14px;
+  border-left: 3px solid var(--blue);
+  background: rgba(29,92,144,.08);
+  font-size: 13px;
+}
+.example b {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--blue);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+}
+.surface-black .example { background: rgba(235,202,98,.1); border-color: var(--gold); }
+.surface-black .example b { color: var(--gold); }
+.interaction {
+  margin-top: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+}
+.interaction > h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+.boundary {
+  margin: 22px 0 26px;
+  padding: 13px 15px;
+  border-left: 3px solid var(--gold);
+  background: rgba(235,202,98,.09);
+  color: var(--w2);
+  font-size: 13px;
+}
+.sim {
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  background: var(--panel);
+}
+.sim-top {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line-dark);
+}
+.stage-button {
+  min-height: 110px;
+  padding: 17px 14px;
+  border: 0;
+  border-right: 1px solid var(--line-dark);
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+.stage-button:last-child { border-right: 0; }
+.stage-button:hover { background: var(--panel2); }
+.stage-button[aria-pressed="true"] { background: var(--gold); color: #251e04; }
+.stage-number {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--cyan);
+  font-family: "Space Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+.stage-button[aria-pressed="true"] .stage-number { color: #5d4b0c; }
+.stage-title {
+  display: block;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 23px;
+  letter-spacing: .5px;
+  line-height: 1;
+}
+.stage-note {
+  display: block;
+  margin-top: 6px;
+  color: var(--w3);
+  font-size: 10.5px;
+  line-height: 1.35;
+}
+.stage-button[aria-pressed="true"] .stage-note { color: #433708; }
+.canvas-shell {
+  position: relative;
+  height: 390px;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(56,125,184,.12), transparent 32rem),
+    #0d0d0d;
+}
+.jar-canvas { display: block; width: 100%; height: 100%; }
+.canvas-label {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  color: var(--cyan);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  pointer-events: none;
+}
+.condition-rail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+.condition-rail fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 16px 20px 18px;
+  border: 0;
+  border-right: 1px solid var(--line-dark);
+}
+.condition-rail fieldset:last-child { border-right: 0; }
+.condition-rail legend {
+  padding: 0 5px;
+  color: var(--cyan);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.condition-rail .jar-control {
+  min-height: 44px;
+  margin: 4px 5px 4px 0;
+  padding: 9px 12px;
+  border: 1px solid #46687f;
+  border-radius: 3px;
+  background: #102f45;
+  color: #fff;
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.condition-rail .jar-control:hover { background: #17415e; }
+.condition-rail .jar-control[aria-pressed="true"] {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #211a02;
+}
+.jar-control:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -4px;
+}
+.sim-cap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  padding: 22px 24px;
+  align-items: center;
+}
+.jar-result {
+  margin: 0;
+  padding: 0 0 0 18px;
+  border-left: 3px solid var(--gold);
+  background: transparent;
+}
+.jar-result p { margin: 0 0 8px; }
+.jar-question { color: #fff5ca; font-weight: 700; }
+.qualitative-readout {
+  display: grid;
+  gap: 5px;
+  min-width: 220px;
+  color: var(--w3);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .6px;
+  text-align: right;
+}
+.qualitative-readout b { display: inline; color: var(--gold); }
+.stability-graphic {
+  margin-top: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  background: var(--panel);
+}
+.stability-graphic svg { display: block; width: 100%; height: auto; }
+.stability-mobile { display: none; }
+.svg-kicker { fill: var(--cyan); font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: 2px; }
+.svg-label { fill: var(--w3); font-family: "Barlow", sans-serif; font-size: 13px; text-anchor: middle; }
+.svg-step { fill: var(--gold); font-family: "Space Mono", monospace; font-size: 9px; text-anchor: middle; letter-spacing: .8px; }
+.svg-arrow {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 3;
+  stroke-dasharray: 8 6;
+  animation: flow-line 1.4s linear infinite;
+}
+.dispersed-particles circle {
+  fill: rgba(56,125,184,.25);
+  stroke: #5797c9;
+  stroke-width: 2;
+}
+.prepared-particles circle {
+  fill: rgba(235,202,98,.18);
+  stroke: var(--gold);
+  stroke-width: 2;
+}
+.aggregate > circle:first-child {
+  fill: rgba(109,208,163,.13);
+  stroke: #6dd0a3;
+  stroke-width: 2;
+  transform-origin: 744px 139px;
+  animation: aggregate-breathe 3s ease-in-out infinite;
+}
+.aggregate > circle:not(:first-child) { fill: rgba(109,208,163,.55); }
+@keyframes flow-line { to { stroke-dashoffset: -28; } }
+@keyframes aggregate-breathe { 50% { transform: scale(1.07); } }
+figure {
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid var(--line-dark);
+  border-radius: 5px;
+  background: var(--panel);
+}
+figure img { width: 100%; max-width: 100%; height: auto; display: block; }
+figcaption {
+  margin-top: 14px;
+  padding: 14px;
+  background: #edf5f8;
+  color: #173145;
+  font-size: 13px;
+}
+.table-wrap {
+  width: 100%;
+  margin-top: 30px;
+  overflow-x: auto;
+  border: 1px solid #dfe6eb;
+}
+.editorial-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  color: var(--ink2);
+}
+.editorial-table th {
+  padding: 14px;
+  border-bottom: 3px solid var(--gold);
+  background: var(--white);
+  color: var(--blue);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-align: left;
+  vertical-align: bottom;
+}
+.editorial-table td {
+  padding: 15px 14px;
+  border-bottom: 1px solid #dfe6eb;
+  font-size: 13.5px;
+  line-height: 1.5;
+  vertical-align: top;
+}
+.editorial-table tr:last-child td { border-bottom: 0; }
+.editorial-table a { color: var(--blue); overflow-wrap: anywhere; }
+.source-table small { display: block; margin-top: 5px; color: #5d6a73; line-height: 1.35; }
+.source-tier, .source-status {
+  display: inline-block;
+  padding: 4px 7px;
+  border-radius: 2px;
+  background: #dceaf2;
+  color: #164f74;
+  font-family: "Space Mono", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.source-status { background: #fff0c7; color: #674800; }
+.protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+.protocol-step {
+  padding: 25px;
+  border: 1px solid var(--line-dark);
+  background: var(--panel);
+}
+.step-number {
+  color: var(--gold);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 52px;
+  line-height: 1;
+}
+.protocol-step p { margin: 0; color: var(--w2); font-size: 14px; }
+.comparisons { margin-top: 34px; }
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 18px;
+  border: 1px solid #dfe6eb;
+  background: #fff;
+}
+.not-this, .do-this { padding: 23px; }
+.not-this { border-right: 1px solid #dfe6eb; }
+.not-this span, .do-this span {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+.not-this span { color: var(--red); }
+.do-this span { color: var(--green); }
+.not-this p, .do-this p { margin: 0; }
+.consequence {
+  margin-top: 13px;
+  padding-top: 11px;
+  border-top: 1px dashed #cad5dc;
+  color: #5b6871;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  line-height: 1.55;
+}
+.audit-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.audit-list li {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  min-height: 110px;
+  border: 1px solid var(--line-dark);
+  background: var(--panel);
+}
+.audit-list span {
+  display: grid;
+  place-items: center;
+  border-right: 1px solid var(--line-dark);
+  color: var(--gold);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 34px;
+}
+.audit-list p { align-self: center; margin: 0; padding: 18px; color: var(--w2); }
+.accuracy-panel {
+  margin-top: 26px;
+  padding: 24px;
+  border-left: 4px solid var(--gold);
+  background: #fff;
+}
+.accuracy-panel p { margin: 0; font-size: 14px; }
+.pullquote {
+  position: relative;
+  left: -2px;
+  width: auto;
+  margin: 64px calc((100vw - 100%) / -2) -92px;
+  padding: 58px max(24px, calc((100vw - 1080px) / 2));
+  background: var(--gold);
+  color: #171204;
+  text-align: center;
+}
+.pullquote p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(21px, 3vw, 34px);
+  font-style: italic;
+  line-height: 1.45;
+}
+.pullquote span {
+  display: block;
+  margin-top: 18px;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+}
+details {
+  margin-top: 30px;
+  padding: 18px 0;
+  border-top: 1px solid #d9e1e6;
+  border-bottom: 1px solid #d9e1e6;
+}
+summary {
+  color: var(--blue);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 25px;
+  cursor: pointer;
+}
+.connected, #owos-concept-community {
+  padding: 78px 0;
+  background: #fff;
+  color: var(--ink2);
+}
+.connected { border-top: 4px solid var(--gold); }
+.connected h2, #owos-concept-community h2 {
+  margin: 0 0 20px;
+  color: var(--ink);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(38px, 5vw, 56px);
+  font-weight: 400;
+  line-height: 1;
+}
+.connected ul, #owos-concept-community ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+.connected li, #owos-concept-community li {
+  padding: 17px;
+  border: 1px solid #dfe6eb;
+  border-left: 4px solid var(--gold);
+  background: var(--off);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.connected li b {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--blue);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+}
+#owos-concept-community { border-top: 1px solid #dfe6eb; }
+footer {
+  padding: 38px 0;
+  border-top: 1px solid var(--line-dark);
+  background: var(--black);
+  color: var(--w3);
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.motion-ready .editorial-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .62s ease, transform .62s ease;
+}
+.motion-ready .editorial-reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  header .wrap { grid-template-columns: 1fr; gap: 28px; }
+  .card-grid { grid-template-columns: 1fr 1fr; }
+  .connected ul, #owos-concept-community ul { grid-template-columns: 1fr 1fr; }
+  .source-table { min-width: 760px; }
+}
+@media (max-width: 700px) {
+  .wrap, .band-in { width: min(100% - 36px, 1160px); }
+  header { padding: 60px 0 68px; }
+  header h1 { font-size: clamp(58px, 21vw, 90px); }
+  .band { padding: 34px 0 36px; }
+  .band-in { align-items: flex-start; gap: 14px; }
+  .band-n { font-size: 54px; }
+  .band-k { font-size: 8px; letter-spacing: 1px; }
+  .band-h { font-size: 34px; }
+  .beat { padding: 58px 0 64px; }
+  .sim-top { grid-template-columns: 1fr 1fr; }
+  .stage-button { min-height: 104px; border-bottom: 1px solid var(--line-dark); }
+  .canvas-shell { height: 320px; }
+  .condition-rail { grid-template-columns: 1fr; }
+  .condition-rail fieldset { border-right: 0; border-bottom: 1px solid var(--line-dark); }
+  .condition-rail fieldset:last-child { border-bottom: 0; }
+  .sim-cap { grid-template-columns: 1fr; }
+  .qualitative-readout { min-width: 0; text-align: left; }
+  .stability-graphic svg { display: none; }
+  .stability-mobile { display: grid; padding: 16px; gap: 10px; }
+  .stability-mobile div {
+    padding: 16px;
+    border-left: 3px solid var(--gold);
+    background: var(--panel2);
+  }
+  .stability-mobile b, .stability-mobile span { display: block; }
+  .stability-mobile b {
+    margin-bottom: 5px;
+    color: var(--gold);
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
+  }
+  .stability-mobile span { color: var(--w2); font-size: 13px; }
+  .card-grid, .protocol-grid, .audit-list,
+  .connected ul, #owos-concept-community ul { grid-template-columns: 1fr; }
+  .comparison { grid-template-columns: 1fr; }
+  .not-this { border-right: 0; border-bottom: 1px solid #dfe6eb; }
+  .table-wrap { overflow: visible; border: 0; }
+  .editorial-table, .editorial-table tbody, .editorial-table tr, .editorial-table td {
+    display: block;
+    width: 100%;
+  }
+  .editorial-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .editorial-table tr {
+    margin-bottom: 14px;
+    border: 1px solid #dfe6eb;
+    border-left: 4px solid var(--gold);
+    background: #fff;
+  }
+  .editorial-table td { border-bottom: 1px solid #e5ebef; }
+  .editorial-table td:last-child { border-bottom: 0; }
+  .source-table { min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+/* OWOS Graphite Edition public presentation layer. */
+:root {
+  --black: #1c1b19;
+  --black2: #211f1d;
+  --panel: #292826;
+  --panel2: #302f2c;
+  --line-dark: #3d3a36;
+  --white: #f2f1ec;
+  --off: #242321;
+  --w2: #d9d6cf;
+  --w3: #a29c91;
+  --ink: #f2f1ec;
+  --ink2: #d9d6cf;
+  --gold: #e0a64a;
+  --gold-deep: #a86e20;
+  --blue: #7dc6e8;
+  --blue-lt: #8ed0ed;
+  --cyan: #9bd6f0;
+  --green: #4ac88c;
+  --red: #ee7968;
+  --amber: #e0a64a;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% -12%, rgba(125, 198, 232, .08), transparent 34rem),
+    var(--black);
+  color: var(--w2);
+  font-family: Arial, "Barlow", sans-serif;
+}
+
+.status {
+  background: #10232e;
+  border-bottom: 1px solid rgba(125, 198, 232, .32);
+  color: #cceefe;
+  letter-spacing: .7px;
+}
+
+header {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 82% 24%, rgba(125, 198, 232, .18), transparent 23rem),
+    radial-gradient(circle at 70% 64%, rgba(74, 200, 140, .05), transparent 26rem),
+    linear-gradient(135deg, #1c1b19 0%, #201f1d 58%, #161d20 100%);
+  border-bottom-color: #363431;
+}
+
+header:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent 78%);
+  pointer-events: none;
+}
+
+header:after {
+  content: "CONDITION · CONTACT · SEPARATE";
+  right: max(24px, calc((100vw - 1160px) / 2));
+  bottom: 28px;
+  color: rgba(155, 214, 240, .22);
+  font-family: "Courier New", "Space Mono", monospace;
+  font-size: clamp(18px, 3vw, 38px);
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1;
+}
+
+header h1 {
+  color: var(--white);
+  font-family: Arial, "Barlow", sans-serif;
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: .9;
+  text-transform: none;
+}
+
+header h1 span {
+  color: var(--blue) !important;
+}
+
+header h1:after {
+  color: var(--blue);
+  font-family: "Courier New", "Space Mono", monospace;
+}
+
+header p {
+  color: #c8c4bd;
+  font-family: Arial, "Barlow", sans-serif;
+  font-size: 18px;
+}
+
+header .meta {
+  color: var(--cyan);
+  font-family: "Courier New", "Space Mono", monospace;
+}
+
+header .hero-side {
+  position: relative;
+  padding: 28px 28px 30px;
+  border: 1px solid #3a3936;
+  border-radius: 8px;
+  background: rgba(41, 40, 38, .64);
+  box-shadow: 0 22px 60px rgba(0,0,0,.28);
+  backdrop-filter: blur(12px);
+}
+
+header .hero-side:before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin-bottom: 22px;
+  border: 5px solid var(--blue);
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px #10232e, 0 0 24px rgba(125,198,232,.35);
+}
+
+.quick-nav a {
+  border-color: #4a4742;
+  background: #232220;
+  color: #ddd9d2;
+}
+
+.quick-nav a:hover,
+.quick-nav a:focus-visible {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #10232e;
+}
+
+.band {
+  background: #252422;
+  border-top: 1px solid #3b3935;
+  border-bottom: 1px solid #3b3935;
+}
+
+.band:after {
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), rgba(125,198,232,0));
+}
+
+.band-n {
+  color: rgba(142, 208, 237, .72);
+  font-family: Arial, "Barlow", sans-serif;
+  font-weight: 800;
+  text-shadow: 0 0 28px rgba(125, 198, 232, .16);
+}
+
+.band-k {
+  color: var(--blue);
+  font-family: "Courier New", "Space Mono", monospace;
+}
+
+.band-h {
+  color: var(--white);
+  font-family: Arial, "Barlow", sans-serif;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.3);
+}
+
+.surface-white {
+  background: #211f1d;
+  color: var(--w2);
+}
+
+.surface-off_white {
+  background: #292826;
+  color: var(--w2);
+}
+
+.surface-black {
+  background: #1c1b19;
+  color: var(--w2);
+}
+
+.surface-blue {
+  background:
+    radial-gradient(circle at 84% 30%, rgba(125,198,232,.12), transparent 24rem),
+    #10232e;
+  color: var(--white);
+}
+
+.beat {
+  border-bottom: 1px solid rgba(242,241,236,.055);
+}
+
+.learner-question,
+.surface-black .learner-question,
+.surface-blue .learner-question {
+  color: var(--blue);
+  font-family: "Courier New", "Space Mono", monospace;
+}
+
+.block > h2,
+.surface-black .block > h2 {
+  color: var(--white);
+  font-family: Arial, "Barlow", sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.block > p:first-of-type {
+  color: #e4e1da;
+}
+
+.card,
+.surface-black .card,
+.protocol-step,
+.audit-list li,
+.accuracy-panel {
+  border-color: #3d3a36;
+  border-left-color: var(--blue);
+  background: #292826;
+  box-shadow: 0 14px 30px rgba(0,0,0,.13);
+}
+
+.card h3,
+.protocol-step h3,
+.accuracy-panel h3,
+.surface-black .card h3,
+.surface-black .protocol-step h3 {
+  color: var(--white);
+  font-family: Arial, "Barlow", sans-serif;
+  font-weight: 800;
+}
+
+.card-label,
+.example b {
+  color: var(--blue);
+}
+
+.example,
+.surface-black .example {
+  border-color: var(--blue);
+  background: rgba(125,198,232,.07);
+}
+
+.surface-black .example b {
+  color: var(--blue);
+}
+
+.claim,
+.surface-black .claim {
+  background: #10232e;
+  color: var(--cyan);
+}
+
+.sim,
+.stability-graphic,
+figure {
+  border-color: #45423d;
+  background: #232220;
+  box-shadow: 0 22px 56px rgba(0,0,0,.25);
+}
+
+.stage-button[aria-pressed="true"],
+.condition-rail .jar-control[aria-pressed="true"] {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #10232e;
+}
+
+.stage-button[aria-pressed="true"] .stage-number,
+.stage-button[aria-pressed="true"] .stage-note {
+  color: #173543;
+}
+
+.canvas-shell {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(125,198,232,.14), transparent 30rem),
+    #171a1b;
+}
+
+.condition-rail .jar-control {
+  border-color: #416171;
+  background: #10232e;
+}
+
+.condition-rail .jar-control:hover {
+  background: #173746;
+}
+
+.boundary,
+.jar-result {
+  border-color: var(--blue);
+  background: rgba(125,198,232,.06);
+}
+
+.jar-question {
+  color: #cceefe;
+}
+
+.qualitative-readout b,
+.step-number,
+.audit-list span {
+  color: var(--blue);
+}
+
+.svg-step,
+.svg-arrow {
+  color: var(--blue);
+  fill: var(--blue);
+  stroke: var(--blue);
+}
+
+.prepared-particles circle {
+  fill: rgba(125,198,232,.16);
+  stroke: var(--blue);
+}
+
+figcaption {
+  background: #10232e;
+  color: #cceefe;
+}
+
+.table-wrap {
+  border-color: #45423d;
+  box-shadow: 0 18px 40px rgba(0,0,0,.16);
+}
+
+.editorial-table {
+  background: #252422;
+  color: var(--w2);
+}
+
+.editorial-table th {
+  border-bottom-color: var(--blue);
+  background: #1f1e1c;
+  color: var(--cyan);
+}
+
+.editorial-table td {
+  border-bottom-color: #3d3a36;
+}
+
+.editorial-table a {
+  color: var(--blue);
+}
+
+.source-table small,
+.consequence {
+  color: var(--w3);
+}
+
+.source-tier,
+.source-status {
+  background: #10232e;
+  color: var(--cyan);
+}
+
+.comparison {
+  border-color: #45423d;
+  background: #252422;
+}
+
+.not-this {
+  border-color: #45423d;
+}
+
+.consequence {
+  border-color: #55514b;
+}
+
+.pullquote {
+  background:
+    radial-gradient(circle at 78% 30%, rgba(125,198,232,.16), transparent 20rem),
+    #10232e;
+  color: var(--white);
+  border-top: 1px solid rgba(125,198,232,.25);
+  border-bottom: 1px solid rgba(125,198,232,.25);
+}
+
+.pullquote p {
+  font-family: Arial, "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.pullquote span {
+  color: var(--blue);
+}
+
+details {
+  border-color: #45423d;
+}
+
+summary {
+  color: var(--blue);
+  font-family: Arial, "Barlow", sans-serif;
+  font-weight: 800;
+}
+
+footer {
+  background: #171614;
+  color: #8f8a81;
+}
+
+.quick-nav button {
+  display: inline-block;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #4a4742;
+  border-radius: 3px;
+  background: #232220;
+  color: #fff;
+  font: 700 10px "Space Mono", monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.quick-nav button:hover,
+.quick-nav button:focus-visible {
+  background: #fff;
+  color: #07131d;
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.connected-learning,
+.community-public,
+.sop-workspace {
+  padding: clamp(64px, 9vw, 120px) 0;
+}
+
+.connected-learning {
+  background: #171614;
+  color: #f8f5ef;
+}
+
+.community-public {
+  background: #f3efe8;
+  color: #211f1b;
+}
+
+#owos-concept-community.community-public {
+  background: #f3efe8;
+  color: #211f1b;
+}
+
+.sop-workspace {
+  background: #10232e;
+  color: #f8f5ef;
+}
+
+.connected-learning h2,
+.community-public h2,
+.sop-workspace h2,
+.context-drawer h2 {
+  max-width: 800px;
+  margin: 0 0 18px;
+  font-family: Arial, "Barlow", sans-serif;
+  font-size: clamp(36px, 5vw, 68px);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+#owos-concept-community.community-public h2 {
+  color: #211f1b;
+  font-family: Arial, "Barlow", sans-serif;
+  font-weight: 800;
+  letter-spacing: -.035em;
+}
+
+#owos-concept-community.community-public p {
+  color: #565047;
+}
+
+#owos-concept-community.community-public .privacy-warning {
+  color: #211f1b;
+}
+
+.community-feedback {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(320px, 1.2fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: start;
+  margin-top: 54px;
+  padding-top: 42px;
+  border-top: 1px solid #cfc7ba;
+}
+
+.community-feedback h3 {
+  margin: 0 0 14px;
+  color: #211f1b;
+  font: 800 clamp(26px, 3vw, 42px)/1.05 Arial, "Barlow", sans-serif;
+  letter-spacing: -.025em;
+}
+
+.community-feedback form {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #d8d0c4;
+  border-radius: 4px;
+  box-shadow: 0 16px 36px rgba(28, 27, 25, .08);
+}
+
+.community-feedback label {
+  display: block;
+  margin: 0 0 7px;
+  color: #211f1b;
+  font: 700 11px/1.3 "Space Mono", monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.community-feedback select,
+.community-feedback textarea {
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 12px 13px;
+  border: 1px solid #aaa092;
+  border-radius: 3px;
+  background: #fff;
+  color: #211f1b;
+  font: 15px/1.5 Arial, "Barlow", sans-serif;
+}
+
+.community-feedback textarea {
+  min-height: 126px;
+  resize: vertical;
+}
+
+.community-feedback select:focus-visible,
+.community-feedback textarea:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.feedback-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.feedback-actions a {
+  color: #174f77;
+  font-weight: 800;
+}
+
+.feedback-status {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  color: #176d4a !important;
+  font-size: 13px;
+}
+
+.feedback-disclaimer {
+  margin-top: 28px;
+  color: #6d665d;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.section-kicker {
+  margin: 0 0 16px;
+  color: var(--blue);
+  font: 700 11px/1.3 "Space Mono", monospace;
+  letter-spacing: .14em;
+}
+
+.section-lead {
+  max-width: 760px;
+  color: #c8c1b6;
+}
+
+.community-public .section-lead {
+  color: #565047;
+}
+
+@media (max-width: 760px) {
+  .community-feedback {
+    grid-template-columns: 1fr;
+  }
+}
+
+.connection-grid,
+.drawer-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 34px;
+  background: #49463f;
+  border: 1px solid #49463f;
+}
+
+.connection-card {
+  padding: 28px;
+  background: #252422;
+}
+
+.context-drawer .connection-card {
+  background: #f4f1eb;
+}
+
+.connection-card > span {
+  color: var(--blue);
+  font: 700 10px "Space Mono", monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.connection-card h3 {
+  margin: 10px 0;
+  font-family: Arial, "Barlow", sans-serif;
+  font-size: 25px;
+}
+
+.connection-card p {
+  color: #c8c1b6;
+}
+
+.context-drawer .connection-card p {
+  color: #565047;
+}
+
+.connection-card a,
+.drawer-bottom-link {
+  color: var(--blue);
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+.community-layout,
+.sop-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+  gap: clamp(34px, 6vw, 80px);
+  align-items: start;
+}
+
+.privacy-warning {
+  margin: 24px 0;
+  padding: 16px;
+  border-left: 4px solid var(--gold);
+  background: rgba(235, 202, 98, .12);
+}
+
+.question-list {
+  display: grid;
+  gap: 10px;
+}
+
+.seed-question {
+  padding: 18px;
+  border: 1px solid #ccc3b7;
+  background: #fff;
+  color: #211f1b;
+  font: 700 15px/1.45 Arial, "Barlow", sans-serif;
+  text-align: left;
+}
+
+.primary-action,
+.secondary-action {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 17px;
+  border: 1px solid var(--blue);
+  background: var(--blue);
+  color: #07131d;
+  font: 800 13px Arial, "Barlow", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.secondary-action {
+  border-color: #847e75;
+  background: transparent;
+  color: inherit;
+}
+
+.primary-action:focus-visible,
+.secondary-action:focus-visible,
+.seed-question:focus-visible,
+.drawer-close:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.sop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.sop-outline-card,
+.sop-boundary-card {
+  padding: 28px;
+  background: #f3efe8;
+  color: #211f1b;
+}
+
+.sop-outline-card h3,
+.sop-boundary-card h3 {
+  margin-top: 0;
+  font: 800 clamp(24px, 3vw, 34px)/1.08 Arial, "Barlow", sans-serif;
+}
+
+.sop-outline-card ol {
+  display: grid;
+  gap: 1px;
+  padding: 0;
+  border: 1px solid #cfc7bb;
+  background: #cfc7bb;
+  list-style: none;
+  counter-reset: outline;
+}
+
+.sop-outline-card li {
+  position: relative;
+  padding: 18px 18px 18px 58px;
+  background: #fff;
+  counter-increment: outline;
+}
+
+.sop-outline-card li:before {
+  content: counter(outline, decimal-leading-zero);
+  position: absolute;
+  top: 18px;
+  left: 17px;
+  color: #0871ad;
+  font: 800 12px "Space Mono", monospace;
+}
+
+.sop-outline-card li b,
+.sop-outline-card li span {
+  display: block;
+}
+
+.sop-outline-card li b {
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.sop-outline-card li span {
+  color: #565047;
+  font-size: 14px;
+}
+
+.sop-boundary-card {
+  border-top: 5px solid var(--gold);
+}
+
+.sop-boundary-card p {
+  color: #565047;
+}
+
+.copy-status {
+  color: #565047;
+  font-size: 13px;
+}
+
+.drawer-backdrop {
+  position: fixed;
+  z-index: 99;
+  inset: 0;
+  background: rgba(0, 0, 0, .64);
+}
+
+.context-drawer {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  width: min(560px, 100%);
+  height: 100dvh;
+  overflow: auto;
+  padding: clamp(28px, 5vw, 56px);
+  background: #fff;
+  color: #211f1b;
+  box-shadow: -18px 0 80px rgba(0, 0, 0, .3);
+}
+
+.context-drawer h2 {
+  font-size: clamp(34px, 5vw, 54px);
+}
+
+.drawer-close {
+  float: right;
+  min-height: 44px;
+  padding: 8px 13px;
+  border: 1px solid #c8c1b6;
+  background: #fff;
+  color: #211f1b;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.drawer-cards {
+  grid-template-columns: 1fr;
+  margin-bottom: 24px;
+}
+
+.drawer-bottom-link {
+  display: block;
+  margin-top: 24px;
+}
+
+body.drawer-open {
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  header {
+    min-height: auto;
+  }
+
+  header h1 {
+    font-size: clamp(48px, 15vw, 64px);
+    letter-spacing: -2px;
+    line-height: .94;
+  }
+
+  header:after {
+    right: 18px;
+    bottom: 18px;
+    max-width: calc(100% - 36px);
+    font-size: 14px;
+    letter-spacing: .08em;
+    text-align: right;
+    white-space: normal;
+  }
+
+  .editorial-table tr {
+    border-color: #45423d;
+    border-left-color: var(--blue);
+    background: #252422;
+  }
+
+  .editorial-table td {
+    border-bottom-color: #3d3a36;
+  }
+
+  .not-this {
+    border-color: #45423d;
+  }
+
+  .connection-grid,
+  .community-layout,
+  .sop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .context-drawer {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header .hero-side {
+    backdrop-filter: none;
+  }
+}
+</style>
+</head>
+<body data-owos-theme="graphite">
+<div class="status" role="status">Educational concept brief. Use this brief to understand the process, not to change a facility setting.</div>
+<header><div class="wrap"><div class="hero-copy"><div class="meta">UNIT PROCESS · CLARIFICATION TRAIN ·
+owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">VS</span> Flocculation</h1><p>Understand the different jobs of coagulation and flocculation, see how each can fail, and know what evidence to check before changing a process.</p>
+<div class="meta">DRINKING WATER · UNITED STATES AUTHORITY · QUALITATIVE JAR · EDUCATIONAL USE</div>
+</div><div class="hero-side"><div class="meta">OWOS CONCEPT BRIEF · EDITION 1.0</div>
+<p>Two different jobs. Two different mixing purposes. One connected treatment sequence.</p>
+<nav class="quick-nav" aria-label="Concept Brief">
+<a href="../../dist/index.html">All briefs</a>
+<a href="#beat-01-why">Start</a><a href="#block-jar">Live jar</a>
+<a href="#block-terms">Key terms</a><a href="#block-evidence-boundary">Sources</a>
+<button type="button" data-drawer-open="related-drawer">Related learning</button><button type="button" data-drawer-open="community-drawer">Community</button><button type="button" data-drawer-open="sop-drawer">SOP outline</button>
+</nav></div></div></header>
+<main>
+<div class="band"><div class="band-in"><div class="band-n">01</div><div class="band-txt"><div class="band-k">Why does the distinction matter?</div><div class="band-h">Chemistry changes the particle before physics can remove it</div></div></div></div><section class="beat surface-white" id="beat-01-why"><div class="wrap"><p class="learner-question">Why does the distinction matter?</p><article class="block block-prose" id="block-opening"><h2>Chemistry changes the particle before physics can remove it</h2><p>Coagulation and flocculation are often spoken about as one operation, but they solve different problems. Coagulation changes particle stability or creates precipitates that can capture particles. Flocculation gives those destabilized particles and precipitates controlled opportunities to collide and grow into aggregates that the next separation step can handle.</p><p>Use a simple mental model: change the condition, create contact, then separate. Charge neutralization can be part of the first step, but it is not the only coagulation mechanism. Water chemistry, coagulant, dose, pH, alkalinity, temperature, particles, and mixing all affect what actually happens.</p><div class="card-grid stakes"><div class="card"><h3>REGULATORY</h3><p>United States federal drinking water rules evaluate filtered-water performance and the complete treatment train. The rule language does not support saying that regulatory credit is earned at coagulation instead of at the filter.</p><span class="card-label">FEDERAL FRAME</span></div><div class="card"><h3>OPERATIONAL</h3><p>Too little, too much, or poorly applied chemical can change solids loading, clarification, filtration, residuals, and cost. The symptom does not identify one universal cause.</p><span class="card-label">PROCESS CONSEQUENCE</span></div><div class="card"><h3>PUBLIC TRUST</h3><p>Turbidity is an important treatment-performance indicator. It is not a direct pathogen measurement, and it must be interpreted within the applicable treatment and monitoring requirements.</p><span class="card-label">EVIDENCE BOUNDARY</span></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">02</div><div class="band-txt"><div class="band-k">What changes when one condition is weak?</div><div class="band-h">The live jar</div></div></div></div><section class="beat surface-black" id="beat-02-live-jar"><div class="wrap"><p class="learner-question">What changes when one condition is weak?</p><article class="block block-interaction" id="block-jar"><h2>The live jar</h2><p>Start with the balanced teaching state. Change one qualitative condition at a time. Watch which part of the sequence becomes weak, then read the diagnostic explanation. The controls are deliberately non-numeric. They teach cause and consequence without pretending that one dose or mixing value applies to every facility.</p><div class="interaction jar-model" data-stage="raw" data-coagulant="balanced" data-flocculation="balanced"><h3>Qualitative clarification sequence</h3><p>Reveal how chemical condition and flocculation energy affect different stages without presenting a transferable dose or mixing threshold.</p><p class="boundary"><b>Model boundary:</b> Educational qualitative model. Low, balanced, and excess are not quantities or recommendations. Results do not represent a facility, product, water, design, regulation, safety limit, or health limit.</p><div class="sim"><div class="sim-top"><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="raw" aria-label="Raw water" aria-pressed="true"><span class="stage-number">STAGE 00</span><span class="stage-title">Raw water</span><span class="stage-note">Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="coagulation" aria-label="Coagulation" aria-pressed="false"><span class="stage-number">STAGE 01</span><span class="stage-title">Coagulation</span><span class="stage-note">Chemical conditions change particle stability or create precipitates that can capture particles.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="flocculation" aria-label="Flocculation" aria-pressed="false"><span class="stage-number">STAGE 02</span><span class="stage-title">Flocculation</span><span class="stage-note">Controlled contact allows destabilized particles and precipitates to form larger aggregates.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="separation" aria-label="Separation" aria-pressed="false"><span class="stage-number">STAGE 03</span><span class="stage-title">Separation</span><span class="stage-note">Settling or another separation step receives the aggregate population created upstream.</span></button></div><div class="canvas-shell" aria-hidden="true"><canvas class="jar-canvas"></canvas><div class="canvas-label">QUALITATIVE PARTICLE MODEL</div></div><div class="condition-rail"><fieldset><legend>COAGULANT CONDITION</legend><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="low" aria-pressed="false">Insufficient condition</button><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="balanced" aria-pressed="true">Effective teaching condition</button><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="excess" aria-pressed="false">Excess condition</button></fieldset><fieldset><legend>FLOCCULATION ENERGY</legend><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="low" aria-pressed="false">Limited contact</button><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="balanced" aria-pressed="true">Controlled contact</button><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="excess" aria-pressed="false">Excessive energy</button></fieldset></div><div class="sim-cap"><div class="jar-result" role="status" aria-live="polite" aria-atomic="true"><p class="jar-stage-result"></p><p class="jar-condition-result"></p><p class="jar-question"></p></div><div class="qualitative-readout"><span>PARTICLE STATE <b class="readout-particle">DISPERSED</b></span><span>AGGREGATE STATE <b class="readout-aggregate">FINE</b></span><span>NEXT PROCESS <b class="readout-next">COAGULATION</b></span></div></div></div><div class="stability-graphic"><svg viewBox="0 0 900 260" role="img" aria-labelledby="stability-title stability-desc"><title id="stability-title">From particle stability to separable aggregates</title><desc id="stability-desc">A qualitative sequence shows a dispersed particle population, a changed coagulation condition, controlled contact, and larger aggregates that can reach separation.</desc><rect width="900" height="260" fill="#151515"/><text x="24" y="30" class="svg-kicker">FROM STABILITY TO SEPARATION</text><g class="dispersed-particles"><circle cx="105" cy="126" r="25"/><circle cx="196" cy="100" r="18"/><circle cx="184" cy="178" r="15"/><circle cx="90" cy="191" r="11"/></g><text x="145" y="235" class="svg-label">A particle population may remain dispersed</text><path d="M265 132H350" class="svg-arrow"/><text x="307" y="112" class="svg-step">CHANGE CONDITION</text><g class="prepared-particles"><circle cx="430" cy="126" r="22"/><circle cx="481" cy="126" r="22"/><circle cx="456" cy="171" r="17"/></g><text x="455" y="235" class="svg-label">A changed condition creates contact</text><path d="M545 132H630" class="svg-arrow"/><text x="587" y="112" class="svg-step">CONTROL CONTACT</text><g class="aggregate"><circle cx="744" cy="139" r="52"/><circle cx="727" cy="124" r="16"/><circle cx="762" cy="130" r="18"/><circle cx="742" cy="159" r="15"/></g><text x="744" y="235" class="svg-label">Aggregates reach separation</text></svg><div class="stability-mobile"><div><b>01 · DISPERSED</b><span>A particle population may remain dispersed.</span></div><div><b>02 · CONDITION CHANGES</b><span>Destabilization or precipitate capture creates contact.</span></div><div><b>03 · AGGREGATES GROW</b><span>Larger aggregates can reach the next separation step.</span></div></div></div><noscript><div class="jar-fallback"><h4>Text equivalent</h4><ol><li><b>Raw water:</b> Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.</li><li><b>Coagulation:</b> Chemical conditions change particle stability or create precipitates that can capture particles.</li><li><b>Flocculation:</b> Controlled contact allows destabilized particles and precipitates to form larger aggregates.</li><li><b>Separation:</b> Settling or another separation step receives the aggregate population created upstream.</li></ol><ul><li><b>Insufficient condition:</b> The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness.</li><li><b>Effective teaching condition:</b> The model shows particles prepared for contact. This is a teaching state, not a dose target.</li><li><b>Excess condition:</b> The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence.</li><li><b>Limited contact:</b> The model shows small aggregates because contact opportunity is limited.</li><li><b>Controlled contact:</b> The model shows aggregate growth under a qualitative teaching condition.</li><li><b>Excessive energy:</b> The model shows aggregate breakage as a possible consequence of excessive shear.</li></ul><p><b>Next evidence question:</b> Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?</p></div></noscript><script type="application/json" class="jar-data">{"stages":[{"id":"raw","label":"Raw water","explanation":"Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary."},{"id":"coagulation","label":"Coagulation","explanation":"Chemical conditions change particle stability or create precipitates that can capture particles."},{"id":"flocculation","label":"Flocculation","explanation":"Controlled contact allows destabilized particles and precipitates to form larger aggregates."},{"id":"separation","label":"Separation","explanation":"Settling or another separation step receives the aggregate population created upstream."}],"coagulant":[{"id":"low","label":"Insufficient condition","result":"The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness."},{"id":"balanced","label":"Effective teaching condition","result":"The model shows particles prepared for contact. This is a teaching state, not a dose target."},{"id":"excess","label":"Excess condition","result":"The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence."}],"flocculation":[{"id":"low","label":"Limited contact","result":"The model shows small aggregates because contact opportunity is limited."},{"id":"balanced","label":"Controlled contact","result":"The model shows aggregate growth under a qualitative teaching condition."},{"id":"excess","label":"Excessive energy","result":"The model shows aggregate breakage as a possible consequence of excessive shear."}],"next_evidence_question":"Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?"}</script></div><div class="pullquote"><p>Coagulation changes the condition. Flocculation creates the contact. Separation reveals whether the upstream sequence worked.</p><span>ONE WATER FOUNDATION · CONCEPT BRIEF 001</span></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">03</div><div class="band-txt"><div class="band-k">What language do I need to describe the sequence accurately?</div><div class="band-h">Key terms explained</div></div></div></div><section class="beat surface-white" id="beat-03-terms"><div class="wrap"><p class="learner-question">What language do I need to describe the sequence accurately?</p><article class="block block-prose" id="block-terms"><h2>Key terms explained</h2><p>The language matters because each term points to a different observation, measurement, or decision.</p><div class="card-grid "><div class="card"><h3>COLLOID</h3><p>A very small suspended particle. Whether it settles depends on size, density, shape, water conditions, and particle interactions. Do not treat one size range as a universal settling verdict.</p><div class="example"><b>AT THE PLANT</b>At the plant, ask what the particle population is and how it behaves through the actual train.</div></div><div class="card"><h3>ZETA POTENTIAL</h3><p>An electrokinetic measurement associated with particle interactions. It can inform an investigation, but there is no universal target that applies to every water and coagulant.</p><div class="example"><b>AT THE PLANT</b>Use the instrument as evidence alongside chemistry, jar results, and process performance.</div></div><div class="card"><h3>COAGULANT</h3><p>A chemical that can destabilize particles or form hydroxide precipitates that capture particles. Charge neutralization is one mechanism, not the whole story.</p><div class="example"><b>AT THE PLANT</b>Product chemistry, dose basis, pH, alkalinity, temperature, and application point all matter.</div></div><div class="card"><h3>FLOCCULANT OR POLYMER</h3><p>A polymer can have different jobs, but those jobs cannot be transferred casually between drinking water, wastewater, filtration, and residuals handling.</p><div class="example"><b>AT THE PLANT</b>Define the exact product, sector, purpose, dose basis, and application point before assigning it one fixed job.</div></div><div class="card"><h3>G VALUE</h3><p>G is the mean velocity-gradient parameter used to summarize bulk mixing intensity. It is useful for design and diagnosis, but it does not reveal every local shear condition or prove wasted energy.</p><div class="example"><b>AT THE PLANT</b>Treat G and detention time as design and diagnostic inputs, not universal setpoints or diagnoses.</div></div><div class="card"><h3>TAPERED FLOCCULATION</h3><p>Mixing intensity is reduced through successive stages so aggregate growth can continue with less avoidable breakage.</p><div class="example"><b>AT THE PLANT</b>The actual staging and range must follow the facility design basis and current conditions.</div></div><div class="card"><h3>ALKALINITY</h3><p>The water&#x27;s buffering capacity. Aluminum and iron salts can consume alkalinity and lower pH, which can change coagulation performance.</p><div class="example"><b>AT THE PLANT</b>Review pH and alkalinity with product, dose, and raw-water changes.</div></div><div class="card"><h3>JAR TEST</h3><p>A bench-scale comparison used to examine treatment conditions. It can support a decision when it represents the process and follows the approved facility method.</p><div class="example"><b>AT THE PLANT</b>A jar result is evidence. It is not automatic permission to change a full-scale process.</div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">04</div><div class="band-txt"><div class="band-k">Where does the consequence appear downstream?</div><div class="band-h">Where it sits in the treatment train</div></div></div></div><section class="beat surface-black" id="beat-04-system"><div class="wrap"><p class="learner-question">Where does the consequence appear downstream?</p><article class="block block-visual" id="block-system-fit"><h2>Where it sits in the treatment train</h2><p>Read the map from top to bottom. A weak chemical condition can leave particles poorly prepared for contact. Weak or excessive flocculation can leave aggregates too small, too fragile, or broken. Clarification and filtration then receive a different solids load and particle population. A downstream symptom narrows the investigation, but it does not prove one cause.</p><figure><img src="../visuals/treatment-train-placeholder.svg" alt="Horizontal conventional surface-water treatment train from source through rapid mix, flocculation, separation, filtration, and disinfection. A lower diagnostic rail lists evidence to review before assigning one cause."><figcaption><b>How to read this:</b> Read the treatment train from left to right, then use the lower diagnostic rail to trace a downstream symptom backward through source water, chemistry, mixing, and observations. <b>Conclusion:</b> A problem at one stage changes the load and conditions seen downstream.</figcaption></figure><div class="card-grid "><div class="card"><h3>DRINKING WATER</h3><p>This brief centers conventional and direct filtration drinking-water treatment under United States authority. Facility design and rule applicability still control.</p></div><div class="card"><h3>WASTEWATER</h3><p>Some particle and chemical mechanisms may recur, but objectives, residuals, permits, equipment, and evidence differ. Use a separately governed brief.</p></div><div class="card"><h3>STORMWATER</h3><p>Chemically assisted treatment may be used in specific systems, but flashy flows, permits, receiving waters, and site controls require their own evidence.</p></div><div class="card"><h3>REUSE AND INDUSTRIAL</h3><p>Pretreatment may affect downstream separation and fouling, but the application, water matrix, product, and performance objective must be reviewed separately.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">05</div><div class="band-txt"><div class="band-k">What does a defensible jar-test workflow preserve?</div><div class="band-h">Jar test protocol</div></div></div></div><section class="beat surface-black" id="beat-07-protocol"><div class="wrap"><p class="learner-question">What does a defensible jar-test workflow preserve?</p><article class="block block-protocol" id="block-protocol"><h2>Jar test protocol</h2><p>The original timers and revolutions per minute looked facility-ready. This governed version preserves the three-stage workflow but removes universal settings.</p><div class="protocol-grid"><div class="protocol-step"><div class="step-number">1</div><h3>RAPID MIX</h3><p>Add the approved coagulant according to the facility method and reproduce the relevant rapid-mix condition. Record product, dose basis, water, time, and equipment.</p></div><div class="protocol-step"><div class="step-number">2</div><h3>CONTROLLED FLOCCULATION</h3><p>Reproduce the approved staged contact sequence. Observe formation, size, strength, breakage, and clarity between aggregates without inventing a universal speed.</p></div><div class="protocol-step"><div class="step-number">3</div><h3>SEPARATE AND SAMPLE</h3><p>Stop mixing, use the approved settling or separation interval, and sample from the same defined location and depth so comparisons remain meaningful.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">06</div><div class="band-txt"><div class="band-k">What should I do before changing a setting?</div><div class="band-h">Do this, not that</div></div></div></div><section class="beat surface-white" id="beat-08-judgment"><div class="wrap"><p class="learner-question">What should I do before changing a setting?</p><article class="block block-decision" id="block-decisions"><h2>Do this, not that</h2><p>Good operating judgment starts by separating a symptom from an authorized change. The written change-control pattern below is OWOS recommended governance, not a federal regulatory requirement.</p><div class="comparisons"><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Add every chemical at one convenient point because the process is described as coagulation and flocculation.</p></div><div class="do-this"><span>DO THIS</span><p>Match chemical application to the approved product purpose, process stage, mixing condition, and facility procedure.</p><div class="consequence">Product chemistry and application determine whether a polymer survives, contacts the intended solids, and performs its assigned job.</div></div></div><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Hold one coagulant dose through every source-water condition because it worked before.</p></div><div class="do-this"><span>DO THIS</span><p>Investigate meaningful raw-water and process shifts with the approved monitoring and test method, then follow change authority and documentation.</p><div class="consequence">A facility-specific record explains why a change was considered, authorized, monitored, and reversed if needed.</div></div></div><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Respond to one turbidity result by raising dose alone.</p></div><div class="do-this"><span>DO THIS</span><p>Confirm sample location, pH, alkalinity, temperature, product and feed condition, raw-water change, flow, mixing equipment, and downstream observations.</p><div class="consequence">The same symptom can arise from different chemical, mechanical, sampling, or process causes.</div></div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">07</div><div class="band-txt"><div class="band-k">What is missing from our current decision record?</div><div class="band-h">Where does your plant stand?</div></div></div></div><section class="beat surface-black" id="beat-09-diagnostic"><div class="wrap"><p class="learner-question">What is missing from our current decision record?</p><article class="block block-diagnostic" id="block-diagnostic"><h2>Where does your plant stand?</h2><p>Eight questions. The point is not a score. The point is to expose the missing record before someone reaches for a setting.</p><ol class="audit-list"><li><span>01</span><p>When was the last representative jar or pilot test tied to a meaningful water or process change?</p></li><li><span>02</span><p>Is the rapid-mix and flocculation design basis documented and still representative of the installed equipment?</p></li><li><span>03</span><p>Is each chemical product, purpose, feed point, and authority current and documented?</p></li><li><span>04</span><p>Are pH, alkalinity, temperature, turbidity, flow, dose, and process observations time aligned?</p></li><li><span>05</span><p>Can staff distinguish intended microfloc from a downstream separation problem?</p></li><li><span>06</span><p>Is there a written dose-change procedure with limits, monitoring, rollback, and escalation?</p></li><li><span>07</span><p>Are residuals production and disposal consequences reviewed with chemical changes?</p></li><li><span>08</span><p>Can the facility trace a change from observation to test, authorization, performance, and final record?</p></li></ol><div class="pullquote"><p>A dictionary tells you what a word means. A concept brief tells you what to look for when the process goes wrong.</p><span>ONE WATER FOUNDATION</span></div></article><article class="block block-visual" id="block-cross-sector-transfer"><h2>Carry the question across sectors, not the setting</h2><p>Drinking water, wastewater, and stormwater professionals can share the particle-conditioning and separation mental model. Each sector must reestablish its own source, loading, process, procedure, monitoring, and authority boundary.</p><figure><img src="../visuals/cross-sector-particle-pathways.svg" alt="Three sector-specific rows trace particles or solids from source through conditioning or aggregation to separation. A boundary states that shared physics does not create shared settings or authority."><figcaption><b>How to read this:</b> Read each sector row from left to right, then read the lower boundary rail to see what must be reverified before the concept transfers. <b>Conclusion:</b> Transfer the diagnostic question across sectors, but never transfer a setting or operating instruction without new evidence and qualified authority.</figcaption></figure></article><article class="block block-assessment" id="block-stage-check"><h2>Diagnose before changing</h2><p>Use the complete treatment sequence to decide what a downstream symptom does and does not prove.</p><section class="concept-assessment" id="assessment-stage-check" data-concept-assessment="multiple-choice" data-completion="clarification-stage-check"><p class="assessment-kicker">LEARNING CHECK</p><h3>A filter run becomes short after a source-water change. What is the strongest first conclusion from this brief?</h3><div class="assessment-options"><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="0" data-correct="false"> Increase coagulant dose because short filter runs prove underdosing.</label><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="1" data-correct="true"> Trace source water, chemistry, mixing, clarification, and filter evidence before assigning one cause.</label><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="2" data-correct="false"> Backwash more often because filtration is independent of upstream treatment.</label></div><button type="button" class="assessment-check">Check answer</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. A downstream symptom narrows the investigation but does not prove one upstream cause.</template><template data-incorrect-feedback>The symptom does not authorize a setting change. Follow the evidence chain across the complete clarification and filtration sequence.</template><p class="assessment-retry">Review the treatment-train reading guide and choose the answer that preserves uncertainty and change authority.</p><noscript><p>Enable JavaScript to record this check. The explanation remains in the evidence-backed lesson and structured assessment record.</p></noscript></section></article><article class="block block-assessment" id="block-transfer-check"><h2>Turn a shortcut into an evidence question</h2><p>Apply the concept to your role without turning public instruction into facility authority.</p><section class="concept-assessment" id="assessment-evidence-question" data-concept-assessment="reflection" data-completion="evidence-question-transfer"><p class="assessment-kicker">APPLIED CHECK</p><h3>Rewrite one tempting dose or mixing shortcut as an evidence question your role can responsibly ask.</h3><label>Record your explanation<textarea rows="5" data-reflection-response></textarea></label><button type="button" class="assessment-reveal">Compare with the model response</button><div class="assessment-model" hidden><p>A strong response names the observed symptom, sample location, relevant water and process conditions, approved procedure, missing evidence, authorized reviewer, monitoring plan, and rollback boundary without proposing a universal setting.</p><p><b>Retry:</b> Revise the question until it can guide investigation without acting as an operating instruction.</p></div><p class="assessment-feedback" role="status" aria-live="polite"></p></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">08</div><div class="band-txt"><div class="band-k">What does this mean for my role?</div><div class="band-h">What this means for you</div></div></div></div><section class="beat surface-white" id="beat-10-roles"><div class="wrap"><p class="learner-question">What does this mean for my role?</p><article class="block block-role" id="block-role-actions"><h2>What this means for you</h2><p>One mechanism creates different responsibilities. Each role should leave with one bounded question, not a generic operating instruction.</p><div class="card-grid "><div class="card"><h3>UTILITY DIRECTOR</h3><p>Ask whether recurring clarification problems point to training, instrumentation, maintenance, procedure, source-water change, or capital need.</p><div class="example"><b>AT THE PLANT</b>Monday: request one time-aligned view of source conditions, chemical use, clarification, filtration, and residuals.</div></div><div class="card"><h3>PLANT OPERATOR</h3><p>Document the symptom, sample location, water conditions, equipment state, approved test, and what changed before the symptom appeared.</p><div class="example"><b>AT THE PLANT</b>Monday: verify that the current jar-test and dose-change procedures match the plant.</div></div><div class="card"><h3>COMPLIANCE AND ENGINEERING</h3><p>Confirm the applicable United States federal rule, facility design basis, monitoring provisions, and record retention before interpreting performance.</p><div class="example"><b>AT THE PLANT</b>Monday: trace one recent process change through approval, monitoring, and the compliance record.</div></div><div class="card"><h3>IT AND SCADA</h3><p>Make source, chemistry, process, and performance records queryable at compatible timestamps without turning the data model into automatic operating authority.</p><div class="example"><b>AT THE PLANT</b>Monday: inspect tag definitions, time resolution, gaps, units, and historian alignment.</div></div><div class="card"><h3>GIS AND SOURCE WATER</h3><p>Connect rainfall, source conditions, intake observations, and plant response as evidence for investigation, not as an automatic dose command.</p><div class="example"><b>AT THE PLANT</b>Monday: compare one documented source-water event with the plant record.</div></div><div class="card"><h3>FINANCE AND RATES</h3><p>Evaluate chemical, energy, residuals, production, labor, monitoring, and risk together. Do not promise savings before the technical case exists.</p><div class="example"><b>AT THE PLANT</b>Monday: define the full cost baseline and the evidence required to test an optimization case.</div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">09</div><div class="band-txt"><div class="band-k">Where can I check the source material?</div><div class="band-h">Sources and scope</div></div></div></div><section class="beat surface-off_white" id="beat-11-evidence"><div class="wrap"><p class="learner-question">Where can I check the source material?</p><article class="block block-evidence" id="block-evidence-boundary"><h2>Sources and scope</h2><p>This brief is grounded in United States federal regulations, EPA guidance, and clearly labeled United States professional context. The links below let readers inspect the original sources.</p><p>Federal requirements depend on the system, treatment technology, and current rule text. This brief explains the concept. It does not replace the applicable regulation, approved facility procedure, or qualified professional judgment.</p><div class="table-wrap"><table class="editorial-table source-table"><thead><tr><th>TYPE</th><th>SOURCE</th><th>HOW TO USE IT</th></tr></thead><tbody><tr><td><span class="source-tier">federal regulation</span></td><td><a href="https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-141/subpart-P/section-141.173">40 CFR 141.173 Filtration</a><small>United States Government Publishing Office</small></td><td>Federal filtration requirements for covered systems serving 10,000 or more people. Confirm system and treatment applicability.</td></tr><tr><td><span class="source-tier">federal regulation</span></td><td><a href="https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-141/subpart-T/section-141.551">40 CFR 141.551 Strengthened combined filter effluent turbidity limits</a><small>United States Government Publishing Office</small></td><td>Federal combined-filter-effluent requirements for covered systems serving fewer than 10,000 people. Confirm system and treatment applicability.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://www.epa.gov/sites/default/files/2020-06/documents/swtr_turbidity_gm_final_508.pdf">Surface Water Treatment Rule Turbidity Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal guidance for interpreting turbidity requirements and treatment optimization. Guidance, not regulation.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=30005ZHV.TXT">Long Term 1 Enhanced Surface Water Treatment Rule Turbidity Provisions Technical Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal technical guidance on coagulation, rapid mixing, flocculation, and turbidity.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1009JLI.TXT">Long Term 2 Enhanced Surface Water Treatment Rule Toolbox Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal guidance on optimization, jar testing, source-water variability, and pilot evaluation.</td></tr><tr><td><span class="source-tier">professional presentation</span></td><td><a href="https://www.pnws-awwa.org/wp-content/uploads/2024/06/Chemical-Mixing-Nothing-but-a-G-Thing.pdf">Chemical Mixing, Nothing But a G Thing?</a><small>Pacific Northwest Section AWWA and Carollo</small></td><td>United States professional engineering context for G and equipment-specific mixing. Not a regulation or standard.</td></tr></tbody></table></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">10</div><div class="band-txt"><div class="band-k">What should I do next?</div><div class="band-h">From understanding to action</div></div></div></div><section class="beat surface-white" id="beat-12-connected"><div class="wrap"><p class="learner-question">What should I do next?</p><article class="block block-connected_learning" id="block-sop-boundary"><h2>From understanding to action</h2><p>Use this brief to build a better question and collect the right evidence. A facility procedure is a different product. It must identify the actual water, approved chemicals, equipment, limits, monitoring, authority, rollback steps, and named approvers.</p><p>Keep the public explanation general. Keep facility-specific operating instructions inside the utility&#x27;s approved procedure and access controls.</p></article><article class="block block-faq" id="block-faq"><details><summary>Should I change dose or mixing based on this brief?</summary><p>No. Use the brief to locate the stage, formulate the question, and collect evidence. A facility change requires site-specific water data, the approved procedure, applicable United States federal requirements, and qualified professional or operational authority.</p></details></article></div></section>
+
+<section class="connected-learning" id="owos-concept-related">
+  <div class="wrap">
+    <p class="section-kicker">KEEP LEARNING</p>
+    <h2>Follow the process, not just the definition.</h2>
+    <p class="section-lead">These connections help you continue the diagnosis without exposing internal research records or turning a learning page into operating authority.</p>
+    <div class="connection-grid"><article class="connection-card"><span>Core concept</span><h3>Sedimentation</h3><p>Follow aggregate formation into gravity separation and learn which observations belong to the settling stage.</p><a href="#block-system-fit">Trace the treatment train</a></article><article class="connection-card"><span>Downstream consequence</span><h3>Filtration</h3><p>See why a filter symptom can narrow the investigation without proving that coagulation alone caused it.</p><a href="#block-system-fit">Review downstream effects</a></article><article class="connection-card"><span>Practice</span><h3>Jar testing</h3><p>Use a controlled comparison to collect evidence while keeping the facility method and change authority in charge.</p><a href="#block-protocol">Review the workflow</a></article><article class="connection-card"><span>Decision question</span><h3>Before changing dose</h3><p>Check the evidence, authority, monitoring, and rollback record before a process change is considered.</p><a href="#block-decisions">Review the decision pattern</a></article></div>
+  </div>
+</section>
+<section class="community-public" id="owos-concept-community">
+  <div class="wrap community-layout">
+    <div>
+      <p class="section-kicker">PRACTITIONER CONVERSATION</p>
+      <h2>Bring the question. Protect the facility.</h2>
+      <p>Community discussion is practitioner conversation, not verified instruction, site-specific engineering advice, regulatory interpretation, or automatic authorization to change a facility.</p>
+      <p class="privacy-warning"><b>Before posting:</b> Do not post security-sensitive facility data, credentials, personal information, confidential procedures, or information restricted by the utility.</p>
+      <a class="primary-action" href="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition">Open the OWOS Community</a>
+    </div>
+    <div class="question-list" aria-label="Conversation starters"><button type="button" class="seed-question">What symptom and sample location make coagulation and flocculation hardest to distinguish at your facility?</button><button type="button" class="seed-question">Which source-water change most often triggers a new investigation?</button><button type="button" class="seed-question">What evidence must be present before your facility authorizes a chemical or mixing change?</button><button type="button" class="seed-question">Which statement or visual needs correction, qualification, or a better source?</button></div>
+  </div>
+  <div class="wrap community-feedback">
+    <div>
+      <p class="section-kicker">COMMENT ON THIS BRIEF</p>
+      <h3>See something we should check or improve?</h3>
+      <p>Technical corrections, source suggestions, questions, and field observations are welcome. Your comment enters the moderated OWOS Community and the Concept Brief review queue.</p>
+    </div>
+    <form data-concept-feedback action="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition" method="get">
+      <label for="concept-feedback-kind">Comment type</label>
+      <select id="concept-feedback-kind" name="kind">
+        <option value="technical-feedback">Technical accuracy</option>
+        <option value="source-suggestion">Source suggestion</option>
+        <option value="question">Question</option>
+        <option value="field-note">Field observation</option>
+      </select>
+      <label for="concept-feedback-body">Comment</label>
+      <textarea id="concept-feedback-body" name="body" maxlength="1800" required placeholder="Tell us what should be checked, corrected, clarified, or discussed. Do not include confidential facility information."></textarea>
+      <div class="feedback-actions">
+        <button class="primary-action" type="submit">Post comment</button>
+        <a href="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition">Open the full Community</a>
+      </div>
+      <p class="feedback-status" data-concept-feedback-status role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="wrap feedback-disclaimer">
+    This is educational content, not facility-specific operating, engineering, regulatory, safety, or health guidance. Technical comments and source corrections are welcome. Accepted corrections are reviewed and published through version control.
+  </div>
+</section>
+<section class="sop-workspace" id="owos-concept-sop">
+  <div class="wrap">
+    <p class="section-kicker">A USEFUL NEXT STEP</p>
+    <h2>Take the outline. Build the procedure under control.</h2>
+    <p class="section-lead">The public value is a clear starting structure, not a pretend facility SOP. Copy this outline into the utility's approved workspace, then fill it with site-specific evidence and named authority.</p>
+    <div class="sop-grid">
+      <article class="sop-outline-card">
+        <h3>Clarification response SOP outline</h3>
+        <ol><li><b>Purpose and decision boundary</b><span>State the problem this procedure governs, what it does not govern, and the conditions that trigger its use.</span></li><li><b>Applicable authority</b><span>Identify the applicable United States federal requirements, approved plans, and facility policies. Obtain separate legal review for any site-specific obligations outside this federal educational brief.</span></li><li><b>Roles and change authority</b><span>Name who observes, tests, recommends, authorizes, implements, verifies, escalates, and closes the record.</span></li><li><b>Required evidence</b><span>List the source-water, chemistry, flow, equipment, sample-location, process, downstream, and historical records required before a change is considered.</span></li><li><b>Approved test method</b><span>Identify the approved jar, pilot, sampling, analytical, calibration, replication, and comparison method.</span></li><li><b>Decision and implementation controls</b><span>Define the approved decision criteria, limits, sequence, communication, documentation, and conditions that prohibit action.</span></li><li><b>Monitoring, rollback, and escalation</b><span>Define what is monitored, how often, by whom, the rollback trigger, rollback authority, and emergency escalation.</span></li><li><b>Record, review, and correction</b><span>Preserve the evidence, decision, authorization, outcome, deviations, lessons, version, review date, and required approvals.</span></li></ol>
+        <div class="sop-actions">
+          <button type="button" class="primary-action" id="copy-sop-outline">Copy the outline</button>
+          <span class="copy-status" id="copy-sop-status" role="status" aria-live="polite"></span>
+        </div>
+        <script type="application/json" id="sop-outline-data">"1. Purpose and decision boundary\nState the problem this procedure governs, what it does not govern, and the conditions that trigger its use.\n\n2. Applicable authority\nIdentify the applicable United States federal requirements, approved plans, and facility policies. Obtain separate legal review for any site-specific obligations outside this federal educational brief.\n\n3. Roles and change authority\nName who observes, tests, recommends, authorizes, implements, verifies, escalates, and closes the record.\n\n4. Required evidence\nList the source-water, chemistry, flow, equipment, sample-location, process, downstream, and historical records required before a change is considered.\n\n5. Approved test method\nIdentify the approved jar, pilot, sampling, analytical, calibration, replication, and comparison method.\n\n6. Decision and implementation controls\nDefine the approved decision criteria, limits, sequence, communication, documentation, and conditions that prohibit action.\n\n7. Monitoring, rollback, and escalation\nDefine what is monitored, how often, by whom, the rollback trigger, rollback authority, and emergency escalation.\n\n8. Record, review, and correction\nPreserve the evidence, decision, authorization, outcome, deviations, lessons, version, review date, and required approvals."</script>
+      </article>
+      <aside class="sop-boundary-card">
+        <p class="section-kicker">WHERE THE BRIEF STOPS</p>
+        <h3>A real SOP is a separate product.</h3>
+        <p>A facility-specific SOP needs controlled inputs, applicable United States federal and state review, approved chemicals and equipment, named change authority, monitoring, rollback, safety review, version history, and approvals.</p>
+        <p>If OWOS builds that later, it should be an authenticated agent workflow. The agent would assemble evidence and route review. It would never invent settings or approve its own work.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<div class="drawer-backdrop" data-drawer-close hidden></div>
+<aside class="context-drawer" id="related-drawer" role="dialog" aria-modal="true" aria-labelledby="related-drawer-title" hidden>
+  <button class="drawer-close" type="button" data-drawer-close aria-label="Close related learning">Close</button>
+  <p class="section-kicker">RELATED LEARNING</p>
+  <h2 id="related-drawer-title">Where this concept connects</h2>
+  <div class="drawer-cards"><article class="connection-card"><span>Core concept</span><h3>Sedimentation</h3><p>Follow aggregate formation into gravity separation and learn which observations belong to the settling stage.</p><a href="#block-system-fit">Trace the treatment train</a></article><article class="connection-card"><span>Downstream consequence</span><h3>Filtration</h3><p>See why a filter symptom can narrow the investigation without proving that coagulation alone caused it.</p><a href="#block-system-fit">Review downstream effects</a></article><article class="connection-card"><span>Practice</span><h3>Jar testing</h3><p>Use a controlled comparison to collect evidence while keeping the facility method and change authority in charge.</p><a href="#block-protocol">Review the workflow</a></article><article class="connection-card"><span>Decision question</span><h3>Before changing dose</h3><p>Check the evidence, authority, monitoring, and rollback record before a process change is considered.</p><a href="#block-decisions">Review the decision pattern</a></article></div>
+  <a class="drawer-bottom-link" href="#owos-concept-related">See all related learning on this page</a>
+</aside>
+<aside class="context-drawer" id="community-drawer" role="dialog" aria-modal="true" aria-labelledby="community-drawer-title" hidden>
+  <button class="drawer-close" type="button" data-drawer-close aria-label="Close discussion">Close</button>
+  <p class="section-kicker">DISCUSS</p>
+  <h2 id="community-drawer-title">Start with a bounded question</h2>
+  <div class="question-list"><button type="button" class="seed-question">What symptom and sample location make coagulation and flocculation hardest to distinguish at your facility?</button><button type="button" class="seed-question">Which source-water change most often triggers a new investigation?</button><button type="button" class="seed-question">What evidence must be present before your facility authorizes a chemical or mixing change?</button><button type="button" class="seed-question">Which statement or visual needs correction, qualification, or a better source?</button></div>
+  <p class="privacy-warning">Do not post security-sensitive facility data, credentials, personal information, confidential procedures, or information restricted by the utility.</p>
+  <a class="primary-action" href="/course-community.html?course=coagulation-vs-flocculation&amp;lesson=owos%3Aconcept-brief%3A001&amp;label=Coagulation%20vs%20Flocculation&amp;topics=coagulation%2Cflocculation%2Cjar-testing%2Ctreatment-diagnosis&amp;space=owos-community%3Aconcept-brief%3A001&amp;version=graphite-edition">Continue in the OWOS Community</a>
+  <a class="drawer-bottom-link" href="#owos-concept-community">Read the discussion boundary</a>
+</aside>
+<aside class="context-drawer" id="sop-drawer" role="dialog" aria-modal="true" aria-labelledby="sop-drawer-title" hidden>
+  <button class="drawer-close" type="button" data-drawer-close aria-label="Close SOP pathway">Close</button>
+  <p class="section-kicker">SOP PATHWAY</p>
+  <h2 id="sop-drawer-title">A brief explains. A facility SOP governs.</h2>
+  <p>Use the public outline to start the internal conversation. A full facility procedure belongs in a separate authenticated workflow with controlled evidence, named reviewers, version history, and approval.</p>
+  <a class="primary-action" href="#owos-concept-sop">See the SOP outline</a>
+</aside>
+<aside class="commercial-zone" id="owos-commercial-placements"
+ aria-labelledby="commercial-title">
+  <div class="wrap">
+    <div class="commercial-head">
+      <div><p class="section-kicker">PUBLISHER AND VENDOR CONNECTIONS</p>
+      <h2 id="commercial-title">Built with independence visible.</h2></div>
+      <p>Vendors and sponsors do not select, approve, rank, suppress, or modify the claims, sources, corrections, or reviewer decisions in this brief. Commercial relationships are labeled and structurally separated from evidence.</p>
+    </div>
+    <div class="commercial-grid"><article class="commercial-card"
+ data-placement-id="apas-concept-house" data-placement-slot="concept-house">
+  <div class="commercial-label" data-placement-label>Built and powered by APAS</div>
+  <div class="commercial-logo-wrap"><img data-placement-logo src="../visuals/apas-logo-preview.svg"
+    alt="APAS.ai"></div>
+  <div class="commercial-copy">
+    <h3 data-placement-headline>Turn governed knowledge into useful learning.</h3>
+    <p data-placement-body>APAS builds the agentic content system behind this Concept Brief lifecycle.</p>
+    <a class="commercial-action" data-placement-link href="https://apas.ai" target="_blank" rel="noopener sponsored">Talk with APAS</a>
+  </div>
+</article><article class="commercial-card placeholder"
+ data-placement-id="vendor-concept-placeholder" data-placement-slot="concept-vendor">
+  <div class="commercial-label" data-placement-label>Paid vendor placement · Placeholder</div>
+  <div class="commercial-logo-wrap"><img data-placement-logo src="../visuals/vendor-logo-placeholder.svg"
+    alt="Vendor placeholder"></div>
+  <div class="commercial-copy">
+    <h3 data-placement-headline>A clearly labeled vendor can appear here.</h3>
+    <p data-placement-body>This preview shows the available placement without implying endorsement or influence over the lesson.</p>
+    <span class="commercial-action disabled">Reserved preview</span>
+  </div>
+</article></div>
+    <p class="commercial-directory-note">Commercial placement is separate from evidence and neutral
+      directory results. <a href="/directory">Browse the vendor community</a>.</p>
+  </div>
+</aside>
+
+</main>
+<footer><div class="wrap">Educational content. Not facility-specific operating, engineering, regulatory, safety, or health guidance. Technical comments and source corrections are welcome through the OWOS Community.</div></footer>
+<script>
+document.querySelectorAll('.jar-model').forEach(function(model){
+  var dataNode=model.querySelector('.jar-data');
+  if(!dataNode)return;
+  var data=JSON.parse(dataNode.textContent);
+  var canvas=model.querySelector('.jar-canvas');
+  var context=canvas&&canvas.getContext('2d');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var particles=[];
+  var width=0;
+  var height=0;
+  var animationFrame=0;
+  function find(list,id){return list.find(function(item){return item.id===id})||list[0]||{}}
+  function stageIndex(){
+    return Math.max(0,data.stages.findIndex(function(item){return item.id===model.dataset.stage}));
+  }
+  function sizeCanvas(){
+    if(!canvas||!context)return;
+    var ratio=window.devicePixelRatio||1;
+    width=canvas.clientWidth;
+    height=canvas.clientHeight;
+    canvas.width=Math.max(1,Math.floor(width*ratio));
+    canvas.height=Math.max(1,Math.floor(height*ratio));
+    context.setTransform(ratio,0,0,ratio,0,0);
+  }
+  function resetParticles(){
+    particles=[];
+    for(var i=0;i<160;i++){
+      particles.push({
+        x:8+Math.random()*Math.max(1,width-16),
+        y:8+Math.random()*Math.max(1,height-16),
+        vx:(Math.random()-.5)*.9,
+        vy:(Math.random()-.5)*.9,
+        radius:1.7+Math.random()*1.3,
+        mass:1,
+        active:true
+      });
+    }
+  }
+  function updateReadout(){
+    var index=stageIndex();
+    var particle='DISPERSED';
+    var aggregate='FINE';
+    var next='COAGULATION';
+    if(index===1){
+      particle=model.dataset.coagulant==='balanced'?'PREPARED FOR CONTACT':
+        (model.dataset.coagulant==='low'?'MANY REMAIN DISPERSED':'POSSIBLE PERFORMANCE LOSS');
+      aggregate='MICROFLOC';
+      next='FLOCCULATION';
+    }else if(index===2){
+      particle='IN CONTACT';
+      aggregate=model.dataset.flocculation==='balanced'?'GROWING':
+        (model.dataset.flocculation==='low'?'SMALL':'BREAKING');
+      next='SEPARATION';
+    }else if(index===3){
+      particle='UPSTREAM CONDITION SET';
+      aggregate='MOVING TO SEPARATION';
+      next='FILTRATION';
+    }
+    model.querySelector('.readout-particle').textContent=particle;
+    model.querySelector('.readout-aggregate').textContent=aggregate;
+    model.querySelector('.readout-next').textContent=next;
+  }
+  function update(){
+    var stage=find(data.stages,model.dataset.stage);
+    var coagulant=find(data.coagulant,model.dataset.coagulant);
+    var flocculation=find(data.flocculation,model.dataset.flocculation);
+    model.querySelector('.jar-stage-result').textContent=(stage.label||'')+': '+(stage.explanation||'');
+    model.querySelector('.jar-condition-result').textContent=
+      'Coagulant condition: '+(coagulant.result||'')+' Flocculation energy: '+(flocculation.result||'');
+    model.querySelector('.jar-question').textContent='Next evidence question: '+data.next_evidence_question;
+    updateReadout();
+    if(reduced)drawFrame(false);
+  }
+  function drawFrame(advance){
+    if(!context)return;
+    var index=stageIndex();
+    var low=model.dataset.coagulant==='low';
+    var excess=model.dataset.coagulant==='excess';
+    var lowContact=model.dataset.flocculation==='low';
+    var shear=model.dataset.flocculation==='excess'&&index===2;
+    var repulsion=index===0 ? 1 : (low ? .82 : (excess ? .7 : 0));
+    var attraction=index>=2&&!repulsion&&!shear;
+    context.clearRect(0,0,width,height);
+    var wash=context.createLinearGradient(0,0,0,height);
+    wash.addColorStop(0,'rgba(18,55,79,.24)');
+    wash.addColorStop(1,'rgba(4,18,28,.5)');
+    context.fillStyle=wash;
+    context.fillRect(0,0,width,height);
+    if(advance){
+      for(var i=0;i<particles.length;i++){
+        var p=particles[i];
+        if(!p.active)continue;
+        if(index===1){
+          p.vx+=(Math.random()-.5)*.58;
+          p.vy+=(Math.random()-.5)*.58;
+        }else if(index===2){
+          var energy=lowContact ? .04 : (shear ? .52 : .14);
+          p.vx+=(Math.random()-.5)*energy;
+          p.vy+=(Math.random()-.5)*energy;
+        }else if(index===3){
+          p.vy+=.038*p.mass;
+          p.vx*=.94;
+        }else{
+          p.vx+=(Math.random()-.5)*.12;
+          p.vy+=(Math.random()-.5)*.12;
+        }
+        for(var j=i+1;j<particles.length;j++){
+          var q=particles[j];
+          if(!q.active)continue;
+          var dx=q.x-p.x;
+          var dy=q.y-p.y;
+          var distance=Math.sqrt(dx*dx+dy*dy)||1;
+          if(distance<27&&repulsion){
+            var force=.15*repulsion/distance;
+            p.vx-=dx*force;p.vy-=dy*force;q.vx+=dx*force;q.vy+=dy*force;
+          }else if(attraction&&distance<20&&!lowContact&&p.mass<12&&q.mass<12){
+            if(distance<9){
+              p.mass+=q.mass;
+              p.radius=1.9*Math.sqrt(p.mass);
+              q.active=false;
+            }else{
+              var pull=.035/distance;
+              p.vx+=dx*pull;p.vy+=dy*pull;q.vx-=dx*pull;q.vy-=dy*pull;
+            }
+          }
+        }
+        p.vx*=index===3 ? .97 : .94;
+        p.vy*=index===3 ? .99 : .94;
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<5){p.x=5;p.vx*=-.65}
+        if(p.x>width-5){p.x=width-5;p.vx*=-.65}
+        if(p.y<5){p.y=5;p.vy*=-.65}
+        if(p.y>height-7){p.y=height-7;p.vy*=-.35}
+      }
+    }
+    if(index===3){
+      context.fillStyle='rgba(235,202,98,.08)';
+      context.fillRect(0,height-30,width,30);
+    }
+    for(var k=0;k<particles.length;k++){
+      var point=particles[k];
+      if(!point.active)continue;
+      var color=(index===0||low)?'56,125,184':
+        (excess&&index>0?'242,119,122':(shear?'255,174,145':(point.mass>2?'109,208,163':'235,202,98')));
+      var radius=shear?Math.min(point.radius,3.2):point.radius;
+      context.beginPath();
+      context.arc(point.x,point.y,radius,0,Math.PI*2);
+      context.fillStyle='rgba('+color+',.86)';
+      context.fill();
+      if(point.mass>2&&!shear){
+        context.strokeStyle='rgba('+color+',.35)';
+        context.lineWidth=1;
+        context.stroke();
+      }
+    }
+  }
+  function animate(){
+    drawFrame(true);
+    animationFrame=window.requestAnimationFrame(animate);
+  }
+  model.querySelectorAll('[data-jar-control]').forEach(function(button){
+    button.addEventListener('click',function(){
+      var control=button.dataset.jarControl;
+      var value=button.dataset.jarValue;
+      model.dataset[control]=value;
+      model.querySelectorAll('[data-jar-control="'+control+'"]').forEach(function(peer){
+        peer.setAttribute('aria-pressed',peer===button?'true':'false');
+      });
+      resetParticles();
+      update();
+    });
+  });
+  sizeCanvas();
+  resetParticles();
+  window.addEventListener('resize',function(){
+    sizeCanvas();
+    resetParticles();
+    if(reduced)drawFrame(false);
+  });
+  update();
+  if(!reduced)animate();
+});
+document.querySelectorAll('[data-concept-assessment="multiple-choice"]').forEach(function(check){
+  var button=check.querySelector('.assessment-check');
+  if(!button)return;
+  button.addEventListener('click',function(){
+    var selected=check.querySelector('input[type="radio"]:checked');
+    var output=check.querySelector('.assessment-feedback');
+    if(!selected){
+      output.textContent='Choose an answer before checking.';
+      return;
+    }
+    var correct=selected.dataset.correct==='true';
+    var template=check.querySelector(correct?'[data-correct-feedback]':'[data-incorrect-feedback]');
+    output.textContent=template?template.textContent:'';
+    check.dataset.complete=correct?'true':'false';
+  });
+});
+document.querySelectorAll('[data-concept-assessment="reflection"]').forEach(function(check){
+  var button=check.querySelector('.assessment-reveal');
+  if(!button)return;
+  button.addEventListener('click',function(){
+    var response=check.querySelector('[data-reflection-response]');
+    var model=check.querySelector('.assessment-model');
+    var output=check.querySelector('.assessment-feedback');
+    if(!response||response.value.trim().length<20){
+      output.textContent='Write a specific explanation before comparing responses.';
+      return;
+    }
+    model.hidden=false;
+    output.textContent='Compare your explanation, revise it if needed, and keep the evidence boundary visible.';
+    check.dataset.complete='true';
+  });
+});
+document.querySelectorAll('[data-concept-assessment="multi-select"]').forEach(function(check){
+  check.querySelector('.assessment-check')?.addEventListener('click',function(){
+    var options=[...check.querySelectorAll('input[type="checkbox"]')];
+    var correct=options.every(function(option){
+      return option.checked===(option.dataset.correct==='true');
+    });
+    var template=check.querySelector(correct?'[data-correct-feedback]':'[data-incorrect-feedback]');
+    check.querySelector('.assessment-feedback').textContent=template?template.textContent:'';
+    check.dataset.complete=correct?'true':'false';
+  });
+});
+document.querySelectorAll('[data-concept-assessment="flip-cards"]').forEach(function(check){
+  check.querySelectorAll('[data-flip-card]').forEach(function(card){
+    card.addEventListener('click',function(){
+      var open=card.getAttribute('aria-pressed')==='true';
+      card.setAttribute('aria-pressed',open?'false':'true');
+      card.textContent=open?card.dataset.front:card.dataset.back;
+      var complete=[...check.querySelectorAll('[data-flip-card]')].every(function(item){
+        return item.getAttribute('aria-pressed')==='true';
+      });
+      if(complete){
+        check.dataset.complete='true';
+        var template=check.querySelector('[data-correct-feedback]');
+        check.querySelector('.assessment-feedback').textContent=template?template.textContent:'';
+      }
+    });
+  });
+});
+document.querySelectorAll('[data-concept-assessment="matching"]').forEach(function(check){
+  check.querySelector('.assessment-check')?.addEventListener('click',function(){
+    var selects=[...check.querySelectorAll('select[data-answer]')];
+    var correct=selects.every(function(select){return select.value===select.dataset.answer});
+    var template=check.querySelector(correct?'[data-correct-feedback]':'[data-incorrect-feedback]');
+    check.querySelector('.assessment-feedback').textContent=template?template.textContent:'';
+    check.dataset.complete=correct?'true':'false';
+  });
+});
+document.querySelectorAll('[data-concept-assessment="applied-work-product"]').forEach(function(check){
+  check.querySelector('.assessment-work-check')?.addEventListener('click',function(){
+    var fields=[...check.querySelectorAll('[data-required-field]')];
+    var correct=fields.length>0&&fields.every(function(field){return field.value.trim().length>0});
+    var template=check.querySelector(correct?'[data-correct-feedback]':'[data-incorrect-feedback]');
+    check.querySelector('.assessment-feedback').textContent=template?template.textContent:'';
+    check.dataset.complete=correct?'true':'false';
+  });
+});
+document.querySelectorAll('[data-drawer-open]').forEach(function(button){
+  button.addEventListener('click',function(){
+    var drawer=document.getElementById(button.dataset.drawerOpen);
+    var backdrop=document.querySelector('.drawer-backdrop');
+    if(!drawer||!backdrop)return;
+    document.querySelectorAll('.context-drawer').forEach(function(peer){peer.hidden=true});
+    drawer.hidden=false;
+    backdrop.hidden=false;
+    document.body.classList.add('drawer-open');
+    drawer.querySelector('.drawer-close').focus();
+  });
+});
+function closeDrawers(){
+  var openDrawer=document.querySelector('.context-drawer:not([hidden])');
+  var opener=openDrawer&&document.querySelector('[data-drawer-open="'+openDrawer.id+'"]');
+  document.querySelectorAll('.context-drawer').forEach(function(drawer){drawer.hidden=true});
+  var backdrop=document.querySelector('.drawer-backdrop');
+  if(backdrop)backdrop.hidden=true;
+  document.body.classList.remove('drawer-open');
+  if(opener)opener.focus();
+}
+document.querySelectorAll('[data-drawer-close]').forEach(function(control){
+  control.addEventListener('click',closeDrawers);
+});
+document.addEventListener('keydown',function(event){
+  if(event.key==='Escape')closeDrawers();
+});
+document.querySelectorAll('.context-drawer a[href^="#"]').forEach(function(link){
+  link.addEventListener('click',closeDrawers);
+});
+var sopCopy=document.getElementById('copy-sop-outline');
+if(sopCopy){
+  sopCopy.addEventListener('click',async function(){
+    var dataNode=document.getElementById('sop-outline-data');
+    var status=document.getElementById('copy-sop-status');
+    var outline=dataNode?JSON.parse(dataNode.textContent):'';
+    status.textContent='Copying outline...';
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        await navigator.clipboard.writeText(outline);
+      }else{
+        var field=document.createElement('textarea');
+        field.value=outline;
+        field.setAttribute('readonly','');
+        field.style.position='fixed';
+        field.style.opacity='0';
+        document.body.appendChild(field);
+        field.select();
+        document.execCommand('copy');
+        field.remove();
+      }
+      status.textContent='Outline copied. Paste it into your approved workspace.';
+    }catch(error){
+      status.textContent='Copy was blocked. Select the outline and copy it manually.';
+    }
+  });
+}
+document.querySelectorAll('.commercial-card[data-placement-slot]').forEach(async function(card){
+  var slot=card.dataset.placementSlot;
+  var fallbackId=card.dataset.placementId;
+  var briefMeta=document.querySelector('meta[name="owos-brief-id"]');
+  var contentId=briefMeta?briefMeta.content:'';
+  function hit(id,ev){
+    if(!id||location.protocol==='file:')return;
+    fetch('/api/ad/hit',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({id:id,ev:ev,surface:'concept-brief',content:contentId}),
+      keepalive:true}).catch(function(){});
+  }
+  if(location.protocol!=='file:'){
+    try{
+      var endpoint='/api/ad?slot='+encodeURIComponent(slot)+'&content='+encodeURIComponent(contentId);
+      var response=await fetch(endpoint,{cache:'no-store'});
+      var payload=response.ok?await response.json():{ad:null};
+      var ad=payload.ad;
+      if(ad&&ad.creative){
+        card.dataset.placementId=ad.id;
+        card.querySelector('[data-placement-label]').textContent=ad.disclosureLabel||
+          (slot==='concept-house'?'Built and powered by APAS':'Paid vendor placement');
+        card.querySelector('[data-placement-headline]').textContent=ad.creative.headline||'';
+        card.querySelector('[data-placement-body]').textContent=ad.creative.body||'';
+        var logo=card.querySelector('[data-placement-logo]');
+        if(ad.creative.image)logo.src=ad.creative.image;
+        logo.alt=ad.sponsor||'Commercial placement';
+        var link=card.querySelector('[data-placement-link]');
+        if(link&&ad.creative.url){link.href=ad.creative.url;link.textContent=ad.creative.cta||'Learn more'}
+        hit(ad.id,'imp');
+      }else if(slot==='concept-vendor'){
+        card.hidden=true;
+      }else{
+        hit(fallbackId,'imp');
+      }
+    }catch(error){if(slot==='concept-vendor')card.hidden=true}
+  }
+  var action=card.querySelector('[data-placement-link]');
+  if(action)action.addEventListener('click',function(){hit(card.dataset.placementId,'click')});
+});
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  document.documentElement.classList.add('motion-ready');
+  var revealTargets=document.querySelectorAll(
+    '.band-in,.block>p,.card,.sim,.stability-graphic,figure,.editorial-table,'+
+    '.protocol-step,.comparison,.audit-list li,.accuracy-panel,.connected li,'+
+    '#owos-concept-community li'
+  );
+  revealTargets.forEach(function(element){element.classList.add('editorial-reveal')});
+  var revealObserver=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  revealTargets.forEach(function(element){revealObserver.observe(element)});
+}
+</script>
+</body></html>
