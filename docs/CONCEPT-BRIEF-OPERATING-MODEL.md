@@ -102,6 +102,12 @@ This connects a released Concept Brief to the existing OWOS services:
 - saved items, assignments, competency relationships, and work products; and
 - analytics events with the brief ID and released version.
 
+For each brief, the connection control plane also reports total views, recent unique viewers,
+engaged reads, completion reaches, comments, reviewed comments, consented appreciation, and featured
+testimonials. A positive Community comment becomes a public testimonial only through explicit
+learner consent and separate moderator approval. Removing it from public display preserves the
+governed discussion and moderation record.
+
 ### 3. Commercial control plane
 
 This controls APAS and vendor visibility without rebuilding or editing the Concept Brief.

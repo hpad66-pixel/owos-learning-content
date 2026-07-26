@@ -158,6 +158,17 @@ mount and carries the brief identifier and version into the forum context.
 Community discussion remains discussion. A proposed correction becomes a tracked item and re-enters
 source and technical review before it changes verified instruction.
 
+Positive feedback can add visible community value without becoming an ungoverned marketing quote.
+The learner may submit “What worked for me” and separately consent to publication of the exact
+comment with the named identity fields. An OWOS learning steward must approve it before the runtime
+shows it in the brief's reader-voices section. The steward can remove it from the page without
+deleting its Community and moderation history. The label must state that it is learner experience,
+not technical evidence or a vendor endorsement.
+
+The protected administrator view reports views, recent unique viewers, engaged reads, completion
+reaches, comments, reviewed comments, consented appreciations, and featured testimonials for each
+brief. These events must not contain facility-sensitive operating information.
+
 ### 9. Commercial participation
 
 Commercial relationships are represented separately from evidence and editorial authority.
