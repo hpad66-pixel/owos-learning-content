@@ -34,7 +34,7 @@ useful learning.
 | Controlled method repository | Versioned method, criteria, evidence, and technical authority |
 | `owos-learning-content` | Curriculum, lesson sources, interactions, assessments, work products, and release packages |
 | `onewater-os-platform` | OWOS Learn delivery, authentication, graph panel, and transaction APIs |
-| Supabase | Enrollment, progress, attempts, work-product evidence, competency records, and credentials |
+| OWOS Learning Record Service (Supabase implementation) | Enrollment, progress, attempts, work-product evidence, competency records, and credential evidence |
 | Knowledge Graph | Concepts, sources, roles, competencies, contributors, and semantic relationships |
 | Cloudflare | Protected delivery, edge APIs, caching, and rate controls |
 
@@ -170,6 +170,9 @@ The golden lesson must implement:
 - An evidence tracker and deterministic knowledge checks.
 - In-lesson graph concepts and competency identifiers.
 - Supabase enrollment and completion events.
+- The shared OWOS learning-record, credential, and pathway contract, including canonical xAPI
+  events, cmi5 or the governed SCORM 2004 adapter, fail-closed issuance gates, and learner-controlled
+  deepen, reskill, and cross-skill recommendations.
 - Complete provenance and an explicit instructional evidence boundary.
 
 After approval, Chapters 10 through 24 use this lesson as their implementation benchmark. Chapters

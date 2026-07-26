@@ -25,8 +25,9 @@ Run the compiler, portfolio distinctiveness check, rendered reviews, QA report, 
 validation yourself. Report every unresolved source, factual, technical, practitioner, learner,
 accessibility, Graph, Community, commercial, and release review.
 
-For water-sector Concept Briefs, the governing evidence scope is permanently United States only.
-Start with current federal primary authority and add state requirements only when the state is named
-and applicability is explicit. Exclude non-United States regulations, standards, government
-guidance, design guides, operator guides, and health guidelines from the claim basis, narrative,
-Graph, review dossier, and source register.
+For public water-sector Concept Briefs, use current federal primary authority and EPA guidance.
+Exclude state requirements from public claims, citations, comparisons, Graph evidence, learner
+content, review dossiers, and source registers. Route state or permit details to a separately
+governed private jurisdiction-specific work product. Exclude non-United States regulations,
+standards, government guidance, design guides, operator guides, and health guidelines from the
+claim basis, narrative, Graph, review dossier, and source register.

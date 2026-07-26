@@ -183,6 +183,9 @@ for required_markup in (
     'id="owos-concept-sop"',
     'id="copy-sop-outline"',
     'id="owos-commercial-placements"',
+    "data-concept-testimonials",
+    "data-testimonial-consent",
+    "What worked for me",
     "Built and powered by APAS",
     "Vendors and sponsors do not select, approve, rank, suppress, or modify",
 ):

@@ -1108,7 +1108,9 @@ These statements are not intended for publication. Please confirm that exclusion
 - Scope: Original design-convention table.
 - Evidence tier: supplied prototype
 - Current evidence records: source-prototype: Coagulation vs Flocculation Concept Brief prototype; source-virginia-code: 12VAC5-590-871 Coagulation and flocculation; source-epa-swtr-turbidity: Surface Water Treatment Rule Turbidity Guidance Manual
-- Limitation or boundary: Virginia provides state-specific typical rapid-mix combinations, while federal guidance and United States training references provide process context; none establishes one universal national operating range.
+- Limitation or boundary: the public brief uses federal and EPA authority only and does not publish
+  jurisdiction-specific operating ranges. Any Virginia material retained in research history is
+  excluded from public authority and belongs only in a separately governed private work product.
 - Current verification status: rejected
 - Current research disposition: replace with jurisdiction and process specific table
 - Publication treatment: Withheld or rejected. Please confirm whether exclusion is correct.
@@ -1189,10 +1191,10 @@ These statements are not intended for publication. Please confirm that exclusion
 - [ ] I reviewed every claim for which I recorded a decision.
 - [ ] I identified claims outside my expertise rather than accepting them by assumption.
 - [ ] I disclosed relevant conflicts of interest and vendor relationships.
-- [ ] My decisions distinguish federal requirements, state-specific requirements, guidance, professional practice, research, interpretation, and educational boundaries.
+- [ ] My decisions keep the public brief within federal and EPA authority and route any
+  jurisdiction-specific application to a separately governed private work product.
 - [ ] I understand that my review does not itself authorize a facility operating change.
 
 Reviewer signature or written confirmation:
 
 Date:
-

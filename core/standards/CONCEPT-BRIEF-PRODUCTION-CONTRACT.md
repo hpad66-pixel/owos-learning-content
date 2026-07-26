@@ -130,6 +130,13 @@ The package may store continuing-education readiness evidence. No contact-hour, 
 development-hour, continuing-education-unit, or accreditor claim may be enabled without verification
 of the named accreditor's current rules and explicit approval of the exact offering.
 
+Every Concept Brief also implements
+`core/standards/OWOS-LEARNING-RECORD-CREDENTIAL-AND-PATHWAY-STANDARD.md`. Its `learning.yaml`
+must bind to the shared xAPI event profile, cmi5 launch preference, SCORM 2004 compatibility
+adapter, portable-credential targets, fail-closed credit profile, and explainable deepen, reskill,
+and cross-skill recommendation lanes. These are shared system contracts, not Concept Brief-only
+copies.
+
 Every `learning.yaml` also preserves six migration-sensitive contracts:
 
 1. **Placement**: prerequisites, remediation, next learning, and exact course or pathway use.
@@ -145,6 +152,10 @@ Every `learning.yaml` also preserves six migration-sensitive contracts:
    deterministic replay, and qualified review requirements.
 6. **Language, units, and time**: primary language, reading target, unit policy, localization state,
    instructional minutes, active-participation minutes, assessment minutes, and timing method.
+7. **Credential readiness**: event, launch, adapter, portable credential, learner-record export,
+   accreditor profile, credit-claim, and certificate state.
+8. **Learning pathways**: recommendation policy; deepen, reskill, and cross-skill lanes;
+   explainability; learner control; and prohibited-data controls.
 
 These records allow the learning system, future accreditor package, analytics, corrections, and
 superseding releases to identify the exact experience completed without storing unsafe operational
@@ -378,6 +389,17 @@ The Community connection records:
 
 Community discussion never silently edits verified instruction. A useful correction becomes a
 tracked correction proposal and re-enters the verification lifecycle.
+
+Positive learner feedback may become a public topic-specific testimonial only when the learner
+explicitly consents to publication, a moderator approves the exact comment, and the learner can
+request withdrawal. The public rendering may show only the approved comment text and the identity
+fields covered by that consent. Testimonials remain learner-experience evidence. They are never
+technical evidence, verified answers, vendor endorsements, or inputs to claim ranking.
+
+The administrator must be able to see topic-level views, recent unique viewers, engaged reads,
+completion reaches, comments, reviewed comments, consented appreciation, and featured testimonials.
+Public analytics events must avoid facility-sensitive content and must follow the approved privacy,
+retention, and consent boundary.
 
 ## Commercial integrity
 

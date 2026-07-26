@@ -68,9 +68,12 @@ complete claim-verification coverage and fail-closed release gates, and preserve
 commercial-integrity, correction, and freshness records. It never approves its own facts.
 
 OWOS water, wastewater, stormwater, and One Water instruction uses United States authorities only.
-Use current federal primary authority first, then applicable state requirements clearly labeled by
-state. Do not use a non-United States regulation, standard, government guidance document, design
-guide, operator guide, or health guideline as governing evidence, a benchmark, or learner-facing
-context. Peer-reviewed research from outside the United States may be considered only as research,
-never as a governing standard, and only when its geography, experimental scope, and transfer limits
-are visible.
+Public Concept Briefs use current federal primary authority and EPA guidance. State requirements are
+excluded from public Concept Brief claims, citations, comparisons, Graph evidence, and learner
+content; route them to a separately governed private jurisdiction-specific work product. Courses may
+use an applicable state requirement only when the approved course scope names the state,
+applicability, and effective date. Do not use a non-United States regulation, standard, government
+guidance document, design guide, operator guide, or health guideline as governing evidence, a
+benchmark, or learner-facing context. Peer-reviewed research from outside the United States may be
+considered only as research, never as a governing standard, and only when its geography,
+experimental scope, and transfer limits are visible.

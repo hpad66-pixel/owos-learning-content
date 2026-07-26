@@ -73,8 +73,38 @@ for key in (
 if learning_record_contract.get("facility_sensitive_data_default") != "prohibited":
     raise AssertionError("facility-sensitive learning data must be prohibited by default")
 
+credential_contract = registry["credential_and_pathway_contract"]
+expected_credential_controls = {
+    "contract": "owos-learning-record-credential/1",
+    "canonical_event_profile": "owos-xapi-profile/1",
+    "preferred_lms_launch": "cmi5",
+    "legacy_lms_adapter": "SCORM 2004",
+    "portable_credential_target": "Open Badges 3.0",
+    "learner_record_export_target": "Comprehensive Learner Record 2.0",
+}
+for key, value in expected_credential_controls.items():
+    if credential_contract.get(key) != value:
+        raise AssertionError(f"credential/pathway contract mismatch: {key}")
+if set(credential_contract.get("required_recommendation_lanes", [])) != {
+    "deepen",
+    "reskill",
+    "cross-skill",
+}:
+    raise AssertionError("credential/pathway contract must require all three pathway lanes")
+for key in (
+    "explainability_required",
+    "learner_control_required",
+    "protected_traits_prohibited",
+    "facility_sensitive_data_prohibited",
+    "accreditor_gate_required_for_credit",
+    "issuance_fail_closed",
+):
+    if credential_contract.get(key) is not True:
+        raise AssertionError(f"credential/pathway contract must fail closed: {key}")
+
 print(
     "OWOS learning-capability QA passed: both engines resolve one registry, standard names are "
     "stable, the complete quiz catalog is connected, dynamic explanation and durable learning "
-    "records are required, and continuing-education claims fail closed."
+    "records are required, credential interoperability converges, all three recommendation lanes "
+    "are present, and continuing-education claims fail closed."
 )

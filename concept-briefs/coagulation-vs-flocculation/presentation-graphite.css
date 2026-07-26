@@ -522,9 +522,7 @@ footer {
   grid-template-columns: minmax(0, .8fr) minmax(320px, 1.2fr);
   gap: clamp(24px, 5vw, 72px);
   align-items: start;
-  margin-top: 54px;
-  padding-top: 42px;
-  border-top: 1px solid #cfc7ba;
+  margin-top: 42px;
 }
 
 .concept-finish {
@@ -572,6 +570,57 @@ footer {
   line-height: 1.55;
 }
 
+.reader-voices {
+  margin-top: 42px;
+  padding: 34px;
+  border: 1px solid #cfc7ba;
+  background: #211f1b;
+  color: #f3efe8;
+}
+
+.reader-voices[hidden] {
+  display: none;
+}
+
+.reader-voices h2 {
+  margin: 0 0 24px;
+  color: #f3efe8;
+  font: 800 clamp(30px, 4vw, 48px)/1 Arial, "Barlow", sans-serif;
+  letter-spacing: -.03em;
+}
+
+.reader-voices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.reader-voice {
+  margin: 0;
+  padding: 24px;
+  border: 1px solid #49463f;
+  background: #2b2926;
+}
+
+.reader-voice blockquote {
+  margin: 0 0 20px;
+  color: #f3efe8;
+  font: 700 18px/1.55 "Libre Baskerville", Georgia, serif;
+}
+
+.reader-voice figcaption {
+  color: #80c9eb;
+  font: 700 10px/1.55 "Space Mono", monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.reader-voices-note {
+  margin: 18px 0 0;
+  color: #bbb4a9;
+  font-size: 11px;
+}
+
 .community-feedback h3 {
   margin: 0 0 14px;
   color: #211f1b;
@@ -606,6 +655,23 @@ footer {
   background: #fff;
   color: #211f1b;
   font: 15px/1.5 Arial, "Barlow", sans-serif;
+}
+
+.community-feedback .testimonial-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0 0 18px;
+  color: #4e4941;
+  font: 12px/1.5 Arial, "Barlow", sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.community-feedback .testimonial-consent input {
+  width: auto;
+  margin: 3px 0 0;
+  flex: none;
 }
 
 .community-feedback textarea {
@@ -664,6 +730,7 @@ footer {
 @media (max-width: 760px) {
   .quick-takeaway ol,
   .final-recap-grid,
+  .reader-voices-grid,
   .community-feedback {
     grid-template-columns: 1fr;
   }

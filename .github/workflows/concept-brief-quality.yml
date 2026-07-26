@@ -1,0 +1,44 @@
+name: Concept Brief contract and compiler QA
+
+on:
+  pull_request:
+    paths:
+      - "concept-briefs/**"
+      - "core/learning-capabilities/**"
+      - "core/standards/CONCEPT-BRIEF-PRODUCTION-CONTRACT.md"
+      - "core/standards/OWOS-CONCEPT-BRIEF-ACTIVATION-PROMPT.md"
+      - "core/standards/OWOS-LEARNING-CAPABILITY-STANDARD.md"
+      - "core/standards/OWOS-LEARNING-RECORD-CREDENTIAL-AND-PATHWAY-STANDARD.md"
+      - "core/credentials/**"
+      - "core/schemas/owos-*.schema.json"
+      - "examples/learner-dashboard/**"
+      - "output/pdf/owos-learning-certificate-specimen.pdf"
+      - "tools/concept_*.py"
+      - "tools/learning_capabilities.py"
+      - "tools/test-concept-*.py"
+      - "tools/test-learning-capabilities.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  concept-brief-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependencies
+        run: python3 -m pip install PyYAML==6.0.2 beautifulsoup4==4.13.4 jsonschema==4.25.1 reportlab==4.4.3
+      - name: Run shared capability and Concept Brief checks
+        run: |
+          python3 tools/test-learning-capabilities.py
+          python3 tools/generate_certificate_specimen.py
+          python3 tools/test-learning-record-credential.py
+          python3 tools/test-concept-research.py
+          python3 tools/test-concept-brief-compiler.py
+          python3 tools/concept_brief_compiler.py portfolio-check concept-briefs
+          python3 tools/test-concept-public-output.py \
+            concept-briefs/coagulation-vs-flocculation/dist/final-federal-publication.html

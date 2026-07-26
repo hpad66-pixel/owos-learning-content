@@ -431,6 +431,8 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
     simulation_assurance = learning.get("simulation_assurance")
     language_units_time = learning.get("language_units_time")
     learner_experience = learning.get("learner_experience")
+    credential_readiness = learning.get("credential_readiness")
+    learning_pathways = learning.get("learning_pathways")
     if not isinstance(learning_profile, dict):
         errors.append("learning.yaml: learning must be an object")
         learning_profile = {}
@@ -448,6 +450,8 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
         ("simulation_assurance", simulation_assurance),
         ("language_units_time", language_units_time),
         ("learner_experience", learner_experience),
+        ("credential_readiness", credential_readiness),
+        ("learning_pathways", learning_pathways),
     )
     for label, record in learning_contracts:
         if not isinstance(record, dict):
@@ -466,6 +470,12 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
     )
     learner_experience = (
         learner_experience if isinstance(learner_experience, dict) else {}
+    )
+    credential_readiness = (
+        credential_readiness if isinstance(credential_readiness, dict) else {}
+    )
+    learning_pathways = (
+        learning_pathways if isinstance(learning_pathways, dict) else {}
     )
     require_fields(
         learning_profile,
@@ -508,6 +518,69 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
         errors.append(
             "continuing education: credit_claim requires explicit accreditor approval"
         )
+    require_fields(
+        credential_readiness,
+        (
+            "contract",
+            "event_profile",
+            "lms_launch_preferred",
+            "legacy_lms_adapter",
+            "portable_credential_target",
+            "learner_record_export_target",
+            "credit_profile_id",
+            "credit_claim",
+            "certificate_state",
+        ),
+        "credential readiness",
+        errors,
+    )
+    credential_contract = LEARNING_CAPABILITIES["credential_and_pathway_contract"]
+    credential_expectations = {
+        "contract": credential_contract["contract"],
+        "event_profile": credential_contract["canonical_event_profile"],
+        "lms_launch_preferred": credential_contract["preferred_lms_launch"],
+        "legacy_lms_adapter": credential_contract["legacy_lms_adapter"],
+        "portable_credential_target": credential_contract["portable_credential_target"],
+        "learner_record_export_target": credential_contract["learner_record_export_target"],
+    }
+    for field, expected in credential_expectations.items():
+        if credential_readiness.get(field) != expected:
+            errors.append(
+                f"credential readiness: {field} must match shared registry value {expected}"
+            )
+    if credential_readiness.get("credit_claim") != continuing_education.get(
+        "credit_claim"
+    ):
+        errors.append(
+            "credential readiness: credit_claim must match continuing education"
+        )
+    require_fields(
+        learning_pathways,
+        (
+            "recommendation_policy",
+            "lanes",
+            "explainability_required",
+            "learner_control_required",
+            "protected_traits_prohibited",
+            "facility_sensitive_data_prohibited",
+        ),
+        "learning pathways",
+        errors,
+    )
+    if set(learning_pathways.get("lanes", [])) != set(
+        credential_contract["required_recommendation_lanes"]
+    ):
+        errors.append(
+            "learning pathways: lanes must be deepen, reskill, and cross-skill"
+        )
+    for field in (
+        "explainability_required",
+        "learner_control_required",
+        "protected_traits_prohibited",
+        "facility_sensitive_data_prohibited",
+    ):
+        if learning_pathways.get(field) is not True:
+            errors.append(f"learning pathways: {field} must be true")
     require_fields(
         placement,
         ("content_type",),
@@ -1895,6 +1968,12 @@ def _render_public_finish(package: dict[str, Any], public_config: dict[str, Any]
       <h2 id="final-recap-title">Carry three things forward.</h2>
       <div class="final-recap-grid">{recap_html}</div>
     </div>
+    <section class="reader-voices" data-concept-testimonials aria-labelledby="reader-voices-title" hidden>
+      <p class="section-kicker">FROM THE LEARNING COMMUNITY</p>
+      <h2 id="reader-voices-title">What readers carried forward.</h2>
+      <div class="reader-voices-grid" data-concept-testimonial-list></div>
+      <p class="reader-voices-note">Shared with the reader's permission and approved by an OWOS learning steward. Reader comments are not technical evidence or vendor endorsements.</p>
+    </section>
     <div class="community-feedback">
       <div>
         <p class="section-kicker">COMMENT ON THIS BRIEF</p>
@@ -1904,6 +1983,7 @@ def _render_public_finish(package: dict[str, Any], public_config: dict[str, Any]
       <form data-concept-feedback action="{esc(forum_url)}" method="get">
         <label for="concept-feedback-kind">Comment type</label>
         <select id="concept-feedback-kind" name="kind">
+          <option value="appreciation">What worked for me</option>
           <option value="technical-feedback">Technical accuracy</option>
           <option value="source-suggestion">Source suggestion</option>
           <option value="question">Question</option>
@@ -1911,6 +1991,10 @@ def _render_public_finish(package: dict[str, Any], public_config: dict[str, Any]
         </select>
         <label for="concept-feedback-body">Comment</label>
         <textarea id="concept-feedback-body" name="body" maxlength="1800" required placeholder="Tell us what should be checked, corrected, clarified, or discussed. Do not include confidential facility information."></textarea>
+        <label class="testimonial-consent" data-testimonial-consent-row>
+          <input type="checkbox" name="testimonial-consent" value="yes" data-testimonial-consent>
+          If I selected “What worked for me,” OWOS may publish this comment with my name, role, and organization after moderator approval.
+        </label>
         <div class="feedback-actions">
           <button class="primary-action" type="submit">Post comment</button>
           <a href="{esc(forum_url)}">Open the full Community</a>
