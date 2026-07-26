@@ -1,0 +1,110 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+learning:
+  outcomes:
+    - Explain the different jobs of coagulation, flocculation, and downstream separation.
+    - Diagnose which stage and evidence should be investigated before a process change.
+    - Explain why an illustrative model cannot authorize a facility operating decision.
+  prior_knowledge:
+    - Basic awareness that drinking-water clarification removes particles before filtration.
+  misconception: Coagulation and flocculation are two names for one mixing step and a visible symptom identifies the setting to change.
+  transfer_task: Rewrite one tempting facility shortcut as a bounded evidence question with a named authority and next observation.
+  cross_sector_connections:
+    - Wastewater chemical phosphorus removal and solids separation use related particle-conditioning and separation ideas within different process and regulatory boundaries.
+    - Stormwater treatment practices may use settling, filtration, or chemical treatment, but the source, loading, operation, and authority boundaries differ.
+  experience_profile:
+    visual_explanations_minimum: 2
+    dynamic_explanation_required: true
+    distributed_checks_minimum: 2
+    final_applied_check_required: true
+    shared_registry: owos-learning-capabilities/1
+placement:
+  content_type: concept_brief
+  prerequisite_brief_ids: []
+  remediation_brief_ids: []
+  next_learning_ids:
+    - concept:sedimentation
+    - concept:filtration
+    - practice:jar-testing
+  course_connections: []
+capability_lock:
+  registry_id: owos-learning-capabilities/1
+  registry_version: 1
+  required_capability_ids:
+    - concept-jar-model
+    - multiple-choice
+    - reflection
+  compatibility_policy: Revalidate and rebuild when a selected capability changes behavior or major version.
+learning_events:
+  event_namespace: owos.concept_brief.001
+  stable_event_ids:
+    - concept_brief.started
+    - interaction.jar_diagnosis.completed
+    - assessment.stage_check.attempted
+    - assessment.stage_check.passed
+    - assessment.evidence_question.completed
+    - concept_brief.completed
+  attempt_policy: Preserve assessment attempts and final completion against the exact brief and capability versions.
+  record_authority: OWOS authenticated learning record after consent; browser state is convenience only.
+  privacy_classification: learning_record
+  consent_boundary: Explain event recording before authenticated credit-bearing participation.
+  retention_rule: Pending OWOS learning-record retention approval.
+  facility_sensitive_data_collection: prohibited
+  privacy_review_status: pending
+  supersession_policy: Preserve the completed brief, assessment, capability, and compiler versions; never rewrite prior completion history.
+  material_correction_notification: Notify affected authenticated learners when an approved correction changes the meaning of a completed assessment or credited offering.
+assessment_governance:
+  passing_rule: Pass the diagnosis check and complete the applied evidence-question transfer.
+  retry_policy: Unlimited instructional retry with every attempt retained for a credit-bearing offering.
+  item_version_policy: Assessment identifiers and answer logic change version whenever meaning or scoring changes.
+  feedback_policy: Every scored response receives immediate explanatory feedback and a retry path.
+  accommodation_policy: Keyboard, screen reader, touch, zoom, reduced motion, and additional-time requirements remain available without changing the mastery claim.
+  review_status: working_implementation_pending_editorial_technical_and_accreditor_review
+simulation_assurance:
+  model_id: concept-jar-model
+  model_version: 1.0.0
+  assumptions_visible: true
+  illustrative_values_labeled: true
+  deterministic_replay: qualitative_state_replay
+  qualified_review_required: true
+  operational_use: prohibited
+language_units_time:
+  primary_language: en-US
+  reading_target: Plain-language utility professional new to the concept.
+  unit_policy: No transferable operating quantities; future quantities must show units, conversions, source, and scope.
+  localization_state: not_requested
+  instructional_minutes: pending_timed_review
+  active_participation_minutes: pending_timed_review
+  assessment_minutes: pending_timed_review
+  timing_method: Timed novice-reader and active-participation study required before a credit claim.
+learner_experience:
+  quick_orientation: Three concise mechanism statements before the numbered learning sequence.
+  primary_navigation_maximum: 4
+  closing_recap_labels:
+    - What changed
+    - What to observe
+    - What not to assume
+  comment_placement: after_learning_and_commercial
+  community_mode: compact_entry_plus_drawer
+  sop_boundary: outline_only
+  inactive_commercial_placement: hidden
+  learner_facing_governance_metadata: minimal
+completion:
+  required_ids:
+    - jar-diagnosis
+    - clarification-stage-check
+    - evidence-question-transfer
+  rule: Complete the dynamic diagnosis, pass the stage check, and record the applied evidence question.
+continuing_education:
+  state: readiness_only
+  credit_claim: disabled
+  instructional_time_basis: Pending timed novice-reader and active-participation study.
+  identity_evidence: Requires authenticated OWOS learner identity before a credit-bearing offering.
+  participation_evidence: Completion events are specified but not yet connected to an approved credit record.
+  assessment_rule: Passing and retry rules are defined for the working checks; accreditor review is pending.
+  completion_record: Stable brief, version, component, attempt, and completion identifiers are required.
+  content_version: owos:concept-brief:001@1.0.0
+  provider_record: Provider and instructor-of-record fields are reserved; approval is pending.
+  evaluation_record: Learner evaluation instrument is not yet approved.
+  accreditor_approval: not_requested

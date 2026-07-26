@@ -18,11 +18,19 @@ from xml.etree import ElementTree
 
 import yaml
 
+from learning_capabilities import (
+    assessment_types,
+    interaction_components,
+    load_learning_capabilities,
+    visual_component_ids,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME_CSS = ROOT / "core/runtime/course-module.css"
 RUNTIME_JS = ROOT / "core/runtime/course-module.js"
-COMPILER_VERSION = "1.1.0"
+COMPILER_VERSION = "1.2.0"
+LEARNING_CAPABILITIES = load_learning_capabilities()
+ENGINE = LEARNING_CAPABILITIES["engines"]["course"]
 REQUIRED_FILES = (
     "design-brief.md",
     "module.yaml",
@@ -34,47 +42,9 @@ REQUIRED_FILES = (
     "glossary.yaml",
     "qa.yaml",
 )
-SUPPORTED_INTERACTIONS = {
-    "triple-builder",
-    "path-tracer",
-    "artifact-classifier",
-    "failure-trace",
-    "object-router",
-    "triple-repair-bench",
-    "identity-adjudication",
-    "graph-growth-lab",
-    "hierarchy-repair",
-    "ontology-canvas",
-    "sparql-builder",
-    "inference-court",
-    "shacl-clinic",
-    "evidence-reconciliation",
-    "knowledge-spine-router",
-    "accountability-handoff",
-    "mapping-workbench",
-    "mapping-break-repair",
-    "access-pattern-stress-test",
-    "stale-copy-diagnosis",
-    "evidence-promotion",
-    "evidence-state-classifier",
-    "context-assembly",
-    "permission-gate",
-    "pipeline-rerun",
-    "pipeline-stage-diagnosis",
-    "agent-action-control",
-    "idempotency-recovery",
-    "knowledge-spine-live-lab",
-    "graph-path-illuminator",
-    "scenario-transfer-lab",
-    "prompt-graph-simulator",
-}
-SUPPORTED_ASSESSMENTS = {
-    "multiple-choice",
-    "flip-cards",
-    "matching",
-    "multi-select",
-    "applied-work-product",
-}
+SUPPORTED_INTERACTIONS = interaction_components(LEARNING_CAPABILITIES)
+SUPPORTED_ASSESSMENTS = assessment_types(LEARNING_CAPABILITIES, "course")
+SUPPORTED_VISUAL_COMPONENTS = visual_component_ids(LEARNING_CAPABILITIES)
 BLOCK_TYPES = {
     "prose",
     "callout",
@@ -343,6 +313,10 @@ def validate_package(module_dir: Path, *, release_ready: bool = False) -> dict[s
         if not locator and not component_id:
             errors.append(f"visual {visual_id}: locator or component_id is required")
             continue
+        if component_id and component_id not in SUPPORTED_VISUAL_COMPONENTS:
+            errors.append(
+                f"visual {visual_id}: unsupported shared component_id {component_id}"
+            )
         if locator:
             asset = (module_dir / str(locator)).resolve()
             if module_dir not in asset.parents:

@@ -1,0 +1,80 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+state: governed_commercial_placement_candidate_built
+relationships:
+  - organization_node: org:apas
+    relationship_type: publisher_house_message
+    disclosure: APAS built and powers the governed Concept Brief system. This house message does not alter technical content or evidence.
+    editorial_rights: none
+  - organization_node: org:vendor-placeholder
+    relationship_type: paid_directory_placement_placeholder
+    disclosure: Placeholder only. Any future paid vendor placement must be clearly labeled and has no technical or editorial authority.
+    editorial_rights: none
+conflicts: []
+product_boundaries:
+  - product_id: public-concept-brief
+    access: public_after_release
+    value: Verified explanation, evidence map, qualitative mechanism, role questions, Graph links, and Community context.
+    operating_authority: none
+  - product_id: public-sop-template
+    access: separately_released_template
+    value: A concise copyable outline showing the sections, evidence questions, authority, monitoring, rollback, and review structure a facility procedure needs.
+    operating_authority: none
+  - product_id: private-facility-sop
+    access: paid_private_tenant_artifact
+    value: Facility-specific procedure built from approved source-water, chemical, equipment, authority, monitoring, rollback, and emergency information.
+    operating_authority: assigned_only_by_facility_approvers
+sop_release_requirements:
+  - facility identity and owner
+  - applicable United States federal and state jurisdiction review
+  - approved chemical products and product basis
+  - process and equipment configuration
+  - source-water and operating envelope
+  - test method and decision criteria
+  - named change authority and escalation path
+  - monitoring, documentation, and rollback conditions
+  - safety and emergency review
+  - qualified technical, operator, management, and owner approvals
+editorial_firewall: true
+sponsor_rights: No sponsor, supplier, advertiser, contributor, or paying tenant can approve a public claim, select an evidence tier, suppress a source, remove a correction, act as an independent reviewer, or control Graph ranking.
+ranking_policy: Commercial placement never changes evidence order, technical claims, source selection, corrections, related-learning order, or neutral directory results. Paid visibility is confined to labeled placement surfaces.
+public_placements:
+  runtime_endpoint: /api/ad
+  event_endpoint: /api/ad/hit
+  content_id: owos:concept-brief:001
+  disclosure: Vendors and sponsors do not select, approve, rank, suppress, or modify the claims, sources, corrections, or reviewer decisions in this brief. Commercial relationships are labeled and structurally separated from evidence.
+  show_inactive_placeholders: false
+  placements:
+    - placement_id: apas-concept-house
+      slot: concept-house
+      organization: APAS.ai
+      label: Built and powered by APAS
+      headline: Turn governed knowledge into useful learning.
+      body: APAS builds the agentic content system behind this Concept Brief lifecycle.
+      cta: Talk with APAS
+      url: https://apas.ai
+      logo: visuals/apas-logo-preview.svg
+      logo_alt: APAS.ai
+      status: active
+      placeholder: false
+    - placement_id: vendor-concept-placeholder
+      slot: concept-vendor
+      organization: Vendor placeholder
+      label: Paid vendor placement · Placeholder
+      headline: A clearly labeled vendor can appear here.
+      body: This preview shows the available placement without implying endorsement or influence over the lesson.
+      cta: View vendor profile
+      url: ""
+      logo: visuals/vendor-logo-placeholder.svg
+      logo_alt: Vendor placeholder
+      status: preview_only
+      placeholder: true
+implementation_state:
+  public_concept_brief: built_as_review_candidate
+  public_sop_template: built_as_copyable_eight_section_outline
+  private_facility_sop: reserved_for_authenticated_agent_workflow_not_instantiated
+  commercial_registry: wired_to_platform_ad_api_with_governed_local_fallback
+  admin_controls: designed_for_create_update_pause_archive_and_logo_replacement
+  vendor_reporting: aggregate_impression_click_and_contact_start_only
+review_status: owner_approved_candidate_pending_legal_accessibility_and_production_deployment_review

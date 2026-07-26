@@ -1,0 +1,257 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+blocks:
+  - block_id: block-opening
+    type: prose
+    title: Chemistry changes the particle before physics can remove it
+    body: |
+      Coagulation and flocculation are often spoken about as one operation, but they solve different problems. Coagulation changes particle stability or creates precipitates that can capture particles. Flocculation gives those destabilized particles and precipitates controlled opportunities to collide and grow into aggregates that the next separation step can handle.
+
+      Use a simple mental model: change the condition, create contact, then separate. Charge neutralization can be part of the first step, but it is not the only coagulation mechanism. Water chemistry, coagulant, dose, pH, alkalinity, temperature, particles, and mixing all affect what actually happens.
+    display: stakes
+    items:
+      - title: REGULATORY
+        body: United States federal drinking water rules evaluate filtered-water performance and the complete treatment train. The rule language does not support saying that regulatory credit is earned at coagulation instead of at the filter.
+        label: FEDERAL FRAME
+      - title: OPERATIONAL
+        body: Too little, too much, or poorly applied chemical can change solids loading, clarification, filtration, residuals, and cost. The symptom does not identify one universal cause.
+        label: PROCESS CONSEQUENCE
+      - title: PUBLIC TRUST
+        body: Turbidity is an important treatment-performance indicator. It is not a direct pathogen measurement, and it must be interpreted within the applicable treatment and monitoring requirements.
+        label: EVIDENCE BOUNDARY
+    claim_ids: [claim-distinct-jobs, claim-particle-stability, claim-coagulant-mechanisms, claim-us-credit-at-coagulation, claim-turbidity-proxy]
+
+  - block_id: block-jar
+    type: interaction
+    title: The live jar
+    body: |
+      Start with the balanced teaching state. Change one qualitative condition at a time. Watch which part of the sequence becomes weak, then read the diagnostic explanation. The controls are deliberately non-numeric. They teach cause and consequence without pretending that one dose or mixing value applies to every facility.
+    interaction_id: interaction-jar
+    pullquote: Coagulation changes the condition. Flocculation creates the contact. Separation reveals whether the upstream sequence worked.
+    pullquote_credit: ONE WATER FOUNDATION · CONCEPT BRIEF 001
+    claim_ids: [claim-charge, claim-shear, claim-simulator-thresholds]
+
+  - block_id: block-terms
+    type: prose
+    title: Key terms explained
+    body: The language matters because each term points to a different observation, measurement, or decision.
+    display: cards
+    items:
+      - title: COLLOID
+        body: A very small suspended particle. Whether it settles depends on size, density, shape, water conditions, and particle interactions. Do not treat one size range as a universal settling verdict.
+        example: At the plant, ask what the particle population is and how it behaves through the actual train.
+      - title: ZETA POTENTIAL
+        body: An electrokinetic measurement associated with particle interactions. It can inform an investigation, but there is no universal target that applies to every water and coagulant.
+        example: Use the instrument as evidence alongside chemistry, jar results, and process performance.
+      - title: COAGULANT
+        body: A chemical that can destabilize particles or form hydroxide precipitates that capture particles. Charge neutralization is one mechanism, not the whole story.
+        example: Product chemistry, dose basis, pH, alkalinity, temperature, and application point all matter.
+      - title: FLOCCULANT OR POLYMER
+        body: A polymer can have different jobs, but those jobs cannot be transferred casually between drinking water, wastewater, filtration, and residuals handling.
+        example: Define the exact product, sector, purpose, dose basis, and application point before assigning it one fixed job.
+      - title: G VALUE
+        body: G is the mean velocity-gradient parameter used to summarize bulk mixing intensity. It is useful for design and diagnosis, but it does not reveal every local shear condition or prove wasted energy.
+        example: Treat G and detention time as design and diagnostic inputs, not universal setpoints or diagnoses.
+      - title: TAPERED FLOCCULATION
+        body: Mixing intensity is reduced through successive stages so aggregate growth can continue with less avoidable breakage.
+        example: The actual staging and range must follow the facility design basis and current conditions.
+      - title: ALKALINITY
+        body: The water's buffering capacity. Aluminum and iron salts can consume alkalinity and lower pH, which can change coagulation performance.
+        example: Review pH and alkalinity with product, dose, and raw-water changes.
+      - title: JAR TEST
+        body: A bench-scale comparison used to examine treatment conditions. It can support a decision when it represents the process and follows the approved facility method.
+        example: A jar result is evidence. It is not automatic permission to change a full-scale process.
+    claim_ids: [claim-colloid-range, claim-zeta-range, claim-coagulant-mechanisms, claim-polymer-role, claim-g-equation, claim-tapered-flocculation, claim-alkalinity, claim-jar-purpose]
+
+  - block_id: block-system-fit
+    type: visual
+    title: Where it sits in the treatment train
+    body: |
+      Read the map from top to bottom. A weak chemical condition can leave particles poorly prepared for contact. Weak or excessive flocculation can leave aggregates too small, too fragile, or broken. Clarification and filtration then receive a different solids load and particle population. A downstream symptom narrows the investigation, but it does not prove one cause.
+    visual_id: visual-treatment-train
+    display: cards
+    items:
+      - title: DRINKING WATER
+        body: This brief centers conventional and direct filtration drinking-water treatment under United States authority. Facility design and rule applicability still control.
+      - title: WASTEWATER
+        body: Some particle and chemical mechanisms may recur, but objectives, residuals, permits, equipment, and evidence differ. Use a separately governed brief.
+      - title: STORMWATER
+        body: Chemically assisted treatment may be used in specific systems, but flashy flows, permits, receiving waters, and site controls require their own evidence.
+      - title: REUSE AND INDUSTRIAL
+        body: Pretreatment may affect downstream separation and fouling, but the application, water matrix, product, and performance objective must be reviewed separately.
+    claim_ids: [claim-downstream, claim-cross-sector-same-physics, claim-ro-fouling]
+
+  - block_id: block-evidence-split
+    type: evidence
+    title: The rapid-mix energy debate
+    body: Design convention, facility judgment, coagulant-specific research, and regulation answer different questions. Do not collapse them into one plant-wide number.
+    display: table
+    columns: [POSITION, WHAT IT CAN SUPPORT, BOUNDARY]
+    rows:
+      - [Design convention, "G and time are common design descriptors for rapid mixing and flocculation.", "A cited range is context, not a universal target."]
+      - [Research challenge, "Peer-reviewed studies can test whether more mixing improves a defined experimental outcome.", "Results remain tied to the study water, coagulant, equipment, method, and endpoint."]
+      - [Coagulant-specific response, "Park and Aktas report mixing responses under their own experimental conditions.", "The studies were conducted outside the United States and are research only, never governing authority."]
+      - [Held numeric result, "Perplexity located the Aktas paper but did not establish the exact coagulant-specific values from the original table or figure.", "The values remain withheld until the original passage and experimental basis are independently verified."]
+      - [Diagnostic question, "A high reported G can justify checking delivered power, hydraulics, water, chemical, dose, contact time, and outcomes.", "G alone does not prove wasted energy or floc shearing."]
+      - [United States federal posture, "EPA guidance describes rapid mixing and flocculation as treatment processes but does not establish one universal national operating setpoint.", "Use the applicable federal rule for compliance and the facility's approved design basis for site decisions."]
+    claim_ids: [claim-design-ranges-universal, claim-park-study, claim-aktas-study, claim-energy-audit]
+
+  - block_id: block-research-delta
+    type: evidence
+    title: What the research changed
+    body: Four Perplexity Deep Research jobs examined 32 material claims. The core mental model survived, but the evidence posture changed. A research result is candidate evidence, not verification, and the page remains a working document until every used claim passes independent and qualified technical review.
+    display: table
+    columns: [RESEARCH RESULT, CLAIMS, HTML ACTION]
+    rows:
+      - [Broadly aligned, "14", "Retain the teaching after exact sentence-level citation and review."]
+      - [Directionally right, "13", "Narrow the wording, strengthen the original source, reclassify the statement, or expose the limitation."]
+      - [Unsupported or misleading, "5", "Remove or materially recast unless stronger original evidence is found."]
+      - [Release verified, "0", "Keep the page visibly working-only until independent and qualified review pass."]
+    claim_ids: [claim-evidence-boundary, claim-every-number-sourced]
+
+  - block_id: block-corrections
+    type: decision
+    title: Corrections
+    body: These statements circulated in the supplied prototype. Keeping the correction visible protects the reasoning and the audit trail.
+    display: table
+    columns: [ITEM, COMMONLY POSTED, GOVERNED CORRECTION]
+    rows:
+      - [Particle charge, "Every particle carries the same negative charge.", "Particle charge and stability vary. Investigate the actual water, particles, chemistry, and measurement."]
+      - [Coagulation mechanism, "Coagulation simply cancels negative charge.", "Charge neutralization is one possible mechanism. Sweep floc and precipitate capture can also matter."]
+      - [Pin floc, "Cloudy water after coagulation proves failure.", "Microfloc may be an intended intermediate. The term, sample location, process stage, and downstream result must be defined; appearance alone proves neither success nor failure."]
+      - [PAC and PACl, "PAC names a pre-hydrolyzed aluminum coagulant.", "PACl means polyaluminum chloride. PAC commonly means powdered activated carbon. Define both abbreviations."]
+      - [Polymer role, "Polymer never replaces coagulant.", "Some products may act as primary coagulants in defined applications. Product chemistry, sector, purpose, dose basis, and application point govern the role."]
+      - [Zeta-potential target, "Use one numeric zeta-potential range for every plant.", "No universal numeric target was supported. Retain a nonnumeric, facility-specific interpretation alongside chemistry, jar results, and process performance."]
+      - [Alum residuals factor, "Use one universal numeric alum sludge factor.", "The cited original source did not substantiate the proposed factor. It remains removed unless its exact stoichiometric and product basis is verified."]
+      - [Mean G equation, "Use the linear expression returned in one research passage.", "That form is dimensionally inconsistent with the conventional expression. The equation remains withheld pending original engineering-source and unit verification."]
+      - [Streaming current, "Treat streaming current as a direct measurement or substitute for zeta potential.", "They are distinct electrokinetic signals. Any use requires calibrated, application-specific interpretation."]
+      - [Rapid-mix diagnosis, "A single reported G proves wasted energy or floc shearing.", "G alone proves neither. Treat the observation as a site-specific evidence question covering power, hydraulics, water, chemical, dose, time, and outcomes."]
+      - [Chemical equations, "One simplified equation proves dose, alkalinity, and residuals.", "Alum and ferric equations, hydrate basis, species, units, and factors remain withheld until an authoritative United States source and qualified chemistry review accept their teaching use."]
+    claim_ids: [claim-negative-charge-universal, claim-coagulant-mechanisms, claim-pin-floc, claim-pacl-pac, claim-polymer-never-replaces, claim-zeta-range, claim-sludge-factor, claim-g-equation, claim-streaming-current-proxy, claim-energy-audit, claim-alum-reaction, claim-ferric-reaction]
+
+  - block_id: block-protocol
+    type: protocol
+    title: Jar test protocol
+    body: The original timers and revolutions per minute looked facility-ready. This governed version preserves the three-stage workflow but removes universal settings.
+    display: steps
+    items:
+      - title: RAPID MIX
+        body: Add the approved coagulant according to the facility method and reproduce the relevant rapid-mix condition. Record product, dose basis, water, time, and equipment.
+        label: 01
+      - title: CONTROLLED FLOCCULATION
+        body: Reproduce the approved staged contact sequence. Observe formation, size, strength, breakage, and clarity between aggregates without inventing a universal speed.
+        label: 02
+      - title: SEPARATE AND SAMPLE
+        body: Stop mixing, use the approved settling or separation interval, and sample from the same defined location and depth so comparisons remain meaningful.
+        label: 03
+    claim_ids: [claim-jar-rpm-universal, claim-jar-purpose, claim-jar-sampling]
+
+  - block_id: block-decisions
+    type: decision
+    title: Do this, not that
+    body: Good operating judgment starts by separating a symptom from an authorized change. The written change-control pattern below is OWOS recommended governance, not a federal regulatory requirement.
+    display: comparisons
+    items:
+      - bad: Add every chemical at one convenient point because the process is described as coagulation and flocculation.
+        good: Match chemical application to the approved product purpose, process stage, mixing condition, and facility procedure.
+        consequence: Product chemistry and application determine whether a polymer survives, contacts the intended solids, and performs its assigned job.
+      - bad: Hold one coagulant dose through every source-water condition because it worked before.
+        good: Investigate meaningful raw-water and process shifts with the approved monitoring and test method, then follow change authority and documentation.
+        consequence: A facility-specific record explains why a change was considered, authorized, monitored, and reversed if needed.
+      - bad: Respond to one turbidity result by raising dose alone.
+        good: Confirm sample location, pH, alkalinity, temperature, product and feed condition, raw-water change, flow, mixing equipment, and downstream observations.
+        consequence: The same symptom can arise from different chemical, mechanical, sampling, or process causes.
+    claim_ids: [claim-polymer-charge-roles, claim-dose-year-round, claim-dose-change-sop, claim-alkalinity]
+
+  - block_id: block-diagnostic
+    type: diagnostic
+    title: Where does your plant stand?
+    body: Eight questions. The point is not a score. The point is to expose the missing record before someone reaches for a setting.
+    display: checklist
+    pullquote: A dictionary tells you what a word means. A concept brief tells you what to look for when the process goes wrong.
+    pullquote_credit: THE CONCEPT ENGINE PRINCIPLE
+    items:
+      - When was the last representative jar or pilot test tied to a meaningful water or process change?
+      - Is the rapid-mix and flocculation design basis documented and still representative of the installed equipment?
+      - Is each chemical product, purpose, feed point, and authority current and documented?
+      - Are pH, alkalinity, temperature, turbidity, flow, dose, and process observations time aligned?
+      - Can staff distinguish intended microfloc from a downstream separation problem?
+      - Is there a written dose-change procedure with limits, monitoring, rollback, and escalation?
+      - Are residuals production and disposal consequences reviewed with chemical changes?
+      - Can the facility trace a change from observation to test, authorization, performance, and final record?
+    claim_ids: [claim-jar-purpose, claim-data-integration, claim-dose-change-sop, claim-downstream]
+
+  - block_id: block-cross-sector-transfer
+    type: visual
+    title: Carry the question across sectors, not the setting
+    body: Drinking water, wastewater, and stormwater professionals can share the particle-conditioning and separation mental model. Each sector must reestablish its own source, loading, process, procedure, monitoring, and authority boundary.
+    visual_id: visual-cross-sector-particle-pathways
+    claim_ids: [claim-cross-sector-same-physics, claim-no-operating-advice]
+
+  - block_id: block-stage-check
+    type: assessment
+    title: Diagnose before changing
+    body: Use the complete treatment sequence to decide what a downstream symptom does and does not prove.
+    assessment_id: assessment-stage-check
+    claim_ids: [claim-downstream, claim-no-operating-advice]
+
+  - block_id: block-transfer-check
+    type: assessment
+    title: Turn a shortcut into an evidence question
+    body: Apply the concept to your role without turning public instruction into facility authority.
+    assessment_id: assessment-evidence-question
+    claim_ids: [claim-dose-change-sop, claim-no-operating-advice]
+
+  - block_id: block-role-actions
+    type: role
+    title: What this means for you
+    body: One mechanism creates different responsibilities. Each role should leave with one bounded question, not a generic operating instruction.
+    display: cards
+    items:
+      - title: UTILITY DIRECTOR
+        body: Ask whether recurring clarification problems point to training, instrumentation, maintenance, procedure, source-water change, or capital need.
+        example: "Monday: request one time-aligned view of source conditions, chemical use, clarification, filtration, and residuals."
+      - title: PLANT OPERATOR
+        body: Document the symptom, sample location, water conditions, equipment state, approved test, and what changed before the symptom appeared.
+        example: "Monday: verify that the current jar-test and dose-change procedures match the plant."
+      - title: COMPLIANCE AND ENGINEERING
+        body: Confirm the applicable United States federal rule, facility design basis, monitoring provisions, and record retention before interpreting performance.
+        example: "Monday: trace one recent process change through approval, monitoring, and the compliance record."
+      - title: IT AND SCADA
+        body: Make source, chemistry, process, and performance records queryable at compatible timestamps without turning the data model into automatic operating authority.
+        example: "Monday: inspect tag definitions, time resolution, gaps, units, and historian alignment."
+      - title: GIS AND SOURCE WATER
+        body: Connect rainfall, source conditions, intake observations, and plant response as evidence for investigation, not as an automatic dose command.
+        example: "Monday: compare one documented source-water event with the plant record."
+      - title: FINANCE AND RATES
+        body: Evaluate chemical, energy, residuals, production, labor, monitoring, and risk together. Do not promise savings before the technical case exists.
+        example: "Monday: define the full cost baseline and the evidence required to test an optimization case."
+    claim_ids: [claim-role-actions, claim-data-integration, claim-no-capital]
+
+  - block_id: block-evidence-boundary
+    type: evidence
+    title: Accuracy and source manifest
+    body: |
+      Four Perplexity Deep Research jobs are complete. Of 32 material claims, 14 were broadly aligned, 13 need narrower wording, stronger sourcing, reclassification, or an explicit limitation, and 5 must be removed or materially recast. Formal release verification remains zero percent.
+
+      Every material claim is inventoried. A source marked checked means the source record was retrieved and inspected; it does not mean the claim's use has passed independent verification or qualified technical review. Federal rule applicability, chemistry, facility practice, accessibility, Graph, Community, and owner review are still open.
+
+      This working preview cannot authorize a dose, chemical, mixing, design, compliance, safety, or health decision. Research conducted outside the United States is labeled research only and is never used as governing authority.
+    display: source_manifest
+    claim_ids: [claim-us-filtered-water-turbidity, claim-every-number-sourced, claim-evidence-boundary, claim-no-operating-advice]
+
+  - block_id: block-sop-boundary
+    type: connected_learning
+    title: Connected in the graph
+    body: |
+      This brief is a node, not a dead document. Its terms connect to the shared language, its failure modes connect to questions, and its diagnostic work can lead to a separately governed facility SOP.
+
+      A public SOP template may explain the fields and workflow. A facility-ready coagulation-response or dose-change SOP remains a private tenant artifact. It requires facility identity, source-water envelope, approved products, equipment configuration, authority, test method, operating limits, monitoring, documentation, rollback, emergency escalation, change history, and named approvers.
+    claim_ids: [claim-dose-change-sop, claim-no-operating-advice]
+
+  - block_id: block-faq
+    type: faq
+    title: Should I change dose or mixing based on this brief?
+    body: No. Use the brief to locate the stage, formulate the question, and collect evidence. A facility change requires site-specific water data, the approved procedure, applicable United States federal requirements, and qualified professional or operational authority.
+    claim_ids: [claim-no-operating-advice]

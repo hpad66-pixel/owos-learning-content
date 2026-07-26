@@ -1,0 +1,75 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+candidate_version: 1.0.0-federal-publication-candidate
+library:
+  state: implemented_in_learning_repository
+  registry: ../../library.yaml
+  output: ../dist/index.html
+  brief_link: dist/final-federal-publication.html
+related_learning:
+  state: implemented_as_curated_public_presentation
+  source_of_relationships: graph.yaml
+  raw_internal_edges_exposed: false
+  graph_publication_state: platform_projection_built_owner_implementation_approved_claim_release_gate_retained
+community:
+  state: platform_runtime_and_same_page_context_implemented
+  forum_space_id: owos-community:concept-brief:001
+  target_route: /course-community.html
+  context_parameters:
+    brief: owos:concept-brief:001
+    version: 1.0.0-federal-publication-candidate
+  production_runtime_wiring: implemented_in_onewater_os_platform_worktree
+  moderation_owner: OWOS Learning Steward
+commercial:
+  state: implemented_as_cross_repository_runtime_control_plane
+  collateral_surface: dist/final-federal-publication.html#owos-commercial-placements
+  platform_registry: onewater-os-platform/site/_worker.js
+  administrator_surface: /console#sponsors
+  vendor_reporting_surface: /sponsor-dashboard
+  neutral_directory_surface: /directory
+  controls:
+    - create or update logo, copy, call to action, link, dates, and account assignment
+    - pause, resume, or archive without rebuilding the Concept Brief
+    - target a placement to a Concept Brief ID
+    - connect the placement to a vendor directory key and profile
+    - report aggregate impressions, clicks, and contact starts
+  publication_state: local_platform_qa_complete_pending_deployment_and_real_vendor_approval
+sop:
+  public_outline: implemented_in_public_candidate
+  public_action: copy_plain_text_outline_to_approved_workspace
+  local_browser_storage: not_used
+  file_download: not_used
+  private_facility_workflow: reserved_for_authenticated_agent_product
+  facility_specific_sop: blocked_until_facility_inputs_and_named_approvals
+  operating_authority: none
+release_boundary:
+  public_page_state: final_federal_publication_candidate_not_formal_release
+  graph_publication: pending
+  community_release: pending
+  commercial_placement: owner_approved_candidate_pending_legal_conflict_and_deployment_review
+  owner_release: pending
+placement_decision:
+  destination: owos_learn
+  presentation: distinct_content_type_and_filter
+  separate_global_destination: false
+  relationship: dictionary_to_concept_brief_to_master_class_to_work
+content_admin:
+  state: author_studio_and_fail_closed_runtime_release_control_implemented_in_platform_worktree
+  source_of_truth: governed_structured_package
+  compiled_html_editing: release_bundle_upload_only_governed_structured_package_remains_source
+  required_controls:
+    - create and update brief metadata, narrative, storyboard, visuals, interactions, claims, and sources
+    - trigger approved research and reverse QA/QC
+    - manage draft, review, approved, released, superseded, and archived states
+    - preview and compare versions
+    - publish or roll back an immutable released artifact
+runtime_publication:
+  state: atomic_active_release_pointer_implemented_in_platform_worktree
+  required_transaction:
+    - publish immutable artifact and manifest
+    - update OWOS Learn catalog
+    - ingest approved Graph records
+    - attach Community context
+    - activate approved commercial placements
+    - purge caches and verify production routes

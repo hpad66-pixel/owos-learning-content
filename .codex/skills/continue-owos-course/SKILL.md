@@ -7,6 +7,10 @@ description: Continue an OWOS course from new PDFs, Word files, research, annota
 
 Give the user one conversational workspace. Never make the user operate internal scripts.
 
+Use the standard name **OWOS Course Engine** for this lifecycle and **OWOS Course Compiler** for its
+renderer. Visuals, interactions, animations, and quizzes resolve through the shared
+`core/learning-capabilities/registry.yaml`; do not create a course-only copy of a shared capability.
+
 ## Start
 
 1. Identify the course under `apps/`. If ambiguous, list the likely course folders and ask one question.

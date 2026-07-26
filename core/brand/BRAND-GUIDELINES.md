@@ -1,8 +1,11 @@
-# One Water OS — Brand & Design Requirements
+# One Water OS Brand and Design Requirements
 
-*Extracted from `2-brain-main` (site design system v6 "Clearwater"). This is the authoritative
-spec for every OneWater PM System deliverable — playbook, dashboards, reports, starter kit.
-Source of truth: [`owos-brand.css`](owos-brand.css).*
+Graphite is the approved default for new public knowledge and learning products. Clearwater remains
+the approved operational application system until those screens are deliberately migrated.
+Sources of truth are [`owos-graphite.css`](owos-graphite.css) and
+[`OWOS-GRAPHITE-VISUAL-STANDARD.md`](../standards/OWOS-GRAPHITE-VISUAL-STANDARD.md) for public
+knowledge products, and [`owos-brand.css`](owos-brand.css) for existing Clearwater application
+surfaces.
 
 ---
 
@@ -15,8 +18,8 @@ Source of truth: [`owos-brand.css`](owos-brand.css).*
 | **Category line** | The first knowledge-continuity platform built for water. |
 | **Agent / mascot** | **Droobi** — the blue water-drop guide. Droobi is the face of the system: a helper, an anchor, a guide. |
 | **Broadcast register** | One Water TV — "The Water Newsroom" (Droobi as anchor; serif display; darker studio blue). |
-| **Design system** | v6 "Clearwater" — one typeface (Inter), one palette (water blue on light), one set of parts. |
-| **Design ethos** | Modern enterprise: calm surfaces, strong type, generous but dense layout. |
+| **Design system** | v7 "Graphite" for public knowledge and learning products; v6 "Clearwater" retained for existing operational application surfaces. |
+| **Design ethos** | Graphite depth, strong type, generous spacing, restrained water-blue illumination, and one clear idea at a time. |
 
 **Sample voice lines (from live assets):**
 - *"A career of wisdom deserves better than a binder."*
@@ -25,7 +28,17 @@ Source of truth: [`owos-brand.css`](owos-brand.css).*
 
 ---
 
-## 2. Color tokens
+## 2. Graphite default for public knowledge products
+
+Use `#1C1B19` for the primary canvas, `#292826` for elevated surfaces, `#10232E` for deep process
+surfaces, `#F2F1EC` and `#D9D6CF` for text, `#7DC6E8` for the water concept and active state,
+`#E0A64A` for caution and consequence, `#4AC88C` for favorable or stable meaning, and `#EE7968`
+for critical states.
+
+Graphite is a visual identity, not a page template. Courses, Concept Briefs, articles, reports, and
+SOP templates must still use a product-specific design brief and varied composition.
+
+## 3. Clearwater tokens for retained application surfaces
 
 Copy these exactly. Names match the CSS custom properties.
 
@@ -68,7 +81,11 @@ Panels on brand-blue or ink surfaces flip local tokens: `--ink:#FFFFFF`, `--ink-
 
 ---
 
-## 3. Typography
+## 4. Typography
+
+Graphite public products use `Arial, Barlow, sans-serif` for primary display and body copy, with
+`"Courier New", "Space Mono", monospace` for technical labels, sources, data, and navigation.
+Existing Clearwater application surfaces retain Inter and JetBrains Mono until migrated.
 
 - **One typeface everywhere: `Inter`.** Fallback stack: `'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif`.
   In production, host/embed Inter (the CSS assumes it is loaded). In sandboxed artifacts where font
@@ -83,7 +100,7 @@ Panels on brand-blue or ink surfaces flip local tokens: `--ink:#FFFFFF`, `--ink-
 
 ---
 
-## 4. Geometry & elevation
+## 5. Geometry & elevation
 
 | Token | Value |
 |---|---|
@@ -97,7 +114,7 @@ Buttons/inputs: radius 10px. Pills: 999px. Logo tile: 9px.
 
 ---
 
-## 5. Core components
+## 6. Core components
 
 - **Nav** (`owos-nav`): fixed, 64px, translucent white with 14px blur, hairline bottom. Left = brand
   lockup; right = links + a primary **badge** CTA with a pulsing green "live" dot.
@@ -113,7 +130,7 @@ Buttons/inputs: radius 10px. Pills: 999px. Logo tile: 9px.
 
 ---
 
-## 6. Droobi — the agent
+## 7. Droobi, the agent
 
 The character that guides the user. Reference: [`droobi.svg`](droobi.svg), [`onewater-tv-anchor-v3-poster.png`](onewater-tv-anchor-v3-poster.png).
 
@@ -130,7 +147,7 @@ The character that guides the user. Reference: [`droobi.svg`](droobi.svg), [`one
 
 ---
 
-## 7. Voice & role lenses
+## 8. Voice and role lenses
 
 **Tone:** plain, credible, calm-expert. Evidence over adjectives (`✓ verified · primary source`).
 Water-sector fluent. Never hype; never a binder.
@@ -147,16 +164,18 @@ Water-sector fluent. Never hype; never a binder.
 
 ---
 
-## 8. Do / Don't
+## 9. Do and do not
 
-**Do** — one typeface (Inter); water-blue as the system color; gold as the *single* accent;
-calm light surfaces; dense but generous spacing; every claim carries its proof; Droobi as a purposeful guide.
+**Do** use Graphite for new public knowledge products, water blue as the concept and action color,
+amber only for caution or consequence, calm dark surfaces, generous spacing, and visible proof.
+Keep Droobi purposeful.
 
-**Don't** — introduce a second display face into the OS register (serif belongs only to the *TV* register);
-scatter multiple accent colors; use gold as a background wash; publish infrastructure/CEII detail; let
-Droobi become clip-art.
+**Do not** clone one page layout across different learning jobs, scatter accent colors, use amber as
+a decorative background wash, publish restricted infrastructure detail, or let Droobi become
+clip-art.
 
 ---
 
-*Assets in this folder: `owos-brand.css` (system), `droobi.svg` (agent), `icon-192/512.png` (app icons),
+*Assets in this folder: `owos-graphite.css` (public knowledge identity), `owos-brand.css` (retained
+Clearwater application system), `droobi.svg` (agent), `icon-192/512.png` (app icons),
 `og-image.png` (social/positioning), `onewater-tv-anchor-v3-poster.png` (Droobi anchor reference).*

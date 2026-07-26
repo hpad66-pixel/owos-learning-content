@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://owos.ai/schemas/concept-brief-package.schema.json",
+  "title": "OWOS Concept Brief package identity",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract",
+    "brief_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "contract": {
+      "const": "owos-concept-brief/2"
+    },
+    "brief_id": {
+      "type": "string",
+      "pattern": "^owos:concept-brief:[A-Za-z0-9._-]+$"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,66 @@
+:root {
+  --owos-graphite: #1c1b19;
+  --owos-charcoal: #292826;
+  --owos-charcoal-2: #302f2c;
+  --owos-process: #10232e;
+  --owos-white: #f2f1ec;
+  --owos-body: #d9d6cf;
+  --owos-muted: #a29c91;
+  --owos-line: #3d3a36;
+  --owos-water: #7dc6e8;
+  --owos-water-light: #8ed0ed;
+  --owos-amber: #e0a64a;
+  --owos-green: #4ac88c;
+  --owos-red: #ee7968;
+  --owos-sans: Arial, Barlow, sans-serif;
+  --owos-mono: "Courier New", "Space Mono", monospace;
+}
+
+[data-owos-theme="graphite"] {
+  color-scheme: dark;
+  background: var(--owos-graphite);
+  color: var(--owos-body);
+  font-family: var(--owos-sans);
+}
+
+[data-owos-theme="graphite"] :is(h1, h2, h3, h4) {
+  color: var(--owos-white);
+  font-family: var(--owos-sans);
+  font-weight: 800;
+}
+
+[data-owos-theme="graphite"] :is(a, .owos-concept, .owos-active) {
+  color: var(--owos-water);
+}
+
+[data-owos-theme="graphite"] :focus-visible {
+  outline: 3px solid var(--owos-water);
+  outline-offset: 3px;
+}
+
+[data-owos-theme="graphite"] .owos-surface {
+  border: 1px solid var(--owos-line);
+  background: var(--owos-charcoal);
+  color: var(--owos-body);
+}
+
+[data-owos-theme="graphite"] .owos-technical-label {
+  color: var(--owos-water-light);
+  font-family: var(--owos-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+[data-owos-theme="graphite"] .owos-caution { color: var(--owos-amber); }
+[data-owos-theme="graphite"] .owos-positive { color: var(--owos-green); }
+[data-owos-theme="graphite"] .owos-critical { color: var(--owos-red); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-owos-theme="graphite"] *,
+  [data-owos-theme="graphite"] *::before,
+  [data-owos-theme="graphite"] *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

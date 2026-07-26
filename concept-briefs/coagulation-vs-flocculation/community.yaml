@@ -1,0 +1,48 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+forum_space_id: owos-community:concept-brief:001
+mount_id: owos-concept-community
+version_context: 1.0.0
+purpose: Compare diagnostic questions, facility observations, source suggestions, and correction proposals without converting discussion into operating instruction.
+seed_questions:
+  - What symptom and sample location make coagulation and flocculation hardest to distinguish at your facility?
+  - Which source-water change most often triggers a new investigation?
+  - What evidence must be present before your facility authorizes a chemical or mixing change?
+  - Which statement or visual needs correction, qualification, or a better source?
+required_post_labels:
+  - field_observation
+  - source_suggestion
+  - diagnostic_question
+  - correction_proposal
+  - sop_governance
+facility_information_warning: Do not post security-sensitive facility data, credentials, personal information, confidential procedures, or information restricted by the utility.
+moderation_owner: OWOS Learning Steward
+verified_answer_policy: Only an answer mapped to reviewed claims and accepted through the named technical and editorial workflow may carry a verified label.
+discussion_boundary: Community discussion is practitioner conversation, not verified instruction, site-specific engineering advice, regulatory interpretation, or automatic authorization to change a facility.
+correction_escalation: A correction proposal must identify the affected claim, source, exact locator, proposed replacement, and practical consequence. It re-enters source review, qualified technical review, revision, and owner approval.
+public_feedback:
+  enabled: true
+  entry_points:
+    - header_community_control
+    - community_section
+    - bottom_inline_comment_form
+  accepted_types:
+    - technical_feedback
+    - source_suggestion
+    - question
+    - field_observation
+  dashboard_queue: concept_brief_author_studio
+  moderator_actions:
+    - reply
+    - mark_reviewed
+    - mark_incorporated
+    - close
+  version_control_rule: A comment never overwrites published content. An accepted correction creates a new governed version with preserved history.
+abuse_and_conflict_handling: Moderators disclose conflicts, separate vendor participation from evidence review, remove unsafe operating directives, and retain a record of substantive correction proposals.
+accessibility_behavior: Search, filters, labels, reply controls, status, and correction forms use programmatic names, keyboard access, visible focus, and announced updates.
+drawer_behavior: White right-side drawer on larger screens and full-screen drawer on small screens; the bottom same-page section remains available.
+focus_return: Closing the Community drawer returns focus to the control that opened it and preserves the reader position.
+implementation_state: platform_runtime_and_same_page_context_built
+runtime_target: /course-community.html
+review_status: owner_implementation_approved_runtime_automated_qa_passed_manual_moderation_and_accessibility_review_pending

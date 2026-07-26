@@ -1,0 +1,36 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:001
+assessments:
+  - assessment_id: assessment-stage-check
+    version: 1.0.0
+    type: multiple-choice
+    cognitive_job: diagnosis
+    prompt: A filter run becomes short after a source-water change. What is the strongest first conclusion from this brief?
+    options:
+      - text: Increase coagulant dose because short filter runs prove underdosing.
+        correct: false
+      - text: Trace source water, chemistry, mixing, clarification, and filter evidence before assigning one cause.
+        correct: true
+      - text: Backwash more often because filtration is independent of upstream treatment.
+        correct: false
+    feedback:
+      correct: Correct. A downstream symptom narrows the investigation but does not prove one upstream cause.
+      incorrect: The symptom does not authorize a setting change. Follow the evidence chain across the complete clarification and filtration sequence.
+    retry: Review the treatment-train reading guide and choose the answer that preserves uncertainty and change authority.
+    completion_id: clarification-stage-check
+    final_applied_check: false
+    review_status: working_implementation_pending_qualified_review
+  - assessment_id: assessment-evidence-question
+    version: 1.0.0
+    type: reflection
+    cognitive_job: transfer
+    prompt: Rewrite one tempting dose or mixing shortcut as an evidence question your role can responsibly ask.
+    model_response: A strong response names the observed symptom, sample location, relevant water and process conditions, approved procedure, missing evidence, authorized reviewer, monitoring plan, and rollback boundary without proposing a universal setting.
+    feedback:
+      correct: The response preserves the distinction between investigation and authorization.
+      incorrect: Add the missing evidence, authority, monitoring, and rollback boundary.
+    retry: Revise the question until it can guide investigation without acting as an operating instruction.
+    completion_id: evidence-question-transfer
+    final_applied_check: true
+    review_status: working_implementation_pending_qualified_review

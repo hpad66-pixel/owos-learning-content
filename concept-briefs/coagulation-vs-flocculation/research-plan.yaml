@@ -1,0 +1,134 @@
+schema_version: 1
+policy: owos-concept-research/1
+brief_id: owos:concept-brief:001
+created_on: 2026-07-25
+current_stage: final_federal_publication_candidate
+generation_policy: research_before_cited_html
+external_research:
+  provider: Perplexity
+  disclosure_scope:
+    - brief identifier, version, and title
+    - selected claim text
+    - claim type, scope, jurisdiction, and limitations
+  excluded:
+    - API credential
+    - private attachments
+    - generated HTML source
+    - community or learner data
+  approval_status: approved_by_hardeep_anand
+  approved_on: 2026-07-25
+  approval_record: User explicitly approved sending the 32 Concept Brief claims to Perplexity for external research.
+  submission_status: all_clusters_submitted
+  completion_status: all_clusters_completed
+  completed_on: 2026-07-25
+  recorded_total_cost_usd: 3.08735
+  candidate_evidence_review: qa/perplexity-candidate-evidence-review.md
+  html_delta_review: qa/html-research-delta.md
+  note: External disclosure is limited to the declared scope. Research results remain candidate evidence until original-source verification.
+pre_research_draft:
+  locator: dist/preview.html
+  checksum_sha256: 76b08bc590fb19abe963b367b768f308b974343b9a34f4370d1d25cb7144a763
+  status: frozen_internal_draft
+research_incorporated_working_preview:
+  locator: dist/research-incorporated-preview.html
+  generated_on: 2026-07-25
+  status: working_only_not_release_verified
+  build_receipt: dist/research-incorporated-preview.build.json
+  authorization_record: Hardeep directed incorporation of all research recommendations into the next HTML document.
+public_review_preview:
+  locator: dist/public-review-preview.html
+  generated_on: 2026-07-25
+  status: clean_public_surface_not_release_verified
+  configuration: public-preview.yaml
+  build_receipt: dist/public-review-preview.build.json
+  authorization_record: Hardeep directed production of the clean public portion without internal research, Graph, Community, compiler, or QA machinery.
+final_public_candidate:
+  locator: dist/final-public-candidate.html
+  generated_on: 2026-07-25
+  status: final_public_content_candidate_release_review_blocked
+  configuration: public-preview.yaml
+  qa_report: qa/final-public-candidate-qaqc.md
+  build_receipt: dist/final-public-candidate.build.json
+  authorization_record: Hardeep directed a thorough QA/QC pass, removal of public Graph language, and production of the final public version.
+final_federal_publication_candidate:
+  locator: dist/final-federal-publication.html
+  generated_on: 2026-07-26
+  status: final_owner_directed_federal_only_candidate_release_manifest_blocked
+  configuration: public-preview.yaml
+  qa_report: qa/final-federal-publication-qaqc.md
+  authorization_record: Hardeep directed the final publication to use only United States federal requirements and EPA guidance as governing authority, with clearly labeled AWWA professional context permitted and all state-specific material removed.
+brand_exploration:
+  locator: dist/graphite-brand-preview.html
+  generated_on: 2026-07-25
+  status: approved_standard_visual_direction_rendered_review_pending
+  configuration: public-brand-preview.yaml
+  presentation_layer: presentation-graphite.css
+  visual_reference: intake-fog-os-pitch-brand-reference
+  qa_report: qa/graphite-brand-preview-qaqc.md
+  build_receipt: dist/graphite-brand-preview.build.json
+  authorization_record: Hardeep requested a more beautiful dark branding and color exploration based on the supplied pitch deck.
+  approval_record: Hardeep explicitly approved the Graphite Edition as the standard visual direction.
+cited_html:
+  allowed: true
+  authorization_record: Hardeep approved production of the final federal-only learner-facing HTML after the Perplexity research, direct federal-source review, claim corrections, and evidence-bounded narrative revision.
+  unblock_when:
+    - candidate research has been imported
+    - every used source resolves to the original authority
+    - exact source locators have been recorded
+    - claim wording has been bounded to the evidence
+    - the evidence-backed narrative and storyboard have been approved
+publication:
+  allowed: false
+  reason: The final federal-only publication candidate may be compiled, but independent verification, qualified technical review, remaining manual accessibility review, and exact release approval remain incomplete.
+clusters:
+  - cluster_id: foundational-mechanisms
+    status: candidate_research_completed
+    perplexity_job_id: ac2287b4-5a69-4a12-a06c-4124c0f59de1
+    receipt: research/perplexity/ac2287b4-5a69-4a12-a06c-4124c0f59de1.json
+    claim_ids:
+      - claim-distinct-jobs
+      - claim-particle-stability
+      - claim-charge
+      - claim-restabilization
+      - claim-coagulant-mechanisms
+      - claim-alkalinity
+      - claim-pin-floc
+      - claim-downstream
+  - cluster_id: regulation-design-and-control
+    status: candidate_research_completed
+    perplexity_job_id: 00bbaec4-c565-455d-bb02-4d8e0230f342
+    receipt: research/perplexity/00bbaec4-c565-455d-bb02-4d8e0230f342.json
+    claim_ids:
+      - claim-us-filtered-water-turbidity
+      - claim-turbidity-proxy
+      - claim-g-equation
+      - claim-tapered-flocculation
+      - claim-us-flocculation-design-context
+      - claim-jar-purpose
+      - claim-jar-sampling
+  - cluster_id: chemicals-measurement-and-material-balance
+    status: candidate_research_completed
+    perplexity_job_id: 84514734-c951-4196-b91e-82d7a395128f
+    receipt: research/perplexity/84514734-c951-4196-b91e-82d7a395128f.json
+    claim_ids:
+      - claim-sludge-factor
+      - claim-zeta-range
+      - claim-polymer-role
+      - claim-alum-reaction
+      - claim-ferric-reaction
+      - claim-pacl-pac
+      - claim-polymer-charge-roles
+      - claim-streaming-current-proxy
+  - cluster_id: studies-operations-and-boundaries
+    status: candidate_research_completed
+    perplexity_job_id: c050651b-1cc2-420f-84ff-ff307071564b
+    receipt: research/perplexity/c050651b-1cc2-420f-84ff-ff307071564b.json
+    claim_ids:
+      - claim-shear
+      - claim-park-study
+      - claim-aktas-study
+      - claim-energy-audit
+      - claim-dose-year-round
+      - claim-dose-change-sop
+      - claim-evidence-boundary
+      - claim-no-operating-advice

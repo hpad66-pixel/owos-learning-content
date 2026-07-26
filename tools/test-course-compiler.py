@@ -78,12 +78,19 @@ with tempfile.TemporaryDirectory() as directory:
     else:
         raise AssertionError("a declared visual without an asset passed validation")
 
-try:
-    validate_package(SOURCE, release_ready=True)
-except ModulePackageError as error:
-    if "rendered_review_status is not release approved" not in str(error):
-        raise AssertionError("release-ready mode did not expose the pending rendered review") from error
-else:
-    raise AssertionError("working candidate incorrectly passed the release-ready gate")
+with tempfile.TemporaryDirectory() as directory:
+    fixture = Path(directory) / "module"
+    shutil.copytree(SOURCE, fixture)
+    manifest_path = fixture / "visuals/visual-manifest.yaml"
+    manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    manifest["visuals"][0]["rendered_review_status"] = "pending"
+    manifest_path.write_text(yaml.safe_dump(manifest, sort_keys=False), encoding="utf-8")
+    try:
+        validate_package(fixture, release_ready=True)
+    except ModulePackageError as error:
+        if "rendered_review_status is not release approved" not in str(error):
+            raise AssertionError("release-ready mode did not expose the pending rendered review") from error
+    else:
+        raise AssertionError("a pending rendered review passed the release-ready gate")
 
 print("OWOS Course Compiler QA passed: structured source, real assets, interactions, assessment variety, deterministic build, and fail-closed release gates are enforced.")

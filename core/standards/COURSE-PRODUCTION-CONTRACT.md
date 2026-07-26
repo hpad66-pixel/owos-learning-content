@@ -203,6 +203,9 @@ Recognition-only quizzes cannot establish applied mastery.
 
 ## 7. Visual and accessibility contract
 
+- New public course and lesson surfaces use the OWOS Graphite Visual Standard by default. Graphite
+  controls brand identity, not the learning composition. Course and module experience plans still
+  determine the narrative shape, visuals, interactions, and surface rhythm.
 - Use the OWOS typeface, spacing, color tokens, component geometry, and responsive breakpoints.
 - Every dark blue, navy, or gradient surface must use white or tested light text. Black or dark gray text on a dark surface is a release blocker.
 - Verify contrast at runtime for dynamic content and during desktop and mobile visual review.

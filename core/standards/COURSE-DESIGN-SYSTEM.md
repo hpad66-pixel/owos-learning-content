@@ -41,6 +41,7 @@ Read these files before designing a module:
 9. `core/components/component-gallery.html`
 10. `core/components/quiz-gallery.html`
 11. `core/brand/BRAND-GUIDELINES.md`
+12. `core/standards/OWOS-GRAPHITE-VISUAL-STANDARD.md`
 
 When Hardeep's knowledge is used, also read `hardeep-soul/SOUL.md` and `hardeep-soul/authoring/AUTHORING_STANDARD.md` from the canonical sibling repository.
 
