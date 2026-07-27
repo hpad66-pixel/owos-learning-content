@@ -2,9 +2,9 @@
 title: Detention, Retention, and Infiltration
 subtitle: Follow the water before trusting the name
 brief_id: owos:concept-brief:003
-version: research-final-0.6
+version: research-final-0.7
 status: owner_approved_for_evidence_verification_and_curriculum_design
-evidence_status: federal_source_research_complete_florida_companion_complete_twelve_added_terms_unsourced_qualified_review_pending
+evidence_status: federal_source_research_complete_added_terminology_dossier_complete_nine_of_twelve_anchored_three_corrected_qualified_review_pending
 html_authorized: false
 owner: Hardeep Anand
 updated: 2026-07-27
@@ -19,10 +19,12 @@ outline with a complete plain-language explanation, an instructional sequence, c
 source-supported claims, visible limitations, and a scored quality review.
 
 Revision 0.6 added the reader orientation, the foundation definition set, worked examples, and
-several terms and mechanisms the earlier draft used without defining. Twelve of those additions are
-standard practice knowledge that does not yet resolve to a source in the reference list. They are
-listed in section 19 and are blocked from learner-facing HTML, visuals, and assessments until they
-carry source records, classified claims, and qualified review.
+several terms and mechanisms the earlier draft used without defining. Revision 0.7 completed a
+federal source search over those additions, recorded in
+`research/added-terminology-source-dossier.md`. Nine of twelve anchored to a retrieved federal
+source, and three were corrected rather than confirmed. Section 19 records every verdict and the
+remaining evidence gaps. All records stay `verification_status: pending` until independent
+verification and qualified review are complete.
 
 It is not a design manual, operating procedure, permit interpretation, or jurisdiction-specific
 standard. Qualified practitioner review, final claim verification, diagram review, and owner
@@ -492,11 +494,20 @@ flow. It does not prove that every pollutant is removed or that downstream flood
 
 ### Detention time and residence time
 
-**Detention time** is how long water stays in a practice before leaving. Where a distinction is
-drawn, **residence time** usually describes the average time a parcel of water spends in the system,
-while detention time is often used for the interval between inflow and its associated outflow. Usage
-varies between design guides and permits, so the honest instruction is to ask which definition the
-document in front of you is using.
+These two terms both describe how long water stays in a practice, and the honest position is that
+they are not cleanly separated in federal usage.
+
+EPA's stormwater design guide defines **detention time** as "the theoretical time required to
+displace the contents of a stormwater treatment facility at a given rate of discharge (volume
+divided by rate of discharge)" (EPA, 2004). EPA's SWMM reference defines **hydraulic residence
+time** as "the average time that water has spent within a completely mixed storage node" (EPA,
+2016). Those are close to the same quantity under two names.
+
+So do not carry a confident distinction into a meeting. What is worth carrying is the underlying
+idea and one question. The idea: a bigger stored volume, or a slower release, means water stays
+longer. The question: when a document gives you a detention or residence time, ask how it was
+computed and whether it is a theoretical displacement time or a measured one, because a theoretical
+number assumes complete mixing that a real basin with short-circuiting may not deliver.
 
 Longer detention time gives settling more opportunity to occur. It also means storage is still
 occupied if a second storm arrives, which is why back-to-back storms behave differently from a
@@ -617,14 +628,23 @@ the water rise? What controls release? Where is the overflow? What receiving sys
 downstream? The familiar landscape becomes an invitation to ask better questions, not permission to
 infer a design.
 
-### Control elevation and littoral zone
+### What sets the normal water level, and the littoral zone
 
-Two more terms belong to the wet pond, and both are commonly misread from the roadside.
+Two more things belong to the wet pond, and both are commonly misread from the roadside.
 
-The **control elevation** is the water-surface elevation set by the outlet arrangement, the level
-the pond returns toward between storms. It is the reason the pond has a normal appearance at all.
-When people say a pond "looks low" or "looks high," they are making an unstated comparison against a
-control elevation they have not actually seen documented.
+The first is the mechanism that sets the normal water level. The outlet arrangement establishes it.
+EPA's wet ponds guidance describes one common example: a reverse-slope pipe drawing from below the
+permanent pool, angled up to the riser, which "establishes the water elevation of the permanent
+pool" (EPA, 2021a). The pond has a normal appearance because a structure decided it would.
+
+Some jurisdictions call that level the **control elevation**. That phrase is state regulatory
+vocabulary rather than a federally defined term, so this paper does not adopt it as national
+language. Learners will meet it in permits and plans in some places and should recognize it, while
+knowing it carries whatever definition its own governing document assigns.
+
+The instructional point survives either way. When people say a pond "looks low" or "looks high,"
+they are making an unstated comparison against a normal water elevation they have not actually seen
+documented.
 
 The **littoral zone** is the shallow, vegetated margin around the edge of a pond. It is sometimes
 provided deliberately for habitat, shoreline stability, or treatment. From a distance it can look
@@ -1036,10 +1056,22 @@ Each individual basin can meet its own release condition at its own outlet while
 at a downstream point is no better, and in some arrangements worse, than it would have been without
 the delay.
 
-This is not an argument against detention. It is an argument against evaluating detention only at
-the outlet of the site that contains it. The right question is not "does this basin lower its own
-peak," but "what does this basin do to flow at the place people actually care about, given
-everything else that drains there."
+This is not speculation. EPA's stormwater design guide states it as a generalization drawn from a
+body of studies: some watershed-wide systems of detention basins do keep downstream peaks lower,
+while "other individual basins do the opposite of lessening the discharge; they actually increase
+downstream peak discharges as a result of the overlapping of their detained volumes with mainstream
+peaks." The same chapter puts the mechanism plainly: detention does not eliminate runoff, it delays
+it, the volume leaving equals the volume entering, and "when the post development volumes from
+different tributaries join downstream, there is nothing to prevent them from combining to produce
+inadvertently high peak rates" (EPA, 2004).
+
+EPA also notes the other side, that selectively located basins can reduce flood peaks. The point is
+not that detention fails. It is that the outcome depends on placement and timing across a watershed
+and cannot be read off a single site.
+
+This is therefore an argument against evaluating detention only at the outlet of the site that
+contains it. The right question is not "does this basin lower its own peak," but "what does this
+basin do to flow at the place people actually care about, given everything else that drains there."
 
 That question is answered with watershed-scale analysis, not by inspecting a basin. The instructional
 point for a non-designer is narrower and still valuable: a row of individually compliant basins is
@@ -1230,27 +1262,37 @@ EPA identifies I&I as a frequent cause of high wet-weather influent at sewage tr
 notes that peak flows can exceed treatment-unit capacity and increase the potential for overflows
 and backups (EPA, 2025c).
 
-> **Worked example: separating two things that arrive together**
+> **Worked example: what the shape of the response can and cannot tell you**
 >
-> **The situation.** A collection system shows elevated flow during and after wet weather. Two
-> explanations are on the table. One group believes the problem is direct connections such as roof
-> leaders and area drains. Another believes it is groundwater entering through pipe defects. The
-> proposed remedies are different and neither is cheap.
+> **The situation.** A collection system shows elevated flow during and after wet weather. Someone
+> proposes reading the flow record against rainfall to decide whether the problem is inflow or
+> infiltration, because the two have different remedies and neither is cheap.
 >
-> **Working it through.** The two mechanisms have different signatures in time. Inflow is a surface
-> connection, so it appears while it is raining and it falls away quickly once the rain stops.
-> Infiltration comes from water that first entered the ground, so it tends to build more slowly, to
-> persist for days after the rain, and to track seasonal groundwater conditions. A flow record
-> plotted against rainfall will therefore look different in the two cases: a sharp response that ends
-> with the storm points one way, and an elevated baseline that decays over days points the other.
+> **Working it through.** The shape of the response does carry information, but it does not split
+> along the line most people expect. EPA describes **direct inflow** as the portion that rises
+> rapidly soon after the storm begins and falls swiftly when it ends, from connections such as catch
+> basins, roof leaders, and manhole covers. It describes **delayed inflow** as the portion that
+> decreases gradually after the storm, from sump pumps, foundation drains, and indirect
+> cross-connections. Then it says the thing that matters here: rainfall-induced infiltration cannot
+> be distinguished from delayed inflow, and is therefore counted as part of it (EPA, 2014).
 >
-> **What you conclude.** The shape of the wet-weather response over time is evidence that helps
-> separate the two, and it can be obtained before committing to a remedy. A system can of course have
-> both, in which case the record shows a sharp response sitting on top of an elevated baseline.
+> So a sharp response that ends with the storm points to direct connections. A gradual response that
+> decays over days does **not** point to infiltration. It points to a group that contains both
+> rainfall-induced infiltration and several inflow sources, and those have different fixes. Sealing
+> pipe defects does nothing about a sump pump discharging to the sanitary sewer.
 >
-> **Where this stops.** This narrows the question. It does not locate a defect, size a rehabilitation
-> program, or establish how much of the flow comes from each mechanism. That requires flow monitoring,
-> field investigation, and qualified collection-system assessment.
+> Groundwater infiltration is measured differently again. EPA estimates it from low nighttime flows
+> during dry weather, and its seasonal peak from the highest nighttime flows during high groundwater.
+> That is a separate measurement from the storm response, not a feature of the same curve.
+>
+> **What you conclude.** The response shape narrows the question rather than answering it. It
+> separates fast from slow, and slow is a mixed category that still needs field investigation to
+> resolve. Anyone who reads a gradual tail as proof of pipe defects has skipped a step.
+>
+> **Where this stops.** This does not locate a defect, size a rehabilitation program, or apportion
+> flow between mechanisms. It also does not transfer cleanly between climates: the EPA guidance
+> behind it is regional and builds its seasonal reasoning on snowmelt and soil thaw. Flow monitoring,
+> field investigation, and qualified collection-system assessment remain required.
 
 The brief will not attach a universal dollar value to I&I. Cost depends on the amount, timing,
 location, system configuration, energy, treatment process, capacity, and capital alternatives. The
@@ -1735,32 +1777,48 @@ The federal research pass supports the central mechanisms and terminology in thi
 separate Florida research pass also confirmed that the route-first teaching thesis holds under a
 state system with regional hydrologic and regulatory differences.
 
-### Terminology and explanations added in this revision that are not yet source-anchored
+### Source anchoring for terminology added in this revision
 
-The instructional expansion introduced material that is standard water-sector practice knowledge but
-that does not yet resolve to a cited entry in this paper's reference list. Each item below must
-receive a source record in `sources.yaml`, a classified claim in `claims.yaml`, and qualified review
-before it may enter learner-facing HTML, a visual, or an assessment. None of them may be treated as
-verified because they are widely known.
+The instructional expansion introduced material that was standard water-sector practice knowledge
+with no entry in this paper's reference list. A federal source search has now been completed and is
+recorded in `research/added-terminology-source-dossier.md`, with retrieved URLs, quoted supporting
+passages, scope limits, and a rejected-source log.
 
-| Added material | Proposed claim type | Verification need |
-| --- | --- | --- |
-| Detention time and residence time distinction | technical_standard | Source the distinction and confirm that usage varies by document |
-| Control elevation | technical_standard | Source the term and its relationship to the outlet arrangement |
-| Littoral zone | technical_standard | Source the term and its stated purposes |
-| Infiltration rate against infiltration capacity, and the runoff-generation comparison | sourced_fact | Anchor to a hydrology authority; confirm the declining-capacity statement |
-| Hydraulic conductivity as distinct from infiltration capacity | sourced_fact | Anchor to a soil or hydrology authority |
-| Freeboard | technical_standard | Source the term and confirm the framing as deliberate margin |
-| Tailwater and its effect on outlet release | sourced_fact | Anchor the hydraulic mechanism; qualified stormwater review required |
-| Time of concentration and the effect of development on travel time | sourced_fact | Anchor to a hydrology authority |
-| Downstream peak coincidence from combined delayed releases | expert_interpretation | Qualified stormwater and watershed review required before publication |
-| Event mean concentration as the concentration term in the load relationship | sourced_fact | Anchor to an EPA monitoring or BMP-performance source |
-| First flush as a variable phenomenon rather than a rule | sourced_fact | Anchor to a source that states the variability, not only the concept |
-| Wet-weather response shape as a signature separating inflow from infiltration | expert_interpretation | Qualified collection-system review required before publication |
+Nine of twelve items are anchored to a federal source that was actually retrieved and read. Three
+are partial. None were left with an invented citation.
 
-The peak-coincidence explanation and the inflow-against-infiltration signature carry the highest
-review priority. Both are defensible and both are the kind of statement a reader will act on, which
-is exactly the combination that requires a named qualified reviewer rather than author confidence.
+| Added material | Verdict | Claim type | Note |
+| --- | --- | --- | --- |
+| Detention time and residence time | Partial | technical_standard | **Corrected.** The original text assigned the two meanings in the opposite direction from EPA's own glossary. Rewritten to present the terms as not cleanly separated. |
+| What sets the normal water level | Partial | technical_standard | **Corrected.** "Control elevation" is state regulatory vocabulary, not federal. The mechanism is now taught in EPA's words and the phrase is named only as a term learners may encounter. |
+| Littoral zone | Found | technical_standard | EPA guidance. |
+| Infiltration rate against infiltration capacity | Found | sourced_fact | EPA technical reference. |
+| Hydraulic conductivity as distinct from infiltration capacity | Found | sourced_fact | EPA technical reference. |
+| Freeboard | Found | technical_standard | Federal primary authority plus EPA technical reference. One definition needs direct confirmation at the CFR section. |
+| Tailwater and its effect on outlet release | Found | sourced_fact | EPA technical reference. |
+| Time of concentration and the effect of development | Found | sourced_fact | USDA NRCS technical standard. |
+| Downstream peak coincidence | Found | sourced_fact | **Upgraded** from expert interpretation. EPA states it near-verbatim as a generalization drawn from studies. |
+| Event mean concentration in the load relationship | Found | sourced_fact | EPA technical reference. |
+| First flush as variable rather than a rule | Found | sourced_fact | EPA technical reference. |
+| Wet-weather response shape | Partial | expert_interpretation | **Corrected.** EPA states that rainfall-induced infiltration cannot be distinguished from delayed inflow. The worked example now separates direct from delayed response and names the delayed inflow sources. Classification deliberately not upgraded. |
+
+Three corrections came out of this search rather than three confirmations. That is the quarantine
+working as intended: the two items flagged as highest review priority were exactly the two that
+needed rewriting, and a third turned out to be state vocabulary in a national brief.
+
+Remaining evidence gaps that a verifier must close:
+
+1. The wet-weather response source exists only on EPA's January 2017 web snapshot. No live copy was
+   found. Whether a national brief may rely on an archived regional document is a gating question
+   for publication, not a footnote.
+2. Three large federal documents could not be retrieved and nothing from them is cited: HEC-22
+   fourth edition, HDS-5 third edition, and NRCS Conservation Practice Standard 378. The HEC-22
+   edition that was read is stamped as superseded.
+3. The freeboard definition resolved through a govinfo copy rather than eCFR, and only its first
+   sentence returned verbatim. A verifier must open the section directly before the full definition
+   is quoted.
+4. Every record remains `verification_status: pending`. Independent verification and qualified
+   stormwater, wastewater, and permitting review are unchanged as hard gates.
 
 Important remaining work:
 
@@ -1780,13 +1838,13 @@ Important remaining work:
 
 ## 20. White-paper quality score
 
-### Current score: 93/100
+### Current score: 94/100
 
 Decision: **The national white paper remains above the 90-point threshold and remains eligible for
-owner approval into curriculum design.** The score moved down by two points this round, and that
-movement is the correct reading rather than a regression in quality. The instructional expansion
-made the paper materially more complete and simultaneously enlarged the set of statements that need
-source anchoring and qualified review. A paper that teaches more also owes more evidence.
+owner approval into curriculum design.** Revision 0.6 dropped to 93 when the instructional expansion
+outran its evidence. Revision 0.7 recovers one point: a federal source search anchored nine of the
+twelve outstanding items, and, more importantly, corrected three of them. Two statements in 0.6 were
+wrong and one used state vocabulary in a national brief. Finding that is worth more than the point.
 
 The separately governed Florida research white paper scores **97/100**. That higher score reflects
 its additional state, regional, hydrogeologic, maintenance, finance, and I&I synthesis. It does not
@@ -1801,28 +1859,36 @@ replace this national score and does not override either product's hard gates.
 | Technical accuracy and claim verification | 20 | 15 | Material technical and regulatory statements are classified, bounded, and traced to current federal sources; terminology variation, system boundaries, model limits, permit limits, and site-specific uncertainty are explicit. Newly added material is quarantined in a visible table rather than presented as verified. | Deduct 4 because an independent verifier and qualified stormwater, wastewater, and permitting reviewers have not signed the claim set. Deduct 1 further because the peak-coincidence and I&I-signature explanations are expert interpretation awaiting qualified review. |
 | Diagrams and visual teaching value | 10 | 9 | Nine conceptual diagrams and nineteen production visual briefs explain pathways, time, subsurface movement, hydrographs, load structure, value, permits, maintenance, I&I, definitions, and handoff. Each carries an instructional purpose or truth boundary, and the six highest-misreading-risk visuals are named as such. | Deduct 1 because production diagrams have not yet received evidence, accessibility, and rendered learner review. |
 | Editorial quality, boundaries, and originality | 5 | 5 | The paper uses one connected storm, five value ledgers, a permit-to-value chain, role-based utility scenes, a repeatable conversation tool, a four-part definition structure shared with the compiled brief, direct headings, simple language, and explicit scope. | None at the white-paper stage. |
-| **Total** | **100** | **93** |  |  |
+| **Total** | **100** | **94** |  |  |
 
 ### Score change
 
-Previous version: **95/100**.
+Previous version: **93/100** (revision 0.6).
 
-Current version: **93/100**.
+Current version: **94/100** (revision 0.7).
 
-Change this round: **minus 2 points**.
+Change this round: **plus 1 point**.
 
-Cumulative change from the pre-research scaffold: **+42 points**.
+Cumulative change from the pre-research scaffold: **+43 points**.
 
-This round added the reader orientation and the situations where the concept becomes consequential,
-a foundation definition set carrying plain meaning, concrete example, and non-establishment for
-every dependent term, four worked examples, the distinction between infiltration rate and
-infiltration capacity, hydraulic conductivity, detention and residence time, control elevation,
-littoral zone, freeboard, tailwater, time of concentration, first flush, event mean concentration,
-downstream peak coincidence, three additional misconceptions, and six additional production visuals.
+Revision 0.6 added the reader orientation, the foundation definition set, four worked examples, and
+twelve terms and mechanisms the earlier draft used without defining. It scored 93 because the
+verification obligation grew faster than the evidence.
 
-The two-point reduction is deliberate. The verification obligation grew faster than the evidence
-did. Recovering those points requires source records and qualified review for the twelve items in
-section 19, not further writing.
+Revision 0.7 closed that gap with a documented federal source search and acted on what the search
+returned. Nine items anchored. Three corrected:
+
+- the detention and residence time distinction was assigned in the opposite direction from EPA's own
+  glossary, and is now presented as two names for nearly the same quantity;
+- "control elevation" is state regulatory vocabulary rather than federal, and the mechanism is now
+  taught in EPA's words with the phrase named only as something learners will encounter; and
+- the wet-weather worked example separated inflow from infiltration, when EPA states that
+  rainfall-induced infiltration cannot be distinguished from delayed inflow. It now separates direct
+  from delayed response and names the delayed inflow sources that sit in the middle.
+
+Downstream peak coincidence moved from expert interpretation to sourced fact on near-verbatim EPA
+language. The remaining deduction is not writing debt. It is independent verification, qualified
+review, and one open question about relying on an archived regional document.
 
 ### Hard-gate status
 
@@ -1864,6 +1930,18 @@ questions*. https://www.epa.gov/npdes/sanitary-sewer-overflow-sso-frequent-quest
 
 U.S. Environmental Protection Agency. (n.d.-e). *Sanitary sewer overflows*.
 https://www.epa.gov/npdes/sanitary-sewer-overflows-ssos
+
+U.S. Environmental Protection Agency. (2004). *Stormwater best management practice design guide,
+Volume 1: General considerations* (EPA/600/R-04/121).
+https://nepis.epa.gov/Exe/ZyPDF.cgi/901X0A00.PDF?Dockey=901X0A00.PDF
+
+U.S. Environmental Protection Agency, Region 1. (2014). *Guide for estimating infiltration and
+inflow*. Retrieved from EPA's January 2017 web snapshot.
+https://19january2017snapshot.epa.gov/www3/region1/sso/pdfs/Guide4EstimatingInfiltrationInflow.pdf
+
+U.S. Environmental Protection Agency. (2016). *Storm Water Management Model reference manual,
+Volume III: Water quality* (EPA/600/R-16/093).
+https://nepis.epa.gov/Exe/ZyPDF.cgi/P100P2NY.PDF?Dockey=P100P2NY.PDF
 
 U.S. Environmental Protection Agency. (2021a). *NPDES: Stormwater best management practice, wet
 ponds*. https://www.epa.gov/system/files/documents/2021-11/bmp-wet-ponds.pdf

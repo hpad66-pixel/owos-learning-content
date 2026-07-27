@@ -3,6 +3,33 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.31.0] - 2026-07-27
+### Changed: Detention white paper 0.7, source anchoring and three corrections
+- Completed a federal source search over the twelve terms quarantined in 0.6 and recorded it in
+  `research/added-terminology-source-dossier.md` with retrieved URLs, quoted passages, scope limits,
+  a rejected-source log, and a full retrieval log. Nine of twelve anchored to a federal source that
+  was actually fetched and read. No citation was invented.
+- The search returned three corrections rather than three confirmations, which is the quarantine
+  working as designed:
+  - detention time and residence time were assigned in the opposite direction from EPA's own
+    glossary, which defines detention time as volume divided by discharge rate. Rewritten to present
+    them as two names for nearly the same quantity, with the useful question preserved.
+  - "control elevation" is state regulatory vocabulary, not federal. The mechanism is now taught in
+    EPA's own words and the phrase is named only as a term learners will encounter elsewhere.
+  - the wet-weather worked example separated inflow from infiltration. EPA states that
+    rainfall-induced infiltration cannot be distinguished from delayed inflow. The example now
+    separates direct from delayed response and names the delayed inflow sources, and its conclusion
+    is narrowed from separating the two to narrowing the question.
+- Downstream peak coincidence moved from expert interpretation to sourced fact on near-verbatim EPA
+  language, and now carries EPA's own counterweight that selectively located basins can help.
+- Scored 94, recovering one point from 0.6.
+
+### Fixed
+- Anchored the full-bleed pullquote to its own edge instead of to parent centring, which is why it
+  drifted 2px past the viewport at desktop and tablet. Contained at 1440, 820, and 390.
+- Taught the browser suite that content inside a horizontal scroll container is contained by design,
+  matching the rendered audit so the two tools agree. Both now report zero.
+
 ## [0.30.0] - 2026-07-27
 ### Added: rendered-quality gate
 - Added `tools/audit-concept-brief-rendering.cjs`, a Playwright audit that opens the compiled brief

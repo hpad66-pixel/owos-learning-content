@@ -162,6 +162,19 @@ async function inspect(browser, mode) {
       overflowElements: [...document.querySelectorAll("body *")]
         .map((node) => ({ node, rect: node.getBoundingClientRect() }))
         .filter(({ rect }) => rect.right > innerWidth + 0.5 || rect.left < -0.5)
+        // Content inside a horizontal scroll container is contained by design.
+        // A wide sources table scrolling inside its own wrapper is the correct
+        // responsive pattern, not an overflow defect. This matches the rule in
+        // tools/audit-concept-brief-rendering.cjs so the two tools agree.
+        .filter(({ node }) => {
+          let parent = node.parentElement;
+          while (parent && parent !== document.body) {
+            const overflowX = getComputedStyle(parent).overflowX;
+            if (overflowX === "auto" || overflowX === "scroll") return false;
+            parent = parent.parentElement;
+          }
+          return true;
+        })
         .slice(0, 8)
         .map(({ node, rect }) => ({
           tag: node.tagName,

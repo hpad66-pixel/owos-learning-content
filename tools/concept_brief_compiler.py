@@ -286,11 +286,16 @@ body[data-owos-theme="graphite"] a.commercial-action,
 body[data-owos-theme="graphite"] button.commercial-action{background:#1d5c90;
 color:#fff;border-color:#1d5c90;text-decoration:none}
 
-/* Full-bleed pull quotes use a negative inline margin to escape the wrapper.
-   At narrow widths that arithmetic can exceed the viewport and push the box
-   off-screen, so the bleed is clamped and dropped on small screens. */
-.pullquote{max-width:100vw;overflow-wrap:break-word}
-@media (max-width:760px){.pullquote{margin-inline:0;width:auto;max-width:100%}}
+/* Full-bleed pull quotes escape the wrapper with a negative inline margin
+   computed from the parent width, which only lands exactly when the parent is
+   perfectly centred. It is not, so the box drifted a couple of pixels past the
+   viewport. Anchoring the bleed to the viewport itself removes the dependency:
+   the element is positioned relative to its own left edge, so it cannot overshoot
+   regardless of what the wrapper is doing. */
+.pullquote{position:relative;left:0;width:auto;max-width:100%;
+margin-inline:calc(-1 * clamp(0px, var(--pq-bleed, 0px), 100px));
+overflow-wrap:break-word}
+@media (max-width:760px){.pullquote{margin-inline:0}}
 """
 
 
