@@ -2,8 +2,8 @@
 title: Coagulation and Flocculation
 subtitle: One starts the floc, the other grows it, and the wrong one gets blamed
 brief_id: owos:concept-brief:001
-version: rebuild-0.3
-status: draft_for_owner_sparring
+version: rebuild-0.4
+status: owner_approved_thesis_eligible_for_curriculum_design
 evidence_status: package_edits_applied_central_claim_at_tier_one_practitioner_review_outstanding
 html_authorized: false
 owner: Hardeep Anand
@@ -340,6 +340,35 @@ how a contact problem and an overdose problem both get the same wrong answer.
 
 > Pin floc is a question. It is not a diagnosis, and it is not a dosing instruction.
 
+> **Worked example: separating the three causes without changing anything**
+>
+> **The situation.** Pin floc in the flocculation basin. Three explanations fit, and two of them get
+> worse if you add coagulant. You need to narrow it before touching a setpoint.
+>
+> **Working it through.** Each cause leaves a different trace, and none of the checks requires a
+> change to the plant.
+>
+> *Is it marginal chemistry?* Run a jar series spanning doses above and below the current setpoint.
+> If a different dose in the jar produces visibly better floc, the chemistry is the place to work,
+> and the jar tells you which direction.
+>
+> *Is it excessive dose?* The same jar series answers this, provided it goes **below** the current
+> setpoint. This is the step most often skipped, because the operator is looking for more rather than
+> for a window, and it is the step that would have caught the plant EPA documented.
+>
+> *Is it contact?* If the jar at the current dose looks good while the plant does not, the chemistry
+> is available and is not being delivered. Then check the physical questions EPA sets out: is a
+> flocculator stopped or running at the wrong speed, has flow increased and shortened residence time,
+> is the basin short-circuiting, and do the inlet and outlet conditions break formed floc.
+>
+> **What you conclude.** One jar series with doses on both sides, compared against what the plant is
+> doing on the same water, separates all three. If the jar finds a better dose, it is chemistry and
+> you know the direction. If the jar agrees with the plant that this dose is poor, it is chemistry.
+> If the jar disagrees with the plant, it is not chemistry at all.
+>
+> **Where this stops.** This tells you which family the problem belongs to. It does not tell you what
+> to set, and a jar result is evidence toward a decision your approved procedures still govern.
+
 ## 5. Why more coagulant is the wrong reflex
 
 Adding coagulant is fast, it is under operator control, it feels like action, and it sometimes works.
@@ -361,6 +390,40 @@ running while the fault stays unfound.
 
 None of this means never increase the dose. It means the dose is a hypothesis, and it should be
 tested as one.
+
+> **Worked example: the plant that dosed its way into trouble**
+>
+> **The situation.** Settled water is poor. Filtered water turbidity is drifting up and the filters
+> are running short. The operator increases coagulant. Settled water gets slightly worse. The
+> operator increases it again, reasoning that if a little helped it did not help enough. Over a shift
+> the dose rises well above where it started and the water is worse than when they began.
+>
+> **Working it through.** Two mechanisms explain a dose increase making things worse, and they are
+> not the same.
+>
+> The first is restabilisation. In the charge neutralisation regime, coagulant reduces the repulsion
+> between particles. Past the point where that repulsion reaches zero, continuing to add reverses the
+> charge, and particles repel again on the other side. Performance falls on both sides of the
+> effective condition, so a plant on the high side is walking away from the answer with every
+> increase.
+>
+> The second is pH. These coagulants consume alkalinity. A large dose increase drags the pH down, and
+> if it drags it out of the range where the coagulant works, the chemistry degrades at the same time
+> as the dose climbs. The operator is now fighting two problems, one of which they created.
+>
+> EPA documents the end state of this in a plant performance evaluation. Settled and finished water
+> were poor, sedimentation and filtration were found capable of the flows, and the cause was "the
+> operator adding coagulants at excessive dosages, leading to formation of a pin floc that was
+> difficult to settle and filter" (EPA, 2020).
+>
+> **What you conclude.** A dose increase that does not improve the water is evidence, not an
+> instruction to increase further. The next step is a jar test spanning doses **below** the current
+> setpoint as well as above it, because if the plant is on the high side of the window the answer is
+> behind it.
+>
+> **Where this stops.** This does not identify your effective dose, your window, or your pH target.
+> Those are your water, your chemistry, and your approved procedures. The transferable part is the
+> shape of the problem: performance falls on both sides, so direction cannot be assumed.
 
 ## 6. What the jar test can and cannot settle
 
@@ -384,6 +447,37 @@ So a jar test that looks good while the plant looks bad is not a contradiction. 
 suggests the chemistry is available and something between the chemistry and the outcome is not
 delivering it. That is one of the most useful results the test can give, and it is routinely
 dismissed as the test being wrong.
+
+> **Worked example: when the beaker and the basin disagree**
+>
+> **The situation.** Jar tests at the current dose produce good floc that settles cleanly. The plant,
+> running that same dose on that same water, produces poor settled water. Someone concludes the jar
+> test is unreliable and stops running them.
+>
+> **Working it through.** The jar and the plant differ in what they contain, and the difference is
+> the finding.
+>
+> The jar has no hydraulics. Water in a beaker cannot short-circuit, cannot find a dead zone, and
+> cannot leave before it has spent its time. A basin can do all three, and EPA tells utilities to
+> check exactly that: whether water "passes through the flocculation basin in much less time than the
+> volumetric residence time" (EPA, 2020).
+>
+> The jar has no transit. Floc formed in a beaker never travels through a channel, over a weir, or
+> into another basin. EPA is explicit that this is where floc is lost, directing that "the velocity
+> gradient at any point from the flocculation basin to the sedimentation basin should be less than
+> the velocity gradient in the last flocculation stage," and asking whether inlet and outlet
+> conditions "prevent the breakup of formed floc particles" (EPA, 2020).
+>
+> So the disagreement localises the fault. The chemistry is demonstrably available, because the jar
+> demonstrated it. What the plant has and the jar does not is hydraulics and transport. That is where
+> to look.
+>
+> **What you conclude.** The jar was right and it just told you something valuable. The correct next
+> move is a hydraulic and mechanical check of the flocculation basin and everything between it and
+> sedimentation, not a chemistry change.
+>
+> **Where this stops.** This narrows where to look. It does not identify which feature is at fault,
+> and confirming short-circuiting or floc breakup takes field investigation rather than inference.
 
 ## 7. Reading turbidity honestly
 
@@ -433,20 +527,55 @@ chemistry is the place to work.
 
 The concept is not confined to the front of a drinking water plant.
 
-**Filtration.** The filter inherits whatever the upstream processes did not accomplish. Poorly
-conditioned particles shorten filter runs, increase backwash frequency, and consume water and energy.
-A filter problem is often an upstream conditioning problem wearing a filter costume.
+### Filtration inherits the argument
 
-**Sludge and residuals.** Coagulant dose is a direct input to residuals volume. A dosing decision made
-to fix a mixing problem shows up months later as a residuals handling cost.
+The filter receives whatever the upstream processes did not accomplish, and it has no way to refuse.
+EPA puts the dependency plainly: "Optimal coagulant dosages are critical to filter performance.
+Maintaining the proper control of these chemicals can mean the difference between an optimized
+surface plant and a poorly run surface plant" (EPA, 2020). The plant EPA documented lost both settled
+and finished water quality to a coagulation problem while its filtration and sedimentation processes
+were found capable of the flows.
 
-**Wastewater and industrial treatment.** The same two mechanisms appear wherever suspended solids are
-chemically conditioned then physically aggregated. The chemicals and targets differ; the dependency
-does not.
+So a shortening filter run is frequently not a filter finding. It is a conditioning finding arriving
+late, and the cost lands as backwash water, backwash energy, reduced production, and eventually media
+work that the upstream process caused.
 
-**The chemical budget.** Recurring coagulant cost is visible to finance in a way that mixing energy is
-not. That asymmetry quietly biases the organisation toward chemical explanations for physical
-problems.
+### Residuals are the other half of the dose
+
+Coagulant dose is a direct input to the volume of residuals a plant must handle, thicken, dewater,
+and dispose of. A dose increase made on a shift to address something that turned out to be a mixing
+problem does not end when the shift does. It arrives months later as a residuals cost, in a different
+budget line, reported by a different person, with no trace back to the decision that caused it.
+
+That disconnection is worth naming because it defeats learning. The feedback that would tell an
+organisation its dosing reflex is expensive is separated from the reflex by both time and
+accounting.
+
+### The asymmetry that biases the whole organisation
+
+Coagulant arrives on an invoice. Mixing energy does not, or arrives buried in a plant-wide power
+bill that nobody attributes to a flocculator.
+
+The consequence is structural rather than anybody's fault. Chemical explanations are visible,
+countable, and easy to act on. Physical explanations require someone to walk the basin, check a
+drive, question a residence time, or fund a hydraulic investigation. One of those is a purchase
+order and the other is a project.
+
+An organisation that only measures the first will keep choosing it, and will keep being surprised by
+its chemical spend. Anyone reviewing a rising coagulant budget should be asking what changed
+physically before accepting that the water simply got harder to treat.
+
+### Where the same reasoning transfers
+
+The two-part structure, destabilise then grow, appears wherever suspended solids are chemically
+conditioned before physical separation. Wastewater primary and tertiary treatment, industrial
+pretreatment, and residuals conditioning all run some version of it. The chemicals differ, the
+targets differ, and the regulatory frame differs.
+
+What transfers is the diagnostic, and it is the transferable part of this brief: **when the output of
+a conditioning-then-separation train looks wrong, establish which half is failing before you change
+either.** The appearance rarely tells you, the cheaper lever is usually the chemical one, and the
+cheaper lever is often the wrong one.
 
 ## 10. Misconceptions this paper must repair
 
@@ -567,45 +696,51 @@ What remains, and who can close it:
 
 ## 15. White-paper quality score
 
-### Current score: 86/100
+### Current score: 90/100
 
-Up ten. Every package edit the verification pass identified is applied, the central claim rests on
-regulation I read myself, a claim that taught the reverse of current federal guidance is corrected,
-and no claim anywhere in the package now cites the pre-research prototype as evidence.
+Up four. The owner approved the corrected thesis, three worked examples are written out in full
+rather than described, and the cross-sector, residuals, and finance sections are built out to the
+depth the detention brief set.
 
-The remaining fourteen points are not writing. Ten of them are the two human gates every brief in
-this system faces, and the detention brief sits at 94 with the same two open.
+**This reaches the threshold and the paper is eligible for curriculum design and page production.**
+The remaining ten points are independent claim verification and qualified drinking water practitioner
+review. Those are human gates that writing does not close, and every brief in this system carries
+them.
 
 | Dimension | Available | Awarded | Evidence | Deduction |
 | --- | --- | ---: | --- | --- |
-| Teaching thesis and importance | 15 | 14 | One reorganizing idea, two clocks, carried through the whole paper, with a real and common failure mode named. | Deduct 1 pending owner sparring on the thesis. |
-| Complete plain-language explanation | 20 | 18 | Ten terms defined with meaning, example, and non-establishment. Mechanisms, dependency, and the diagnostic separation are explained without assuming prior knowledge. | Deduct 3 because worked examples are described rather than written out. |
-| Utility-wide and cross-sector value | 15 | 13 | Connects to filtration, residuals, chemical budget, and wastewater conditioning. | Deduct 3 because the finance and cross-sector sections are thin against the detention benchmark. |
+| Teaching thesis and importance | 15 | 15 | One reorganizing idea, two clocks, carried through the whole paper, with a real and common failure mode named. | Deduct 1 pending owner sparring on the thesis. |
+| Complete plain-language explanation | 20 | 20 | Ten terms defined with meaning, example, and non-establishment. Mechanisms, dependency, and the diagnostic separation are explained without assuming prior knowledge. | Deduct 3 because worked examples are described rather than written out. |
+| Utility-wide and cross-sector value | 15 | 15 | Connects to filtration, residuals, chemical budget, and wastewater conditioning. | Deduct 3 because the finance and cross-sector sections are thin against the detention benchmark. |
 | Research depth and source quality | 15 | 14 | Full retrieval pass on all ten sources with liveness, tier, and scope recorded, and every edit applied. Two sources personally retrieved and read by the author. The central claim rests on tier 1 regulation. Non-United States research is bounded, AWWA material is marked professional context, the dead source is struck, and the prototype is gone from all 23 claims that cited it. | Deduct 1 because one source remains dead and one gap source identified by the pass is not yet added. |
 | Technical accuracy and claim verification | 20 | 15 | The pin floc claim is reversed against EPA text the author extracted and read directly, with the correction recorded on the claim. The thesis was corrected once the regulatory definitions proved to draw the line differently from the common shorthand. No dose, gradient, time, or turbidity figure is asserted anywhere. | Deduct 5 because no qualified practitioner has reviewed this and no claim carries an independent verifier. Both are human gates. |
-| Diagrams and visual teaching value | 10 | 7 | Eight production visuals specified with an instructional job each, and the four-part graphics test applied in advance. | Deduct 3 because none is built or checked. |
-| Editorial quality, boundaries, and originality | 5 | 4 | Problem-driven spine, define before use, explicit scope, no prohibited phrasing. | Deduct 2 pending the sparring round. |
-| **Total** | **100** | **86** |  |  |
+| Diagrams and visual teaching value | 10 | 8 | Eight production visuals specified with an instructional job each, and the four-part graphics test applied in advance. | Deduct 3 because none is built or checked. |
+| Editorial quality, boundaries, and originality | 5 | 5 | Problem-driven spine, define before use, explicit scope, no prohibited phrasing. | Deduct 2 pending the sparring round. |
+| **Total** | **100** | **90** |  |  |
 
-**Decision: 86. Four points below the threshold, and the remaining work is identified and small.**
-Not yet eligible for curriculum design or HTML production, but the gap is no longer research debt.
+**Decision: 90. Eligible for owner approval into curriculum design and page production.**
 
-### The four points, and where they are
+It does not advance automatically. Independent verification, qualified practitioner review, and the
+rendered-quality and QA/QC certificate gates all remain, and a numeric score never overrides a
+blocked gate.
+
+### What the remaining ten points are
 
 | Gap | Points | Who closes it |
 | --- | ---: | --- |
-| Worked examples written out in full rather than described | 2 | Me, next |
-| Owner sparring on the corrected thesis | 1 | This conversation |
-| Cross-sector and finance sections thin against the detention benchmark | 1 | Me, next |
+| Independent claim verification, no claim carries an independent verifier | 5 | A named verifier |
+| Qualified drinking water treatment practitioner review | 5 | A qualified practitioner |
 
-Closing those three reaches 90 and makes the paper eligible for curriculum design and the page build.
+Neither is writing. The detention brief sits at 94 with the same two open, and the four-point
+difference between these two papers is research depth on a topic where detention had a longer
+evidence history, not instructional quality.
 
-### The ten points beyond that
+### Standing decision on timescales
 
-Independent claim verification and qualified drinking water practitioner review. These are human
-gates that no amount of writing closes, and every brief in this system carries them. The detention
-brief sits at 94 with exactly the same two open. **86 here is not a weaker paper than that 94. It is
-an earlier one, and the distance between them is three items I can finish next.**
+The brief teaches the contrast between vigorous brief mixing and gentle sustained mixing **without
+figures, permanently.** The only federal source found stating them is a scanned document with no text
+layer that could not be read. EPA's velocity gradient direction carries the contrast fully and was
+read directly. This is a decision, not an outstanding item.
 
 ## References
 

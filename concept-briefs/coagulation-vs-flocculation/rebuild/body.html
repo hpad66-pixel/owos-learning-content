@@ -1,0 +1,414 @@
+<div class="rail">
+  <div class="wrap rail-in">
+    <span class="rail-txt" id="railStage">START</span>
+    <span class="rail-bar"><span class="rail-fill" id="railFill"></span></span>
+    <span class="rail-txt"><b id="railLeft">15</b> MIN LEFT</span>
+    <span class="topbar">
+      <button type="button" class="drawer-btn" data-open="graph" aria-haspopup="dialog"
+        aria-controls="graphDrawer" aria-expanded="false">Graph</button>
+      <button type="button" class="drawer-btn" data-open="community" aria-haspopup="dialog"
+        aria-controls="commDrawer" aria-expanded="false">Community</button>
+    </span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <span class="variant-flag">OWOS CONCEPT BRIEF &middot; DRINKING WATER</span>
+    <h1>The floc looked wrong.<br>So they added more.</h1>
+    <p class="lede">Coagulation and flocculation &mdash; and why the cheapest lever is so often the
+      wrong one.</p>
+  </div>
+</header>
+
+<!-- ORIENTATION -->
+<section class="orient" aria-labelledby="o-t">
+  <div class="wrap">
+    <p class="kicker">Start here</p>
+    <h2 id="o-t">Two processes run back to back at the front of the plant, and almost everyone blames
+      the wrong one.</h2>
+    <div class="orient-grid">
+      <div class="ocard"><h3>Who this is for</h3>
+        <p>Operators who run the process, engineers who design it, supervisors who authorise chemical
+          changes, and anyone who has to explain a turbidity result to somebody who was not standing
+          at the basin.</p></div>
+      <div class="ocard"><h3>What you need first</h3>
+        <p>That treatment removes particles, and that a chemical is added early to help. Nothing
+          else.</p></div>
+      <div class="ocard"><h3>Why it matters</h3>
+        <p>Coagulant is a large recurring chemical cost, overdosing makes more sludge, and past a
+          point it makes the water worse. Meanwhile the regulated measurement sits at the far end of
+          the chain, so the problem shows up last where it is hardest to read.</p></div>
+      <div class="ocard"><h3>How long</h3>
+        <p>About 15 minutes. Nothing here requires you to type anything.</p></div>
+    </div>
+    <div class="objectives">
+      <h3>What you will be able to do</h3>
+      <ol>
+        <li>Say what coagulation does and what flocculation does, using the definitions federal
+          regulation actually gives them.</li>
+        <li>Explain why one stage needs vigorous brief mixing and the other needs gentle sustained
+          mixing, and why that opposition is the diagnostic.</li>
+        <li>Read pin floc as a question with three possible answers rather than as a dosing
+          instruction.</li>
+        <li>Explain why adding coagulant sometimes makes the water worse.</li>
+        <li>Say what a jar test can settle and what it cannot, and why a jar that disagrees with the
+          plant is useful rather than broken.</li>
+        <li>Ask the questions that stop a plant changing chemistry when the problem is physical.</li>
+      </ol>
+    </div>
+    <p class="boundary"><b>What this will not do:</b> give you a dose, a mixing intensity, a mixing
+      time, a coagulant selection, or a jar test interpretation for your water. It will not tell you
+      what to set anything to. United States federal authority only.</p>
+  </div>
+</section>
+
+<!-- 30 SECONDS -->
+<section class="thirty" aria-labelledby="t-t">
+  <div class="wrap">
+    <p class="kicker">In 30 seconds</p>
+    <h2 id="t-t">If you stop reading here, keep these four.</h2>
+    <ol>
+      <li><b>Coagulation</b> destabilises particles and starts the floc. Vigorous mixing, brief.</li>
+      <li><b>Flocculation</b> grows small floc into large, settleable floc. Gentle stirring,
+        sustained.</li>
+      <li>Flocculation can only enhance what coagulation produced, which is why a chemistry failure
+        and a contact failure look identical from the walkway.</li>
+      <li>Adding coagulant is the usual answer. EPA documents a plant where it was the
+        <em>cause</em>.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="puzzle" aria-labelledby="p-t">
+  <div class="wrap">
+    <p class="kicker">The problem</p>
+    <h2 id="p-t">Every step was reasonable. The water got worse.</h2>
+    <div class="prose">
+      <p class="lead">Settled water is poor. Filter runs are getting shorter. The operator does the
+        obvious thing.</p>
+    </div>
+    <ul class="evidence-list">
+      <li><span class="tick">STEP</span><span>Floc looks small and will not settle. Increase
+        coagulant.</span></li>
+      <li><span class="tick">STEP</span><span>Slightly worse. Reason: if a little helped, it did not
+        help enough. Increase again.</span></li>
+      <li><span class="tick">STEP</span><span>Worse still. Dose is now well above where the shift
+        started.</span></li>
+      <li><span class="cross">AND</span><span>The water is worse than when they began, and the
+        chemical spend is up.</span></li>
+    </ul>
+    <div class="puzzle-q">
+      <p>Nothing in that sequence is careless. So where does the reasoning break?</p>
+    </div>
+    <div class="prose" style="margin-top:26px">
+      <p>The break is an assumption so ordinary that nobody says it out loud: that performance
+        improves in one direction, so if the water is bad you have not gone far enough. That is true
+        of most things in a plant. It is not true here, and it is not true of the process the
+        operator was actually looking at.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEFINITIONS -->
+<section aria-labelledby="d-t">
+  <div class="wrap">
+    <p class="kicker">The words you need</p>
+    <h2 id="d-t">Five words, each with what it does <em>not</em> tell you.</h2>
+    <div class="prose">
+      <p>Two of these are defined in federal regulation, and the regulatory wording draws the line
+        more precisely than the shorthand most people use. That precision is the whole brief.</p>
+    </div>
+    <div class="defs" id="defs"></div>
+  </div>
+</section>
+
+<!-- INTERACTIVE 1: DOSE WINDOW -->
+<section aria-labelledby="w-t">
+  <div class="wrap">
+    <p class="kicker">Why the reasoning breaks</p>
+    <h2 id="w-t">Performance falls on <em>both</em> sides.</h2>
+    <div class="prose">
+      <p>This is the shape of the problem. Move the dose and watch what happens to the water. There
+        are no numbers on this, deliberately, because the position of the window belongs to your
+        water and your chemistry. The shape is what transfers.</p>
+    </div>
+    <figure>
+      <div class="stage">
+        <svg id="doseSvg" viewBox="0 0 900 340" role="img" aria-labelledby="wt wd">
+          <title id="wt">Treatment performance against coagulant dose</title>
+          <desc id="wd">A curve rising to a peak and falling again. Performance is poor at low dose
+            because particles remain stable, best in a middle window, and poor again at high dose
+            where particles restabilise. A marker moves along the curve as the dose changes.</desc>
+          <rect width="900" height="340" fill="#141311"/>
+          <line x1="90" y1="40" x2="90" y2="270" stroke="#6f685e" stroke-width="2"/>
+          <line x1="90" y1="270" x2="850" y2="270" stroke="#6f685e" stroke-width="2"/>
+          <text x="30" y="165" font-family="monospace" font-size="11" fill="#a29c91"
+                transform="rotate(-90 30 165)">PERFORMANCE</text>
+          <text x="430" y="300" font-family="monospace" font-size="11" fill="#a29c91">COAGULANT DOSE</text>
+          <path id="doseCurve" d="" fill="none" stroke="#7dc6e8" stroke-width="4"/>
+          <path id="doseFill" d="" fill="#7dc6e8" opacity=".12"/>
+          <g id="zoneLow"><rect x="90" y="40" width="200" height="230" fill="#e0a64a" opacity=".07"/>
+            <text x="112" y="62" font-family="monospace" font-size="11" fill="#e0a64a">STILL STABLE</text></g>
+          <g id="zoneHigh"><rect x="590" y="40" width="260" height="230" fill="#e07a63" opacity=".08"/>
+            <text x="612" y="62" font-family="monospace" font-size="11" fill="#e07a63">RESTABILISED</text></g>
+          <text x="392" y="62" font-family="monospace" font-size="11" fill="#7fb069">THE WINDOW</text>
+          <circle id="doseDot" cx="0" cy="0" r="9" fill="#f2f1ec" stroke="#141311" stroke-width="3"/>
+          <line id="doseDrop" x1="0" y1="0" x2="0" y2="270" stroke="#f2f1ec" stroke-width="1.5"
+                stroke-dasharray="5 4" opacity=".6"/>
+        </svg>
+      </div>
+      <div class="controls" role="group" aria-label="Coagulant dose">
+        <button type="button" class="dose-btn" data-dose="0" aria-pressed="false">Too little</button>
+        <button type="button" class="dose-btn" data-dose="1" aria-pressed="true">In the window</button>
+        <button type="button" class="dose-btn" data-dose="2" aria-pressed="false">Past the window</button>
+        <button type="button" class="dose-btn" data-dose="3" aria-pressed="false">Well past it</button>
+      </div>
+      <div class="readout" id="doseReadout" role="status" aria-live="polite"></div>
+      <figcaption><b>What to notice:</b> the two failing states look similar in the basin and are
+        opposite in cause. An operator who assumes performance only improves with more dose will walk
+        away from the window every time they are on the right of it.
+        <b>What this does not prove:</b> where your window is, how wide it is, or what dose reaches
+        it. This is a qualitative shape with no units, not a dose response for any water.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- INTERACTIVE 2: PIN FLOC -->
+<section aria-labelledby="pf-t">
+  <div class="wrap">
+    <p class="kicker">One appearance, three causes</p>
+    <h2 id="pf-t">Pin floc is a question, not a diagnosis.</h2>
+    <div class="prose">
+      <p>Small floc that will not grow. It is the most commonly misread observation at the front of a
+        plant, because it is consistent with three different situations and <b>two of them get worse
+        if you add coagulant.</b></p>
+      <p>Pick a cause and follow what it would leave behind.</p>
+    </div>
+    <figure>
+      <div class="stage">
+        <svg id="pinSvg" viewBox="0 0 900 300" role="img" aria-labelledby="pt pd">
+          <title id="pt">Three causes converging on one appearance</title>
+          <desc id="pd">Three separate upstream causes, marginal chemistry, inadequate contact, and
+            excessive dose, all lead to the same observed pin floc. Selecting a cause highlights its
+            path and the evidence that would distinguish it.</desc>
+          <rect width="900" height="300" fill="#141311"/>
+          <g id="pinPaths">
+            <path class="pin-path" data-c="0" d="M210 70 L430 148" stroke="#4a4741" stroke-width="5" fill="none"/>
+            <path class="pin-path" data-c="1" d="M210 150 L430 150" stroke="#4a4741" stroke-width="5" fill="none"/>
+            <path class="pin-path" data-c="2" d="M210 230 L430 152" stroke="#4a4741" stroke-width="5" fill="none"/>
+          </g>
+          <g class="pin-cause" data-c="0"><rect x="34" y="46" width="176" height="48" rx="3" fill="#211f1d" stroke="#4a4741"/>
+            <text x="52" y="68" font-family="monospace" font-size="11" fill="#d9d6cf">MARGINAL</text>
+            <text x="52" y="84" font-family="monospace" font-size="11" fill="#d9d6cf">CHEMISTRY</text></g>
+          <g class="pin-cause" data-c="1"><rect x="34" y="126" width="176" height="48" rx="3" fill="#211f1d" stroke="#4a4741"/>
+            <text x="52" y="148" font-family="monospace" font-size="11" fill="#d9d6cf">INADEQUATE</text>
+            <text x="52" y="164" font-family="monospace" font-size="11" fill="#d9d6cf">CONTACT</text></g>
+          <g class="pin-cause" data-c="2"><rect x="34" y="206" width="176" height="48" rx="3" fill="#211f1d" stroke="#4a4741"/>
+            <text x="52" y="228" font-family="monospace" font-size="11" fill="#d9d6cf">EXCESSIVE</text>
+            <text x="52" y="244" font-family="monospace" font-size="11" fill="#d9d6cf">DOSE</text></g>
+          <circle cx="470" cy="150" r="42" fill="#211f1d" stroke="#8ed0ed" stroke-width="2"/>
+          <text x="470" y="146" font-family="monospace" font-size="11" fill="#8ed0ed" text-anchor="middle">PIN</text>
+          <text x="470" y="162" font-family="monospace" font-size="11" fill="#8ed0ed" text-anchor="middle">FLOC</text>
+          <text x="404" y="216" font-family="monospace" font-size="10" fill="#a29c91">WHAT YOU SEE</text>
+          <path d="M516 150 L588 150" stroke="#8ed0ed" stroke-width="4" fill="none" marker-end="url(#pinA)"/>
+          <g id="pinAdd"><rect x="596" y="112" width="270" height="76" rx="3" fill="#211f1d" stroke="#e07a63"/>
+            <text x="616" y="138" font-family="monospace" font-size="11" fill="#e07a63">THE USUAL RESPONSE</text>
+            <text x="616" y="158" font-family="monospace" font-size="12" fill="#f2f1ec">Add more coagulant</text>
+            <text id="pinVerdict" x="616" y="176" font-family="monospace" font-size="11" fill="#a29c91"></text></g>
+          <defs><marker id="pinA" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9"
+            refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#8ed0ed"/></marker></defs>
+        </svg>
+      </div>
+      <div class="controls" role="group" aria-label="Which cause">
+        <button type="button" class="pin-btn" data-c="0" aria-pressed="false">Marginal chemistry</button>
+        <button type="button" class="pin-btn" data-c="1" aria-pressed="false">Inadequate contact</button>
+        <button type="button" class="pin-btn" data-c="2" aria-pressed="false">Excessive dose</button>
+      </div>
+      <div class="readout" id="pinReadout" role="status" aria-live="polite"></div>
+      <figcaption><b>What to notice:</b> one jar series with doses on <em>both</em> sides of the
+        current setpoint, compared against what the plant is doing on the same water, separates all
+        three. Going below the setpoint is the step most often skipped.
+        <b>What this does not prove:</b> which cause is present at any real plant. These are the
+        three situations the observation is consistent with, not a diagnosis.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- RESOLUTION -->
+<section aria-labelledby="r-t">
+  <div class="wrap">
+    <p class="kicker">Back to the shift</p>
+    <h2 id="r-t">Now the sequence makes sense.</h2>
+    <div class="prose">
+      <p>The operator was reasoning correctly from a false premise. They assumed more coagulant moves
+        performance in one direction. It does not, and once they were past the window every increase
+        walked further away from the answer.</p>
+      <p><b>EPA documents exactly this plant.</b> Settled and finished water were poor. The
+        sedimentation and filtration processes were checked and found capable of the flows. The cause
+        was elsewhere:</p>
+      <p style="padding:18px 20px;border-left:3px solid var(--amber);background:rgba(224,166,74,.09)">
+        "A review of the plant's operation procedures revealed that the poor performance was caused
+        by the operator adding coagulants at excessive dosages, leading to formation of a pin floc
+        that was difficult to settle and filter."</p>
+      <p>Excessive. Not insufficient. In that plant the reflex was the cause, and the evaluators
+        recommended process control and jar testing rather than a bigger dose.</p>
+      <p>That is one case and it does not make pin floc always mean overdosing. What it does mean is
+        that the reflex is not safe, because the observation cannot tell you which side of the window
+        you are on.</p>
+      <p class="lead">Coagulation starts the floc. Flocculation grows it. Different jobs, opposite
+        mixing regimes, and chemistry cannot fix a growth problem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLIP CARDS -->
+<section aria-labelledby="f-t">
+  <div class="wrap">
+    <p class="kicker">Check yourself</p>
+    <h2 id="f-t">Answer before you flip.</h2>
+    <div class="prose"><p>Say it out loud first. The gap between recognising an answer and producing
+      one is where the learning is.</p></div>
+    <div class="flips" id="flips"></div>
+  </div>
+</section>
+
+<!-- WORK PRODUCT -->
+<section class="work" aria-labelledby="wp-t">
+  <div class="wrap">
+    <p class="kicker">Put it to work</p>
+    <h2 id="wp-t">Four questions before anyone touches a setpoint.</h2>
+    <div class="prose wp-intro">
+      <p>Poor floc, and a decision to make. These four get you further than the dose does.</p>
+      <p><b>You do not have to type anything.</b> Press <em>Watch it answered</em> and a worked
+        response writes itself out. If you would rather write your own, the box is yours. Either way
+        counts as finishing.</p>
+    </div>
+    <div id="workspace"></div>
+    <div class="wp-global">
+      <p class="note">Answers stay in this browser only. Nothing is uploaded, and no facility
+        information should be entered here.</p>
+      <button type="button" id="watchAll">Watch all four</button>
+      <button type="button" id="saveAll">Save to this browser</button>
+      <button type="button" id="exportAll">Download as Markdown</button>
+      <button type="button" id="clearAll">Clear everything</button>
+    </div>
+    <p id="wpStatus" class="status" role="status" aria-live="polite"
+       style="margin-top:12px;font:600 13px/1.5 var(--mono);color:var(--muted)"></p>
+  </div>
+</section>
+
+<!-- CROSS SECTOR -->
+<section class="cross" aria-labelledby="x-t">
+  <div class="wrap">
+    <p class="kicker">Where the cost actually lands</p>
+    <h2 id="x-t">The cheaper lever is visible. The expensive one is not.</h2>
+    <div class="split">
+      <div class="split-card"><span class="tagline">Visible</span>
+        <h3>Chemical</h3>
+        <p>Coagulant arrives on an invoice. It is countable, attributable, and adjustable from the
+          control room in a minute.</p>
+        <p>Acting on it feels like acting.</p></div>
+      <div class="split-card wrong"><span class="tagline">Invisible</span>
+        <h3>Physical</h3>
+        <p>Mixing energy arrives buried in a plant-wide power bill nobody attributes to a
+          flocculator. Confirming short-circuiting or floc breakup takes someone walking the basin,
+          checking a drive, questioning a residence time.</p>
+        <p>One of those is a purchase order. The other is a project.</p></div>
+    </div>
+    <div class="prose" style="margin-top:28px">
+      <p><b style="color:var(--white)">That asymmetry biases the whole organisation,</b> and it is
+        nobody's fault. An organisation that measures only the chemical side will keep choosing the
+        chemical explanation, and will keep being surprised by its chemical spend.</p>
+      <p>The cost does not stop at the invoice either. Dose is a direct input to residuals volume, so
+        a decision made on a shift to fix something that turned out to be mechanical arrives months
+        later as a handling and disposal cost, in a different budget line, reported by a different
+        person, with no trace back to the decision that caused it. That disconnection defeats
+        learning.</p>
+      <p>And the filter inherits the argument. EPA is direct about it: <b>"Optimal coagulant dosages
+        are critical to filter performance. Maintaining the proper control of these chemicals can
+        mean the difference between an optimized surface plant and a poorly run surface plant."</b>
+        A shortening filter run is often not a filter finding. It is a conditioning finding arriving
+        late.</p>
+      <p>Anyone reviewing a rising coagulant budget should be asking what changed <em>physically</em>
+        before accepting that the water simply got harder to treat.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="sources" aria-labelledby="src-t">
+  <div class="wrap">
+    <p class="kicker">Where this comes from</p>
+    <h2 id="src-t">The two central definitions are regulation, not opinion.</h2>
+    <div class="prose">
+      <p>United States federal authority only. Every source below was retrieved and read.</p>
+    </div>
+    <div class="src-wrap">
+      <table class="src-table">
+        <thead><tr><th scope="col">Source</th><th scope="col">Authority</th>
+          <th scope="col">What it supports here</th></tr></thead>
+        <tbody>
+          <tr><td>40 CFR 141.2, Definitions</td><td><b>Federal regulation</b></td>
+            <td>What coagulation and flocculation are, and that the regulation puts mixing inside
+              coagulation and gives flocculation the job of growing smaller floc into larger,
+              more settleable floc</td></tr>
+          <tr><td>Guidance Manual for Compliance with the Surface Water Treatment Rules: Turbidity
+            Provisions (EPA 815-R-20-004)</td><td>EPA guidance</td>
+            <td>The documented plant where excessive coagulant dosing caused pin floc; that optimal
+              dosage is critical to filter performance; that inadequate mixing or addition at the
+              wrong point limits performance; the direction that velocity gradient must fall from
+              the last flocculation stage onward to avoid breaking formed floc</td></tr>
+          <tr><td>40 CFR 141.173 and 40 CFR 141.551, Filtration</td><td><b>Federal regulation</b></td>
+            <td>That filtered water turbidity is a regulated performance measure, with limits that
+              depend on filtration type and system size</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="scope-note"><b>What is still open.</b> Independent claim verification and qualified
+      drinking water treatment practitioner review are not complete. Every graphic here is
+      qualitative and unitless. This brief deliberately carries <b>no dose, no mixing intensity, no
+      mixing time, and no turbidity figure</b>, because a number a reader could act on belongs to
+      current regulation quoted at its citation, or to your own approved procedures.</p>
+  </div>
+</section>
+
+<!-- CONNECTED -->
+<section class="next" aria-labelledby="n-t">
+  <div class="wrap">
+    <p class="kicker">Keep learning</p>
+    <h2 id="n-t">This brief deliberately stops short of four things.</h2>
+    <div class="prose"><p>Each deserves its own brief rather than a paragraph here.</p></div>
+    <div class="next-grid">
+      <div class="next-card"><span class="lane">Go deeper</span><h3>The Sample Is a Choice</h3>
+        <p>Where and when you sample decides the result more often than the laboratory does.</p></div>
+      <div class="next-card"><span class="lane">Go deeper</span><h3>Filtration and What It Inherits</h3>
+        <p>Why a filter problem is so often an upstream conditioning problem wearing a filter
+          costume.</p></div>
+      <div class="next-card"><span class="lane">Go wider</span><h3>Residuals: What Removal Costs</h3>
+        <p>Removal relocates. Where the sludge goes and what the dose decision costs later.</p></div>
+      <div class="next-card"><span class="lane">Go wider</span><h3>Compliant Is Not Safe</h3>
+        <p>What a regulated number is, and what meeting it does and does not establish.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECAP -->
+<section class="recap" aria-labelledby="rc-t">
+  <div class="wrap">
+    <p class="kicker">Before you leave</p>
+    <h2 id="rc-t">Carry three things forward.</h2>
+    <div class="recap-grid">
+      <div class="recap-card"><h3>What changed</h3>
+        <p>You stopped reading poor floc as a dosing instruction and started asking which of the two
+          processes is failing.</p></div>
+      <div class="recap-card"><h3>What to observe</h3>
+        <p>Whether the jar and the plant agree, what the jar says <em>below</em> the current
+          setpoint, and whether anything physical changed in the basin.</p></div>
+      <div class="recap-card"><h3>What not to assume</h3>
+        <p>That performance improves in one direction, that pin floc means underdosing, or that a
+          jar disagreeing with the plant is a broken jar.</p></div>
+    </div>
+  </div>
+</section>
