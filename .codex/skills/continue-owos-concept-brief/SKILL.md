@@ -24,14 +24,46 @@ tools yourself.
 
 Treat a supplied page as source material. Never call it verified because it already looks finished.
 
-Follow this default order: preserve and spar over the supplied draft, inventory claims, research and
-verify original sources, approve the evidence-backed narrative and storyboard, compile cited HTML,
-perform QA, then seek publication approval. Do not generate a new learner-facing HTML page before
-research merely because a visual prototype exists. When inheriting an prematurely generated page,
-preserve it as a pre-research draft and return the package to research.
+Before activating an “existing” brief, inventory, diagram, or source package, positively identify
+that source by at least one of: an explicit matching title, stable source identifier, direct locator,
+documented package relationship, or owner confirmation. Keyword overlap, semantic similarity,
+search ranking, product adjacency, and patent adjacency are discovery leads only. They do not
+authorize intake, claim extraction, terminology research, or a package relationship. If more than
+one plausible source remains, stop at source identification and ask for the exact locator. Record
+rejected candidates only as search results; do not import their claims or terminology.
+
+Follow this default order: preserve the supplied direction, conduct an owner sparring interview,
+write and repeatedly revise `white-paper.md`, score and approve the teaching argument, inventory its
+claims, research and verify original sources, approve the evidence-backed narrative and storyboard,
+compile cited HTML, perform QA, then seek publication approval. Do not generate a new learner-facing
+HTML page before the white paper, research, and curriculum thesis are approved merely because a
+visual prototype exists. When inheriting a prematurely generated page, preserve it as a pre-research
+draft and return the package to owner sparring and research.
+
+The sparring interview must establish what is being taught, why it matters, who needs it, what the
+learner should understand or do differently, which misconceptions must be repaired, how deep the
+brief should go, what practical situations belong in it, and what must remain outside scope. Ask in
+rounds. Record the owner's answers and revise the Markdown white paper after every round. Do not
+silently decide the teaching thesis from the topic title.
+
+`white-paper.md` is the first generated teaching artifact. It is a clean long-form explanation with
+a title, executive teaching thesis, headings, subheadings, plain-language definitions, mechanisms,
+importance, practical consequences, misconceptions, examples, diagram briefs, evidence notes,
+limitations, curriculum implications, and references in the owner-approved citation style. It is
+the basis for claim extraction, research QA, scoring, design, and later HTML. It is not the HTML
+storyboard and must remain readable without a page design.
+
+After every substantive sparring or research round, append or update the standard 100-point
+white-paper score inside `white-paper.md`. Use the fixed dimensions in
+`core/templates/CONCEPT-BRIEF-WHITE-PAPER-SCORE.md`, show the evidence for every awarded point,
+explain every deduction, and list the next actions that would raise the score. Never award research
+or verification points for an unsupported outline. A score of 90 or higher is required before the
+paper may be offered for owner approval into curriculum design, and the score never overrides a
+blocked evidence, technical-review, diagram-truth, scope, or owner-approval gate.
 
 ## Intake
 
+- Record the evidence that established source identity before extracting claims.
 - Preserve each original with its locator, snapshot when possible, SHA-256 checksum, creator,
   capture date, visibility, permission, extraction coverage, limitations, and disposition.
 - Keep internal, private, sealed, permission-pending, and tenant material out of public output.

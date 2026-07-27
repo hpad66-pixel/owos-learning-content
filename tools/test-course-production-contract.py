@@ -34,6 +34,7 @@ require(
         "Course navigation and connected learning",
         "compact Graph, Community, and Start actions",
         "white, right-side drawers",
+        "browser Back",
         "complete graph and community section at the bottom",
         "#owos-course-community",
         "module-specific FAQ",
@@ -50,6 +51,6 @@ require(CREATOR, ["Course Production Contract", "#owos-course-community", "Graph
 require(CONFORMANCE, ["minimum_visual_types", "minimum_quiz_types", "data-final-applied-check", "required_community_features", "approved_quiz_sources", "visual_catalog_terms", "validate_qa_report"])
 require(ROOT / "tools/course_quality.py", ["data-purposeful-interaction", "purposeful:"])
 require(BRIEF, ["Header Graph, Community, and Start actions", "#owos-course-community", "Learner FAQ plan", "Dark-surface contrast plan"])
-require(QA, ["Header Graph, Community, and Start actions", "Explicit bottom connected-learning anchor", "Module-specific FAQ coverage", "Dark-surface contrast guard"])
+require(QA, ["Header Graph, Community, and Start actions", "browser-Back", "Explicit bottom connected-learning anchor", "Module-specific FAQ coverage", "Dark-surface contrast guard"])
 
 print("OWOS Course Production Contract QA passed.")

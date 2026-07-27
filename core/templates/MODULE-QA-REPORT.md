@@ -61,7 +61,7 @@ Allowed gate states are `passed`, `conditional`, `blocked`, and `not reviewed`.
 | Module-specific FAQ coverage and answer quality | | |
 | Graphic teaching coverage | | |
 | Visual pacing and editorial illustration | | |
-| Header Graph, Community, and Start actions, side drawers, and bottom connected-learning section | | |
+| Header Graph, Community, and Start actions; right-side drawers; Close, Escape, backdrop, browser-Back, and focus-return behavior; bottom connected-learning section | | |
 | Explicit bottom connected-learning anchor and rendered DOM order | | |
 | Dark-surface contrast guard | | |
 | Prohibited language and punctuation | | |

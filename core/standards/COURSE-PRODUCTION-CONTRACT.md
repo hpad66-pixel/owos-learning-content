@@ -82,7 +82,12 @@ A short lesson may request a documented exception. Counts never excuse irrelevan
 - Keep the main lesson reading surface calm and uncluttered.
 - Place compact Graph, Community, and Start actions in the lesson header. Start moves directly to the beginning of the lesson. Do not use floating cards, hanging rails, or a persistent bottom dock.
 - Open the Graph and Community in white, right-side drawers on larger screens and full-screen drawers on small screens.
-- Closing a drawer must return focus and the learner to the same place in the course.
+- A drawer is a temporary layer over the HTML lesson. It must never replace the course URL or become
+  a second main page. Close, Escape, backdrop selection, and browser Back must remove the drawer,
+  restore the unchanged lesson, and return focus to the control that opened it.
+- Only one connected-learning drawer may be open at a time. Graph and Community must use the same
+  top-control placement, right-edge entry, history behavior, and focus-return contract in every
+  course and lesson.
 - Keep the complete graph and community section at the bottom of the lesson for discovery, context, and extended use.
 - Every course and lesson HTML file must reserve an explicit `#owos-course-community` anchor inside `main`, immediately before bottom course navigation. Runtime code must never choose a generic `.wrap` as the connected-learning mount.
 - The Graph must open the current course or lesson context without navigating away.
