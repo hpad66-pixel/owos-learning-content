@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archetype comparison: state switcher against Diagnose</title>
+<meta name="description" content="The same evidence and the same claims, taught two ways. One lets you select a state. The other makes you commit before you know.">
+<style>
+:root{
+  --graphite:#1c1b19; --charcoal:#292826; --panel:#211f1d; --deep:#141311;
+  --white:#f2f1ec; --body:#d9d6cf; --muted:#a29c91;
+  --water:#7dc6e8; --water-deep:#2b7399; --amber:#e0a64a; --green:#7fb069; --red:#e07a63;
+  --line:rgba(242,241,236,.12);
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --wrap:min(1080px, calc(100% - 64px));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--graphite);color:var(--body);
+  font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{width:var(--wrap);margin:0 auto}
+h1,h2,h3,h4{color:var(--white);line-height:1.15;margin:0}
+a{color:var(--water)}
+.kicker{font:700 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--water);margin:0 0 14px}
+
+/* ---------- hero ---------- */
+header{padding:86px 0 74px;background:
+  radial-gradient(ellipse at 78% 14%, rgba(125,198,232,.16), transparent 55%), var(--deep);
+  border-bottom:1px solid var(--line)}
+header h1{font-size:clamp(38px,6.4vw,74px);letter-spacing:-.02em;margin:0 0 18px}
+header .lede{font-size:clamp(19px,2.2vw,25px);color:var(--body);max-width:30ch;margin:0}
+.variant-flag{display:inline-block;margin-bottom:22px;padding:7px 14px;border:1px solid var(--water);
+  border-radius:100px;font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--water)}
+
+/* ---------- generic section ---------- */
+section{padding:74px 0;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+section h2{font-size:clamp(27px,3.4vw,40px);margin:0 0 20px;max-width:24ch}
+.prose{max-width:65ch}
+.prose p{margin:0 0 18px}
+.prose p:last-child{margin-bottom:0}
+.lead{font-size:19px;color:var(--white)}
+
+/* ---------- orientation ---------- */
+.orient{background:var(--deep)}
+.orient-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:18px;margin:30px 0}
+.ocard{padding:22px;background:var(--charcoal);border-left:3px solid var(--water)}
+.ocard h3{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--water);margin:0 0 10px}
+.ocard p{margin:0;font-size:15.5px}
+.objectives{margin-top:8px;padding:28px;background:var(--panel);border-top:2px solid var(--water)}
+.objectives h3{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--water);margin:0 0 16px}
+.objectives ol{margin:0;padding-left:22px;max-width:72ch}
+.objectives li{margin:0 0 10px}
+.boundary{margin-top:22px;padding:18px 20px;border-left:3px solid var(--amber);
+  background:rgba(224,166,74,.09);max-width:72ch;font-size:15.5px}
+.boundary b{color:var(--white)}
+
+/* ---------- 30 seconds ---------- */
+.thirty{background:var(--charcoal)}
+.thirty ol{counter-reset:t;list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.thirty li{counter-increment:t;position:relative;padding:24px 24px 24px 58px;background:var(--panel)}
+.thirty li::before{content:counter(t,decimal-leading-zero);position:absolute;left:22px;top:24px;
+  font:800 15px/1 var(--mono);color:var(--water)}
+
+/* ---------- puzzle ---------- */
+.puzzle{background:var(--deep)}
+.evidence-list{display:grid;gap:12px;margin:26px 0 0;padding:0;list-style:none;max-width:72ch}
+.evidence-list li{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:var(--charcoal);
+  border-left:3px solid var(--muted)}
+.evidence-list .tick{color:var(--green);font:700 15px/1.5 var(--mono);flex:0 0 auto}
+.evidence-list .cross{color:var(--red);font:700 15px/1.5 var(--mono);flex:0 0 auto}
+.puzzle-q{margin-top:30px;padding:26px;border:1px solid var(--water);background:rgba(125,198,232,.07);max-width:72ch}
+.puzzle-q p{margin:0;font-size:20px;color:var(--white)}
+
+/* ---------- definitions ---------- */
+.defs{display:grid;gap:16px;margin-top:30px}
+.def{padding:24px;background:var(--charcoal);border-left:3px solid var(--water);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:24px;align-items:start}
+.def-text{min-width:0}
+.def-fig{margin:0;min-width:0}
+.def-fig svg{display:block;width:100%;height:auto;background:var(--deep);border:1px solid var(--line)}
+.def-fig figcaption{margin:9px 0 0;padding:0;background:none;font:600 11px/1.5 var(--mono);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);max-width:none}
+@media (max-width:860px){.def{grid-template-columns:1fr}.def-fig{order:-1}}
+.def h3{font-size:20px;margin:0 0 10px}
+.def p{margin:0 0 8px;font-size:15.5px}
+.def .pic{color:#bcd9e8}
+.def .not{color:#e8cf95}
+.def b{color:var(--white)}
+
+/* ---------- interactive figure shell ---------- */
+figure{margin:30px 0 0}
+.stage{background:var(--deep);border:1px solid var(--line);padding:22px}
+.stage svg{display:block;width:100%;height:auto}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button{font:600 14px/1 var(--sans);padding:12px 17px;min-height:44px;cursor:pointer;
+  background:var(--panel);color:var(--white);border:1px solid #4a4741;border-radius:3px}
+button:hover{border-color:var(--water);color:var(--water)}
+button[aria-pressed="true"]{background:var(--water-deep);border-color:var(--water);color:#fff}
+button:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.readout{margin-top:18px;padding:18px 20px;background:var(--panel);border-left:3px solid var(--water);
+  min-height:96px}
+.readout .rk{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--water);
+  display:block;margin-bottom:9px}
+.readout p{margin:0 0 8px;font-size:15.5px}
+.readout p:last-child{margin:0}
+figcaption{margin-top:16px;padding:16px 18px;background:rgba(125,198,232,.07);font-size:15px;max-width:78ch}
+figcaption b{color:var(--white)}
+
+/* ---------- flip cards ---------- */
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:16px;margin-top:28px}
+/* The faces are stacked in one grid cell rather than absolutely positioned, so
+   the card sizes itself to whichever face is taller. The inner element must be
+   a block-level box: as an inline span its width, height, and min-height are
+   all ignored, which collapsed the card to zero height. */
+.flip{display:block;background:transparent;border:0;padding:0;perspective:1100px;
+  text-align:left;font:inherit;min-height:0}
+.flip-in{display:grid;position:relative;min-height:200px;
+  transition:transform .5s;transform-style:preserve-3d}
+.flip[aria-pressed="true"] .flip-in{transform:rotateY(180deg)}
+.flip-f,.flip-b{grid-area:1 / 1;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  padding:22px;display:flex;flex-direction:column;justify-content:center;border-radius:3px}
+.flip-f{background:var(--charcoal);border:1px solid #4a4741}
+.flip-b{background:var(--water-deep);border:1px solid var(--water);transform:rotateY(180deg)}
+.flip-f p,.flip-b p{margin:0;font-size:16px}
+.flip-f .q{color:var(--white);font-weight:600}
+.flip-b .a{color:#fff}
+.flip-tag{font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--water);margin-bottom:11px}
+.flip-b .flip-tag{color:#eaf7fd}
+.flip-b .flip-hint{color:#eaf7fd}
+.flip-hint{margin-top:14px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.flip-in{transition:none}}
+
+/* ---------- work product ---------- */
+.work{background:var(--deep)}
+.wp-intro{max-width:68ch}
+.wq{margin-top:22px;padding:24px;background:var(--charcoal);border-left:3px solid var(--water);scroll-margin-top:80px}
+.wq h3{font-size:17.5px;margin:0 0 6px}
+.wq .why{margin:0 0 14px;font-size:14.5px;color:var(--muted)}
+.wq textarea{width:100%;min-height:112px;padding:15px;background:#15140f;color:var(--white);
+  border:1px solid #4a4741;border-radius:3px;font:15px/1.65 var(--mono);resize:vertical}
+.wq textarea:focus{outline:2px solid var(--water);outline-offset:1px}
+.wq textarea.typing{border-color:var(--water);box-shadow:0 0 0 1px var(--water) inset}
+.wq-controls{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px;align-items:center}
+.wq-controls .status{font:600 12px/1 var(--mono);letter-spacing:.06em;color:var(--muted);margin-left:2px}
+.wq-controls .status.done{color:var(--green)}
+.wq-controls .status.live{color:var(--water)}
+.wp-global{display:flex;flex-wrap:wrap;gap:11px;align-items:center;margin-top:30px;padding:22px;
+  background:var(--panel);border-top:2px solid var(--water)}
+.wp-global .note{font-size:14.5px;color:var(--muted);flex:1 1 260px;margin:0}
+
+/* ---------- progress rail ---------- */
+.rail{position:sticky;top:0;z-index:40;background:rgba(20,19,17,.94);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.rail-in{display:flex;align-items:center;gap:16px;padding:11px 0;flex-wrap:wrap}
+.rail-bar{flex:1 1 180px;height:5px;background:#332f2a;border-radius:100px;overflow:hidden;min-width:120px}
+.rail-fill{display:block;height:100%;width:0;background:var(--water);transition:width .25s linear}
+.rail-txt{font:600 12px/1 var(--mono);letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.rail-txt b{color:var(--water)}
+@media (prefers-reduced-motion: reduce){.rail-fill{transition:none}}
+
+/* ---------- cross sector ---------- */
+.cross{background:var(--charcoal)}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:28px}
+.split-card{padding:24px;background:var(--panel);border-top:3px solid var(--water)}
+.split-card.wrong{border-top-color:var(--amber)}
+.split-card h3{font-size:18px;margin:0 0 10px}
+.split-card p{margin:0 0 10px;font-size:15.5px}
+.split-card p:last-child{margin:0}
+.split-card .tagline{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--water);margin-bottom:12px;display:block}
+.split-card.wrong .tagline{color:var(--amber)}
+
+/* ---------- sources ---------- */
+.sources{background:var(--deep)}
+.src-table{width:100%;border-collapse:collapse;margin-top:24px;font-size:14.5px}
+.src-table th{text-align:left;padding:11px 14px;border-bottom:2px solid var(--water);
+  font:700 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--water);
+  vertical-align:bottom}
+.src-table td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.src-table tr:last-child td{border-bottom:0}
+.src-wrap{overflow-x:auto}
+.scope-note{margin-top:22px;padding:18px 20px;border-left:3px solid var(--amber);
+  background:rgba(224,166,74,.09);max-width:78ch;font-size:15px}
+.scope-note b{color:var(--white)}
+
+/* ---------- connected learning ---------- */
+.next{background:var(--charcoal)}
+.next-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:26px}
+.next-card{padding:22px;background:var(--panel);border-left:3px solid var(--water)}
+.next-card .lane{font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--water);display:block;margin-bottom:10px}
+.next-card h3{font-size:17px;margin:0 0 8px}
+.next-card p{margin:0;font-size:15px;color:var(--body)}
+
+/* ---------- community + value plane ---------- */
+.plane{background:var(--white);color:#211f1b}
+.plane h2,.plane h3{color:#151412}
+.plane .kicker{color:#1d5c90}
+.plane .prose p{color:#3d3a34}
+.comm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:28px}
+.comm-card{padding:24px;background:#f0ede6;border-top:3px solid #1d5c90}
+.comm-card h3{font-size:17px;margin:0 0 10px}
+.comm-card p{margin:0 0 10px;font-size:15px;color:#3d3a34}
+.comm-card ul{margin:0;padding-left:19px;font-size:15px;color:#3d3a34}
+.comm-card li{margin:0 0 7px}
+.seed{display:inline-block;margin:5px 6px 0 0;padding:8px 13px;background:#fff;border:1px solid #c9c3b8;
+  border-radius:100px;font-size:13.5px;color:#3d3a34}
+.plane .cta{display:inline-block;margin-top:16px;padding:13px 20px;min-height:44px;background:#1d5c90;
+  color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:15px}
+.plane .cta:hover{background:#164a75}
+.value{margin-top:34px;padding:28px;background:#151412;color:#d9d6cf;border-radius:3px}
+.value h3{color:#f2f1ec;font-size:19px;margin:0 0 12px}
+.value p{margin:0 0 12px;font-size:15.5px}
+.value p:last-child{margin:0}
+
+/* ---------- sponsors and brand ---------- */
+.sponsors{margin-top:34px;padding-top:28px;border-top:1px solid #d3cec4}
+.sponsor-head{max-width:62ch}
+.sponsor-head h3{font-size:19px;margin:0 0 8px}
+.sponsor-head p{margin:0;font-size:14.5px;color:#5c574e}
+.sponsor-row{list-style:none;display:grid;gap:12px;margin:22px 0 0;padding:0;
+  grid-template-columns:repeat(auto-fit,minmax(212px,1fr))}
+.sponsor{display:flex;align-items:center;gap:13px;padding:15px 16px;background:#fff;
+  border:1px solid #ddd8cd;border-radius:3px}
+.sponsor-open{border-style:dashed;background:transparent}
+.sponsor-logo{width:42px;height:42px;flex:0 0 auto;border-radius:3px;background:#e6e1d6;
+  display:grid;place-items:center;font:800 13px/1 var(--mono);color:#8a8377}
+.sponsor-logo::after{content:attr(data-cat)}
+.sponsor-open .sponsor-logo{background:transparent;border:1px dashed #b9b3a6}
+.sponsor-name{font-weight:700;font-size:14px;color:#151412;line-height:1.3}
+.sponsor-name span{display:block;font-weight:400;font-size:12.5px;color:#6b665c;margin-top:3px}
+.plane .cta.ghost{background:transparent;color:#1d5c90;border:1px solid #1d5c90}
+.plane .cta.ghost:hover{background:#1d5c90;color:#fff}
+.brandbar{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:34px;
+  padding-top:26px;border-top:1px solid #d3cec4}
+.brandmark{display:flex;align-items:center;gap:14px}
+.brandmark .sq{width:42px;height:42px;flex:0 0 auto;border-radius:4px;
+  background:linear-gradient(145deg,#d9b45c,#b8912f);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.brandmark .nm{display:block;font:800 25px/1.05 var(--sans);letter-spacing:-.02em;
+  color:#151412;white-space:nowrap}
+.brandmark .nm .dot{color:#7a5f18}
+.brandmark .nm .sub{display:block;font:500 11.5px/1.4 var(--mono);letter-spacing:.1em;
+  text-transform:uppercase;color:#6b665c;margin-top:8px;white-space:normal}
+.taught{margin:0;font-size:14.5px;color:#5c574e}
+.taught b{color:#151412}
+.legal{margin-top:24px;padding-top:18px;border-top:1px solid #d3cec4;font-size:13px;color:#6b665c}
+.legal p{margin:0;max-width:88ch}
+
+/* ---------- top drawers ---------- */
+.topbar{display:flex;gap:9px;margin-left:auto}
+.drawer-btn{font:600 13px/1 var(--sans);padding:10px 15px;min-height:40px;background:var(--panel);
+  color:var(--white);border:1px solid #4a4741;border-radius:100px;cursor:pointer}
+.drawer-btn:hover{border-color:var(--water);color:var(--water)}
+.backdrop{position:fixed;inset:0;background:rgba(8,8,8,.62);opacity:0;pointer-events:none;
+  transition:opacity .2s;z-index:90}
+.backdrop.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:#f7f5ef;color:#211f1b;
+  z-index:100;transform:translateX(100%);transition:transform .26s ease;overflow-y:auto;
+  box-shadow:-14px 0 40px rgba(0,0,0,.4)}
+.drawer.on{transform:translateX(0)}
+.drawer-in{padding:26px}
+.drawer h2{color:#151412;font-size:22px;margin:0 0 6px}
+.drawer .dk{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:#1d5c90;margin:0 0 14px}
+.drawer p{font-size:14.5px;color:#3d3a34;margin:0 0 14px}
+.drawer h3{font-size:15px;margin:22px 0 9px;color:#151412}
+.drawer ul{margin:0;padding-left:19px;font-size:14.5px;color:#3d3a34}
+.drawer li{margin:0 0 8px}
+.drawer-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;
+  background:#e6e1d6;border:1px solid #ccc6b9;color:#151412;font-size:19px;line-height:1;cursor:pointer}
+.node{display:inline-block;margin:0 6px 7px 0;padding:7px 12px;background:#fff;border:1px solid #ccc6b9;
+  border-radius:100px;font-size:13px;color:#3d3a34}
+.node.self{background:#1d5c90;color:#fff;border-color:#1d5c90;font-weight:600}
+.drawer .cta{display:inline-block;margin-top:8px;padding:12px 18px;min-height:44px;background:#1d5c90;
+  color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:14.5px}
+@media (prefers-reduced-motion: reduce){.drawer,.backdrop{transition:none}}
+@media (max-width:560px){.drawer{width:100%}}
+
+/* ---------- recap ---------- */
+.recap{background:var(--charcoal)}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:18px;margin-top:26px}
+.recap-card{padding:24px;background:var(--panel);border-top:2px solid var(--water)}
+.recap-card h3{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--water);margin:0 0 12px}
+.recap-card p{margin:0;font-size:16px}
+
+/* ---------- footer ---------- */
+footer{padding:44px 0 60px;background:var(--deep);color:var(--muted);font-size:14.5px}
+footer p{margin:0 0 10px;max-width:78ch}
+.disclaim{padding:16px 18px;border-left:3px solid var(--amber);background:rgba(224,166,74,.08);
+  color:var(--body);margin-bottom:20px;max-width:78ch}
+
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (max-width:760px){
+  :root{--wrap:min(1080px, calc(100% - 32px))}
+  section{padding:54px 0}
+  .wq-controls button{flex:1 1 auto}
+}
+
+.cmp{padding:64px 0;border-bottom:1px solid var(--line)}
+.cmp-a{background:var(--charcoal)} .cmp-b{background:var(--deep)}
+.cmp-tag{display:inline-block;margin-bottom:16px;padding:7px 14px;border-radius:100px;
+  font:700 11px/1 var(--mono);letter-spacing:.14em}
+.tag-a{border:1px solid var(--muted);color:var(--muted)}
+.tag-b{border:1px solid var(--water);color:var(--water)}
+#dx{margin-top:26px}
+.dx-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  padding-bottom:14px;border-bottom:1px solid var(--line)}
+.dx-case,.dx-cost{font:700 11px/1 var(--mono);letter-spacing:.13em;color:var(--muted)}
+.dx-cost b{color:var(--amber);font-size:14px}
+.dx-symptom{margin:18px 0 0;font-size:17px;color:var(--white);max-width:66ch}
+.dx-block{margin-top:28px}
+.dx-block h4{margin:0 0 14px;font:700 12px/1.4 var(--mono);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--water)}
+.dx-ev{display:flex;flex-wrap:wrap;gap:10px}
+.dx-btn{position:relative;font:600 14px/1.3 var(--sans);padding:13px 16px;min-height:46px;
+  background:var(--panel);color:var(--white);border:1px solid #4a4741;border-radius:3px;
+  cursor:pointer;text-align:left}
+.dx-btn:hover:not(:disabled){border-color:var(--water);color:var(--water)}
+.dx-btn:disabled{opacity:.45;cursor:default}
+.dx-btn.got{border-color:var(--muted);opacity:.6}
+.dx-btn.chosen{background:var(--water-deep);border-color:var(--water);color:#fff;opacity:1}
+.dx-btn.primary{background:var(--water-deep);border-color:var(--water)}
+.dx-tag{display:block;margin-top:5px;font:600 10px/1 var(--mono);letter-spacing:.1em;color:var(--muted)}
+.dx-btn.chosen .dx-tag{color:#cdeaf8}
+.dx-results{margin-top:16px;padding:18px 20px;background:var(--panel);border-left:3px solid var(--muted)}
+.dx-results p{margin:0 0 9px;font-size:15px}
+.dx-results p:last-child{margin:0}
+.dx-out{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start;margin-top:28px;padding:24px;
+  border-left:4px solid var(--muted);background:var(--panel)}
+.dx-out.better{border-left-color:var(--green)} .dx-out.worse{border-left-color:var(--red)}
+.dx-out-txt{flex:1 1 320px;min-width:0}
+.dx-out p{margin:0 0 10px;font-size:15.5px}
+.dx-verdict{display:inline-block;margin-bottom:12px;padding:7px 13px;border-radius:100px;
+  font:700 11px/1 var(--mono);letter-spacing:.12em}
+.dx-verdict.ok{background:rgba(127,176,105,.16);color:var(--green);border:1px solid var(--green)}
+.dx-verdict.no{background:rgba(224,122,99,.16);color:var(--red);border:1px solid var(--red)}
+.dx-recon p{margin:0 0 11px;padding:11px 14px;font-size:14.5px;border-left:3px solid var(--muted);
+  background:rgba(242,241,236,.03)}
+.dx-recon .good{border-left-color:var(--green)}
+.dx-recon .waste{border-left-color:var(--amber)}
+.dx-recon .missed{border-left-color:var(--red)}
+.dx-next{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+@media (max-width:640px){.dx-btn{flex:1 1 100%}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="variant-flag">OWOS ARCHETYPE STUDY &middot; NOT A BRIEF</span>
+    <h1>Same evidence.<br>Two mechanics.</h1>
+    <p class="lede">Identical claims, identical sources, identical certificate. The only thing that
+      changes is what the learner is asked to do.</p>
+  </div>
+</header>
+
+<section class="cmp cmp-a" aria-labelledby="a-t">
+  <div class="wrap">
+    <span class="cmp-tag tag-a">A &middot; WHAT WE BUILD NOW</span>
+    <h2 id="a-t">State switcher</h2>
+    <div class="prose">
+      <p>Pick a cause. A diagram changes. A paragraph appears. This is the mechanic in both briefs
+        shipped so far, and it is the one under review.</p>
+      <p><b>The learner selects from states somebody else already decided, and cannot be wrong.</b></p>
+    </div>
+    
+<section aria-labelledby="pf-t">
+  <div class="wrap">
+    <p class="kicker">One appearance, three causes</p>
+    <h2 id="pf-t">Pin floc is a question, not a diagnosis.</h2>
+    <div class="prose">
+      <p>Small floc that will not grow. It is the most commonly misread observation at the front of a
+        plant, because it is consistent with three different situations and <b>two of them get worse
+        if you add coagulant.</b></p>
+      <p>Pick a cause and follow what it would leave behind.</p>
+    </div>
+    <figure>
+      <div class="stage">
+        <svg id="pinSvg" viewBox="0 0 900 300" role="img" aria-labelledby="pt pd">
+          <title id="pt">Three causes converging on one appearance</title>
+          <desc id="pd">Three separate upstream causes, marginal chemistry, inadequate contact, and
+            excessive dose, all lead to the same observed pin floc. Selecting a cause highlights its
+            path and the evidence that would distinguish it.</desc>
+          <rect width="900" height="300" fill="#141311"/>
+          <g id="pinPaths">
+            <path class="pin-path" data-c="0" d="M210 70 L430 148" stroke="#4a4741" stroke-width="5" fill="none"/>
+            <path class="pin-path" data-c="1" d="M210 150 L430 150" stroke="#4a4741" stroke-width="5" fill="none"/>
+            <path class="pin-path" data-c="2" d="M210 230 L430 152" stroke="#4a4741" stroke-width="5" fill="none"/>
+          </g>
+          <g class="pin-cause" data-c="0"><rect x="34" y="46" width="176" height="48" rx="3" fill="#211f1d" stroke="#4a4741"/>
+            <text x="52" y="68" font-family="monospace" font-size="11" fill="#d9d6cf">MARGINAL</text>
+            <text x="52" y="84" font-family="monospace" font-size="11" fill="#d9d6cf">CHEMISTRY</text></g>
+          <g class="pin-cause" data-c="1"><rect x="34" y="126" width="176" height="48" rx="3" fill="#211f1d" stroke="#4a4741"/>
+            <text x="52" y="148" font-family="monospace" font-size="11" fill="#d9d6cf">INADEQUATE</text>
+            <text x="52" y="164" font-family="monospace" font-size="11" fill="#d9d6cf">CONTACT</text></g>
+          <g class="pin-cause" data-c="2"><rect x="34" y="206" width="176" height="48" rx="3" fill="#211f1d" stroke="#4a4741"/>
+            <text x="52" y="228" font-family="monospace" font-size="11" fill="#d9d6cf">EXCESSIVE</text>
+            <text x="52" y="244" font-family="monospace" font-size="11" fill="#d9d6cf">DOSE</text></g>
+          <circle cx="470" cy="150" r="42" fill="#211f1d" stroke="#8ed0ed" stroke-width="2"/>
+          <text x="470" y="146" font-family="monospace" font-size="11" fill="#8ed0ed" text-anchor="middle">PIN</text>
+          <text x="470" y="162" font-family="monospace" font-size="11" fill="#8ed0ed" text-anchor="middle">FLOC</text>
+          <text x="404" y="216" font-family="monospace" font-size="10" fill="#a29c91">WHAT YOU SEE</text>
+          <path d="M516 150 L588 150" stroke="#8ed0ed" stroke-width="4" fill="none" marker-end="url(#pinA)"/>
+          <g id="pinAdd"><rect x="596" y="112" width="270" height="76" rx="3" fill="#211f1d" stroke="#e07a63"/>
+            <text x="616" y="138" font-family="monospace" font-size="11" fill="#e07a63">THE USUAL RESPONSE</text>
+            <text x="616" y="158" font-family="monospace" font-size="12" fill="#f2f1ec">Add more coagulant</text>
+            <text id="pinVerdict" x="616" y="176" font-family="monospace" font-size="11" fill="#a29c91"></text></g>
+          <defs><marker id="pinA" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9"
+            refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#8ed0ed"/></marker></defs>
+        </svg>
+      </div>
+      <div class="controls" role="group" aria-label="Which cause">
+        <button type="button" class="pin-btn" data-c="0" aria-pressed="false">Marginal chemistry</button>
+        <button type="button" class="pin-btn" data-c="1" aria-pressed="false">Inadequate contact</button>
+        <button type="button" class="pin-btn" data-c="2" aria-pressed="false">Excessive dose</button>
+      </div>
+      <div class="readout" id="pinReadout" role="status" aria-live="polite"></div>
+      <figcaption><b>What to notice:</b> one jar series with doses on <em>both</em> sides of the
+        current setpoint, compared against what the plant is doing on the same water, separates all
+        three. Going below the setpoint is the step most often skipped.
+        <b>What this does not prove:</b> which cause is present at any real plant. These are the
+        three situations the observation is consistent with, not a diagnosis.</figcaption>
+    </figure>
+  </div>
+</section>
+  </div>
+</section>
+
+<section class="cmp cmp-b" aria-labelledby="b-t">
+  <div class="wrap">
+    <span class="cmp-tag tag-b">B &middot; THE DIAGNOSE ARCHETYPE</span>
+    <h2 id="b-t">Commit before you know</h2>
+    <div class="prose">
+      <p>Same three causes. Same evidence. But the cause is hidden, evidence costs shifts, you commit
+        to a diagnosis before anyone tells you, and then you act and live with it.</p>
+      <p><b>Add coagulant to an overdose and the water gets worse.</b> Then you find out what the
+        evidence was worth, including what you paid for that told you nothing and what you skipped
+        that would have settled it.</p>
+      <p>Three cases. The cause differs each time.</p>
+    </div>
+    <div id="dx"></div>
+  </div>
+</section>
+
+<section class="cmp" aria-labelledby="c-t">
+  <div class="wrap">
+    <span class="cmp-tag tag-b">WHAT CHANGED</span>
+    <h2 id="c-t">Nothing about the evidence. Everything about the learner.</h2>
+    <div class="split">
+      <div class="split-card"><span class="tagline">Unchanged</span>
+        <h3>The governed layer</h3>
+        <p>Same claims, same federal sources, same boundary statements, same certificate. Both
+          mechanics teach that pin floc has three causes and two of them worsen with coagulant.</p>
+        <p>The trust shell does not move. That is deliberate: a learner should find the sources and
+          the boundary in the same place in every brief.</p></div>
+      <div class="split-card wrong"><span class="tagline">Changed</span>
+        <h3>What the learner does</h3>
+        <p>A reads about being wrong. B is wrong, pays a shift for it, and has to recover.</p>
+        <p>A can be completed by clicking three buttons in order. B cannot be completed without
+          committing to a judgment under uncertainty, which is the actual skill.</p></div>
+    </div>
+    <div class="prose" style="margin-top:28px">
+      <p><b style="color:var(--white)">The cost of B is real and worth naming.</b> It takes longer to
+        author, it needs a truth model per case rather than a paragraph per state, and it can only be
+        built where the topic genuinely has a hidden cause and competing evidence. Forcing it onto a
+        topic that is a straight trace would be the same mistake in the other direction.</p>
+      <p>That is the argument for archetypes chosen by cognitive task rather than one template or
+        five skins: <b>Trace</b> for following something through a system, <b>Diagnose</b> for one
+        symptom with competing causes, <b>Judge a number</b> for what a measurement establishes,
+        <b>Trade off</b> for when both options cost something, <b>Sequence</b> for when order is the
+        lesson.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="disclaim">Archetype study for design review. Not a Concept Brief, not released, and
+      carries no certificate of its own. The claims and sources are those of
+      <code>owos:concept-brief:001</code>.</p>
+  </div>
+</footer>
+
+<script>
+window.OWOS = window.OWOS || {};
+window.OWOS.track = window.OWOS.track || function(){};
+(function(){
+  "use strict";
+  var G = { deep:"#141311", w:"#7dc6e8", wd:"#2b7399", am:"#e0a64a", rd:"#e07a63",
+             gn:"#7fb069", mu:"#a29c91", wh:"#f2f1ec" };
+    var PIN=[
+    { label:"Marginal chemistry", verdict:"WOULD HELP",  colour:G.gn,
+      title:"Particles are only just destabilised",
+      body:["Chemistry is close but not quite there, so floc starts and stalls.",
+            "Evidence that distinguishes it: a jar series finds a clearly better dose above the current setpoint.",
+            "This is the one case where adding coagulant is the right answer."] },
+    { label:"Inadequate contact", verdict:"WOULD NOT HELP", colour:G.am,
+      title:"The chemistry worked and is not being delivered",
+      body:["Flocculation energy too low, residence time too short, the basin short circuiting, or floc broken in transit.",
+            "Evidence that distinguishes it: the jar at the current dose looks good while the plant does not.",
+            "Adding coagulant cannot fix a basin. It masks the fault while the fault stays unfound."] },
+    { label:"Excessive dose", verdict:"WOULD MAKE IT WORSE", colour:G.rd,
+      title:"Already past the window",
+      body:["Charge reversed, particles repelling again, and pH dragged down by consumed alkalinity.",
+            "Evidence that distinguishes it: a jar series finds better performance <b>below</b> the current setpoint. This is the step most often skipped.",
+            "This is the case EPA documented. Adding more is what caused it."] }
+  ];
+  var pinOut=document.getElementById("pinReadout"), pinVerdict=document.getElementById("pinVerdict");
+  function drawPin(i){
+    document.querySelectorAll(".pin-path").forEach(function(p){
+      var on = +p.dataset.c === i;
+      p.setAttribute("stroke", on ? PIN[i].colour : "#4a4741");
+      p.setAttribute("stroke-width", on ? "6" : "5");
+    });
+    document.querySelectorAll(".pin-cause rect").forEach(function(r,n){
+      r.setAttribute("stroke", n===i ? PIN[i].colour : "#4a4741");
+    });
+    pinVerdict.textContent = PIN[i].verdict;
+    pinVerdict.setAttribute("fill", PIN[i].colour);
+    var h='<span class="rk">'+PIN[i].label+'</span><p><b style="color:var(--white)">'+PIN[i].title+'</b></p>';
+    PIN[i].body.forEach(function(p){ h+="<p>"+p+"</p>"; });
+    pinOut.innerHTML=h;
+  }
+  [].slice.call(document.querySelectorAll(".pin-btn")).forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll(".pin-btn").forEach(function(x){x.setAttribute("aria-pressed","false");});
+      b.setAttribute("aria-pressed","true");
+      drawPin(+b.dataset.c);
+      OWOS.track("interaction.pinfloc.cause",{cause:PIN[+b.dataset.c].label});
+    });
+  });
+  pinOut.innerHTML='<span class="rk">Pick a cause</span><p>All three produce the same appearance. Two of them get worse if you add coagulant.</p>';
+
+})();
+</script>
+<script>
+/* Diagnose archetype.
+   The learner does not select a pre-authored state. They face a case whose cause
+   is hidden, spend a limited budget gathering evidence, commit to a diagnosis
+   before they are told, choose an action, and live with the consequence. Adding
+   coagulant to an overdose makes the water worse and costs them the shift.
+
+   Predict, commit, reveal, reconcile. The learning is in the gap between what
+   they committed to and what was true. */
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var track = (window.OWOS && window.OWOS.track) || function(){};
+
+  var CAUSES = {
+    chem: { key:"chem", name:"Marginal chemistry",
+      truth:"The chemistry was close but not there. Particles were only just destabilised, so floc started and stalled." },
+    contact:{ key:"contact", name:"Inadequate contact",
+      truth:"The chemistry was fine and was not being delivered. A flocculator was running slow, so floc never had the contact to grow." },
+    over: { key:"over", name:"Excessive dose",
+      truth:"Already past the window. Charge reversed, particles repelling again, and the pH dragged down by consumed alkalinity." }
+  };
+
+  // Evidence: what each test returns depends on the hidden cause. Some tests are
+  // decisive, some are cheap and tell you nothing, which is the point.
+  var EVIDENCE = [
+    { id:"look", label:"Look at the basin again", cost:0,
+      result:{ chem:"Small floc, not settling. Same as before.",
+               contact:"Small floc, not settling. Same as before.",
+               over:"Small floc, not settling. Same as before." },
+      decisive:false,
+      note:"Free, and it cannot separate anything. All three look identical from the walkway. That is the whole problem." },
+    { id:"above", label:"Jar test above the current dose", cost:1,
+      result:{ chem:"Noticeably better floc at a higher dose.",
+               contact:"No better. Same poor floc across the range.",
+               over:"Worse. Floc degrades further as dose rises." },
+      decisive:true,
+      note:"Useful, and on its own it can mislead. A poor result here does not tell you which of the other two you have." },
+    { id:"below", label:"Jar test below the current dose", cost:1,
+      result:{ chem:"Worse. Floc degrades as dose falls.",
+               contact:"No better. Same poor floc across the range.",
+               over:"Noticeably better floc at a lower dose." },
+      decisive:true,
+      note:"The step most often skipped, and the only one that catches an overdose. Nobody looks down when they are looking for more." },
+    { id:"mech", label:"Check flocculator speed and plant flow", cost:1,
+      result:{ chem:"Flocculators at set speed. Flow normal.",
+               contact:"One flocculator running well below set speed.",
+               over:"Flocculators at set speed. Flow normal." },
+      decisive:true,
+      note:"Cheap, physical, and almost never done first because it is not the operator's lever." },
+    { id:"ph", label:"Pull the pH and alkalinity trend", cost:1,
+      result:{ chem:"pH and alkalinity steady.",
+               contact:"pH and alkalinity steady.",
+               over:"pH drifting down. Alkalinity falling as dose rose." },
+      decisive:true,
+      note:"Corroborates an overdose. These coagulants consume alkalinity, so a rising dose leaves a trace." }
+  ];
+
+  var ACTIONS = [
+    { id:"up",   label:"Increase the coagulant dose" },
+    { id:"down", label:"Decrease the coagulant dose" },
+    { id:"mech", label:"Investigate the basin mechanically" },
+    { id:"hold", label:"Change nothing yet, gather more" }
+  ];
+
+  // Outcome depends on the true cause, not on what the learner believed.
+  var OUTCOME = {
+    chem:   { up:  ["better","Floc improves within a basin turnover. Settled water clears."],
+              down:["worse","Floc collapses further. You were already short and went shorter."],
+              mech:["same","Nothing mechanical to find. A shift spent, the water unchanged."],
+              hold:["same","No change, and the water is still poor. Holding is safe and it is not free."] },
+    contact:{ up:  ["same","No improvement, and the chemical spend is up. The fault is still there, now partly masked."],
+              down:["worse","Now you have a contact problem and a chemistry problem."],
+              mech:["better","The slow flocculator is found and corrected. Floc grows within a turnover."],
+              hold:["same","No change. The fault is mechanical and it will not resolve itself."] },
+    over:   { up:  ["worse","Worse again. You are on the far side of the window walking away from it, and making sludge doing it."],
+              down:["better","Floc improves as the dose comes down. The window was behind you."],
+              mech:["same","Nothing mechanical to find. A shift spent, the water unchanged."],
+              hold:["same","No change, and every hour at this dose is producing residuals you will pay to handle."] }
+  };
+
+  var CASES = ["chem","contact","over"];
+
+  var state = { idx:0, cause:null, spent:0, gathered:{}, committed:null, acted:null, phase:"gather" };
+  var root = document.getElementById("dx");
+  if(!root) return;
+
+  function startCase(i){
+    state = { idx:i, cause:CASES[i], spent:0, gathered:{}, committed:null, acted:null, phase:"gather" };
+    render();
+    track("archetype.diagnose.case_started", {case:i+1});
+  }
+
+  function waterSvg(mode){
+    var specks = mode==="better"
+      ? '<circle cx="70" cy="52" r="13" fill="#2b7399"/><circle cx="128" cy="46" r="11" fill="#2b7399"/>'+
+        '<circle cx="96" cy="86" r="15" fill="#2b7399"/>'+
+        '<path d="M96 104 L96 126" stroke="#7fb069" stroke-width="2.5" marker-end="url(#dxA)"/>'
+      : mode==="worse"
+      ? '<g fill="#f2f1ec" opacity=".9">'+[[36,40],[62,34],[92,44],[122,36],[152,46],[46,64],[76,58],[106,68],[136,60],[166,70],[40,90],[70,84],[100,94],[130,86],[160,96],[54,116],[88,110],[120,118],[150,112]].map(function(p){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.4"/>';}).join('')+'</g>'
+      : '<g fill="#f2f1ec" opacity=".78">'+[[40,48],[74,42],[110,52],[146,46],[58,72],[96,66],[132,76],[46,98],[84,92],[122,102],[158,90]].map(function(p){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>';}).join('')+'</g>';
+    var label = mode==="better" ? ["SETTLING","#7fb069"] : mode==="worse" ? ["WORSE THAN YOU STARTED","#e07a63"] : ["UNCHANGED","#a29c91"];
+    return '<svg viewBox="0 0 200 150" role="img" aria-label="Water condition: '+label[0].toLowerCase()+'" style="width:200px;height:150px;flex:0 0 auto">'+
+      '<rect width="200" height="150" fill="#141311"/><rect x="14" y="20" width="172" height="112" fill="#2b7399" opacity=".2"/>'+
+      specks+'<text x="14" y="146" font-family="monospace" font-size="10" fill="'+label[1]+'">'+label[0]+'</text>'+
+      '<defs><marker id="dxA" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#7fb069"/></marker></defs></svg>';
+  }
+
+  function render(){
+    var h = '<div class="dx-head"><span class="dx-case">CASE '+(state.idx+1)+' OF 3</span>'+
+      '<span class="dx-cost">SHIFTS SPENT <b>'+state.spent+'</b></span></div>'+
+      '<p class="dx-symptom">Poor floc in the flocculation basin. It will not grow and it will not '+
+      'settle. Three things could be causing it. You do not know which.</p>';
+
+    // ---- evidence
+    h += '<div class="dx-block"><h4>1. Gather what you need. Every test costs a shift except looking.</h4><div class="dx-ev">';
+    EVIDENCE.forEach(function(e){
+      var got = state.gathered[e.id];
+      h += '<button type="button" class="dx-btn'+(got?" got":"")+'" data-ev="'+e.id+'"'+
+           (got||state.phase!=="gather"?' disabled':'')+'>'+e.label+
+           '<span class="dx-tag">'+(e.cost?"1 shift":"free")+'</span></button>';
+    });
+    h += '</div>';
+    var results = EVIDENCE.filter(function(e){ return state.gathered[e.id]; });
+    if(results.length){
+      h += '<div class="dx-results">';
+      results.forEach(function(e){
+        h += '<p><b>'+e.label+':</b> '+e.result[state.cause]+'</p>';
+      });
+      h += '</div>';
+    }
+    h += '</div>';
+
+    // ---- commit
+    h += '<div class="dx-block"><h4>2. Commit. You are not told first.</h4><div class="dx-ev">';
+    Object.keys(CAUSES).forEach(function(k){
+      h += '<button type="button" class="dx-btn'+(state.committed===k?" chosen":"")+'" data-dx="'+k+'"'+
+           (state.phase!=="gather"?' disabled':'')+'>'+CAUSES[k].name+'</button>';
+    });
+    h += '</div></div>';
+
+    // ---- action
+    if(state.committed){
+      h += '<div class="dx-block"><h4>3. Act on it.</h4><div class="dx-ev">';
+      ACTIONS.forEach(function(a){
+        h += '<button type="button" class="dx-btn'+(state.acted===a.id?" chosen":"")+'" data-act="'+a.id+'"'+
+             (state.phase!=="gather"?' disabled':'')+'>'+a.label+'</button>';
+      });
+      h += '</div></div>';
+    }
+
+    // ---- outcome and reconcile
+    if(state.phase==="done"){
+      var o = OUTCOME[state.cause][state.acted];
+      var right = state.committed===state.cause;
+      h += '<div class="dx-out '+o[0]+'">'+
+           '<div class="dx-out-txt">'+
+           '<span class="dx-verdict '+(right?"ok":"no")+'">'+(right?"You had it right":"You had it wrong")+'</span>'+
+           '<p><b>What actually happened.</b> '+o[1]+'</p>'+
+           '<p><b>The cause was '+CAUSES[state.cause].name.toLowerCase()+'.</b> '+CAUSES[state.cause].truth+'</p>'+
+           '</div>'+waterSvg(o[0])+'</div>';
+
+      h += '<div class="dx-block"><h4>4. Reconcile. What the evidence was worth.</h4><div class="dx-recon">';
+      EVIDENCE.forEach(function(e){
+        var used = !!state.gathered[e.id];
+        var wouldTell = e.decisive;
+        var cls = used ? (wouldTell?"good":"waste") : (wouldTell?"missed":"skip");
+        var verdict = used ? (wouldTell?"You bought it, and it told you something":"You bought it, and it could not tell you anything")
+                           : (wouldTell?"You skipped it, and it would have helped":"You skipped it, and it would not have helped");
+        h += '<p class="'+cls+'"><b>'+e.label+'.</b> '+verdict+'. '+e.note+'</p>';
+      });
+      h += '</div></div>';
+      h += '<div class="dx-next"><button type="button" class="dx-btn primary" data-next="1">'+
+           (state.idx<2?"Next case":"Start again from case 1")+'</button>'+
+           '<button type="button" class="dx-btn" data-retry="1">Retry this case</button></div>';
+    }
+
+    root.innerHTML = h;
+  }
+
+  root.addEventListener("click", function(ev){
+    var b = ev.target.closest("button"); if(!b || b.disabled) return;
+    if(b.dataset.ev){
+      var e = EVIDENCE.filter(function(x){return x.id===b.dataset.ev;})[0];
+      state.gathered[e.id]=true; state.spent += e.cost;
+      track("archetype.diagnose.evidence",{evidence:e.id,cost:e.cost});
+      render(); return;
+    }
+    if(b.dataset.dx){ state.committed=b.dataset.dx;
+      track("archetype.diagnose.committed",{to:b.dataset.dx,spent:state.spent,evidence:Object.keys(state.gathered).length});
+      render(); return; }
+    if(b.dataset.act){
+      state.acted=b.dataset.act; state.phase="done"; state.spent += 1;
+      var right = state.committed===state.cause;
+      track("archetype.diagnose.resolved",{cause:state.cause,committed:state.committed,action:state.acted,
+        correct:right,outcome:OUTCOME[state.cause][state.acted][0],shifts:state.spent});
+      render();
+      root.querySelector(".dx-out").scrollIntoView({block:"center",behavior:reduced?"auto":"smooth"});
+      return;
+    }
+    if(b.dataset.next){ startCase((state.idx+1)%3); root.scrollIntoView({block:"start",behavior:reduced?"auto":"smooth"}); return; }
+    if(b.dataset.retry){ startCase(state.idx); root.scrollIntoView({block:"start",behavior:reduced?"auto":"smooth"}); return; }
+  });
+
+  startCase(0);
+})();
+
+</script>
+</body>
+</html>
