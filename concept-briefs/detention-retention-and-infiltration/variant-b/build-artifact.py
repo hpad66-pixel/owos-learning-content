@@ -17,8 +17,8 @@ body = re.search(r"<body>(.*?)</body>", src, re.S).group(1).strip()
 # Platform routes are inert in a standalone page.
 body = re.sub(r'href="/community[^"]*"', 'href="#pl-t"', body)
 body = body.replace(
-    '<p class="taught">Taught by <b>Droobi</b></p>',
-    '<p class="taught">Taught by <b>Droobi</b></p>\n'
+    '<p class="taught">Independent water sector education</p>',
+    '<p class="taught">Independent water sector education</p>\n'
     '      <p class="taught" style="flex:1 1 100%;font-size:13px;color:#6b665c">'
     'Community, Graph, and sponsorship links resolve inside the OWOS platform '
     'and are inert in this published preview.</p>')

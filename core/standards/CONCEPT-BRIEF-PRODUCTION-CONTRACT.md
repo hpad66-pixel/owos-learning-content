@@ -1,6 +1,6 @@
 ---
 title: OWOS Concept Brief Production Contract
-version: 2.2.0
+version: 2.3.0
 contract: owos-concept-brief/2
 status: APPROVED FOR IMPLEMENTATION
 owner: Hardeep Anand
@@ -641,6 +641,32 @@ cannot lower the floor, and it cannot lower the floor by accident by remapping a
 Components inherit their text colour from the card that contains them. A brief may use a light or a
 dark variant of the same component, so a rule that forces one colour breaks the other.
 
+## Quality control certificate
+
+Every brief that reaches a live site ships with a Quality Control Certificate under
+`core/standards/OWOS-QAQC-CERTIFICATE-STANDARD.md`, at the same version, in the same repository, in
+the same commit.
+
+The certificate records graphics, analysis and physics, factual accuracy, citations, editorial and
+instructional compliance, rendered quality, every defect found and its disposition, open items, and
+the correction and version history. It is the record of the checks, not a summary written afterward.
+
+Two rules carry publication consequences:
+
+1. **A citation resting only on an archived or snapshot agency URL is not federal authority.** It
+   evidences that a document once existed at an agency, not that the agency publishes it now. A brief
+   may not release while a material claim depends on one. Replace it with live authority, weaken the
+   claim to what the live record supports, or remove it.
+2. **A certificate reporting no defects must still show what was examined.** Finding nothing is
+   possible. Finding nothing without saying what you looked at is not a review.
+
+When a reader raises a correction, the document version increments, a new certificate covers the
+change, the previous certificate is retained under `qa-qc/`, and both publish together. Rejected
+corrections are recorded with their reasoning.
+
+Run `python3 tools/check_qaqc_certificate.py <certificate> --artifact <published file>`. A failure
+blocks publication.
+
 ## Quality gates
 
 Every brief has these hard gates:
@@ -651,8 +677,9 @@ Every brief has these hard gates:
 4. qualified utility or technical practice review;
 5. visual, interaction, accessibility, and responsive quality;
 6. Graph and Community integrity;
-7. commercial integrity; and
-8. release control.
+7. commercial integrity;
+8. quality control certificate; and
+9. release control.
 
 A numeric score cannot override a blocked gate.
 
