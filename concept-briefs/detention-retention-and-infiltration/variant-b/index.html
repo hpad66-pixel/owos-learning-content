@@ -103,11 +103,17 @@ figcaption b{color:var(--white)}
 
 /* ---------- flip cards ---------- */
 .flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:16px;margin-top:28px}
-.flip{background:transparent;border:0;padding:0;min-height:196px;perspective:1100px;text-align:left;font:inherit}
-.flip-in{position:relative;width:100%;height:100%;min-height:196px;transition:transform .5s;transform-style:preserve-3d}
+/* The faces are stacked in one grid cell rather than absolutely positioned, so
+   the card sizes itself to whichever face is taller. The inner element must be
+   a block-level box: as an inline span its width, height, and min-height are
+   all ignored, which collapsed the card to zero height. */
+.flip{display:block;background:transparent;border:0;padding:0;perspective:1100px;
+  text-align:left;font:inherit;min-height:0}
+.flip-in{display:grid;position:relative;min-height:200px;
+  transition:transform .5s;transform-style:preserve-3d}
 .flip[aria-pressed="true"] .flip-in{transform:rotateY(180deg)}
-.flip-f,.flip-b{position:absolute;inset:0;backface-visibility:hidden;padding:22px;display:flex;
-  flex-direction:column;justify-content:center;border-radius:3px}
+.flip-f,.flip-b{grid-area:1 / 1;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  padding:22px;display:flex;flex-direction:column;justify-content:center;border-radius:3px}
 .flip-f{background:var(--charcoal);border:1px solid #4a4741}
 .flip-b{background:var(--water-deep);border:1px solid var(--water);transform:rotateY(180deg)}
 .flip-f p,.flip-b p{margin:0;font-size:16px}
@@ -115,7 +121,8 @@ figcaption b{color:var(--white)}
 .flip-b .a{color:#fff}
 .flip-tag{font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--water);margin-bottom:11px}
-.flip-b .flip-tag{color:#cdeaf8}
+.flip-b .flip-tag{color:#eaf7fd}
+.flip-b .flip-hint{color:#eaf7fd}
 .flip-hint{margin-top:14px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 @media (prefers-reduced-motion: reduce){.flip-in{transition:none}}
 
@@ -562,7 +569,7 @@ footer p{margin:0 0 10px;max-width:78ch}
           <span class="flip-hint">Tap to reveal</span></span>
         <span class="flip-b"><span class="flip-tag">Answer</span>
           <p class="a">You cannot tell. If it is a wet pond, that is the permanent pool and the storm
-            storage sits above it, possibly entirely available.</p></span>
+            storage sits above it, possibly entirely available.</p><span class="flip-hint">Tap to go back</span></span>
       </span></button>
 
       <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
@@ -571,7 +578,7 @@ footer p{margin:0 0 10px;max-width:78ch}
           <span class="flip-hint">Tap to reveal</span></span>
         <span class="flip-b"><span class="flip-tag">Answer</span>
           <p class="a">Probably almost none. Peak is a rate. Volume is the area under the curve. A
-            detention basin releases nearly all of what it received.</p></span>
+            detention basin releases nearly all of what it received.</p><span class="flip-hint">Tap to go back</span></span>
       </span></button>
 
       <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
@@ -581,7 +588,7 @@ footer p{margin:0 0 10px;max-width:78ch}
         <span class="flip-b"><span class="flip-tag">Answer</span>
           <p class="a">Unknown from that observation. Native soil, an underdrain back to the storm
             pipe, plant uptake, or lateral movement. Infiltration is a doorway, not a
-            destination.</p></span>
+            destination.</p><span class="flip-hint">Tap to go back</span></span>
       </span></button>
 
       <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
@@ -590,7 +597,7 @@ footer p{margin:0 0 10px;max-width:78ch}
           <span class="flip-hint">Tap to reveal</span></span>
         <span class="flip-b"><span class="flip-tag">Answer</span>
           <p class="a">Maybe not. High tailwater slows release without any obstruction. Ask what the
-            receiving water was doing before you diagnose the outlet.</p></span>
+            receiving water was doing before you diagnose the outlet.</p><span class="flip-hint">Tap to go back</span></span>
       </span></button>
 
       <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
@@ -599,7 +606,7 @@ footer p{margin:0 0 10px;max-width:78ch}
           <span class="flip-hint">Tap to reveal</span></span>
         <span class="flip-b"><span class="flip-tag">Answer</span>
           <p class="a">Which meaning: water kept from later surface discharge, or a pond with a
-            permanent pool? They imply completely different behaviour.</p></span>
+            permanent pool? They imply completely different behaviour.</p><span class="flip-hint">Tap to go back</span></span>
       </span></button>
 
       <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
@@ -610,7 +617,7 @@ footer p{margin:0 0 10px;max-width:78ch}
         <span class="flip-b"><span class="flip-tag">Answer</span>
           <p class="a">Not established. Individually compliant releases can arrive together and
             combine into a higher downstream peak. That is a watershed question, not a site
-            one.</p></span>
+            one.</p><span class="flip-hint">Tap to go back</span></span>
       </span></button>
     </div>
   </div>

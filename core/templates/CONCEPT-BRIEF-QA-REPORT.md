@@ -83,6 +83,9 @@ Run `node tools/audit-concept-brief-rendering.cjs <compiled.html>` and paste the
 - [ ] No text starts closer to the viewport edge than the page's content inset.
 - [ ] No horizontal overflow at any width.
 - [ ] Interactive controls are at least 24 by 24 pixels.
+- [ ] No container holds content far larger than its own box, and no positioned or
+  three-dimensional element computes to `display:inline`. A card built from inline elements
+  collapses while its text stays legible, so contrast and overflow both pass.
 - [ ] Every assessment renders its prompts, options, and graded answers. A matching check shows a
   visible statement on every row.
 - [ ] Native form controls follow the surface they sit on rather than the page theme.

@@ -3,6 +3,28 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.33.0] - 2026-07-27
+### Fixed: Variant B flip cards were structurally collapsed
+- The flip-card inner element was a `<span>`, so it computed to `display:inline` and its `width`,
+  `height`, `min-height`, and `transform-style` were all silently ignored. The container had zero
+  height, the absolutely positioned faces fell back to 44 pixels holding 281 pixels of content, and
+  the cards rendered as overlapping text wrapping one word per line. Rebuilt as a grid stack so each
+  card sizes itself to its taller face, with a back-face hint so the affordance survives the flip.
+
+### Added: layout-integrity check in the rendered audit
+- This defect was invisible to every existing gate. The text was on screen, contrast passed, nothing
+  overflowed the viewport, and the rotation transform applied correctly. The audit now also fails on
+  a container whose content is far larger than its own box, and on a positioned or three-dimensional
+  element that computes to `display:inline`.
+- Two bugs in the first version of the check are worth recording. It reused the shared `visible`
+  helper, which rejects zero-height elements, so it skipped the collapsed container it existed to
+  find. It also only ran on elements with their own text, and a collapsed container usually holds
+  only other elements. Layout integrity now gets its own pass with its own visibility rule.
+- The threshold is a ratio rather than a pixel count. Line-height and negative margins push content a
+  few percent outside its box with nothing wrong and nothing clipped, and the compiled briefs do that
+  in three places. A real collapse is not marginal: the flip card was six times over. Verified in both
+  directions against a saved copy of the broken page.
+
 ## [0.32.0] - 2026-07-27
 ### Added: Detention brief Variant B, an alternative curriculum interpretation
 - Added `concept-briefs/detention-retention-and-infiltration/variant-b/` with a rationale document

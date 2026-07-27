@@ -12,6 +12,12 @@
  *   gutter    text sitting closer to the viewport edge than the page's own
  *             content inset, which is how a band, header, or full-bleed panel
  *             ends up flush against the screen.
+ *   layout    a container whose content is far larger than the box holding it,
+ *             or a positioned/3D box that computes to display:inline where its
+ *             width, height, and transform-style are silently ignored. This is
+ *             how a card built from inline elements collapses: the text stays
+ *             on screen and legible, so contrast and overflow both pass while
+ *             the component is visually destroyed.
  *   overflow  horizontal document overflow at any width.
  *   tap       interactive controls below the 24px minimum on touch widths.
  *
@@ -124,6 +130,38 @@ const AUDIT = () => {
   const contrast = [];
   const gutter = [];
   const tap = [];
+  const layout = [];
+
+  // Content taller than the box that holds it, with nothing to clip or scroll
+  // it. A box whose height is free grows to fit its text, so this only happens
+  // when the height was constrained or the container collapsed. It is how a
+  // card built out of inline elements silently loses its layout: the text is
+  // still on screen and still legible, so contrast and overflow checks pass
+  // while the component is visually destroyed.
+  // Threshold is a ratio, not a few pixels. Line-height, descenders, and a child
+  // with a negative margin all paint slightly outside their box without anything
+  // being wrong, and overflow:visible means nothing is actually clipped. A
+  // genuinely collapsed container is not marginal: the flip card that prompted
+  // this check held 281px of content in a 44px box, six times over.
+  const spilling = (el) => {
+    const s = getComputedStyle(el);
+    if (s.overflowY !== 'visible' || s.display === 'inline') return false;
+    if (s.position === 'absolute' && el.offsetParent === null) return false;
+    if (el.clientHeight <= 0) return false;
+    return (
+      el.scrollHeight > el.clientHeight * 1.5 &&
+      el.scrollHeight - el.clientHeight > 24
+    );
+  };
+
+  // width, height, min-height and transform-style do nothing on an inline box.
+  // Authoring a card, panel, or stage as a <span> is the usual cause.
+  const inlineButSized = (el) => {
+    const s = getComputedStyle(el);
+    if (s.display !== 'inline') return false;
+    if (s.position === 'relative' || s.position === 'absolute') return true;
+    return s.transformStyle === 'preserve-3d' || s.perspective !== 'none';
+  };
 
   // Establish the page's own content inset from its dominant wrapper.
   const wraps = [...document.querySelectorAll('.wrap')]
@@ -206,6 +244,32 @@ const AUDIT = () => {
     }
   }
 
+  // Layout integrity gets its own pass. It cannot reuse `visible`, because that
+  // rejects zero-height elements and a collapsed container is exactly the thing
+  // being looked for. It also cannot require own text, since the container that
+  // collapsed usually holds only other elements.
+  for (const el of document.querySelectorAll('body *')) {
+    // SVG uses a different box model; clientHeight there is not comparable.
+    if (el.namespaceURI !== 'http://www.w3.org/1999/xhtml') continue;
+    const s = getComputedStyle(el);
+    if (s.display === 'none' || s.visibility === 'hidden') continue;
+    if (Number(s.opacity) === 0) continue;
+    if (el.closest('[hidden]')) continue;
+    const sample = (el.textContent || '').trim().slice(0, 60);
+    if (spilling(el)) {
+      layout.push({
+        el: label(el), kind: 'content-spills-its-box', text: sample,
+        boxH: el.clientHeight, contentH: el.scrollHeight,
+      });
+    }
+    if (inlineButSized(el)) {
+      layout.push({
+        el: label(el), kind: 'positioned-or-3d-box-computes-inline', text: sample,
+        boxH: Math.round(el.getBoundingClientRect().height), contentH: 0,
+      });
+    }
+  }
+
   for (const el of document.querySelectorAll('a, button, input, select, textarea, [role="button"]')) {
     if (!visible(el)) continue;
     const r = el.getBoundingClientRect();
@@ -235,6 +299,7 @@ const AUDIT = () => {
       gutter,
       (r) => r.el + (r.overflowRight ? 'R' : r.boxEscapesViewport ? 'B' : 'L'),
     ),
+    layout: dedupe(layout, (r) => r.el + r.kind),
     tap: dedupe(tap, (r) => r.el),
   };
 };
@@ -291,12 +356,13 @@ async function auditFile(browser, file) {
   for (const report of reports) {
     if (!asJson) console.log('\n=== ' + path.basename(report.file) + ' ===');
     for (const r of report.results) {
-      const count = r.contrast.length + r.gutter.length + r.tap.length + (r.horizontalOverflow > 0 ? 1 : 0);
+      const count = r.contrast.length + r.gutter.length + r.layout.length + r.tap.length + (r.horizontalOverflow > 0 ? 1 : 0);
       failures += count;
       if (asJson) continue;
       console.log(
         `\n  [${r.viewport}] inset=${r.pageInset}px  contrast=${r.contrast.length}  ` +
-          `gutter=${r.gutter.length}  tap=${r.tap.length}  hOverflow=${r.horizontalOverflow}px`,
+          `gutter=${r.gutter.length}  layout=${r.layout.length}  ` +
+          `tap=${r.tap.length}  hOverflow=${r.horizontalOverflow}px`,
       );
       for (const c of r.contrast) {
         console.log(
@@ -313,6 +379,13 @@ async function auditFile(browser, file) {
               : `    gutter ${g.el} left=${g.left} (page inset ${g.expected})\n       "${g.text}"`,
         );
       }
+      for (const l of r.layout) {
+        console.log(
+          l.kind === 'content-spills-its-box'
+            ? `    layout ${l.kind} ${l.el} box=${l.boxH}px content=${l.contentH}px\n       "${l.text}"`
+            : `    layout ${l.kind} ${l.el} height=${l.boxH}px\n       "${l.text}"`,
+        );
+      }
       for (const t of r.tap) console.log(`    tap-target ${t.el} ${t.w}x${t.h}`);
     }
   }
@@ -320,7 +393,7 @@ async function auditFile(browser, file) {
   if (!asJson) {
     console.log(
       failures === 0
-        ? '\nRendered audit passed: no contrast, gutter, overflow, or tap-target defects.'
+        ? '\nRendered audit passed: no contrast, gutter, layout, overflow, or tap-target defects.'
         : `\nRendered audit found ${failures} defect(s).`,
     );
   }

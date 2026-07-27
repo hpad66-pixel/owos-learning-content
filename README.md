@@ -2,7 +2,7 @@
 
 The governed source and build repository for One Water Operating System learning products, by APAS.ai. Taught by Droobi.
 
-**Version:** 0.32.0 &middot; **Last updated:** 2026-07-27
+**Version:** 0.33.0 &middot; **Last updated:** 2026-07-27
 
 This is the learning-content monorepo. It contains two governed production systems:
 
