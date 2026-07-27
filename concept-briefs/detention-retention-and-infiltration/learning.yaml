@@ -1,0 +1,170 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+learning:
+  outcomes:
+    - Trace the possible surface, subsurface, controlled-release, overflow, bypass, and unintended wastewater pathways associated with one storm.
+    - Distinguish detention, retention, and infiltration without presenting one regional naming convention as universal.
+    - Explain a permanent pool and the temporary storm storage above it without inferring performance from appearance.
+    - Read the basic inflow, storage, and delayed-outflow story in a qualitative hydrograph.
+    - Select evidence that addresses timing, volume, concentration, total load, site constraints, and maintenance condition.
+    - Explain how wet-weather infiltration and inflow consume capacity in a separate sanitary sewer.
+    - Connect permit responsibility, maintenance evidence, lifecycle funding, and public value.
+    - Complete the 11-question system conversation while making uncertainty visible.
+  prior_knowledge:
+    - Basic awareness that stormwater runoff moves from land into drainage systems or receiving waters.
+  misconception: A familiar practice name, permanent pool, dry surface, permit, or lower concentration proves the complete water pathway and present performance.
+  transfer_task: Complete the 11-question system conversation for an unfamiliar conceptual stormwater system and state one result, one uncertainty, one responsibility, and one next piece of evidence.
+  cross_sector_connections:
+    - Wet-weather infiltration and inflow can consume separate sanitary-sewer conveyance, pumping, treatment, and storage capacity.
+    - Drinking-water source protection and recharge planning may involve infiltration, but source-water and groundwater protection questions require their own evidence.
+    - Water reuse can retain or store water for beneficial use, but reuse quality, treatment, and authorization are outside this stormwater concept brief.
+    - Asset management and finance connect the intended stormwater service to inspection, maintenance, renewal, and lifecycle funding.
+  experience_profile:
+    visual_explanations_minimum: 4
+    dynamic_explanation_required: true
+    distributed_checks_minimum: 2
+    final_applied_check_required: true
+    shared_registry: owos-learning-capabilities/1
+placement:
+  content_type: concept_brief
+  prerequisite_brief_ids: []
+  remediation_brief_ids:
+    - concept:urban-watershed
+  next_learning_ids:
+    - concept:storm-hydrograph
+    - concept:stormwater-control-measure-maintenance
+    - concept:receiving-water-response
+    - concept:infiltration-and-inflow
+    - concept:npdes-permits
+    - concept:water-balance
+  course_connections: []
+capability_lock:
+  registry_id: owos-learning-capabilities/1
+  registry_version: 1
+  required_capability_ids:
+    - path-tracer
+    - layered-stack
+    - before-after-slider
+    - handoff-simulator
+    - failure-trace
+    - accountability-handoff
+    - multiple-choice
+    - multi-select
+    - matching
+    - flip-cards
+    - applied-work-product
+  compatibility_policy: Revalidate the package and owner-approved storyboard when any selected capability changes behavior or major version.
+learning_events:
+  event_namespace: owos.concept_brief.003
+  stable_event_ids:
+    - concept_brief.started
+    - interaction.storm_path_trace.completed
+    - interaction.condition_failure_trace.completed
+    - assessment.terminology_boundary.attempted
+    - assessment.terminology_boundary.passed
+    - assessment.detention_function.passed
+    - assessment.permanent_pool.completed
+    - assessment.performance_evidence.passed
+    - assessment.ii_route.passed
+    - assessment.permit_value_sequence.passed
+    - assessment.system_conversation.completed
+    - concept_brief.completed
+  attempt_policy: Preserve every assessment attempt and completion decision against the exact brief, item, compiler, and capability versions.
+  record_authority: OWOS Learning Record Service after authentication and consent. Browser state is convenience only.
+  privacy_classification: public_learning_record_without_facility_data
+  consent_boundary: Explain event recording before authenticated participation and before any future provider learning-hour record.
+  retention_rule: Pending privacy and learning-record retention review.
+  facility_sensitive_data_collection: prohibited
+  privacy_review_status: pending
+  supersession_policy: Preserve the exact completed content, assessment, model, capability, and compiler versions. Append corrections or supersession records.
+  material_correction_notification: Notify affected authenticated learners if an approved correction changes an assessment answer, pathway conclusion, or credited learning outcome.
+assessment_governance:
+  passing_rule: Complete the storm tracer and condition failure trace, pass the terminology, detention, performance, I&I, and permit-value checks, complete permanent-pool retrieval, and complete every required field in the final system conversation.
+  retry_policy: Unlimited instructional retry with every attempt preserved for any future credit-bearing offering.
+  item_version_policy: Change the item version whenever the prompt, evidence, answer logic, scoring, or mastery meaning changes.
+  feedback_policy: Every check provides immediate plain-language feedback and a retry path.
+  accommodation_policy: Keyboard, touch, screen reader, zoom, reduced motion, no JavaScript, and additional-time support do not change the mastery claim.
+  review_status: proposed_pending_owner_editorial_technical_accessibility_and_accreditor_review
+simulation_assurance:
+  model_id: path-tracer
+  model_version: 0.2.0
+  assumptions_visible: true
+  illustrative_values_labeled: true
+  deterministic_replay: authored_route_state_sequence
+  qualified_review_required: true
+  operational_use: prohibited
+language_units_time:
+  primary_language: en-US
+  reading_target: Plain-language utility professional or public leader new to stormwater practice terminology.
+  unit_policy: No transferable design or operating quantities. Any worked quantity must state units, source, assumptions, and illustrative status.
+  localization_state: not_requested
+  instructional_minutes: target_18_to_25_pending_timed_novice_review
+  active_participation_minutes: pending_timed_novice_review
+  assessment_minutes: pending_timed_novice_review
+  timing_method: Timed novice-reader and active-participation study after an approved working preview exists.
+learner_experience:
+  quick_orientation: Follow the water. Find the control. Name the responsibility. Ask for the evidence.
+  orientation:
+    subject: What actually happens to rain after it lands, and why the name on the drawing is weaker evidence than most people assume.
+    audience: Anyone who has to talk about, pay for, inspect, approve, explain, or answer for a stormwater asset without necessarily being the person who designed it. That includes operators, inspectors, engineers working outside their specialty, asset managers, finance staff, executives, elected officials, developers, regulators, educators, and members of the public. The only thing assumed is that you know rain runs off streets and roofs into drains.
+    why_it_matters: A utility can approve an asset that does not do what its name implies, spend capital adding capacity when the real problem was a blocked outlet, carry and treat rainwater in a sanitary sewer for years without attributing the cost, or tell the public a pond prevents flooding and lose credibility during the storm that proves otherwise. None of those failures require anyone to be careless. They require only that people trust a familiar word instead of tracing the water.
+    time_estimate: Eighteen to twenty five minutes, including the interactive checks.
+    scope_boundary: This brief will not size, design, model, permit, inspect, operate, or certify anything. It does not give you a drawdown time, an infiltration rate, a separation distance, a removal percentage, or a compliance determination. It uses United States federal and EPA authority only. State requirements are handled separately.
+  primary_navigation_maximum: 4
+  required_top_drawers:
+    - graph-drawer
+    - community-drawer
+  closing_recap_labels:
+    - What changed
+    - What to observe
+    - What not to assume
+  comment_placement: after_learning_and_commercial
+  community_mode: compact_entry_plus_drawer
+  sop_boundary: outline_only
+  inactive_commercial_placement: hidden
+  learner_facing_governance_metadata: minimal
+completion:
+  required_ids:
+    - storm-path-trace-completed
+    - condition-failure-trace-completed
+    - terminology-boundary-passed
+    - detention-function-passed
+    - permanent-pool-retrieval-completed
+    - performance-evidence-passed
+    - ii-route-passed
+    - permit-value-sequence-passed
+    - system-conversation-completed
+  rule: Complete both dynamic traces, all distributed checks, and every required field in the final system conversation.
+continuing_education:
+  state: readiness_only
+  credit_claim: disabled
+  instructional_time_basis: Pending timed novice-reader and active-participation study.
+  identity_evidence: Authenticated OWOS learner identity is required before any provider learning-hour record.
+  participation_evidence: Stable interaction, attempt, pass, work-product, and completion events are specified but not connected to an approved offering.
+  assessment_rule: Draft passing and retry rules require owner, editorial, qualified technical, accessibility, privacy, and accreditor review.
+  completion_record: Exact brief, content, assessment, model, capability, compiler, and completion-rule versions are required.
+  content_version: owos:concept-brief:003@0.2.0
+  provider_record: Provider and instructor-of-record approval pending.
+  evaluation_record: Learner evaluation instrument not yet approved.
+  accreditor_approval: not_requested
+credential_readiness:
+  contract: owos-learning-record-credential/1
+  event_profile: owos-xapi-profile/1
+  lms_launch_preferred: cmi5
+  legacy_lms_adapter: SCORM 2004
+  portable_credential_target: Open Badges 3.0
+  learner_record_export_target: Comprehensive Learner Record 2.0
+  credit_profile_id: accreditor:external-approval-pending
+  credit_claim: disabled
+  certificate_state: disabled_pending_offering_approval
+learning_pathways:
+  recommendation_policy: owos-next-best-learning/1
+  lanes:
+    - deepen
+    - reskill
+    - cross-skill
+  explainability_required: true
+  learner_control_required: true
+  protected_traits_prohibited: true
+  facility_sensitive_data_prohibited: true

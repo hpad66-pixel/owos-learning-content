@@ -1,0 +1,249 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+rendered_review_summary:
+  status: preview_0_3_author_visual_check_passed_owner_and_qualified_review_pending
+  date: 2026-07-26
+  evidence:
+    - dist/research-rebuild-browser-qa/desktop-top.png
+    - dist/research-rebuild-browser-qa/desktop-wet-pond.png
+    - dist/research-rebuild-browser-qa/desktop-path-tracer.png
+    - dist/research-rebuild-browser-qa/desktop-subsurface.png
+    - dist/research-rebuild-browser-qa/desktop-finish.png
+    - dist/research-rebuild-browser-qa/phone-reduced-motion-top.png
+    - dist/research-rebuild-browser-qa/phone-reduced-motion-wet-pond.png
+    - dist/research-rebuild-browser-qa/phone-no-javascript-path-tracer.png
+  findings:
+    - Preview 0.2 was rejected by the owner for margins, graphic-text alignment, and weak instruction.
+    - Preview 0.3 uses increased responsive gutters, controlled prose measure, aligned visual frames, and consistent captions.
+    - Ten rendered graphic blocks were captured individually on desktop and phone for alignment review.
+    - Diagrams retain visible introductions, reading guides, conclusions, limitations, and structured text equivalents.
+    - Phone layouts are contained at 390 pixels, use stacked definition records, and preserve the learning sequence.
+    - Independent visual-truth, accessibility, novice-reader, and qualified practitioner reviews remain pending.
+visuals:
+  - visual_id: visual-route-comparison
+    title: Same storm, different routes and performance measures
+    component_id: before-after-slider
+    locator: visuals/same-storm-route-comparison.svg
+    asset_class: explanatory_comparison
+    teaching_idea: Compare timing, discharged volume, concentration, and total load without collapsing them into one score.
+    learner_conclusion: A favorable result in one measure does not prove the complete pathway or performance objective.
+    reading_guide: Start with the incoming storm, compare every exit route, then read peak timing, discharged volume, concentration, and total load as separate evidence.
+    alternative_text: Two illustrative stormwater outcomes compare controlled surface release with a route that also reduces discharged volume. Separate labels identify timing, volume, concentration, and total load.
+    mobile_treatment: Stack the two outcomes and retain aligned measure labels.
+    reduced_motion_treatment: Show both outcomes together without a moving divider.
+    creator: OWOS Concept Engine activation plan
+    source: Governed claim register and approved storyboard after review
+    license: planned_original_owos_component_configuration
+    permission_status: pending
+    originality_status: planned
+    storyboard_status: approved_for_working_preview
+    rendered_review_status: not_started
+  - visual_id: visual-connected-storm-route
+    title: One storm through the connected system
+    locator: visuals/connected-storm-route.svg
+    asset_class: explanatory_route_map
+    teaching_idea: Show rainfall branching through surfaces, storage, soil, outlets, receiving waters, and unintended sanitary-sewer entry.
+    learner_conclusion: A complete explanation follows every visible and hidden route before applying a practice name.
+    reading_guide: Start at rainfall, follow each branch to its destination, then identify the control, responsibility, and evidence question.
+    alternative_text: Panoramic conceptual stormwater system with routes through dry and wet storage, soil, underdrain, overflow, outfall, receiving water, and a separate sanitary sewer.
+    mobile_treatment: Convert the panorama into five numbered vertical stops with a persistent route key.
+    reduced_motion_treatment: Use manual route states and a complete structured route table.
+    creator: OWOS Concept Engine design proposal
+    source: National claim register and owner-approved white paper
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-dry-basin-timeline
+    title: Dry detention before, during, and after one storm
+    locator: visuals/dry-basin-timeline.svg
+    asset_class: explanatory_time_sequence
+    teaching_idea: Keep inflow, temporary storage, outlet release, and recovery visible through five event states.
+    learner_conclusion: The empty basin volume can be working storage that fills and later recovers.
+    reading_guide: Compare the water level and outlet at before, rising, peak, recession, and recovery.
+    alternative_text: Five conceptual dry-basin states show storage filling and draining through a controlled outlet.
+    mobile_treatment: Use one full-width state per row.
+    reduced_motion_treatment: Show all five states simultaneously.
+    creator: OWOS Concept Engine design proposal
+    source: claim-detention-temporary-release and claim-hydrograph-peak-volume-distinction
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-wet-pond-elevations
+    title: Permanent pool and temporary storm storage
+    component_id: layered-stack
+    locator: visuals/wet-pond-elevations.svg
+    asset_class: explanatory_cutaway
+    teaching_idea: Separate pond bottom, permanent pool, normal water level, storm storage, outlet, overflow, and downstream boundary.
+    learner_conclusion: A wet pond can contain a permanent pool and still detain additional stormwater above it.
+    reading_guide: Begin at the normal water level, read downward through the permanent pool, then upward through temporary storage and overflow.
+    alternative_text: Wet pond cutaway with conceptual pond bottom, permanent pool, normal level, temporary storage, outlet, overflow, and downstream water.
+    mobile_treatment: Use a vertical elevation stack with a fixed legend.
+    reduced_motion_treatment: Display all elevations and arrows together.
+    creator: OWOS Concept Engine design proposal
+    source: claim-wet-pond-permanent-pool and claim-retention-varies
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-practice-family
+    title: Three subsurface practice routes
+    component_id: layered-stack
+    locator: visuals/practice-family-cutaways.svg
+    asset_class: explanatory_comparison
+    teaching_idea: Compare bioretention, infiltration trench, and permeable pavement through the same route questions.
+    learner_conclusion: Similar infiltration language can hide different storage, soil, underdrain, and overflow configurations.
+    reading_guide: For each practice, follow surface entry, storage, soil route, underdrain, and overflow in the same order.
+    alternative_text: Three conceptual cutaways compare bioretention, infiltration trench, and permeable pavement routes.
+    mobile_treatment: Stack one complete practice cutaway per row.
+    reduced_motion_treatment: Show all routes and text summaries.
+    creator: OWOS Concept Engine design proposal
+    source: claim-infiltration-final-destination and claim-groundwater-protection
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-hydrograph
+    title: Inflow, storage, and delayed outflow through time
+    locator: visuals/conceptual-hydrograph.svg
+    asset_class: explanatory_time_plot
+    teaching_idea: Introduce peak, timing, recession, recovery, and volume without doing a routing calculation.
+    learner_conclusion: A lower and later peak is different from a reduction in total water volume.
+    reading_guide: Read left to right, compare inflow and outflow peaks, then notice how long each curve continues.
+    alternative_text: Qualitative paired inflow and outflow hydrographs with five event states and no predictive values.
+    mobile_treatment: Stack aligned plots with shared time labels.
+    reduced_motion_treatment: Show complete curves and state annotations.
+    creator: OWOS Concept Engine design proposal
+    source: claim-hydrograph-peak-volume-distinction, claim-model-boundary, and claim-illustrative-storm
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-water-pollutant-ledger
+    title: Water volume, concentration, and pollutant load
+    locator: visuals/water-pollutant-ledger.svg
+    asset_class: explanatory_quantity_flow
+    teaching_idea: Keep water volume and constituent concentration visible when interpreting total load.
+    learner_conclusion: Concentration alone cannot describe total constituent mass moved.
+    reading_guide: Read the water volume first, then concentration, then the resulting load relationship.
+    alternative_text: Conceptual quantity-flow diagram separates discharged water volume, concentration, and total pollutant load.
+    mobile_treatment: Use a vertical flow and compact text calculation.
+    reduced_motion_treatment: Show the complete ledger without animated flow.
+    creator: OWOS Concept Engine design proposal
+    source: claim-volume-load-performance
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-maintenance-failure
+    title: Condition to pathway consequence
+    locator: visuals/maintenance-failure-trace.svg
+    asset_class: explanatory_cause_chain
+    teaching_idea: Separate observation, pathway question, possible consequence, and evidence needed.
+    learner_conclusion: Maintenance observations matter because physical condition can redirect storage, release, infiltration, treatment, or overflow.
+    reading_guide: Start with what is visible, trace the route it could affect, then stop at the evidence needed before diagnosis.
+    alternative_text: Cause chain connects six conceptual conditions to affected water routes, possible consequences, and next evidence.
+    mobile_treatment: Show one complete cause chain at a time.
+    reduced_motion_treatment: Expand all cause chains in a table.
+    creator: OWOS Concept Engine design proposal
+    source: claim-ms4-maintenance and claim-maintenance-pathway
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-stormwater-wastewater-split
+    title: One rain event, intended and unintended routes
+    locator: visuals/stormwater-wastewater-split.svg
+    asset_class: explanatory_parallel_system
+    teaching_idea: Show intended stormwater routing beside unintended infiltration and inflow into a separate sanitary sewer.
+    learner_conclusion: I&I consumes wastewater conveyance, pumping, treatment, storage, operating, and capital resources.
+    reading_guide: Follow the intended stormwater route first, then trace the wet-weather entry into each wastewater asset.
+    alternative_text: Split conceptual scene compares stormwater routing with groundwater and surface-water entry into a separate sanitary sewer.
+    mobile_treatment: Stack the two systems below one rainfall header.
+    reduced_motion_treatment: Use a static two-route table and capacity chain.
+    creator: OWOS Concept Engine design proposal
+    source: claim-ii-definition and claim-ii-capacity-consequence
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-permit-value-handoff
+    title: Permit to maintained public value
+    component_id: handoff-simulator
+    locator: visuals/permit-value-handoff.svg
+    asset_class: explanatory_handoff
+    teaching_idea: Connect authorized condition, responsible party, funded work, evidence, and correction.
+    learner_conclusion: A permit has value when responsibility becomes maintained and documented performance.
+    reading_guide: Read from public objective to approved plan, responsibility, work, evidence, and correction.
+    alternative_text: Ordered accountability handoff from public objective and permit to responsible party, maintenance, records, and correction.
+    mobile_treatment: Present one handoff per row.
+    reduced_motion_treatment: Show the complete ordered sequence.
+    creator: OWOS Concept Engine design proposal
+    source: claim-npdes-permit-function, claim-ms4-program-responsibility, and claim-permit-value-synthesis
+    license: planned_original_owos_component_configuration
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-five-ledgers
+    title: One storm writes into five ledgers
+    locator: visuals/five-ledgers.svg
+    asset_class: explanatory_relationship
+    teaching_idea: Attach water, environmental, asset, financial, and public-accountability questions to one event.
+    learner_conclusion: Different roles see different consequences, but all rely on the same physical route and evidence.
+    reading_guide: Begin at the storm, then read each ledger and the question it asks of the same system.
+    alternative_text: One storm connects to water, environmental, asset, financial, and public-accountability ledgers.
+    mobile_treatment: Convert the radial layout to five stacked ledger rows.
+    reduced_motion_treatment: Show every ledger and shared storm marker.
+    creator: OWOS Concept Engine design proposal
+    source: Owner-approved white paper and claim-permit-value-synthesis
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-role-evidence-map
+    title: Different roles, one evidence record
+    locator: visuals/role-evidence-map.svg
+    asset_class: explanatory_role_relationship
+    teaching_idea: Apply engineering, operations, finance, leadership, wastewater, and public questions to one shared system record.
+    learner_conclusion: Shared concepts let different roles ask better questions without pretending they perform the same job.
+    reading_guide: Select a role, read its question, then locate the common route or record that can answer it.
+    alternative_text: Six utility and public roles connect their questions to one stormwater route, condition, responsibility, and evidence record.
+    mobile_treatment: Use a role selector above one persistent system record.
+    reduced_motion_treatment: Show grouped role questions and the shared record.
+    creator: OWOS Concept Engine design proposal
+    source: Owner-approved white paper and governed claim register
+    license: planned_original_owos
+    permission_status: approved
+    originality_status: approved
+    storyboard_status: approved
+    rendered_review_status: not_started
+  - visual_id: visual-subsurface-boundary
+    title: Surface to groundwater pathway cutaway
+    component_id: layered-stack
+    locator: visuals/subsurface-pathway-cutaway.svg
+    asset_class: explanatory_cutaway
+    teaching_idea: Separate ponding, media, native soil, underdrain, groundwater, overflow, and receiving-water routes.
+    learner_conclusion: Infiltration, filtration, underdrain discharge, and recharge are different outcomes with site-specific boundaries.
+    reading_guide: Read from the surface downward, then follow each side exit and identify the site evidence needed before claiming suitability.
+    alternative_text: Vertical cutaway showing surface storage, filter media, native soil, underdrain, seasonal groundwater, overflow, and receiving water with distinct arrows.
+    mobile_treatment: Use one full-width layer per row with side exits placed directly below their originating layer.
+    reduced_motion_treatment: Show all layers and routes with numbered text.
+    creator: OWOS Concept Engine activation plan
+    source: Governed claim register and approved storyboard after review
+    license: planned_original_owos_component_configuration
+    permission_status: pending
+    originality_status: planned
+    storyboard_status: approved_for_working_preview
+    rendered_review_status: not_started

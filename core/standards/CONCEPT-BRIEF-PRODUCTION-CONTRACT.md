@@ -1,10 +1,11 @@
 ---
 title: OWOS Concept Brief Production Contract
-version: 2.1.0
+version: 2.2.0
 contract: owos-concept-brief/2
 status: APPROVED FOR IMPLEMENTATION
 owner: Hardeep Anand
 approved: 2026-07-25
+revised: 2026-07-27
 ---
 
 # OWOS Concept Brief Production Contract
@@ -38,6 +39,16 @@ An intake may begin with one or more of:
 
 The source is evidence and direction. It is not automatically a published Concept Brief.
 
+### Shared public presentation shell
+
+Public Concept Briefs use the compiler-enforced Graphite shell proven by the Coagulation vs
+Flocculation reference. The shell locks the desktop and phone gutter rhythm, section-band
+hierarchy, readable prose measure, dark instructional and Connected Learning surfaces, ivory
+Community-through-feedback closing plane, light connected-learning drawers, and accessible
+responsive stacking. These are shared trust and navigation conventions, not a license to clone the
+reference's treatment-train narrative, visuals, interactions, or topic-specific page composition.
+Any exception requires an explicit design-brief decision, rendered comparison, and owner approval.
+
 ### United States water-sector authority scope
 
 Water, wastewater, stormwater, and One Water Concept Briefs use United States governing authorities
@@ -68,6 +79,9 @@ Every Concept Brief moves through visible states:
 ```text
 intake
 -> source preservation
+-> owner sparring and curriculum thesis
+-> research white paper
+-> white-paper quality review and owner approval
 -> extraction and claim inventory
 -> research and verification
 -> evidence boundary
@@ -92,6 +106,7 @@ The governed source package contains:
 
 - `intake.yaml`
 - `brief.yaml`
+- `white-paper.md`
 - `design-brief.md`
 - `storyboard.yaml`
 - `narrative.yaml`
@@ -109,6 +124,104 @@ The governed source package contains:
 
 Compiled HTML is delivery output. The structured package is the source of truth.
 
+## Curriculum thesis and white-paper gate
+
+A Concept Brief starts as teaching, not page production. Before design or learner-facing HTML, the
+owner and author spar over the topic until the curriculum thesis is explicit.
+
+The sparring record must answer:
+
+- What exactly are we teaching?
+- Why does this concept matter?
+- Who needs to understand it?
+- What should the learner understand, notice, explain, compare, or do differently?
+- Which common misunderstandings or false shortcuts must be repaired?
+- Which practical water-sector situations make the concept consequential?
+- How deep should the explanation go?
+- What belongs outside the brief?
+- Which citation and editorial standard governs the white paper?
+
+The first generated teaching artifact is `white-paper.md`. It is revised after each sparring round
+and becomes the basis for research, claim extraction, verification, scoring, curriculum design,
+storyboarding, visuals, interactions, and later HTML.
+
+The white paper must contain:
+
+- a clear title and executive teaching thesis;
+- the curriculum purpose, learner need, and importance of the concept;
+- a reader orientation that names the subject, the audience, the assumed prior knowledge, the
+  consequence of not understanding the concept, the learner-facing outcomes, the time required, and
+  the scope boundary, before the topic itself begins;
+- an explicit answer to what the concept is, who needs it, where and when it appears in water-sector
+  work, why it matters, and how it works;
+- a complete plain-language explanation of what the concept is and how it works;
+- headings and subheadings that form a coherent argument;
+- plain-English definitions of every dependent term, each with a concrete example and an explicit
+  statement of what the term does not establish;
+- distinctions, mechanisms, boundaries, practical consequences, misconceptions, and examples;
+- at least one worked example per major mechanism, showing inputs, reasoning, result, and transfer
+  boundary;
+- proposed diagrams and graphics with an instructional job and reading explanation;
+- source notes, limitations, unresolved questions, and a complete reference list;
+- a section explaining what should be taught, in what order, and why; and
+- a scored quality review that separates writing quality, research depth, claim confidence,
+  teaching completeness, visual-explanation readiness, and unresolved work.
+
+The white paper and the compiled brief are the same argument at two depths. The paper carries the
+full reasoning and evidence; the brief carries the learner's path through it. A teaching move that
+exists in the paper but has no home in the storyboard, or a rendered section with no basis in the
+paper, is a synchronization defect and is reported in the QA record.
+
+The white paper is not a page mockup, a storyboard, or a collection of cards. It uses a calm,
+empty-format reading surface with controlled line length and generous margins. No learner-facing
+HTML, interaction, graphic production, or storyboard approval may begin until Hardeep approves the
+teaching thesis and white-paper direction. A prior prototype must be frozen as a pre-research draft
+and cannot supply evidence or curriculum authority.
+
+### White-paper scoring gate
+
+Every substantive sparring or research round updates a visible 100-point score inside
+`white-paper.md`. The score uses this fixed rubric:
+
+| Dimension | Points |
+| --- | ---: |
+| Teaching thesis and importance | 15 |
+| Complete plain-language explanation | 20 |
+| Utility-wide and cross-sector value | 15 |
+| Research depth and source quality | 15 |
+| Technical accuracy and claim verification | 20 |
+| Diagrams and visual teaching value | 10 |
+| Editorial quality, boundaries, and originality | 5 |
+| **Total** | **100** |
+
+Each scoring update must show:
+
+- the score awarded in every dimension;
+- the evidence supporting the awarded points;
+- every deduction and the reason for it;
+- unresolved questions and required next work;
+- the score change from the prior version; and
+- the current advancement decision.
+
+The decision bands are:
+
+- 90 to 100: eligible for owner approval into curriculum design;
+- 80 to 89: strong, but revision is required;
+- 70 to 79: material teaching or evidence gaps remain; and
+- below 70: return to sparring and research.
+
+The paper cannot advance regardless of score unless:
+
+- every material technical claim has a source and claim classification;
+- terminology and system boundaries are internally consistent;
+- technical content has qualified practitioner review;
+- every proposed diagram has an instructional job, evidence basis, and truth boundary;
+- scope exclusions remain visible; and
+- Hardeep approves the teaching argument.
+
+Use `core/templates/CONCEPT-BRIEF-WHITE-PAPER-SCORE.md`. A polished outline with no research receives
+no research or verification points.
+
 ## Shared learning capabilities
 
 Concept Briefs and courses select visuals, interactions, animations, and assessment types from the
@@ -120,11 +233,13 @@ shared capability definition.
 The standard internal names are **OWOS Concept Engine** and **OWOS Course Engine**. Their renderers
 are the **OWOS Concept Brief Compiler** and **OWOS Course Compiler**.
 
-A Concept Brief is one focused learning module. It normally requires at least two substantial
-explanatory visuals, one dynamic concept mechanism, two distributed checks, one final applied check,
-deterministic completion evidence, and an explicit cross-sector connection. Motion must reveal
-change, cause, consequence, sequence, dependency, or hidden structure. Reduced-motion,
-no-JavaScript, mobile, and structured-text equivalents must preserve the same conclusion.
+A Concept Brief is one focused learning module. It requires a rendered instructional orientation,
+plain-English definitions of its dependent terms placed before first use, at least two substantial
+explanatory visuals, at least one worked example, one dynamic concept mechanism, two distributed
+checks, one final applied check, deterministic completion evidence, and an explicit cross-sector
+connection. Motion must reveal change, cause, consequence, sequence, dependency, or hidden
+structure. Reduced-motion, no-JavaScript, mobile, and structured-text equivalents must preserve the
+same conclusion.
 
 The package may store continuing-education readiness evidence. No contact-hour, professional-
 development-hour, continuing-education-unit, or accreditor claim may be enabled without verification
@@ -260,8 +375,10 @@ Every brief defines a design fingerprint:
 - intentionally avoided patterns; and
 - differences from adjacent briefs.
 
-The storyboard selects and orders teaching moves from the learning problem. The following are
-available coverage jobs, not mandatory sections:
+The storyboard opens with the instructional orientation and defines its dependent terms before use.
+Those two moves are mandatory and their position is fixed. Everything after them is selected and
+ordered from the learning problem. The following are available coverage jobs, not mandatory
+sections:
 
 - concept anchors;
 - why it matters;
@@ -283,6 +400,75 @@ when the topic does not support it.
 The portfolio check blocks identical full fingerprints and flags adjacent reuse of the same opening,
 archetype, dominant visual, interaction signature, and closing action.
 
+## Instructional orientation contract
+
+A Concept Brief is one focused learning module, not a masterclass and not an encyclopedia entry. It
+has one document to do the whole instructional job. Because there is no module sequence to carry the
+setup, the brief must orient the learner inside itself before it teaches.
+
+A brief may not open directly on its topic. Before the first mechanism, diagram, or interaction, the
+rendered page must answer, in plain language and in this order:
+
+1. **What is this about?** The subject named in ordinary words, not a definition the learner must
+   already understand to parse.
+2. **Who is this for?** The named audience and the prior knowledge assumed. A learner must be able
+   to tell within seconds whether this brief is written for them.
+3. **Why does it matter?** The consequence of not understanding the concept, stated in terms of real
+   water-sector work, cost, risk, or public accountability. Not a claim that the topic is important.
+4. **What will you be able to do?** The learning objectives, written as learner-facing outcomes in
+   second person. These are the same outcomes recorded in `learning.yaml`. The learner sees the
+   promise the package already makes internally.
+5. **How long will this take, and what does it not cover?** The reading and participation estimate
+   and the visible scope boundary.
+
+This orientation is a rendered requirement, not a package-only record. `learning.yaml` already
+carries `outcomes`, `prior_knowledge`, `misconception`, and `cross_sector_connections`. The compiler
+renders them. A brief whose objectives exist only inside the package fails the learning and
+editorial-design gate.
+
+The "In 30 seconds" takeaway is a summary of the answer. It does not replace the orientation. A
+learner who reads only the takeaway should understand the conclusion; a learner who reads the
+orientation should understand why the conclusion is worth their time.
+
+### Define before use
+
+Every term the brief depends on is defined in plain English before the learner is asked to use it,
+reason with it, or read it inside a graphic.
+
+A definition block records:
+
+- the term;
+- a plain-English meaning that avoids the term itself and avoids other undefined terms;
+- at least one concrete example a non-specialist can picture;
+- what the term does **not** establish, where the term is commonly over-read; and
+- the claim identifiers supporting the definition where it is technical.
+
+A glossary appended at the end does not satisfy this requirement. Definitions are placed where the
+learner first needs them. A diagram may not introduce a labeled term that the prose has not already
+defined.
+
+### Show the concept, do not only assert it
+
+Explanation carries an instructional job or it does not belong in the brief. Each substantive
+teaching move must reach the learner through more than prose:
+
+- a diagram, cutaway, flowchart, sequence, comparison, or other explanatory graphic;
+- a worked example that moves from a concrete situation to a conclusion with the reasoning visible;
+  or
+- an interaction that lets the learner change something and observe the consequence.
+
+Every graphic carries a caption stating what to notice and what the graphic does not prove. A
+worked example states its inputs, its reasoning, its result, and its transfer boundary. Illustrative
+values are labeled illustrative wherever they appear.
+
+### Wholeness
+
+A Concept Brief is complete when a learner who knew nothing about the topic can, without leaving the
+page: say what the concept is, explain how it works, recognize where it applies, name what commonly
+goes wrong, tell the difference between the concept and the things it is confused with, and state
+what they would need to know before acting. A brief that requires an outside glossary, a prior
+course, or a follow-up conversation to be understood is not finished.
+
 ## Learner economy and completion
 
 A Concept Brief must feel complete without becoming an administrative dashboard, a full Community
@@ -291,8 +477,17 @@ shows only what helps the learner understand and act.
 
 Every public brief must:
 
+- open with the instructional orientation defined above: subject, audience, why it matters,
+  learner-facing objectives, time, and scope boundary;
 - provide an “In 30 seconds” orientation near the beginning;
+- define every dependent term in plain English, with an example, before the learner is asked to use
+  it or read it in a graphic;
 - limit primary in-page navigation to no more than four high-value controls;
+- include compact Graph and Community controls in the top navigation; each opens a right-side drawer
+  on larger screens and a full-screen drawer on small screens without navigating away;
+- treat each drawer as a temporary layer over the brief: Close, Escape, backdrop selection, and
+  browser Back remove it, restore the unchanged HTML brief, and return focus to its top control;
+- allow only one Graph or Community drawer to be open at a time;
 - keep claim counts, verification inventories, Graph machinery, and workflow metadata out of
   learner-facing promotional copy;
 - use one compact same-page comment form and route the complete discussion experience to the

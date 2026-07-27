@@ -1,0 +1,88 @@
+schema_version: 1
+policy: owos-concept-research/1
+brief_id: owos:concept-brief:003
+visibility: private_jurisdiction_specific
+jurisdiction:
+  country: United States
+  state: Florida
+public_brief_use: prohibited
+verification_coverage_percent: 0
+claims:
+  - claim_id: fl-claim-erp-structure
+    claim_text: Florida's Environmental Resource Permitting program is implemented by the Department of Environmental Protection and five Water Management Districts, with some delegated local responsibilities, using a statewide Volume I and region-specific Volume II handbooks.
+    claim_type: regulatory_context
+    source_ids: [fl-rule-62-330, fl-ah-volume-i, fl-statute-403-0891]
+    verification_status: pending_independent_review
+    limitations: The responsible permitting agency and applicable criteria depend on location, activity, delegation, and current law.
+  - claim_id: fl-claim-system-definition
+    claim_text: Florida law frames a stormwater management system broadly as infrastructure and methods that collect, convey, store, absorb, inhibit, treat, use, or reuse stormwater to manage flooding, drainage, water quantity, and water quality.
+    claim_type: jurisdictional_definition
+    source_ids: [fl-statute-373-403, fl-statute-403-031]
+    verification_status: pending_independent_review
+    limitations: The two statutory definitions must be read in their respective chapters and do not determine permit applicability by themselves.
+  - claim_id: fl-claim-detention
+    claim_text: Florida's statewide Applicant's Handbook defines detention as collection and temporary storage of stormwater followed by gradual downstream release.
+    claim_type: jurisdictional_definition
+    source_ids: [fl-ah-volume-i]
+    verification_status: pending_independent_review
+    limitations: This definition does not determine a project's design criteria or permit status.
+  - claim_id: fl-claim-permanent-pool
+    claim_text: Florida's statewide Applicant's Handbook defines a permanent pool as the normally wet portion of a wet detention pond below the normal water level, excluding water volume claimed as wet detention treatment volume.
+    claim_type: jurisdictional_definition
+    source_ids: [fl-ah-volume-i]
+    verification_status: pending_independent_review
+    limitations: The technical definition must be read with the complete handbook and applicable regional criteria.
+  - claim_id: fl-claim-regional-terms
+    claim_text: South Florida's regional handbook uses control elevation, overflow elevation, detention volume, tailwater, exfiltration trench, and wet detention as connected hydraulic terms.
+    claim_type: jurisdictional_definition
+    source_ids: [fl-sfwmd-ah-volume-ii]
+    verification_status: pending_independent_review
+    limitations: These terms and related criteria are specific to the South Florida Water Management District context.
+  - claim_id: fl-claim-npdes-separate
+    claim_text: In Florida, NPDES stormwater authorization is a separate program from ERP, and a project may need both.
+    claim_type: regulatory_context
+    source_ids: [fl-ah-volume-i, fl-fdep-ms4]
+    verification_status: pending_independent_review
+    limitations: Actual applicability and permit coverage require project-specific regulatory review.
+  - claim_id: fl-claim-lifetime-om
+    claim_text: Florida's current ERP framework connects permitted stormwater performance to a perpetual operation and maintenance entity, legal access, an operation and maintenance plan, cost estimates, financial capability, inspection, and reporting.
+    claim_type: regulatory_context
+    source_ids: [fl-ah-volume-i, fl-fdep-erp-resource-center, fl-fdep-erp-faq]
+    verification_status: pending_independent_review
+    limitations: Requirements, exceptions, timing, and inspection frequencies must be confirmed for the specific permit and entity.
+  - claim_id: fl-claim-regional-hydrology
+    claim_text: Florida's regional criteria differ because hydrology, soils, geology, rainfall, and other physical conditions differ across the state.
+    claim_type: sourced_fact
+    source_ids: [fl-ah-volume-i, fl-fdep-erp-stormwater]
+    verification_status: pending_independent_review
+    limitations: This does not support a design conclusion for a particular site.
+  - claim_id: fl-claim-tailwater
+    claim_text: In low and flat parts of Florida, downstream water level can constrain discharge, so the same outlet may not perform the same way under every tailwater condition.
+    claim_type: expert_synthesis
+    source_ids: [fl-sfwmd-ah-volume-ii, sfwmd-low-flat-drainage, sfwmd-coastal-tailwater]
+    verification_status: pending_qualified_review
+    limitations: A real system requires site data and hydraulic analysis.
+  - claim_id: fl-claim-groundwater
+    claim_text: Florida's aquifer and karst setting makes subsurface pathway and groundwater-protection questions important when considering infiltration.
+    claim_type: expert_synthesis
+    source_ids: [usgs-karst-florida, usgs-carbonate-aquifers]
+    verification_status: pending_qualified_review
+    limitations: Infiltration suitability cannot be inferred from a statewide map or general geology.
+  - claim_id: fl-claim-gsi-overflow
+    claim_text: Florida green stormwater infrastructure may include bioretention, bioswales, rain gardens, and permeable pavement, but these practices still need a complete route that accounts for underdrains, gray infrastructure, overflow, and receiving waters.
+    claim_type: expert_synthesis
+    source_ids: [fl-fdep-gsi]
+    verification_status: pending_qualified_review
+    limitations: Actual configurations and performance vary by design, construction, site, and maintenance.
+  - claim_id: fl-claim-needs-finance
+    claim_text: Florida's stormwater needs-analysis framework connects assets and projects to twenty-year costs, useful life, funding sources, and funding gaps.
+    claim_type: regulatory_context
+    source_ids: [fl-statute-403-9302]
+    verification_status: pending_independent_review
+    limitations: Applicability and submittal requirements require current statutory review.
+  - claim_id: fl-claim-ii
+    claim_text: Wet-weather water can enter separate sanitary sewer systems through defects and improper connections, consuming conveyance, pumping, treatment, and storage capacity intended for wastewater.
+    claim_type: expert_synthesis
+    source_ids: [fl-fdep-collection-action-plans, fl-fdep-capacity-flow, fl-fdep-heavy-rain-ii]
+    verification_status: pending_qualified_review
+    limitations: The cause, amount, source, and remedy for I&I require system-specific investigation.

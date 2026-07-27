@@ -1,0 +1,323 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+status: evidence_backed_direction_pending_owner_and_qualified_review
+blocks:
+  - block_id: block-orientation
+    type: prose
+    title: "Start here: what the three terms mean"
+    body: |-
+      This brief explains three different ways stormwater can be managed after rain reaches a roof, road, parking lot, lawn, or other developed surface. The terms are related, but they do not describe the same physical action.
+
+      Detention means holding stormwater temporarily and releasing it later. Retention is a broader and less consistent term. It may describe water kept from later surface discharge, or it may describe a pond that normally contains a permanent pool. Infiltration means water moves from the surface into soil or another porous layer. Entering the ground does not, by itself, prove where the water ultimately goes.
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-detention-temporary-release
+      - claim-retention-varies
+      - claim-infiltration-pathway
+    display: cards
+    items:
+      - label: CORE TERM
+        title: Detention
+        body: Stormwater is held for a period of time, then released through an outlet or another documented route. The storage is temporary.
+      - label: CORE TERM
+        title: Retention
+        body: The word is used in more than one way. Always check whether it means retained runoff, a permanent pool, or another source-specific condition.
+      - label: CORE TERM
+        title: Infiltration
+        body: Water crosses from the surface into soil or porous material. Its later route may include native soil, groundwater, an underdrain, evaporation, overflow, or another exit.
+  - block_id: block-foundation-language
+    type: definition
+    title: Learn the system words before reading the diagrams
+    body: |-
+      A stormwater system is easier to understand when you can name what enters, where it waits, and how it leaves. These are the words used throughout the brief.
+
+      Each one gives you a plain meaning, something concrete to picture, and what the word does not establish. That last part matters most. Almost every expensive misunderstanding in this subject comes from a word being asked to prove more than it can.
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-wet-pond-permanent-pool
+      - claim-infiltration-pathway
+    terms:
+      - term: Stormwater runoff
+        meaning: Rain that does not soak in, evaporate, or stay where it fell, and instead flows across the ground toward somewhere lower.
+        example: Water sheeting across a parking lot toward a grate in the corner.
+        not_established: How clean it is, where it ends up, or whether anything is managing it.
+      - term: Storage
+        meaning: Space where water is allowed to collect and sit for a while instead of continuing downstream.
+        example: The empty bowl of a grassy basin behind a shopping center that fills during a storm.
+        not_established: How much space is actually available today. Sediment and debris consume storage over time.
+      - term: Outlet
+        meaning: The structure that controls how water leaves a storage practice under ordinary conditions.
+        example: A concrete riser standing in a basin with a small hole near its base and a grate on top.
+        not_established: That it is clear. A blocked outlet changes everything downstream of it and is invisible from the road.
+      - term: Outfall
+        meaning: The point where flow leaves a drainage or sewer system and enters another system or the environment.
+        example: A pipe end in a creek bank.
+        not_established: What happened upstream. An outfall is the last visible link in a long chain.
+      - term: Overflow
+        meaning: The route water uses when it rises higher than the ordinary outlet can handle.
+        example: A broad low notch in the earthen bank of a pond, usually dry, mowed, and easy to mistake for landscaping.
+        not_established: That it has ever been used, or that it is sized for the storm you are worried about.
+      - term: Bypass
+        meaning: Water that skips some or all of the intended storage or treatment path.
+        example: Runoff sliding past a clogged inlet and continuing down the gutter instead of entering the practice it was meant to enter.
+        not_established: That anything is broken. Some bypass is designed and some is accidental, and the two look identical from a distance.
+      - term: Permanent pool
+        meaning: The water a wet pond is designed to keep between storms.
+        example: The normal water line you see on an ordinary dry day, with a ring of vegetation around it.
+        not_established: That the pond is full or that no storage remains. Storm storage is normally provided above the permanent pool.
+      - term: Underdrain
+        meaning: A buried pipe or drainage layer that collects water after it has passed through soil or engineered media, and carries it away.
+        example: A perforated pipe in a stone bed under a rain garden, connected back to the storm drain.
+        not_established: Anything about recharge. If a practice has an underdrain, much of the water may return to the pipe network rather than reaching groundwater.
+  - block_id: block-route-comparison
+    type: interaction
+    title: Route the same storm
+    body: The planned tracer uses one illustrative storm and three unlabeled physical arrangements. It reveals temporary storage and controlled release, permanent pool and displacement, infiltration, evapotranspiration, underdrain discharge, overflow, and bypass as separate routes. The values and routes are authored for instruction, not prediction.
+    claim_ids:
+      - claim-detention-temporary-release
+      - claim-illustrative-storm
+    interaction_id: interaction-storm-path-tracer
+  - block_id: block-terminology
+    type: prose
+    title: Names are clues, not proof
+    body: EPA sources use detention consistently for temporary storage and later release, but retention is used in more than one way. One source may mean runoff kept from later surface discharge. Another may mean a permanent pool that remains while new runoff displaces water. The brief will state the intended usage and show the physical route every time.
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-detention-temporary-release
+      - claim-retention-varies
+  - block_id: block-check-boundary
+    type: assessment
+    title: Check the terminology boundary
+    body: The learner identifies which conclusion is supported when an asset is called a retention practice but no route, outlet, or objective has been documented.
+    claim_ids:
+      - claim-retention-varies
+      - claim-name-not-pathway
+    assessment_id: assessment-terminology-boundary
+  - block_id: block-subsurface-boundary
+    type: visual
+    title: Infiltration begins below the surface, but the route can still divide
+    body: |-
+      Infiltration begins when water crosses from the surface into soil or another porous layer. Filtration is different. Filtration describes water passing through material that can strain, capture, or otherwise affect material carried with the water. A practice may involve both processes, but the words are not interchangeable.
+
+      Read the cutaway from the surface downward, then follow every side exit. Locate surface ponding, treatment media, native soil, the underdrain, seasonal groundwater, overflow, and receiving water. The drawing shows why disappearance from the surface does not prove recharge, treatment, or a safe groundwater relationship.
+    claim_ids:
+      - claim-infiltration-pathway
+      - claim-green-infrastructure-definition
+      - claim-groundwater-protection
+    visual_id: visual-subsurface-boundary
+  - block_id: block-performance-evidence
+    type: visual
+    title: Stormwater performance has more than one measure
+    body: |-
+      Peak flow is the highest flow rate during the period being studied. Discharged volume is the total amount of water that leaves the defined system boundary. Concentration describes how much of a measured constituent is present in a given amount of water. Pollutant load combines concentration with the water volume moving across the boundary.
+
+      Compare these measures separately. A lower peak can help with one flooding or conveyance question. A lower concentration can help with one water-quality question. Neither result, by itself, proves a reduction in total discharged volume or total pollutant load.
+    claim_ids:
+      - claim-volume-load-performance
+      - claim-name-not-pathway
+    visual_id: visual-route-comparison
+  - block_id: block-maintenance-evidence
+    type: diagnostic
+    title: Condition can change the intended route
+    body: |-
+      Maintenance matters because a stormwater practice depends on physical features that can clog, erode, settle, break, become overgrown, or lose access. Sediment at an inlet can reduce entry. Debris at an outlet can change release. Compacted or clogged media can change surface ponding. Erosion can create a shortcut that bypasses the intended route.
+
+      Start with what you can observe, then ask which water pathway the condition could affect. The trace separates observation, pathway question, possible consequence, and evidence needed. One observation is a reason to investigate. It is not enough to diagnose the cause or select a repair.
+    claim_ids:
+      - claim-ms4-maintenance
+      - claim-maintenance-pathway
+  - block_id: block-final-transfer
+    type: assessment
+    title: Explain the complete system without overclaiming
+    body: >-
+      Use the final conversation tool as a structured way to explain an unfamiliar stormwater
+      system. Work from the physical system outward: identify the incoming water, normal condition,
+      storm condition, storage, every exit, intended result, controlling features, responsibility,
+      supporting evidence, possible failure route, and financial or wastewater consequence. Finish
+      by stating one supported result, one uncertainty, one responsibility, and one next piece of
+      evidence. Do not claim design adequacy, compliance, performance, or site suitability when the
+      evidence does not support it.
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-infiltration-pathway
+      - claim-volume-load-performance
+      - claim-maintenance-pathway
+    assessment_id: assessment-system-conversation
+  - block_id: block-evidence-boundary
+    type: evidence
+    title: What this brief can and cannot establish
+    body: This brief can teach a pathway-first way to ask better questions. It cannot determine an asset's design, capacity, drawdown, infiltration rate, treatment performance, groundwater suitability, maintenance action, or compliance. Those decisions require current drawings, site evidence, approved procedures, applicable permits, and qualified judgment.
+    claim_ids:
+      - claim-groundwater-protection
+      - claim-ms4-maintenance
+      - claim-illustrative-storm
+  - block_id: block-connected-learning
+    type: connected_learning
+    title: Continue through the connected system
+    body: The Graph and Community will connect this brief to the Storm Hydrograph, Water Balance, Mass Balance, Stormwater Control Measure Maintenance, Receiving-Water Response, and Green Infrastructure Performance and Appearance. Discussion stays separate from verified instruction.
+    claim_ids:
+      - claim-connected-learning-proposal
+  - block_id: block-first-drop
+    type: interaction
+    title: Follow one storm through the connected system
+    body: |-
+      Now apply the definitions to one rain event. Rain that reaches a developed surface may flow toward an inlet, enter storage, move into soil, leave through an outlet or overflow, reach a receiving water, or enter a wastewater pipe through a defect or direct connection.
+
+      Use the tracer to follow every visible and hidden route. Do not try to name the practice yet. First identify what enters, where water can wait, every route it can leave, and which evidence would be needed to confirm the route in a real system. This map is qualitative and does not predict flow, flooding, infiltration, treatment, capacity, or compliance.
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-illustrative-storm
+    interaction_id: interaction-storm-path-tracer
+  - block_id: block-dry-detention
+    type: visual
+    title: Dry detention uses empty space as temporary storage
+    body: |-
+      A dry detention basin is normally dry between storms. During rain, runoff enters faster than it leaves, so water temporarily occupies the basin. A planned outlet releases water while the water level falls and storage space becomes available again.
+
+      Read the five states from left to right. Compare the water level with the outlet in every state. The important idea is not that the basin looks empty after the storm. The important idea is that its empty volume is available to receive another event.
+    claim_ids:
+      - claim-detention-temporary-release
+      - claim-hydrograph-peak-volume-distinction
+    visual_id: visual-dry-basin-timeline
+  - block_id: block-check-detention
+    type: assessment
+    title: Find the detention function
+    body: The learner identifies temporary storage and later release without assuming a universal drawdown time or design performance.
+    claim_ids:
+      - claim-detention-temporary-release
+    assessment_id: assessment-detention-function
+  - block_id: block-wet-pond
+    type: visual
+    title: A wet pond can hold permanent water and temporary storm storage
+    body: |-
+      A wet pond normally contains water between storms. That normally wet volume is the permanent pool. When new runoff arrives, the water level may rise into temporary storm-storage space above the normal level, and water may leave through an outlet or a higher overflow route.
+
+      Begin at the pond bottom and move upward. Find the permanent pool, normal water level, temporary storage, ordinary outlet, and overflow elevation. The drawing explains their relationship. It does not provide transferable design elevations or prove treatment performance.
+    claim_ids:
+      - claim-wet-pond-permanent-pool
+      - claim-retention-varies
+    visual_id: visual-wet-pond-elevations
+  - block_id: block-check-permanent-pool
+    type: assessment
+    title: Read the permanent pool
+    body: Retrieval questions distinguish the normally wet pool from additional temporary storm storage above it.
+    claim_ids:
+      - claim-wet-pond-permanent-pool
+    assessment_id: assessment-permanent-pool
+  - block_id: block-practice-family
+    type: visual
+    title: Three infiltration practices can divide water differently
+    body: |-
+      A bioretention cell is a planted depression that receives runoff and routes it through surface storage, vegetation, soil, or engineered media. An infiltration trench is a stone-filled excavation that temporarily stores water while allowing movement into surrounding soil. Permeable pavement lets water pass through openings or porous material into a stone storage layer below the driving or walking surface.
+
+      These names describe common arrangements, not one guaranteed final destination. Compare the surface entry, storage layer, native soil, underdrain, overflow, and groundwater boundary for each practice. Ask which exits are actually present before claiming that water was recharged, treated, or removed from surface discharge.
+    claim_ids:
+      - claim-infiltration-final-destination
+      - claim-groundwater-protection
+    visual_id: visual-practice-family
+  - block_id: block-hydrograph
+    type: visual
+    title: A hydrograph shows how flow changes through time
+    body: |-
+      A hydrograph is a graph with time along the horizontal axis and flow along the vertical axis. It lets you compare when runoff enters a system, when outflow reaches its highest rate, and how long flow continues after rainfall has slowed or stopped.
+
+      Read the curves from left to right. Compare the inflow peak with the later outflow peak, then look at the full area represented over time. A lower or later peak is not the same as a smaller total volume. The curves are qualitative teaching shapes, not calibrated model output.
+    claim_ids:
+      - claim-hydrograph-peak-volume-distinction
+      - claim-model-boundary
+      - claim-illustrative-storm
+    visual_id: visual-hydrograph
+  - block_id: block-worked-example-basin
+    type: example
+    title: Work through a basin that supposedly did not work
+    body: |-
+      Definitions become useful when you reason with them. Follow this one all the way through before the next check.
+    claim_ids:
+      - claim-detention-temporary-release
+      - claim-hydrograph-peak-volume-distinction
+    situation: A utility receives complaints that a detention basin serving a commercial development is not working, because a creek downstream still rises after storms. The basin was inspected and found to be in reasonable condition. The outlet is clear. The basin filled during the storm and drained afterward, as intended.
+    reasoning: Ask what the basin was intended to change. Detention holds water and releases it later, so the total volume leaving the site over the full event stays close to the volume that entered. A basin with a surface outlet is a delay device, not a disposal device. If the complaint is that water still arrives in the creek, the basin was never going to prevent that. If the complaint is that the creek rises as fast and as high as it did before the development existed, that is a different claim, and answering it needs the inflow and outflow behavior, the contributing area, and whatever else drains to the same reach.
+    result: Not working is not yet a finding. The basin may be doing exactly what detention does while failing to deliver what the community was told it would deliver. Those are different problems. One is an asset problem and the other is an explanation problem, and the investigation and the fix are not the same in each case.
+    boundary: This reasoning identifies which question to ask. It does not establish whether this basin meets its design basis, whether that design basis was appropriate, or whether anything downstream requires a capital response. Those take site records, monitoring, and qualified engineering review.
+  - block_id: block-check-performance
+    type: assessment
+    title: Match the claim to the evidence
+    body: The learner matches flow peak, timing, discharged volume, concentration, and pollutant load to the evidence that can support each statement.
+    claim_ids:
+      - claim-volume-load-performance
+      - claim-hydrograph-peak-volume-distinction
+    assessment_id: assessment-performance-evidence
+  - block_id: block-check-maintenance
+    type: interaction
+    title: Separate observation from diagnosis
+    body: The learner moves from a visible condition to the pathway question and next evidence without issuing a diagnosis or repair instruction.
+    claim_ids:
+      - claim-maintenance-pathway
+    interaction_id: interaction-condition-failure-trace
+  - block_id: block-wastewater-ii
+    type: visual
+    title: Infiltration and inflow put stormwater into the wastewater system
+    body: |-
+      In wastewater work, infiltration and inflow (I&I) describe unwanted water entering a sanitary sewer. Infiltration commonly refers to groundwater entering through cracks, defective joints, or other openings. Inflow commonly refers to rainwater entering more directly through connections, openings, drains, or similar routes.
+
+      Follow the intended stormwater route first. Then follow the unwanted wet-weather water into collection pipes, pump stations, storage, and treatment. In a separate sanitary sewer, this added water consumes capacity and requires pumping and treatment even though it should not have entered that system.
+    claim_ids:
+      - claim-ii-definition
+      - claim-ii-capacity-consequence
+    visual_id: visual-stormwater-wastewater-split
+  - block_id: block-check-ii
+    type: assessment
+    title: Classify infiltration and inflow
+    body: The learner classifies conceptual direct inflow and defect-related infiltration routes and then traces the capacity consequence without diagnosing a real collection system.
+    claim_ids:
+      - claim-ii-definition
+      - claim-ii-capacity-consequence
+    assessment_id: assessment-ii-route
+  - block_id: block-permit-value
+    type: visual
+    title: A permit turns a public objective into assigned responsibility
+    body: |-
+      A permit is an authorization that places defined conditions, monitoring, reporting, and responsibility around an activity or discharge. In stormwater, the federal National Pollutant Discharge Elimination System (NPDES) framework connects public water-quality objectives to municipal, construction, or industrial responsibilities where the program applies.
+
+      Read the handoff from the public objective to the authorized condition, responsible party, funded work, records, and correction. The value appears when the physical system is maintained and the responsible organization can show what was done. This explanation does not determine whether a specific permit applies or whether a facility complies.
+    claim_ids:
+      - claim-npdes-permit-function
+      - claim-ms4-program-responsibility
+      - claim-construction-stormwater-connection
+      - claim-industrial-stormwater-context
+      - claim-permit-value-synthesis
+    visual_id: visual-permit-value-handoff
+  - block_id: block-five-ledgers
+    type: visual
+    title: One storm writes into five ledgers
+    body: |-
+      The same storm creates different questions across a utility. The water ledger asks where water went and when it left. The environmental ledger asks what reached the receiving water. The asset ledger asks whether storage, outlets, soil routes, and access still function. The financial ledger asks what service, maintenance, energy, renewal, or treatment cost changed. The public-accountability ledger asks who was responsible and what evidence supports the result.
+
+      Begin in the center with one physical event. Then move through all five ledgers. The purpose is to show that finance, engineering, operations, wastewater, leadership, and public communication should be connected to the same system record rather than built from separate assumptions.
+    claim_ids:
+      - claim-permit-value-synthesis
+      - claim-maintenance-pathway
+      - claim-ii-capacity-consequence
+    visual_id: visual-five-ledgers
+  - block_id: block-check-permit-value
+    type: assessment
+    title: Complete the responsibility chain
+    body: The learner orders responsibility, funded work, evidence, and correction and identifies a missing handoff.
+    claim_ids:
+      - claim-npdes-permit-function
+      - claim-permit-value-synthesis
+    assessment_id: assessment-permit-value-sequence
+  - block_id: block-role-meeting
+    type: visual
+    title: Different roles, one system record
+    body: |-
+      Different professionals do not perform the same job, but they need a shared description of the system. An engineer may test assumptions and boundaries. An operator or inspector may report a field condition. A finance professional may ask what service and lifecycle cost are being funded. A wastewater manager may ask whether wet-weather water is entering the wrong pipe. A utility leader or elected official may ask what was promised, who is responsible, and what has been demonstrated.
+
+      Read each role question, then return to the shared record in the center. A useful record connects the water route, storm condition, storage, outlet, overflow, downstream boundary, maintenance condition, ownership, permits, monitoring, and budget. Shared terminology improves the conversation without assigning professional or legal responsibility to the wrong person.
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-maintenance-pathway
+      - claim-ii-capacity-consequence
+      - claim-permit-value-synthesis
+    visual_id: visual-role-evidence-map

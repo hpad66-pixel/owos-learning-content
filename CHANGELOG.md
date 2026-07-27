@@ -3,6 +3,59 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.29.0] - 2026-07-27
+### Added: instructional orientation contract for the Concept Engine
+- Raised the Concept Brief Production Contract to 2.2.0 with an instructional orientation contract.
+  A brief may no longer open directly on its topic. Before the first mechanism, diagram, or
+  interaction, the rendered page must answer what this is about, who it is for, why it matters,
+  what the learner will be able to do, how long it takes, and what it does not cover.
+- Added a define-before-use rule. Every dependent term is defined in plain English with a concrete
+  example and an explicit statement of what the term does not establish, placed where the learner
+  first needs it. An appended glossary does not satisfy the requirement, and a diagram may not
+  introduce a label the prose has not already defined.
+- Added a wholeness standard: a brief is complete when a learner who knew nothing about the topic
+  can, without leaving the page, say what the concept is, explain how it works, recognize where it
+  applies, name what commonly goes wrong, distinguish it from what it is confused with, and state
+  what they would need to know before acting.
+- Added `definition` and `example` narrative block types to the Concept Brief Compiler, with a
+  four-part definition record and a four-part worked-example record.
+- Rendered the learning objectives. `learning.yaml` had carried `outcomes`, `prior_knowledge`,
+  `misconception`, and `cross_sector_connections` as required records that the compiler validated
+  and then never rendered, so the learner never saw the promise the package made. The compiler now
+  renders them in a START HERE orientation section.
+- Added five fail-closed regression gates: missing orientation, no definition block, no worked
+  example, definitions placed after first use, and the white-paper presence warning.
+- Required the white paper and compiled brief to be the same argument at two depths. A teaching move
+  in the paper with no home in the storyboard, or a rendered section with no basis in the paper, is
+  now a reported synchronization defect.
+
+### Fixed
+- The production contract listed `white-paper.md` in the governed package while the compiler never
+  checked for it, so a brief could reach compilation with no teaching source. The compiler now warns
+  during working validation and blocks at release.
+- A visual declared with `component_id` and no `locator` raised `KeyError` during build despite
+  passing validation. Component-backed visuals now render with their reading guide, conclusion, and
+  alternative text.
+- Added stylesheet coverage for the `heading`, `metric`, `role`, `evidence`, and
+  `connected_learning` block types, which had rendered unstyled.
+- Visual captions can now carry a `not_established` statement, so a graphic states what it does not
+  prove alongside what to notice.
+
+### Changed: Detention, Retention, and Infiltration white paper 0.6
+- Added the reader orientation, the situations where the concept becomes consequential, and a
+  foundation definition set carrying plain meaning, concrete example, and non-establishment for
+  every dependent term.
+- Added four worked examples, the distinction between infiltration rate and infiltration capacity,
+  hydraulic conductivity, detention and residence time, control elevation, littoral zone, freeboard,
+  tailwater, time of concentration, first flush, event mean concentration, downstream peak
+  coincidence, three further misconceptions, and six further production visuals.
+- Scored 93 of 100, down from 95. The instructional expansion enlarged the set of statements needing
+  source anchoring faster than the evidence grew. Twelve added terms are itemized, quarantined from
+  learner-facing HTML, and blocked until they carry source records, classified claims, and qualified
+  review.
+- Reconciled the conversation tool count. Eleven questions plus a closing statement produce the
+  twelve-field work product; the design brief had recorded both numbers as though they conflicted.
+
 ## [0.28.0] - 2026-07-22
 ### Added: governed Project Delivery release contract
 - Added `apps/project-management/course.yaml` as the machine-readable authority for the 21-chapter,

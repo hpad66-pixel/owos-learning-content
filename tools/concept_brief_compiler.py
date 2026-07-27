@@ -8,6 +8,7 @@ deterministic delivery outputs.
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import html
 import json
@@ -84,7 +85,11 @@ BLOCK_TYPES = {
     "faq",
     "evidence",
     "connected_learning",
+    "definition",
+    "example",
 }
+DEFINITION_FIELDS = ("term", "meaning", "example", "not_established")
+EXAMPLE_FIELDS = ("situation", "reasoning", "result", "boundary")
 SURFACES = {"black", "white", "off_white", "blue"}
 EDGE_TYPES = {
     "DEFINES",
@@ -179,6 +184,20 @@ class ConceptBriefError(ValueError):
 
 def esc(value: Any) -> str:
     return html.escape(str(value), quote=True)
+
+
+def _portable_asset_href(
+    package_dir: Path,
+    locator: str,
+    asset_prefix: str,
+    *,
+    inline: bool,
+) -> str:
+    asset_path = (package_dir / locator).resolve()
+    if inline and asset_path.is_file() and asset_path.suffix.lower() == ".svg":
+        payload = base64.b64encode(asset_path.read_bytes()).decode("ascii")
+        return f"data:image/svg+xml;base64,{payload}"
+    return f"{asset_prefix}{locator}"
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
@@ -328,6 +347,20 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
             errors.append(f"missing required package file: {name}")
     if errors:
         raise ConceptBriefError("\n".join(errors))
+
+    # The production contract lists white-paper.md in the governed package: it is
+    # the teaching artifact every later stage is derived from. It is warned here
+    # rather than added to REQUIRED_FILES so that an existing package is not
+    # failed into a fabricated paper, and it is a hard gate at release.
+    if not (package_dir / "white-paper.md").is_file():
+        message = (
+            "missing white-paper.md: the production contract requires the research "
+            "white paper as the teaching source for storyboard, visuals, and claims"
+        )
+        if release_ready:
+            errors.append(message)
+        else:
+            warnings.append(message)
 
     intake = load_yaml(package_dir / "intake.yaml")
     brief_data = load_yaml(package_dir / "brief.yaml")
@@ -723,10 +756,27 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
             "sop_boundary",
             "inactive_commercial_placement",
             "learner_facing_governance_metadata",
+            "orientation",
         ),
         "learner experience",
         errors,
     )
+    orientation = learner_experience.get("orientation")
+    if not isinstance(orientation, dict):
+        errors.append("learner experience: orientation must be an object")
+    else:
+        require_fields(
+            orientation,
+            (
+                "subject",
+                "audience",
+                "why_it_matters",
+                "time_estimate",
+                "scope_boundary",
+            ),
+            "learner experience orientation",
+            errors,
+        )
     if learner_experience.get("primary_navigation_maximum") != 4:
         errors.append("learner experience: primary_navigation_maximum must be 4")
     if learner_experience.get("comment_placement") != "after_learning_and_commercial":
@@ -874,6 +924,25 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
         for claim_id in block.get("claim_ids") or []:
             if str(claim_id) not in claims:
                 errors.append(f"block {block_id}: unknown claim {claim_id}")
+        if block.get("type") == "definition":
+            entries = block.get("terms")
+            if not isinstance(entries, list) or not entries:
+                errors.append(f"block {block_id}: definition block requires terms")
+                continue
+            for position, entry in enumerate(entries, start=1):
+                if not isinstance(entry, dict):
+                    errors.append(
+                        f"block {block_id} term {position}: expected an object"
+                    )
+                    continue
+                require_fields(
+                    entry,
+                    DEFINITION_FIELDS,
+                    f"block {block_id} term {position}",
+                    errors,
+                )
+        if block.get("type") == "example":
+            require_fields(block, EXAMPLE_FIELDS, f"block {block_id}", errors)
 
     beats = storyboard.get("beats")
     if not isinstance(beats, list) or len(beats) < 2:
@@ -1140,6 +1209,56 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
     cross_sector = learning_profile.get("cross_sector_connections")
     if not isinstance(cross_sector, list) or not cross_sector:
         errors.append("Concept Brief requires a cross-sector connection")
+
+    definition_blocks = [
+        block_id
+        for block_id, block in blocks.items()
+        if block.get("type") == "definition"
+    ]
+    if not definition_blocks:
+        errors.append(
+            "Concept Brief requires at least one definition block that defines its "
+            "dependent terms in plain English before first use"
+        )
+    if not any(block.get("type") == "example" for block in blocks.values()):
+        errors.append(
+            "Concept Brief requires at least one worked example block"
+        )
+
+    ordered_block_ids: list[str] = []
+    for beat in beats:
+        if not isinstance(beat, dict):
+            continue
+        for block_id in beat.get("block_ids") or []:
+            if str(block_id) not in ordered_block_ids:
+                ordered_block_ids.append(str(block_id))
+    if definition_blocks and ordered_block_ids:
+        first_definition = min(
+            (
+                ordered_block_ids.index(block_id)
+                for block_id in definition_blocks
+                if block_id in ordered_block_ids
+            ),
+            default=None,
+        )
+        first_teaching = next(
+            (
+                index
+                for index, block_id in enumerate(ordered_block_ids)
+                if blocks.get(block_id, {}).get("type")
+                in {"visual", "interaction", "assessment"}
+            ),
+            None,
+        )
+        if first_definition is None:
+            errors.append(
+                "Concept Brief: no definition block is placed in the storyboard"
+            )
+        elif first_teaching is not None and first_definition > first_teaching:
+            errors.append(
+                "Concept Brief: definitions must be placed before the first visual, "
+                "interaction, or check so terms are defined before use"
+            )
 
     used_capability_ids = {
         str(item.get("component"))
@@ -1585,6 +1704,413 @@ def _render_jar_model(interaction: dict[str, Any]) -> str:
     )
 
 
+def _render_scenario_transfer_lab(interaction: dict[str, Any]) -> str:
+    interaction_id = str(interaction.get("interaction_id", "scenario-transfer-lab"))
+    root_id = f"scenario-transfer-{interaction_id}"
+    initial = interaction.get("initial_state") or {}
+    boundaries = interaction.get("authored_scenarios") or []
+    time_bases = interaction.get("time_bases") or []
+    measurement_conditions = interaction.get("measurement_conditions") or []
+    model = interaction.get("illustrative_model") or {}
+
+    def choice_buttons(
+        records: list[dict[str, Any]],
+        group: str,
+        selected: str,
+    ) -> str:
+        return "".join(
+            f'<button type="button" class="transfer-choice" data-transfer-group="{esc(group)}" '
+            f'data-transfer-value="{esc(record.get("id", ""))}" '
+            f'aria-pressed="{"true" if str(record.get("id")) == selected else "false"}">'
+            f'<b>{esc(record.get("label", ""))}</b>'
+            f'<span>{esc(record.get("explanation", record.get("result", "")))}</span></button>'
+            for record in records
+        )
+
+    boundary_selected = str(initial.get("selected_boundary", ""))
+    time_selected = str(initial.get("selected_time_basis", ""))
+    measurement_selected = str(initial.get("measurement_condition", ""))
+    payload = json.dumps(
+        {
+            "model": model,
+            "initial": initial,
+            "boundaries": boundaries,
+            "time_bases": time_bases,
+            "measurement_conditions": measurement_conditions,
+        },
+        ensure_ascii=True,
+        separators=(",", ":"),
+    ).replace("<", "\\u003c")
+    fallback_rows = "".join(
+        f'<tr><th>{esc(record.get("label", ""))}</th>'
+        f'<td>{esc(record.get("explanation", record.get("result", "")))}</td></tr>'
+        for record in [*boundaries, *time_bases, *measurement_conditions]
+    )
+    script = """
+<script>
+(function(){
+  var root=document.getElementById(__ROOT_ID__);
+  if(!root)return;
+  var data=JSON.parse(root.querySelector('.transfer-data').textContent);
+  var state={
+    boundary:data.initial.selected_boundary,
+    time:data.initial.selected_time_basis,
+    storage:Boolean(data.initial.include_storage_change),
+    side:Boolean(data.initial.include_known_side_stream),
+    measurement:data.initial.measurement_condition
+  };
+  function selected(records,id){return records.find(function(item){return item.id===id})||{};}
+  function update(){
+    var model=data.model||{};
+    var residual=Number(model.base_residual_percent||0);
+    residual+=Number((model.boundary_adjustments||{})[state.boundary]||0);
+    residual+=Number((model.time_adjustments||{})[state.time]||0);
+    if(state.storage)residual+=Number(model.storage_adjustment_when_included||0);
+    if(state.side)residual+=Number(model.side_stream_adjustment_when_included||0);
+    residual+=Number((model.measurement_adjustments||{})[state.measurement]||0);
+    residual=Math.abs(Math.round(residual*10)/10);
+    root.dataset.boundary=state.boundary;
+    root.dataset.time=state.time;
+    root.querySelector('.transfer-boundary-label').textContent=selected(data.boundaries,state.boundary).label||state.boundary;
+    root.querySelector('.transfer-time-label').textContent=selected(data.time_bases,state.time).label||state.time;
+    root.querySelector('.transfer-storage-label').textContent=state.storage?'Included':'Not included';
+    root.querySelector('.transfer-side-label').textContent=state.side?'Included':'Not included';
+    root.querySelector('.transfer-measurement-label').textContent=selected(data.measurement_conditions,state.measurement).label||state.measurement;
+    root.querySelector('.transfer-residual-value').textContent=residual.toFixed(1)+'%';
+    root.querySelector('.transfer-result').textContent='This illustrative ledger shows a '+residual.toFixed(1)+'% closure gap. Review the accounting evidence. The gap does not prove one cause.';
+    root.querySelectorAll('[data-transfer-group]').forEach(function(button){
+      var group=button.dataset.transferGroup;
+      var pressed=(group==='boundary'&&button.dataset.transferValue===state.boundary)
+        ||(group==='time'&&button.dataset.transferValue===state.time)
+        ||(group==='measurement'&&button.dataset.transferValue===state.measurement)
+        ||(group==='storage'&&state.storage)
+        ||(group==='side'&&state.side);
+      button.setAttribute('aria-pressed',pressed?'true':'false');
+    });
+    var changed=state.boundary!==data.initial.selected_boundary
+      ||state.time!==data.initial.selected_time_basis
+      ||state.storage!==Boolean(data.initial.include_storage_change)
+      ||state.side!==Boolean(data.initial.include_known_side_stream)
+      ||state.measurement!==data.initial.measurement_condition;
+    if(changed)root.dataset.complete='true';
+  }
+  root.querySelectorAll('[data-transfer-group]').forEach(function(button){
+    button.addEventListener('click',function(){
+      var group=button.dataset.transferGroup;
+      if(group==='storage')state.storage=!state.storage;
+      else if(group==='side')state.side=!state.side;
+      else state[group]=button.dataset.transferValue;
+      update();
+    });
+  });
+  update();
+})();
+</script>
+""".replace("__ROOT_ID__", json.dumps(root_id))
+    return (
+        f'<div class="interaction transfer-lab" id="{esc(root_id)}" '
+        f'data-interaction="{esc(interaction_id)}" data-complete="false">'
+        f'<h3>{esc(interaction["title"])}</h3>'
+        f'<p>{esc(interaction["teaching_job"])}</p>'
+        f'<p class="boundary"><b>Model boundary:</b> {esc(interaction["model_boundary"])}</p>'
+        '<div class="transfer-layout"><div class="transfer-controls">'
+        '<fieldset><legend>1. SELECT THE BOUNDARY</legend>'
+        f'{choice_buttons(boundaries, "boundary", boundary_selected)}</fieldset>'
+        '<fieldset><legend>2. SELECT THE TIME BASIS</legend>'
+        f'{choice_buttons(time_bases, "time", time_selected)}</fieldset>'
+        '<fieldset><legend>3. COMPLETE THE LEDGER</legend>'
+        f'<button type="button" class="transfer-choice compact" data-transfer-group="storage" '
+        f'aria-pressed="{"true" if initial.get("include_storage_change") else "false"}">'
+        '<b>Storage change</b><span>Include the authored change in stored mass.</span></button>'
+        f'<button type="button" class="transfer-choice compact" data-transfer-group="side" '
+        f'aria-pressed="{"true" if initial.get("include_known_side_stream") else "false"}">'
+        '<b>Known side stream</b><span>Include the authored path that crosses the fence.</span></button>'
+        '</fieldset><fieldset><legend>4. REVIEW THE MEASUREMENTS</legend>'
+        f'{choice_buttons(measurement_conditions, "measurement", measurement_selected)}</fieldset>'
+        '</div><div class="transfer-stage">'
+        '<div class="transfer-boundary-graphic" aria-hidden="true">'
+        '<span class="transfer-arrow in">INPUT</span><div class="transfer-box">'
+        '<b class="transfer-boundary-label"></b><span>selected accounting fence</span>'
+        '</div><span class="transfer-arrow out">OUTPUT</span></div>'
+        '<dl class="transfer-ledger">'
+        '<div><dt>Clock</dt><dd class="transfer-time-label"></dd></div>'
+        '<div><dt>Storage change</dt><dd class="transfer-storage-label"></dd></div>'
+        '<div><dt>Side stream</dt><dd class="transfer-side-label"></dd></div>'
+        '<div><dt>Measurement basis</dt><dd class="transfer-measurement-label"></dd></div>'
+        '<div class="transfer-residual"><dt>Illustrative closure gap</dt>'
+        '<dd class="transfer-residual-value"></dd></div></dl>'
+        '<p class="transfer-result" role="status" aria-live="polite" aria-atomic="true"></p>'
+        '<p class="transfer-stop"><b>What not to assume:</b> The residual alone does not prove '
+        'leakage, process failure, model failure, or bad data.</p></div></div>'
+        '<noscript><div class="transfer-fallback"><h4>Structured text equivalent</h4>'
+        f'<table><tbody>{fallback_rows}</tbody></table>'
+        '<p>Changing the fence, clock, storage term, side stream, or measurement basis changes '
+        'the illustrative closure gap. The gap still does not diagnose one cause.</p></div></noscript>'
+        f'<script type="application/json" class="transfer-data">{payload}</script>'
+        '</div>'
+        f'{script}'
+    )
+
+
+def _render_path_tracer(interaction: dict[str, Any]) -> str:
+    interaction_id = str(interaction.get("interaction_id", "path-tracer"))
+    root_id = f"path-tracer-{interaction_id}"
+    routes = interaction.get("routes") or []
+    initial_route = str(
+        interaction.get("initial_route")
+        or (routes[0].get("route_id") if routes else "")
+    )
+    route_buttons = "".join(
+        f'<button type="button" class="path-route-choice" '
+        f'data-path-route="{esc(route.get("route_id", ""))}" '
+        f'aria-pressed="{"true" if str(route.get("route_id")) == initial_route else "false"}">'
+        f'<b>{esc(route.get("short_label", route.get("label", "")))}</b>'
+        f'<span>{esc(route.get("objective", ""))}</span></button>'
+        for route in routes
+    )
+    fallback_routes = "".join(
+        "<section>"
+        f'<h4>{esc(route.get("label", ""))}</h4>'
+        f'<p>{esc(route.get("objective", ""))}</p>'
+        "<ol>"
+        + "".join(
+            f'<li><b>{esc(step.get("label", ""))}:</b> '
+            f'{esc(step.get("detail", ""))} '
+            f'<span>Destination: {esc(step.get("destination", ""))}</span></li>'
+            for step in route.get("steps") or []
+        )
+        + "</ol>"
+        f'<p><b>What not to assume:</b> {esc(route.get("what_not_to_assume", ""))}</p>'
+        "</section>"
+        for route in routes
+    )
+    payload = json.dumps(
+        {
+            "routes": routes,
+            "initial_route": initial_route,
+            "evidence_prompt": interaction.get("evidence_prompt", ""),
+        },
+        ensure_ascii=True,
+        separators=(",", ":"),
+    ).replace("<", "\\u003c")
+    script = """
+<script>
+(function(){
+  var root=document.getElementById(__ROOT_ID__);
+  if(!root)return;
+  var data=JSON.parse(root.querySelector('.path-tracer-data').textContent);
+  var routeId=data.initial_route;
+  var stepIndex=0;
+  function route(){
+    return data.routes.find(function(item){return item.route_id===routeId})||data.routes[0]||{};
+  }
+  function update(){
+    var current=route();
+    var steps=current.steps||[];
+    if(stepIndex>=steps.length)stepIndex=Math.max(0,steps.length-1);
+    var step=steps[stepIndex]||{};
+    root.dataset.route=routeId;
+    root.dataset.step=String(stepIndex+1);
+    root.querySelector('.path-route-label').textContent=current.label||'';
+    root.querySelector('.path-objective').textContent=current.objective||'';
+    root.querySelector('.path-step-count').textContent='STEP '+String(stepIndex+1)+' OF '+String(steps.length);
+    root.querySelector('.path-step-label').textContent=step.label||'';
+    root.querySelector('.path-step-detail').textContent=step.detail||'';
+    root.querySelector('.path-destination').textContent=step.destination||'';
+    root.querySelector('.path-nonclaim').textContent=current.what_not_to_assume||'';
+    root.querySelector('.path-evidence').textContent=data.evidence_prompt||'';
+    root.querySelector('.path-back').disabled=stepIndex===0;
+    root.querySelector('.path-next').disabled=stepIndex>=steps.length-1;
+    root.querySelectorAll('[data-path-route]').forEach(function(button){
+      button.setAttribute('aria-pressed',button.dataset.pathRoute===routeId?'true':'false');
+    });
+    root.querySelectorAll('.path-node').forEach(function(node,index){
+      node.dataset.state=index<stepIndex?'complete':(index===stepIndex?'active':'pending');
+      node.querySelector('b').textContent=(steps[index]||{}).label||'';
+    });
+    if(stepIndex>=steps.length-1)root.dataset.complete='true';
+  }
+  root.querySelectorAll('[data-path-route]').forEach(function(button){
+    button.addEventListener('click',function(){
+      routeId=button.dataset.pathRoute;
+      stepIndex=0;
+      update();
+    });
+  });
+  root.querySelector('.path-back').addEventListener('click',function(){
+    stepIndex=Math.max(0,stepIndex-1);
+    update();
+  });
+  root.querySelector('.path-next').addEventListener('click',function(){
+    var steps=route().steps||[];
+    stepIndex=Math.min(steps.length-1,stepIndex+1);
+    update();
+  });
+  root.querySelector('.path-reset').addEventListener('click',function(){
+    routeId=data.initial_route;
+    stepIndex=0;
+    root.dataset.complete='false';
+    update();
+  });
+  update();
+})();
+</script>
+""".replace("__ROOT_ID__", json.dumps(root_id))
+    nodes = "".join(
+        '<div class="path-node" data-state="pending"><span aria-hidden="true"></span><b></b></div>'
+        for _ in range(max((len(route.get("steps") or []) for route in routes), default=4))
+    )
+    styles = """
+<style>
+.path-tracer{padding:clamp(20px,3vw,34px);border:1px solid #4b4842;background:#171614;color:#f2f1ec}
+.path-route-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0}
+.path-route-choice{min-height:92px;padding:14px;text-align:left;border:1px solid #59554d;background:#292826;color:#f2f1ec;cursor:pointer}
+.path-route-choice b,.path-route-choice span{display:block}.path-route-choice span{margin-top:6px;color:#d9d6cf;line-height:1.4}
+.path-route-choice[aria-pressed="true"]{border-color:#8ed0ed;box-shadow:inset 0 0 0 2px #8ed0ed;background:#10232e}
+.path-tracer-stage{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:20px}
+.path-track{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:start;margin:22px 0}
+.path-node{position:relative;min-height:84px;padding:36px 9px 9px;border-top:3px solid #59554d;color:#a29c91}
+.path-node span{position:absolute;top:-10px;left:0;width:18px;height:18px;border-radius:50%;background:#59554d}
+.path-node[data-state="active"]{border-color:#8ed0ed;color:#f2f1ec}.path-node[data-state="active"] span{background:#8ed0ed;box-shadow:0 0 18px #7dc6e8}
+.path-node[data-state="complete"]{border-color:#4ac88c;color:#d9d6cf}.path-node[data-state="complete"] span{background:#4ac88c}
+.path-step-panel{padding:20px;border:1px solid #42677a;background:#10232e}
+.path-step-count{font:700 11px "Courier New",monospace;letter-spacing:.14em;color:#8ed0ed}
+.path-destination-line{padding-top:12px;border-top:1px solid #42677a}.path-destination{color:#8ed0ed}
+.path-controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.path-controls button{min-height:44px;padding:10px 16px;border:1px solid #8ed0ed;background:#10232e;color:#f2f1ec;cursor:pointer}
+.path-controls button:disabled{opacity:.45;cursor:not-allowed}.path-controls button:focus-visible,.path-route-choice:focus-visible{outline:3px solid #e0a64a;outline-offset:3px}
+.path-boundaries{display:grid;gap:12px}.path-boundary-card{padding:16px;border:1px solid #59554d;background:#292826}
+.path-boundary-card b{display:block;margin-bottom:7px;color:#e0a64a}.path-boundary-card p{margin:0;color:#d9d6cf}
+@media(max-width:760px){.path-route-choices,.path-tracer-stage{grid-template-columns:1fr}.path-track{grid-template-columns:1fr}.path-node{min-height:52px;padding:14px 10px 10px 34px;border-top:0;border-left:3px solid #59554d}.path-node span{top:14px;left:-10px}}
+@media(prefers-reduced-motion:reduce){.path-node span{box-shadow:none}}
+</style>
+"""
+    return (
+        f'{styles}<div class="interaction path-tracer" id="{esc(root_id)}" '
+        f'data-interaction="{esc(interaction_id)}" data-complete="false">'
+        f'<h3>{esc(interaction["title"])}</h3>'
+        f'<p>{esc(interaction["teaching_job"])}</p>'
+        f'<p class="boundary"><b>Model boundary:</b> {esc(interaction["model_boundary"])}</p>'
+        f'<div class="path-route-choices" aria-label="Choose a water pathway">{route_buttons}</div>'
+        '<div class="path-tracer-stage"><div><p class="path-step-count"></p>'
+        '<h4 class="path-route-label"></h4><p class="path-objective"></p>'
+        f'<div class="path-track" aria-hidden="true">{nodes}</div>'
+        '<div class="path-step-panel" role="status" aria-live="polite" aria-atomic="true">'
+        '<h4 class="path-step-label"></h4><p class="path-step-detail"></p>'
+        '<p class="path-destination-line"><b>Current destination:</b> '
+        '<span class="path-destination"></span></p></div>'
+        '<div class="path-controls"><button type="button" class="path-back">Back</button>'
+        '<button type="button" class="path-next">Step</button>'
+        '<button type="button" class="path-reset">Reset</button></div></div>'
+        '<aside class="path-boundaries"><div class="path-boundary-card"><b>WHAT NOT TO ASSUME</b>'
+        '<p class="path-nonclaim"></p></div><div class="path-boundary-card">'
+        '<b>NEXT EVIDENCE QUESTION</b><p class="path-evidence"></p></div></aside></div>'
+        f'<noscript><style>#{esc(root_id)} .path-route-choices,'
+        f'#{esc(root_id)} .path-tracer-stage{{display:none}}</style>'
+        '<div class="path-tracer-fallback"><h4>Structured text equivalent</h4>'
+        f'{fallback_routes}</div></noscript>'
+        f'<script type="application/json" class="path-tracer-data">{payload}</script></div>{script}'
+    )
+
+
+def _render_failure_trace(interaction: dict[str, Any]) -> str:
+    interaction_id = str(interaction.get("interaction_id", "failure-trace"))
+    root_id = f"failure-trace-{interaction_id}"
+    scenarios = interaction.get("scenarios") or []
+    scenario_buttons = "".join(
+        f'<button type="button" class="failure-choice" '
+        f'data-failure-scenario="{esc(scenario.get("scenario_id", ""))}" '
+        f'aria-pressed="{"true" if index == 0 else "false"}">'
+        f'{esc(scenario.get("observation", ""))}</button>'
+        for index, scenario in enumerate(scenarios)
+    )
+    fallback_rows = "".join(
+        "<tr>"
+        f'<th scope="row">{esc(scenario.get("observation", ""))}</th>'
+        f'<td>{esc(scenario.get("pathway_question", ""))}</td>'
+        f'<td>{esc(scenario.get("possible_consequence", ""))}</td>'
+        f'<td>{esc(scenario.get("evidence_needed", ""))}</td>'
+        "</tr>"
+        for scenario in scenarios
+    )
+    payload = json.dumps(
+        {"scenarios": scenarios},
+        ensure_ascii=True,
+        separators=(",", ":"),
+    ).replace("<", "\\u003c")
+    styles = """
+<style>
+.failure-trace{padding:clamp(20px,3vw,34px);border:1px solid #4b4842;background:#171614;color:#f2f1ec}
+.failure-trace-layout{display:grid;grid-template-columns:minmax(230px,.65fr) minmax(0,1.35fr);gap:20px;margin-top:22px}
+.failure-choices{display:grid;gap:8px;align-content:start}
+.failure-choice{min-height:54px;padding:11px 14px;text-align:left;border:1px solid #59554d;background:#292826;color:#f2f1ec;cursor:pointer}
+.failure-choice[aria-pressed="true"]{border-color:#8ed0ed;box-shadow:inset 0 0 0 2px #8ed0ed;background:#10232e}
+.failure-stage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.failure-card{min-height:180px;padding:18px;border:1px solid #42677a;background:#10232e}
+.failure-card b{display:block;margin-bottom:12px;color:#8ed0ed;font:700 11px "Courier New",monospace;letter-spacing:.12em}
+.failure-card p{margin:0;color:#e8f0f4;line-height:1.55}
+.failure-progress{grid-column:1/-1;margin:2px 0 0;color:#d9d6cf}
+.failure-progress strong{color:#4ac88c}
+.failure-choice:focus-visible{outline:3px solid #e0a64a;outline-offset:3px}
+.failure-fallback{max-width:100%;overflow-x:auto}.failure-fallback table{width:100%;border-collapse:collapse}.failure-fallback th,.failure-fallback td{padding:10px;border:1px solid #59554d;text-align:left;vertical-align:top}
+@media(max-width:800px){.failure-trace-layout,.failure-stage{grid-template-columns:1fr}.failure-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){.failure-choice{scroll-behavior:auto}}
+</style>
+"""
+    script = """
+<script>
+(function(){
+  var root=document.getElementById(__ROOT_ID__);
+  if(!root)return;
+  var data=JSON.parse(root.querySelector('.failure-trace-data').textContent);
+  var selected=(data.scenarios[0]||{}).scenario_id||'';
+  var visited={};
+  function current(){
+    return data.scenarios.find(function(item){return item.scenario_id===selected})||data.scenarios[0]||{};
+  }
+  function update(){
+    var item=current();
+    visited[selected]=true;
+    root.dataset.scenario=selected;
+    root.querySelector('.failure-question').textContent=item.pathway_question||'';
+    root.querySelector('.failure-consequence').textContent=item.possible_consequence||'';
+    root.querySelector('.failure-evidence').textContent=item.evidence_needed||'';
+    root.querySelectorAll('[data-failure-scenario]').forEach(function(button){
+      button.setAttribute('aria-pressed',button.dataset.failureScenario===selected?'true':'false');
+    });
+    var count=Object.keys(visited).length;
+    root.querySelector('.failure-progress').innerHTML='<strong>'+String(count)+'</strong> of '+String(data.scenarios.length)+' conditions reviewed';
+    if(count>=data.scenarios.length)root.dataset.complete='true';
+  }
+  root.querySelectorAll('[data-failure-scenario]').forEach(function(button){
+    button.addEventListener('click',function(){selected=button.dataset.failureScenario;update();});
+  });
+  update();
+})();
+</script>
+""".replace("__ROOT_ID__", json.dumps(root_id))
+    return (
+        f'{styles}<div class="interaction failure-trace" id="{esc(root_id)}" '
+        f'data-interaction="{esc(interaction_id)}" data-complete="false">'
+        f'<h3>{esc(interaction["title"])}</h3>'
+        f'<p>{esc(interaction["teaching_job"])}</p>'
+        f'<p class="boundary"><b>Model boundary:</b> {esc(interaction["model_boundary"])}</p>'
+        '<div class="failure-trace-layout"><div class="failure-choices" '
+        f'aria-label="Choose a condition">{scenario_buttons}</div>'
+        '<div class="failure-stage"><div class="failure-card"><b>PATHWAY QUESTION</b>'
+        '<p class="failure-question"></p></div><div class="failure-card">'
+        '<b>POSSIBLE CONSEQUENCE</b><p class="failure-consequence"></p></div>'
+        '<div class="failure-card"><b>EVIDENCE NEEDED NEXT</b>'
+        '<p class="failure-evidence"></p></div>'
+        '<p class="failure-progress" role="status" aria-live="polite"></p></div></div>'
+        f'<noscript><style>#{esc(root_id)} .failure-trace-layout{{display:none}}</style>'
+        '<div class="failure-fallback"><h4>Structured text equivalent</h4>'
+        '<table><thead><tr><th>Observation</th><th>Pathway question</th>'
+        '<th>Possible consequence</th><th>Evidence needed</th></tr></thead>'
+        f'<tbody>{fallback_rows}</tbody></table></div></noscript>'
+        f'<script type="application/json" class="failure-trace-data">{payload}</script></div>{script}'
+    )
+
+
 def _render_assessment(assessment: dict[str, Any]) -> str:
     assessment_id = str(assessment["assessment_id"])
     assessment_type = str(assessment["type"])
@@ -1801,19 +2327,79 @@ def _render_block(
     if block_type == "visual":
         visual_id = str(block.get("visual_id", ""))
         visual = package["visuals"].get(visual_id)
-        if visual:
-            locator = esc(f"{asset_prefix}{visual['locator']}")
+        if visual and visual.get("locator"):
+            locator = esc(
+                _portable_asset_href(
+                    Path(package["package_dir"]),
+                    str(visual["locator"]),
+                    asset_prefix,
+                    inline=public_preview,
+                )
+            )
+            caption = (
+                f'<figcaption><b>How to read this:</b> {esc(visual["reading_guide"])} '
+                f'<b>Conclusion:</b> {esc(visual["learner_conclusion"])}'
+            )
+            if visual.get("not_established"):
+                caption += (
+                    f' <b>This does not prove:</b> {esc(visual["not_established"])}'
+                )
+            caption += "</figcaption>"
             extra = (
                 f'<figure><img src="{locator}" alt="{esc(visual["alternative_text"])}">'
-                f'<figcaption><b>How to read this:</b> {esc(visual["reading_guide"])} '
-                f'<b>Conclusion:</b> {esc(visual["learner_conclusion"])}</figcaption></figure>'
+                f"{caption}</figure>"
             )
+        elif visual:
+            extra = (
+                f'<figure class="visual-component" '
+                f'data-visual-component="{esc(visual.get("component_id"))}">'
+                f'<figcaption><b>How to read this:</b> {esc(visual["reading_guide"])} '
+                f'<b>Conclusion:</b> {esc(visual["learner_conclusion"])}</figcaption>'
+                f'<p class="visual-alt">{esc(visual["alternative_text"])}</p></figure>'
+            )
+    elif block_type == "definition":
+        entries = []
+        for entry in block.get("terms") or []:
+            if not isinstance(entry, dict):
+                continue
+            entries.append(
+                '<div class="definition">'
+                f'<h4 class="definition-term">{esc(entry.get("term"))}</h4>'
+                f'<p class="definition-meaning">{esc(entry.get("meaning"))}</p>'
+                f'<p class="definition-example"><b>For example:</b> '
+                f'{esc(entry.get("example"))}</p>'
+                f'<p class="definition-limit"><b>What it does not tell you:</b> '
+                f'{esc(entry.get("not_established"))}</p>'
+                "</div>"
+            )
+        if entries:
+            extra = f'<div class="definition-set">{"".join(entries)}</div>'
+    elif block_type == "example":
+        extra = (
+            '<div class="worked-example">'
+            f'<p class="worked-label">Worked example</p>'
+            f'<p class="worked-situation"><b>The situation:</b> '
+            f'{esc(block.get("situation"))}</p>'
+            f'<p class="worked-reasoning"><b>Working it through:</b> '
+            f'{esc(block.get("reasoning"))}</p>'
+            f'<p class="worked-result"><b>What you conclude:</b> '
+            f'{esc(block.get("result"))}</p>'
+            f'<p class="worked-boundary"><b>Where this stops:</b> '
+            f'{esc(block.get("boundary"))}</p>'
+            "</div>"
+        )
     elif block_type == "interaction":
         interaction_id = str(block.get("interaction_id", ""))
         interaction = package["interactions"].get(interaction_id)
         if interaction:
             if interaction.get("component") == "concept-jar-model":
                 extra = _render_jar_model(interaction)
+            elif interaction.get("component") == "scenario-transfer-lab":
+                extra = _render_scenario_transfer_lab(interaction)
+            elif interaction.get("component") == "path-tracer":
+                extra = _render_path_tracer(interaction)
+            elif interaction.get("component") == "failure-trace":
+                extra = _render_failure_trace(interaction)
             else:
                 extra = (
                     f'<div class="interaction" data-interaction="{esc(interaction_id)}">'
@@ -1972,6 +2558,74 @@ def _render_block(
     )
 
 
+def _render_public_orientation(
+    learning: dict[str, Any],
+    public_config: dict[str, Any],
+) -> str:
+    """Render the instructional orientation the learner sees before the topic.
+
+    The learning objectives already exist in ``learning.yaml``. This surface is
+    where the learner finally sees the promise the package makes internally.
+    """
+    experience = learning.get("learner_experience") or {}
+    orientation = experience.get("orientation") or {}
+    profile = learning.get("learning") or {}
+    if not orientation:
+        return ""
+
+    overrides = public_config.get("orientation_overrides") or {}
+    if isinstance(overrides, dict):
+        orientation = {**orientation, **overrides}
+
+    outcomes = profile.get("outcomes") or []
+    outcome_html = "".join(
+        f"<li>{esc(outcome)}</li>" for outcome in outcomes if str(outcome).strip()
+    )
+    prior = profile.get("prior_knowledge") or []
+    prior_html = "".join(
+        f"<li>{esc(item)}</li>" for item in prior if str(item).strip()
+    )
+
+    prior_section = ""
+    if prior_html:
+        prior_section = f"""
+      <div class="orientation-card">
+        <h3>What you need first</h3>
+        <ul>{prior_html}</ul>
+      </div>"""
+
+    outcome_section = ""
+    if outcome_html:
+        outcome_section = f"""
+    <div class="orientation-outcomes">
+      <h3>What you will be able to do</h3>
+      <ol>{outcome_html}</ol>
+    </div>"""
+
+    return f"""<section class="orientation" aria-labelledby="orientation-title">
+  <div class="wrap">
+    <p class="section-kicker">START HERE</p>
+    <h2 id="orientation-title">{esc(orientation.get("subject"))}</h2>
+    <div class="orientation-grid">
+      <div class="orientation-card">
+        <h3>Who this is for</h3>
+        <p>{esc(orientation.get("audience"))}</p>
+      </div>
+      <div class="orientation-card">
+        <h3>Why it matters</h3>
+        <p>{esc(orientation.get("why_it_matters"))}</p>
+      </div>{prior_section}
+      <div class="orientation-card">
+        <h3>How long it takes</h3>
+        <p>{esc(orientation.get("time_estimate"))}</p>
+      </div>
+    </div>{outcome_section}
+    <p class="orientation-boundary"><b>What this does not cover:</b>
+      {esc(orientation.get("scope_boundary"))}</p>
+  </div>
+</section>"""
+
+
 def _render_public_takeaway(public_config: dict[str, Any]) -> str:
     takeaway = public_config.get("quick_takeaway") or {}
     items = takeaway.get("items") or []
@@ -1993,7 +2647,7 @@ def _render_public_navigation(public_config: dict[str, Any]) -> str:
     entries = public_config.get("primary_navigation") or [
         {"label": "Start", "href": "#beat-01-why"},
         {"label": "Explore", "href": "#block-jar"},
-        {"label": "Sources", "href": "#block-evidence-boundary"},
+        {"label": "Graph", "drawer": "graph-drawer"},
         {"label": "Community", "drawer": "community-drawer"},
     ]
     controls = []
@@ -2110,7 +2764,34 @@ def _render_public_connections(package: dict[str, Any], public_config: dict[str,
     sop_outline_payload = json.dumps(sop_outline_text, ensure_ascii=True).replace(
         "<", "\\u003c"
     )
+    sop_title = str(
+        integration.get("sop_title", "Concept response SOP outline")
+    )
+    sop_intro = str(
+        integration.get(
+            "sop_intro",
+            "The public value is a clear starting structure, not a pretend facility SOP. "
+            "Copy this outline into the utility's approved workspace, then fill it with "
+            "site-specific evidence and named authority.",
+        )
+    )
     forum_url = str(integration.get("community_url", "#owos-concept-community"))
+    graph_url = str(
+        integration.get(
+            "graph_url",
+            f"/os?node={str(package['brief'].get('slug', 'concept-brief'))}",
+        )
+    )
+    graph_cards = "".join(
+        '<article class="drawer-connection">'
+        f'<span>{esc(item.get("kind", "Related concept"))}</span>'
+        f'<h3>{esc(item.get("title", ""))}</h3>'
+        f'<p>{esc(item.get("description", ""))}</p>'
+        f'<a href="{esc(item.get("href", "#"))}">{esc(item.get("action", "Review in this brief"))}</a>'
+        "</article>"
+        for item in related_items[:4]
+        if isinstance(item, dict)
+    )
     return f"""
 <section class="connected-learning" id="owos-concept-related">
   <div class="wrap">
@@ -2136,10 +2817,10 @@ def _render_public_connections(package: dict[str, Any], public_config: dict[str,
   <div class="wrap">
     <p class="section-kicker">A USEFUL NEXT STEP</p>
     <h2>Take the outline. Build the procedure under control.</h2>
-    <p class="section-lead">The public value is a clear starting structure, not a pretend facility SOP. Copy this outline into the utility's approved workspace, then fill it with site-specific evidence and named authority.</p>
+    <p class="section-lead">{esc(sop_intro)}</p>
     <div class="sop-grid">
       <article class="sop-outline-card">
-        <h3>Clarification response SOP outline</h3>
+        <h3>{esc(sop_title)}</h3>
         <ol>{sop_outline}</ol>
         <div class="sop-actions">
           <button type="button" class="primary-action" id="copy-sop-outline">Copy the outline</button>
@@ -2157,6 +2838,15 @@ def _render_public_connections(package: dict[str, Any], public_config: dict[str,
   </div>
 </section>
 <div class="drawer-backdrop" data-drawer-close hidden></div>
+<aside class="context-drawer" id="graph-drawer" role="dialog" aria-modal="true" aria-labelledby="graph-drawer-title" hidden>
+  <button class="drawer-close" type="button" data-drawer-close aria-label="Close concept map">Close</button>
+  <p class="section-kicker">CONCEPT MAP</p>
+  <h2 id="graph-drawer-title">See what this concept connects to</h2>
+  <p>Use these reviewed learning connections to move through the treatment sequence without leaving this brief.</p>
+  <div class="drawer-connection-grid">{graph_cards}</div>
+  <a class="primary-action" href="{esc(graph_url)}">Open the full OWOS Graph</a>
+  <a class="drawer-bottom-link" href="#owos-concept-related">See all related learning</a>
+</aside>
 <aside class="context-drawer" id="community-drawer" role="dialog" aria-modal="true" aria-labelledby="community-drawer-title" hidden>
   <button class="drawer-close" type="button" data-drawer-close aria-label="Close discussion">Close</button>
   <p class="section-kicker">DISCUSS</p>
@@ -2182,7 +2872,12 @@ def _render_public_commercial(
             continue
         placement_id = str(placement.get("placement_id", ""))
         slot = str(placement.get("slot", ""))
-        image = asset_prefix + str(placement.get("logo", ""))
+        image = _portable_asset_href(
+            Path(package["package_dir"]),
+            str(placement.get("logo", "")),
+            asset_prefix,
+            inline=True,
+        )
         is_placeholder = placement.get("placeholder") is True
         if is_placeholder and config.get("show_inactive_placeholders") is not True:
             continue
@@ -2271,6 +2966,16 @@ def build_html(
             raise ConceptBriefError(
                 "public-preview.yaml primary_navigation must contain one to four controls"
             )
+        navigation_drawers = {
+            str(item.get("drawer", ""))
+            for item in navigation
+            if isinstance(item, dict) and item.get("drawer")
+        }
+        for required_drawer in ("graph-drawer", "community-drawer"):
+            if required_drawer not in navigation_drawers:
+                raise ConceptBriefError(
+                    "public-preview.yaml primary_navigation requires top Graph and Community drawer controls"
+                )
         takeaway_items = (public_config.get("quick_takeaway") or {}).get("items") or []
         if not 2 <= len(takeaway_items) <= 4:
             raise ConceptBriefError(
@@ -2390,19 +3095,43 @@ def build_html(
     )
     if public_preview:
         configured_brand_css = public_config.get("brand_css")
+        graphite_tokens_path = (
+            Path(__file__).resolve().parent.parent
+            / "core"
+            / "brand"
+            / "owos-graphite.css"
+        )
+        if not graphite_tokens_path.is_file():
+            raise ConceptBriefError(
+                f"shared Graphite token CSS does not exist: {graphite_tokens_path}"
+            )
+        presentation_css += "\n" + graphite_tokens_path.read_text(encoding="utf-8")
         brand_css_path = (
             (package_dir / str(configured_brand_css)).resolve()
             if configured_brand_css
-            else Path(__file__).resolve().parent.parent / "core" / "brand" / "owos-graphite.css"
+            else None
         )
-        try:
-            if configured_brand_css:
+        if configured_brand_css:
+            try:
                 brand_css_path.relative_to(package_dir.resolve())
-        except ValueError as error:
-            raise ConceptBriefError("brand_css must stay inside the Concept Brief package") from error
-        if not brand_css_path.is_file():
-            raise ConceptBriefError(f"brand_css does not exist: {brand_css_path}")
-        presentation_css += "\n" + brand_css_path.read_text(encoding="utf-8")
+            except ValueError as error:
+                raise ConceptBriefError(
+                    "brand_css must stay inside the Concept Brief package"
+                ) from error
+            if not brand_css_path.is_file():
+                raise ConceptBriefError(f"brand_css does not exist: {brand_css_path}")
+            presentation_css += "\n" + brand_css_path.read_text(encoding="utf-8")
+        shell_css_path = (
+            Path(__file__).resolve().parent.parent
+            / "core"
+            / "brand"
+            / "owos-concept-brief-shell.css"
+        )
+        if not shell_css_path.is_file():
+            raise ConceptBriefError(
+                f"shared Concept Brief shell CSS does not exist: {shell_css_path}"
+            )
+        presentation_css += "\n" + shell_css_path.read_text(encoding="utf-8")
     title_parts = re.split(r"\s+vs\s+", str(brief["title"]), maxsplit=1, flags=re.IGNORECASE)
     hero_title = (
         f"{esc(title_parts[0])}<br><span style=\"color:var(--gold)\">VS</span> {esc(title_parts[1])}"
@@ -2462,13 +3191,73 @@ solid var(--gold);background:rgba(29,92,144,.08)}}.surface-black .block-callout,
 .surface-black .block-decision,.surface-black .block-protocol,.surface-black .block-diagnostic{{
 background:#151515}}.claim{{display:inline-block;margin:0 7px 8px 0;padding:4px 8px;border-radius:3px;
 font:700 10px ui-monospace,monospace;text-transform:uppercase;background:#dbeaf3;color:#164f74}}
+.block-heading{{margin-top:44px}}.block-metric,.block-evidence,.block-role,
+.block-connected_learning{{padding:22px;background:rgba(29,92,144,.05);
+border-top:2px solid var(--blue)}}.surface-black .block-metric,.surface-black .block-evidence,
+.surface-black .block-role,.surface-black .block-connected_learning{{background:#141414;
+border-top-color:var(--cyan)}}
+.orientation{{padding:64px 0;background:var(--off);border-bottom:2px solid var(--gold)}}
+.orientation h2{{font-size:clamp(26px,3.4vw,40px);line-height:1.12;margin:6px 0 26px;
+max-width:900px}}.orientation-grid{{display:grid;
+grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:18px}}
+.orientation-card{{padding:20px;background:var(--white);border-left:3px solid var(--blue)}}
+.orientation-card h3{{margin:0 0 8px;font:700 12px ui-monospace,monospace;
+text-transform:uppercase;letter-spacing:1.1px;color:var(--blue)}}
+.orientation-card p,.orientation-card li{{margin:0 0 6px;font-size:15px;line-height:1.55}}
+.orientation-card ul{{margin:0;padding-left:18px}}
+.orientation-outcomes{{margin-top:26px;padding:24px;background:var(--black);color:#eee}}
+.orientation-outcomes h3{{margin:0 0 12px;font:700 12px ui-monospace,monospace;
+text-transform:uppercase;letter-spacing:1.1px;color:var(--cyan)}}
+.orientation-outcomes ol{{margin:0;padding-left:20px;max-width:860px}}
+.orientation-outcomes li{{margin:0 0 8px;line-height:1.55}}
+.orientation-boundary{{margin:22px 0 0;max-width:860px;padding:14px 16px;
+border-left:3px solid var(--gold);background:rgba(197,160,74,.1);font-size:15px}}
+.definition-set{{display:grid;gap:16px;margin-top:20px}}
+.definition{{padding:20px;background:var(--white);border-left:3px solid var(--gold)}}
+.surface-black .definition{{background:#141414}}
+.definition-term{{margin:0 0 8px;font-size:19px;line-height:1.25}}
+.definition p{{margin:0 0 7px;font-size:15px;line-height:1.55}}
+.definition-example{{color:#2c4a5e}}.surface-black .definition-example{{color:#b9cbd5}}
+.definition-limit{{color:#6b4d16}}.surface-black .definition-limit{{color:#d8bd7c}}
+.worked-example{{margin-top:20px;padding:24px;background:rgba(29,92,144,.07);
+border-left:4px solid var(--blue)}}.surface-black .worked-example{{background:#131c22}}
+.worked-label{{margin:0 0 12px;font:700 11px ui-monospace,monospace;text-transform:uppercase;
+letter-spacing:1.2px;color:var(--blue)}}.surface-black .worked-label{{color:var(--cyan)}}
+.worked-example p{{margin:0 0 9px;font-size:15px;line-height:1.6}}
+.visual-component{{padding:20px;border:1px dashed #9bb3c2}}
+.visual-alt{{margin:10px 0 0;font-size:14px;color:#3d5666}}
 .claim-pending,.claim-rejected{{background:#fde4e4;color:var(--red)}}figure{{margin:20px 0}}
 figure img{{max-width:100%;height:auto;display:block}}figcaption{{padding:14px;background:#edf5f8;
 color:#173145}}.interaction{{padding:24px;background:#000;color:#fff;border:1px solid #333}}
-.boundary{{color:#c7d8e2;font-size:14px}}.quick-nav{{display:flex;flex-wrap:wrap;gap:10px;
-margin-top:28px}}.quick-nav a{{display:inline-block;padding:10px 14px;border:1px solid #5f7483;
-border-radius:999px;color:#fff;text-decoration:none;font-weight:700}}.quick-nav a:hover,
-.quick-nav a:focus-visible{{background:#fff;color:#07131d;outline:3px solid var(--gold);
+.boundary{{color:#c7d8e2;font-size:14px}}.transfer-layout{{display:grid;
+grid-template-columns:minmax(280px,.8fr) minmax(320px,1.2fr);gap:24px;margin-top:24px}}
+.transfer-controls fieldset{{display:grid;gap:8px;margin:0 0 14px;padding:14px;border:1px solid #3e5869}}
+.transfer-controls legend{{padding:0 7px;color:#8ed0ed;font:700 11px ui-monospace,monospace;
+letter-spacing:.08em}}.transfer-choice{{display:grid;gap:4px;min-height:58px;padding:11px 12px;
+border:1px solid #54788e;background:#10232e;color:#fff;text-align:left;font:inherit;cursor:pointer}}
+.transfer-choice span{{color:#b9cbd5;font-size:12px;line-height:1.35}}
+.transfer-choice[aria-pressed="true"]{{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold);
+background:#263321}}.transfer-choice:focus-visible{{outline:3px solid #fff;outline-offset:2px}}
+.transfer-choice.compact{{min-height:52px}}.transfer-stage{{display:grid;align-content:start;gap:16px;
+padding:20px;background:#111a20;border:1px solid #324754}}.transfer-boundary-graphic{{display:grid;
+grid-template-columns:90px minmax(150px,1fr) 90px;align-items:center;gap:10px;padding:26px 8px}}
+.transfer-box{{display:grid;place-items:center;min-height:150px;padding:18px;border:3px dashed #42d3b3;
+text-align:center}}.transfer-box b{{color:#fff;font-size:22px}}.transfer-box span{{color:#9db4c2;
+font-size:12px}}.transfer-arrow{{position:relative;color:#42d3b3;font:700 11px
+ui-monospace,monospace;text-align:center}}.transfer-arrow:after{{content:"";display:block;
+height:4px;margin-top:8px;background:#42d3b3}}.transfer-arrow.in:after{{clip-path:polygon(0 25%,80% 25%,80% 0,100% 50%,80% 100%,80% 75%,0 75%)}}
+.transfer-arrow.out:after{{clip-path:polygon(0 25%,80% 25%,80% 0,100% 50%,80% 100%,80% 75%,0 75%)}}
+.transfer-ledger{{display:grid;gap:1px;margin:0;background:#344854}}.transfer-ledger div{{display:grid;
+grid-template-columns:1fr 1fr;gap:12px;padding:11px 13px;background:#17242c}}.transfer-ledger dt{{
+color:#9db4c2}}.transfer-ledger dd{{margin:0;text-align:right;font-weight:800}}
+.transfer-ledger .transfer-residual{{background:#2c2118}}.transfer-residual-value{{color:var(--gold);
+font-size:24px}}.transfer-result{{padding:15px;border-left:4px solid #42d3b3;background:#172d28}}
+.transfer-stop{{padding:14px;border:1px solid #8e3d3d;background:#281717;color:#ffd8d8}}
+.transfer-fallback{{padding:18px;background:#fff;color:#10263b}}.quick-nav{{display:flex;flex-wrap:wrap;gap:10px;
+margin-top:28px}}.quick-nav a,.quick-nav button{{display:inline-block;padding:10px 14px;border:1px solid #5f7483;
+border-radius:999px;background:transparent;color:#fff;text-decoration:none;font:inherit;font-weight:700;
+cursor:pointer}}.quick-nav a:hover,.quick-nav button:hover,
+.quick-nav a:focus-visible,.quick-nav button:focus-visible{{background:#fff;color:#07131d;outline:3px solid var(--gold);
 outline-offset:2px}}.jar-layout{{display:grid;grid-template-columns:minmax(0,1.35fr)
 minmax(250px,.65fr);gap:24px;align-items:start}}.jar-controls fieldset{{border:1px solid #3e5869;
 border-radius:8px;margin:0 0 16px;padding:14px}}.jar-controls legend{{padding:0 7px;
@@ -2541,6 +3330,9 @@ color:#10263b;font:inherit;font-weight:800;cursor:pointer}}.assessment-card[aria
 background:#10232e;color:#f2f1ec}}.assessment-match-row{{display:grid;
 grid-template-columns:minmax(0,1fr) minmax(180px,.6fr);gap:12px;align-items:center}}
 .assessment-match-row select{{min-height:44px;padding:8px;font:inherit}}
+.assessment-match-row,.assessment-match-row span,.assessment-match-row select{{min-width:0;
+max-width:100%}}.assessment-match-row select{{width:100%}}.assessment-match-row span{{
+overflow-wrap:anywhere}}
 .assessment-work-check{{min-height:44px;padding:10px 16px;border:0;background:#174f77;color:#fff;
 font:inherit;font-weight:800}}@media(max-width:640px){{.assessment-match-row{{grid-template-columns:1fr}}}}
 summary{{font-weight:750;cursor:pointer}}.connected{{padding:60px 0;background:#fff}}
@@ -2582,13 +3374,21 @@ font-weight:800;text-decoration:none}}.commercial-card.placeholder .commercial-a
 .commercial-action:focus-visible{{outline:3px solid var(--gold);outline-offset:3px}}
 .commercial-directory-note{{margin:18px 0 0;color:#565047;font-size:12px}}
 .commercial-directory-note a{{color:#174f77;font-weight:800}}
+.drawer-connection-grid{{display:grid;gap:10px;margin:20px 0}}.drawer-connection{{padding:14px;
+border:1px solid #d7e4eb;background:#f7fbfd}}.drawer-connection span{{color:#1d5c90;
+font:700 10px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}}
+.drawer-connection h3{{margin:.35em 0;color:#10263b;font-size:18px}}.drawer-connection p{{
+margin:.35em 0;color:#526774;font-size:14px}}.drawer-connection a{{color:#174f77;font-weight:800}}
 footer{{padding:32px 0;background:#061f31;color:#bdd5e2;font-size:13px;overflow-wrap:anywhere}}
 @media(max-width:760px){{.jar-layout{{grid-template-columns:1fr}}.jar-view{{width:min(100%,330px)}}}}
 @media(max-width:760px){{.commercial-head,.commercial-grid{{grid-template-columns:1fr}}
 .commercial-card{{grid-template-columns:130px minmax(0,1fr)}}}}
+@media(max-width:840px){{.transfer-layout{{grid-template-columns:1fr}}}}
 @media(max-width:640px){{header{{padding:50px 0}}.beat{{padding:46px 0}}.interaction{{padding:18px}}
 .commercial-card{{grid-template-columns:1fr}}.commercial-logo-wrap{{max-width:220px}}
-.jar-control{{width:calc(100% - 8px)}}}}
+.jar-control{{width:calc(100% - 8px)}}.transfer-boundary-graphic{{grid-template-columns:1fr;
+gap:14px}}.transfer-arrow{{text-align:left}}.transfer-ledger div{{grid-template-columns:1fr}}
+.transfer-ledger dd{{text-align:left}}}}
 @media(prefers-reduced-motion:reduce){{*{{scroll-behavior:auto!important;animation:none!important;
 transition:none!important}}}}
 </style>
@@ -2596,15 +3396,16 @@ transition:none!important}}}}
 </head>
 <body{body_theme_attr}>
 <div class="status" role="status">{esc(status_text)}</div>
-<header><div class="wrap"><div class="hero-copy"><div class="meta">UNIT PROCESS · CLARIFICATION TRAIN ·
+<header><div class="wrap"><div class="hero-copy"><div class="meta">{esc(public_config.get("hero_context", "OWOS CONCEPT BRIEF") if public_preview else "OWOS CONCEPT BRIEF")} ·
 {esc(brief['brief_id'])}</div><h1>{hero_title}</h1><p>{esc(brief['promise'])}</p>
 <div class="meta">{esc(scope_label)}</div>
 </div><div class="hero-side"><div class="meta">{esc(public_config.get("hero_label", "WORKING BUILD") if public_preview else "WORKING BUILD")} · {esc(display_version)}</div>
-<p>Two different jobs. Two different mixing purposes. One connected treatment sequence.</p>
+<p>{esc(public_config.get("hero_summary", brief["promise"]) if public_preview else brief["promise"])}</p>
 {"" if public_preview else f'<p class="meta">Verification coverage: {package["verification_coverage_percent"]}% · Pending material claims: {len(pending)}</p>'}<nav class="quick-nav" aria-label="Concept Brief">
 {_render_public_navigation(public_config) if public_preview else '<a href="#beat-01-why">Start</a><a href="#block-jar">Live jar</a><a href="#block-terms">Key terms</a><a href="#block-evidence-boundary">Sources</a>'}
 </nav></div></div></header>
 <main>
+{_render_public_orientation(package["learning"], public_config) if public_preview else ""}
 {_render_public_takeaway(public_config) if public_preview else ""}
 {''.join(beats_html)}
 {_render_public_connections(package, public_config) if public_preview and (public_config.get("integration") or {}).get("enabled") is True else ""}
@@ -2891,6 +3692,17 @@ document.querySelectorAll('[data-concept-assessment="flip-cards"]').forEach(func
     }});
   }});
 }});
+if(location.protocol!=='file:'){{
+  window.addEventListener('load',function(){{
+    ['/owos-shell.js','/concept-brief-runtime.js'].forEach(function(src){{
+      if(document.querySelector('script[src="'+src+'"]'))return;
+      var runtime=document.createElement('script');
+      runtime.src=src;
+      runtime.defer=true;
+      document.body.appendChild(runtime);
+    }});
+  }},{{once:true}});
+}}
 document.querySelectorAll('[data-concept-assessment="matching"]').forEach(function(check){{
   check.querySelector('.assessment-check')?.addEventListener('click',function(){{
     var selects=[...check.querySelectorAll('select[data-answer]')];
@@ -2909,35 +3721,54 @@ document.querySelectorAll('[data-concept-assessment="applied-work-product"]').fo
     check.dataset.complete=correct?'true':'false';
   }});
 }});
+var drawerHistoryActive=false;
+var drawerReturnFocus=null;
 document.querySelectorAll('[data-drawer-open]').forEach(function(button){{
   button.addEventListener('click',function(){{
     var drawer=document.getElementById(button.dataset.drawerOpen);
     var backdrop=document.querySelector('.drawer-backdrop');
     if(!drawer||!backdrop)return;
+    drawerReturnFocus=button;
     document.querySelectorAll('.context-drawer').forEach(function(peer){{peer.hidden=true}});
     drawer.hidden=false;
     backdrop.hidden=false;
     document.body.classList.add('drawer-open');
+    if(!drawerHistoryActive){{
+      history.pushState(Object.assign({{}},history.state||{{}},{{owosConnectedDrawer:drawer.id}}),'',location.href);
+      drawerHistoryActive=true;
+    }}
     drawer.querySelector('.drawer-close').focus();
   }});
 }});
-function closeDrawers(){{
+function hideDrawers(){{
   var openDrawer=document.querySelector('.context-drawer:not([hidden])');
-  var opener=openDrawer&&document.querySelector('[data-drawer-open="'+openDrawer.id+'"]');
+  var opener=drawerReturnFocus||(openDrawer&&document.querySelector('[data-drawer-open="'+openDrawer.id+'"]'));
   document.querySelectorAll('.context-drawer').forEach(function(drawer){{drawer.hidden=true}});
   var backdrop=document.querySelector('.drawer-backdrop');
   if(backdrop)backdrop.hidden=true;
   document.body.classList.remove('drawer-open');
   if(opener)opener.focus();
+  drawerReturnFocus=null;
+}}
+function closeDrawers(fromHistory){{
+  if(!fromHistory&&drawerHistoryActive){{
+    history.back();
+    return;
+  }}
+  drawerHistoryActive=false;
+  hideDrawers();
 }}
 document.querySelectorAll('[data-drawer-close]').forEach(function(control){{
-  control.addEventListener('click',closeDrawers);
+  control.addEventListener('click',function(){{closeDrawers(false)}});
 }});
 document.addEventListener('keydown',function(event){{
-  if(event.key==='Escape')closeDrawers();
+  if(event.key==='Escape')closeDrawers(false);
+}});
+window.addEventListener('popstate',function(){{
+  if(drawerHistoryActive)closeDrawers(true);
 }});
 document.querySelectorAll('.context-drawer a[href^="#"]').forEach(function(link){{
-  link.addEventListener('click',closeDrawers);
+  link.addEventListener('click',function(){{closeDrawers(false)}});
 }});
 var sopCopy=document.getElementById('copy-sop-outline');
 if(sopCopy){{
@@ -3008,7 +3839,7 @@ document.querySelectorAll('.commercial-card[data-placement-slot]').forEach(async
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){{
   document.documentElement.classList.add('motion-ready');
   var revealTargets=document.querySelectorAll(
-    '.band-in,.block>p,.card,.sim,.stability-graphic,figure,.editorial-table,'+
+    '.band-in,.block>p,.card,.sim,.stability-graphic,.editorial-table,'+
     '.protocol-step,.comparison,.audit-list li,.accuracy-panel,.connected li,'+
     '#owos-concept-community li'
   );

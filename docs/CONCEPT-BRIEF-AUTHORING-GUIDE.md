@@ -18,6 +18,8 @@ The normal production order is fixed:
 ```text
 supplied draft and conversation
 -> preservation and claim inventory
+-> owner sparring and curriculum thesis
+-> research white paper and scored review
 -> research and original-source verification
 -> evidence-backed narrative and approved storyboard
 -> cited HTML compilation
@@ -30,10 +32,46 @@ learner-facing HTML version before research. If a prototype has already been gen
 as a pre-research draft, return the brief to research, and do not treat that prototype as the
 evidence-backed page.
 
+Before claim inventory or page design, ask the owner focused questions in rounds. Establish what is
+being taught, why it matters, who needs it, what should change for the learner, which misconceptions
+matter, the desired depth, practical situations, exclusions, and the required citation standard.
+Record the answers and keep revising `white-paper.md`.
+
+`white-paper.md` is the first generated teaching artifact. It is a clean long-form explanation, not
+a page mockup. It develops the complete argument with headings and subheadings, plain-language
+definitions, mechanisms, importance, examples, misconceptions, limitations, proposed diagrams,
+curriculum sequence, evidence notes, and references. Its scored review becomes the gate into claim
+verification, design, storyboard, graphics, interactions, and HTML.
+
+The paper opens by orienting a reader who knows nothing about the topic. Before the subject begins,
+it names what the concept is, who needs it, where and when it shows up in water-sector work, why it
+matters, what the reader will be able to do afterward, how long it takes, and what it does not
+cover. Every dependent term is then defined in plain English with a concrete example and an explicit
+statement of what the term does not establish. Each major mechanism carries a worked example that
+shows inputs, reasoning, result, and transfer boundary.
+
+The paper and the compiled brief are the same argument at two depths. Keep them synchronized. A
+teaching move in the paper with no home in the storyboard, or a rendered section with no basis in
+the paper, is a defect and belongs in the QA record.
+
+After every substantive sparring or research round, update the 100-point score inside the white
+paper. Score the teaching thesis, complete plain-language explanation, utility-wide and cross-sector
+value, research and sources, technical verification, visual teaching value, and editorial quality.
+Show every deduction and the work needed to recover it. A paper needs at least 90 points before it
+may be offered for owner approval into curriculum design. Evidence, technical review, diagram truth,
+scope, and owner approval remain hard gates regardless of the number.
+
 ### 1. Intake
 
 The original is preserved with its locator, checksum, creator, visibility, permission, extraction
 coverage, and limitations. The source is not treated as correct merely because it already exists.
+
+An “existing” source must first pass a source-identity gate. Accept explicit matching title, stable
+identifier, direct locator, documented package relationship, or owner confirmation. Do not activate
+a source from keyword overlap, semantic similarity, search ranking, product adjacency, or patent
+adjacency. Those are discovery leads only. When multiple plausible sources remain, stop before
+claim extraction and obtain the exact locator. A rejected candidate stays outside the intake,
+claims, terminology, design, Graph, Community, and release records.
 
 ### 2. Claim inventory
 
@@ -105,6 +143,14 @@ Before the page is written, each brief defines:
 
 This is how the system stays consistent in trust and different in experience.
 
+The compiler enforces the shared Concept Brief shell proven by the Coagulation vs Flocculation
+reference. That shell includes the 1160-pixel desktop wrapper, controlled prose measure, numbered
+section-band hierarchy, dark instructional and Connected Learning surfaces, ivory Community,
+commercial, recap, and feedback closing plane, light connected-learning drawers, and the responsive
+gutter and stacking rules. A package may vary the learning composition, visuals, interactions, and
+surface rhythm inside the instructional core. It may not silently replace the shared shell or
+flatten the dark-to-ivory closing transition.
+
 The compiler does not force monument numbers, a simulator, a protocol, a correction table, or a
 diagnostic. It renders the approved storyboard in the order the learning problem requires.
 
@@ -138,8 +184,19 @@ named accreditor approves the exact offering.
 
 Before compilation, separate internal rigor from public usefulness:
 
-- open with an “In 30 seconds” orientation;
+- open with the instructional orientation: what this is about, who it is for, why it matters, what
+  the learner will be able to do, how long it takes, and what it does not cover;
+- render the learning objectives on the page. They already exist in `learning.yaml`; the learner
+  must see the promise the package makes;
+- define every dependent term in plain English, with an example and a statement of what the term
+  does not establish, before the learner meets it in a graphic;
+- give every major mechanism a worked example and every graphic a caption saying what to notice and
+  what it does not prove;
+- provide an “In 30 seconds” orientation;
 - keep primary navigation to four controls or fewer;
+- include top Graph and Community controls that open same-screen right-side drawers;
+- make Close, Escape, backdrop selection, and browser Back remove the active drawer, restore the
+  unchanged brief, and return focus to the control that opened it;
 - remove claim counts and raw governance or Graph machinery from promotional copy;
 - keep public SOP value to a useful outline unless a separate authenticated agent is approved;
 - show only active commercial connections after the teaching;

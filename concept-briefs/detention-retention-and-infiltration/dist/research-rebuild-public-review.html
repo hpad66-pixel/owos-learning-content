@@ -1,0 +1,1750 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="owos-contract" content="owos-concept-brief/2">
+<meta name="owos-compiler-version" content="2.1.0">
+<meta name="owos-package-checksum" content="b2774fddc037dc4e733e000d6e6c573af6b639fc16e24cc6ef15e87681a3f87f">
+<meta name="owos-brief-id" content="owos:concept-brief:003">
+<meta name="owos-brief-version" content="PREVIEW 0.3">
+<meta name="owos-release-state" content="public-review-preview">
+<meta name="owos-evidence-cutoff" content="2026-07-26">
+<title>Detention, Retention, and Infiltration | OWOS Concept Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Libre+Baskerville:ital@0;1&amp;family=Space+Mono:wght@400;700&amp;family=Barlow:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--black:#080808;--panel:#151515;--white:#fff;--off:#f4f7fa;--ink:#10263b;
+--blue:#1d5c90;--gold:#ebca62;--cyan:#bae7f9;--line:#d7e4eb;--red:#9c2226}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.65
+system-ui,sans-serif;color:var(--ink);background:var(--off)}.wrap{width:min(1080px,calc(100% -
+32px));margin:auto}.status{padding:14px 16px;background:#fff3cd;color:#4f3c00;border-bottom:2px
+solid #d4a600;font-weight:700}header{padding:72px 0;background:var(--black);color:#fff}header
+h1{font-size:clamp(42px,7vw,82px);line-height:.98;margin:.15em 0}header p{max-width:760px;
+color:#e8e8e8}.meta{font:12px ui-monospace,monospace;color:var(--gold);overflow-wrap:anywhere}
+.beat{padding:64px 0}
+.surface-white{background:var(--white)}.surface-off_white{background:var(--off)}
+.surface-black{background:var(--black);color:#eee}.surface-blue{background:var(--blue);
+color:#fff;border-bottom:4px solid var(--gold)}.learner-question{font:700 12px ui-monospace,
+monospace;text-transform:uppercase;letter-spacing:1.3px;color:var(--blue)}
+.surface-black .learner-question,.surface-blue .learner-question{color:var(--cyan)}.block{
+margin:26px 0;max-width:900px}.block h2{font-size:clamp(28px,4vw,45px);line-height:1.08}
+.block-callout,.block-decision,.block-protocol,.block-diagnostic{padding:24px;border-left:4px
+solid var(--gold);background:rgba(29,92,144,.08)}.surface-black .block-callout,
+.surface-black .block-decision,.surface-black .block-protocol,.surface-black .block-diagnostic{
+background:#151515}.claim{display:inline-block;margin:0 7px 8px 0;padding:4px 8px;border-radius:3px;
+font:700 10px ui-monospace,monospace;text-transform:uppercase;background:#dbeaf3;color:#164f74}
+.block-heading{margin-top:44px}.block-metric,.block-evidence,.block-role,
+.block-connected_learning{padding:22px;background:rgba(29,92,144,.05);
+border-top:2px solid var(--blue)}.surface-black .block-metric,.surface-black .block-evidence,
+.surface-black .block-role,.surface-black .block-connected_learning{background:#141414;
+border-top-color:var(--cyan)}
+.orientation{padding:64px 0;background:var(--off);border-bottom:2px solid var(--gold)}
+.orientation h2{font-size:clamp(26px,3.4vw,40px);line-height:1.12;margin:6px 0 26px;
+max-width:900px}.orientation-grid{display:grid;
+grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:18px}
+.orientation-card{padding:20px;background:var(--white);border-left:3px solid var(--blue)}
+.orientation-card h3{margin:0 0 8px;font:700 12px ui-monospace,monospace;
+text-transform:uppercase;letter-spacing:1.1px;color:var(--blue)}
+.orientation-card p,.orientation-card li{margin:0 0 6px;font-size:15px;line-height:1.55}
+.orientation-card ul{margin:0;padding-left:18px}
+.orientation-outcomes{margin-top:26px;padding:24px;background:var(--black);color:#eee}
+.orientation-outcomes h3{margin:0 0 12px;font:700 12px ui-monospace,monospace;
+text-transform:uppercase;letter-spacing:1.1px;color:var(--cyan)}
+.orientation-outcomes ol{margin:0;padding-left:20px;max-width:860px}
+.orientation-outcomes li{margin:0 0 8px;line-height:1.55}
+.orientation-boundary{margin:22px 0 0;max-width:860px;padding:14px 16px;
+border-left:3px solid var(--gold);background:rgba(197,160,74,.1);font-size:15px}
+.definition-set{display:grid;gap:16px;margin-top:20px}
+.definition{padding:20px;background:var(--white);border-left:3px solid var(--gold)}
+.surface-black .definition{background:#141414}
+.definition-term{margin:0 0 8px;font-size:19px;line-height:1.25}
+.definition p{margin:0 0 7px;font-size:15px;line-height:1.55}
+.definition-example{color:#2c4a5e}.surface-black .definition-example{color:#b9cbd5}
+.definition-limit{color:#6b4d16}.surface-black .definition-limit{color:#d8bd7c}
+.worked-example{margin-top:20px;padding:24px;background:rgba(29,92,144,.07);
+border-left:4px solid var(--blue)}.surface-black .worked-example{background:#131c22}
+.worked-label{margin:0 0 12px;font:700 11px ui-monospace,monospace;text-transform:uppercase;
+letter-spacing:1.2px;color:var(--blue)}.surface-black .worked-label{color:var(--cyan)}
+.worked-example p{margin:0 0 9px;font-size:15px;line-height:1.6}
+.visual-component{padding:20px;border:1px dashed #9bb3c2}
+.visual-alt{margin:10px 0 0;font-size:14px;color:#3d5666}
+.claim-pending,.claim-rejected{background:#fde4e4;color:var(--red)}figure{margin:20px 0}
+figure img{max-width:100%;height:auto;display:block}figcaption{padding:14px;background:#edf5f8;
+color:#173145}.interaction{padding:24px;background:#000;color:#fff;border:1px solid #333}
+.boundary{color:#c7d8e2;font-size:14px}.transfer-layout{display:grid;
+grid-template-columns:minmax(280px,.8fr) minmax(320px,1.2fr);gap:24px;margin-top:24px}
+.transfer-controls fieldset{display:grid;gap:8px;margin:0 0 14px;padding:14px;border:1px solid #3e5869}
+.transfer-controls legend{padding:0 7px;color:#8ed0ed;font:700 11px ui-monospace,monospace;
+letter-spacing:.08em}.transfer-choice{display:grid;gap:4px;min-height:58px;padding:11px 12px;
+border:1px solid #54788e;background:#10232e;color:#fff;text-align:left;font:inherit;cursor:pointer}
+.transfer-choice span{color:#b9cbd5;font-size:12px;line-height:1.35}
+.transfer-choice[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold);
+background:#263321}.transfer-choice:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.transfer-choice.compact{min-height:52px}.transfer-stage{display:grid;align-content:start;gap:16px;
+padding:20px;background:#111a20;border:1px solid #324754}.transfer-boundary-graphic{display:grid;
+grid-template-columns:90px minmax(150px,1fr) 90px;align-items:center;gap:10px;padding:26px 8px}
+.transfer-box{display:grid;place-items:center;min-height:150px;padding:18px;border:3px dashed #42d3b3;
+text-align:center}.transfer-box b{color:#fff;font-size:22px}.transfer-box span{color:#9db4c2;
+font-size:12px}.transfer-arrow{position:relative;color:#42d3b3;font:700 11px
+ui-monospace,monospace;text-align:center}.transfer-arrow:after{content:"";display:block;
+height:4px;margin-top:8px;background:#42d3b3}.transfer-arrow.in:after{clip-path:polygon(0 25%,80% 25%,80% 0,100% 50%,80% 100%,80% 75%,0 75%)}
+.transfer-arrow.out:after{clip-path:polygon(0 25%,80% 25%,80% 0,100% 50%,80% 100%,80% 75%,0 75%)}
+.transfer-ledger{display:grid;gap:1px;margin:0;background:#344854}.transfer-ledger div{display:grid;
+grid-template-columns:1fr 1fr;gap:12px;padding:11px 13px;background:#17242c}.transfer-ledger dt{
+color:#9db4c2}.transfer-ledger dd{margin:0;text-align:right;font-weight:800}
+.transfer-ledger .transfer-residual{background:#2c2118}.transfer-residual-value{color:var(--gold);
+font-size:24px}.transfer-result{padding:15px;border-left:4px solid #42d3b3;background:#172d28}
+.transfer-stop{padding:14px;border:1px solid #8e3d3d;background:#281717;color:#ffd8d8}
+.transfer-fallback{padding:18px;background:#fff;color:#10263b}.quick-nav{display:flex;flex-wrap:wrap;gap:10px;
+margin-top:28px}.quick-nav a,.quick-nav button{display:inline-block;padding:10px 14px;border:1px solid #5f7483;
+border-radius:999px;background:transparent;color:#fff;text-decoration:none;font:inherit;font-weight:700;
+cursor:pointer}.quick-nav a:hover,.quick-nav button:hover,
+.quick-nav a:focus-visible,.quick-nav button:focus-visible{background:#fff;color:#07131d;outline:3px solid var(--gold);
+outline-offset:2px}.jar-layout{display:grid;grid-template-columns:minmax(0,1.35fr)
+minmax(250px,.65fr);gap:24px;align-items:start}.jar-controls fieldset{border:1px solid #3e5869;
+border-radius:8px;margin:0 0 16px;padding:14px}.jar-controls legend{padding:0 7px;
+font-weight:800}.jar-control{min-height:44px;margin:4px;padding:9px 12px;border:1px solid #7dbcd7;
+border-radius:6px;background:#102f45;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.jar-control[aria-pressed="true"]{background:var(--gold);color:#1f1900;border-color:var(--gold)}
+.jar-control:focus-visible{outline:3px solid #fff;outline-offset:2px}.jar-view{max-width:330px;
+margin:auto}.jar-water{position:relative;min-height:360px;border:4px solid #bae7f9;
+border-top:0;border-radius:0 0 34px 34px;overflow:hidden;background:linear-gradient(#183b54,#0d273a)}
+.jar-water:before{content:"";position:absolute;left:0;right:0;top:0;border-top:3px solid #7dbcd7}
+.particle-field{position:absolute;inset:18px}.particle-field i{position:absolute;width:8px;
+height:8px;border-radius:50%;background:#eaf9ff;box-shadow:0 0 0 1px #66b7d6}
+.particle-field i:nth-child(3n+1){left:18%;top:15%}.particle-field i:nth-child(3n+2){left:52%;top:43%}
+.particle-field i:nth-child(3n){left:78%;top:72%}.particle-field i:nth-child(4n){left:35%;top:68%}
+.particle-field i:nth-child(5n){left:68%;top:22%}.particle-field i:nth-child(7n){left:12%;top:82%}
+.jar-model[data-stage="coagulation"] .particle-field i{width:12px;height:12px}
+.jar-model[data-stage="flocculation"] .particle-field i{width:22px;height:22px}
+.jar-model[data-stage="separation"] .particle-field i{width:24px;height:24px;top:auto;bottom:10%}
+.jar-model[data-coagulant="low"] .particle-field i{width:7px;height:7px}
+.jar-model[data-coagulant="excess"] .particle-field i{background:#ffd6d6;box-shadow:0 0 0 2px #9c2226}
+.jar-model[data-flocculation="low"] .particle-field i{max-width:13px;max-height:13px}
+.jar-model[data-flocculation="excess"] .particle-field i{border-radius:2px;transform:rotate(25deg);
+background:#ffbea8}.jar-visual-label{text-align:center;color:#bae7f9;font-size:13px}
+.jar-result{margin-top:18px;padding:18px;border-left:4px solid var(--gold);background:#10212e}
+.jar-result p{margin:.35em 0}.jar-question{color:#fff5ca;font-weight:700}
+.jar-fallback{padding:18px;background:#fff;color:#10263b}details{padding:15px 0;
+border-bottom:1px solid var(--line)}
+.concept-assessment{margin:24px 0;padding:24px;border:2px solid #8cb8cf;background:#f7fbfd;
+color:#10263b}.assessment-kicker{font:700 11px ui-monospace,monospace;letter-spacing:.12em;
+color:#1d5c90}.assessment-options{display:grid;gap:10px;margin:18px 0}
+.assessment-option{display:block;padding:12px;border:1px solid #b7ccd7;background:#fff}
+.assessment-check,.assessment-reveal{min-height:44px;padding:10px 16px;border:0;
+background:#174f77;color:#fff;font:inherit;font-weight:800;cursor:pointer}
+.assessment-check:focus-visible,.assessment-reveal:focus-visible{outline:3px solid #ebca62;
+outline-offset:3px}.assessment-feedback{font-weight:800}.assessment-retry{font-size:14px}
+.concept-assessment textarea{display:block;width:100%;margin:10px 0 14px;padding:12px;
+font:inherit}.assessment-model{margin-top:16px;padding:16px;background:#e5f0f5}
+.guided-rehearsal{border-color:#43697d;background:#10232e;color:#f2f1ec}
+.guided-rehearsal .assessment-kicker{color:#8ed0ed}.rehearsal-intro{max-width:760px;
+color:#d9d6cf}.rehearsal-case{display:grid;grid-template-columns:1fr 1fr;gap:1px;
+margin:20px 0;background:#43697d;border:1px solid #43697d}.rehearsal-case>div{padding:18px;
+background:#1c1b19}.rehearsal-shortcut{border-left:4px solid #e0a64a}
+.rehearsal-label{display:block;margin-bottom:7px;color:#8ed0ed;font:700 11px
+ui-monospace,monospace;letter-spacing:.12em}.rehearsal-shortcut .rehearsal-label{color:#e0a64a}
+.rehearsal-steps{min-height:172px;padding:22px;border:1px solid #43697d;background:#292826}
+.rehearsal-step span{color:#8ed0ed;font:700 11px ui-monospace,monospace;letter-spacing:.12em}
+.rehearsal-step h4{margin:.45em 0;font-size:23px}.rehearsal-step p{margin-bottom:0;
+color:#d9d6cf}.rehearsal-controls{display:flex;align-items:center;justify-content:space-between;
+gap:12px;margin:12px 0 22px}.rehearsal-controls button,.practice-toggle{min-height:44px;
+padding:10px 15px;border:1px solid #7dc6e8;background:transparent;color:#f2f1ec;
+font:inherit;font-weight:800;cursor:pointer}.rehearsal-controls button:disabled{opacity:.45;
+cursor:default}.rehearsal-progress{color:#a29c91;font:700 11px ui-monospace,monospace;
+letter-spacing:.08em}.rehearsal-result{padding:20px;border-left:4px solid #4ac88c;
+background:#172d28}.rehearsal-result p{margin:0;font-size:18px;font-weight:750}
+.optional-practice{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+margin-top:24px;padding-top:22px;border-top:1px solid #43697d}.optional-practice h4{margin:.35em 0}
+.optional-practice p{margin:0;color:#d9d6cf}.practice-panel{grid-column:1/-1;padding:20px;
+border:1px solid #43697d;background:#1c1b19}.guided-rehearsal textarea{border:1px solid #7b8d98;
+background:#f2f1ec;color:#10232e}.guided-rehearsal .assessment-model{background:#dfeff6;
+color:#10263b}.guided-rehearsal .assessment-model p,
+.guided-rehearsal .assessment-model b{color:#10263b}.guided-rehearsal .assessment-feedback{color:#8ed0ed}
+.practice-toggle:focus-visible,.rehearsal-controls button:focus-visible{outline:3px solid #e0a64a;
+outline-offset:3px}@media(max-width:640px){.rehearsal-case,.optional-practice{grid-template-columns:1fr}
+.practice-toggle{width:100%}.rehearsal-controls{display:grid;grid-template-columns:1fr 1fr}
+.rehearsal-progress{grid-column:1/-1;grid-row:1;text-align:center}}
+.assessment-card-grid,.assessment-work-grid,.assessment-match-grid{display:grid;gap:12px;
+margin:16px 0}.assessment-card-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.assessment-card{min-height:120px;padding:16px;border:1px solid #8cb8cf;background:#fff;
+color:#10263b;font:inherit;font-weight:800;cursor:pointer}.assessment-card[aria-pressed="true"]{
+background:#10232e;color:#f2f1ec}.assessment-match-row{display:grid;
+grid-template-columns:minmax(0,1fr) minmax(180px,.6fr);gap:12px;align-items:center}
+.assessment-match-row select{min-height:44px;padding:8px;font:inherit}
+.assessment-match-row,.assessment-match-row span,.assessment-match-row select{min-width:0;
+max-width:100%}.assessment-match-row select{width:100%}.assessment-match-row span{
+overflow-wrap:anywhere}
+.assessment-work-check{min-height:44px;padding:10px 16px;border:0;background:#174f77;color:#fff;
+font:inherit;font-weight:800}@media(max-width:640px){.assessment-match-row{grid-template-columns:1fr}}
+summary{font-weight:750;cursor:pointer}.connected{padding:60px 0;background:#fff}
+.evidence-trace{margin-top:28px;padding:0;border:1px solid #b9cfdb;border-radius:8px;
+background:#f7fbfd;color:#10263b;overflow:hidden}.evidence-trace>summary{padding:14px 16px;
+font:700 12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.6px;
+background:#e5f0f5;color:#164f74}.evidence-trace>summary span{float:right;color:#5a6c76}
+.evidence-trace-intro{padding:14px 16px;border-bottom:1px solid #d7e4eb;font-size:14px}
+.evidence-claim-grid{display:grid;gap:1px;background:#d7e4eb}
+.evidence-claim{padding:16px;background:#fff}.evidence-claim p{margin:.45em 0}
+.evidence-claim-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.evidence-claim-head code{font:700 11px ui-monospace,monospace;color:#164f74;
+overflow-wrap:anywhere}.evidence-claim-head span,.claim-use-status{display:inline-block;
+padding:3px 6px;border-radius:3px;background:#fff0c7;color:#674800;font:700 9px
+ui-monospace,monospace;text-transform:uppercase}.evidence-decision{color:#164f74}
+.evidence-claim ul{margin:10px 0;padding-left:20px}.evidence-claim li{margin:10px 0}
+.evidence-claim li span,.evidence-claim li small{display:block;color:#526774;font-size:12px}
+.evidence-limit{font-size:13px;color:#526774}.claim-use-status{margin:0 0 5px 6px;
+background:#fde4e4;color:var(--red)}.surface-black .evidence-trace{border-color:#3c5666}
+.surface-black .evidence-trace>summary{background:#173448;color:#bae7f9}
+#owos-concept-community{padding:60px 0;background:#fff;border-top:1px solid var(--line)}
+.commercial-zone{padding:64px 0;background:#f3efe8;border-top:1px solid #d6d0c5}
+.commercial-head{display:grid;grid-template-columns:minmax(0,.8fr) minmax(280px,1.2fr);
+gap:28px;align-items:end;margin-bottom:24px}.commercial-head h2{font-size:clamp(32px,5vw,58px);
+line-height:1;margin:0;color:#211f1b}.commercial-head>p{margin:0;color:#565047;font-size:13px}
+.commercial-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.commercial-card{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px;position:relative;
+padding:22px;border:1px solid #c8c0b4;background:#fff;color:#211f1b}
+.commercial-card.placeholder{background:#211f1b;color:#f8f5ef;border-style:dashed}
+.commercial-label{grid-column:1/-1;font:700 9px "Space Mono",monospace;letter-spacing:.12em;
+text-transform:uppercase;color:#1d5c90}.commercial-card.placeholder .commercial-label{color:#ebca62}
+.commercial-logo-wrap{display:grid;place-items:center;min-height:86px;background:#f8f5ef}
+.commercial-logo-wrap img{display:block;width:100%;height:auto;max-height:86px;object-fit:contain}
+.commercial-copy h3{margin:0 0 7px;font-size:20px;line-height:1.15}
+.commercial-copy p{margin:0 0 14px;font-size:13px;line-height:1.5;color:#565047}
+.commercial-card.placeholder .commercial-copy p{color:#c8c1b6}
+.commercial-action{display:inline-flex;min-height:42px;align-items:center;color:#174f77;
+font-weight:800;text-decoration:none}.commercial-card.placeholder .commercial-action{color:#aaa49a}
+.commercial-action:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.commercial-directory-note{margin:18px 0 0;color:#565047;font-size:12px}
+.commercial-directory-note a{color:#174f77;font-weight:800}
+.drawer-connection-grid{display:grid;gap:10px;margin:20px 0}.drawer-connection{padding:14px;
+border:1px solid #d7e4eb;background:#f7fbfd}.drawer-connection span{color:#1d5c90;
+font:700 10px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}
+.drawer-connection h3{margin:.35em 0;color:#10263b;font-size:18px}.drawer-connection p{
+margin:.35em 0;color:#526774;font-size:14px}.drawer-connection a{color:#174f77;font-weight:800}
+footer{padding:32px 0;background:#061f31;color:#bdd5e2;font-size:13px;overflow-wrap:anywhere}
+@media(max-width:760px){.jar-layout{grid-template-columns:1fr}.jar-view{width:min(100%,330px)}}
+@media(max-width:760px){.commercial-head,.commercial-grid{grid-template-columns:1fr}
+.commercial-card{grid-template-columns:130px minmax(0,1fr)}}
+@media(max-width:840px){.transfer-layout{grid-template-columns:1fr}}
+@media(max-width:640px){header{padding:50px 0}.beat{padding:46px 0}.interaction{padding:18px}
+.commercial-card{grid-template-columns:1fr}.commercial-logo-wrap{max-width:220px}
+.jar-control{width:calc(100% - 8px)}.transfer-boundary-graphic{grid-template-columns:1fr;
+gap:14px}.transfer-arrow{text-align:left}.transfer-ledger div{grid-template-columns:1fr}
+.transfer-ledger dd{text-align:left}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;
+transition:none!important}}
+</style>
+<style>
+:root {
+  --owos-graphite: #1c1b19;
+  --owos-charcoal: #292826;
+  --owos-charcoal-2: #302f2c;
+  --owos-process: #10232e;
+  --owos-white: #f2f1ec;
+  --owos-body: #d9d6cf;
+  --owos-muted: #a29c91;
+  --owos-line: #3d3a36;
+  --owos-water: #7dc6e8;
+  --owos-water-light: #8ed0ed;
+  --owos-amber: #e0a64a;
+  --owos-green: #4ac88c;
+  --owos-red: #ee7968;
+  --owos-sans: Arial, Barlow, sans-serif;
+  --owos-mono: "Courier New", "Space Mono", monospace;
+}
+
+[data-owos-theme="graphite"] {
+  color-scheme: dark;
+  background: var(--owos-graphite);
+  color: var(--owos-body);
+  font-family: var(--owos-sans);
+}
+
+[data-owos-theme="graphite"] :is(h1, h2, h3, h4) {
+  color: var(--owos-white);
+  font-family: var(--owos-sans);
+  font-weight: 800;
+}
+
+[data-owos-theme="graphite"] :is(a, .owos-concept, .owos-active) {
+  color: var(--owos-water);
+}
+
+[data-owos-theme="graphite"] :focus-visible {
+  outline: 3px solid var(--owos-water);
+  outline-offset: 3px;
+}
+
+[data-owos-theme="graphite"] .owos-surface {
+  border: 1px solid var(--owos-line);
+  background: var(--owos-charcoal);
+  color: var(--owos-body);
+}
+
+[data-owos-theme="graphite"] .owos-technical-label {
+  color: var(--owos-water-light);
+  font-family: var(--owos-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+[data-owos-theme="graphite"] .owos-caution { color: var(--owos-amber); }
+[data-owos-theme="graphite"] .owos-positive { color: var(--owos-green); }
+[data-owos-theme="graphite"] .owos-critical { color: var(--owos-red); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-owos-theme="graphite"] *,
+  [data-owos-theme="graphite"] *::before,
+  [data-owos-theme="graphite"] *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Topic-specific editorial layer for Detention, Retention, and Infiltration. */
+
+html body[data-owos-theme="graphite"] .wrap {
+  width: min(1120px, calc(100% - clamp(48px, 10vw, 160px)));
+}
+
+body[data-owos-theme="graphite"] .beat {
+  padding: clamp(64px, 8vw, 108px) 0;
+}
+
+body[data-owos-theme="graphite"] .learner-question {
+  max-width: 780px;
+  margin: 0 0 24px;
+  line-height: 1.55;
+}
+
+body[data-owos-theme="graphite"] .block > p {
+  max-width: 760px;
+  margin: 0 0 18px;
+  color: #e2dfd8;
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+body[data-owos-theme="graphite"] .block + .block {
+  margin-top: clamp(48px, 7vw, 84px);
+  padding-top: clamp(36px, 5vw, 58px);
+  border-top: 1px solid #45413c;
+}
+
+body[data-owos-theme="graphite"] .beat .block:not(:first-of-type) > h2:first-child {
+  display: block;
+  max-width: 780px;
+  margin: 0 0 18px;
+  color: var(--owos-white);
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+}
+
+body[data-owos-theme="graphite"] .card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 1120px;
+  margin-top: 34px;
+  padding: 1px;
+  background: #55514b;
+}
+
+body[data-owos-theme="graphite"] .card-grid .card {
+  min-width: 0;
+  padding: 26px;
+  border: 0;
+  background: #211f1d;
+}
+
+body[data-owos-theme="graphite"] .card-grid .card h3 {
+  margin: 0 0 12px;
+  color: var(--owos-white);
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+body[data-owos-theme="graphite"] .card-grid .card p {
+  margin: 0;
+  color: #d6d2ca;
+  line-height: 1.62;
+}
+
+body[data-owos-theme="graphite"] .card-grid .card-label {
+  display: block;
+  margin-top: 20px;
+  color: var(--owos-water);
+  font: 700 10px/1.3 var(--owos-mono);
+  letter-spacing: .12em;
+}
+
+body[data-owos-theme="graphite"] .block-visual > figure {
+  width: 100%;
+  margin: 34px 0 0;
+  padding: clamp(16px, 2.5vw, 30px);
+  overflow: hidden;
+  border: 1px solid #4a4640;
+  background: #151412;
+  box-shadow: 0 20px 52px rgba(0, 0, 0, .22);
+}
+
+body[data-owos-theme="graphite"] .block-visual > figure img {
+  display: block;
+  width: 100%;
+  max-width: 1060px;
+  height: auto;
+  margin: 0 auto;
+}
+
+body[data-owos-theme="graphite"] .block-visual > figure figcaption {
+  margin: clamp(16px, 2vw, 24px) calc(clamp(16px, 2.5vw, 30px) * -1)
+    calc(clamp(16px, 2.5vw, 30px) * -1);
+  padding: 18px clamp(16px, 2.5vw, 30px);
+  border-top: 1px solid #436375;
+  background: #10232e;
+  color: #d8edf7;
+  font-size: 16px;
+  line-height: 1.62;
+  text-align: left;
+}
+
+body[data-owos-theme="graphite"] .table-wrap {
+  max-width: 100%;
+  margin-top: 30px;
+  overflow-x: auto;
+  border: 1px solid #514d47;
+}
+
+body[data-owos-theme="graphite"] .editorial-table th,
+body[data-owos-theme="graphite"] .editorial-table td {
+  padding: 18px 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+body[data-owos-theme="graphite"] .editorial-table th:first-child,
+body[data-owos-theme="graphite"] .editorial-table td:first-child {
+  width: 19%;
+  font-weight: 800;
+}
+
+body[data-owos-theme="graphite"] .editorial-table th:nth-child(2),
+body[data-owos-theme="graphite"] .editorial-table td:nth-child(2) {
+  width: 41%;
+}
+
+@media (max-width: 760px) {
+  html body[data-owos-theme="graphite"] .wrap {
+    width: calc(100% - 40px);
+  }
+
+  body[data-owos-theme="graphite"] .block > p {
+    font-size: 17px;
+    line-height: 1.68;
+  }
+
+  body[data-owos-theme="graphite"] .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-owos-theme="graphite"] .block-visual > figure {
+    padding: 10px;
+  }
+
+  body[data-owos-theme="graphite"] .block-visual > figure figcaption {
+    margin: 12px -10px -10px;
+    padding: 16px 18px;
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .table-wrap {
+    overflow: visible;
+    border: 0;
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table,
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table tbody,
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table tr,
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table td {
+    display: block;
+    width: 100%;
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table thead {
+    display: none;
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table tr {
+    margin-bottom: 14px;
+    border: 1px solid #514d47;
+    background: #211f1d;
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #45413c;
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table td:last-child {
+    border-bottom: 0;
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table td::before {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--owos-water);
+    font: 700 10px/1.3 var(--owos-mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table td:nth-child(1)::before {
+    content: "Term";
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table td:nth-child(2)::before {
+    content: "Plain-English meaning";
+  }
+
+  body[data-owos-theme="graphite"] #beat-00-foundation .editorial-table td:nth-child(3)::before {
+    content: "Why it matters";
+  }
+}
+
+/*
+ * OWOS Concept Brief shared Graphite shell.
+ *
+ * This locks the presentation grammar proven by the Coagulation vs Flocculation
+ * reference without cloning its topic-specific teaching composition.
+ */
+:root {
+  --owos-concept-shell-version: "graphite-reference-1";
+}
+
+body[data-owos-theme="graphite"] {
+  background: var(--owos-graphite);
+  color: var(--owos-body);
+  font-family: var(--owos-sans);
+}
+
+body[data-owos-theme="graphite"] .wrap {
+  width: min(1160px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+body[data-owos-theme="graphite"] header {
+  background:
+    radial-gradient(circle at 84% 20%, rgba(125, 198, 232, .16), transparent 26rem),
+    var(--owos-graphite);
+  border-bottom: 1px solid var(--owos-line);
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] header .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: end;
+}
+
+body[data-owos-theme="graphite"] header h1 {
+  color: var(--owos-white);
+  font-size: clamp(58px, 9vw, 118px);
+  letter-spacing: -.05em;
+}
+
+body[data-owos-theme="graphite"] header p {
+  color: #c8c4bd;
+}
+
+body[data-owos-theme="graphite"] .meta,
+body[data-owos-theme="graphite"] .section-kicker {
+  color: var(--owos-water-light);
+  font-family: var(--owos-mono);
+  letter-spacing: .08em;
+}
+
+body[data-owos-theme="graphite"] .quick-nav a,
+body[data-owos-theme="graphite"] .quick-nav button {
+  border-color: #4a4742;
+  border-radius: 0;
+  background: #232220;
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .quick-nav :is(a, button):hover,
+body[data-owos-theme="graphite"] .quick-nav :is(a, button):focus-visible {
+  border-color: var(--owos-water);
+  background: var(--owos-water);
+  color: var(--owos-process);
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway {
+  padding: clamp(34px, 5vw, 58px) 0;
+  border-block: 1px solid rgba(125, 198, 232, .22);
+  background: var(--owos-process);
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway h2 {
+  margin: 0 0 22px;
+  color: var(--owos-white);
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  background: #48606d;
+  list-style: none;
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway li {
+  position: relative;
+  min-height: 106px;
+  padding: 23px 22px 23px 54px;
+  background: #172f3c;
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway li::before {
+  content: counter(list-item);
+  position: absolute;
+  left: 21px;
+  color: var(--owos-water);
+  font: 700 12px var(--owos-mono);
+}
+
+body[data-owos-theme="graphite"] .band {
+  border-block: 1px solid var(--owos-line);
+  background: #252422;
+}
+
+body[data-owos-theme="graphite"] .band::after {
+  height: 2px;
+  background: linear-gradient(90deg, var(--owos-water), rgba(125, 198, 232, 0));
+}
+
+body[data-owos-theme="graphite"] .band-n {
+  color: rgba(142, 208, 237, .72);
+  font-family: var(--owos-sans);
+  font-weight: 800;
+}
+
+body[data-owos-theme="graphite"] .band-k {
+  color: var(--owos-water);
+  font-family: var(--owos-mono);
+}
+
+body[data-owos-theme="graphite"] .band-h {
+  color: var(--owos-white);
+  font-family: var(--owos-sans);
+  font-weight: 800;
+}
+
+body[data-owos-theme="graphite"] .beat {
+  border-bottom: 1px solid rgba(242, 241, 236, .055);
+}
+
+body[data-owos-theme="graphite"] .surface-white,
+body[data-owos-theme="graphite"] .surface-blue {
+  background: #211f1d;
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .surface-off_white {
+  background: var(--owos-charcoal);
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .surface-black {
+  background: var(--owos-graphite);
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .block {
+  max-width: none;
+  margin: 0;
+}
+
+body[data-owos-theme="graphite"] .beat .block > h2:first-child {
+  display: none;
+}
+
+body[data-owos-theme="graphite"] .block > p {
+  max-width: 900px;
+}
+
+body[data-owos-theme="graphite"] .connected-learning,
+body[data-owos-theme="graphite"] .community-public,
+body[data-owos-theme="graphite"] .sop-workspace,
+body[data-owos-theme="graphite"] .commercial-zone,
+body[data-owos-theme="graphite"] .concept-finish {
+  padding: clamp(64px, 9vw, 120px) 0;
+}
+
+body[data-owos-theme="graphite"] .connected-learning {
+  border-top: 1px solid var(--owos-line);
+  background: #171614;
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] .connected-learning h2,
+body[data-owos-theme="graphite"] .community-public h2,
+body[data-owos-theme="graphite"] .sop-workspace h2,
+body[data-owos-theme="graphite"] .commercial-zone h2 {
+  max-width: 800px;
+  margin: 0 0 18px;
+  font-size: clamp(36px, 5vw, 68px);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+body[data-owos-theme="graphite"] .connection-grid,
+body[data-owos-theme="graphite"] .drawer-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 34px;
+  border: 1px solid #49463f;
+  background: #49463f;
+}
+
+body[data-owos-theme="graphite"] .connection-card {
+  padding: 28px;
+  background: #252422;
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .connection-card > span {
+  color: var(--owos-water);
+  font: 700 10px var(--owos-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+body[data-owos-theme="graphite"] .connection-card p {
+  color: #c8c1b6;
+}
+
+body[data-owos-theme="graphite"] .connection-card a,
+body[data-owos-theme="graphite"] .drawer-bottom-link {
+  color: var(--owos-water);
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+body[data-owos-theme="graphite"] .community-layout,
+body[data-owos-theme="graphite"] .sop-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+  gap: clamp(34px, 6vw, 80px);
+  align-items: start;
+}
+
+body[data-owos-theme="graphite"] .community-public,
+body[data-owos-theme="graphite"] .commercial-zone,
+body[data-owos-theme="graphite"] .concept-finish {
+  color-scheme: light;
+  border-top: 1px solid #d9d1c5;
+  background: #f3efe8;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .community-public :is(h2, h3),
+body[data-owos-theme="graphite"] .commercial-zone :is(h2, h3),
+body[data-owos-theme="graphite"] .concept-finish :is(h2, h3) {
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .community-public p,
+body[data-owos-theme="graphite"] .commercial-zone p,
+body[data-owos-theme="graphite"] .concept-finish p {
+  color: #565047;
+}
+
+body[data-owos-theme="graphite"] .privacy-warning {
+  margin: 24px 0;
+  padding: 16px;
+  border-left: 4px solid var(--owos-amber);
+  background: #f2ead6;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .question-list {
+  display: grid;
+  gap: 10px;
+}
+
+body[data-owos-theme="graphite"] .seed-question {
+  padding: 18px;
+  border: 1px solid #ccc3b7;
+  background: #fff;
+  color: #211f1b;
+  font: 700 15px/1.45 var(--owos-sans);
+  text-align: left;
+}
+
+body[data-owos-theme="graphite"] .primary-action,
+body[data-owos-theme="graphite"] .secondary-action {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 17px;
+  border: 1px solid var(--owos-water);
+  background: var(--owos-water);
+  color: #07131d;
+  font: 800 13px var(--owos-sans);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body[data-owos-theme="graphite"] .secondary-action {
+  border-color: #847e75;
+  background: transparent;
+  color: inherit;
+}
+
+body[data-owos-theme="graphite"] .sop-workspace {
+  border-top: 1px solid rgba(125, 198, 232, .28);
+  background: var(--owos-process);
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] .sop-grid :is(.sop-outline-card, .sop-boundary-card) {
+  padding: 28px;
+  background: #f3efe8;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .sop-grid :is(h3, p, li) {
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .sop-outline-card ol {
+  display: grid;
+  gap: 1px;
+  padding: 0;
+  border: 1px solid #cfc7bb;
+  background: #cfc7bb;
+  list-style: none;
+  counter-reset: outline;
+}
+
+body[data-owos-theme="graphite"] .sop-outline-card li {
+  position: relative;
+  padding: 18px 18px 18px 58px;
+  background: #fff;
+  counter-increment: outline;
+}
+
+body[data-owos-theme="graphite"] .sop-outline-card li::before {
+  content: counter(outline, decimal-leading-zero);
+  position: absolute;
+  top: 18px;
+  left: 17px;
+  color: #0871ad;
+  font: 800 12px var(--owos-mono);
+}
+
+body[data-owos-theme="graphite"] .sop-outline-card li :is(b, span) {
+  display: block;
+}
+
+body[data-owos-theme="graphite"] .commercial-card {
+  border-color: #cfc7ba;
+  background: #fff;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .commercial-logo-wrap {
+  background: #f3efe8;
+}
+
+body[data-owos-theme="graphite"] .final-recap {
+  padding: 0 0 46px;
+  border: 0;
+  border-bottom: 1px solid #cfc7ba;
+  background: transparent;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .final-recap h2 {
+  margin: 0 0 28px;
+  color: #211f1b;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+
+body[data-owos-theme="graphite"] .final-recap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 0;
+  border: 1px solid #cfc7ba;
+  background: #cfc7ba;
+}
+
+body[data-owos-theme="graphite"] .final-recap-grid article {
+  padding: 24px;
+  background: #fff;
+}
+
+body[data-owos-theme="graphite"] .final-recap-grid span {
+  color: #174f77;
+  font: 700 11px var(--owos-mono);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+body[data-owos-theme="graphite"] .community-feedback {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(320px, 1.2fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: start;
+  margin-top: 42px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .community-feedback form {
+  display: grid;
+  gap: 0;
+  padding: 24px;
+  border: 1px solid #d8d0c4;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(28, 27, 25, .08);
+}
+
+body[data-owos-theme="graphite"] .community-feedback form > label:not(.testimonial-consent) {
+  margin: 0 0 7px;
+  color: #211f1b;
+  font: 700 11px/1.3 var(--owos-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body[data-owos-theme="graphite"] .community-feedback :is(input, select, textarea) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border: 1px solid #aaa092;
+  border-radius: 3px;
+  background: #fff;
+  color: #211f1b;
+  font: inherit;
+}
+
+body[data-owos-theme="graphite"] .community-feedback textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+body[data-owos-theme="graphite"] .testimonial-consent {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 18px;
+  color: #4e4941;
+  font-size: 12px;
+}
+
+body[data-owos-theme="graphite"] .testimonial-consent input {
+  flex: none;
+  width: 18px;
+  min-height: 18px;
+  margin: 3px 0 0;
+}
+
+body[data-owos-theme="graphite"] .context-drawer {
+  color-scheme: light;
+  border-left: 1px solid #d7d2ca;
+  background: #f7f5ef;
+  color: #242321;
+}
+
+body[data-owos-theme="graphite"] .context-drawer :is(h2, h3) {
+  color: #1c1b19;
+}
+
+body[data-owos-theme="graphite"] .drawer-connection {
+  border-color: #d4d0c8;
+  background: #fff;
+}
+
+body[data-owos-theme="graphite"] footer {
+  border-top: 1px solid var(--owos-line);
+  background: #151412;
+  color: var(--owos-muted);
+}
+
+@media (max-width: 760px) {
+  body[data-owos-theme="graphite"] .wrap {
+    width: min(1160px, calc(100% - 32px));
+  }
+
+  body[data-owos-theme="graphite"] header .wrap,
+  body[data-owos-theme="graphite"] .quick-takeaway ol,
+  body[data-owos-theme="graphite"] .connection-grid,
+  body[data-owos-theme="graphite"] .community-layout,
+  body[data-owos-theme="graphite"] .sop-grid,
+  body[data-owos-theme="graphite"] .community-feedback,
+  body[data-owos-theme="graphite"] .final-recap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-owos-theme="graphite"] .community-feedback {
+    padding: 0;
+  }
+
+  body[data-owos-theme="graphite"] .final-recap {
+    padding: 0 0 32px;
+  }
+}
+</style>
+</head>
+<body data-owos-theme="graphite">
+<div class="status" role="status">Working educational preview. Use it to understand water pathways, not to evaluate or change a real stormwater asset.</div>
+<header><div class="wrap"><div class="hero-copy"><div class="meta">OWOS CONCEPT BRIEF ·
+owos:concept-brief:003</div><h1>Detention, Retention, and Infiltration</h1><p>Follow one storm through storage, controlled release, permanent pool, infiltration, evapotranspiration, treatment, and bypass pathways before judging a stormwater practice by its name.</p>
+<div class="meta">STORMWATER AND WASTEWATER · UNITED STATES FEDERAL FRAME · ILLUSTRATIVE ROUTES · EDUCATIONAL USE</div>
+</div><div class="hero-side"><div class="meta">WORKING PREVIEW · PREVIEW 0.3</div>
+<p>First learn what detention, retention, and infiltration mean. Then follow one storm through storage, soil, outlets, wastewater I&amp;I, permits, maintenance, and lifecycle value.</p>
+<nav class="quick-nav" aria-label="Concept Brief">
+<a href="#beat-00-foundation">Start</a><a href="#block-first-drop">Trace the storm</a><button type="button" data-drawer-open="graph-drawer">Graph</button><button type="button" data-drawer-open="community-drawer">Community</button>
+</nav></div></div></header>
+<main>
+<section class="orientation" aria-labelledby="orientation-title">
+  <div class="wrap">
+    <p class="section-kicker">START HERE</p>
+    <h2 id="orientation-title">What actually happens to rain after it lands, and why the name on the drawing is weaker evidence than most people assume.</h2>
+    <div class="orientation-grid">
+      <div class="orientation-card">
+        <h3>Who this is for</h3>
+        <p>Anyone who has to talk about, pay for, inspect, approve, explain, or answer for a stormwater asset without necessarily being the person who designed it. That includes operators, inspectors, engineers working outside their specialty, asset managers, finance staff, executives, elected officials, developers, regulators, educators, and members of the public. The only thing assumed is that you know rain runs off streets and roofs into drains.</p>
+      </div>
+      <div class="orientation-card">
+        <h3>Why it matters</h3>
+        <p>A utility can approve an asset that does not do what its name implies, spend capital adding capacity when the real problem was a blocked outlet, carry and treat rainwater in a sanitary sewer for years without attributing the cost, or tell the public a pond prevents flooding and lose credibility during the storm that proves otherwise. None of those failures require anyone to be careless. They require only that people trust a familiar word instead of tracing the water.</p>
+      </div>
+      <div class="orientation-card">
+        <h3>What you need first</h3>
+        <ul><li>Basic awareness that stormwater runoff moves from land into drainage systems or receiving waters.</li></ul>
+      </div>
+      <div class="orientation-card">
+        <h3>How long it takes</h3>
+        <p>Eighteen to twenty five minutes, including the interactive checks.</p>
+      </div>
+    </div>
+    <div class="orientation-outcomes">
+      <h3>What you will be able to do</h3>
+      <ol><li>Trace the possible surface, subsurface, controlled-release, overflow, bypass, and unintended wastewater pathways associated with one storm.</li><li>Distinguish detention, retention, and infiltration without presenting one regional naming convention as universal.</li><li>Explain a permanent pool and the temporary storm storage above it without inferring performance from appearance.</li><li>Read the basic inflow, storage, and delayed-outflow story in a qualitative hydrograph.</li><li>Select evidence that addresses timing, volume, concentration, total load, site constraints, and maintenance condition.</li><li>Explain how wet-weather infiltration and inflow consume capacity in a separate sanitary sewer.</li><li>Connect permit responsibility, maintenance evidence, lifecycle funding, and public value.</li><li>Complete the 11-question system conversation while making uncertainty visible.</li></ol>
+    </div>
+    <p class="orientation-boundary"><b>What this does not cover:</b>
+      This brief will not size, design, model, permit, inspect, operate, or certify anything. It does not give you a drawdown time, an infiltration rate, a separation distance, a removal percentage, or a compliance determination. It uses United States federal and EPA authority only. State requirements are handled separately.</p>
+  </div>
+</section>
+<section class="quick-takeaway" aria-labelledby="quick-takeaway-title">
+  <div class="wrap">
+    <p class="section-kicker">IN 30 SECONDS</p>
+    <h2 id="quick-takeaway-title">Three related terms. Three different parts of the water story.</h2>
+    <ol><li>Detention holds stormwater temporarily and releases it later.</li><li>Retention must be tied to the source because it may describe retained runoff or a permanent pool.</li><li>Infiltration means water enters soil or porous material, but the final destination still has to be traced.</li></ol>
+  </div>
+</section>
+<div class="band"><div class="band-in"><div class="band-n">01</div><div class="band-txt"><div class="band-k">What do detention, retention, and infiltration mean before we look at a stormwater system?</div><div class="band-h">Start here: what the three terms mean</div></div></div></div><section class="beat surface-off_white" id="beat-00-foundation"><div class="wrap"><p class="learner-question">What do detention, retention, and infiltration mean before we look at a stormwater system?</p><article class="block block-prose" id="block-orientation"><h2>Start here: what the three terms mean</h2><p>This brief explains three different ways stormwater can be managed after rain reaches a roof, road, parking lot, lawn, or other developed surface. The terms are related, but they do not describe the same physical action.</p><p>Detention means holding stormwater temporarily and releasing it later. Retention is a broader and less consistent term. It may describe water kept from later surface discharge, or it may describe a pond that normally contains a permanent pool. Infiltration means water moves from the surface into soil or another porous layer. Entering the ground does not, by itself, prove where the water ultimately goes.</p><div class="card-grid "><div class="card"><h3>Detention</h3><p>Stormwater is held for a period of time, then released through an outlet or another documented route. The storage is temporary.</p><span class="card-label">CORE TERM</span></div><div class="card"><h3>Retention</h3><p>The word is used in more than one way. Always check whether it means retained runoff, a permanent pool, or another source-specific condition.</p><span class="card-label">CORE TERM</span></div><div class="card"><h3>Infiltration</h3><p>Water crosses from the surface into soil or porous material. Its later route may include native soil, groundwater, an underdrain, evaporation, overflow, or another exit.</p><span class="card-label">CORE TERM</span></div></div></article><article class="block block-definition" id="block-foundation-language"><h2>Learn the system words before reading the diagrams</h2><p>A stormwater system is easier to understand when you can name what enters, where it waits, and how it leaves. These are the words used throughout the brief.</p><p>Each one gives you a plain meaning, something concrete to picture, and what the word does not establish. That last part matters most. Almost every expensive misunderstanding in this subject comes from a word being asked to prove more than it can.</p><div class="definition-set"><div class="definition"><h4 class="definition-term">Stormwater runoff</h4><p class="definition-meaning">Rain that does not soak in, evaporate, or stay where it fell, and instead flows across the ground toward somewhere lower.</p><p class="definition-example"><b>For example:</b> Water sheeting across a parking lot toward a grate in the corner.</p><p class="definition-limit"><b>What it does not tell you:</b> How clean it is, where it ends up, or whether anything is managing it.</p></div><div class="definition"><h4 class="definition-term">Storage</h4><p class="definition-meaning">Space where water is allowed to collect and sit for a while instead of continuing downstream.</p><p class="definition-example"><b>For example:</b> The empty bowl of a grassy basin behind a shopping center that fills during a storm.</p><p class="definition-limit"><b>What it does not tell you:</b> How much space is actually available today. Sediment and debris consume storage over time.</p></div><div class="definition"><h4 class="definition-term">Outlet</h4><p class="definition-meaning">The structure that controls how water leaves a storage practice under ordinary conditions.</p><p class="definition-example"><b>For example:</b> A concrete riser standing in a basin with a small hole near its base and a grate on top.</p><p class="definition-limit"><b>What it does not tell you:</b> That it is clear. A blocked outlet changes everything downstream of it and is invisible from the road.</p></div><div class="definition"><h4 class="definition-term">Outfall</h4><p class="definition-meaning">The point where flow leaves a drainage or sewer system and enters another system or the environment.</p><p class="definition-example"><b>For example:</b> A pipe end in a creek bank.</p><p class="definition-limit"><b>What it does not tell you:</b> What happened upstream. An outfall is the last visible link in a long chain.</p></div><div class="definition"><h4 class="definition-term">Overflow</h4><p class="definition-meaning">The route water uses when it rises higher than the ordinary outlet can handle.</p><p class="definition-example"><b>For example:</b> A broad low notch in the earthen bank of a pond, usually dry, mowed, and easy to mistake for landscaping.</p><p class="definition-limit"><b>What it does not tell you:</b> That it has ever been used, or that it is sized for the storm you are worried about.</p></div><div class="definition"><h4 class="definition-term">Bypass</h4><p class="definition-meaning">Water that skips some or all of the intended storage or treatment path.</p><p class="definition-example"><b>For example:</b> Runoff sliding past a clogged inlet and continuing down the gutter instead of entering the practice it was meant to enter.</p><p class="definition-limit"><b>What it does not tell you:</b> That anything is broken. Some bypass is designed and some is accidental, and the two look identical from a distance.</p></div><div class="definition"><h4 class="definition-term">Permanent pool</h4><p class="definition-meaning">The water a wet pond is designed to keep between storms.</p><p class="definition-example"><b>For example:</b> The normal water line you see on an ordinary dry day, with a ring of vegetation around it.</p><p class="definition-limit"><b>What it does not tell you:</b> That the pond is full or that no storage remains. Storm storage is normally provided above the permanent pool.</p></div><div class="definition"><h4 class="definition-term">Underdrain</h4><p class="definition-meaning">A buried pipe or drainage layer that collects water after it has passed through soil or engineered media, and carries it away.</p><p class="definition-example"><b>For example:</b> A perforated pipe in a stone bed under a rain garden, connected back to the storm drain.</p><p class="definition-limit"><b>What it does not tell you:</b> Anything about recharge. If a practice has an underdrain, much of the water may return to the pipe network rather than reaching groundwater.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">02</div><div class="band-txt"><div class="band-k">Where can one drop of rain go after it reaches a developed surface?</div><div class="band-h">Follow one storm through the connected system</div></div></div></div><section class="beat surface-black" id="beat-01-first-drop"><div class="wrap"><p class="learner-question">Where can one drop of rain go after it reaches a developed surface?</p><article class="block block-interaction" id="block-first-drop"><h2>Follow one storm through the connected system</h2><p>Now apply the definitions to one rain event. Rain that reaches a developed surface may flow toward an inlet, enter storage, move into soil, leave through an outlet or overflow, reach a receiving water, or enter a wastewater pipe through a defect or direct connection.</p><p>Use the tracer to follow every visible and hidden route. Do not try to name the practice yet. First identify what enters, where water can wait, every route it can leave, and which evidence would be needed to confirm the route in a real system. This map is qualitative and does not predict flow, flooding, infiltration, treatment, capacity, or compliance.</p>
+<style>
+.path-tracer{padding:clamp(20px,3vw,34px);border:1px solid #4b4842;background:#171614;color:#f2f1ec}
+.path-route-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0}
+.path-route-choice{min-height:92px;padding:14px;text-align:left;border:1px solid #59554d;background:#292826;color:#f2f1ec;cursor:pointer}
+.path-route-choice b,.path-route-choice span{display:block}.path-route-choice span{margin-top:6px;color:#d9d6cf;line-height:1.4}
+.path-route-choice[aria-pressed="true"]{border-color:#8ed0ed;box-shadow:inset 0 0 0 2px #8ed0ed;background:#10232e}
+.path-tracer-stage{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:20px}
+.path-track{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:start;margin:22px 0}
+.path-node{position:relative;min-height:84px;padding:36px 9px 9px;border-top:3px solid #59554d;color:#a29c91}
+.path-node span{position:absolute;top:-10px;left:0;width:18px;height:18px;border-radius:50%;background:#59554d}
+.path-node[data-state="active"]{border-color:#8ed0ed;color:#f2f1ec}.path-node[data-state="active"] span{background:#8ed0ed;box-shadow:0 0 18px #7dc6e8}
+.path-node[data-state="complete"]{border-color:#4ac88c;color:#d9d6cf}.path-node[data-state="complete"] span{background:#4ac88c}
+.path-step-panel{padding:20px;border:1px solid #42677a;background:#10232e}
+.path-step-count{font:700 11px "Courier New",monospace;letter-spacing:.14em;color:#8ed0ed}
+.path-destination-line{padding-top:12px;border-top:1px solid #42677a}.path-destination{color:#8ed0ed}
+.path-controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.path-controls button{min-height:44px;padding:10px 16px;border:1px solid #8ed0ed;background:#10232e;color:#f2f1ec;cursor:pointer}
+.path-controls button:disabled{opacity:.45;cursor:not-allowed}.path-controls button:focus-visible,.path-route-choice:focus-visible{outline:3px solid #e0a64a;outline-offset:3px}
+.path-boundaries{display:grid;gap:12px}.path-boundary-card{padding:16px;border:1px solid #59554d;background:#292826}
+.path-boundary-card b{display:block;margin-bottom:7px;color:#e0a64a}.path-boundary-card p{margin:0;color:#d9d6cf}
+@media(max-width:760px){.path-route-choices,.path-tracer-stage{grid-template-columns:1fr}.path-track{grid-template-columns:1fr}.path-node{min-height:52px;padding:14px 10px 10px 34px;border-top:0;border-left:3px solid #59554d}.path-node span{top:14px;left:-10px}}
+@media(prefers-reduced-motion:reduce){.path-node span{box-shadow:none}}
+</style>
+<div class="interaction path-tracer" id="path-tracer-interaction-storm-path-tracer" data-interaction="interaction-storm-path-tracer" data-complete="false"><h3>Trace one storm through three water rooms</h3><p>Reveal storage, release, infiltration, evapotranspiration, underdrain, overflow, and bypass as distinct pathways before showing common practice names.</p><p class="boundary"><b>Model boundary:</b> Qualitative authored routes for instruction. No calibrated rainfall, runoff, hydraulic, infiltration, treatment, groundwater, flood, or compliance prediction.</p><div class="path-route-choices" aria-label="Choose a water pathway"><button type="button" class="path-route-choice" data-path-route="detention" aria-pressed="true"><b>Detention route</b><span>Change when runoff leaves through a controlled surface outlet.</span></button><button type="button" class="path-route-choice" data-path-route="retention_pool" aria-pressed="false"><b>Permanent-pool route</b><span>Hold a permanent pool while incoming runoff displaces or releases water through a documented outlet.</span></button><button type="button" class="path-route-choice" data-path-route="infiltration" aria-pressed="false"><b>Infiltration route</b><span>Route captured runoff through soil or media while keeping underdrain, overflow, and groundwater pathways visible.</span></button></div><div class="path-tracer-stage"><div><p class="path-step-count"></p><h4 class="path-route-label"></h4><p class="path-objective"></p><div class="path-track" aria-hidden="true"><div class="path-node" data-state="pending"><span aria-hidden="true"></span><b></b></div><div class="path-node" data-state="pending"><span aria-hidden="true"></span><b></b></div><div class="path-node" data-state="pending"><span aria-hidden="true"></span><b></b></div><div class="path-node" data-state="pending"><span aria-hidden="true"></span><b></b></div></div><div class="path-step-panel" role="status" aria-live="polite" aria-atomic="true"><h4 class="path-step-label"></h4><p class="path-step-detail"></p><p class="path-destination-line"><b>Current destination:</b> <span class="path-destination"></span></p></div><div class="path-controls"><button type="button" class="path-back">Back</button><button type="button" class="path-next">Step</button><button type="button" class="path-reset">Reset</button></div></div><aside class="path-boundaries"><div class="path-boundary-card"><b>WHAT NOT TO ASSUME</b><p class="path-nonclaim"></p></div><div class="path-boundary-card"><b>NEXT EVIDENCE QUESTION</b><p class="path-evidence"></p></div></aside></div><noscript><style>#path-tracer-interaction-storm-path-tracer .path-route-choices,#path-tracer-interaction-storm-path-tracer .path-tracer-stage{display:none}</style><div class="path-tracer-fallback"><h4>Structured text equivalent</h4><section><h4>Temporary storage and controlled release</h4><p>Change when runoff leaves through a controlled surface outlet.</p><ol><li><b>Storm enters:</b> Runoff crosses the inlet and begins occupying available storage. <span>Destination: Inlet and storage</span></li><li><b>Water waits:</b> Temporary storage separates the incoming peak from the controlled surface release. <span>Destination: Temporary pool</span></li><li><b>Outlet releases:</b> Water leaves through the documented outlet while overflow remains a separate route for larger events. <span>Destination: Surface outlet</span></li><li><b>Evidence remains:</b> Drawings, outlet condition, water-level response, and post-storm observations are still needed before judging performance. <span>Destination: Evidence check</span></li></ol><p><b>What not to assume:</b> A dry basin between storms does not prove the outlet, storage volume, release pattern, treatment, or maintenance condition.</p></section><section><h4>Permanent pool and displacement</h4><p>Hold a permanent pool while incoming runoff displaces or releases water through a documented outlet.</p><ol><li><b>Storm enters:</b> New runoff enters a basin that already contains a permanent pool. <span>Destination: Inlet and permanent pool</span></li><li><b>Pool rises:</b> Incoming water occupies temporary storage above the normal pool or mixes within the stored water. <span>Destination: Permanent plus temporary storage</span></li><li><b>Water is displaced:</b> Water leaves when the level reaches the documented outlet. Overflow and seepage must be traced separately. <span>Destination: Outlet and overflow</span></li><li><b>Evidence remains:</b> Normal pool elevation, outlet geometry, sediment, shoreline, water-quality monitoring, and maintenance records are still needed. <span>Destination: Evidence check</span></li></ol><p><b>What not to assume:</b> A permanent pool does not by itself prove pollutant treatment, flood protection, ecological condition, or one universal meaning of retention.</p></section><section><h4>Surface storage and subsurface routing</h4><p>Route captured runoff through soil or media while keeping underdrain, overflow, and groundwater pathways visible.</p><ol><li><b>Storm enters:</b> Runoff enters a surface storage area, trench, pavement section, or another documented receiving layer. <span>Destination: Surface storage</span></li><li><b>Water crosses the surface:</b> Some water can move into media or native soil. The rate and route depend on actual site and design conditions. <span>Destination: Soil or treatment media</span></li><li><b>Water divides:</b> Water may continue into soil, enter an underdrain, return through an outlet, evaporate, or overflow. <span>Destination: Subsurface, underdrain, or overflow</span></li><li><b>Evidence remains:</b> Soil, seasonal groundwater, contamination, pretreatment, underdrain, drawdown, bypass, and maintenance evidence are still needed. <span>Destination: Evidence check</span></li></ol><p><b>What not to assume:</b> Ponding or disappearance from the surface does not prove recharge, treatment, safe siting, or the absence of an underdrain or bypass.</p></section></div></noscript><script type="application/json" class="path-tracer-data">{"routes":[{"route_id":"detention","label":"Temporary storage and controlled release","short_label":"Detention route","objective":"Change when runoff leaves through a controlled surface outlet.","steps":[{"label":"Storm enters","detail":"Runoff crosses the inlet and begins occupying available storage.","destination":"Inlet and storage"},{"label":"Water waits","detail":"Temporary storage separates the incoming peak from the controlled surface release.","destination":"Temporary pool"},{"label":"Outlet releases","detail":"Water leaves through the documented outlet while overflow remains a separate route for larger events.","destination":"Surface outlet"},{"label":"Evidence remains","detail":"Drawings, outlet condition, water-level response, and post-storm observations are still needed before judging performance.","destination":"Evidence check"}],"what_not_to_assume":"A dry basin between storms does not prove the outlet, storage volume, release pattern, treatment, or maintenance condition."},{"route_id":"retention_pool","label":"Permanent pool and displacement","short_label":"Permanent-pool route","objective":"Hold a permanent pool while incoming runoff displaces or releases water through a documented outlet.","steps":[{"label":"Storm enters","detail":"New runoff enters a basin that already contains a permanent pool.","destination":"Inlet and permanent pool"},{"label":"Pool rises","detail":"Incoming water occupies temporary storage above the normal pool or mixes within the stored water.","destination":"Permanent plus temporary storage"},{"label":"Water is displaced","detail":"Water leaves when the level reaches the documented outlet. Overflow and seepage must be traced separately.","destination":"Outlet and overflow"},{"label":"Evidence remains","detail":"Normal pool elevation, outlet geometry, sediment, shoreline, water-quality monitoring, and maintenance records are still needed.","destination":"Evidence check"}],"what_not_to_assume":"A permanent pool does not by itself prove pollutant treatment, flood protection, ecological condition, or one universal meaning of retention."},{"route_id":"infiltration","label":"Surface storage and subsurface routing","short_label":"Infiltration route","objective":"Route captured runoff through soil or media while keeping underdrain, overflow, and groundwater pathways visible.","steps":[{"label":"Storm enters","detail":"Runoff enters a surface storage area, trench, pavement section, or another documented receiving layer.","destination":"Surface storage"},{"label":"Water crosses the surface","detail":"Some water can move into media or native soil. The rate and route depend on actual site and design conditions.","destination":"Soil or treatment media"},{"label":"Water divides","detail":"Water may continue into soil, enter an underdrain, return through an outlet, evaporate, or overflow.","destination":"Subsurface, underdrain, or overflow"},{"label":"Evidence remains","detail":"Soil, seasonal groundwater, contamination, pretreatment, underdrain, drawdown, bypass, and maintenance evidence are still needed.","destination":"Evidence check"}],"what_not_to_assume":"Ponding or disappearance from the surface does not prove recharge, treatment, safe siting, or the absence of an underdrain or bypass."}],"initial_route":"detention","evidence_prompt":"Before naming the practice, state the inflow, storage or treatment zone, every exit, the intended objective, and the evidence still missing."}</script></div>
+<script>
+(function(){
+  var root=document.getElementById("path-tracer-interaction-storm-path-tracer");
+  if(!root)return;
+  var data=JSON.parse(root.querySelector('.path-tracer-data').textContent);
+  var routeId=data.initial_route;
+  var stepIndex=0;
+  function route(){
+    return data.routes.find(function(item){return item.route_id===routeId})||data.routes[0]||{};
+  }
+  function update(){
+    var current=route();
+    var steps=current.steps||[];
+    if(stepIndex>=steps.length)stepIndex=Math.max(0,steps.length-1);
+    var step=steps[stepIndex]||{};
+    root.dataset.route=routeId;
+    root.dataset.step=String(stepIndex+1);
+    root.querySelector('.path-route-label').textContent=current.label||'';
+    root.querySelector('.path-objective').textContent=current.objective||'';
+    root.querySelector('.path-step-count').textContent='STEP '+String(stepIndex+1)+' OF '+String(steps.length);
+    root.querySelector('.path-step-label').textContent=step.label||'';
+    root.querySelector('.path-step-detail').textContent=step.detail||'';
+    root.querySelector('.path-destination').textContent=step.destination||'';
+    root.querySelector('.path-nonclaim').textContent=current.what_not_to_assume||'';
+    root.querySelector('.path-evidence').textContent=data.evidence_prompt||'';
+    root.querySelector('.path-back').disabled=stepIndex===0;
+    root.querySelector('.path-next').disabled=stepIndex>=steps.length-1;
+    root.querySelectorAll('[data-path-route]').forEach(function(button){
+      button.setAttribute('aria-pressed',button.dataset.pathRoute===routeId?'true':'false');
+    });
+    root.querySelectorAll('.path-node').forEach(function(node,index){
+      node.dataset.state=index<stepIndex?'complete':(index===stepIndex?'active':'pending');
+      node.querySelector('b').textContent=(steps[index]||{}).label||'';
+    });
+    if(stepIndex>=steps.length-1)root.dataset.complete='true';
+  }
+  root.querySelectorAll('[data-path-route]').forEach(function(button){
+    button.addEventListener('click',function(){
+      routeId=button.dataset.pathRoute;
+      stepIndex=0;
+      update();
+    });
+  });
+  root.querySelector('.path-back').addEventListener('click',function(){
+    stepIndex=Math.max(0,stepIndex-1);
+    update();
+  });
+  root.querySelector('.path-next').addEventListener('click',function(){
+    var steps=route().steps||[];
+    stepIndex=Math.min(steps.length-1,stepIndex+1);
+    update();
+  });
+  root.querySelector('.path-reset').addEventListener('click',function(){
+    routeId=data.initial_route;
+    stepIndex=0;
+    root.dataset.complete='false';
+    update();
+  });
+  update();
+})();
+</script>
+</article></div></section><div class="band"><div class="band-in"><div class="band-n">03</div><div class="band-txt"><div class="band-k">Why does a basin that looks empty still have value?</div><div class="band-h">Dry detention uses empty space as temporary storage</div></div></div></div><section class="beat surface-blue" id="beat-02-dry-detention"><div class="wrap"><p class="learner-question">Why does a basin that looks empty still have value?</p><article class="block block-visual" id="block-dry-detention"><h2>Dry detention uses empty space as temporary storage</h2><p>A dry detention basin is normally dry between storms. During rain, runoff enters faster than it leaves, so water temporarily occupies the basin. A planned outlet releases water while the water level falls and storage space becomes available again.</p><p>Read the five states from left to right. Compare the water level with the outlet in every state. The important idea is not that the basin looks empty after the storm. The important idea is that its empty volume is available to receive another event.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDUyMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkRyeSBkZXRlbnRpb24gYmFzaW4gdGhyb3VnaCBmaXZlIHN0b3JtIHN0YXRlczwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkZpdmUgcGFuZWxzIHNob3cgYXZhaWxhYmxlIHN0b3JhZ2UgYmVmb3JlIGEgc3Rvcm0sIHJpc2luZyB3YXRlciwgcGVhayBzdG9yYWdlLCByZWNlc3Npb24sIGFuZCByZWNvdmVyeSB0aHJvdWdoIGEgY29udHJvbGxlZCBvdXRsZXQuPC9kZXNjPgogIDxkZWZzPjxzdHlsZT4uaHtmb250OjcwMCAyNHB4IEFyaWFsO2ZpbGw6IzEwMjUzNn0udHtmb250OjcwMCAxNnB4IEFyaWFsO2ZpbGw6IzEwMjUzNn0uc3tmb250OjUwMCAxM3B4IEFyaWFsO2ZpbGw6IzM4NTc2Yn0ucHtmaWxsOiNmNWYxZTg7c3Ryb2tlOiM5ZmIwYjg7c3Ryb2tlLXdpZHRoOjJ9LmxhbmR7ZmlsbDojN2E5MTYyfS53YXRlcntmaWxsOiMzYWE3ZDh9Lm91dHtzdHJva2U6IzEwMjUzNjtzdHJva2Utd2lkdGg6OH08L3N0eWxlPjwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI1MjAiIGZpbGw9IiNmYmZhZjYiLz48dGV4dCB4PSI0NSIgeT0iNDgiIGNsYXNzPSJoIj5EcnkgZGV0ZW50aW9uOiBzdG9yYWdlIGZpbGxzLCByZWxlYXNlcywgYW5kIHJlY292ZXJzPC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1IDg4KSI+PHJlY3Qgd2lkdGg9IjIxMCIgaGVpZ2h0PSIzMTAiIHJ4PSIxNiIgY2xhc3M9InAiLz48dGV4dCB4PSIxOCIgeT0iMzQiIGNsYXNzPSJ0Ij4xICBCZWZvcmU8L3RleHQ+PHBhdGggZD0iTTE4IDE1MHE4NiAxMjUgMTc0IDB2MTIwSDE4eiIgY2xhc3M9ImxhbmQiLz48bGluZSB4MT0iMTcwIiB5MT0iMjEwIiB4Mj0iMjA1IiB5Mj0iMjEwIiBjbGFzcz0ib3V0Ii8+PHRleHQgeD0iMTgiIHk9IjI5MiIgY2xhc3M9InMiPlN0b3JhZ2UgYXZhaWxhYmxlPC90ZXh0PjwvZz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNjUgODgpIj48cmVjdCB3aWR0aD0iMjEwIiBoZWlnaHQ9IjMxMCIgcng9IjE2IiBjbGFzcz0icCIvPjx0ZXh0IHg9IjE4IiB5PSIzNCIgY2xhc3M9InQiPjIgIFJpc2luZzwvdGV4dD48cGF0aCBkPSJNMTggMTUwcTg2IDEyNSAxNzQgMHYxMjBIMTh6IiBjbGFzcz0ibGFuZCIvPjxwYXRoIGQ9Ik01NSAyMDVxNTAgNDAgMTAwIDB2NDJINTV6IiBjbGFzcz0id2F0ZXIiLz48bGluZSB4MT0iMTcwIiB5MT0iMjEwIiB4Mj0iMjA1IiB5Mj0iMjEwIiBjbGFzcz0ib3V0Ii8+PHRleHQgeD0iMTgiIHk9IjI5MiIgY2xhc3M9InMiPkluZmxvdyBleGNlZWRzIG91dGZsb3c8L3RleHQ+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ5NSA4OCkiPjxyZWN0IHdpZHRoPSIyMTAiIGhlaWdodD0iMzEwIiByeD0iMTYiIGNsYXNzPSJwIi8+PHRleHQgeD0iMTgiIHk9IjM0IiBjbGFzcz0idCI+MyAgTmVhciBwZWFrPC90ZXh0PjxwYXRoIGQ9Ik0xOCAxNTBxODYgMTI1IDE3NCAwdjEyMEgxOHoiIGNsYXNzPSJsYW5kIi8+PHBhdGggZD0iTTM0IDE3MHE3MCA4MCAxNDAgMHY3OEgzNHoiIGNsYXNzPSJ3YXRlciIvPjxsaW5lIHgxPSIxNzAiIHkxPSIyMTAiIHgyPSIyMDUiIHkyPSIyMTAiIGNsYXNzPSJvdXQiLz48dGV4dCB4PSIxOCIgeT0iMjkyIiBjbGFzcz0icyI+VGVtcG9yYXJ5IHN0b3JhZ2Ugb2NjdXBpZWQ8L3RleHQ+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcyNSA4OCkiPjxyZWN0IHdpZHRoPSIyMTAiIGhlaWdodD0iMzEwIiByeD0iMTYiIGNsYXNzPSJwIi8+PHRleHQgeD0iMTgiIHk9IjM0IiBjbGFzcz0idCI+NCAgUmVjZXNzaW9uPC90ZXh0PjxwYXRoIGQ9Ik0xOCAxNTBxODYgMTI1IDE3NCAwdjEyMEgxOHoiIGNsYXNzPSJsYW5kIi8+PHBhdGggZD0iTTUwIDE5NnE1NSA1MiAxMTAgMHY1Mkg1MHoiIGNsYXNzPSJ3YXRlciIvPjxsaW5lIHgxPSIxNzAiIHkxPSIyMTAiIHgyPSIyMDUiIHkyPSIyMTAiIGNsYXNzPSJvdXQiLz48dGV4dCB4PSIxOCIgeT0iMjkyIiBjbGFzcz0icyI+T3V0ZmxvdyBjb250aW51ZXM8L3RleHQ+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDk1NSA4OCkiPjxyZWN0IHdpZHRoPSIyMTAiIGhlaWdodD0iMzEwIiByeD0iMTYiIGNsYXNzPSJwIi8+PHRleHQgeD0iMTgiIHk9IjM0IiBjbGFzcz0idCI+NSAgUmVjb3Zlcnk8L3RleHQ+PHBhdGggZD0iTTE4IDE1MHE4NiAxMjUgMTc0IDB2MTIwSDE4eiIgY2xhc3M9ImxhbmQiLz48bGluZSB4MT0iMTcwIiB5MT0iMjEwIiB4Mj0iMjA1IiB5Mj0iMjEwIiBjbGFzcz0ib3V0Ii8+PHRleHQgeD0iMTgiIHk9IjI5MiIgY2xhc3M9InMiPlNwYWNlIHJldHVybnMgZm9yIHRoZSBuZXh0IHN0b3JtPC90ZXh0PjwvZz4KICA8cGF0aCBkPSJNMTMwIDQzMEgxMDY1IiBzdHJva2U9IiMyZjg0YWQiIHN0cm9rZS13aWR0aD0iNSIvPjx0ZXh0IHg9IjQ0IiB5PSI0NzYiIGNsYXNzPSJzIj5SZWFkIHRoZSB3YXRlciBsZXZlbCBhbmQgb3V0bGV0IHRvZ2V0aGVyLiBObyB1bml2ZXJzYWwgZHJhd2Rvd24gdGltZSBvciBwZXJmb3JtYW5jZSByZXN1bHQgaXMgc2hvd24uPC90ZXh0Pgo8L3N2Zz4K" alt="Five conceptual dry-basin states show storage filling and draining through a controlled outlet."><figcaption><b>How to read this:</b> Compare the water level and outlet at before, rising, peak, recession, and recovery. <b>Conclusion:</b> The empty basin volume can be working storage that fills and later recovers.</figcaption></figure></article><article class="block block-assessment" id="block-check-detention"><h2>Find the detention function</h2><p>The learner identifies temporary storage and later release without assuming a universal drawdown time or design performance.</p><section class="concept-assessment" id="assessment-detention-function" data-concept-assessment="multiple-choice" data-completion="detention-function-passed"><p class="assessment-kicker">LEARNING CHECK</p><h3>Which observation best describes the detention function shown in the five-state basin sequence?</h3><div class="assessment-options"><label class="assessment-option"><input type="radio" name="assessment-detention-function" value="0" data-correct="false"> Water is permanently prevented from leaving by any surface route.</label><label class="assessment-option"><input type="radio" name="assessment-detention-function" value="1" data-correct="true"> Water occupies temporary storage and leaves later through a controlled route.</label><label class="assessment-option"><input type="radio" name="assessment-detention-function" value="2" data-correct="false"> The basin is dry, so it has no stormwater function.</label><label class="assessment-option"><input type="radio" name="assessment-detention-function" value="3" data-correct="false"> The sequence proves the basin meets every flood-protection objective.</label></div><button type="button" class="assessment-check">Check answer</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. The sequence shows temporary storage followed by release.</template><template data-incorrect-feedback>Read the water level and outlet together. The drawing does not prove universal performance or a required recovery time.</template><p class="assessment-retry">Return to the before, peak, and recovery states and identify what changes.</p><noscript><p>Enable JavaScript to record this check. The explanation remains in the evidence-backed lesson and structured assessment record.</p></noscript></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">04</div><div class="band-txt"><div class="band-k">What is the permanent pool in a wet pond, and where does storm storage fit?</div><div class="band-h">A wet pond can hold permanent water and temporary storm storage</div></div></div></div><section class="beat surface-off_white" id="beat-03-permanent-pool"><div class="wrap"><p class="learner-question">What is the permanent pool in a wet pond, and where does storm storage fit?</p><article class="block block-visual" id="block-wet-pond"><h2>A wet pond can hold permanent water and temporary storm storage</h2><p>A wet pond normally contains water between storms. That normally wet volume is the permanent pool. When new runoff arrives, the water level may rise into temporary storm-storage space above the normal level, and water may leave through an outlet or a higher overflow route.</p><p>Begin at the pond bottom and move upward. Find the permanent pool, normal water level, temporary storage, ordinary outlet, and overflow elevation. The drawing explains their relationship. It does not provide transferable design elevations or prove treatment performance.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDY1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPldldCBwb25kIHBlcm1hbmVudCBwb29sIGFuZCB0ZW1wb3Jhcnkgc3Rvcm0gc3RvcmFnZTwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkEgY3Jvc3Mtc2VjdGlvbiBzZXBhcmF0ZXMgcG9uZCBib3R0b20sIHBlcm1hbmVudCBwb29sLCBub3JtYWwgd2F0ZXIgbGV2ZWwsIHRlbXBvcmFyeSBzdG9ybSBzdG9yYWdlLCBvdXRsZXQsIG92ZXJmbG93LCBhbmQgZG93bnN0cmVhbSB3YXRlci48L2Rlc2M+CiAgPGRlZnM+PHN0eWxlPi5oe2ZvbnQ6NzAwIDI2cHggQXJpYWw7ZmlsbDojZmZmfS50e2ZvbnQ6NzAwIDE3cHggQXJpYWw7ZmlsbDojZmZmfS5ze2ZvbnQ6NTAwIDE0cHggQXJpYWw7ZmlsbDojYzhkZmVifS5saW5le3N0cm9rZTojZmZmO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1kYXNoYXJyYXk6OCA3fTwvc3R5bGU+PC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjY1MCIgZmlsbD0iIzA4MTgyMiIvPjx0ZXh0IHg9IjQ1IiB5PSI1MCIgY2xhc3M9ImgiPkEgd2V0IHBvbmQgaG9sZHMgbm9ybWFsIHdhdGVyIGFuZCB0ZW1wb3Jhcnkgc3Rvcm0gc3RvcmFnZTwvdGV4dD4KICA8cGF0aCBkPSJNNzAgMTYwaDIxMGwxNDAgMzUwaDIxMGwxNDAtMzUwaDE3MHY0MjBINzB6IiBmaWxsPSIjNmY3YzU1Ii8+CiAgPHBhdGggZD0iTTI4NSAyNjVsMTE1IDI0NWgyNTBsMTEwLTI0NXoiIGZpbGw9IiMyMDdlYWEiLz48cGF0aCBkPSJNMjg1IDI2NXEyNDAtMzAgNDc1IDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhlZGZmZiIgc3Ryb2tlLXdpZHRoPSI1Ii8+CiAgPHBhdGggZD0iTTI1MCAxNzVsNjAgOTVoNDI1bDYwLTk1eiIgZmlsbD0iIzU1YzJmZiIgb3BhY2l0eT0iLjM1Ii8+PHBhdGggZD0iTTI1MCAxNzVoNTQ1IiBjbGFzcz0ibGluZSIvPgogIDxwYXRoIGQ9Ik0yODUgMjY1aDQ3NSIgY2xhc3M9ImxpbmUiLz4KICA8cGF0aCBkPSJNMzUwIDQyMGgzNDAiIGNsYXNzPSJsaW5lIi8+CiAgPHRleHQgeD0iNzAiIHk9IjE4MCIgY2xhc3M9InQiPk92ZXJmbG93IGVsZXZhdGlvbjwvdGV4dD48dGV4dCB4PSI3MCIgeT0iMjEwIiBjbGFzcz0icyI+SGlnaGVyIHJlbGVhc2UgYm91bmRhcnk8L3RleHQ+CiAgPHRleHQgeD0iOTUiIHk9IjI0NSIgY2xhc3M9InQiPlRlbXBvcmFyeSBzdG9ybSBzdG9yYWdlPC90ZXh0Pjx0ZXh0IHg9Ijk1IiB5PSIyNzIiIGNsYXNzPSJzIj5XYXRlciByaXNlcyBoZXJlIGR1cmluZyBhbiBldmVudDwvdGV4dD4KICA8dGV4dCB4PSI3MCIgeT0iMzA2IiBjbGFzcz0idCI+Tm9ybWFsIHdhdGVyIGxldmVsPC90ZXh0Pjx0ZXh0IHg9IjcwIiB5PSIzMzMiIGNsYXNzPSJzIj5Db25jZXB0dWFsIGNvbnRyb2wgbGV2ZWw8L3RleHQ+CiAgPHRleHQgeD0iNDQ1IiB5PSIzNTUiIGNsYXNzPSJ0Ij5QZXJtYW5lbnQgcG9vbDwvdGV4dD48dGV4dCB4PSI0NDUiIHk9IjM4MiIgY2xhc3M9InMiPk5vcm1hbGx5IHdldCBiZXR3ZWVuIHN0b3JtczwvdGV4dD4KICA8dGV4dCB4PSI0MzAiIHk9IjUwMCIgY2xhc3M9InQiPlBvbmQgYm90dG9tPC90ZXh0PgogIDxyZWN0IHg9IjczMCIgeT0iMjMwIiB3aWR0aD0iNTYiIGhlaWdodD0iMTE1IiByeD0iOCIgZmlsbD0iI2U3ZWRmMCIvPjxjaXJjbGUgY3g9Ijc1OCIgY3k9IjI3NSIgcj0iMTIiIGZpbGw9IiMwODE4MjIiLz48cGF0aCBkPSJNNzg1IDI3NWg5NSIgc3Ryb2tlPSIjNTVjMmZmIiBzdHJva2Utd2lkdGg9IjkiLz48dGV4dCB4PSI4MTAiIHk9IjI1MCIgY2xhc3M9InQiPk91dGxldDwvdGV4dD4KICA8cmVjdCB4PSI4MjAiIHk9IjM3MCIgd2lkdGg9IjEzMCIgaGVpZ2h0PSI4MCIgcng9IjEyIiBmaWxsPSIjMTIzNDRhIi8+PHBhdGggZD0iTTgzMCA0MTBxNTUtMzAgMTEwIDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzU1YzJmZiIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHRleHQgeD0iODMyIiB5PSI0NzgiIGNsYXNzPSJzIj5Eb3duc3RyZWFtIHdhdGVyPC90ZXh0PgogIDx0ZXh0IHg9IjQ1IiB5PSI2MTAiIGNsYXNzPSJzIj5Db25jZXB0dWFsIHJlbGF0aW9uc2hpcHMgb25seS4gUmVhbCBlbGV2YXRpb25zLCB0ZXJtaW5vbG9neSwgYW5kIHBlcmZvcm1hbmNlIGNvbWUgZnJvbSBhcHBsaWNhYmxlIHBsYW5zIGFuZCBhdXRob3JpdHkuPC90ZXh0Pgo8L3N2Zz4K" alt="Wet pond cutaway with conceptual pond bottom, permanent pool, normal level, temporary storage, outlet, overflow, and downstream water."><figcaption><b>How to read this:</b> Begin at the normal water level, read downward through the permanent pool, then upward through temporary storage and overflow. <b>Conclusion:</b> A wet pond can contain a permanent pool and still detain additional stormwater above it.</figcaption></figure></article><article class="block block-assessment" id="block-check-permanent-pool"><h2>Read the permanent pool</h2><p>Retrieval questions distinguish the normally wet pool from additional temporary storm storage above it.</p><section class="concept-assessment" id="assessment-permanent-pool" data-concept-assessment="flip-cards" data-completion="permanent-pool-retrieval-completed"><p class="assessment-kicker">RETRIEVAL CHECK</p><h3>Distinguish normal pond water from temporary storm storage.</h3><div class="assessment-card-grid"><button type="button" class="assessment-card" data-flip-card data-front="What is the permanent pool?" data-back="The portion intended to remain normally wet between storms. It does not include every temporary storm-storage volume shown above the normal water level." aria-pressed="false">What is the permanent pool?</button><button type="button" class="assessment-card" data-flip-card data-front="Where is temporary storm storage in the cutaway?" data-back="Above the normal water level and below the relevant overflow boundary in this conceptual picture." aria-pressed="false">Where is temporary storm storage in the cutaway?</button><button type="button" class="assessment-card" data-flip-card data-front="Does a visible permanent pool prove flood protection or treatment?" data-back="No. Plans, controls, condition, downstream boundaries, monitoring, and applicable authority are still needed." aria-pressed="false">Does a visible permanent pool prove flood protection or treatment?</button></div><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>The permanent pool, temporary storage, and evidence boundary are correctly separated.</template><p class="assessment-retry">Read the pond cutaway from the normal water level downward, then upward.</p></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">05</div><div class="band-txt"><div class="band-k">What can the words detention, retention, and infiltration establish by themselves?</div><div class="band-h">Names are clues, not proof</div></div></div></div><section class="beat surface-white" id="beat-04-name-boundary"><div class="wrap"><p class="learner-question">What can the words detention, retention, and infiltration establish by themselves?</p><article class="block block-prose" id="block-terminology"><h2>Names are clues, not proof</h2><p>EPA sources use detention consistently for temporary storage and later release, but retention is used in more than one way. One source may mean runoff kept from later surface discharge. Another may mean a permanent pool that remains while new runoff displaces water. The brief will state the intended usage and show the physical route every time.</p></article><article class="block block-assessment" id="block-check-boundary"><h2>Check the terminology boundary</h2><p>The learner identifies which conclusion is supported when an asset is called a retention practice but no route, outlet, or objective has been documented.</p><section class="concept-assessment" id="assessment-terminology-boundary" data-concept-assessment="multiple-choice" data-completion="terminology-boundary-passed"><p class="assessment-kicker">LEARNING CHECK</p><h3>An asset is called a retention basin, but you have no drawing, outlet information, or performance objective. What can the name establish by itself?</h3><div class="assessment-options"><label class="assessment-option"><input type="radio" name="assessment-terminology-boundary" value="0" data-correct="false"> It proves the basin has no surface discharge.</label><label class="assessment-option"><input type="radio" name="assessment-terminology-boundary" value="1" data-correct="false"> It proves the basin maintains a permanent pool.</label><label class="assessment-option"><input type="radio" name="assessment-terminology-boundary" value="2" data-correct="true"> It is a terminology clue, but the water pathway and objective still need evidence.</label><label class="assessment-option"><input type="radio" name="assessment-terminology-boundary" value="3" data-correct="false"> It proves the basin meets its intended performance.</label></div><button type="button" class="assessment-check">Check answer</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. EPA materials document more than one use of retention, so the route and objective must be stated.</template><template data-incorrect-feedback>The name is not enough. Ask where water is stored, every way it exits, and what objective the asset was designed to serve.</template><p class="assessment-retry">Recheck which answer preserves uncertainty without discarding the label as a useful clue.</p><noscript><p>Enable JavaScript to record this check. The explanation remains in the evidence-backed lesson and structured assessment record.</p></noscript></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">06</div><div class="band-txt"><div class="band-k">After stormwater enters a soil or pavement system, where can it go?</div><div class="band-h">Infiltration begins below the surface, but the route can still divide</div></div></div></div><section class="beat surface-black" id="beat-05-below-surface"><div class="wrap"><p class="learner-question">After stormwater enters a soil or pavement system, where can it go?</p><article class="block block-visual" id="block-subsurface-boundary"><h2>Infiltration begins below the surface, but the route can still divide</h2><p>Infiltration begins when water crosses from the surface into soil or another porous layer. Filtration is different. Filtration describes water passing through material that can strain, capture, or otherwise affect material carried with the water. A practice may involve both processes, but the words are not interchangeable.</p><p>Read the cutaway from the surface downward, then follow every side exit. Locate surface ponding, treatment media, native soil, the underdrain, seasonal groundwater, overflow, and receiving water. The drawing shows why disappearance from the surface does not prove recharge, treatment, or a safe groundwater relationship.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDc2MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPlN1YnN1cmZhY2UgcGF0aHdheSBhbmQgZ3JvdW5kd2F0ZXIgZXZpZGVuY2UgYm91bmRhcnk8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5BIHZlcnRpY2FsIGN1dGF3YXkgc2VwYXJhdGVzIHN1cmZhY2Ugc3RvcmFnZSwgdHJlYXRtZW50IG1lZGlhLCBuYXRpdmUgc29pbCwgdW5kZXJkcmFpbiwgc2Vhc29uYWwgZ3JvdW5kd2F0ZXIsIGFuZCBmaXZlIHBvc3NpYmxlIHdhdGVyIHJvdXRlcy48L2Rlc2M+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzEwMjMyZSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxYzFiMTkiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8cGF0dGVybiBpZD0ibmF0aXZlIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiM1NTQ5MzYiLz4KICAgICAgPGNpcmNsZSBjeD0iNiIgY3k9IjciIHI9IjIiIGZpbGw9IiNhMjljOTEiLz4KICAgICAgPGNpcmNsZSBjeD0iMTciIGN5PSIxNiIgcj0iMS41IiBmaWxsPSIjNzQ2YjVkIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8cGF0dGVybiBpZD0ibWVkaWEiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzc1Njg0ZiIvPgogICAgICA8cGF0aCBkPSJNMCAxMEgyME0xMCAwVjIwIiBzdHJva2U9IiM5ZjkyNzgiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPG1hcmtlciBpZD0iYSIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjEwIiByZWZYPSI4IiByZWZZPSI1IiBvcmllbnQ9ImF1dG8iPgogICAgICA8cGF0aCBkPSJNMCAwTDEwIDVMMCAxMFoiIGZpbGw9IiM4ZWQwZWQiLz4KICAgIDwvbWFya2VyPgogICAgPG1hcmtlciBpZD0idyIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjEwIiByZWZYPSI4IiByZWZZPSI1IiBvcmllbnQ9ImF1dG8iPgogICAgICA8cGF0aCBkPSJNMCAwTDEwIDVMMCAxMFoiIGZpbGw9IiNlMGE2NGEiLz4KICAgIDwvbWFya2VyPgogICAgPHN0eWxlPgogICAgICAua3tmb250OjcwMCAxNHB4IEFyaWFsLHNhbnMtc2VyaWY7bGV0dGVyLXNwYWNpbmc6MnB4O2ZpbGw6IzhlZDBlZH0KICAgICAgLmh7Zm9udDo4MDAgMjhweCBBcmlhbCxzYW5zLXNlcmlmO2ZpbGw6I2YyZjFlY30KICAgICAgLmJ7Zm9udDo0MDAgMTZweCBBcmlhbCxzYW5zLXNlcmlmO2ZpbGw6I2Q5ZDZjZn0KICAgICAgLm17Zm9udDo3MDAgMTNweCAiQ291cmllciBOZXciLG1vbm9zcGFjZTtsZXR0ZXItc3BhY2luZzoxcHg7ZmlsbDojZjJmMWVjfQogICAgICAucm91dGV7ZmlsbDpub25lO3N0cm9rZTojOGVkMGVkO3N0cm9rZS13aWR0aDo2O21hcmtlci1lbmQ6dXJsKCNhKX0KICAgICAgLmNvbmRpdGlvbmFse2ZpbGw6bm9uZTtzdHJva2U6I2UwYTY0YTtzdHJva2Utd2lkdGg6NTtzdHJva2UtZGFzaGFycmF5OjkgNzttYXJrZXItZW5kOnVybCgjdyl9CiAgICAgIC5jYWxse2ZpbGw6IzI5MjgyNjtzdHJva2U6IzRiNDg0MjtzdHJva2Utd2lkdGg6Mn0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9Ijc2MCIgZmlsbD0idXJsKCNiZykiLz4KICA8dGV4dCB4PSI1NCIgeT0iNDgiIGNsYXNzPSJrIj5JTkZJTFRSQVRJT04gSVMgQSBQQVRIV0FZLCBOT1QgQSBQUk9NSVNFPC90ZXh0PgogIDx0ZXh0IHg9IjU0IiB5PSI4OCIgY2xhc3M9ImgiPkZvbGxvdyBldmVyeSBsYXllciBhbmQgZXZlcnkgc2lkZSBleGl0PC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU0IDEyNikiPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjY4MCIgaGVpZ2h0PSI1NDgiIHJ4PSIyMCIgZmlsbD0iIzI5MjgyNiIgc3Ryb2tlPSIjNGI0ODQyIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxwYXRoIGQ9Ik0zNCA5NFExNjAgNTggMzA2IDkyVDY0NiA4MlYxNTRIMzRaIiBmaWxsPSIjN2RjNmU4IiBmaWxsLW9wYWNpdHk9Ii41NSIvPgogICAgPHJlY3QgeD0iMzQiIHk9IjE1NiIgd2lkdGg9IjYxMiIgaGVpZ2h0PSI5NCIgZmlsbD0idXJsKCNtZWRpYSkiLz4KICAgIDxyZWN0IHg9IjM0IiB5PSIyNTIiIHdpZHRoPSI2MTIiIGhlaWdodD0iMjAyIiBmaWxsPSJ1cmwoI25hdGl2ZSkiLz4KICAgIDxyZWN0IHg9IjM0IiB5PSI0NTYiIHdpZHRoPSI2MTIiIGhlaWdodD0iNTgiIGZpbGw9IiMxZDVjOTAiIGZpbGwtb3BhY2l0eT0iLjc1Ii8+CiAgICA8dGV4dCB4PSI1MiIgeT0iMTI2IiBjbGFzcz0ibSI+MDEgU1VSRkFDRSBTVE9SQUdFPC90ZXh0PgogICAgPHRleHQgeD0iNTIiIHk9IjIwOCIgY2xhc3M9Im0iPjAyIFRSRUFUTUVOVCBPUiBTVE9SQUdFIE1FRElBPC90ZXh0PgogICAgPHRleHQgeD0iNTIiIHk9IjI4OCIgY2xhc3M9Im0iPjAzIE5BVElWRSBTT0lMIEFORCBTSVRFIENPTkRJVElPTlM8L3RleHQ+CiAgICA8dGV4dCB4PSI1MiIgeT0iNDg4IiBjbGFzcz0ibSI+MDQgU0VBU09OQUwgR1JPVU5EV0FURVIgQk9VTkRBUlk8L3RleHQ+CiAgICA8cGF0aCBkPSJNMTkwIDEyNlYyMTQiIGNsYXNzPSJyb3V0ZSIvPgogICAgPHBhdGggZD0iTTE5MCAyMjJWMzcwIiBjbGFzcz0icm91dGUiLz4KICAgIDxwYXRoIGQ9Ik0xOTAgMzgwVjQ4NCIgY2xhc3M9ImNvbmRpdGlvbmFsIi8+CiAgICA8cGF0aCBkPSJNMzMwIDMzNEg1NDYiIGNsYXNzPSJyb3V0ZSIvPgogICAgPHJlY3QgeD0iMzQ2IiB5PSIzMjIiIHdpZHRoPSIxNzIiIGhlaWdodD0iMjQiIHJ4PSIxMiIgZmlsbD0iIzFjMWIxOSIgc3Ryb2tlPSIjOGVkMGVkIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgIDx0ZXh0IHg9IjM3MiIgeT0iMzE0IiBjbGFzcz0ibSI+VU5ERVJEUkFJTjwvdGV4dD4KICAgIDxwYXRoIGQ9Ik01NDYgMzM0SDY0OCIgY2xhc3M9InJvdXRlIi8+CiAgICA8cGF0aCBkPSJNNTc0IDExMFE2NDAgNzggNjY2IDM2IiBjbGFzcz0iY29uZGl0aW9uYWwiLz4KICAgIDxwYXRoIGQ9Ik0yOTAgOTRRMzEyIDM2IDM0OCAxOCIgY2xhc3M9ImNvbmRpdGlvbmFsIi8+CiAgICA8dGV4dCB4PSIzNjAiIHk9IjI4IiBjbGFzcz0ibSIgZmlsbD0iI2UwYTY0YSI+RVZBUE9UUkFOU1BJUkFUSU9OPC90ZXh0PgogICAgPHRleHQgeD0iNTI2IiB5PSI2OCIgY2xhc3M9Im0iIGZpbGw9IiNlMGE2NGEiPk9WRVJGTE9XPC90ZXh0PgogICAgPHRleHQgeD0iNDM4IiB5PSIzNjQiIGNsYXNzPSJtIj5EUkFJTkVEIEVYSVQ8L3RleHQ+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc3NiAxMjYpIj4KICAgIDxyZWN0IHdpZHRoPSIzNzAiIGhlaWdodD0iMTA4IiByeD0iMTYiIGNsYXNzPSJjYWxsIi8+CiAgICA8dGV4dCB4PSIyMiIgeT0iMzAiIGNsYXNzPSJrIj5ST1VURSBBPC90ZXh0PgogICAgPHRleHQgeD0iMjIiIHk9IjU4IiBjbGFzcz0iaCIgZm9udC1zaXplPSIyMSI+U3VyZmFjZSB0byBtZWRpYTwvdGV4dD4KICAgIDx0ZXh0IHg9IjIyIiB5PSI4NCIgY2xhc3M9ImIiPlBvbmRpbmcgYW5kIGVudHJ5IGRvIG5vdCBwcm92ZSBmaW5hbCBkZXN0aW5hdGlvbi48L3RleHQ+CiAgICA8cmVjdCB5PSIxMjQiIHdpZHRoPSIzNzAiIGhlaWdodD0iMTA4IiByeD0iMTYiIGNsYXNzPSJjYWxsIi8+CiAgICA8dGV4dCB4PSIyMiIgeT0iMTU0IiBjbGFzcz0iayI+Uk9VVEUgQjwvdGV4dD4KICAgIDx0ZXh0IHg9IjIyIiB5PSIxODIiIGNsYXNzPSJoIiBmb250LXNpemU9IjIxIj5NZWRpYSB0byBuYXRpdmUgc29pbDwvdGV4dD4KICAgIDx0ZXh0IHg9IjIyIiB5PSIyMDgiIGNsYXNzPSJiIj5BY3R1YWwgc29pbCBhbmQgY29uc3RydWN0aW9uIGNvbmRpdGlvbiBtYXR0ZXIuPC90ZXh0PgogICAgPHJlY3QgeT0iMjQ4IiB3aWR0aD0iMzcwIiBoZWlnaHQ9IjEwOCIgcng9IjE2IiBjbGFzcz0iY2FsbCIvPgogICAgPHRleHQgeD0iMjIiIHk9IjI3OCIgY2xhc3M9ImsiPlJPVVRFIEM8L3RleHQ+CiAgICA8dGV4dCB4PSIyMiIgeT0iMzA2IiBjbGFzcz0iaCIgZm9udC1zaXplPSIyMSI+VW5kZXJkcmFpbiBkaXNjaGFyZ2U8L3RleHQ+CiAgICA8dGV4dCB4PSIyMiIgeT0iMzMyIiBjbGFzcz0iYiI+U3Vic3VyZmFjZSBlbnRyeSBjYW4gc3RpbGwgY3JlYXRlIGEgc3VyZmFjZS13YXRlciBleGl0LjwvdGV4dD4KICAgIDxyZWN0IHk9IjM3MiIgd2lkdGg9IjM3MCIgaGVpZ2h0PSIxMDgiIHJ4PSIxNiIgY2xhc3M9ImNhbGwiLz4KICAgIDx0ZXh0IHg9IjIyIiB5PSI0MDIiIGNsYXNzPSJrIj5ST1VURSBEPC90ZXh0PgogICAgPHRleHQgeD0iMjIiIHk9IjQzMCIgY2xhc3M9ImgiIGZvbnQtc2l6ZT0iMjEiPkdyb3VuZHdhdGVyIGludGVyYWN0aW9uPC90ZXh0PgogICAgPHRleHQgeD0iMjIiIHk9IjQ1NiIgY2xhc3M9ImIiPlN1aXRhYmlsaXR5IGFuZCBwcm90ZWN0aW9uIHJlcXVpcmUgc2l0ZSBldmFsdWF0aW9uLjwvdGV4dD4KICAgIDxyZWN0IHk9IjQ5NiIgd2lkdGg9IjM3MCIgaGVpZ2h0PSIxMDgiIHJ4PSIxNiIgZmlsbD0iIzNhMmUxZiIgc3Ryb2tlPSIjZTBhNjRhIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDx0ZXh0IHg9IjIyIiB5PSI1MjYiIGNsYXNzPSJrIiBmaWxsPSIjZTBhNjRhIj5ST1VURSBFPC90ZXh0PgogICAgPHRleHQgeD0iMjIiIHk9IjU1NCIgY2xhc3M9ImgiIGZvbnQtc2l6ZT0iMjEiPk92ZXJmbG93IG9yIGJ5cGFzczwvdGV4dD4KICAgIDx0ZXh0IHg9IjIyIiB5PSI1ODAiIGNsYXNzPSJiIj5BIGxhcmdlciBldmVudCBtYXkgZm9sbG93IGEgcm91dGUgb3V0c2lkZSB0aGUgc2VjdGlvbi48L3RleHQ+CiAgPC9nPgogIDx0ZXh0IHg9IjU0IiB5PSI3MTgiIGNsYXNzPSJiIj5XaGF0IHRvIHZlcmlmeTogc29pbCwgZ3JvdW5kd2F0ZXIsIGNvbnRhbWluYXRpb24sIHByZXRyZWF0bWVudCwgdW5kZXJkcmFpbiwgb3ZlcmZsb3csIGNvbnN0cnVjdGlvbiwgY29uZGl0aW9uLCBhbmQgcG9zdC1zdG9ybSByZXNwb25zZS48L3RleHQ+CiAgPHRleHQgeD0iNTQiIHk9Ijc0NCIgY2xhc3M9Im0iPklMTFVTVFJBVElWRSBTRUNUSU9OLCBOT1QgQSBTSVRJTkcgT1IgREVTSUdOIERFVEVSTUlOQVRJT048L3RleHQ+Cjwvc3ZnPgo=" alt="Vertical cutaway showing surface storage, filter media, native soil, underdrain, seasonal groundwater, overflow, and receiving water with distinct arrows."><figcaption><b>How to read this:</b> Read from the surface downward, then follow each side exit and identify the site evidence needed before claiming suitability. <b>Conclusion:</b> Infiltration, filtration, underdrain discharge, and recharge are different outcomes with site-specific boundaries.</figcaption></figure></article><article class="block block-visual" id="block-practice-family"><h2>Three infiltration practices can divide water differently</h2><p>A bioretention cell is a planted depression that receives runoff and routes it through surface storage, vegetation, soil, or engineered media. An infiltration trench is a stone-filled excavation that temporarily stores water while allowing movement into surrounding soil. Permeable pavement lets water pass through openings or porous material into a stone storage layer below the driving or walking surface.</p><p>These names describe common arrangements, not one guaranteed final destination. Compare the surface entry, storage layer, native soil, underdrain, overflow, and groundwater boundary for each practice. Ask which exits are actually present before claiming that water was recharged, treated, or removed from surface discharge.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDY1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkJpb3JldGVudGlvbiwgaW5maWx0cmF0aW9uIHRyZW5jaCwgYW5kIHBlcm1lYWJsZSBwYXZlbWVudCByb3V0ZXM8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5UaHJlZSBjdXRhd2F5cyBzaG93IHN1cmZhY2UgZW50cnksIHRlbXBvcmFyeSBzdG9yYWdlLCBlbmdpbmVlcmVkIG1hdGVyaWFsLCBuYXRpdmUgc29pbCwgdW5kZXJkcmFpbiwgZ3JvdW5kd2F0ZXIsIGFuZCBvdmVyZmxvdy48L2Rlc2M+CiAgPGRlZnM+PHN0eWxlPi5oe2ZvbnQ6NzAwIDI1cHggQXJpYWw7ZmlsbDojMTAyNTM2fS50e2ZvbnQ6NzAwIDE3cHggQXJpYWw7ZmlsbDojMTAyNTM2fS5ze2ZvbnQ6NTAwIDEzcHggQXJpYWw7ZmlsbDojMzg1NzZifS5wYW5lbHtmaWxsOiNmNmYyZTk7c3Ryb2tlOiNhM2IxYjk7c3Ryb2tlLXdpZHRoOjJ9LnNvaWx7ZmlsbDojOGE2YzRkfS5tZWRpYXtmaWxsOiNiNzlhNzB9LnN0b25le2ZpbGw6Izc4OGI5NH0ud2F0ZXJ7c3Ryb2tlOiMyZTllZDE7c3Ryb2tlLXdpZHRoOjY7ZmlsbDpub25lfS5waXBle3N0cm9rZTojMjQzODQ1O3N0cm9rZS13aWR0aDo5O3N0cm9rZS1kYXNoYXJyYXk6MTIgN308L3N0eWxlPjwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2NTAiIGZpbGw9IiNmYmZhZjYiLz48dGV4dCB4PSI0MiIgeT0iNDgiIGNsYXNzPSJoIj5JbmZpbHRyYXRpb24gaXMgdGhlIGRvb3J3YXksIG5vdCB0aGUgZmluYWwgZGVzdGluYXRpb248L3RleHQ+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzUgOTApIj48cmVjdCB3aWR0aD0iMzUwIiBoZWlnaHQ9IjQ5MCIgcng9IjE4IiBjbGFzcz0icGFuZWwiLz48dGV4dCB4PSIyNCIgeT0iMzgiIGNsYXNzPSJ0Ij5CaW9yZXRlbnRpb248L3RleHQ+PHBhdGggZD0iTTM1IDEyMHExNDAgNzAgMjgwIDAiIGZpbGw9IiM2ZDkyNTkiLz48cGF0aCBkPSJNNjAgMTU1aDIzMHY5MEg2MHoiIGNsYXNzPSJtZWRpYSIvPjxwYXRoIGQ9Ik02MCAyNDVoMjMwdjE1NUg2MHoiIGNsYXNzPSJzb2lsIi8+PHBhdGggZD0iTTE3NSA5NXYyNTAiIGNsYXNzPSJ3YXRlciIvPjxwYXRoIGQ9Ik04MCAzMDVoMTkwIiBjbGFzcz0icGlwZSIvPjxwYXRoIGQ9Ik0yNzAgMzA1aDU1IiBjbGFzcz0id2F0ZXIiLz48dGV4dCB4PSIyNCIgeT0iNDMwIiBjbGFzcz0icyI+U3VyZmFjZSBwb25kaW5nLCBtZWRpYSwgbmF0aXZlIHNvaWwsPC90ZXh0Pjx0ZXh0IHg9IjI0IiB5PSI0NTQiIGNsYXNzPSJzIj51bmRlcmRyYWluLCBwbGFudCB1c2UsIGFuZCBvdmVyZmxvdzwvdGV4dD48L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDI1IDkwKSI+PHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSI0OTAiIHJ4PSIxOCIgY2xhc3M9InBhbmVsIi8+PHRleHQgeD0iMjQiIHk9IjM4IiBjbGFzcz0idCI+SW5maWx0cmF0aW9uIHRyZW5jaDwvdGV4dD48cGF0aCBkPSJNMzUgMTIwaDI4MCIgc3Ryb2tlPSIjNTk2Yjc1IiBzdHJva2Utd2lkdGg9IjE2Ii8+PHBhdGggZD0iTTcwIDE0MGgyMTB2MTkwSDcweiIgY2xhc3M9InN0b25lIi8+PHBhdGggZD0iTTQ1IDMzMGgyNjB2NzBINDV6IiBjbGFzcz0ic29pbCIvPjxwYXRoIGQ9Ik0xNzUgOTV2Mjc1IiBjbGFzcz0id2F0ZXIiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxOTAiIHI9IjEzIiBmaWxsPSIjZDhlMGU0Ii8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMjQ1IiByPSIxNSIgZmlsbD0iI2Q4ZTBlNCIvPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjE3NSIgcj0iMTEiIGZpbGw9IiNkOGUwZTQiLz48dGV4dCB4PSIyNCIgeT0iNDMwIiBjbGFzcz0icyI+U3RvbmUgdm9pZHMgcHJvdmlkZSB0ZW1wb3Jhcnkgc3RvcmFnZS48L3RleHQ+PHRleHQgeD0iMjQiIHk9IjQ1NCIgY2xhc3M9InMiPlNvaWwgaW50ZXJmYWNlIGFuZCBvdmVyZmxvdyBzdGlsbCBtYXR0ZXIuPC90ZXh0PjwvZz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MTUgOTApIj48cmVjdCB3aWR0aD0iMzUwIiBoZWlnaHQ9IjQ5MCIgcng9IjE4IiBjbGFzcz0icGFuZWwiLz48dGV4dCB4PSIyNCIgeT0iMzgiIGNsYXNzPSJ0Ij5QZXJtZWFibGUgcGF2ZW1lbnQ8L3RleHQ+PHBhdGggZD0iTTM1IDEyMGgyODAiIHN0cm9rZT0iIzU5NmI3NSIgc3Ryb2tlLXdpZHRoPSIyMiIgc3Ryb2tlLWRhc2hhcnJheT0iMzggNiIvPjxwYXRoIGQ9Ik01NSAxNDVoMjQwdjEzMEg1NXoiIGNsYXNzPSJzdG9uZSIvPjxwYXRoIGQ9Ik00NSAyNzVoMjYwdjEyNUg0NXoiIGNsYXNzPSJzb2lsIi8+PHBhdGggZD0iTTE3NSA4NXYyNTAiIGNsYXNzPSJ3YXRlciIvPjxwYXRoIGQ9Ik05MCAyMjVoMTcwIiBjbGFzcz0icGlwZSIvPjxwYXRoIGQ9Ik0yNjAgMjI1aDYwIiBjbGFzcz0id2F0ZXIiLz48dGV4dCB4PSIyNCIgeT0iNDMwIiBjbGFzcz0icyI+U3VyZmFjZSBvcGVuaW5ncyBmZWVkIGEgc3RvbmUgcmVzZXJ2b2lyLjwvdGV4dD48dGV4dCB4PSIyNCIgeT0iNDU0IiBjbGFzcz0icyI+U29pbCwgdW5kZXJkcmFpbiwgYW5kIG92ZXJmbG93IGRpdmlkZSBmbG93LjwvdGV4dD48L2c+CiAgPHBhdGggZD0iTTQ1IDYwNWgxMTEwIiBzdHJva2U9IiMyZTllZDEiIHN0cm9rZS13aWR0aD0iNCIvPjx0ZXh0IHg9IjQyIiB5PSI2MzUiIGNsYXNzPSJzIj5ObyBpbmZpbHRyYXRpb24gcmF0ZSwgZ3JvdW5kd2F0ZXIgc2VwYXJhdGlvbiwgdHJlYXRtZW50IHJlc3VsdCwgb3Igc2l0ZSBzdWl0YWJpbGl0eSBpcyBpbXBsaWVkLjwvdGV4dD4KPC9zdmc+Cg==" alt="Three conceptual cutaways compare bioretention, infiltration trench, and permeable pavement routes."><figcaption><b>How to read this:</b> For each practice, follow surface entry, storage, soil route, underdrain, and overflow in the same order. <b>Conclusion:</b> Similar infiltration language can hide different storage, soil, underdrain, and overflow configurations.</figcaption></figure></article></div></section><div class="band"><div class="band-in"><div class="band-n">07</div><div class="band-txt"><div class="band-k">What does a hydrograph show about inflow, storage, and outflow?</div><div class="band-h">A hydrograph shows how flow changes through time</div></div></div></div><section class="beat surface-blue" id="beat-06-hydrograph"><div class="wrap"><p class="learner-question">What does a hydrograph show about inflow, storage, and outflow?</p><article class="block block-visual" id="block-hydrograph"><h2>A hydrograph shows how flow changes through time</h2><p>A hydrograph is a graph with time along the horizontal axis and flow along the vertical axis. It lets you compare when runoff enters a system, when outflow reaches its highest rate, and how long flow continues after rainfall has slowed or stopped.</p><p>Read the curves from left to right. Compare the inflow peak with the later outflow peak, then look at the full area represented over time. A lower or later peak is not the same as a smaller total volume. The curves are qualitative teaching shapes, not calibrated model output.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTAwIDYyMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkNvbmNlcHR1YWwgaW5mbG93IGFuZCBkZWxheWVkIG91dGZsb3cgaHlkcm9ncmFwaDwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkEgcXVhbGl0YXRpdmUgZ3JhcGggY29tcGFyZXMgYW4gZWFybGllciBoaWdoZXIgaW5mbG93IHBlYWsgd2l0aCBhIGxhdGVyIGxvd2VyIG91dGZsb3cgcGVhayBhbmQgaWRlbnRpZmllcyByZWNlc3Npb24gYW5kIGV2ZW50IHZvbHVtZS48L2Rlc2M+CiAgPGRlZnM+PHN0eWxlPi5oe2ZvbnQ6NzAwIDI2cHggQXJpYWw7ZmlsbDojZmZmfS50e2ZvbnQ6NzAwIDE2cHggQXJpYWw7ZmlsbDojZmZmfS5ze2ZvbnQ6NTAwIDE0cHggQXJpYWw7ZmlsbDojYmNkNmU0fS5heGlze3N0cm9rZTojOWRiNWMxO3N0cm9rZS13aWR0aDoyfS5ncmlke3N0cm9rZTojMzU1MjY2O3N0cm9rZS13aWR0aDoxfS5pbntmaWxsOm5vbmU7c3Ryb2tlOiNmZmI0NWI7c3Ryb2tlLXdpZHRoOjd9Lm91dHtmaWxsOm5vbmU7c3Ryb2tlOiM1NWMyZmY7c3Ryb2tlLXdpZHRoOjd9PC9zdHlsZT48L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjExMDAiIGhlaWdodD0iNjIwIiBmaWxsPSIjMDgxODIyIi8+PHRleHQgeD0iNTAiIHk9IjUyIiBjbGFzcz0iaCI+UmVhZCB0aGUgc3Rvcm0gZnJvbSBsZWZ0IHRvIHJpZ2h0PC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMCAxMTApIj48cGF0aCBkPSJNMCAwdjM5MGg4ODAiIGNsYXNzPSJheGlzIi8+PHBhdGggZD0iTTAgODBoODgwTTAgMTYwaDg4ME0wIDI0MGg4ODBNMCAzMjBoODgwIiBjbGFzcz0iZ3JpZCIvPjx0ZXh0IHg9Ii02MCIgeT0iMjAwIiBjbGFzcz0icyIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIC02MCAyMDApIj5SZWxhdGl2ZSBmbG93PC90ZXh0Pjx0ZXh0IHg9IjQxMCIgeT0iNDM1IiBjbGFzcz0icyI+VGltZTwvdGV4dD4KICA8cGF0aCBkPSJNMCAzOTBDMTIwIDM4NSAxNTAgMzMwIDIyMCAxMTVDMjc1IDE1IDMzMCAxMzAgMzkwIDI2MEM0NTAgMzQ1IDU2MCAzNzUgODgwIDM5MCIgY2xhc3M9ImluIi8+CiAgPHBhdGggZD0iTTAgMzkwQzE3MCAzODUgMjQ1IDM0MCAzNTAgMjIwQzQ0MCAxMjUgNTM1IDE2NSA2MjUgMjUwQzcwNSAzMzAgNzg1IDM3MCA4ODAgMzg1IiBjbGFzcz0ib3V0Ii8+CiAgPHBhdGggZD0iTTIyMCAxMTV2Mjc1TTQ3MCAxODV2MjA1IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNyA3Ii8+CiAgPHRleHQgeD0iMTUwIiB5PSI4NiIgY2xhc3M9InQiIGZpbGw9IiNmZmI0NWIiPkVhcmxpZXIgaW5mbG93IHBlYWs8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSIxNTUiIGNsYXNzPSJ0IiBmaWxsPSIjNTVjMmZmIj5MYXRlciBvdXRmbG93IHBlYWs8L3RleHQ+CiAgPHRleHQgeD0iNjMwIiB5PSIzMDAiIGNsYXNzPSJzIj5SZWNlc3Npb24gY29udGludWVzIGFmdGVyIHJhaW5mYWxsPC90ZXh0Pjx0ZXh0IHg9IjUxMCIgeT0iMzYwIiBjbGFzcz0icyI+QXJlYSBhY3Jvc3MgdGltZSByZXByZXNlbnRzIHZvbHVtZTwvdGV4dD48L2c+CiAgPHJlY3QgeD0iNzYwIiB5PSI0MiIgd2lkdGg9IjIyIiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmI0NWIiLz48dGV4dCB4PSI3OTAiIHk9IjUyIiBjbGFzcz0icyI+SW5mbG93PC90ZXh0PjxyZWN0IHg9IjkwMCIgeT0iNDIiIHdpZHRoPSIyMiIgaGVpZ2h0PSI4IiBmaWxsPSIjNTVjMmZmIi8+PHRleHQgeD0iOTMwIiB5PSI1MiIgY2xhc3M9InMiPk91dGZsb3c8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjU4NSIgY2xhc3M9InMiPlF1YWxpdGF0aXZlIHRlYWNoaW5nIGN1cnZlcyBvbmx5LiBUaGlzIGlzIG5vdCBjYWxpYnJhdGVkIG1vZGVsIG91dHB1dCBvciBhIGRlc2lnbiByZXN1bHQuPC90ZXh0Pgo8L3N2Zz4K" alt="Qualitative paired inflow and outflow hydrographs with five event states and no predictive values."><figcaption><b>How to read this:</b> Read left to right, compare inflow and outflow peaks, then notice how long each curve continues. <b>Conclusion:</b> A lower and later peak is different from a reduction in total water volume.</figcaption></figure></article></div></section><div class="band"><div class="band-in"><div class="band-n">08</div><div class="band-txt"><div class="band-k">Which evidence supports a flow, volume, concentration, or pollutant-load claim?</div><div class="band-h">Stormwater performance has more than one measure</div></div></div></div><section class="beat surface-white" id="beat-07-performance-ledger"><div class="wrap"><p class="learner-question">Which evidence supports a flow, volume, concentration, or pollutant-load claim?</p><article class="block block-visual" id="block-performance-evidence"><h2>Stormwater performance has more than one measure</h2><p>Peak flow is the highest flow rate during the period being studied. Discharged volume is the total amount of water that leaves the defined system boundary. Concentration describes how much of a measured constituent is present in a given amount of water. Pollutant load combines concentration with the water volume moving across the boundary.</p><p>Compare these measures separately. A lower peak can help with one flooding or conveyance question. A lower concentration can help with one water-quality question. Neither result, by itself, proves a reduction in total discharged volume or total pollutant load.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDcyMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPlRoZSBzYW1lIHN0b3JtIGNhbiBmb2xsb3cgdGhyZWUgZGlmZmVyZW50IHdhdGVyIHBhdGh3YXlzPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+VGhyZWUgY3V0YXdheSBzdG9ybXdhdGVyIHByYWN0aWNlcyBzaG93IHRlbXBvcmFyeSBzdG9yYWdlIGFuZCBjb250cm9sbGVkIHJlbGVhc2UsIHBlcm1hbmVudCBwb29sIGFuZCBkaXNwbGFjZW1lbnQsIGFuZCBpbmZpbHRyYXRpb24gd2l0aCBzb2lsLCB1bmRlcmRyYWluLCBncm91bmR3YXRlciwgb3ZlcmZsb3csIGFuZCBldmlkZW5jZSBwYXRocy48L2Rlc2M+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNreSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxMDIzMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMWMxYjE5Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ3YXRlciIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3ZGM2ZTgiIHN0b3Atb3BhY2l0eT0iLjM1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzhlZDBlZCIgc3RvcC1vcGFjaXR5PSIuOSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJzb2lsIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9IiMzYTMzMjkiLz4KICAgICAgPGNpcmNsZSBjeD0iNCIgY3k9IjUiIHI9IjEuNSIgZmlsbD0iI2EyOWM5MSIvPgogICAgICA8Y2lyY2xlIGN4PSIxMyIgY3k9IjEyIiByPSIxIiBmaWxsPSIjNmY2ODVlIi8+CiAgICA8L3BhdHRlcm4+CiAgICA8bWFya2VyIGlkPSJhcnJvdyIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjEwIiByZWZYPSI4IiByZWZZPSI1IiBvcmllbnQ9ImF1dG8iPgogICAgICA8cGF0aCBkPSJNMCAwTDEwIDVMMCAxMFoiIGZpbGw9IiM4ZWQwZWQiLz4KICAgIDwvbWFya2VyPgogICAgPG1hcmtlciBpZD0iYW1iZXJBcnJvdyIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjEwIiByZWZYPSI4IiByZWZZPSI1IiBvcmllbnQ9ImF1dG8iPgogICAgICA8cGF0aCBkPSJNMCAwTDEwIDVMMCAxMFoiIGZpbGw9IiNlMGE2NGEiLz4KICAgIDwvbWFya2VyPgogICAgPHN0eWxlPgogICAgICAua3tmb250OjcwMCAxNHB4IEFyaWFsLHNhbnMtc2VyaWY7bGV0dGVyLXNwYWNpbmc6MnB4O2ZpbGw6IzhlZDBlZH0KICAgICAgLmh7Zm9udDo4MDAgMjZweCBBcmlhbCxzYW5zLXNlcmlmO2ZpbGw6I2YyZjFlY30KICAgICAgLmJ7Zm9udDo0MDAgMTVweCBBcmlhbCxzYW5zLXNlcmlmO2ZpbGw6I2Q5ZDZjZn0KICAgICAgLnN7Zm9udDo3MDAgMTJweCAiQ291cmllciBOZXciLG1vbm9zcGFjZTtmaWxsOiNhMjljOTE7bGV0dGVyLXNwYWNpbmc6MXB4fQogICAgICAucm91dGV7ZmlsbDpub25lO3N0cm9rZTojOGVkMGVkO3N0cm9rZS13aWR0aDo1O21hcmtlci1lbmQ6dXJsKCNhcnJvdyl9CiAgICAgIC53YXJue2ZpbGw6bm9uZTtzdHJva2U6I2UwYTY0YTtzdHJva2Utd2lkdGg6NDtzdHJva2UtZGFzaGFycmF5OjggNzttYXJrZXItZW5kOnVybCgjYW1iZXJBcnJvdyl9CiAgICAgIC5wYW5lbHtmaWxsOiMyOTI4MjY7c3Ryb2tlOiM0YjQ4NDI7c3Ryb2tlLXdpZHRoOjJ9CiAgICAgIC5sYWJlbHtmaWxsOiMxMDIzMmU7c3Ryb2tlOiM3ZGM2ZTh9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MjAiIGZpbGw9InVybCgjc2t5KSIvPgogIDx0ZXh0IHg9IjQ4IiB5PSI0OCIgY2xhc3M9ImsiPlJFQUQgVEhFIFdBVEVSIFBBVEggQkVGT1JFIFRIRSBQUkFDVElDRSBOQU1FPC90ZXh0PgogIDx0ZXh0IHg9IjQ4IiB5PSI4NCIgY2xhc3M9ImgiPk9uZSBzdG9ybS4gVGhyZWUgYXJyYW5nZW1lbnRzLiBEaWZmZXJlbnQgZXhpdHMuPC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQyIDEyMikiPgogICAgPHJlY3Qgd2lkdGg9IjM1MiIgaGVpZ2h0PSI1MDYiIHJ4PSIyMCIgY2xhc3M9InBhbmVsIi8+CiAgICA8dGV4dCB4PSIyNCIgeT0iNDAiIGNsYXNzPSJzIj5ST1VURSAwMTwvdGV4dD4KICAgIDx0ZXh0IHg9IjI0IiB5PSI3MiIgY2xhc3M9ImgiPlRlbXBvcmFyeSBzdG9yYWdlPC90ZXh0PgogICAgPHRleHQgeD0iMjQiIHk9Ijk2IiBjbGFzcz0iYiI+V2F0ZXIgd2FpdHMsIHRoZW4gbGVhdmVzIHRocm91Z2ggYW4gb3V0bGV0LjwvdGV4dD4KICAgIDxwYXRoIGQ9Ik0yMCAyMDZROTAgMTU0IDE3NiAyMDhUMzMyIDIwNlYzMjhIMjBaIiBmaWxsPSJ1cmwoI3dhdGVyKSIvPgogICAgPHBhdGggZD0iTTIwIDMzMEgzMzJWNDMwSDIwWiIgZmlsbD0idXJsKCNzb2lsKSIvPgogICAgPHBhdGggZD0iTTUyIDE1NkM4MiAxNzQgMTAwIDE4NyAxMjYgMjE1IiBjbGFzcz0icm91dGUiLz4KICAgIDxwYXRoIGQ9Ik0xODIgMjc2SDMwOCIgY2xhc3M9InJvdXRlIi8+CiAgICA8Y2lyY2xlIGN4PSIzMDQiIGN5PSIyNzYiIHI9IjExIiBmaWxsPSIjMWMxYjE5IiBzdHJva2U9IiM4ZWQwZWQiIHN0cm9rZS13aWR0aD0iNCIvPgogICAgPHBhdGggZD0iTTI5MCAxOTRRMzI4IDE4MiAzNDAgMTU0IiBjbGFzcz0id2FybiIvPgogICAgPHJlY3QgeD0iMjgiIHk9IjM1MCIgd2lkdGg9IjI5NiIgaGVpZ2h0PSI1OCIgcng9IjEwIiBjbGFzcz0ibGFiZWwiLz4KICAgIDx0ZXh0IHg9IjQ0IiB5PSIzNzQiIGNsYXNzPSJzIiBmaWxsPSIjOGVkMGVkIj5OT1JNQUwgRVhJVDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ0IiB5PSIzOTUiIGNsYXNzPSJiIiBmaWxsPSIjZjJmMWVjIj5Db250cm9sbGVkIHN1cmZhY2UgcmVsZWFzZTwvdGV4dD4KICAgIDx0ZXh0IHg9IjI0IiB5PSI0NjIiIGNsYXNzPSJzIj5FVklERU5DRSBUTyBDSEVDSzwvdGV4dD4KICAgIDx0ZXh0IHg9IjI0IiB5PSI0ODYiIGNsYXNzPSJiIj5PdXRsZXQsIHN0b3JhZ2UgcmVzcG9uc2UsIG92ZXJmbG93LCBjb25kaXRpb248L3RleHQ+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQyNCAxMjIpIj4KICAgIDxyZWN0IHdpZHRoPSIzNTIiIGhlaWdodD0iNTA2IiByeD0iMjAiIGNsYXNzPSJwYW5lbCIvPgogICAgPHRleHQgeD0iMjQiIHk9IjQwIiBjbGFzcz0icyI+Uk9VVEUgMDI8L3RleHQ+CiAgICA8dGV4dCB4PSIyNCIgeT0iNzIiIGNsYXNzPSJoIj5QZXJtYW5lbnQgcG9vbDwvdGV4dD4KICAgIDx0ZXh0IHg9IjI0IiB5PSI5NiIgY2xhc3M9ImIiPk5ldyBydW5vZmYgcmFpc2VzIG9yIGRpc3BsYWNlcyBzdG9yZWQgd2F0ZXIuPC90ZXh0PgogICAgPHBhdGggZD0iTTIwIDE5NlE5MCAxODQgMTc2IDE5OFQzMzIgMTk0VjMyOEgyMFoiIGZpbGw9InVybCgjd2F0ZXIpIi8+CiAgICA8cGF0aCBkPSJNMjAgMzMwSDMzMlY0MzBIMjBaIiBmaWxsPSJ1cmwoI3NvaWwpIi8+CiAgICA8bGluZSB4MT0iMjAiIHkxPSIyNDAiIHgyPSIzMzIiIHkyPSIyNDAiIHN0cm9rZT0iI2YyZjFlYyIgc3Ryb2tlLW9wYWNpdHk9Ii41NSIgc3Ryb2tlLWRhc2hhcnJheT0iNSA1Ii8+CiAgICA8dGV4dCB4PSIzMCIgeT0iMjMyIiBjbGFzcz0icyI+Tk9STUFMIFBPT0w8L3RleHQ+CiAgICA8cGF0aCBkPSJNNTQgMTU0Qzg4IDE3NCAxMDUgMTg1IDEzMiAyMDgiIGNsYXNzPSJyb3V0ZSIvPgogICAgPHBhdGggZD0iTTE4NCAyMTRIMzA3IiBjbGFzcz0icm91dGUiLz4KICAgIDxjaXJjbGUgY3g9IjMwNiIgY3k9IjIxNCIgcj0iMTEiIGZpbGw9IiMxYzFiMTkiIHN0cm9rZT0iIzhlZDBlZCIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgICA8cGF0aCBkPSJNMjkwIDE3OFEzMjYgMTY2IDM0MCAxNDAiIGNsYXNzPSJ3YXJuIi8+CiAgICA8cmVjdCB4PSIyOCIgeT0iMzUwIiB3aWR0aD0iMjk2IiBoZWlnaHQ9IjU4IiByeD0iMTAiIGNsYXNzPSJsYWJlbCIvPgogICAgPHRleHQgeD0iNDQiIHk9IjM3NCIgY2xhc3M9InMiIGZpbGw9IiM4ZWQwZWQiPk5PUk1BTCBFWElUPC90ZXh0PgogICAgPHRleHQgeD0iNDQiIHk9IjM5NSIgY2xhc3M9ImIiIGZpbGw9IiNmMmYxZWMiPkRpc3BsYWNlbWVudCB0aHJvdWdoIGRvY3VtZW50ZWQgb3V0bGV0PC90ZXh0PgogICAgPHRleHQgeD0iMjQiIHk9IjQ2MiIgY2xhc3M9InMiPkVWSURFTkNFIFRPIENIRUNLPC90ZXh0PgogICAgPHRleHQgeD0iMjQiIHk9IjQ4NiIgY2xhc3M9ImIiPlBvb2wgbGV2ZWwsIG91dGxldCwgc2VkaW1lbnQsIG1vbml0b3Jpbmc8L3RleHQ+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwNiAxMjIpIj4KICAgIDxyZWN0IHdpZHRoPSIzNTIiIGhlaWdodD0iNTA2IiByeD0iMjAiIGNsYXNzPSJwYW5lbCIvPgogICAgPHRleHQgeD0iMjQiIHk9IjQwIiBjbGFzcz0icyI+Uk9VVEUgMDM8L3RleHQ+CiAgICA8dGV4dCB4PSIyNCIgeT0iNzIiIGNsYXNzPSJoIj5TdWJzdXJmYWNlIHJvdXRpbmc8L3RleHQ+CiAgICA8dGV4dCB4PSIyNCIgeT0iOTYiIGNsYXNzPSJiIj5XYXRlciBkaXZpZGVzIGJlbG93IGFuZCBhYm92ZSB0aGUgc3VyZmFjZS48L3RleHQ+CiAgICA8cGF0aCBkPSJNMjAgMTkyUTkwIDE2NiAxNzYgMTk2VDMzMiAxODhWMjQySDIwWiIgZmlsbD0idXJsKCN3YXRlcikiLz4KICAgIDxyZWN0IHg9IjIwIiB5PSIyNDQiIHdpZHRoPSIzMTIiIGhlaWdodD0iODIiIGZpbGw9IiM1NjRjMzkiLz4KICAgIDxyZWN0IHg9IjIwIiB5PSIzMjgiIHdpZHRoPSIzMTIiIGhlaWdodD0iMTAyIiBmaWxsPSJ1cmwoI3NvaWwpIi8+CiAgICA8cGF0aCBkPSJNNTQgMTUwQzg2IDE3MCAxMDggMTg0IDEzMCAyMDMiIGNsYXNzPSJyb3V0ZSIvPgogICAgPHBhdGggZD0iTTExMiAyMjRWMzUwIiBjbGFzcz0icm91dGUiLz4KICAgIDxwYXRoIGQ9Ik0xOTAgMjI0VjM5NCIgY2xhc3M9InJvdXRlIi8+CiAgICA8cGF0aCBkPSJNMTUyIDM1MEgyODgiIGNsYXNzPSJyb3V0ZSIvPgogICAgPHBhdGggZD0iTTI5MCAxODRRMzI2IDE2NCAzNDAgMTM2IiBjbGFzcz0id2FybiIvPgogICAgPGxpbmUgeDE9IjI2IiB5MT0iMzk4IiB4Mj0iMzI2IiB5Mj0iMzk4IiBzdHJva2U9IiM3ZGM2ZTgiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgPHRleHQgeD0iMzIiIHk9IjQyMCIgY2xhc3M9InMiPlNFQVNPTkFMIEdST1VORFdBVEVSIEJPVU5EQVJZPC90ZXh0PgogICAgPHJlY3QgeD0iMjgiIHk9IjQ0NCIgd2lkdGg9IjI5NiIgaGVpZ2h0PSI1OCIgcng9IjEwIiBjbGFzcz0ibGFiZWwiLz4KICAgIDx0ZXh0IHg9IjQ0IiB5PSI0NjgiIGNsYXNzPSJzIiBmaWxsPSIjOGVkMGVkIj5QT1NTSUJMRSBFWElUUzwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ0IiB5PSI0ODkiIGNsYXNzPSJiIiBmaWxsPSIjZjJmMWVjIj5Tb2lsLCB1bmRlcmRyYWluLCBvdmVyZmxvdywgZXZhcG9yYXRpb248L3RleHQ+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4IDY1OCkiPgogICAgPGNpcmNsZSBjeD0iOCIgY3k9IjAiIHI9IjYiIGZpbGw9IiM4ZWQwZWQiLz4KICAgIDx0ZXh0IHg9IjI0IiB5PSI1IiBjbGFzcz0iYiI+Qmx1ZSBzaG93cyBhIHBsYW5uZWQgcm91dGUuPC90ZXh0PgogICAgPHBhdGggZD0iTTI1OCAwSDI5MCIgY2xhc3M9Indhcm4iLz4KICAgIDx0ZXh0IHg9IjMwNiIgeT0iNSIgY2xhc3M9ImIiPkFtYmVyIHNob3dzIG92ZXJmbG93IG9yIGJ5cGFzcyB0aGF0IG11c3Qgc3RheSB2aXNpYmxlLjwvdGV4dD4KICAgIDx0ZXh0IHg9Ijc5MCIgeT0iNSIgY2xhc3M9InMiPklMTFVTVFJBVElWRSBDT05DRVBUIE1BUCwgTk9UIEEgREVTSUdOIE1PREVMPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="Two illustrative stormwater outcomes compare controlled surface release with a route that also reduces discharged volume. Separate labels identify timing, volume, concentration, and total load."><figcaption><b>How to read this:</b> Start with the incoming storm, compare every exit route, then read peak timing, discharged volume, concentration, and total load as separate evidence. <b>Conclusion:</b> A favorable result in one measure does not prove the complete pathway or performance objective.</figcaption></figure></article><article class="block block-example" id="block-worked-example-basin"><h2>Work through a basin that supposedly did not work</h2><p>Definitions become useful when you reason with them. Follow this one all the way through before the next check.</p><div class="worked-example"><p class="worked-label">Worked example</p><p class="worked-situation"><b>The situation:</b> A utility receives complaints that a detention basin serving a commercial development is not working, because a creek downstream still rises after storms. The basin was inspected and found to be in reasonable condition. The outlet is clear. The basin filled during the storm and drained afterward, as intended.</p><p class="worked-reasoning"><b>Working it through:</b> Ask what the basin was intended to change. Detention holds water and releases it later, so the total volume leaving the site over the full event stays close to the volume that entered. A basin with a surface outlet is a delay device, not a disposal device. If the complaint is that water still arrives in the creek, the basin was never going to prevent that. If the complaint is that the creek rises as fast and as high as it did before the development existed, that is a different claim, and answering it needs the inflow and outflow behavior, the contributing area, and whatever else drains to the same reach.</p><p class="worked-result"><b>What you conclude:</b> Not working is not yet a finding. The basin may be doing exactly what detention does while failing to deliver what the community was told it would deliver. Those are different problems. One is an asset problem and the other is an explanation problem, and the investigation and the fix are not the same in each case.</p><p class="worked-boundary"><b>Where this stops:</b> This reasoning identifies which question to ask. It does not establish whether this basin meets its design basis, whether that design basis was appropriate, or whether anything downstream requires a capital response. Those take site records, monitoring, and qualified engineering review.</p></div></article><article class="block block-assessment" id="block-check-performance"><h2>Match the claim to the evidence</h2><p>The learner matches flow peak, timing, discharged volume, concentration, and pollutant load to the evidence that can support each statement.</p><section class="concept-assessment" id="assessment-performance-evidence" data-concept-assessment="matching" data-completion="performance-evidence-passed"><p class="assessment-kicker">RELATIONSHIP CHECK</p><h3>Match each performance statement to the evidence category that can support it.</h3><div class="assessment-match-grid"><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Peak flow">Peak flow</option><option value="Peak timing">Peak timing</option><option value="Discharged volume">Discharged volume</option><option value="Concentration">Concentration</option><option value="Pollutant load">Pollutant load</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Peak flow">Peak flow</option><option value="Peak timing">Peak timing</option><option value="Discharged volume">Discharged volume</option><option value="Concentration">Concentration</option><option value="Pollutant load">Pollutant load</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Peak flow">Peak flow</option><option value="Peak timing">Peak timing</option><option value="Discharged volume">Discharged volume</option><option value="Concentration">Concentration</option><option value="Pollutant load">Pollutant load</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Peak flow">Peak flow</option><option value="Peak timing">Peak timing</option><option value="Discharged volume">Discharged volume</option><option value="Concentration">Concentration</option><option value="Pollutant load">Pollutant load</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Peak flow">Peak flow</option><option value="Peak timing">Peak timing</option><option value="Discharged volume">Discharged volume</option><option value="Concentration">Concentration</option><option value="Pollutant load">Pollutant load</option></select></label></div><button type="button" class="assessment-check">Check matches</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. Each measure answers a different question.</template><template data-incorrect-feedback>Keep hydraulic timing, total water, concentration, and total constituent mass separate.</template><p class="assessment-retry">Read the hydrograph and water-and-pollutant ledger again.</p></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">09</div><div class="band-txt"><div class="band-k">How can condition change the pathway the asset was intended to provide?</div><div class="band-h">Condition can change the intended route</div></div></div></div><section class="beat surface-blue" id="beat-08-maintenance-failure"><div class="wrap"><p class="learner-question">How can condition change the pathway the asset was intended to provide?</p><article class="block block-diagnostic" id="block-maintenance-evidence"><h2>Condition can change the intended route</h2><p>Maintenance matters because a stormwater practice depends on physical features that can clog, erode, settle, break, become overgrown, or lose access. Sediment at an inlet can reduce entry. Debris at an outlet can change release. Compacted or clogged media can change surface ponding. Erosion can create a shortcut that bypasses the intended route.</p><p>Start with what you can observe, then ask which water pathway the condition could affect. The trace separates observation, pathway question, possible consequence, and evidence needed. One observation is a reason to investigate. It is not enough to diagnose the cause or select a repair.</p></article><article class="block block-interaction" id="block-check-maintenance"><h2>Separate observation from diagnosis</h2><p>The learner moves from a visible condition to the pathway question and next evidence without issuing a diagnosis or repair instruction.</p>
+<style>
+.failure-trace{padding:clamp(20px,3vw,34px);border:1px solid #4b4842;background:#171614;color:#f2f1ec}
+.failure-trace-layout{display:grid;grid-template-columns:minmax(230px,.65fr) minmax(0,1.35fr);gap:20px;margin-top:22px}
+.failure-choices{display:grid;gap:8px;align-content:start}
+.failure-choice{min-height:54px;padding:11px 14px;text-align:left;border:1px solid #59554d;background:#292826;color:#f2f1ec;cursor:pointer}
+.failure-choice[aria-pressed="true"]{border-color:#8ed0ed;box-shadow:inset 0 0 0 2px #8ed0ed;background:#10232e}
+.failure-stage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.failure-card{min-height:180px;padding:18px;border:1px solid #42677a;background:#10232e}
+.failure-card b{display:block;margin-bottom:12px;color:#8ed0ed;font:700 11px "Courier New",monospace;letter-spacing:.12em}
+.failure-card p{margin:0;color:#e8f0f4;line-height:1.55}
+.failure-progress{grid-column:1/-1;margin:2px 0 0;color:#d9d6cf}
+.failure-progress strong{color:#4ac88c}
+.failure-choice:focus-visible{outline:3px solid #e0a64a;outline-offset:3px}
+.failure-fallback{max-width:100%;overflow-x:auto}.failure-fallback table{width:100%;border-collapse:collapse}.failure-fallback th,.failure-fallback td{padding:10px;border:1px solid #59554d;text-align:left;vertical-align:top}
+@media(max-width:800px){.failure-trace-layout,.failure-stage{grid-template-columns:1fr}.failure-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){.failure-choice{scroll-behavior:auto}}
+</style>
+<div class="interaction failure-trace" id="failure-trace-interaction-condition-failure-trace" data-interaction="interaction-condition-failure-trace" data-complete="false"><h3>Change the condition, then trace the consequence</h3><p>Connect a visible condition to the route it may affect, the consequence that may follow, and the evidence needed before diagnosis or action.</p><p class="boundary"><b>Model boundary:</b> Qualitative authored cause chains for instruction. The interaction does not inspect, diagnose, rate, prescribe maintenance, or authorize work for a real asset.</p><div class="failure-trace-layout"><div class="failure-choices" aria-label="Choose a condition"><button type="button" class="failure-choice" data-failure-scenario="sediment-storage" aria-pressed="true">Sediment occupies part of the visible basin.</button><button type="button" class="failure-choice" data-failure-scenario="surface-clogging" aria-pressed="false">Water remains on a permeable surface after nearby conventional pavement has drained.</button><button type="button" class="failure-choice" data-failure-scenario="outlet-blockage" aria-pressed="false">Debris or vegetation is visible near the outlet.</button><button type="button" class="failure-choice" data-failure-scenario="erosion" aria-pressed="false">A bank or flow path shows fresh erosion.</button><button type="button" class="failure-choice" data-failure-scenario="high-tailwater" aria-pressed="false">The downstream water surface is high near the outfall.</button><button type="button" class="failure-choice" data-failure-scenario="underdrain-problem" aria-pressed="false">Recovery differs from the documented or observed normal pattern.</button></div><div class="failure-stage"><div class="failure-card"><b>PATHWAY QUESTION</b><p class="failure-question"></p></div><div class="failure-card"><b>POSSIBLE CONSEQUENCE</b><p class="failure-consequence"></p></div><div class="failure-card"><b>EVIDENCE NEEDED NEXT</b><p class="failure-evidence"></p></div><p class="failure-progress" role="status" aria-live="polite"></p></div></div><noscript><style>#failure-trace-interaction-condition-failure-trace .failure-trace-layout{display:none}</style><div class="failure-fallback"><h4>Structured text equivalent</h4><table><thead><tr><th>Observation</th><th>Pathway question</th><th>Possible consequence</th><th>Evidence needed</th></tr></thead><tbody><tr><th scope="row">Sediment occupies part of the visible basin.</th><td>Has available storage or the intended flow path changed?</td><td>Less usable storage or altered settling and routing.</td><td>Current survey, sediment measurement, design or as-built plans, inspection history, and qualified review.</td></tr><tr><th scope="row">Water remains on a permeable surface after nearby conventional pavement has drained.</th><td>Has surface entry resistance changed, or is another downstream boundary controlling recovery?</td><td>More surface runoff, prolonged ponding, or reduced use of subsurface storage.</td><td>Rainfall, observation timing, approved inspection method, surface condition, subsurface configuration, and downstream conditions.</td></tr><tr><th scope="row">Debris or vegetation is visible near the outlet.</th><td>Is the ordinary release route restricted?</td><td>Higher or longer storage, reduced recovery, or greater use of overflow.</td><td>Safe qualified inspection, water levels, outlet drawings, downstream level, event observations, and maintenance authority.</td></tr><tr><th scope="row">A bank or flow path shows fresh erosion.</th><td>Has velocity, concentration of flow, overflow use, or slope stability changed?</td><td>Sediment movement, instability, or a redirected pathway.</td><td>Site inspection, rainfall and flow context, survey, plans, downstream observations, and qualified evaluation.</td></tr><tr><th scope="row">The downstream water surface is high near the outfall.</th><td>Is the downstream boundary reducing the available discharge head?</td><td>Slower release, higher upstream water level, or changed recovery.</td><td>Paired upstream and downstream levels, time series, outlet geometry, connected-system condition, and hydraulic review.</td></tr><tr><th scope="row">Recovery differs from the documented or observed normal pattern.</th><td>Is the underdrain, soil route, groundwater boundary, or outlet condition different?</td><td>Prolonged storage, altered subsurface routing, or more overflow.</td><td>As-built configuration, cleanout or inspection evidence, groundwater and rainfall context, water levels, and qualified review.</td></tr></tbody></table></div></noscript><script type="application/json" class="failure-trace-data">{"scenarios":[{"scenario_id":"sediment-storage","observation":"Sediment occupies part of the visible basin.","pathway_question":"Has available storage or the intended flow path changed?","possible_consequence":"Less usable storage or altered settling and routing.","evidence_needed":"Current survey, sediment measurement, design or as-built plans, inspection history, and qualified review."},{"scenario_id":"surface-clogging","observation":"Water remains on a permeable surface after nearby conventional pavement has drained.","pathway_question":"Has surface entry resistance changed, or is another downstream boundary controlling recovery?","possible_consequence":"More surface runoff, prolonged ponding, or reduced use of subsurface storage.","evidence_needed":"Rainfall, observation timing, approved inspection method, surface condition, subsurface configuration, and downstream conditions."},{"scenario_id":"outlet-blockage","observation":"Debris or vegetation is visible near the outlet.","pathway_question":"Is the ordinary release route restricted?","possible_consequence":"Higher or longer storage, reduced recovery, or greater use of overflow.","evidence_needed":"Safe qualified inspection, water levels, outlet drawings, downstream level, event observations, and maintenance authority."},{"scenario_id":"erosion","observation":"A bank or flow path shows fresh erosion.","pathway_question":"Has velocity, concentration of flow, overflow use, or slope stability changed?","possible_consequence":"Sediment movement, instability, or a redirected pathway.","evidence_needed":"Site inspection, rainfall and flow context, survey, plans, downstream observations, and qualified evaluation."},{"scenario_id":"high-tailwater","observation":"The downstream water surface is high near the outfall.","pathway_question":"Is the downstream boundary reducing the available discharge head?","possible_consequence":"Slower release, higher upstream water level, or changed recovery.","evidence_needed":"Paired upstream and downstream levels, time series, outlet geometry, connected-system condition, and hydraulic review."},{"scenario_id":"underdrain-problem","observation":"Recovery differs from the documented or observed normal pattern.","pathway_question":"Is the underdrain, soil route, groundwater boundary, or outlet condition different?","possible_consequence":"Prolonged storage, altered subsurface routing, or more overflow.","evidence_needed":"As-built configuration, cleanout or inspection evidence, groundwater and rainfall context, water levels, and qualified review."}]}</script></div>
+<script>
+(function(){
+  var root=document.getElementById("failure-trace-interaction-condition-failure-trace");
+  if(!root)return;
+  var data=JSON.parse(root.querySelector('.failure-trace-data').textContent);
+  var selected=(data.scenarios[0]||{}).scenario_id||'';
+  var visited={};
+  function current(){
+    return data.scenarios.find(function(item){return item.scenario_id===selected})||data.scenarios[0]||{};
+  }
+  function update(){
+    var item=current();
+    visited[selected]=true;
+    root.dataset.scenario=selected;
+    root.querySelector('.failure-question').textContent=item.pathway_question||'';
+    root.querySelector('.failure-consequence').textContent=item.possible_consequence||'';
+    root.querySelector('.failure-evidence').textContent=item.evidence_needed||'';
+    root.querySelectorAll('[data-failure-scenario]').forEach(function(button){
+      button.setAttribute('aria-pressed',button.dataset.failureScenario===selected?'true':'false');
+    });
+    var count=Object.keys(visited).length;
+    root.querySelector('.failure-progress').innerHTML='<strong>'+String(count)+'</strong> of '+String(data.scenarios.length)+' conditions reviewed';
+    if(count>=data.scenarios.length)root.dataset.complete='true';
+  }
+  root.querySelectorAll('[data-failure-scenario]').forEach(function(button){
+    button.addEventListener('click',function(){selected=button.dataset.failureScenario;update();});
+  });
+  update();
+})();
+</script>
+</article></div></section><div class="band"><div class="band-in"><div class="band-n">10</div><div class="band-txt"><div class="band-k">How does stormwater or groundwater become infiltration and inflow in a sanitary sewer?</div><div class="band-h">Infiltration and inflow put stormwater into the wastewater system</div></div></div></div><section class="beat surface-black" id="beat-09-wrong-pipe"><div class="wrap"><p class="learner-question">How does stormwater or groundwater become infiltration and inflow in a sanitary sewer?</p><article class="block block-visual" id="block-wastewater-ii"><h2>Infiltration and inflow put stormwater into the wastewater system</h2><p>In wastewater work, infiltration and inflow (I&amp;I) describe unwanted water entering a sanitary sewer. Infiltration commonly refers to groundwater entering through cracks, defective joints, or other openings. Inflow commonly refers to rainwater entering more directly through connections, openings, drains, or similar routes.</p><p>Follow the intended stormwater route first. Then follow the unwanted wet-weather water into collection pipes, pump stations, storage, and treatment. In a separate sanitary sewer, this added water consumes capacity and requires pumping and treatment even though it should not have entered that system.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDY1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPk9uZSByYWluIGV2ZW50IGFuZCB0d28gdXRpbGl0eSBzeXN0ZW1zPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+VGhlIGludGVuZGVkIHN0b3Jtd2F0ZXIgcm91dGUgaXMgY29tcGFyZWQgd2l0aCB1bmludGVuZGVkIGdyb3VuZHdhdGVyIGFuZCBzdXJmYWNlIGluZmxvdyBpbnRvIGEgc2VwYXJhdGUgc2FuaXRhcnkgc2V3ZXIsIHB1bXAgc3RhdGlvbiwgYW5kIHdhc3Rld2F0ZXIgdHJlYXRtZW50IHN5c3RlbS48L2Rlc2M+CiAgPGRlZnM+PG1hcmtlciBpZD0iYSIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjEwIiByZWZYPSI4IiByZWZZPSIzIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0wIDBMOSAzTDAgNloiIGZpbGw9IiM1NWMyZmYiLz48L21hcmtlcj48bWFya2VyIGlkPSJ3IiBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iMTAiIHJlZlg9IjgiIHJlZlk9IjMiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTTAgMEw5IDNMMCA2WiIgZmlsbD0iI2ZmYjQ1YiIvPjwvbWFya2VyPjxzdHlsZT4uaHtmb250OjcwMCAyNXB4IEFyaWFsO2ZpbGw6I2ZmZn0udHtmb250OjcwMCAxN3B4IEFyaWFsO2ZpbGw6I2ZmZn0uc3tmb250OjUwMCAxNHB4IEFyaWFsO2ZpbGw6I2MzZDllNX0uYntmaWxsOiMxMDJmNDk7c3Ryb2tlOiM0MjY2N2Q7c3Ryb2tlLXdpZHRoOjJ9LmJsdWV7c3Ryb2tlOiM1NWMyZmY7c3Ryb2tlLXdpZHRoOjY7ZmlsbDpub25lO21hcmtlci1lbmQ6dXJsKCNhKX0ub3Jhbmdle3N0cm9rZTojZmZiNDViO3N0cm9rZS13aWR0aDo2O2ZpbGw6bm9uZTtzdHJva2UtZGFzaGFycmF5OjExIDg7bWFya2VyLWVuZDp1cmwoI3cpfTwvc3R5bGU+PC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjY1MCIgZmlsbD0iIzA4MTgyMiIvPjx0ZXh0IHg9IjQ0IiB5PSI0OCIgY2xhc3M9ImgiPlNhbWUgcmFpbi4gRGlmZmVyZW50IHN5c3RlbSBwdXJwb3NlLjwvdGV4dD4KICA8cGF0aCBkPSJNNjAwIDc1djU1IiBzdHJva2U9IiM1NWMyZmYiIHN0cm9rZS13aWR0aD0iOCIvPjxwYXRoIGQ9Ik01NzAgOTVoNjAiIHN0cm9rZT0iIzU1YzJmZiIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHRleHQgeD0iNjM1IiB5PSIxMDUiIGNsYXNzPSJzIj5SYWluIGFuZCByaXNpbmcgZ3JvdW5kd2F0ZXI8L3RleHQ+CiAgPHJlY3QgeD0iNDUiIHk9IjE1NSIgd2lkdGg9IjUyMCIgaGVpZ2h0PSI0MTAiIHJ4PSIyMCIgY2xhc3M9ImIiLz48dGV4dCB4PSI3NSIgeT0iMTk4IiBjbGFzcz0idCI+SW50ZW5kZWQgc3Rvcm13YXRlciByb3V0ZTwvdGV4dD4KICA8cmVjdCB4PSI4NSIgeT0iMjQ1IiB3aWR0aD0iMTQ1IiBoZWlnaHQ9IjkwIiByeD0iMTQiIGZpbGw9IiMxNzQyNWMiLz48dGV4dCB4PSIxMTAiIHk9IjI4MiIgY2xhc3M9InQiPklubGV0PC90ZXh0Pjx0ZXh0IHg9IjExMCIgeT0iMzA3IiBjbGFzcz0icyI+YW5kIHBpcGU8L3RleHQ+CiAgPHJlY3QgeD0iMzEwIiB5PSIyNDUiIHdpZHRoPSIxOTAiIGhlaWdodD0iOTAiIHJ4PSIxNCIgZmlsbD0iIzE3NDI1YyIvPjx0ZXh0IHg9IjMzNSIgeT0iMjgyIiBjbGFzcz0idCI+U3RvcmFnZTwvdGV4dD48dGV4dCB4PSIzMzUiIHk9IjMwNyIgY2xhc3M9InMiPm9yIHRyZWF0bWVudDwvdGV4dD4KICA8cmVjdCB4PSIzMTAiIHk9IjQxMCIgd2lkdGg9IjE5MCIgaGVpZ2h0PSI5MCIgcng9IjE0IiBmaWxsPSIjMTc0MjVjIi8+PHRleHQgeD0iMzM1IiB5PSI0NDciIGNsYXNzPSJ0Ij5PdXRmYWxsPC90ZXh0Pjx0ZXh0IHg9IjMzNSIgeT0iNDcyIiBjbGFzcz0icyI+cmVjZWl2aW5nIHdhdGVyPC90ZXh0PgogIDxwYXRoIGQ9Ik0yMzAgMjkwaDgwTTQwNSAzMzV2NzUiIGNsYXNzPSJibHVlIi8+CiAgPHJlY3QgeD0iNjM1IiB5PSIxNTUiIHdpZHRoPSI1MjAiIGhlaWdodD0iNDEwIiByeD0iMjAiIGNsYXNzPSJiIi8+PHRleHQgeD0iNjY1IiB5PSIxOTgiIGNsYXNzPSJ0Ij5VbmludGVuZGVkIGVudHJ5IGludG8gc2VwYXJhdGUgc2FuaXRhcnkgc2V3ZXI8L3RleHQ+CiAgPHJlY3QgeD0iNjcwIiB5PSIyNDUiIHdpZHRoPSIxNTUiIGhlaWdodD0iOTAiIHJ4PSIxNCIgZmlsbD0iIzRiMzMyNSIvPjx0ZXh0IHg9IjY5MiIgeT0iMjgwIiBjbGFzcz0idCI+RGVmZWN0IG9yPC90ZXh0Pjx0ZXh0IHg9IjY5MiIgeT0iMzA2IiBjbGFzcz0icyI+ZGlyZWN0IGNvbm5lY3Rpb248L3RleHQ+CiAgPHJlY3QgeD0iODc1IiB5PSIyNDUiIHdpZHRoPSIyMjAiIGhlaWdodD0iOTAiIHJ4PSIxNCIgZmlsbD0iIzRiMzMyNSIvPjx0ZXh0IHg9IjkwMCIgeT0iMjgwIiBjbGFzcz0idCI+U2FuaXRhcnkgc2V3ZXI8L3RleHQ+PHRleHQgeD0iOTAwIiB5PSIzMDYiIGNsYXNzPSJzIj5leHRyYSBoeWRyYXVsaWMgZmxvdzwvdGV4dD4KICA8cmVjdCB4PSI2ODAiIHk9IjQxMCIgd2lkdGg9IjE3MCIgaGVpZ2h0PSI5MCIgcng9IjE0IiBmaWxsPSIjNGIzMzI1Ii8+PHRleHQgeD0iNzA1IiB5PSI0NDciIGNsYXNzPSJ0Ij5QdW1wIHN0YXRpb248L3RleHQ+PHRleHQgeD0iNzA1IiB5PSI0NzIiIGNsYXNzPSJzIj5lbmVyZ3kgYW5kIGNhcGFjaXR5PC90ZXh0PgogIDxyZWN0IHg9IjkwMCIgeT0iNDEwIiB3aWR0aD0iMjA1IiBoZWlnaHQ9IjkwIiByeD0iMTQiIGZpbGw9IiM0YjMzMjUiLz48dGV4dCB4PSI5MjUiIHk9IjQ0NyIgY2xhc3M9InQiPlRyZWF0bWVudDwvdGV4dD48dGV4dCB4PSI5MjUiIHk9IjQ3MiIgY2xhc3M9InMiPnN0b3JhZ2UgYW5kIGNhcGl0YWw8L3RleHQ+CiAgPHBhdGggZD0iTTgyNSAyOTBoNTBNOTg1IDMzNXY0MHEwIDM1LTEzNSA4ME04NTAgNDU1aDUwIiBjbGFzcz0ib3JhbmdlIi8+CiAgPHRleHQgeD0iNDUiIHk9IjYxNSIgY2xhc3M9InMiPkNvbmNlcHQgb25seS4gTm8gSSZhbXA7SSBzb3VyY2UsIHF1YW50aXR5LCBzeXN0ZW0gY2FwYWNpdHksIGNvc3QsIG9yIHJlbWVkeSBpcyBkZXRlcm1pbmVkLjwvdGV4dD4KPC9zdmc+Cg==" alt="Split conceptual scene compares stormwater routing with groundwater and surface-water entry into a separate sanitary sewer."><figcaption><b>How to read this:</b> Follow the intended stormwater route first, then trace the wet-weather entry into each wastewater asset. <b>Conclusion:</b> I&amp;I consumes wastewater conveyance, pumping, treatment, storage, operating, and capital resources.</figcaption></figure></article><article class="block block-assessment" id="block-check-ii"><h2>Classify infiltration and inflow</h2><p>The learner classifies conceptual direct inflow and defect-related infiltration routes and then traces the capacity consequence without diagnosing a real collection system.</p><section class="concept-assessment" id="assessment-ii-route" data-concept-assessment="matching" data-completion="ii-route-passed"><p class="assessment-kicker">RELATIONSHIP CHECK</p><h3>Match each conceptual wet-weather entry route to infiltration or inflow.</h3><div class="assessment-match-grid"><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Infiltration">Infiltration</option><option value="Inflow">Inflow</option><option value="Not enough evidence">Not enough evidence</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Infiltration">Infiltration</option><option value="Inflow">Inflow</option><option value="Not enough evidence">Not enough evidence</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Infiltration">Infiltration</option><option value="Inflow">Inflow</option><option value="Not enough evidence">Not enough evidence</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="Infiltration">Infiltration</option><option value="Inflow">Inflow</option><option value="Not enough evidence">Not enough evidence</option></select></label></div><button type="button" class="assessment-check">Check matches</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. The examples distinguish defect-related subsurface entry from more direct surface-connected entry.</template><template data-incorrect-feedback>Ask whether water is entering through a buried defect or a direct surface-connected route.</template><p class="assessment-retry">Trace each arrow from the rain or groundwater source to the sanitary sewer.</p></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">11</div><div class="band-txt"><div class="band-k">Why is a permit valuable after construction is complete?</div><div class="band-h">A permit turns a public objective into assigned responsibility</div></div></div></div><section class="beat surface-off_white" id="beat-10-permit-value"><div class="wrap"><p class="learner-question">Why is a permit valuable after construction is complete?</p><article class="block block-visual" id="block-permit-value"><h2>A permit turns a public objective into assigned responsibility</h2><p>A permit is an authorization that places defined conditions, monitoring, reporting, and responsibility around an activity or discharge. In stormwater, the federal National Pollutant Discharge Elimination System (NPDES) framework connects public water-quality objectives to municipal, construction, or industrial responsibilities where the program applies.</p><p>Read the handoff from the public objective to the authorized condition, responsible party, funded work, records, and correction. The value appears when the physical system is maintained and the responsible organization can show what was done. This explanation does not determine whether a specific permit applies or whether a facility complies.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDU2MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPlBlcm1pdCB0byBtYWludGFpbmVkIHB1YmxpYyB2YWx1ZTwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkEgc2l4LXN0ZXAgaGFuZG9mZiBjb25uZWN0cyBwdWJsaWMgb2JqZWN0aXZlLCBhcHByb3ZlZCBjb25kaXRpb24sIHJlc3BvbnNpYmxlIHBhcnR5LCBhY2Nlc3MgYW5kIGZ1bmRpbmcsIGV2aWRlbmNlLCBhbmQgY29ycmVjdGlvbi48L2Rlc2M+CiAgPGRlZnM+PG1hcmtlciBpZD0iYSIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjEwIiByZWZYPSI4IiByZWZZPSIzIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0wIDBMOSAzTDAgNloiIGZpbGw9IiMyZjhmYmQiLz48L21hcmtlcj48c3R5bGU+Lmh7Zm9udDo3MDAgMjVweCBBcmlhbDtmaWxsOiMxMDI1MzZ9LnR7Zm9udDo3MDAgMTZweCBBcmlhbDtmaWxsOiMxMDI1MzZ9LnN7Zm9udDo1MDAgMTNweCBBcmlhbDtmaWxsOiM0MDViNmJ9LmJ7ZmlsbDojZjRmMGU3O3N0cm9rZTojOWNhZGI2O3N0cm9rZS13aWR0aDoyfS5hcntzdHJva2U6IzJmOGZiZDtzdHJva2Utd2lkdGg6NTttYXJrZXItZW5kOnVybCgjYSl9PC9zdHlsZT48L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNTYwIiBmaWxsPSIjZmJmYWY2Ii8+PHRleHQgeD0iNDIiIHk9IjQ4IiBjbGFzcz0iaCI+QSBwZXJtaXQgaGFzIHZhbHVlIHdoZW4gcmVzcG9uc2liaWxpdHkgYmVjb21lcyBtYWludGFpbmVkIGV2aWRlbmNlPC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1IDEyMCkiPjxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iMjEwIiByeD0iMTgiIGNsYXNzPSJiIi8+PHRleHQgeD0iMjAiIHk9IjQyIiBjbGFzcz0idCI+MSAgUHVibGljIG9iamVjdGl2ZTwvdGV4dD48dGV4dCB4PSIyMCIgeT0iODUiIGNsYXNzPSJzIj5Qcm90ZWN0IHdhdGVyPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSIxMTIiIGNsYXNzPSJzIj5hbmQgbWFuYWdlPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSIxMzkiIGNsYXNzPSJzIj5kaXNjaGFyZ2U8L3RleHQ+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzMCAxMjApIj48cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjIxMCIgcng9IjE4IiBjbGFzcz0iYiIvPjx0ZXh0IHg9IjIwIiB5PSI0MiIgY2xhc3M9InQiPjIgIEFwcHJvdmVkPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSI2OCIgY2xhc3M9InQiPmNvbmRpdGlvbjwvdGV4dD48dGV4dCB4PSIyMCIgeT0iMTEyIiBjbGFzcz0icyI+UGVybWl0IGFuZDwvdGV4dD48dGV4dCB4PSIyMCIgeT0iMTM5IiBjbGFzcz0icyI+cGxhbnM8L3RleHQ+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQyNSAxMjApIj48cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjIxMCIgcng9IjE4IiBjbGFzcz0iYiIvPjx0ZXh0IHg9IjIwIiB5PSI0MiIgY2xhc3M9InQiPjMgIFJlc3BvbnNpYmxlPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSI2OCIgY2xhc3M9InQiPnBhcnR5PC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSIxMTIiIGNsYXNzPSJzIj5OYW1lZCBvd25lcjwvdGV4dD48dGV4dCB4PSIyMCIgeT0iMTM5IiBjbGFzcz0icyI+b3Igb3BlcmF0b3I8L3RleHQ+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYyMCAxMjApIj48cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjIxMCIgcng9IjE4IiBjbGFzcz0iYiIvPjx0ZXh0IHg9IjIwIiB5PSI0MiIgY2xhc3M9InQiPjQgIEFjY2VzcyBhbmQ8L3RleHQ+PHRleHQgeD0iMjAiIHk9IjY4IiBjbGFzcz0idCI+ZnVuZGVkIHdvcms8L3RleHQ+PHRleHQgeD0iMjAiIHk9IjExMiIgY2xhc3M9InMiPkluc3BlY3Rpb248L3RleHQ+PHRleHQgeD0iMjAiIHk9IjEzOSIgY2xhc3M9InMiPm1haW50ZW5hbmNlPC90ZXh0PjwvZz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MTUgMTIwKSI+PHJlY3Qgd2lkdGg9IjE2MCIgaGVpZ2h0PSIyMTAiIHJ4PSIxOCIgY2xhc3M9ImIiLz48dGV4dCB4PSIyMCIgeT0iNDIiIGNsYXNzPSJ0Ij41ICBFdmlkZW5jZTwvdGV4dD48dGV4dCB4PSIyMCIgeT0iODUiIGNsYXNzPSJzIj5SZWNvcmRzPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSIxMTIiIGNsYXNzPSJzIj5tb25pdG9yaW5nPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSIxMzkiIGNsYXNzPSJzIj5yZXBvcnRpbmc8L3RleHQ+PC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMTAgMTIwKSI+PHJlY3Qgd2lkdGg9IjE1NSIgaGVpZ2h0PSIyMTAiIHJ4PSIxOCIgY2xhc3M9ImIiLz48dGV4dCB4PSIyMCIgeT0iNDIiIGNsYXNzPSJ0Ij42ICBDb3JyZWN0aW9uPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSI4NSIgY2xhc3M9InMiPlJlc3BvbmQ8L3RleHQ+PHRleHQgeD0iMjAiIHk9IjExMiIgY2xhc3M9InMiPnJlbmV3PC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSIxMzkiIGNsYXNzPSJzIj5kb2N1bWVudDwvdGV4dD48L2c+CiAgPHBhdGggZD0iTTE5NSAyMjVoMzVNMzkwIDIyNWgzNU01ODUgMjI1aDM1TTc4MCAyMjVoMzVNOTc1IDIyNWgzNSIgY2xhc3M9ImFyIi8+CiAgPHJlY3QgeD0iMTQ1IiB5PSIzOTAiIHdpZHRoPSI5MTAiIGhlaWdodD0iODUiIHJ4PSIxOCIgZmlsbD0iIzEwMmY0OSIvPjx0ZXh0IHg9IjE5MCIgeT0iNDI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmYiPlRoZSBwZXJtaXQgaXMgbm90IHRoZSBhc3NldCwgYW5kIGl0IGRvZXMgbm90IHByb3ZlIHBlcmZvcm1hbmNlLjwvdGV4dD48dGV4dCB4PSIxOTAiIHk9IjQ1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjYzdkY2U3Ij5JdHMgdmFsdWUgaXMgdGhlIGFjY291bnRhYmxlIGNoYWluIGZyb20gYXV0aG9yaXplZCBjb25kaXRpb24gdG8gd29yaywgZXZpZGVuY2UsIGFuZCBjb3JyZWN0aW9uLjwvdGV4dD4KICA8dGV4dCB4PSI0MiIgeT0iNTI1IiBjbGFzcz0icyI+RmVkZXJhbCBwZXJtaXQgY29uY2VwdHMgb25seS4gQXBwbGljYWJpbGl0eSwgY29tcGxpYW5jZSwgZW5mb3JjZW1lbnQsIGFuZCBzdGF0ZSBvciBsb2NhbCByZXF1aXJlbWVudHMgYXJlIG91dHNpZGUgdGhpcyBicmllZi48L3RleHQ+Cjwvc3ZnPgo=" alt="Ordered accountability handoff from public objective and permit to responsible party, maintenance, records, and correction."><figcaption><b>How to read this:</b> Read from public objective to approved plan, responsibility, work, evidence, and correction. <b>Conclusion:</b> A permit has value when responsibility becomes maintained and documented performance.</figcaption></figure></article><article class="block block-visual" id="block-five-ledgers"><h2>One storm writes into five ledgers</h2><p>The same storm creates different questions across a utility. The water ledger asks where water went and when it left. The environmental ledger asks what reached the receiving water. The asset ledger asks whether storage, outlets, soil routes, and access still function. The financial ledger asks what service, maintenance, energy, renewal, or treatment cost changed. The public-accountability ledger asks who was responsible and what evidence supports the result.</p><p>Begin in the center with one physical event. Then move through all five ledgers. The purpose is to show that finance, engineering, operations, wastewater, leadership, and public communication should be connected to the same system record rather than built from separate assumptions.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDcwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPk9uZSBzdG9ybSB3cml0ZXMgaW50byBmaXZlIGxlZGdlcnM8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5BIGNlbnRyYWwgc3Rvcm0gY29ubmVjdHMgdG8gd2F0ZXIsIGVudmlyb25tZW50YWwsIGFzc2V0LCBmaW5hbmNpYWwsIGFuZCBwdWJsaWMtYWNjb3VudGFiaWxpdHkgcXVlc3Rpb25zLjwvZGVzYz4KICA8ZGVmcz48c3R5bGU+Lmh7Zm9udDo3MDAgMjVweCBBcmlhbDtmaWxsOiNmZmZ9LnR7Zm9udDo3MDAgMTdweCBBcmlhbDtmaWxsOiNmZmZ9LnN7Zm9udDo1MDAgMTRweCBBcmlhbDtmaWxsOiNjNGRiZTZ9LmJ7ZmlsbDojMTIzMjQ3O3N0cm9rZTojNGE3MTg4O3N0cm9rZS13aWR0aDoyfS5saW5re3N0cm9rZTojNTVjMmZmO3N0cm9rZS13aWR0aDo0fTwvc3R5bGU+PC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjcwMCIgZmlsbD0iIzA4MTgyMiIvPjx0ZXh0IHg9IjQwIiB5PSI0OCIgY2xhc3M9ImgiPk9uZSBzdG9ybS4gRml2ZSB3YXlzIHRvIHJlYWQgaXRzIHZhbHVlLjwvdGV4dD4KICA8Y2lyY2xlIGN4PSI1MDAiIGN5PSIzNTAiIHI9IjEwNSIgZmlsbD0iIzFmNzhhNSIvPjx0ZXh0IHg9IjQ1MiIgeT0iMzQwIiBjbGFzcz0idCI+T05FPC90ZXh0Pjx0ZXh0IHg9IjQ0NCIgeT0iMzcwIiBjbGFzcz0idCI+U1RPUk08L3RleHQ+CiAgPHBhdGggZD0iTTQyMCAyODVMMzAwIDE5ME01ODAgMjg1TDcwMCAxOTBNNjA1IDM1MEg3OTBNNTgwIDQyMEw3MDAgNTI1TTQyMCA0MjBMMzAwIDUyNSIgY2xhc3M9ImxpbmsiLz4KICA8cmVjdCB4PSI5MCIgeT0iMTA1IiB3aWR0aD0iMjYwIiBoZWlnaHQ9IjE0NSIgcng9IjE4IiBjbGFzcz0iYiIvPjx0ZXh0IHg9IjExOCIgeT0iMTQ1IiBjbGFzcz0idCI+V2F0ZXIgbGVkZ2VyPC90ZXh0Pjx0ZXh0IHg9IjExOCIgeT0iMTgwIiBjbGFzcz0icyI+V2hlcmUgZGlkIGl0IGdvPzwvdGV4dD48dGV4dCB4PSIxMTgiIHk9IjIwOCIgY2xhc3M9InMiPldoZW4gZGlkIGl0IGxlYXZlPzwvdGV4dD4KICA8cmVjdCB4PSI2NTAiIHk9IjEwNSIgd2lkdGg9IjI2MCIgaGVpZ2h0PSIxNDUiIHJ4PSIxOCIgY2xhc3M9ImIiLz48dGV4dCB4PSI2NzgiIHk9IjE0NSIgY2xhc3M9InQiPkVudmlyb25tZW50YWwgbGVkZ2VyPC90ZXh0Pjx0ZXh0IHg9IjY3OCIgeT0iMTgwIiBjbGFzcz0icyI+V2hhdCByZWFjaGVkIHRoZTwvdGV4dD48dGV4dCB4PSI2NzgiIHk9IjIwOCIgY2xhc3M9InMiPnJlY2VpdmluZyB3YXRlcj88L3RleHQ+CiAgPHJlY3QgeD0iNzM1IiB5PSIyODAiIHdpZHRoPSIyMzAiIGhlaWdodD0iMTQ1IiByeD0iMTgiIGNsYXNzPSJiIi8+PHRleHQgeD0iNzYzIiB5PSIzMjAiIGNsYXNzPSJ0Ij5Bc3NldCBsZWRnZXI8L3RleHQ+PHRleHQgeD0iNzYzIiB5PSIzNTUiIGNsYXNzPSJzIj5EaWQgc3RvcmFnZSwgb3V0bGV0cyw8L3RleHQ+PHRleHQgeD0iNzYzIiB5PSIzODMiIGNsYXNzPSJzIj5hbmQgcm91dGVzIHN0aWxsIHdvcms/PC90ZXh0PgogIDxyZWN0IHg9IjY1MCIgeT0iNDgwIiB3aWR0aD0iMjYwIiBoZWlnaHQ9IjE0NSIgcng9IjE4IiBjbGFzcz0iYiIvPjx0ZXh0IHg9IjY3OCIgeT0iNTIwIiBjbGFzcz0idCI+RmluYW5jaWFsIGxlZGdlcjwvdGV4dD48dGV4dCB4PSI2NzgiIHk9IjU1NSIgY2xhc3M9InMiPldoYXQgc2VydmljZSwgY29zdCw8L3RleHQ+PHRleHQgeD0iNjc4IiB5PSI1ODMiIGNsYXNzPSJzIj5hbmQgcmVuZXdhbCBjaGFuZ2VkPzwvdGV4dD4KICA8cmVjdCB4PSI5MCIgeT0iNDgwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE0NSIgcng9IjE4IiBjbGFzcz0iYiIvPjx0ZXh0IHg9IjExOCIgeT0iNTIwIiBjbGFzcz0idCI+UHVibGljLWFjY291bnRhYmlsaXR5IGxlZGdlcjwvdGV4dD48dGV4dCB4PSIxMTgiIHk9IjU1NSIgY2xhc3M9InMiPldobyB3YXMgcmVzcG9uc2libGU/PC90ZXh0Pjx0ZXh0IHg9IjExOCIgeT0iNTgzIiBjbGFzcz0icyI+V2hhdCBldmlkZW5jZSBjaGFuZ2VkPzwvdGV4dD4KICA8dGV4dCB4PSI0MCIgeT0iNjc1IiBjbGFzcz0icyI+VGhlIGxlZGdlcnMgYXJlIGRpZmZlcmVudCB2aWV3cyBvZiB0aGUgc2FtZSBwaHlzaWNhbCBzeXN0ZW0sIG5vdCBzZXBhcmF0ZSBwcm9qZWN0cy48L3RleHQ+Cjwvc3ZnPgo=" alt="One storm connects to water, environmental, asset, financial, and public-accountability ledgers."><figcaption><b>How to read this:</b> Begin at the storm, then read each ledger and the question it asks of the same system. <b>Conclusion:</b> Different roles see different consequences, but all rely on the same physical route and evidence.</figcaption></figure></article><article class="block block-assessment" id="block-check-permit-value"><h2>Complete the responsibility chain</h2><p>The learner orders responsibility, funded work, evidence, and correction and identifies a missing handoff.</p><section class="concept-assessment" id="assessment-permit-value-sequence" data-concept-assessment="matching" data-completion="permit-value-sequence-passed"><p class="assessment-kicker">RELATIONSHIP CHECK</p><h3>Match each permit-to-value stage to the question it answers.</h3><div class="assessment-match-grid"><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="What was authorized and expected?">What was authorized and expected?</option><option value="Who must carry the obligation?">Who must carry the obligation?</option><option value="How can the physical work continue?">How can the physical work continue?</option><option value="What evidence shows condition or performance?">What evidence shows condition or performance?</option><option value="What happens when the intended result is not preserved?">What happens when the intended result is not preserved?</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="What was authorized and expected?">What was authorized and expected?</option><option value="Who must carry the obligation?">Who must carry the obligation?</option><option value="How can the physical work continue?">How can the physical work continue?</option><option value="What evidence shows condition or performance?">What evidence shows condition or performance?</option><option value="What happens when the intended result is not preserved?">What happens when the intended result is not preserved?</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="What was authorized and expected?">What was authorized and expected?</option><option value="Who must carry the obligation?">Who must carry the obligation?</option><option value="How can the physical work continue?">How can the physical work continue?</option><option value="What evidence shows condition or performance?">What evidence shows condition or performance?</option><option value="What happens when the intended result is not preserved?">What happens when the intended result is not preserved?</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="What was authorized and expected?">What was authorized and expected?</option><option value="Who must carry the obligation?">Who must carry the obligation?</option><option value="How can the physical work continue?">How can the physical work continue?</option><option value="What evidence shows condition or performance?">What evidence shows condition or performance?</option><option value="What happens when the intended result is not preserved?">What happens when the intended result is not preserved?</option></select></label><label class="assessment-match-row"><span></span><select data-answer=""><option value="">Choose a match</option><option value="What was authorized and expected?">What was authorized and expected?</option><option value="Who must carry the obligation?">Who must carry the obligation?</option><option value="How can the physical work continue?">How can the physical work continue?</option><option value="What evidence shows condition or performance?">What evidence shows condition or performance?</option><option value="What happens when the intended result is not preserved?">What happens when the intended result is not preserved?</option></select></label></div><button type="button" class="assessment-check">Check matches</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. Permit value depends on a complete responsibility and evidence chain.</template><template data-incorrect-feedback>Follow the handoff from authorized condition to responsible work, evidence, and correction.</template><p class="assessment-retry">Return to the permit-to-value chain and identify the missing handoff.</p></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">12</div><div class="band-txt"><div class="band-k">What should each role ask about the same stormwater system?</div><div class="band-h">Different roles, one system record</div></div></div></div><section class="beat surface-black" id="beat-11-role-meeting"><div class="wrap"><p class="learner-question">What should each role ask about the same stormwater system?</p><article class="block block-visual" id="block-role-meeting"><h2>Different roles, one system record</h2><p>Different professionals do not perform the same job, but they need a shared description of the system. An engineer may test assumptions and boundaries. An operator or inspector may report a field condition. A finance professional may ask what service and lifecycle cost are being funded. A wastewater manager may ask whether wet-weather water is entering the wrong pipe. A utility leader or elected official may ask what was promised, who is responsible, and what has been demonstrated.</p><p>Read each role question, then return to the shared record in the center. A useful record connects the water route, storm condition, storage, outlet, overflow, downstream boundary, maintenance condition, ownership, permits, monitoring, and budget. Shared terminology improves the conversation without assigning professional or legal responsibility to the wrong person.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDY1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkRpZmZlcmVudCByb2xlcyB1c2Ugb25lIHNoYXJlZCBzdG9ybXdhdGVyIGV2aWRlbmNlIHJlY29yZDwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkVuZ2luZWVyaW5nLCBvcGVyYXRpb25zLCBmaW5hbmNlLCBsZWFkZXJzaGlwLCB3YXN0ZXdhdGVyLCBhbmQgcHVibGljIHF1ZXN0aW9ucyBjb25uZWN0IHRvIG9uZSBjZW50cmFsIHJlY29yZCBvZiByb3V0ZSwgY29uZGl0aW9uLCByZXNwb25zaWJpbGl0eSwgYW5kIGV2aWRlbmNlLjwvZGVzYz4KICA8ZGVmcz48c3R5bGU+Lmh7Zm9udDo3MDAgMjVweCBBcmlhbDtmaWxsOiMxMDI1MzZ9LnR7Zm9udDo3MDAgMTZweCBBcmlhbDtmaWxsOiMxMDI1MzZ9LnN7Zm9udDo1MDAgMTNweCBBcmlhbDtmaWxsOiMzZDU5Njh9LmJ7ZmlsbDojZjRmMGU3O3N0cm9rZTojOWJhY2I1O3N0cm9rZS13aWR0aDoyfS5saW5le3N0cm9rZTojMmY4ZmJkO3N0cm9rZS13aWR0aDo0fTwvc3R5bGU+PC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjY1MCIgZmlsbD0iI2ZiZmFmNiIvPjx0ZXh0IHg9IjQyIiB5PSI0OCIgY2xhc3M9ImgiPkRpZmZlcmVudCByb2xlcyBhc2sgZGlmZmVyZW50IHF1ZXN0aW9ucyBvZiB0aGUgc2FtZSBzeXN0ZW08L3RleHQ+CiAgPHJlY3QgeD0iNDAwIiB5PSIxODUiIHdpZHRoPSI0MDAiIGhlaWdodD0iMjc1IiByeD0iMjQiIGZpbGw9IiMxMDJmNDkiLz48dGV4dCB4PSI0NDUiIHk9IjIzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmIj5TSEFSRUQgU1lTVEVNIFJFQ09SRDwvdGV4dD48dGV4dCB4PSI0NDUiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmaWxsPSIjYzdkY2U3Ij5XYXRlciByb3V0ZSBhbmQgc3Rvcm0gY29uZGl0aW9uPC90ZXh0Pjx0ZXh0IHg9IjQ0NSIgeT0iMzE4IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZpbGw9IiNjN2RjZTciPlN0b3JhZ2UsIG91dGxldCwgb3ZlcmZsb3csIHRhaWx3YXRlcjwvdGV4dD48dGV4dCB4PSI0NDUiIHk9IjM1NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmaWxsPSIjYzdkY2U3Ij5Db25kaXRpb24sIG1haW50ZW5hbmNlLCBhbmQgb3duZXJzaGlwPC90ZXh0Pjx0ZXh0IHg9IjQ0NSIgeT0iMzk0IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZpbGw9IiNjN2RjZTciPlBsYW5zLCBwZXJtaXRzLCBtb25pdG9yaW5nLCBhbmQgYnVkZ2V0PC90ZXh0PgogIDxyZWN0IHg9IjU1IiB5PSIxMTAiIHdpZHRoPSIyNTUiIGhlaWdodD0iMTEwIiByeD0iMTYiIGNsYXNzPSJiIi8+PHRleHQgeD0iODAiIHk9IjE0OCIgY2xhc3M9InQiPkVuZ2luZWVyPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxODAiIGNsYXNzPSJzIj5XaGljaCBhc3N1bXB0aW9ucyBhbmQgYm91bmRhcmllcz88L3RleHQ+CiAgPHJlY3QgeD0iNTUiIHk9IjI3NSIgd2lkdGg9IjI1NSIgaGVpZ2h0PSIxMTAiIHJ4PSIxNiIgY2xhc3M9ImIiLz48dGV4dCB4PSI4MCIgeT0iMzEzIiBjbGFzcz0idCI+T3BlcmF0b3Igb3IgaW5zcGVjdG9yPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIzNDUiIGNsYXNzPSJzIj5XaGF0IGNoYW5nZWQgaW4gdGhlIGZpZWxkPzwvdGV4dD4KICA8cmVjdCB4PSI1NSIgeT0iNDQwIiB3aWR0aD0iMjU1IiBoZWlnaHQ9IjExMCIgcng9IjE2IiBjbGFzcz0iYiIvPjx0ZXh0IHg9IjgwIiB5PSI0NzgiIGNsYXNzPSJ0Ij5GaW5hbmNlPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSI1MTAiIGNsYXNzPSJzIj5XaGF0IHNlcnZpY2UgYW5kIGxpZmVjeWNsZSBjb3N0PzwvdGV4dD4KICA8cmVjdCB4PSI4OTAiIHk9IjExMCIgd2lkdGg9IjI1NSIgaGVpZ2h0PSIxMTAiIHJ4PSIxNiIgY2xhc3M9ImIiLz48dGV4dCB4PSI5MTUiIHk9IjE0OCIgY2xhc3M9InQiPkxlYWRlcnNoaXA8L3RleHQ+PHRleHQgeD0iOTE1IiB5PSIxODAiIGNsYXNzPSJzIj5XaGF0IHJpc2sgYW5kIGFjY291bnRhYmlsaXR5PzwvdGV4dD4KICA8cmVjdCB4PSI4OTAiIHk9IjI3NSIgd2lkdGg9IjI1NSIgaGVpZ2h0PSIxMTAiIHJ4PSIxNiIgY2xhc3M9ImIiLz48dGV4dCB4PSI5MTUiIHk9IjMxMyIgY2xhc3M9InQiPldhc3Rld2F0ZXIgbWFuYWdlcjwvdGV4dD48dGV4dCB4PSI5MTUiIHk9IjM0NSIgY2xhc3M9InMiPklzIHdldCB3ZWF0aGVyIGluIHRoZSB3cm9uZyBwaXBlPzwvdGV4dD4KICA8cmVjdCB4PSI4OTAiIHk9IjQ0MCIgd2lkdGg9IjI1NSIgaGVpZ2h0PSIxMTAiIHJ4PSIxNiIgY2xhc3M9ImIiLz48dGV4dCB4PSI5MTUiIHk9IjQ3OCIgY2xhc3M9InQiPlB1YmxpYyBvciBlbGVjdGVkIG9mZmljaWFsPC90ZXh0Pjx0ZXh0IHg9IjkxNSIgeT0iNTEwIiBjbGFzcz0icyI+V2hhdCB3YXMgcHJvbWlzZWQgYW5kIHByb3Zlbj88L3RleHQ+CiAgPHBhdGggZD0iTTMxMCAxNjVMNDAwIDI0NU0zMTAgMzMwSDQwME0zMTAgNDk1TDQwMCA0MTBNODAwIDI0NUw4OTAgMTY1TTgwMCAzMzBIODkwTTgwMCA0MTBMODkwIDQ5NSIgY2xhc3M9ImxpbmUiLz4KICA8dGV4dCB4PSI0MiIgeT0iNjE1IiBjbGFzcz0icyI+U2hhcmVkIHRlcm1pbm9sb2d5IGNvbm5lY3RzIHF1ZXN0aW9ucy4gSXQgZG9lcyBub3QgYXNzaWduIHByb2Zlc3Npb25hbCBvciBsZWdhbCByZXNwb25zaWJpbGl0eS48L3RleHQ+Cjwvc3ZnPgo=" alt="Six utility and public roles connect their questions to one stormwater route, condition, responsibility, and evidence record."><figcaption><b>How to read this:</b> Select a role, read its question, then locate the common route or record that can answer it. <b>Conclusion:</b> Shared concepts let different roles ask better questions without pretending they perform the same job.</figcaption></figure></article></div></section><div class="band"><div class="band-in"><div class="band-n">13</div><div class="band-txt"><div class="band-k">Can I explain an unfamiliar stormwater system without overclaiming?</div><div class="band-h">Explain the complete system without overclaiming</div></div></div></div><section class="beat surface-white" id="beat-12-transfer"><div class="wrap"><p class="learner-question">Can I explain an unfamiliar stormwater system without overclaiming?</p><article class="block block-assessment" id="block-final-transfer"><h2>Explain the complete system without overclaiming</h2><p>Use the final conversation tool as a structured way to explain an unfamiliar stormwater system. Work from the physical system outward: identify the incoming water, normal condition, storm condition, storage, every exit, intended result, controlling features, responsibility, supporting evidence, possible failure route, and financial or wastewater consequence. Finish by stating one supported result, one uncertainty, one responsibility, and one next piece of evidence. Do not claim design adequacy, compliance, performance, or site suitability when the evidence does not support it.</p><section class="concept-assessment" id="assessment-system-conversation" data-concept-assessment="applied-work-product" data-completion="system-conversation-completed"><p class="assessment-kicker">APPLIED WORK PRODUCT</p><h3>Explain the unfamiliar stormwater system using the complete conversation tool without claiming design adequacy, compliance, or site suitability.</h3><div class="assessment-work-grid"><label class="assessment-work-field">What water enters?<textarea rows="3" data-required-field="water_source"></textarea></label><label class="assessment-work-field">Where can the water go?<textarea rows="3" data-required-field="complete_route"></textarea></label><label class="assessment-work-field">What is present before the storm?<textarea rows="3" data-required-field="normal_condition"></textarea></label><label class="assessment-work-field">What changes during and after the storm?<textarea rows="3" data-required-field="storm_condition"></textarea></label><label class="assessment-work-field">What result is intended?<textarea rows="3" data-required-field="intended_objective"></textarea></label><label class="assessment-work-field">What controls storage, release, subsurface movement, or overflow?<textarea rows="3" data-required-field="controlling_features"></textarea></label><label class="assessment-work-field">Which permit or program clue is shown, and what remains unknown?<textarea rows="3" data-required-field="authority_or_program"></textarea></label><label class="assessment-work-field">Who appears responsible, and what must still be confirmed?<textarea rows="3" data-required-field="responsible_entity"></textarea></label><label class="assessment-work-field">What plan, model, observation, inspection, monitoring, or record supports the explanation?<textarea rows="3" data-required-field="supporting_evidence"></textarea></label><label class="assessment-work-field">What could redirect the route, and what evidence is needed next?<textarea rows="3" data-required-field="failure_and_maintenance_questions"></textarea></label><label class="assessment-work-field">What service, risk, lifecycle work, or wastewater consequence belongs in the budget conversation?<textarea rows="3" data-required-field="budget_and_value"></textarea></label><label class="assessment-work-field">State one result, one uncertainty, one responsibility, and one next piece of evidence.<textarea rows="3" data-required-field="result_uncertainty_responsibility_next_evidence"></textarea></label></div><button type="button" class="assessment-work-check">Check completeness</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Your system explanation connects water, controls, responsibility, evidence, and value while preserving uncertainty.</template><template data-incorrect-feedback>Complete every field, trace every shown route, and remove any unsupported design, compliance, suitability, or performance conclusion.</template><p class="assessment-retry">Return to the system route, then separate visible evidence from inference.</p></section></article><article class="block block-evidence" id="block-evidence-boundary"><h2>Sources and scope</h2><p>This working preview uses current United States federal law, federal regulation, and EPA guidance to explain a pathway-first method. EPA materials document that stormwater terminology varies and that performance can involve timing, volume, concentration, total load, groundwater protection, and maintenance.</p><p>This brief cannot determine a real asset&#x27;s design, capacity, drawdown, infiltration rate, treatment performance, groundwater suitability, maintenance action, or compliance. Those decisions require current drawings, site evidence, approved procedures, applicable permits, and qualified judgment.</p></article><article class="block block-connected_learning" id="block-connected-learning"><h2>Continue through the connected system</h2><p>The Graph and Community will connect this brief to the Storm Hydrograph, Water Balance, Mass Balance, Stormwater Control Measure Maintenance, Receiving-Water Response, and Green Infrastructure Performance and Appearance. Discussion stays separate from verified instruction.</p></article></div></section>
+
+<section class="connected-learning" id="owos-concept-related">
+  <div class="wrap">
+    <p class="section-kicker">KEEP LEARNING</p>
+    <h2>Follow the process, not just the definition.</h2>
+    <p class="section-lead">These connections help you continue the diagnosis without exposing internal research records or turning a learning page into operating authority.</p>
+    <div class="connection-grid"><article class="connection-card"><span>Change over time</span><h3>The Storm Hydrograph</h3><p>Read the rise, peak, recession, timing, and volume behind a stormwater response.</p><a href="#block-hydrograph">Connect route to timing</a></article><article class="connection-card"><span>Asset condition</span><h3>Stormwater Control Measure Maintenance</h3><p>Connect observed condition to the critical physical feature and intended function.</p><a href="#block-maintenance-evidence">Review condition evidence</a></article><article class="connection-card"><span>Receiving system</span><h3>Receiving-Water Response</h3><p>Follow timing, volume, velocity, temperature, sediment, and pollutants beyond the outlet.</p><a href="#block-connected-learning">Follow the discharge</a></article><article class="connection-card"><span>One Water foundation</span><h3>Water Balance and Mass Balance</h3><p>Account for where water and material enter, accumulate, divide, transform, and leave a defined boundary.</p><a href="#block-final-transfer">Strengthen the boundary</a></article><article class="connection-card"><span>Wastewater connection</span><h3>Infiltration and Inflow</h3><p>Investigate how rainfall and groundwater enter a separate sanitary sewer and consume wet-weather capacity.</p><a href="#block-wastewater-ii">Follow the wrong route</a></article></div>
+  </div>
+</section>
+<section class="community-public" id="owos-concept-community">
+  <div class="wrap community-layout">
+    <div>
+      <p class="section-kicker">PRACTITIONER CONVERSATION</p>
+      <h2>Bring the question. Protect the facility.</h2>
+      <p>Community discussion is practitioner conversation, not verified instruction, design guidance, permit interpretation, site diagnosis, or authorization to change an asset.</p>
+      <p class="privacy-warning"><b>Before posting:</b> Do not post security-sensitive locations, drawings, access information, confidential procedures, permit-sensitive facility data, credentials, personal information, or restricted utility records.</p>
+      <a class="primary-action" href="/course-community.html?course=detention-retention-and-infiltration&amp;lesson=owos%3Aconcept-brief%3A003&amp;label=Detention%2C%20Retention%2C%20and%20Infiltration&amp;topics=detention%2Cretention%2Cinfiltration%2Cstormwater-pathways&amp;space=owos-community%3Aconcept-brief%3A003&amp;version=working-preview">Open the OWOS Community</a>
+    </div>
+    <div class="question-list" aria-label="Conversation starters"><button type="button" class="seed-question">Where does the word retention mean something different in your region or organization?</button><button type="button" class="seed-question">Which water exit is most often missing from an asset description or inspection record?</button><button type="button" class="seed-question">What evidence best distinguishes a blocked pathway from a practice that was never designed to provide that route?</button><button type="button" class="seed-question">Which claim or visual needs a better source, limitation, or correction?</button></div>
+  </div>
+</section>
+<section class="sop-workspace" id="owos-concept-sop">
+  <div class="wrap">
+    <p class="section-kicker">A USEFUL NEXT STEP</p>
+    <h2>Take the outline. Build the procedure under control.</h2>
+    <p class="section-lead">Copy this outline into the utility&#x27;s approved workspace only after the actual asset, applicable authority, and responsible reviewers are identified. It is a review structure, not a maintenance or operating procedure.</p>
+    <div class="sop-grid">
+      <article class="sop-outline-card">
+        <h3>Stormwater pathway review outline</h3>
+        <ol><li><b>Asset identity and intended objective</b><span>Identify the exact asset, approved drawings, owner, design objective, drainage area, and the question this review must answer.</span></li><li><b>Inflow and storm boundary</b><span>State what enters, the time period or storm condition being reviewed, and any upstream bypass or contributing area.</span></li><li><b>Storage and treatment zones</b><span>Identify each documented surface, media, soil, permanent-pool, and temporary-storage zone.</span></li><li><b>Every exit route</b><span>List controlled outlets, underdrains, infiltration, evapotranspiration, seepage, overflow, bypass, and receiving-water routes.</span></li><li><b>Site and groundwater evidence</b><span>Identify soil, seasonal groundwater, contamination, pretreatment, well, karst, and nearby-use questions requiring qualified review.</span></li><li><b>Condition and maintenance evidence</b><span>Record inlet, outlet, sediment, debris, vegetation, erosion, ponding, underdrain, access, and post-storm observations without diagnosing from one observation.</span></li><li><b>Performance evidence</b><span>State which evidence addresses timing, peak, volume, concentration, total load, treatment, and receiving-water response.</span></li><li><b>Decision authority and follow-up</b><span>Name who reviews, what remains unknown, which approved procedure applies, and what evidence is required before any action.</span></li></ol>
+        <div class="sop-actions">
+          <button type="button" class="primary-action" id="copy-sop-outline">Copy the outline</button>
+          <span class="copy-status" id="copy-sop-status" role="status" aria-live="polite"></span>
+        </div>
+        <script type="application/json" id="sop-outline-data">"1. Asset identity and intended objective\nIdentify the exact asset, approved drawings, owner, design objective, drainage area, and the question this review must answer.\n\n2. Inflow and storm boundary\nState what enters, the time period or storm condition being reviewed, and any upstream bypass or contributing area.\n\n3. Storage and treatment zones\nIdentify each documented surface, media, soil, permanent-pool, and temporary-storage zone.\n\n4. Every exit route\nList controlled outlets, underdrains, infiltration, evapotranspiration, seepage, overflow, bypass, and receiving-water routes.\n\n5. Site and groundwater evidence\nIdentify soil, seasonal groundwater, contamination, pretreatment, well, karst, and nearby-use questions requiring qualified review.\n\n6. Condition and maintenance evidence\nRecord inlet, outlet, sediment, debris, vegetation, erosion, ponding, underdrain, access, and post-storm observations without diagnosing from one observation.\n\n7. Performance evidence\nState which evidence addresses timing, peak, volume, concentration, total load, treatment, and receiving-water response.\n\n8. Decision authority and follow-up\nName who reviews, what remains unknown, which approved procedure applies, and what evidence is required before any action."</script>
+      </article>
+      <aside class="sop-boundary-card">
+        <p class="section-kicker">WHERE THE BRIEF STOPS</p>
+        <h3>A real SOP is a separate product.</h3>
+        <p>A facility-specific SOP needs controlled inputs, applicable authority review, approved chemicals and equipment, named change authority, monitoring, rollback, safety review, version history, and approvals.</p>
+        <p>If OWOS builds that later, it should be an authenticated agent workflow. The agent would assemble evidence and route review. It would never invent settings or approve its own work.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<div class="drawer-backdrop" data-drawer-close hidden></div>
+<aside class="context-drawer" id="graph-drawer" role="dialog" aria-modal="true" aria-labelledby="graph-drawer-title" hidden>
+  <button class="drawer-close" type="button" data-drawer-close aria-label="Close concept map">Close</button>
+  <p class="section-kicker">CONCEPT MAP</p>
+  <h2 id="graph-drawer-title">See what this concept connects to</h2>
+  <p>Use these reviewed learning connections to move through the treatment sequence without leaving this brief.</p>
+  <div class="drawer-connection-grid"><article class="drawer-connection"><span>Change over time</span><h3>The Storm Hydrograph</h3><p>Read the rise, peak, recession, timing, and volume behind a stormwater response.</p><a href="#block-hydrograph">Connect route to timing</a></article><article class="drawer-connection"><span>Asset condition</span><h3>Stormwater Control Measure Maintenance</h3><p>Connect observed condition to the critical physical feature and intended function.</p><a href="#block-maintenance-evidence">Review condition evidence</a></article><article class="drawer-connection"><span>Receiving system</span><h3>Receiving-Water Response</h3><p>Follow timing, volume, velocity, temperature, sediment, and pollutants beyond the outlet.</p><a href="#block-connected-learning">Follow the discharge</a></article><article class="drawer-connection"><span>One Water foundation</span><h3>Water Balance and Mass Balance</h3><p>Account for where water and material enter, accumulate, divide, transform, and leave a defined boundary.</p><a href="#block-final-transfer">Strengthen the boundary</a></article></div>
+  <a class="primary-action" href="/os?node=detention-retention-and-infiltration">Open the full OWOS Graph</a>
+  <a class="drawer-bottom-link" href="#owos-concept-related">See all related learning</a>
+</aside>
+<aside class="context-drawer" id="community-drawer" role="dialog" aria-modal="true" aria-labelledby="community-drawer-title" hidden>
+  <button class="drawer-close" type="button" data-drawer-close aria-label="Close discussion">Close</button>
+  <p class="section-kicker">DISCUSS</p>
+  <h2 id="community-drawer-title">Start with a bounded question</h2>
+  <div class="question-list"><button type="button" class="seed-question">Where does the word retention mean something different in your region or organization?</button><button type="button" class="seed-question">Which water exit is most often missing from an asset description or inspection record?</button><button type="button" class="seed-question">What evidence best distinguishes a blocked pathway from a practice that was never designed to provide that route?</button><button type="button" class="seed-question">Which claim or visual needs a better source, limitation, or correction?</button></div>
+  <p class="privacy-warning">Do not post security-sensitive locations, drawings, access information, confidential procedures, permit-sensitive facility data, credentials, personal information, or restricted utility records.</p>
+  <a class="primary-action" href="/course-community.html?course=detention-retention-and-infiltration&amp;lesson=owos%3Aconcept-brief%3A003&amp;label=Detention%2C%20Retention%2C%20and%20Infiltration&amp;topics=detention%2Cretention%2Cinfiltration%2Cstormwater-pathways&amp;space=owos-community%3Aconcept-brief%3A003&amp;version=working-preview">Continue in the OWOS Community</a>
+  <a class="drawer-bottom-link" href="#owos-concept-community">Read the discussion boundary</a>
+</aside>
+
+<section class="concept-finish" id="owos-concept-finish">
+  <div class="wrap">
+    <div class="final-recap" aria-labelledby="final-recap-title">
+      <p class="section-kicker">BEFORE YOU LEAVE</p>
+      <h2 id="final-recap-title">Carry three things forward.</h2>
+      <div class="final-recap-grid"><article><span>What changed</span><p>You replaced a practice label with a water, control, responsibility, evidence, and value story.</p></article><article><span>What to observe</span><p>Trace the inlet, storage, permanent pool, outlet, overflow, soil, groundwater boundary, underdrain, I&amp;I route, downstream condition, and post-storm response.</p></article><article><span>What not to assume</span><p>A name, dry surface, permanent pool, lower concentration, model, or permit does not prove present performance.</p></article></div>
+    </div>
+    <section class="reader-voices" data-concept-testimonials aria-labelledby="reader-voices-title" hidden>
+      <p class="section-kicker">FROM THE LEARNING COMMUNITY</p>
+      <h2 id="reader-voices-title">What readers carried forward.</h2>
+      <div class="reader-voices-grid" data-concept-testimonial-list></div>
+      <p class="reader-voices-note">Shared with the reader's permission and approved by an OWOS learning steward. Reader comments are not technical evidence or vendor endorsements.</p>
+    </section>
+    <div class="community-feedback">
+      <div>
+        <p class="section-kicker">COMMENT ON THIS BRIEF</p>
+        <h3>See something we should check or improve?</h3>
+        <p>Tell us what worked, what connected across sectors, or what should be checked. Positive feedback, technical corrections, source suggestions, questions, and field observations all enter the moderated OWOS Community and Concept Brief review queue.</p>
+      </div>
+      <form data-concept-feedback action="/course-community.html?course=detention-retention-and-infiltration&amp;lesson=owos%3Aconcept-brief%3A003&amp;label=Detention%2C%20Retention%2C%20and%20Infiltration&amp;topics=detention%2Cretention%2Cinfiltration%2Cstormwater-pathways&amp;space=owos-community%3Aconcept-brief%3A003&amp;version=working-preview" method="get">
+        <label for="concept-feedback-kind">Comment type</label>
+        <select id="concept-feedback-kind" name="kind">
+          <option value="appreciation">What worked for me</option>
+          <option value="technical-feedback">Technical accuracy</option>
+          <option value="source-suggestion">Source suggestion</option>
+          <option value="question">Question</option>
+          <option value="field-note">Field observation</option>
+        </select>
+        <label for="concept-feedback-body">Comment</label>
+        <textarea id="concept-feedback-body" name="body" maxlength="1800" required placeholder="Tell us what should be checked, corrected, clarified, or discussed. Do not include confidential facility information."></textarea>
+        <label class="testimonial-consent" data-testimonial-consent-row>
+          <input type="checkbox" name="testimonial-consent" value="yes" data-testimonial-consent>
+          If I selected “What worked for me,” OWOS may publish this comment with my name, role, and organization after moderator approval.
+        </label>
+        <div class="feedback-actions">
+          <button class="primary-action" type="submit">Post comment</button>
+          <a href="/course-community.html?course=detention-retention-and-infiltration&amp;lesson=owos%3Aconcept-brief%3A003&amp;label=Detention%2C%20Retention%2C%20and%20Infiltration&amp;topics=detention%2Cretention%2Cinfiltration%2Cstormwater-pathways&amp;space=owos-community%3Aconcept-brief%3A003&amp;version=working-preview">Open the full Community</a>
+        </div>
+        <p class="feedback-status" data-concept-feedback-status role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <p class="feedback-disclaimer">This brief explains the concept. Facility decisions still require your approved procedures and qualified judgment.</p>
+  </div>
+</section>
+
+</main>
+<footer><div class="wrap">Working educational preview. Not facility-specific design, operation, maintenance, engineering, permit, safety, groundwater, or compliance guidance.</div></footer>
+<script>
+document.querySelectorAll('.jar-model').forEach(function(model){
+  var dataNode=model.querySelector('.jar-data');
+  if(!dataNode)return;
+  var data=JSON.parse(dataNode.textContent);
+  var canvas=model.querySelector('.jar-canvas');
+  var context=canvas&&canvas.getContext('2d');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var particles=[];
+  var width=0;
+  var height=0;
+  var animationFrame=0;
+  function find(list,id){return list.find(function(item){return item.id===id})||list[0]||{}}
+  function stageIndex(){
+    return Math.max(0,data.stages.findIndex(function(item){return item.id===model.dataset.stage}));
+  }
+  function sizeCanvas(){
+    if(!canvas||!context)return;
+    var ratio=window.devicePixelRatio||1;
+    width=canvas.clientWidth;
+    height=canvas.clientHeight;
+    canvas.width=Math.max(1,Math.floor(width*ratio));
+    canvas.height=Math.max(1,Math.floor(height*ratio));
+    context.setTransform(ratio,0,0,ratio,0,0);
+  }
+  function resetParticles(){
+    particles=[];
+    for(var i=0;i<160;i++){
+      particles.push({
+        x:8+Math.random()*Math.max(1,width-16),
+        y:8+Math.random()*Math.max(1,height-16),
+        vx:(Math.random()-.5)*.9,
+        vy:(Math.random()-.5)*.9,
+        radius:1.7+Math.random()*1.3,
+        mass:1,
+        active:true
+      });
+    }
+  }
+  function updateReadout(){
+    var index=stageIndex();
+    var particle='DISPERSED';
+    var aggregate='FINE';
+    var next='COAGULATION';
+    if(index===1){
+      particle=model.dataset.coagulant==='balanced'?'PREPARED FOR CONTACT':
+        (model.dataset.coagulant==='low'?'MANY REMAIN DISPERSED':'POSSIBLE PERFORMANCE LOSS');
+      aggregate='MICROFLOC';
+      next='FLOCCULATION';
+    }else if(index===2){
+      particle='IN CONTACT';
+      aggregate=model.dataset.flocculation==='balanced'?'GROWING':
+        (model.dataset.flocculation==='low'?'SMALL':'BREAKING');
+      next='SEPARATION';
+    }else if(index===3){
+      particle='UPSTREAM CONDITION SET';
+      aggregate='MOVING TO SEPARATION';
+      next='FILTRATION';
+    }
+    model.querySelector('.readout-particle').textContent=particle;
+    model.querySelector('.readout-aggregate').textContent=aggregate;
+    model.querySelector('.readout-next').textContent=next;
+  }
+  function update(){
+    var stage=find(data.stages,model.dataset.stage);
+    var coagulant=find(data.coagulant,model.dataset.coagulant);
+    var flocculation=find(data.flocculation,model.dataset.flocculation);
+    model.querySelector('.jar-stage-result').textContent=(stage.label||'')+': '+(stage.explanation||'');
+    model.querySelector('.jar-condition-result').textContent=
+      'Coagulant condition: '+(coagulant.result||'')+' Flocculation energy: '+(flocculation.result||'');
+    model.querySelector('.jar-question').textContent='Next evidence question: '+data.next_evidence_question;
+    updateReadout();
+    if(reduced)drawFrame(false);
+  }
+  function drawFrame(advance){
+    if(!context)return;
+    var index=stageIndex();
+    var low=model.dataset.coagulant==='low';
+    var excess=model.dataset.coagulant==='excess';
+    var lowContact=model.dataset.flocculation==='low';
+    var shear=model.dataset.flocculation==='excess'&&index===2;
+    var repulsion=index===0 ? 1 : (low ? .82 : (excess ? .7 : 0));
+    var attraction=index>=2&&!repulsion&&!shear;
+    context.clearRect(0,0,width,height);
+    var wash=context.createLinearGradient(0,0,0,height);
+    wash.addColorStop(0,'rgba(18,55,79,.24)');
+    wash.addColorStop(1,'rgba(4,18,28,.5)');
+    context.fillStyle=wash;
+    context.fillRect(0,0,width,height);
+    if(advance){
+      for(var i=0;i<particles.length;i++){
+        var p=particles[i];
+        if(!p.active)continue;
+        if(index===1){
+          p.vx+=(Math.random()-.5)*.58;
+          p.vy+=(Math.random()-.5)*.58;
+        }else if(index===2){
+          var energy=lowContact ? .04 : (shear ? .52 : .14);
+          p.vx+=(Math.random()-.5)*energy;
+          p.vy+=(Math.random()-.5)*energy;
+        }else if(index===3){
+          p.vy+=.038*p.mass;
+          p.vx*=.94;
+        }else{
+          p.vx+=(Math.random()-.5)*.12;
+          p.vy+=(Math.random()-.5)*.12;
+        }
+        for(var j=i+1;j<particles.length;j++){
+          var q=particles[j];
+          if(!q.active)continue;
+          var dx=q.x-p.x;
+          var dy=q.y-p.y;
+          var distance=Math.sqrt(dx*dx+dy*dy)||1;
+          if(distance<27&&repulsion){
+            var force=.15*repulsion/distance;
+            p.vx-=dx*force;p.vy-=dy*force;q.vx+=dx*force;q.vy+=dy*force;
+          }else if(attraction&&distance<20&&!lowContact&&p.mass<12&&q.mass<12){
+            if(distance<9){
+              p.mass+=q.mass;
+              p.radius=1.9*Math.sqrt(p.mass);
+              q.active=false;
+            }else{
+              var pull=.035/distance;
+              p.vx+=dx*pull;p.vy+=dy*pull;q.vx-=dx*pull;q.vy-=dy*pull;
+            }
+          }
+        }
+        p.vx*=index===3 ? .97 : .94;
+        p.vy*=index===3 ? .99 : .94;
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<5){p.x=5;p.vx*=-.65}
+        if(p.x>width-5){p.x=width-5;p.vx*=-.65}
+        if(p.y<5){p.y=5;p.vy*=-.65}
+        if(p.y>height-7){p.y=height-7;p.vy*=-.35}
+      }
+    }
+    if(index===3){
+      context.fillStyle='rgba(235,202,98,.08)';
+      context.fillRect(0,height-30,width,30);
+    }
+    for(var k=0;k<particles.length;k++){
+      var point=particles[k];
+      if(!point.active)continue;
+      var color=(index===0||low)?'56,125,184':
+        (excess&&index>0?'242,119,122':(shear?'255,174,145':(point.mass>2?'109,208,163':'235,202,98')));
+      var radius=shear?Math.min(point.radius,3.2):point.radius;
+      context.beginPath();
+      context.arc(point.x,point.y,radius,0,Math.PI*2);
+      context.fillStyle='rgba('+color+',.86)';
+      context.fill();
+      if(point.mass>2&&!shear){
+        context.strokeStyle='rgba('+color+',.35)';
+        context.lineWidth=1;
+        context.stroke();
+      }
+    }
+  }
+  function animate(){
+    drawFrame(true);
+    animationFrame=window.requestAnimationFrame(animate);
+  }
+  model.querySelectorAll('[data-jar-control]').forEach(function(button){
+    button.addEventListener('click',function(){
+      var control=button.dataset.jarControl;
+      var value=button.dataset.jarValue;
+      model.dataset[control]=value;
+      model.querySelectorAll('[data-jar-control="'+control+'"]').forEach(function(peer){
+        peer.setAttribute('aria-pressed',peer===button?'true':'false');
+      });
+      resetParticles();
+      update();
+    });
+  });
+  sizeCanvas();
+  resetParticles();
+  window.addEventListener('resize',function(){
+    sizeCanvas();
+    resetParticles();
+    if(reduced)drawFrame(false);
+  });
+  update();
+  if(!reduced)animate();
+});
+document.querySelectorAll('[data-concept-assessment="multiple-choice"]').forEach(function(check){
+  var button=check.querySelector('.assessment-check');
+  if(!button)return;
+  button.addEventListener('click',function(){
+    var selected=check.querySelector('input[type="radio"]:checked');
+    var output=check.querySelector('.assessment-feedback');
+    if(!selected){
+      output.textContent='Choose an answer before checking.';
+      return;
+    }
+    var correct=selected.dataset.correct==='true';
+    var template=check.querySelector(correct?'[data-correct-feedback]':'[data-incorrect-feedback]');
+    output.textContent=template?template.textContent:'';
+    check.dataset.complete=correct?'true':'false';
+  });
+});
+document.querySelectorAll('[data-concept-assessment="reflection"]').forEach(function(check){
+  var steps=[...check.querySelectorAll('[data-rehearsal-step]')];
+  var stepIndex=0;
+  var back=check.querySelector('.rehearsal-back');
+  var next=check.querySelector('.rehearsal-next');
+  var progress=check.querySelector('.rehearsal-progress');
+  function showStep(){
+    steps.forEach(function(step,index){step.hidden=index!==stepIndex;});
+    if(back)back.disabled=stepIndex===0;
+    if(next){
+      next.disabled=stepIndex===steps.length-1;
+      next.textContent=stepIndex===steps.length-1?'Example complete':
+        (stepIndex===steps.length-2?'Show the better question':'Next step');
+    }
+    if(progress)progress.textContent='Step '+(stepIndex+1)+' of '+steps.length;
+  }
+  if(steps.length){
+    showStep();
+    back?.addEventListener('click',function(){if(stepIndex>0){stepIndex-=1;showStep();}});
+    next?.addEventListener('click',function(){if(stepIndex<steps.length-1){stepIndex+=1;showStep();}});
+  }
+  var toggle=check.querySelector('.practice-toggle');
+  var panel=check.querySelector('.practice-panel');
+  toggle?.addEventListener('click',function(){
+    var opening=toggle.getAttribute('aria-expanded')!=='true';
+    toggle.setAttribute('aria-expanded',opening?'true':'false');
+    toggle.textContent=opening?'Close optional practice':'Try it yourself';
+    if(panel)panel.hidden=!opening;
+    if(opening)panel?.querySelector('textarea')?.focus();
+  });
+  var button=check.querySelector('.assessment-reveal');
+  if(!button)return;
+  button.addEventListener('click',function(){
+    var response=check.querySelector('[data-reflection-response]');
+    var model=check.querySelector('.assessment-model');
+    var output=check.querySelector('.assessment-feedback');
+    if(!response||response.value.trim().length<20){
+      output.textContent='Write a specific explanation before comparing responses.';
+      return;
+    }
+    model.hidden=false;
+    output.textContent='Compare the two questions. Keep your observation, missing evidence, authority, monitoring, and rollback boundary visible.';
+    if(check.dataset.optional!=='true')check.dataset.complete='true';
+  });
+});
+document.querySelectorAll('[data-concept-assessment="multi-select"]').forEach(function(check){
+  check.querySelector('.assessment-check')?.addEventListener('click',function(){
+    var options=[...check.querySelectorAll('input[type="checkbox"]')];
+    var correct=options.every(function(option){
+      return option.checked===(option.dataset.correct==='true');
+    });
+    var template=check.querySelector(correct?'[data-correct-feedback]':'[data-incorrect-feedback]');
+    check.querySelector('.assessment-feedback').textContent=template?template.textContent:'';
+    check.dataset.complete=correct?'true':'false';
+  });
+});
+document.querySelectorAll('[data-concept-assessment="flip-cards"]').forEach(function(check){
+  check.querySelectorAll('[data-flip-card]').forEach(function(card){
+    card.addEventListener('click',function(){
+      var open=card.getAttribute('aria-pressed')==='true';
+      card.setAttribute('aria-pressed',open?'false':'true');
+      card.textContent=open?card.dataset.front:card.dataset.back;
+      var complete=[...check.querySelectorAll('[data-flip-card]')].every(function(item){
+        return item.getAttribute('aria-pressed')==='true';
+      });
+      if(complete){
+        check.dataset.complete='true';
+        var template=check.querySelector('[data-correct-feedback]');
+        check.querySelector('.assessment-feedback').textContent=template?template.textContent:'';
+      }
+    });
+  });
+});
+if(location.protocol!=='file:'){
+  window.addEventListener('load',function(){
+    ['/owos-shell.js','/concept-brief-runtime.js'].forEach(function(src){
+      if(document.querySelector('script[src="'+src+'"]'))return;
+      var runtime=document.createElement('script');
+      runtime.src=src;
+      runtime.defer=true;
+      document.body.appendChild(runtime);
+    });
+  },{once:true});
+}
+document.querySelectorAll('[data-concept-assessment="matching"]').forEach(function(check){
+  check.querySelector('.assessment-check')?.addEventListener('click',function(){
+    var selects=[...check.querySelectorAll('select[data-answer]')];
+    var correct=selects.every(function(select){return select.value===select.dataset.answer});
+    var template=check.querySelector(correct?'[data-correct-feedback]':'[data-incorrect-feedback]');
+    check.querySelector('.assessment-feedback').textContent=template?template.textContent:'';
+    check.dataset.complete=correct?'true':'false';
+  });
+});
+document.querySelectorAll('[data-concept-assessment="applied-work-product"]').forEach(function(check){
+  check.querySelector('.assessment-work-check')?.addEventListener('click',function(){
+    var fields=[...check.querySelectorAll('[data-required-field]')];
+    var correct=fields.length>0&&fields.every(function(field){return field.value.trim().length>0});
+    var template=check.querySelector(correct?'[data-correct-feedback]':'[data-incorrect-feedback]');
+    check.querySelector('.assessment-feedback').textContent=template?template.textContent:'';
+    check.dataset.complete=correct?'true':'false';
+  });
+});
+var drawerHistoryActive=false;
+var drawerReturnFocus=null;
+document.querySelectorAll('[data-drawer-open]').forEach(function(button){
+  button.addEventListener('click',function(){
+    var drawer=document.getElementById(button.dataset.drawerOpen);
+    var backdrop=document.querySelector('.drawer-backdrop');
+    if(!drawer||!backdrop)return;
+    drawerReturnFocus=button;
+    document.querySelectorAll('.context-drawer').forEach(function(peer){peer.hidden=true});
+    drawer.hidden=false;
+    backdrop.hidden=false;
+    document.body.classList.add('drawer-open');
+    if(!drawerHistoryActive){
+      history.pushState(Object.assign({},history.state||{},{owosConnectedDrawer:drawer.id}),'',location.href);
+      drawerHistoryActive=true;
+    }
+    drawer.querySelector('.drawer-close').focus();
+  });
+});
+function hideDrawers(){
+  var openDrawer=document.querySelector('.context-drawer:not([hidden])');
+  var opener=drawerReturnFocus||(openDrawer&&document.querySelector('[data-drawer-open="'+openDrawer.id+'"]'));
+  document.querySelectorAll('.context-drawer').forEach(function(drawer){drawer.hidden=true});
+  var backdrop=document.querySelector('.drawer-backdrop');
+  if(backdrop)backdrop.hidden=true;
+  document.body.classList.remove('drawer-open');
+  if(opener)opener.focus();
+  drawerReturnFocus=null;
+}
+function closeDrawers(fromHistory){
+  if(!fromHistory&&drawerHistoryActive){
+    history.back();
+    return;
+  }
+  drawerHistoryActive=false;
+  hideDrawers();
+}
+document.querySelectorAll('[data-drawer-close]').forEach(function(control){
+  control.addEventListener('click',function(){closeDrawers(false)});
+});
+document.addEventListener('keydown',function(event){
+  if(event.key==='Escape')closeDrawers(false);
+});
+window.addEventListener('popstate',function(){
+  if(drawerHistoryActive)closeDrawers(true);
+});
+document.querySelectorAll('.context-drawer a[href^="#"]').forEach(function(link){
+  link.addEventListener('click',function(){closeDrawers(false)});
+});
+var sopCopy=document.getElementById('copy-sop-outline');
+if(sopCopy){
+  sopCopy.addEventListener('click',async function(){
+    var dataNode=document.getElementById('sop-outline-data');
+    var status=document.getElementById('copy-sop-status');
+    var outline=dataNode?JSON.parse(dataNode.textContent):'';
+    status.textContent='Copying outline...';
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        await navigator.clipboard.writeText(outline);
+      }else{
+        var field=document.createElement('textarea');
+        field.value=outline;
+        field.setAttribute('readonly','');
+        field.style.position='fixed';
+        field.style.opacity='0';
+        document.body.appendChild(field);
+        field.select();
+        document.execCommand('copy');
+        field.remove();
+      }
+      status.textContent='Outline copied. Paste it into your approved workspace.';
+    }catch(error){
+      status.textContent='Copy was blocked. Select the outline and copy it manually.';
+    }
+  });
+}
+document.querySelectorAll('.commercial-card[data-placement-slot]').forEach(async function(card){
+  var slot=card.dataset.placementSlot;
+  var fallbackId=card.dataset.placementId;
+  var briefMeta=document.querySelector('meta[name="owos-brief-id"]');
+  var contentId=briefMeta?briefMeta.content:'';
+  function hit(id,ev){
+    if(!id||location.protocol==='file:')return;
+    fetch('/api/ad/hit',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({id:id,ev:ev,surface:'concept-brief',content:contentId}),
+      keepalive:true}).catch(function(){});
+  }
+  if(location.protocol!=='file:'){
+    try{
+      var endpoint='/api/ad?slot='+encodeURIComponent(slot)+'&content='+encodeURIComponent(contentId);
+      var response=await fetch(endpoint,{cache:'no-store'});
+      var payload=response.ok?await response.json():{ad:null};
+      var ad=payload.ad;
+      if(ad&&ad.creative){
+        card.dataset.placementId=ad.id;
+        card.querySelector('[data-placement-label]').textContent=ad.disclosureLabel||
+          (slot==='concept-house'?'Built and powered by APAS':'Commercial connection');
+        card.querySelector('[data-placement-headline]').textContent=ad.creative.headline||'';
+        card.querySelector('[data-placement-body]').textContent=ad.creative.body||'';
+        var logo=card.querySelector('[data-placement-logo]');
+        if(ad.creative.image)logo.src=ad.creative.image;
+        logo.alt=ad.sponsor||'Commercial placement';
+        var link=card.querySelector('[data-placement-link]');
+        if(link&&ad.creative.url){link.href=ad.creative.url;link.textContent=ad.creative.cta||'Learn more'}
+        hit(ad.id,'imp');
+      }else if(slot==='concept-vendor'){
+        card.hidden=true;
+      }else{
+        hit(fallbackId,'imp');
+      }
+    }catch(error){if(slot==='concept-vendor')card.hidden=true}
+  }
+  var action=card.querySelector('[data-placement-link]');
+  if(action)action.addEventListener('click',function(){hit(card.dataset.placementId,'click')});
+});
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  document.documentElement.classList.add('motion-ready');
+  var revealTargets=document.querySelectorAll(
+    '.band-in,.block>p,.card,.sim,.stability-graphic,.editorial-table,'+
+    '.protocol-step,.comparison,.audit-list li,.accuracy-panel,.connected li,'+
+    '#owos-concept-community li'
+  );
+  revealTargets.forEach(function(element){element.classList.add('editorial-reveal')});
+  var revealObserver=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  revealTargets.forEach(function(element){revealObserver.observe(element)});
+}
+</script>
+</body></html>

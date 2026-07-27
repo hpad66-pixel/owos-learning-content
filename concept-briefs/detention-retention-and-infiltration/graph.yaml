@@ -1,0 +1,96 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+publication_state: proposed_pending_owner_and_graph_review
+nodes:
+  - node_id: owos:concept-brief:003
+    node_type: concept_brief
+    label: Detention, Retention, and Infiltration
+  - node_id: concept:stormwater-pathway
+    node_type: concept
+    label: Stormwater pathway
+  - node_id: concept:detention
+    node_type: dictionary_term
+    label: Detention
+  - node_id: concept:retention
+    node_type: dictionary_term
+    label: Retention
+  - node_id: concept:infiltration
+    node_type: dictionary_term
+    label: Infiltration
+  - node_id: concept:storm-hydrograph
+    node_type: adjacent_concept
+    label: Storm Hydrograph
+  - node_id: concept:stormwater-control-measure-maintenance
+    node_type: adjacent_concept
+    label: Stormwater Control Measure Maintenance
+  - node_id: competency:trace-stormwater-pathways
+    node_type: competency
+    label: Trace stormwater pathways and evidence boundaries
+edges:
+  - edge_id: edge-brief-explains-pathways
+    edge_type: EXPLAINS
+    from_node: owos:concept-brief:003
+    to_node: concept:stormwater-pathway
+    provenance:
+      - claim-name-not-pathway
+      - claim-detention-temporary-release
+      - claim-retention-varies
+      - claim-infiltration-pathway
+    review_status: pending
+    visibility: internal_proposal
+    editorial_use: allowed_after_claim_and_graph_approval
+  - edge_id: edge-brief-defines-detention
+    edge_type: DEFINES
+    from_node: owos:concept-brief:003
+    to_node: concept:detention
+    provenance:
+      - claim-detention-temporary-release
+    review_status: pending
+    visibility: internal_proposal
+    editorial_use: allowed_after_claim_and_graph_approval
+  - edge_id: edge-brief-defines-retention
+    edge_type: DEFINES
+    from_node: owos:concept-brief:003
+    to_node: concept:retention
+    provenance:
+      - claim-retention-varies
+    review_status: pending
+    visibility: internal_proposal
+    editorial_use: allowed_after_claim_and_graph_approval
+  - edge_id: edge-brief-defines-infiltration
+    edge_type: DEFINES
+    from_node: owos:concept-brief:003
+    to_node: concept:infiltration
+    provenance:
+      - claim-infiltration-pathway
+    review_status: pending
+    visibility: internal_proposal
+    editorial_use: allowed_after_claim_and_graph_approval
+  - edge_id: edge-brief-adjacent-hydrograph
+    edge_type: ADJACENT_TO
+    from_node: owos:concept-brief:003
+    to_node: concept:storm-hydrograph
+    provenance:
+      - owner_approved_portfolio_relationship_pending
+    review_status: pending
+    visibility: internal_proposal
+    editorial_use: allowed_after_graph_review
+  - edge_id: edge-brief-adjacent-maintenance
+    edge_type: ADJACENT_TO
+    from_node: owos:concept-brief:003
+    to_node: concept:stormwater-control-measure-maintenance
+    provenance:
+      - owner_approved_portfolio_relationship_pending
+    review_status: pending
+    visibility: internal_proposal
+    editorial_use: allowed_after_graph_review
+  - edge_id: edge-brief-develops-pathway-competency
+    edge_type: DEVELOPS_COMPETENCY
+    from_node: owos:concept-brief:003
+    to_node: competency:trace-stormwater-pathways
+    provenance:
+      - assessment-pathway-statement
+    review_status: pending
+    visibility: internal_proposal
+    editorial_use: allowed_after_learning_and_graph_review

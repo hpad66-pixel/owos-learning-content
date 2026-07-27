@@ -1,0 +1,312 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+status: owner_directed_instructional_revision_for_review
+version: 0.3.0
+replaces: approved_for_working_preview_pre_research_storyboard
+approval_required: true
+production_authorized: true
+beats:
+  - beat_id: beat-00-foundation
+    act: introduce_and_define
+    learner_question: What do detention, retention, and infiltration mean before we look at a stormwater system?
+    instructor_purpose: Introduce the complete topic, define the three central concepts in plain English, and establish the system words needed to read later diagrams.
+    block_ids:
+      - block-orientation
+      - block-foundation-language
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-detention-temporary-release
+      - claim-retention-varies
+      - claim-infiltration-pathway
+      - claim-wet-pond-permanent-pool
+    learner_action: Read the three core definitions and the system-language table, then explain how holding water temporarily differs from moving water below the surface.
+    instructor_explanation: Begin with the words. Detention describes temporary storage and later release. Retention must be tied to the source and physical arrangement because the word is used in more than one way. Infiltration describes movement below the surface, not a guaranteed final destination. Learn outlet, outfall, overflow, bypass, permanent pool, and underdrain before reading the route diagrams.
+    intended_realization: The three terms describe different parts of the water story, and each later graphic should be read using the same basic system language.
+    truth_boundary: These are bounded teaching definitions. Exact terminology, asset configuration, design, performance, and legal applicability require the governing source and actual system evidence.
+    transition: Apply the definitions to one storm moving through a connected system.
+    surface: off_white
+    mobile_treatment: Stack the three definition cards and convert the system-language table into one term row at a time.
+    reduced_motion_treatment: No motion is required. Keep all definitions and examples visible.
+
+  - beat_id: beat-01-first-drop
+    act: follow_the_water
+    learner_question: Where can one drop of rain go after it reaches a developed surface?
+    instructor_purpose: Begin with a physical event and establish the complete connected route before introducing practice names.
+    block_ids:
+      - block-first-drop
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-illustrative-storm
+    visual_ids:
+      - visual-connected-storm-route
+    interaction_ids:
+      - interaction-storm-path-tracer
+    learner_action: Select the roof, road, lawn, inlet, or permeable surface and trace every shown downstream route.
+    instructor_explanation: Start at the rainfall marker. Follow the arrows to storage, soil, pipe, overflow, outfall, receiving water, and the separate sanitary sewer. The purpose is to see connections before judging any asset by its label.
+    intended_realization: Rainfall can become runoff, storage, subsurface movement, discharge, or unintended wastewater entry through different connected routes.
+    truth_boundary: The route map is qualitative and illustrative. It does not calculate flow, flood level, infiltration, capacity, or compliance.
+    transition: Pause the storm at a basin that is normally dry.
+    surface: black
+    mobile_treatment: Convert the panorama into five numbered vertical route stops with a persistent route key.
+    reduced_motion_treatment: Reveal routes only through manual controls and provide the complete numbered route table.
+
+  - beat_id: beat-02-dry-detention
+    act: read_the_storage
+    learner_question: Why does a basin that looks empty still have value?
+    instructor_purpose: Explain temporary storage, controlled release, drawdown, and recovery through time.
+    block_ids:
+      - block-dry-detention
+      - block-check-detention
+    claim_ids:
+      - claim-detention-temporary-release
+      - claim-hydrograph-peak-volume-distinction
+    visual_ids:
+      - visual-dry-basin-timeline
+    interaction_ids:
+      - interaction-storm-path-tracer
+    learner_action: Step through before, rising, peak, recession, and recovery states and identify when storage is available.
+    instructor_explanation: The empty space is part of the asset. Water enters faster than it leaves, occupies that space, and then drains through the outlet. Watch the storage level and outlet together.
+    intended_realization: Dry detention is temporary storage followed by release, and recovery restores space for another event.
+    truth_boundary: No drawdown time, design storm, storage quantity, or acceptable condition is implied.
+    transition: Compare temporary storage with a pond that normally contains water.
+    surface: blue
+    mobile_treatment: Show one time state per full-width panel with Back, Step, and Reset.
+    reduced_motion_treatment: Display all five states as a static sequence with a text conclusion.
+
+  - beat_id: beat-03-permanent-pool
+    act: read_the_storage
+    learner_question: What is the permanent pool in a wet pond, and where does storm storage fit?
+    instructor_purpose: Separate normal water, temporary storm storage, control elevation, outlet, overflow, and pond bottom.
+    block_ids:
+      - block-wet-pond
+      - block-check-permanent-pool
+    claim_ids:
+      - claim-wet-pond-permanent-pool
+      - claim-retention-varies
+    visual_ids:
+      - visual-wet-pond-elevations
+    learner_action: Label the permanent pool, normal level, temporary storage, outlet, overflow, and downstream boundary.
+    instructor_explanation: Begin at the normal water level. The permanent pool is below it. Temporary storm storage is shown above it. Then follow the ordinary outlet and the higher overflow route.
+    intended_realization: A wet pond can retain a permanent pool and detain additional stormwater above that pool.
+    truth_boundary: The elevation relationships are conceptual. Regional terminology and real design elevations require applicable plans and authority.
+    transition: Open the terminology question only after the physical arrangement is understood.
+    surface: off_white
+    mobile_treatment: Use a vertical elevation stack with a fixed legend and no horizontal panning.
+    reduced_motion_treatment: Show every elevation and route simultaneously.
+
+  - beat_id: beat-04-name-boundary
+    act: follow_the_water
+    learner_question: What can the words detention, retention, and infiltration establish by themselves?
+    instructor_purpose: Repair label-first reasoning and document terminology variation.
+    block_ids:
+      - block-terminology
+      - block-check-boundary
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-detention-temporary-release
+      - claim-retention-varies
+      - claim-infiltration-pathway
+    assessment_ids:
+      - assessment-terminology-boundary
+    learner_action: Choose the strongest conclusion supported by a name when the route and objective are not documented.
+    instructor_explanation: Use the name as a clue. Then ask what enters, where water waits, every way it leaves, and what result the system was intended to provide.
+    intended_realization: The physical pathway and source-specific usage are more reliable than a universal naming shortcut.
+    truth_boundary: The brief does not establish a mandatory naming convention for every jurisdiction.
+    transition: Move below the visible surface.
+    surface: white
+    mobile_treatment: Put the explanation directly above one focused question.
+    reduced_motion_treatment: No motion required.
+
+  - beat_id: beat-05-below-surface
+    act: look_below_surface
+    learner_question: After stormwater enters a soil or pavement system, where can it go?
+    instructor_purpose: Distinguish infiltration, filtration, native-soil movement, underdrain discharge, evapotranspiration, groundwater interaction, and overflow.
+    block_ids:
+      - block-subsurface-boundary
+      - block-practice-family
+    claim_ids:
+      - claim-infiltration-pathway
+      - claim-infiltration-final-destination
+      - claim-groundwater-protection
+      - claim-green-infrastructure-definition
+    visual_ids:
+      - visual-subsurface-boundary
+      - visual-practice-family
+    learner_action: Trace water through bioretention, a trench, and permeable pavement, then identify which final destinations remain unknown.
+    instructor_explanation: Start at the surface. Move through engineered material, native soil, and the underdrain. Then locate groundwater and overflow. Water entering the surface is only the beginning of the subsurface story.
+    intended_realization: Infiltration is a movement into the subsurface, not proof of recharge, treatment, or suitability.
+    truth_boundary: No infiltration rate, groundwater separation, contaminant fate, or site suitability is calculated or implied.
+    transition: Put the route on a time axis.
+    surface: black
+    mobile_treatment: Stack surface, media, native soil, underdrain, groundwater, overflow, and receiving water vertically.
+    reduced_motion_treatment: Expand all layers, arrows, and practice route summaries.
+
+  - beat_id: beat-06-hydrograph
+    act: read_time_and_performance
+    learner_question: What does a hydrograph show about inflow, storage, and outflow?
+    instructor_purpose: Introduce flow through time without turning the brief into a routing calculation.
+    block_ids:
+      - block-hydrograph
+    claim_ids:
+      - claim-hydrograph-peak-volume-distinction
+      - claim-model-boundary
+      - claim-illustrative-storm
+    visual_ids:
+      - visual-hydrograph
+    learner_action: Scrub through five authored states and identify peak, timing, recession, and the volume idea represented by area under a curve.
+    instructor_explanation: Read left to right. Compare when inflow rises, when outflow peaks, and how long each curve continues. A lower peak and a smaller total volume are different statements.
+    intended_realization: Storage can lower and delay an outflow peak without proving that total runoff volume disappeared.
+    truth_boundary: Curves are qualitative authored teaching states, not calibrated model output.
+    transition: Separate the different measures people call performance.
+    surface: blue
+    mobile_treatment: Stack aligned inflow and outflow plots with the same time labels and a written interpretation.
+    reduced_motion_treatment: Display both curves and five state annotations together.
+
+  - beat_id: beat-07-performance-ledger
+    act: read_time_and_performance
+    learner_question: Which evidence supports a flow, volume, concentration, or pollutant-load claim?
+    instructor_purpose: Prevent one favorable measure from standing in for complete performance.
+    block_ids:
+      - block-performance-evidence
+      - block-worked-example-basin
+      - block-check-performance
+    claim_ids:
+      - claim-volume-load-performance
+      - claim-hydrograph-peak-volume-distinction
+      - claim-detention-temporary-release
+    visual_ids:
+      - visual-water-pollutant-ledger
+    assessment_ids:
+      - assessment-performance-evidence
+    learner_action: Read the worked example all the way through, then match each claim to peak, timing, discharged volume, concentration, total load, or missing evidence.
+    instructor_explanation: Begin with the water volume. Then read concentration. Load depends on both. Keep peak and timing separate because they answer a different hydraulic question. The worked example shows the same reasoning applied to a complaint that sounds like an asset failure and may not be one.
+    intended_realization: Performance is a set of bounded measures, not one universal score.
+    truth_boundary: Worked quantities are illustrative and cannot represent a real practice.
+    transition: Change the condition of the asset and watch the route respond.
+    surface: white
+    mobile_treatment: Use a vertical quantity flow followed by a compact evidence table.
+    reduced_motion_treatment: Show the complete ledger and worked explanation.
+
+  - beat_id: beat-08-maintenance-failure
+    act: break_the_route
+    learner_question: How can condition change the pathway the asset was intended to provide?
+    instructor_purpose: Connect maintenance observations to hydraulic and treatment consequences without prescribing work.
+    block_ids:
+      - block-maintenance-evidence
+      - block-check-maintenance
+    claim_ids:
+      - claim-ms4-maintenance
+      - claim-maintenance-pathway
+    visual_ids:
+      - visual-maintenance-failure
+    interaction_ids:
+      - interaction-condition-failure-trace
+    learner_action: Introduce sediment, surface clogging, outlet blockage, erosion, high downstream water, or an underdrain problem and select the next evidence needed.
+    instructor_explanation: First name the observation. Then state the route it could affect. A hypothesis guides the next check, but it is not yet a diagnosis or authorization to repair.
+    intended_realization: Maintenance protects storage, flow, infiltration, treatment, access, and evidence, not merely appearance.
+    truth_boundary: The interaction does not diagnose, rate, inspect, or authorize maintenance for a real asset.
+    transition: Follow the same rain toward the separate sanitary sewer.
+    surface: blue
+    mobile_treatment: Present one observation, pathway question, consequence, and evidence row at a time.
+    reduced_motion_treatment: Expand all cause chains in a structured table.
+
+  - beat_id: beat-09-wrong-pipe
+    act: connect_wastewater
+    learner_question: How does stormwater or groundwater become infiltration and inflow in a sanitary sewer?
+    instructor_purpose: Make the cross-sector connection and show why wet-weather water has capacity and lifecycle consequences.
+    block_ids:
+      - block-wastewater-ii
+      - block-check-ii
+    claim_ids:
+      - claim-ii-definition
+      - claim-ii-capacity-consequence
+    visual_ids:
+      - visual-stormwater-wastewater-split
+    assessment_ids:
+      - assessment-ii-route
+    learner_action: Classify direct inflow and defect-related infiltration examples, then trace the extra water through collection, pumping, treatment, and storage.
+    instructor_explanation: The left side shows the intended stormwater route. The right side shows rain or groundwater entering a separate sanitary sewer through a direct connection or defect. Follow the extra hydraulic flow through each wastewater asset.
+    intended_realization: In a separate sanitary sewer, I&I consumes capacity and cost even though it is not sanitary wastewater.
+    truth_boundary: No system-specific I&I source, quantity, capacity, cost, or remedy is determined.
+    transition: Ask who is responsible for preserving the intended stormwater route.
+    surface: black
+    mobile_treatment: Stack intended and unintended systems below one shared rainfall header.
+    reduced_motion_treatment: Use a static two-route table and capacity-consequence chain.
+
+  - beat_id: beat-10-permit-value
+    act: connect_permission_and_money
+    learner_question: Why is a permit valuable after construction is complete?
+    instructor_purpose: Connect public objective, authorized plan, responsible party, maintenance, funding, evidence, and correction.
+    block_ids:
+      - block-permit-value
+      - block-five-ledgers
+      - block-check-permit-value
+    claim_ids:
+      - claim-npdes-permit-function
+      - claim-ms4-program-responsibility
+      - claim-construction-stormwater-connection
+      - claim-industrial-stormwater-context
+      - claim-permit-value-synthesis
+    visual_ids:
+      - visual-permit-value-handoff
+      - visual-five-ledgers
+    assessment_ids:
+      - assessment-permit-value-sequence
+    learner_action: Put permit-to-value handoffs in order and identify where ownership, access, funding, evidence, or correction is missing.
+    instructor_explanation: A permit is not the asset and does not prove performance. Its value is the chain that assigns an approved condition, responsibility, records, and correction duties to real work.
+    intended_realization: Permit value becomes visible when responsibility is translated into maintained, funded, and documented performance.
+    truth_boundary: The brief explains federal permit concepts and does not determine applicability, compliance, enforcement, or state and local requirements.
+    transition: Bring every role to the same evidence table.
+    surface: off_white
+    mobile_treatment: Present one handoff per row followed by five stacked value ledgers.
+    reduced_motion_treatment: Show the complete handoff and ledger labels together.
+
+  - beat_id: beat-11-role-meeting
+    act: hold_the_meeting
+    learner_question: What should each role ask about the same stormwater system?
+    instructor_purpose: Convert shared concepts into design, maintenance, finance, leadership, wastewater, and public questions.
+    block_ids:
+      - block-role-meeting
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-maintenance-pathway
+      - claim-ii-capacity-consequence
+      - claim-permit-value-synthesis
+    visual_ids:
+      - visual-role-evidence-map
+    learner_action: Select a role, ask its evidence question, then add the question to one shared system record.
+    instructor_explanation: Every role sees the same water and assets. The engineer asks about assumptions. The operator asks about condition. Finance asks what service and lifecycle cost the work preserves. Leadership asks about risk and accountability. The public asks what result was promised and what evidence exists.
+    intended_realization: Shared terminology improves decisions because roles can connect their questions to the same physical route and evidence.
+    truth_boundary: Role prompts support conversation and do not assign legal responsibility or professional scope.
+    transition: Apply the complete method to an unfamiliar system.
+    surface: black
+    mobile_treatment: Use a role selector above one persistent system evidence record.
+    reduced_motion_treatment: Display grouped role questions and the shared evidence record.
+
+  - beat_id: beat-12-transfer
+    act: apply_and_close
+    learner_question: Can I explain an unfamiliar stormwater system without overclaiming?
+    instructor_purpose: Produce a useful bounded work product and close with transfer, uncertainty, and next learning.
+    block_ids:
+      - block-final-transfer
+      - block-evidence-boundary
+      - block-connected-learning
+    claim_ids:
+      - claim-name-not-pathway
+      - claim-infiltration-pathway
+      - claim-volume-load-performance
+      - claim-maintenance-pathway
+      - claim-ii-definition
+      - claim-permit-value-synthesis
+      - claim-connected-learning-proposal
+    assessment_ids:
+      - assessment-system-conversation
+    learner_action: Complete the 11-question conversation tool and state one result, one uncertainty, one responsibility, and one next piece of evidence.
+    instructor_explanation: Trace every route first. Then state the intended result, the controlling feature, the responsible party, and the evidence. Finish by separating what the diagram shows from what still requires qualified review.
+    intended_realization: A bounded system explanation creates more value than a confident practice label unsupported by evidence.
+    truth_boundary: Completion demonstrates conceptual understanding only. It does not certify professional competence, facility condition, design adequacy, or compliance.
+    transition: Close with what changed, what to observe, what not to assume, and connected next learning.
+    surface: white
+    mobile_treatment: Use one required field per full-width row with a persistent completion summary.
+    reduced_motion_treatment: No motion required. Preserve the complete work product and recap in structured text.

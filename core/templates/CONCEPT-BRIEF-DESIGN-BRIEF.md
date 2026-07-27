@@ -43,6 +43,25 @@ date:
 
 Describe the planned sequence in plain English. Do not turn the coverage jobs into fixed sections.
 
+## Instructional orientation
+
+Record what the learner sees before the topic begins. These become
+`learner_experience.orientation` in `learning.yaml` and are rendered by the compiler.
+
+- Subject, in ordinary words:
+- Audience and assumed prior knowledge:
+- Why it matters, stated as the consequence of not understanding it:
+- Time estimate, reading plus participation:
+- Scope boundary, what this does not cover:
+- Learning objectives rendered on the page (these are `learning.outcomes`):
+
+## Define before use
+
+- Dependent terms requiring definition before first use:
+- For each term: plain meaning, concrete example, and what the term does not establish:
+- Placement of each definition relative to the graphic or check that uses it:
+- Worked examples, one per major mechanism, with situation, reasoning, result, and boundary:
+
 ## Learner economy and completion
 
 - “In 30 seconds” orientation:
@@ -52,7 +71,8 @@ Describe the planned sequence in plain English. Do not turn the coverage jobs in
 - Three-line close — What to observe:
 - Three-line close — What not to assume:
 - Comment placement: after learning and active commercial content, immediately before footer
-- Community treatment: compact entry plus drawer or dedicated route
+- Graph treatment: compact top control plus same-screen responsive drawer and full-Graph route
+- Community treatment: compact top control plus same-screen responsive drawer and dedicated route
 - SOP boundary: outline only, or separately approved authenticated agent
 - Inactive commercial treatment: hidden
 - Short plain-language disclaimer:

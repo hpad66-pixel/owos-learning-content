@@ -53,6 +53,27 @@ blocked hard gate.
 - [ ] Continuing-education credit claims remain disabled unless the named accreditor approved the
   exact offering.
 
+## Instructional orientation checks
+
+- [ ] The rendered page answers what this is about, who it is for, why it matters, what the learner
+  will be able to do, how long it takes, and what it does not cover, before the first mechanism,
+  diagram, or interaction.
+- [ ] The learning objectives are visible on the page, not only recorded in `learning.yaml`.
+- [ ] Every dependent term is defined in plain English before the learner is asked to use it or read
+  it inside a graphic.
+- [ ] Each definition carries a concrete example and an explicit statement of what the term does not
+  establish.
+- [ ] No diagram introduces a labeled term the prose has not already defined.
+- [ ] Each major mechanism carries a worked example showing situation, reasoning, result, and
+  transfer boundary.
+- [ ] Every graphic carries a caption stating what to notice and what it does not prove.
+- [ ] Illustrative values are labeled illustrative wherever they appear.
+- [ ] Wholeness: a learner who knew nothing about the topic can, without leaving the page, say what
+  the concept is, explain how it works, recognize where it applies, name what commonly goes wrong,
+  distinguish it from what it is confused with, and state what they would need before acting.
+- [ ] The white paper and the compiled brief carry the same argument. Every teaching move in the
+  paper has a home in the storyboard, and every rendered section has a basis in the paper.
+
 ## Learner-economy checks
 
 - [ ] A short “In 30 seconds” orientation appears near the beginning.
@@ -93,9 +114,11 @@ blocked hard gate.
 | Source preservation | blocked | | |
 | Claim verification and accuracy | blocked | | |
 | Learning and editorial design | blocked | | |
+| Instructional orientation, define before use, and worked examples | blocked | | |
 | Utility or technical practice | blocked | | |
 | Visual, interaction, accessibility, and responsive quality | blocked | | |
 | Graph and Community integrity | blocked | | |
+| Top Graph and Community controls, responsive drawers, close, and focus return | blocked | | |
 | Commercial integrity | blocked | | |
 | Release control | blocked | | |
 
