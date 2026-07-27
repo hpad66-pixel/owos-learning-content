@@ -110,6 +110,17 @@ const AUDIT = () => {
     return true;
   };
 
+  // A wide table or diagram that scrolls inside its own wrapper is correct.
+  const inScrollContainer = (el) => {
+    let node = el.parentElement;
+    while (node && node !== document.body) {
+      const ox = getComputedStyle(node).overflowX;
+      if (ox === 'auto' || ox === 'scroll') return true;
+      node = node.parentElement;
+    }
+    return false;
+  };
+
   const contrast = [];
   const gutter = [];
   const tap = [];
@@ -178,6 +189,21 @@ const AUDIT = () => {
         overflowRight: true,
       });
     }
+    // Separately from where the text sits, the box itself must stay on screen.
+    // A full-bleed panel using a negative inline margin can escape the viewport
+    // without its text ever crossing the gutter. Content inside a horizontal
+    // scroll container is exempt: a wide table scrolling inside its own wrapper
+    // is the correct pattern, not an overflow defect.
+    if (!inScrollContainer(el) && (rect.left < -1 || rect.right > window.innerWidth + 1)) {
+      gutter.push({
+        el: label(el),
+        text: text.slice(0, 60),
+        left: Math.round(rect.left),
+        right: Math.round(rect.right),
+        expected: window.innerWidth,
+        boxEscapesViewport: true,
+      });
+    }
   }
 
   for (const el of document.querySelectorAll('a, button, input, select, textarea, [role="button"]')) {
@@ -205,7 +231,10 @@ const AUDIT = () => {
       document.documentElement.scrollWidth - window.innerWidth,
     ),
     contrast: dedupe(contrast, (r) => r.el + r.fg + r.bg),
-    gutter: dedupe(gutter, (r) => r.el + (r.overflowRight ? 'R' : 'L')),
+    gutter: dedupe(
+      gutter,
+      (r) => r.el + (r.overflowRight ? 'R' : r.boxEscapesViewport ? 'B' : 'L'),
+    ),
     tap: dedupe(tap, (r) => r.el),
   };
 };
@@ -228,7 +257,10 @@ async function auditFile(browser, file) {
     found.minGutter = MIN_GUTTER[vp.name];
     // A gutter finding only counts if it also breaks the absolute minimum.
     found.gutter = found.gutter.filter(
-      (row) => row.overflowRight || row.left < MIN_GUTTER[vp.name],
+      (row) =>
+        row.overflowRight ||
+        row.boxEscapesViewport ||
+        row.left < MIN_GUTTER[vp.name],
     );
     if (vp.name === 'desktop') found.tap = [];
     results.push(found);
@@ -274,9 +306,11 @@ async function auditFile(browser, file) {
       }
       for (const g of r.gutter) {
         console.log(
-          g.overflowRight
-            ? `    overflow-right ${g.el} right=${g.right} > ${g.expected}\n       "${g.text}"`
-            : `    gutter ${g.el} left=${g.left} (page inset ${g.expected})\n       "${g.text}"`,
+          g.boxEscapesViewport
+            ? `    box-escapes-viewport ${g.el} left=${g.left} right=${g.right} vw=${g.expected}\n       "${g.text}"`
+            : g.overflowRight
+              ? `    overflow-right ${g.el} right=${g.right} > ${g.expected}\n       "${g.text}"`
+              : `    gutter ${g.el} left=${g.left} (page inset ${g.expected})\n       "${g.text}"`,
         );
       }
       for (const t of r.tap) console.log(`    tap-target ${t.el} ${t.w}x${t.h}`);

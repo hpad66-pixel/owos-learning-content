@@ -10,7 +10,11 @@ const target = targetArgument && /^https?:\/\//i.test(targetArgument)
     ? path.resolve(targetArgument)
     : path.join(
     root,
-    "concept-briefs/coagulation-vs-flocculation/dist/final-public-candidate.html",
+    // The current published artifact, and the one the build manifest tracks.
+    // This previously pointed at final-public-candidate.html, which stopped
+    // being rebuilt and drifted behind the renderer until the suite could not
+    // find the controls it asserts on.
+    "concept-briefs/coagulation-vs-flocculation/dist/final-federal-publication.html",
   );
 const targetUrl = /^https?:\/\//i.test(target) ? target : pathToFileURL(target).href;
 const outputDir = process.argv[2] || path.join(root, "concept-briefs/coagulation-vs-flocculation/dist");

@@ -285,6 +285,12 @@ body[data-owos-theme="graphite"] button.primary-action,
 body[data-owos-theme="graphite"] a.commercial-action,
 body[data-owos-theme="graphite"] button.commercial-action{background:#1d5c90;
 color:#fff;border-color:#1d5c90;text-decoration:none}
+
+/* Full-bleed pull quotes use a negative inline margin to escape the wrapper.
+   At narrow widths that arithmetic can exceed the viewport and push the box
+   off-screen, so the bleed is clamped and dropped on small screens. */
+.pullquote{max-width:100vw;overflow-wrap:break-word}
+@media (max-width:760px){.pullquote{margin-inline:0;width:auto;max-width:100%}}
 """
 
 

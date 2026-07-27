@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="owos-contract" content="owos-concept-brief/2">
 <meta name="owos-compiler-version" content="2.1.0">
-<meta name="owos-package-checksum" content="3f46acd879a90d377032b05c5a727162c34bccf16ba989c2b9f56ec47b0f7235">
+<meta name="owos-package-checksum" content="be8de4b956553729a2431b653ad8bc556d5d78e780fd0d9921cb73ac90998f97">
 <meta name="owos-brief-id" content="owos:concept-brief:001">
 <meta name="owos-brief-version" content="EDITION 1.0">
 <meta name="owos-release-state" content="public-review-preview">
@@ -2734,6 +2734,12 @@ body[data-owos-theme="graphite"] button.primary-action,
 body[data-owos-theme="graphite"] a.commercial-action,
 body[data-owos-theme="graphite"] button.commercial-action{background:#1d5c90;
 color:#fff;border-color:#1d5c90;text-decoration:none}
+
+/* Full-bleed pull quotes use a negative inline margin to escape the wrapper.
+   At narrow widths that arithmetic can exceed the viewport and push the box
+   off-screen, so the bleed is clamped and dropped on small screens. */
+.pullquote{max-width:100vw;overflow-wrap:break-word}
+@media (max-width:760px){.pullquote{margin-inline:0;width:auto;max-width:100%}}
 </style>
 </head>
 <body data-owos-theme="graphite">
