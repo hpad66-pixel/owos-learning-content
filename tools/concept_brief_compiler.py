@@ -178,6 +178,136 @@ BANNED_PHRASES = (
 )
 
 
+# Rendered-accessibility floor. This is appended AFTER the package brand
+# CSS and the shared shell so a package cannot reintroduce a contrast, gutter,
+# or touch-target defect by loading its own palette later in the cascade.
+ACCESSIBILITY_FLOOR = """
+/* The Graphite shell defaults headings and body copy to light, so any surface
+   introduced here must declare its own treatment or it inherits light text onto
+   a light panel. These follow the shell palette rather than overriding it. */
+body[data-owos-theme="graphite"] .orientation{background:var(--owos-graphite);
+border-bottom-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation h2{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .orientation-card{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation-card h3{color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation-card p,
+body[data-owos-theme="graphite"] .orientation-card li{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-outcomes{background:var(--owos-charcoal)}
+body[data-owos-theme="graphite"] .orientation-outcomes li{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-boundary{background:rgba(125,198,232,.09);
+border-left-color:var(--owos-water);color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-boundary b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .definition{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .definition-term{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .definition-meaning{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .definition-example{color:#bcd9e8}
+body[data-owos-theme="graphite"] .definition-limit{color:#e8cf95}
+body[data-owos-theme="graphite"] .definition b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .worked-example{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .worked-example p{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .worked-example b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .worked-label{color:var(--owos-water)}
+/* Contrast repairs for surfaces the Graphite theme inverts. The theme turns the
+   off_white beat band into charcoal and keeps the assessment card and drawers
+   light, so headings and kickers set for the light composition end up unreadable
+   on the surface they actually land on. */
+/* Cards carry a correct text colour for their own background, and a brief
+   may use a light or a dark variant of the same card. Headings and links
+   inherit from the card instead of being forced to one surface. */
+.concept-assessment h3,.concept-assessment h4{color:inherit}
+body[data-owos-theme="graphite"] .concept-assessment h3,
+body[data-owos-theme="graphite"] .concept-assessment h4{color:inherit}
+body[data-owos-theme="graphite"] .learner-question{color:var(--owos-water)}
+body[data-owos-theme="graphite"] .context-drawer .section-kicker{color:#1d5c90}
+/* Gutter repairs. The band header and the status bar carried colour and type
+   but no content geometry, so their text ran to the viewport edge while every
+   beat body sat inside the wrapper. The bar stays full bleed; only its text
+   moves in. */
+.band-in{width:min(1080px,calc(100% - 32px));margin:0 auto;padding:18px 0;
+display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;align-items:baseline}
+.band-txt{min-width:0}
+.status{padding-inline:max(16px,calc((100% - 1080px)/2))}
+body[data-owos-theme="graphite"] .band-in{width:min(1160px,calc(100% - 80px))}
+body[data-owos-theme="graphite"] .status{padding-inline:max(40px,calc((100% - 1160px)/2))}
+@media (max-width:760px){
+.band-in{width:min(1080px,calc(100% - 32px))}
+body[data-owos-theme="graphite"] .band-in{width:min(1160px,calc(100% - 32px))}
+body[data-owos-theme="graphite"] .status{padding-inline:16px}
+}
+/* Native form controls inherit the theme's dark color-scheme, which renders a
+   dark dropdown on the light assessment card. Controls follow the surface they
+   sit on, not the page. */
+.concept-assessment, .concept-assessment select, .concept-assessment input,
+.concept-assessment textarea, .concept-assessment button,
+.community-feedback, .community-feedback input, .community-feedback textarea,
+.community-feedback select, .context-drawer, .context-drawer input,
+.context-drawer select, .context-drawer textarea{color-scheme:light}
+.concept-assessment select, .concept-assessment input[type="text"],
+.concept-assessment textarea, .community-feedback input,
+.community-feedback textarea{background:#fff;color:#10263b;
+border:1px solid #8ba6b8;border-radius:3px;font:inherit;padding:10px 12px;
+min-height:44px}
+.concept-assessment select{appearance:none;
+background-image:linear-gradient(45deg,transparent 50%,#1d5c90 50%),
+linear-gradient(135deg,#1d5c90 50%,transparent 50%);
+background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%;
+background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:38px}
+input[type="radio"],input[type="checkbox"]{width:24px;height:24px;min-height:0;
+accent-color:#1d5c90;flex:0 0 auto}
+.assessment-option{display:flex;gap:12px;align-items:flex-start;
+min-height:44px;padding:11px 14px;cursor:pointer}
+/* Inline links inside cards were 17px tall, below the 24px touch minimum, and
+   were coloured for a surface the card does not always use. They inherit the
+   card's colour and carry an underline so the affordance survives. */
+.feedback-actions a,.community-public a,.connection-card a,
+.commercial-card a:not(.commercial-action),.drawer-connection a:not(.primary-action),
+.commercial-directory-note a,.concept-finish a:not(.primary-action),
+.editorial-table a,.source-table a{
+color:inherit;text-decoration:underline;text-underline-offset:2px;
+display:inline-block;min-height:24px;padding:4px 0}
+body[data-owos-theme="graphite"] .feedback-actions a,
+body[data-owos-theme="graphite"] .community-public a,
+body[data-owos-theme="graphite"] .connection-card a,
+body[data-owos-theme="graphite"] .commercial-card a:not(.commercial-action),
+body[data-owos-theme="graphite"] .commercial-directory-note a,
+body[data-owos-theme="graphite"] .concept-finish a:not(.primary-action){
+color:inherit;text-decoration:underline}
+/* The primary action read dark blue on light cyan at 3.72:1. A primary control
+   should be the most legible thing on its surface, so it becomes solid. */
+a.primary-action,button.primary-action,
+a.commercial-action,button.commercial-action{background:#1d5c90;color:#fff;
+border-color:#1d5c90;text-decoration:none}
+body[data-owos-theme="graphite"] a.primary-action,
+body[data-owos-theme="graphite"] button.primary-action,
+body[data-owos-theme="graphite"] a.commercial-action,
+body[data-owos-theme="graphite"] button.commercial-action{background:#1d5c90;
+color:#fff;border-color:#1d5c90;text-decoration:none}
+"""
+
+
+def _match_pair_prompt(pair: dict[str, Any]) -> str:
+    """The learner-visible statement of a matching pair.
+
+    Packages author these as ``left``/``right``. ``prompt``/``answer`` are
+    accepted as aliases so either spelling renders and grades.
+    """
+    for key in ("left", "prompt", "statement"):
+        if pair.get(key):
+            return str(pair[key])
+    return ""
+
+
+def _match_pair_answer(pair: dict[str, Any]) -> str:
+    """The correct target of a matching pair."""
+    for key in ("right", "answer", "target"):
+        if pair.get(key):
+            return str(pair[key])
+    return ""
+
+
 class ConceptBriefError(ValueError):
     """Raised when a Concept Brief package is incomplete or unsafe."""
 
@@ -1159,6 +1289,32 @@ def validate_package(package_dir: Path, *, release_ready: bool = False) -> dict[
                 errors.append(f"assessment {assessment_id}: matching needs three pairs")
             if not isinstance(targets, list) or len(targets) < 3:
                 errors.append(f"assessment {assessment_id}: matching needs three targets")
+            # A pair whose prompt or answer key is missing renders a blank row and
+            # grades against an empty string, so the check silently stops working.
+            if isinstance(pairs, list):
+                for position, pair in enumerate(pairs, start=1):
+                    if not isinstance(pair, dict):
+                        errors.append(
+                            f"assessment {assessment_id} pair {position}: expected an object"
+                        )
+                        continue
+                    prompt_text = _match_pair_prompt(pair)
+                    answer_text = _match_pair_answer(pair)
+                    if not str(prompt_text).strip():
+                        errors.append(
+                            f"assessment {assessment_id} pair {position}: needs a visible "
+                            "statement in left or prompt"
+                        )
+                    if not str(answer_text).strip():
+                        errors.append(
+                            f"assessment {assessment_id} pair {position}: needs an answer "
+                            "in right or answer"
+                        )
+                    elif isinstance(targets, list) and answer_text not in targets:
+                        errors.append(
+                            f"assessment {assessment_id} pair {position}: answer "
+                            f"{answer_text!r} is not one of the declared targets"
+                        )
         if assessment_type == "applied-work-product":
             fields = assessment.get("required_fields")
             if not isinstance(fields, list) or not fields:
@@ -2247,9 +2403,10 @@ def _render_assessment(assessment: dict[str, Any]) -> str:
         )
         rows = "".join(
             '<label class="assessment-match-row">'
-            f'<span>{esc(pair.get("prompt", ""))}</span>'
-            f'<select data-answer="{esc(pair.get("answer", ""))}">{options}</select></label>'
+            f'<span>{esc(_match_pair_prompt(pair))}</span>'
+            f'<select data-answer="{esc(_match_pair_answer(pair))}">{options}</select></label>'
             for pair in assessment.get("pairs") or []
+            if isinstance(pair, dict)
         )
         return (
             f'<section class="concept-assessment" id="{esc(assessment_id)}" '
@@ -3132,6 +3289,10 @@ def build_html(
                 f"shared Concept Brief shell CSS does not exist: {shell_css_path}"
             )
         presentation_css += "\n" + shell_css_path.read_text(encoding="utf-8")
+    # The accessibility floor goes last on purpose. Contrast, gutter, and touch
+    # targets are a release gate, not a palette choice, so a package brand
+    # stylesheet must not be able to override them by loading after the shell.
+    presentation_css += "\n" + ACCESSIBILITY_FLOOR
     title_parts = re.split(r"\s+vs\s+", str(brief["title"]), maxsplit=1, flags=re.IGNORECASE)
     hero_title = (
         f"{esc(title_parts[0])}<br><span style=\"color:var(--gold)\">VS</span> {esc(title_parts[1])}"
@@ -3226,41 +3387,6 @@ letter-spacing:1.2px;color:var(--blue)}}.surface-black .worked-label{{color:var(
 .worked-example p{{margin:0 0 9px;font-size:15px;line-height:1.6}}
 .visual-component{{padding:20px;border:1px dashed #9bb3c2}}
 .visual-alt{{margin:10px 0 0;font-size:14px;color:#3d5666}}
-/* The Graphite shell defaults headings and body copy to light, so any surface
-   introduced here must declare its own treatment or it inherits light text onto
-   a light panel. These follow the shell palette rather than overriding it. */
-body[data-owos-theme="graphite"] .orientation{{background:var(--owos-graphite);
-border-bottom-color:var(--owos-water)}}
-body[data-owos-theme="graphite"] .orientation h2{{color:var(--owos-white)}}
-body[data-owos-theme="graphite"] .orientation-card{{background:var(--owos-charcoal);
-border-left-color:var(--owos-water)}}
-body[data-owos-theme="graphite"] .orientation-card h3{{color:var(--owos-water)}}
-body[data-owos-theme="graphite"] .orientation-card p,
-body[data-owos-theme="graphite"] .orientation-card li{{color:var(--owos-body)}}
-body[data-owos-theme="graphite"] .orientation-outcomes{{background:var(--owos-charcoal)}}
-body[data-owos-theme="graphite"] .orientation-outcomes li{{color:var(--owos-body)}}
-body[data-owos-theme="graphite"] .orientation-boundary{{background:rgba(125,198,232,.09);
-border-left-color:var(--owos-water);color:var(--owos-body)}}
-body[data-owos-theme="graphite"] .orientation-boundary b{{color:var(--owos-white)}}
-body[data-owos-theme="graphite"] .definition{{background:var(--owos-charcoal);
-border-left-color:var(--owos-water)}}
-body[data-owos-theme="graphite"] .definition-term{{color:var(--owos-white)}}
-body[data-owos-theme="graphite"] .definition-meaning{{color:var(--owos-body)}}
-body[data-owos-theme="graphite"] .definition-example{{color:#bcd9e8}}
-body[data-owos-theme="graphite"] .definition-limit{{color:#e8cf95}}
-body[data-owos-theme="graphite"] .definition b{{color:var(--owos-white)}}
-body[data-owos-theme="graphite"] .worked-example{{background:var(--owos-charcoal);
-border-left-color:var(--owos-water)}}
-body[data-owos-theme="graphite"] .worked-example p{{color:var(--owos-body)}}
-body[data-owos-theme="graphite"] .worked-example b{{color:var(--owos-white)}}
-body[data-owos-theme="graphite"] .worked-label{{color:var(--owos-water)}}
-/* Contrast repairs for surfaces the Graphite theme inverts. The theme turns the
-   off_white beat band into charcoal and keeps the assessment card and drawers
-   light, so headings and kickers set for the light composition end up unreadable
-   on the surface they actually land on. */
-body[data-owos-theme="graphite"] .concept-assessment h3{{color:var(--ink)}}
-body[data-owos-theme="graphite"] .learner-question{{color:var(--owos-water)}}
-body[data-owos-theme="graphite"] .context-drawer .section-kicker{{color:var(--blue)}}
 .claim-pending,.claim-rejected{{background:#fde4e4;color:var(--red)}}figure{{margin:20px 0}}
 figure img{{max-width:100%;height:auto;display:block}}figcaption{{padding:14px;background:#edf5f8;
 color:#173145}}.interaction{{padding:24px;background:#000;color:#fff;border:1px solid #333}}

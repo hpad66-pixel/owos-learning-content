@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import re
 import shutil
 import tempfile
 from pathlib import Path
@@ -19,6 +20,8 @@ from concept_brief_compiler import (
 
 ROOT = Path(__file__).resolve().parents[1]
 PILOT = ROOT / "concept-briefs/coagulation-vs-flocculation"
+# The pilot has no matching check, so the matching guards use brief 003.
+MATCHING_BRIEF = ROOT / "concept-briefs/detention-retention-and-infiltration"
 
 
 package = validate_package(PILOT)
@@ -388,6 +391,59 @@ with tempfile.TemporaryDirectory() as directory:
 
 with tempfile.TemporaryDirectory() as directory:
     fixture = Path(directory) / "brief"
+    shutil.copytree(MATCHING_BRIEF, fixture)
+    assessments_path = fixture / "assessments.yaml"
+    assessments = yaml.safe_load(assessments_path.read_text(encoding="utf-8"))
+    for item in assessments["assessments"]:
+        if item.get("type") == "matching":
+            item["pairs"][0].pop("left", None)
+            item["pairs"][0].pop("prompt", None)
+            item["pairs"][1]["right"] = "not a declared target"
+            break
+    else:
+        raise AssertionError("brief 003 no longer contains a matching assessment")
+    assessments_path.write_text(
+        yaml.safe_dump(assessments, sort_keys=False),
+        encoding="utf-8",
+    )
+    try:
+        validate_package(fixture)
+    except ConceptBriefError as error:
+        for phrase in (
+            "needs a visible statement in left or prompt",
+            "is not one of the declared targets",
+        ):
+            if phrase not in str(error):
+                raise AssertionError(
+                    f"matching pair integrity guard did not expose: {phrase}"
+                ) from error
+    else:
+        raise AssertionError("a matching check with a blank row and a bad answer passed")
+
+with tempfile.TemporaryDirectory() as directory:
+    # A matching check must reach the page with a visible statement and a real
+    # graded answer. Authoring uses left/right; the renderer previously read
+    # prompt/answer and silently emitted blank rows that graded against "".
+    output = Path(directory) / "matching.html"
+    build_html(
+        MATCHING_BRIEF, output, allow_pre_research_prototype=True, public_preview=True
+    )
+    rendered = output.read_text(encoding="utf-8")
+    rows = re.findall(
+        r'<label class="assessment-match-row"><span>(.*?)</span>'
+        r'<select data-answer="(.*?)"',
+        rendered,
+    )
+    if not rows:
+        raise AssertionError("no matching rows were rendered")
+    for prompt_text, answer_text in rows:
+        if not prompt_text.strip():
+            raise AssertionError("a matching row rendered without a visible statement")
+        if not answer_text.strip():
+            raise AssertionError("a matching row rendered without a graded answer")
+
+with tempfile.TemporaryDirectory() as directory:
+    fixture = Path(directory) / "brief"
     shutil.copytree(PILOT, fixture)
     (fixture / "white-paper.md").write_text("# placeholder\n", encoding="utf-8")
     result = validate_package(fixture)
@@ -402,5 +458,5 @@ print(
     "OWOS Concept Brief Compiler QA passed: deterministic working builds, complete verification "
     "coverage, qualified review, United States authority scope, commercial firewall, Community "
     "mount, durable learning records, instructional orientation, define-before-use, worked "
-    "examples, and portfolio uniqueness are fail-closed."
+    "examples, matching-check integrity, and portfolio uniqueness are fail-closed."
 )

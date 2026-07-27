@@ -616,6 +616,31 @@ Public release is blocked when:
 - a commercial claim lacks its own evidence and label; or
 - a conflict of interest is missing.
 
+## Rendered-quality gate
+
+Structural validation cannot see the page. A package can satisfy every schema rule and still compile
+to something unreadable, because contrast, gutters, overflow, and touch targets are properties of the
+rendered result rather than of the record.
+
+Every brief therefore passes an automated rendered audit at desktop, tablet, and phone widths before
+it is offered for owner review:
+
+- text meets WCAG 2.1 contrast against its real composited background: 4.5:1 for normal text and
+  3:1 for large text;
+- no text starts closer to the viewport edge than the page's own content inset;
+- the document has no horizontal overflow at any width; and
+- interactive controls are at least 24 by 24 pixels.
+
+Run `node tools/audit-concept-brief-rendering.cjs <compiled.html>`. A non-zero exit blocks the
+review. Findings are recorded in the QA report and the build manifest.
+
+The accessibility floor is compiled after the package brand stylesheet and the shared shell, and it
+uses literal colour values rather than theme variables. A package can define its own palette; it
+cannot lower the floor, and it cannot lower the floor by accident by remapping a shared variable.
+
+Components inherit their text colour from the card that contains them. A brief may use a light or a
+dark variant of the same component, so a rule that forces one colour breaks the other.
+
 ## Quality gates
 
 Every brief has these hard gates:

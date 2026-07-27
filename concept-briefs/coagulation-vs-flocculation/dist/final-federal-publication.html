@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="owos-contract" content="owos-concept-brief/2">
 <meta name="owos-compiler-version" content="2.1.0">
-<meta name="owos-package-checksum" content="3bcf593c0e1372c5bdef7165d4ba8e39a92c0314c97e257cbb02b8a1240fa131">
+<meta name="owos-package-checksum" content="3f46acd879a90d377032b05c5a727162c34bccf16ba989c2b9f56ec47b0f7235">
 <meta name="owos-brief-id" content="owos:concept-brief:001">
 <meta name="owos-brief-version" content="EDITION 1.0">
 <meta name="owos-release-state" content="public-review-preview">
@@ -70,41 +70,6 @@ letter-spacing:1.2px;color:var(--blue)}.surface-black .worked-label{color:var(--
 .worked-example p{margin:0 0 9px;font-size:15px;line-height:1.6}
 .visual-component{padding:20px;border:1px dashed #9bb3c2}
 .visual-alt{margin:10px 0 0;font-size:14px;color:#3d5666}
-/* The Graphite shell defaults headings and body copy to light, so any surface
-   introduced here must declare its own treatment or it inherits light text onto
-   a light panel. These follow the shell palette rather than overriding it. */
-body[data-owos-theme="graphite"] .orientation{background:var(--owos-graphite);
-border-bottom-color:var(--owos-water)}
-body[data-owos-theme="graphite"] .orientation h2{color:var(--owos-white)}
-body[data-owos-theme="graphite"] .orientation-card{background:var(--owos-charcoal);
-border-left-color:var(--owos-water)}
-body[data-owos-theme="graphite"] .orientation-card h3{color:var(--owos-water)}
-body[data-owos-theme="graphite"] .orientation-card p,
-body[data-owos-theme="graphite"] .orientation-card li{color:var(--owos-body)}
-body[data-owos-theme="graphite"] .orientation-outcomes{background:var(--owos-charcoal)}
-body[data-owos-theme="graphite"] .orientation-outcomes li{color:var(--owos-body)}
-body[data-owos-theme="graphite"] .orientation-boundary{background:rgba(125,198,232,.09);
-border-left-color:var(--owos-water);color:var(--owos-body)}
-body[data-owos-theme="graphite"] .orientation-boundary b{color:var(--owos-white)}
-body[data-owos-theme="graphite"] .definition{background:var(--owos-charcoal);
-border-left-color:var(--owos-water)}
-body[data-owos-theme="graphite"] .definition-term{color:var(--owos-white)}
-body[data-owos-theme="graphite"] .definition-meaning{color:var(--owos-body)}
-body[data-owos-theme="graphite"] .definition-example{color:#bcd9e8}
-body[data-owos-theme="graphite"] .definition-limit{color:#e8cf95}
-body[data-owos-theme="graphite"] .definition b{color:var(--owos-white)}
-body[data-owos-theme="graphite"] .worked-example{background:var(--owos-charcoal);
-border-left-color:var(--owos-water)}
-body[data-owos-theme="graphite"] .worked-example p{color:var(--owos-body)}
-body[data-owos-theme="graphite"] .worked-example b{color:var(--owos-white)}
-body[data-owos-theme="graphite"] .worked-label{color:var(--owos-water)}
-/* Contrast repairs for surfaces the Graphite theme inverts. The theme turns the
-   off_white beat band into charcoal and keeps the assessment card and drawers
-   light, so headings and kickers set for the light composition end up unreadable
-   on the surface they actually land on. */
-body[data-owos-theme="graphite"] .concept-assessment h3{color:var(--ink)}
-body[data-owos-theme="graphite"] .learner-question{color:var(--owos-water)}
-body[data-owos-theme="graphite"] .context-drawer .section-kicker{color:var(--blue)}
 .claim-pending,.claim-rejected{background:#fde4e4;color:var(--red)}figure{margin:20px 0}
 figure img{max-width:100%;height:auto;display:block}figcaption{padding:14px;background:#edf5f8;
 color:#173145}.interaction{padding:24px;background:#000;color:#fff;border:1px solid #333}
@@ -2612,9 +2577,11 @@ body[data-owos-theme="graphite"] .testimonial-consent {
 
 body[data-owos-theme="graphite"] .testimonial-consent input {
   flex: none;
-  width: 18px;
-  min-height: 18px;
-  margin: 3px 0 0;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 1px 0 0;
 }
 
 body[data-owos-theme="graphite"] .context-drawer {
@@ -2662,6 +2629,111 @@ body[data-owos-theme="graphite"] footer {
     padding: 0 0 32px;
   }
 }
+
+
+/* The Graphite shell defaults headings and body copy to light, so any surface
+   introduced here must declare its own treatment or it inherits light text onto
+   a light panel. These follow the shell palette rather than overriding it. */
+body[data-owos-theme="graphite"] .orientation{background:var(--owos-graphite);
+border-bottom-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation h2{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .orientation-card{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation-card h3{color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation-card p,
+body[data-owos-theme="graphite"] .orientation-card li{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-outcomes{background:var(--owos-charcoal)}
+body[data-owos-theme="graphite"] .orientation-outcomes li{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-boundary{background:rgba(125,198,232,.09);
+border-left-color:var(--owos-water);color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-boundary b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .definition{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .definition-term{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .definition-meaning{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .definition-example{color:#bcd9e8}
+body[data-owos-theme="graphite"] .definition-limit{color:#e8cf95}
+body[data-owos-theme="graphite"] .definition b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .worked-example{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .worked-example p{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .worked-example b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .worked-label{color:var(--owos-water)}
+/* Contrast repairs for surfaces the Graphite theme inverts. The theme turns the
+   off_white beat band into charcoal and keeps the assessment card and drawers
+   light, so headings and kickers set for the light composition end up unreadable
+   on the surface they actually land on. */
+/* Cards carry a correct text colour for their own background, and a brief
+   may use a light or a dark variant of the same card. Headings and links
+   inherit from the card instead of being forced to one surface. */
+.concept-assessment h3,.concept-assessment h4{color:inherit}
+body[data-owos-theme="graphite"] .concept-assessment h3,
+body[data-owos-theme="graphite"] .concept-assessment h4{color:inherit}
+body[data-owos-theme="graphite"] .learner-question{color:var(--owos-water)}
+body[data-owos-theme="graphite"] .context-drawer .section-kicker{color:#1d5c90}
+/* Gutter repairs. The band header and the status bar carried colour and type
+   but no content geometry, so their text ran to the viewport edge while every
+   beat body sat inside the wrapper. The bar stays full bleed; only its text
+   moves in. */
+.band-in{width:min(1080px,calc(100% - 32px));margin:0 auto;padding:18px 0;
+display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;align-items:baseline}
+.band-txt{min-width:0}
+.status{padding-inline:max(16px,calc((100% - 1080px)/2))}
+body[data-owos-theme="graphite"] .band-in{width:min(1160px,calc(100% - 80px))}
+body[data-owos-theme="graphite"] .status{padding-inline:max(40px,calc((100% - 1160px)/2))}
+@media (max-width:760px){
+.band-in{width:min(1080px,calc(100% - 32px))}
+body[data-owos-theme="graphite"] .band-in{width:min(1160px,calc(100% - 32px))}
+body[data-owos-theme="graphite"] .status{padding-inline:16px}
+}
+/* Native form controls inherit the theme's dark color-scheme, which renders a
+   dark dropdown on the light assessment card. Controls follow the surface they
+   sit on, not the page. */
+.concept-assessment, .concept-assessment select, .concept-assessment input,
+.concept-assessment textarea, .concept-assessment button,
+.community-feedback, .community-feedback input, .community-feedback textarea,
+.community-feedback select, .context-drawer, .context-drawer input,
+.context-drawer select, .context-drawer textarea{color-scheme:light}
+.concept-assessment select, .concept-assessment input[type="text"],
+.concept-assessment textarea, .community-feedback input,
+.community-feedback textarea{background:#fff;color:#10263b;
+border:1px solid #8ba6b8;border-radius:3px;font:inherit;padding:10px 12px;
+min-height:44px}
+.concept-assessment select{appearance:none;
+background-image:linear-gradient(45deg,transparent 50%,#1d5c90 50%),
+linear-gradient(135deg,#1d5c90 50%,transparent 50%);
+background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%;
+background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:38px}
+input[type="radio"],input[type="checkbox"]{width:24px;height:24px;min-height:0;
+accent-color:#1d5c90;flex:0 0 auto}
+.assessment-option{display:flex;gap:12px;align-items:flex-start;
+min-height:44px;padding:11px 14px;cursor:pointer}
+/* Inline links inside cards were 17px tall, below the 24px touch minimum, and
+   were coloured for a surface the card does not always use. They inherit the
+   card's colour and carry an underline so the affordance survives. */
+.feedback-actions a,.community-public a,.connection-card a,
+.commercial-card a:not(.commercial-action),.drawer-connection a:not(.primary-action),
+.commercial-directory-note a,.concept-finish a:not(.primary-action),
+.editorial-table a,.source-table a{
+color:inherit;text-decoration:underline;text-underline-offset:2px;
+display:inline-block;min-height:24px;padding:4px 0}
+body[data-owos-theme="graphite"] .feedback-actions a,
+body[data-owos-theme="graphite"] .community-public a,
+body[data-owos-theme="graphite"] .connection-card a,
+body[data-owos-theme="graphite"] .commercial-card a:not(.commercial-action),
+body[data-owos-theme="graphite"] .commercial-directory-note a,
+body[data-owos-theme="graphite"] .concept-finish a:not(.primary-action){
+color:inherit;text-decoration:underline}
+/* The primary action read dark blue on light cyan at 3.72:1. A primary control
+   should be the most legible thing on its surface, so it becomes solid. */
+a.primary-action,button.primary-action,
+a.commercial-action,button.commercial-action{background:#1d5c90;color:#fff;
+border-color:#1d5c90;text-decoration:none}
+body[data-owos-theme="graphite"] a.primary-action,
+body[data-owos-theme="graphite"] button.primary-action,
+body[data-owos-theme="graphite"] a.commercial-action,
+body[data-owos-theme="graphite"] button.commercial-action{background:#1d5c90;
+color:#fff;border-color:#1d5c90;text-decoration:none}
 </style>
 </head>
 <body data-owos-theme="graphite">

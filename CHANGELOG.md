@@ -3,6 +3,34 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.30.0] - 2026-07-27
+### Added: rendered-quality gate
+- Added `tools/audit-concept-brief-rendering.cjs`, a Playwright audit that opens the compiled brief
+  at desktop, tablet, and phone and fails on WCAG 2.1 contrast against the real composited
+  background, text closer to the viewport edge than the page's own content inset, horizontal
+  overflow, and touch targets under 24 pixels.
+- Made it a contract gate. Structural validation cannot see the page, so a package could satisfy
+  every schema rule and still compile to something unreadable.
+- Moved the accessibility rules into `ACCESSIBILITY_FLOOR`, compiled after the package brand
+  stylesheet and the shared shell, using literal colour values rather than theme variables. The
+  reference package remaps `--blue` to a light cyan, which silently pulled the floor down with it.
+
+### Fixed
+- Matching checks were rendering blank. Packages author pairs as `left`/`right`; the renderer read
+  `prompt`/`answer`, so every matching row emitted an empty statement and `data-answer=""`. The
+  learner saw an unlabeled dropdown and the grader compared against an empty string. The renderer
+  now accepts either spelling, and validation rejects a pair with no visible statement, no answer,
+  or an answer that is not one of the declared targets.
+- Repaired the band header and status bar gutters. Both carried colour and type but no content
+  geometry, so their text ran to the viewport edge while every beat body sat inside the wrapper.
+- Native form controls inherited the theme's dark `color-scheme`, putting dark dropdowns on light
+  assessment cards. Controls now follow the surface they sit on.
+- Headings and links inside cards inherit the card's colour instead of being forced to one surface,
+  so the light and dark variants of the same component both stay legible.
+- Raised the primary and commercial actions to solid fills, the consent checkbox to 24 pixels in the
+  shared shell, and gave inline links in cards, tables, and citations a 24 pixel touch target.
+- Both briefs now report zero contrast, gutter, overflow, and tap-target defects at all three widths.
+
 ## [0.29.0] - 2026-07-27
 ### Added: instructional orientation contract for the Concept Engine
 - Raised the Concept Brief Production Contract to 2.2.0 with an instructional orientation contract.

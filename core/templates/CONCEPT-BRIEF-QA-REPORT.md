@@ -74,6 +74,21 @@ blocked hard gate.
 - [ ] The white paper and the compiled brief carry the same argument. Every teaching move in the
   paper has a home in the storyboard, and every rendered section has a basis in the paper.
 
+## Rendered-quality checks
+
+Run `node tools/audit-concept-brief-rendering.cjs <compiled.html>` and paste the result.
+
+- [ ] Contrast passes at desktop, tablet, and phone: 4.5:1 normal text, 3:1 large text, measured
+  against the real composited background.
+- [ ] No text starts closer to the viewport edge than the page's content inset.
+- [ ] No horizontal overflow at any width.
+- [ ] Interactive controls are at least 24 by 24 pixels.
+- [ ] Every assessment renders its prompts, options, and graded answers. A matching check shows a
+  visible statement on every row.
+- [ ] Native form controls follow the surface they sit on rather than the page theme.
+
+Audit result: `contrast __ / gutter __ / overflow __ / tap __`
+
 ## Learner-economy checks
 
 - [ ] A short “In 30 seconds” orientation appears near the beginning.
