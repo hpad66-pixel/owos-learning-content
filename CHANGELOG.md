@@ -3,6 +3,32 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.34.0] - 2026-07-27
+### Changed: Variant B selected, Variant A retired
+- Owner selected Variant B as the design for Concept Brief 003. The Variant A rendered experience is
+  removed from `dist/`. Its evidence base is kept deliberately, because Variant B is built on it and
+  none of it was rejected: the white paper, claims, sources, verification dossier, added-terminology
+  dossier, and Florida companion remain the governing evidence. The full Variant A build stays
+  recoverable at tag `concept-brief-003-version-a`.
+
+### Added: Variant B second pass
+- A graphic for every dependent term. Six original cross-section diagrams built as one visual family,
+  each required to teach with its caption removed, which is the test the retired visuals failed.
+  Detention is a wide inlet against a narrow outlet. Retention is one word drawn as two pictures.
+  Infiltration is a doorway with four exits below it. The permanent pool shows the working capacity
+  as the empty space above the water. Outlet and overflow sit at two heights. Tailwater shows one
+  outlet against a low and a high creek.
+- A sticky reading rail with current stage and minutes remaining, so the time commitment is visible
+  from the first screen.
+- The cross-sector connection the production contract requires and the first build lacked: rain
+  entering a separate sanitary sewer, carrying the correction that EPA cannot separate
+  rainfall-induced infiltration from delayed inflow.
+- A sources and scope surface. The evidence was traceable in the package and invisible on the page.
+- Connected learning naming four briefs this one deliberately stops short of.
+- A community and value plane: practitioner conversation, a correction path that re-enters
+  verification rather than living in a comment thread, the editorial-independence disclosure, APAS.ai
+  and Droobi attribution, and a copyright position separating original work from federal material.
+
 ## [0.33.0] - 2026-07-27
 ### Fixed: Variant B flip cards were structurally collapsed
 - The flip-card inner element was a `<span>`, so it computed to `display:inline` and its `width`,

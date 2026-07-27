@@ -3,7 +3,7 @@ variant: B
 title: Detention, Retention, and Infiltration
 subtitle: The pond is not the answer. The route is.
 author: Claude (original curriculum interpretation)
-status: for_owner_comparison_against_variant_a
+status: selected_design_variant_a_retired
 html_authorized: review_only
 evidence_basis: white-paper.md 0.7 and research/added-terminology-source-dossier.md
 date: 2026-07-27
@@ -11,8 +11,15 @@ date: 2026-07-27
 
 # Variant B curriculum rationale
 
-Variant A is preserved and unchanged. This is a different reading of the same approved evidence, so
-the owner can choose between two instructional arguments rather than between two skins.
+**Owner decision, 2026-07-27: Variant B is the selected design. Variant A is retired.**
+
+The Variant A rendered experience has been removed from `dist/`. Its evidence base is deliberately
+kept, because Variant B is built on it and none of it was the problem: `white-paper.md` 0.7, the
+claim and source records, the verification dossier, the added-terminology source dossier, and the
+Florida research companion all remain the governing evidence. The full Variant A build stays
+recoverable at git tag `concept-brief-003-version-a`.
+
+What was rejected was the instructional argument, not the research.
 
 ## What I changed and why
 
@@ -96,6 +103,32 @@ comes from clarity, not from data entry.
   final gate, decorative arrows, and any graphic that needs its caption to mean anything.
 - **Difference from Variant A:** A covers the domain. B changes how one thing is seen and hands the
   rest to the connected briefs.
+
+## What was added after the first owner review
+
+The first build carried the argument but under-served the terms it depends on, and it stopped at the
+learning without connecting to anything.
+
+- **A graphic per definition.** Six original diagrams, one for each dependent term, built as a
+  consistent cross-section family. Each has to teach with its caption removed, which is the test the
+  Variant A visuals failed. Detention is a wide inlet against a narrow outlet. Retention is one word
+  drawn as two different pictures. Infiltration is a doorway with four exits below it. The permanent
+  pool shows the working capacity as the empty space above the water. Outlet and overflow sit at two
+  heights. Tailwater shows the same outlet against a low and a high creek.
+- **A reading rail.** Sticky progress bar with the current stage and minutes remaining, so the time
+  commitment is visible from the first screen rather than buried in the orientation.
+- **The cross-sector connection.** The production contract requires one and the first build had
+  none. Rain entering a separate sanitary sewer, carrying the correction that EPA cannot separate
+  rainfall-induced infiltration from delayed inflow, so response shape narrows the question rather
+  than answering it.
+- **A sources and scope surface.** The evidence was traceable in the package and invisible on the
+  page. Five federal sources with what each one supports, plus an explicit statement of what review
+  is still open.
+- **Connected learning.** Four briefs this one deliberately stops short of, which is how the
+  one-idea discipline stays honest rather than becoming an excuse for thin coverage.
+- **The community and value plane.** Practitioner conversation, a correction path that re-enters
+  verification rather than living in a comment thread, the editorial-independence disclosure, APAS.ai
+  and Droobi attribution, and the copyright position separating original work from federal material.
 
 ## Evidence position
 
