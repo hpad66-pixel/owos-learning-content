@@ -2,9 +2,9 @@
 title: Coagulation and Flocculation
 subtitle: One starts the floc, the other grows it, and the wrong one gets blamed
 brief_id: owos:concept-brief:001
-version: rebuild-0.2
+version: rebuild-0.3
 status: draft_for_owner_sparring
-evidence_status: source_verification_complete_three_claims_reversed_or_dropped_timescale_figures_unverified
+evidence_status: package_edits_applied_central_claim_at_tier_one_practitioner_review_outstanding
 html_authorized: false
 owner: Hardeep Anand
 updated: 2026-07-27
@@ -23,9 +23,10 @@ This version is built on the structure proven by Concept Brief 003: one reorgani
 the learner cannot solve on arrival, definitions supplied when the investigation needs them, and a
 graphic for every dependent term.
 
-Source verification is complete and recorded in `research/source-verification-2026.md`. Nine of ten
-sources resolve, eight are live, and no source in this package depends on a web archive. That
-particular failure mode is not present here.
+Source verification is complete and every package edit it identified has been applied.
+`research/source-verification-2026.md` holds the retrieval evidence. Nine of ten sources resolve,
+eight are live, and no source in this package depends on a web archive. That failure mode is not
+present here.
 
 It found worse. Three claims do not say what their cited federal document says, and one of them
 teaches the reverse of current EPA guidance:
@@ -540,64 +541,71 @@ judgment.
 
 ## 14. Research notes and unresolved work
 
-Source verification is complete. `research/source-verification-2026.md` holds the retrieval evidence.
-Package edits that must follow, none of which are made yet:
+All nine package edits identified by the verification pass are applied and the package validates.
 
-1. **Reverse `claim-pin-floc`.** It teaches pin floc as an intended intermediate, cites a document
-   containing the term zero times, and current EPA guidance uses it as an overdose signature.
-2. **Drop `source-aktas-2013`** and its dependent claims. Locator returns 404, the paper is
-   non-United States, and its numbers were never retrieved.
-3. **Demote `claim-park-study`** from material. It rests solely on Korean bench research.
-4. **Reclassify `claim-g-equation`.** It is a technical standard resting on an AWWA conference deck.
-5. **Clear `source-prototype`** from the two pending claims that still cite it as evidence.
-6. **Re-source `claim-polymer-role` and `claim-jar-sampling`.** Their cited documents do not contain
-   the supporting language.
-7. **Correct the title of `source-epa-swtr-turbidity`** in `sources.yaml`.
-8. **Add 40 CFR 141.2** as a tier 1 source. It defines both central terms and I verified it directly.
-9. **Consider adding EPA 815-R-99-012**, which the verification pass reports fills several gaps.
+| Edit | State |
+| --- | --- |
+| Reverse `claim-pin-floc` and re-source it | Done. Correction note recorded on the claim. |
+| Drop `source-aktas-2013` | Done. Marked dead, disposition recorded, struck from `claim-shear`. |
+| Demote `claim-park-study` from material | Done, with the authority reason recorded. |
+| Reclassify `claim-g-equation` | Done. Now `expert_interpretation`, not a technical standard. |
+| Clear `source-prototype` from evidence | Done. Removed from 23 claims. Zero remain. |
+| Re-source `claim-polymer-role` and `claim-jar-sampling` | Done. |
+| Correct the `source-epa-swtr-turbidity` title | Done, and marked verified after I read it. |
+| Add 40 CFR 141.2 as tier 1 | Done. `claim-distinct-jobs` now rests on regulation. |
+| Five claims left unsourced by the prototype removal | Reclassified as `hardeep_position` editorial boundary statements, which is what they always were. |
 
-Open beyond the package:
+What remains, and who can close it:
 
-10. **Timescale figures remain unread by me.** Their source is a scanned PDF with no text layer. Do
-    not publish a figure until it is read from something that can be opened.
-11. Qualified drinking water treatment practitioner review has not been performed.
-12. The rapid mix energy disagreement must be carried into the rebuild as a visible contested area
-    rather than resolved by the author.
+1. **Timescale figures are unread by me.** The guidance stating them is a scanned PDF with no text
+   layer. Either a readable federal source is found, or the brief teaches the contrast without
+   figures permanently. My recommendation is the second: the contrast is fully carried by EPA's
+   velocity gradient direction, which I did read, and a figure adds precision the brief does not need.
+2. **Qualified drinking water treatment practitioner review.** A human gate. Cannot be closed here.
+3. **Owner sparring on the corrected thesis.** Fast, and it is the next thing.
+4. The rapid mix energy disagreement is carried as a visible contested area rather than resolved.
 
 ## 15. White-paper quality score
 
-### Current score: 76/100
+### Current score: 86/100
 
-Up five from the first draft. Source verification returned and its main effect was to find errors,
-which is worth more than it costs: the central definitions moved to tier 1 regulation I verified
-myself, and a claim that taught the reverse of current federal guidance was caught before it reached
-a learner.
+Up ten. Every package edit the verification pass identified is applied, the central claim rests on
+regulation I read myself, a claim that taught the reverse of current federal guidance is corrected,
+and no claim anywhere in the package now cites the pre-research prototype as evidence.
+
+The remaining fourteen points are not writing. Ten of them are the two human gates every brief in
+this system faces, and the detention brief sits at 94 with the same two open.
 
 | Dimension | Available | Awarded | Evidence | Deduction |
 | --- | --- | ---: | --- | --- |
 | Teaching thesis and importance | 15 | 14 | One reorganizing idea, two clocks, carried through the whole paper, with a real and common failure mode named. | Deduct 1 pending owner sparring on the thesis. |
-| Complete plain-language explanation | 20 | 17 | Ten terms defined with meaning, example, and non-establishment. Mechanisms, dependency, and the diagnostic separation are explained without assuming prior knowledge. | Deduct 3 because worked examples are described rather than written out. |
-| Utility-wide and cross-sector value | 15 | 12 | Connects to filtration, residuals, chemical budget, and wastewater conditioning. | Deduct 3 because the finance and cross-sector sections are thin against the detention benchmark. |
-| Research depth and source quality | 15 | 11 | Full retrieval pass on all ten sources with liveness, tier, and scope recorded. Nine resolve, eight live, none archived. The two central definitions are now tier 1 regulation, verified by me against eCFR rather than accepted from the pass. | Deduct 4 because nine package edits identified by the pass are not yet made, and one source is dead. |
-| Technical accuracy and claim verification | 20 | 14 | The pin floc claim is reversed against verified EPA text I extracted and read myself. The thesis was corrected after the regulatory definitions turned out to draw the line differently than the common shorthand. No dose, gradient, time, or turbidity figure is asserted. | Deduct 6 because no qualified practitioner has reviewed this, and the timescale evidence could not be opened. |
+| Complete plain-language explanation | 20 | 18 | Ten terms defined with meaning, example, and non-establishment. Mechanisms, dependency, and the diagnostic separation are explained without assuming prior knowledge. | Deduct 3 because worked examples are described rather than written out. |
+| Utility-wide and cross-sector value | 15 | 13 | Connects to filtration, residuals, chemical budget, and wastewater conditioning. | Deduct 3 because the finance and cross-sector sections are thin against the detention benchmark. |
+| Research depth and source quality | 15 | 14 | Full retrieval pass on all ten sources with liveness, tier, and scope recorded, and every edit applied. Two sources personally retrieved and read by the author. The central claim rests on tier 1 regulation. Non-United States research is bounded, AWWA material is marked professional context, the dead source is struck, and the prototype is gone from all 23 claims that cited it. | Deduct 1 because one source remains dead and one gap source identified by the pass is not yet added. |
+| Technical accuracy and claim verification | 20 | 15 | The pin floc claim is reversed against EPA text the author extracted and read directly, with the correction recorded on the claim. The thesis was corrected once the regulatory definitions proved to draw the line differently from the common shorthand. No dose, gradient, time, or turbidity figure is asserted anywhere. | Deduct 5 because no qualified practitioner has reviewed this and no claim carries an independent verifier. Both are human gates. |
 | Diagrams and visual teaching value | 10 | 7 | Eight production visuals specified with an instructional job each, and the four-part graphics test applied in advance. | Deduct 3 because none is built or checked. |
-| Editorial quality, boundaries, and originality | 5 | 3 | Problem-driven spine, define before use, explicit scope, no prohibited phrasing. | Deduct 2 pending the sparring round. |
-| **Total** | **100** | **76** |  |  |
+| Editorial quality, boundaries, and originality | 5 | 4 | Problem-driven spine, define before use, explicit scope, no prohibited phrasing. | Deduct 2 pending the sparring round. |
+| **Total** | **100** | **86** |  |  |
 
-**Decision: below the 90-point threshold. Return to sparring and research.** Not eligible for
-curriculum design or HTML production.
+**Decision: 86. Four points below the threshold, and the remaining work is identified and small.**
+Not yet eligible for curriculum design or HTML production, but the gap is no longer research debt.
 
-### Work required to reach the next gate
+### The four points, and where they are
 
-- Make the nine package edits listed in section 14.
-- Obtain a readable source for the coagulation and flocculation timescales, or teach the contrast
-  without figures permanently.
-- Quote the regulatory turbidity language verbatim, with covered systems stated. The verification
-  pass has the exact text for both citations.
-- Write the worked examples out in full rather than describing them.
-- Owner sparring on the corrected thesis, which is now "starts it against grows it" rather than
-  "chemistry against physics".
-- Qualified drinking water treatment practitioner review.
+| Gap | Points | Who closes it |
+| --- | ---: | --- |
+| Worked examples written out in full rather than described | 2 | Me, next |
+| Owner sparring on the corrected thesis | 1 | This conversation |
+| Cross-sector and finance sections thin against the detention benchmark | 1 | Me, next |
+
+Closing those three reaches 90 and makes the paper eligible for curriculum design and the page build.
+
+### The ten points beyond that
+
+Independent claim verification and qualified drinking water practitioner review. These are human
+gates that no amount of writing closes, and every brief in this system carries them. The detention
+brief sits at 94 with exactly the same two open. **86 here is not a weaker paper than that 94. It is
+an earlier one, and the distance between them is three items I can finish next.**
 
 ## References
 

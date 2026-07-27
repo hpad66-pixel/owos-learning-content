@@ -2,632 +2,727 @@ schema_version: 1
 contract: owos-concept-brief/2
 brief_id: owos:concept-brief:001
 inventory_status: complete_for_supplied_html_v4_2
-inventory_method: Material factual, regulatory, technical, quantitative, practice, and outcome assertions were extracted from all visible source sections. Interface labels and purely rhetorical copy were excluded.
+inventory_method: Material factual, regulatory, technical, quantitative, practice, and outcome assertions
+  were extracted from all visible source sections. Interface labels and purely rhetorical copy were excluded.
 claims:
-  - claim_id: claim-distinct-jobs
-    claim_text: Coagulation destabilizes particles or forms precipitates, while flocculation uses controlled contact to grow aggregates.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-lt1]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Drinking-water clarification.
-    limitations: Coagulation can involve charge neutralization, sweep coagulation, adsorption, bridging, or combinations; the chemical-versus-physical shorthand is incomplete.
-    affected_blocks: [block-opening]
-    research_disposition: retain_with_mechanism_nuance
-  - claim_id: claim-universal-nonsettling
-    claim_text: All clay, silt, algae, organic colour, bacteria, and precipitated metals are too small and electrically stable to ever settle, so gravity can never remove them.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original opening statement.
-    limitations: The listed materials span different particle sizes, densities, surface chemistries, and settling behaviour.
-    affected_blocks: [block-opening]
-    research_disposition: replace_with_conditioned_statement
-  - claim_id: claim-particle-stability
-    claim_text: Some fine and colloidal particles settle very slowly because of their size and stability, and coagulation-flocculation can improve their removal.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-lt1]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Drinking-water clarification.
-    limitations: Settling behaviour remains water-specific and particle-specific.
-    affected_blocks: [block-opening]
-    research_disposition: replacement_for_claim_universal_nonsettling
-  - claim_id: claim-us-credit-at-coagulation
-    claim_text: Under the United States Surface Water Treatment Rule, turbidity and log-removal credit is earned in coagulation rather than at the filter.
-    claim_type: regulatory_requirement
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype, source-epa-swtr-turbidity]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original United States regulatory statement.
-    limitations: Filtered-water turbidity is a regulated performance measure and removal credit is associated with the treatment train, not coagulation alone.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: do_not_publish
-  - claim_id: claim-us-filtered-water-turbidity
-    claim_text: Under applicable United States Surface Water Treatment Rules, conventional and direct filtration systems must meet combined filter effluent turbidity limits of 0.3 NTU in at least 95 percent of measurements each month and 1 NTU as the maximum.
-    claim_type: regulatory_requirement
-    material: true
-    technical: true
-    evidence_tier: us_federal_regulation
-    source_ids: [source-ecfr-141-173, source-ecfr-141-551, source-epa-swtr-turbidity]
-    verification_methods: [source_trace]
-    verification_status: pending
-    jurisdiction: United States
-    effective_date: current_electronic_cfr_reviewed_2026-07-25
-    scope: Public water systems using conventional or direct filtration and covered by the applicable federal Surface Water Treatment Rule provisions.
-    limitations: System size, rule subpart, filtration technology, monitoring, reporting, and current federal applicability must be confirmed before use.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: proposed_us_federal_regulatory_replacement
-  - claim_id: claim-sludge-factor
-    claim_text: One milligram per litre of alum fed produces about 0.26 milligrams per litre of sludge.
-    claim_type: technical_standard
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Removed numeric teaching factor.
-    limitations: This is not total plant sludge production; captured source-water solids, organics, other chemicals, product basis, and water content change actual residuals.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: remove_numeric_factor_unless_exact_stoichiometric_basis_is_verified
-  - claim_id: claim-turbidity-proxy
-    claim_text: Filtered-water turbidity is an operational indicator of treatment performance and potential pathogen-removal performance, not a direct measurement of pathogen concentration.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: federal_health_guidance
-    source_ids: [source-epa-swtr-turbidity, source-epa-lt1]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Drinking-water treatment performance.
-    limitations: It must not be described as a complete or visible proxy for pathogen protection.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: replace_public_trust_wording
-  - claim_id: claim-consent-order
-    claim_text: A clarifier carryover event will be named in a consent order.
-    claim_type: sourced_fact
-    material: false
-    technical: false
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original enforcement assertion.
-    limitations: Enforcement outcomes are jurisdiction-specific and fact-specific.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: remove
-  - claim_id: claim-negative-charge-universal
-    claim_text: Every raw-water particle has the same negative surface charge.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original simulator explanation.
-    limitations: Surface charge varies by material and water chemistry.
-    affected_blocks: [block-jar]
-    research_disposition: replace_with_typical_not_universal_language
-  - claim_id: claim-charge
-    claim_text: Many common colloids in natural waters carry negative surface charge, and metal coagulants can reduce repulsion under suitable chemical conditions.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-lt1]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Simplified drinking-water mechanism.
-    limitations: Charge neutralization is one coagulation mechanism and does not explain every water or coagulant.
-    affected_blocks: [block-jar]
-    research_disposition: retain_with_visible_boundary
-  - claim_id: claim-restabilization
-    claim_text: Excess coagulant can cause charge reversal or restabilization under some water-specific conditions.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: technical_hypothesis_needing_full_review
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Illustrative failure mode.
-    limitations: Requires an authoritative mechanism source; no universal dose threshold exists.
-    affected_blocks: [block-jar]
-    research_disposition: removed_from_federal_publication
-  - claim_id: claim-shear
-    claim_text: Excessive mixing energy can break floc, and the balance between growth and breakage depends on water, coagulant, dose, time, and mixing conditions.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance_and_research
-    source_ids: [source-epa-swtr-turbidity, source-pubmed-16752769, source-aktas-2013]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Drinking-water coagulation and flocculation.
-    limitations: Study-specific breakage results cannot be converted into universal plant thresholds.
-    affected_blocks: [block-jar]
-    research_disposition: retain
-  - claim_id: claim-simulator-thresholds
-    claim_text: Dose 88 and mixing energy 78 are technically meaningful thresholds for charge reversal and floc breakage.
-    claim_type: instructional_scenario
-    material: false
-    technical: false
-    evidence_tier: illustrative_interface_only
-    source_ids: [source-prototype]
-    verification_methods: []
-    verification_status: rejected
-    scope: Prototype simulator.
-    limitations: The values have no units, calibration, facility basis, or validated model.
-    affected_blocks: [block-jar]
-    research_disposition: replace_with_qualitative_controls_or_explicit_notional_scale
-  - claim_id: claim-colloid-range
-    claim_text: A colloid is universally defined as a nonsettling particle from 0.001 to 1 micrometre.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original glossary definition.
-    limitations: Size conventions vary, and settling is a rate and condition question rather than an absolute boundary.
-    affected_blocks: [block-terms]
-    research_disposition: replace_with_operational_definition_and_source
-  - claim_id: claim-zeta-range
-    claim_text: Raw water typically has zeta potential from minus 15 to minus 30 millivolts, and successful coagulation drives it toward zero.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Proposed glossary range.
-    limitations: No authoritative supporting locator has been confirmed; optimum zeta potential is water-specific and mechanism-specific.
-    affected_blocks: [block-terms]
-    research_disposition: remove_numeric_range_and_retain_nonnumeric_facility_specific_interpretation
-  - claim_id: claim-coagulant-mechanisms
-    claim_text: Aluminum and iron coagulants can form hydrolysis products and precipitates that destabilize or capture particles through multiple mechanisms.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-lt1]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Introductory mechanism description.
-    limitations: Species and dominant mechanisms vary with product and water chemistry.
-    affected_blocks: [block-terms]
-    research_disposition: retain_with_original_mechanism_source_upgrade
-  - claim_id: claim-polymer-never-replaces
-    claim_text: A polymer never replaces a primary coagulant and can only amplify it.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original glossary definition.
-    limitations: Polymer roles vary by product, application, water, and approved treatment program.
-    affected_blocks: [block-terms]
-    research_disposition: replace
-  - claim_id: claim-polymer-role
-    claim_text: Polymers may act as primary coagulants, coagulant aids, flocculants, settling aids, filter aids, or sludge conditioners depending on product and application.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: federal_guidance
-    source_ids: [source-epa-lt2]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Cross-process terminology.
-    limitations: Product selection and dosing require supplier information, water testing, approved procedures, and qualified review.
-    affected_blocks: [block-terms]
-    research_disposition: narrow_by_sector_product_and_application
-  - claim_id: claim-g-equation
-    claim_text: The conventional mean velocity-gradient parameter can be expressed as G equals the square root of power divided by dynamic viscosity and basin volume.
-    claim_type: technical_standard
-    material: true
-    technical: true
-    evidence_tier: professional_practice_pending
-    source_ids: [source-pnws-awwa]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Idealized bulk mixing parameter.
-    limitations: Unit consistency, delivered power, nonuniform shear, basin geometry, and limitations of mean G must be taught.
-    affected_blocks: [block-terms]
-    research_disposition: retain_qualitative_definition_and_withhold_equation_until_original_engineering_verification
-  - claim_id: claim-tapered-flocculation
-    claim_text: Tapered flocculation reduces mixing intensity through successive stages to support aggregate growth while limiting breakage.
-    claim_type: technical_standard
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-swtr-turbidity]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Mechanically mixed drinking-water flocculation.
-    limitations: Exact staging and intensities are design-specific.
-    affected_blocks: [block-terms]
-    research_disposition: retain
-  - claim_id: claim-alkalinity
-    claim_text: Aluminum and iron salt coagulation can consume alkalinity and lower pH, affecting hydrolysis and treatment performance.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: federal_guidance
-    source_ids: [source-epa-swtr-turbidity]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Metal-salt coagulation.
-    limitations: Effect depends on product basis, dose, starting alkalinity, pH, temperature, and water chemistry.
-    affected_blocks: [block-terms]
-    research_disposition: retain
-  - claim_id: claim-jar-only-defensible
-    claim_text: A jar test is the only defensible way to set coagulant dose and is the record a regulator will request.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype, source-epa-lt2]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original glossary statement.
-    limitations: Jar tests are important but may need filtration tests, pilot testing, full-scale confirmation, instrumentation, and jurisdiction-specific records.
-    affected_blocks: [block-terms]
-    research_disposition: replace
-  - claim_id: claim-jar-purpose
-    claim_text: Jar testing can help compare coagulation conditions, but the test should represent source-water variation and the relevant full-scale processes and may need pilot or filterability confirmation.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-lt2, source-epa-swtr-turbidity]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Process optimization and change evaluation.
-    limitations: A jar result is not automatic authorization for a plant change.
-    affected_blocks: [block-terms, block-faq]
-    research_disposition: retain_decision_boundary_and_separately_source_jar_filterability_and_pilot_uses
-  - claim_id: claim-cross-sector-same-physics
-    claim_text: Drinking water, wastewater, stormwater, reuse, and industrial treatment use identical coagulation-flocculation practice.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original cross-sector statement.
-    limitations: Mechanisms may overlap, but objectives, waters, regulations, equipment, residuals, and risk controls differ.
-    affected_blocks: [block-system-fit]
-    research_disposition: replace_with_bounded_connections
-  - claim_id: claim-downstream
-    claim_text: Coagulation and flocculation performance influences clarification, solids loading, filtration, and residuals management downstream.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-swtr-turbidity, source-epa-lt1]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Conventional drinking-water treatment train.
-    limitations: Consequences depend on facility configuration and operating conditions.
-    affected_blocks: [block-system-fit]
-    research_disposition: retain
-  - claim_id: claim-ro-fouling
-    claim_text: Reverse-osmosis fouling control is largely a coagulation problem solved upstream rather than at the membrane.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original reuse and industrial statement.
-    limitations: RO fouling has multiple inorganic, organic, colloidal, and biological causes; pretreatment is system-specific.
-    affected_blocks: [block-system-fit]
-    research_disposition: remove_or_research_as_separate_brief
-  - claim_id: claim-design-ranges-universal
-    claim_text: Conventional design universally uses rapid-mix G of 600 to 1000 per second for 30 to 60 seconds and flocculation G of 20 to 80 per second for 20 to 60 minutes.
-    claim_type: technical_standard
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype, source-epa-swtr-turbidity]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original design-convention table.
-    limitations: EPA guidance and United States professional references provide process context but do not establish one universal national operating range.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: replace_with_jurisdiction_and_process_specific_table
-  - claim_id: claim-us-flocculation-design-context
-    claim_text: United States EPA guidance describes flocculation after coagulation, gentle or tapered mixing, sufficient contact time, and controls intended to limit aggregate breakage.
-    claim_type: technical_standard
-    material: true
-    technical: true
-    evidence_tier: us_federal_guidance
-    source_ids: [source-epa-swtr-turbidity, source-epa-lt1]
-    verification_methods: [source_trace]
-    verification_status: pending
-    jurisdiction: United States
-    scope: Federal process guidance for drinking-water treatment.
-    limitations: Federal guidance is not a universal facility design or operating setpoint.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: preferred_local_design_context
-  - claim_id: claim-park-study
-    claim_text: In Park and colleagues' 2006 experiment, macrofloc counts at G 200 per second increased after 75 seconds, peaked at 150 seconds, and declined after 180 seconds.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: peer_reviewed_research
-    source_ids: [source-pubmed-16752769]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: The specific experimental conditions in DOI 10.2166/wst.2006.212.
-    limitations: Not a general optimum and not transferable without reviewing the full methods and source water.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: hold_numeric_sequence_until_full_methods_and_conditions_are_verified
-  - claim_id: claim-aktas-study
-    claim_text: In the Aktas study conditions, aggregation and breakup boundaries differed between polysilica iron and PACl, with maximum formation reported near G 546 and 390 per second respectively.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: peer_reviewed_research
-    source_ids: [source-aktas-2013]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: The specific experimental conditions in DOI 10.1080/19443994.2012.751883.
-    limitations: Study thresholds are not plant-wide limits and require full technical interpretation.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: hold_specific_numeric_values_until_exact_original_table_or_figure_is_verified
-  - claim_id: claim-energy-audit
-    claim_text: A plant using PACl at rapid-mix G of 900 per second may be wasting energy and shearing floc, so a jar test and energy audit are indicated.
-    claim_type: expert_interpretation
-    material: false
-    technical: true
-    evidence_tier: unverified_application_inference
-    source_ids: [source-prototype, source-aktas-2013]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Proposed diagnostic prompt.
-    limitations: It extrapolates a study-specific threshold without plant hydraulics, water quality, dose, residence time, or delivered-power data.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: remove_diagnosis_and_rewrite_as_site_specific_evidence_question
-  - claim_id: claim-alum-reaction
-    claim_text: An alkalinity-based teaching reaction for hydrated aluminum sulfate can show bicarbonate consumption and aluminum-hydroxide precipitation.
-    claim_type: technical_standard
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Simplified stoichiometric teaching equation.
-    limitations: Commercial product hydration and solution chemistry vary; a chemist must check species, balance, and notation.
-    affected_blocks: [block-corrections]
-    research_disposition: withhold_equation_until_authoritative_us_source_and_qualified_chemistry_review
-  - claim_id: claim-ferric-reaction
-    claim_text: A bicarbonate-based teaching reaction for ferric chloride can show alkalinity consumption, ferric-hydroxide precipitation, chloride, and carbon dioxide.
-    claim_type: technical_standard
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Simplified stoichiometric teaching equation.
-    limitations: Actual aqueous speciation and hydrolysis are more complex; a chemist must verify the equation and teaching boundary.
-    affected_blocks: [block-corrections]
-    research_disposition: remove_synthesized_equation_until_authoritative_source_and_qualified_chemistry_review
-  - claim_id: claim-pin-floc
-    claim_text: Small microfloc or pin floc after coagulation can be an intended intermediate before further aggregation and separation.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-lt1]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Conventional clarification sequence.
-    limitations: Appearance alone does not establish process success.
-    affected_blocks: [block-pin-floc]
-    research_disposition: narrow_term_by_sample_location_process_stage_and_downstream_result
-  - claim_id: claim-pacl-pac
-    claim_text: Polyaluminum chloride and powdered activated carbon are different treatment chemicals, and the brief should use unambiguous abbreviations.
-    claim_type: sourced_fact
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-pac]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: OWOS terminology policy.
-    limitations: Local industry abbreviations vary; define PACl and PAC at first use.
-    affected_blocks: [block-corrections]
-    research_disposition: retain
-  - claim_id: claim-polymer-charge-roles
-    claim_text: Polymer function cannot be assigned reliably from cationic, anionic, or nonionic charge class alone.
-    claim_type: expert_interpretation
-    material: true
-    technical: true
-    evidence_tier: source_based_editorial_correction
-    source_ids: [source-epa-lt2]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Correction of the prototype's fixed polymer-role table.
-    limitations: Molecular weight, charge density, water chemistry, process point, product instructions, and testing matter.
-    affected_blocks: [block-corrections]
-    research_disposition: replace_fixed_role_table
-  - claim_id: claim-jar-rpm-universal
-    claim_text: Every jar test should use 100 to 300 rpm for 30 to 60 seconds, then 20 to 40 rpm, with polymer always added during flocculation.
-    claim_type: technical_standard
-    material: false
-    technical: true
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original jar-test protocol.
-    limitations: RPM is apparatus-specific, must be related to mixing conditions, and chemical sequence depends on the treatment program.
-    affected_blocks: [block-faq]
-    research_disposition: do_not_publish_as_protocol
-  - claim_id: claim-jar-sampling
-    claim_text: Consistent settling time and sampling depth improve comparability among jar-test results.
-    claim_type: technical_standard
-    material: true
-    technical: true
-    evidence_tier: federal_guidance
-    source_ids: [source-epa-lt2]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Jar-test execution.
-    limitations: A complete reviewed SOP must specify apparatus, mixing calibration, dosing, replication, analytical methods, and decision criteria.
-    affected_blocks: [block-faq]
-    research_disposition: retain_inside_future_sop
-  - claim_id: claim-dose-year-round
-    claim_text: Coagulant dose should be reassessed when meaningful source-water or treatment conditions change rather than held fixed solely by habit.
-    claim_type: expert_interpretation
-    material: true
-    technical: true
-    evidence_tier: government_guidance
-    source_ids: [source-epa-swtr-turbidity, source-epa-lt2]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Optimization governance.
-    limitations: Reassessment does not authorize an unapproved dose change.
-    affected_blocks: [block-role-actions, block-faq]
-    research_disposition: retain
-  - claim_id: claim-dose-change-sop
-    claim_text: Written, approved procedures should govern chemical changes and define the evidence, authority, limits, monitoring, and rollback conditions.
-    claim_type: expert_interpretation
-    material: true
-    technical: true
-    evidence_tier: government_guidance_and_safety_boundary
-    source_ids: [source-epa-lt2]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Operational governance.
-    limitations: Procedure content and sign-off roles are facility-specific and jurisdiction-specific.
-    affected_blocks: [block-role-actions, block-faq]
-    research_disposition: retain_as_owos_recommended_governance_not_universal_regulatory_requirement
-  - claim_id: claim-streaming-current-proxy
-    claim_text: Streaming-current measurement is a direct real-time substitute for zeta-potential measurement.
-    claim_type: sourced_fact
-    material: false
-    technical: true
-    evidence_tier: unsupported_in_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Proposed instrumentation explanation.
-    limitations: Related electrokinetic signals are not interchangeable; instrument response and control use need a dedicated source and practitioner review.
-    affected_blocks: [block-role-actions]
-    research_disposition: reject_direct_substitute_claim_and_teach_distinct_calibrated_electrokinetic_signals
-  - claim_id: claim-data-integration
-    claim_text: Dose, raw and settled turbidity, pH, alkalinity, and relevant process signals should be available as one time-aligned, queryable dataset.
-    claim_type: hardeep_position
-    material: true
-    technical: false
-    evidence_tier: owner_product_direction
-    source_ids: []
-    verification_methods: []
-    verification_status: pending
-    scope: OWOS data and Graph product direction.
-    limitations: Signal selection, semantics, security, quality controls, and facility architecture require design review.
-    affected_blocks: [block-role-actions]
-    research_disposition: retain_as_product_position
-  - claim_id: claim-watershed-prediction
-    claim_text: Storm response and land-use data can predict coagulant dose before a storm reaches a plant.
-    claim_type: unresolved_question
-    material: false
-    technical: true
-    evidence_tier: hypothesis
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Potential source-water analytics use case.
-    limitations: Requires site data, model validation, uncertainty bounds, monitoring, and human decision authority.
-    affected_blocks: [block-role-actions]
-    research_disposition: convert_to_research_question
-  - claim_id: claim-no-capital
-    claim_text: Chemical optimization always produces operating savings without capital investment and is defensible in a rate case.
-    claim_type: commercial_claim
-    material: false
-    technical: false
-    evidence_tier: supplied_prototype
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: rejected
-    scope: Original finance statement.
-    limitations: Optimization may require testing, instrumentation, controls, training, engineering, residuals changes, and jurisdiction-specific rate evidence.
-    affected_blocks: [block-role-actions]
-    research_disposition: remove
-  - claim_id: claim-role-actions
-    claim_text: A single concept brief can provide different evidence-bounded next actions for operators, engineers, utility leaders, regulators, data teams, and finance teams.
-    claim_type: hardeep_position
-    material: true
-    technical: false
-    evidence_tier: owner_product_direction
-    source_ids: []
-    verification_methods: []
-    verification_status: pending
-    scope: Learning and product design.
-    limitations: Actions require representative-user and role-authority review.
-    affected_blocks: [block-role-actions]
-    research_disposition: retain
-  - claim_id: claim-every-number-sourced
-    claim_text: Every published number and material assertion in the brief will expose its evidence class, exact source locator, scope, and review status.
-    claim_type: hardeep_position
-    material: true
-    technical: false
-    evidence_tier: owos_release_policy
-    source_ids: []
-    verification_methods: []
-    verification_status: pending
-    scope: Concept Engine evidence promise.
-    limitations: This is a release requirement, not a statement that the current working prototype already satisfies it.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: retain_as_governance_promise
-  - claim_id: claim-evidence-boundary
-    claim_text: The working pilot has complete supplied-claim inventory but incomplete independent and qualified review, so it must not be used as site-specific operating, engineering, or regulatory guidance.
-    claim_type: expert_interpretation
-    material: true
-    technical: false
-    evidence_tier: repository_status
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Current package status.
-    limitations: Update after each review gate.
-    affected_blocks: [block-evidence-boundary]
-    research_disposition: retain_until_release
-  - claim_id: claim-no-operating-advice
-    claim_text: The working brief does not authorize a facility dose, mixing, chemical, or process change.
-    claim_type: expert_interpretation
-    material: true
-    technical: false
-    evidence_tier: safety_boundary
-    source_ids: [source-prototype]
-    verification_methods: [source_trace]
-    verification_status: pending
-    scope: Use boundary.
-    limitations: Final wording requires legal, technical, and editorial review.
-    affected_blocks: [block-faq]
-    research_disposition: retain
+- claim_id: claim-distinct-jobs
+  claim_text: Coagulation and flocculation are separately defined processes in federal regulation. Coagulation
+    destabilises and agglomerates colloidal and suspended material into flocs using coagulant chemicals
+    and mixing. Flocculation enhances agglomeration of smaller floc particles into larger, more easily
+    settleable particles through gentle stirring.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: us_federal_primary_authority
+  source_ids: [source-ecfr-141-2, source-epa-lt1]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Drinking-water clarification.
+  limitations: Coagulation can involve charge neutralization, sweep coagulation, adsorption, bridging,
+    or combinations; the chemical-versus-physical shorthand is incomplete.
+  affected_blocks: [block-opening]
+  research_disposition: retain_with_mechanism_nuance
+- claim_id: claim-universal-nonsettling
+  claim_text: All clay, silt, algae, organic colour, bacteria, and precipitated metals are too small and
+    electrically stable to ever settle, so gravity can never remove them.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original opening statement.
+  limitations: The listed materials span different particle sizes, densities, surface chemistries, and
+    settling behaviour.
+  affected_blocks: [block-opening]
+  research_disposition: replace_with_conditioned_statement
+- claim_id: claim-particle-stability
+  claim_text: Some fine and colloidal particles settle very slowly because of their size and stability,
+    and coagulation-flocculation can improve their removal.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-lt1]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Drinking-water clarification.
+  limitations: Settling behaviour remains water-specific and particle-specific.
+  affected_blocks: [block-opening]
+  research_disposition: replacement_for_claim_universal_nonsettling
+- claim_id: claim-us-credit-at-coagulation
+  claim_text: Under the United States Surface Water Treatment Rule, turbidity and log-removal credit is
+    earned in coagulation rather than at the filter.
+  claim_type: regulatory_requirement
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: [source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original United States regulatory statement.
+  limitations: Filtered-water turbidity is a regulated performance measure and removal credit is associated
+    with the treatment train, not coagulation alone.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: do_not_publish
+- claim_id: claim-us-filtered-water-turbidity
+  claim_text: Under applicable United States Surface Water Treatment Rules, conventional and direct filtration
+    systems must meet combined filter effluent turbidity limits of 0.3 NTU in at least 95 percent of measurements
+    each month and 1 NTU as the maximum.
+  claim_type: regulatory_requirement
+  material: true
+  technical: true
+  evidence_tier: us_federal_regulation
+  source_ids: [source-ecfr-141-173, source-ecfr-141-551, source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: pending
+  jurisdiction: United States
+  effective_date: current_electronic_cfr_reviewed_2026-07-25
+  scope: Public water systems using conventional or direct filtration and covered by the applicable federal
+    Surface Water Treatment Rule provisions.
+  limitations: System size, rule subpart, filtration technology, monitoring, reporting, and current federal
+    applicability must be confirmed before use.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: proposed_us_federal_regulatory_replacement
+- claim_id: claim-sludge-factor
+  claim_text: One milligram per litre of alum fed produces about 0.26 milligrams per litre of sludge.
+  claim_type: technical_standard
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Removed numeric teaching factor.
+  limitations: This is not total plant sludge production; captured source-water solids, organics, other
+    chemicals, product basis, and water content change actual residuals.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: remove_numeric_factor_unless_exact_stoichiometric_basis_is_verified
+- claim_id: claim-turbidity-proxy
+  claim_text: Filtered-water turbidity is an operational indicator of treatment performance and potential
+    pathogen-removal performance, not a direct measurement of pathogen concentration.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: federal_health_guidance
+  source_ids: [source-epa-swtr-turbidity, source-epa-lt1]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Drinking-water treatment performance.
+  limitations: It must not be described as a complete or visible proxy for pathogen protection.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: replace_public_trust_wording
+- claim_id: claim-consent-order
+  claim_text: A clarifier carryover event will be named in a consent order.
+  claim_type: sourced_fact
+  material: false
+  technical: false
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original enforcement assertion.
+  limitations: Enforcement outcomes are jurisdiction-specific and fact-specific.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: remove
+- claim_id: claim-negative-charge-universal
+  claim_text: Every raw-water particle has the same negative surface charge.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original simulator explanation.
+  limitations: Surface charge varies by material and water chemistry.
+  affected_blocks: [block-jar]
+  research_disposition: replace_with_typical_not_universal_language
+- claim_id: claim-charge
+  claim_text: Many common colloids in natural waters carry negative surface charge, and metal coagulants
+    can reduce repulsion under suitable chemical conditions.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-lt1]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Simplified drinking-water mechanism.
+  limitations: Charge neutralization is one coagulation mechanism and does not explain every water or
+    coagulant.
+  affected_blocks: [block-jar]
+  research_disposition: retain_with_visible_boundary
+- claim_id: claim-restabilization
+  claim_text: Excess coagulant can cause charge reversal or restabilization under some water-specific
+    conditions.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: technical_hypothesis_needing_full_review
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Illustrative failure mode.
+  limitations: Requires an authoritative mechanism source; no universal dose threshold exists.
+  affected_blocks: [block-jar]
+  research_disposition: removed_from_federal_publication
+- claim_id: claim-shear
+  claim_text: Excessive mixing energy can break floc, and the balance between growth and breakage depends
+    on water, coagulant, dose, time, and mixing conditions.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: government_guidance_and_research
+  source_ids: [source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Drinking-water coagulation and flocculation.
+  limitations: Study-specific breakage results cannot be converted into universal plant thresholds.
+  affected_blocks: [block-jar]
+  research_disposition: retain
+- claim_id: claim-simulator-thresholds
+  claim_text: Dose 88 and mixing energy 78 are technically meaningful thresholds for charge reversal and
+    floc breakage.
+  claim_type: instructional_scenario
+  material: false
+  technical: false
+  evidence_tier: illustrative_interface_only
+  source_ids: []
+  verification_methods: []
+  verification_status: rejected
+  scope: Prototype simulator.
+  limitations: The values have no units, calibration, facility basis, or validated model.
+  affected_blocks: [block-jar]
+  research_disposition: replace_with_qualitative_controls_or_explicit_notional_scale
+- claim_id: claim-colloid-range
+  claim_text: A colloid is universally defined as a nonsettling particle from 0.001 to 1 micrometre.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original glossary definition.
+  limitations: Size conventions vary, and settling is a rate and condition question rather than an absolute
+    boundary.
+  affected_blocks: [block-terms]
+  research_disposition: replace_with_operational_definition_and_source
+- claim_id: claim-zeta-range
+  claim_text: Raw water typically has zeta potential from minus 15 to minus 30 millivolts, and successful
+    coagulation drives it toward zero.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Proposed glossary range.
+  limitations: No authoritative supporting locator has been confirmed; optimum zeta potential is water-specific
+    and mechanism-specific.
+  affected_blocks: [block-terms]
+  research_disposition: remove_numeric_range_and_retain_nonnumeric_facility_specific_interpretation
+- claim_id: claim-coagulant-mechanisms
+  claim_text: Aluminum and iron coagulants can form hydrolysis products and precipitates that destabilize
+    or capture particles through multiple mechanisms.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-lt1]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Introductory mechanism description.
+  limitations: Species and dominant mechanisms vary with product and water chemistry.
+  affected_blocks: [block-terms]
+  research_disposition: retain_with_original_mechanism_source_upgrade
+- claim_id: claim-polymer-never-replaces
+  claim_text: A polymer never replaces a primary coagulant and can only amplify it.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original glossary definition.
+  limitations: Polymer roles vary by product, application, water, and approved treatment program.
+  affected_blocks: [block-terms]
+  research_disposition: replace
+- claim_id: claim-polymer-role
+  claim_text: Polymers may act as primary coagulants, coagulant aids, flocculants, settling aids, filter
+    aids, or sludge conditioners depending on product and application.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: federal_guidance
+  source_ids: [source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Cross-process terminology.
+  limitations: Product selection and dosing require supplier information, water testing, approved procedures,
+    and qualified review.
+  affected_blocks: [block-terms]
+  research_disposition: narrow_by_sector_product_and_application
+  correction_note: Re-sourced 2026-07-27. The previously cited document does not contain the supporting
+    language.
+- claim_id: claim-g-equation
+  claim_text: The conventional mean velocity-gradient parameter can be expressed as G equals the square
+    root of power divided by dynamic viscosity and basin volume.
+  claim_type: expert_interpretation
+  material: true
+  technical: true
+  evidence_tier: professional_practice_pending
+  source_ids: [source-pnws-awwa]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Idealized bulk mixing parameter.
+  limitations: Unit consistency, delivered power, nonuniform shear, basin geometry, and limitations of
+    mean G must be taught.
+  affected_blocks: [block-terms]
+  research_disposition: retain_qualitative_definition_and_withhold_equation_until_original_engineering_verification
+  authority_note: Sole source is an AWWA conference paper, professional context rather than federal authority.
+    A technical_standard classification read as governing.
+- claim_id: claim-tapered-flocculation
+  claim_text: Tapered flocculation reduces mixing intensity through successive stages to support aggregate
+    growth while limiting breakage.
+  claim_type: technical_standard
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Mechanically mixed drinking-water flocculation.
+  limitations: Exact staging and intensities are design-specific.
+  affected_blocks: [block-terms]
+  research_disposition: retain
+- claim_id: claim-alkalinity
+  claim_text: Aluminum and iron salt coagulation can consume alkalinity and lower pH, affecting hydrolysis
+    and treatment performance.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: federal_guidance
+  source_ids: [source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Metal-salt coagulation.
+  limitations: Effect depends on product basis, dose, starting alkalinity, pH, temperature, and water
+    chemistry.
+  affected_blocks: [block-terms]
+  research_disposition: retain
+- claim_id: claim-jar-only-defensible
+  claim_text: A jar test is the only defensible way to set coagulant dose and is the record a regulator
+    will request.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: [source-epa-lt2]
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original glossary statement.
+  limitations: Jar tests are important but may need filtration tests, pilot testing, full-scale confirmation,
+    instrumentation, and jurisdiction-specific records.
+  affected_blocks: [block-terms]
+  research_disposition: replace
+- claim_id: claim-jar-purpose
+  claim_text: Jar testing can help compare coagulation conditions, but the test should represent source-water
+    variation and the relevant full-scale processes and may need pilot or filterability confirmation.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-lt2, source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Process optimization and change evaluation.
+  limitations: A jar result is not automatic authorization for a plant change.
+  affected_blocks: [block-terms, block-faq]
+  research_disposition: retain_decision_boundary_and_separately_source_jar_filterability_and_pilot_uses
+- claim_id: claim-cross-sector-same-physics
+  claim_text: Drinking water, wastewater, stormwater, reuse, and industrial treatment use identical coagulation-flocculation
+    practice.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original cross-sector statement.
+  limitations: Mechanisms may overlap, but objectives, waters, regulations, equipment, residuals, and
+    risk controls differ.
+  affected_blocks: [block-system-fit]
+  research_disposition: replace_with_bounded_connections
+- claim_id: claim-downstream
+  claim_text: Coagulation and flocculation performance influences clarification, solids loading, filtration,
+    and residuals management downstream.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-swtr-turbidity, source-epa-lt1]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Conventional drinking-water treatment train.
+  limitations: Consequences depend on facility configuration and operating conditions.
+  affected_blocks: [block-system-fit]
+  research_disposition: retain
+- claim_id: claim-ro-fouling
+  claim_text: Reverse-osmosis fouling control is largely a coagulation problem solved upstream rather
+    than at the membrane.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original reuse and industrial statement.
+  limitations: RO fouling has multiple inorganic, organic, colloidal, and biological causes; pretreatment
+    is system-specific.
+  affected_blocks: [block-system-fit]
+  research_disposition: remove_or_research_as_separate_brief
+- claim_id: claim-design-ranges-universal
+  claim_text: Conventional design universally uses rapid-mix G of 600 to 1000 per second for 30 to 60
+    seconds and flocculation G of 20 to 80 per second for 20 to 60 minutes.
+  claim_type: technical_standard
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: [source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original design-convention table.
+  limitations: EPA guidance and United States professional references provide process context but do not
+    establish one universal national operating range.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: replace_with_jurisdiction_and_process_specific_table
+- claim_id: claim-us-flocculation-design-context
+  claim_text: United States EPA guidance describes flocculation after coagulation, gentle or tapered mixing,
+    sufficient contact time, and controls intended to limit aggregate breakage.
+  claim_type: technical_standard
+  material: true
+  technical: true
+  evidence_tier: us_federal_guidance
+  source_ids: [source-epa-swtr-turbidity, source-epa-lt1]
+  verification_methods: [source_trace]
+  verification_status: pending
+  jurisdiction: United States
+  scope: Federal process guidance for drinking-water treatment.
+  limitations: Federal guidance is not a universal facility design or operating setpoint.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: preferred_local_design_context
+- claim_id: claim-park-study
+  claim_text: In Park and colleagues' 2006 experiment, macrofloc counts at G 200 per second increased
+    after 75 seconds, peaked at 150 seconds, and declined after 180 seconds.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: peer_reviewed_research
+  source_ids: [source-pubmed-16752769]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: The specific experimental conditions in DOI 10.2166/wst.2006.212.
+  limitations: Not a general optimum and not transferable without reviewing the full methods and source
+    water.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: hold_numeric_sequence_until_full_methods_and_conditions_are_verified
+  authority_note: Non-United States bench research. Under the public authority scope this may appear as
+    clearly bounded research only, never as governing authority.
+- claim_id: claim-aktas-study
+  claim_text: In the Aktas study conditions, aggregation and breakup boundaries differed between polysilica
+    iron and PACl, with maximum formation reported near G 546 and 390 per second respectively.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: peer_reviewed_research
+  source_ids: [source-aktas-2013]
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: The specific experimental conditions in DOI 10.1080/19443994.2012.751883.
+  limitations: Study thresholds are not plant-wide limits and require full technical interpretation.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: hold_specific_numeric_values_until_exact_original_table_or_figure_is_verified
+- claim_id: claim-energy-audit
+  claim_text: A plant using PACl at rapid-mix G of 900 per second may be wasting energy and shearing floc,
+    so a jar test and energy audit are indicated.
+  claim_type: expert_interpretation
+  material: false
+  technical: true
+  evidence_tier: unverified_application_inference
+  source_ids: [source-aktas-2013]
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Proposed diagnostic prompt.
+  limitations: It extrapolates a study-specific threshold without plant hydraulics, water quality, dose,
+    residence time, or delivered-power data.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: remove_diagnosis_and_rewrite_as_site_specific_evidence_question
+- claim_id: claim-alum-reaction
+  claim_text: An alkalinity-based teaching reaction for hydrated aluminum sulfate can show bicarbonate
+    consumption and aluminum-hydroxide precipitation.
+  claim_type: technical_standard
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Simplified stoichiometric teaching equation.
+  limitations: Commercial product hydration and solution chemistry vary; a chemist must check species,
+    balance, and notation.
+  affected_blocks: [block-corrections]
+  research_disposition: withhold_equation_until_authoritative_us_source_and_qualified_chemistry_review
+- claim_id: claim-ferric-reaction
+  claim_text: A bicarbonate-based teaching reaction for ferric chloride can show alkalinity consumption,
+    ferric-hydroxide precipitation, chloride, and carbon dioxide.
+  claim_type: technical_standard
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Simplified stoichiometric teaching equation.
+  limitations: Actual aqueous speciation and hydrolysis are more complex; a chemist must verify the equation
+    and teaching boundary.
+  affected_blocks: [block-corrections]
+  research_disposition: remove_synthesized_equation_until_authoritative_source_and_qualified_chemistry_review
+- claim_id: claim-pin-floc
+  claim_text: Pin floc, meaning small floc that is difficult to settle and filter, is documented by EPA
+    as a consequence of dosing coagulant at excessive rates. The appearance alone does not identify a
+    cause, because inadequate contact and marginal chemistry can also produce it.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-swtr-turbidity]
+  verification_methods: [source_trace, independent_full_text_extraction]
+  verification_status: pending
+  scope: One documented plant performance evaluation. Not a general rule that pin floc always indicates
+    overdosing.
+  limitations: A single case study. Establishes that excessive dosing can cause pin floc, not that it
+    always does. Inadequate contact and marginal chemistry remain plausible from the same observation.
+  affected_blocks: [block-pin-floc]
+  research_disposition: narrow_term_by_sample_location_process_stage_and_downstream_result
+  correction_note: Reversed 2026-07-27. The previous text taught pin floc as an intended intermediate
+    and cited EPA 816-R-04-007, which contains the term zero times. Current EPA guidance uses it as an
+    overdose signature.
+- claim_id: claim-pacl-pac
+  claim_text: Polyaluminum chloride and powdered activated carbon are different treatment chemicals, and
+    the brief should use unambiguous abbreviations.
+  claim_type: sourced_fact
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-pac]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: OWOS terminology policy.
+  limitations: Local industry abbreviations vary; define PACl and PAC at first use.
+  affected_blocks: [block-corrections]
+  research_disposition: retain
+- claim_id: claim-polymer-charge-roles
+  claim_text: Polymer function cannot be assigned reliably from cationic, anionic, or nonionic charge
+    class alone.
+  claim_type: expert_interpretation
+  material: true
+  technical: true
+  evidence_tier: source_based_editorial_correction
+  source_ids: [source-epa-lt2]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Correction of the prototype's fixed polymer-role table.
+  limitations: Molecular weight, charge density, water chemistry, process point, product instructions,
+    and testing matter.
+  affected_blocks: [block-corrections]
+  research_disposition: replace_fixed_role_table
+- claim_id: claim-jar-rpm-universal
+  claim_text: Every jar test should use 100 to 300 rpm for 30 to 60 seconds, then 20 to 40 rpm, with polymer
+    always added during flocculation.
+  claim_type: technical_standard
+  material: false
+  technical: true
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original jar-test protocol.
+  limitations: RPM is apparatus-specific, must be related to mixing conditions, and chemical sequence
+    depends on the treatment program.
+  affected_blocks: [block-faq]
+  research_disposition: do_not_publish_as_protocol
+- claim_id: claim-jar-sampling
+  claim_text: Consistent settling time and sampling depth improve comparability among jar-test results.
+  claim_type: technical_standard
+  material: true
+  technical: true
+  evidence_tier: federal_guidance
+  source_ids: [source-epa-swtr-turbidity]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Jar-test execution.
+  limitations: A complete reviewed SOP must specify apparatus, mixing calibration, dosing, replication,
+    analytical methods, and decision criteria.
+  affected_blocks: [block-faq]
+  research_disposition: retain_inside_future_sop
+  correction_note: Re-sourced 2026-07-27. The previously cited document does not contain the supporting
+    language.
+- claim_id: claim-dose-year-round
+  claim_text: Coagulant dose should be reassessed when meaningful source-water or treatment conditions
+    change rather than held fixed solely by habit.
+  claim_type: expert_interpretation
+  material: true
+  technical: true
+  evidence_tier: government_guidance
+  source_ids: [source-epa-swtr-turbidity, source-epa-lt2]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Optimization governance.
+  limitations: Reassessment does not authorize an unapproved dose change.
+  affected_blocks: [block-role-actions, block-faq]
+  research_disposition: retain
+- claim_id: claim-dose-change-sop
+  claim_text: Written, approved procedures should govern chemical changes and define the evidence, authority,
+    limits, monitoring, and rollback conditions.
+  claim_type: expert_interpretation
+  material: true
+  technical: true
+  evidence_tier: government_guidance_and_safety_boundary
+  source_ids: [source-epa-lt2]
+  verification_methods: [source_trace]
+  verification_status: pending
+  scope: Operational governance.
+  limitations: Procedure content and sign-off roles are facility-specific and jurisdiction-specific.
+  affected_blocks: [block-role-actions, block-faq]
+  research_disposition: retain_as_owos_recommended_governance_not_universal_regulatory_requirement
+- claim_id: claim-streaming-current-proxy
+  claim_text: Streaming-current measurement is a direct real-time substitute for zeta-potential measurement.
+  claim_type: sourced_fact
+  material: false
+  technical: true
+  evidence_tier: unsupported_in_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Proposed instrumentation explanation.
+  limitations: Related electrokinetic signals are not interchangeable; instrument response and control
+    use need a dedicated source and practitioner review.
+  affected_blocks: [block-role-actions]
+  research_disposition: reject_direct_substitute_claim_and_teach_distinct_calibrated_electrokinetic_signals
+- claim_id: claim-data-integration
+  claim_text: Dose, raw and settled turbidity, pH, alkalinity, and relevant process signals should be
+    available as one time-aligned, queryable dataset.
+  claim_type: hardeep_position
+  material: true
+  technical: false
+  evidence_tier: owner_editorial_position
+  source_ids: []
+  verification_methods: [owner_confirmation]
+  verification_status: pending
+  scope: OWOS data and Graph product direction.
+  limitations: Signal selection, semantics, security, quality controls, and facility architecture require
+    design review.
+  affected_blocks: [block-role-actions]
+  research_disposition: retain_as_product_position
+  authority_note: Editorial boundary statement by the owner, not a sourced technical fact. Previously
+    cited the pre-research prototype as evidence, which it cannot be.
+- claim_id: claim-watershed-prediction
+  claim_text: Storm response and land-use data can predict coagulant dose before a storm reaches a plant.
+  claim_type: unresolved_question
+  material: false
+  technical: true
+  evidence_tier: hypothesis
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Potential source-water analytics use case.
+  limitations: Requires site data, model validation, uncertainty bounds, monitoring, and human decision
+    authority.
+  affected_blocks: [block-role-actions]
+  research_disposition: convert_to_research_question
+- claim_id: claim-no-capital
+  claim_text: Chemical optimization always produces operating savings without capital investment and is
+    defensible in a rate case.
+  claim_type: commercial_claim
+  material: false
+  technical: false
+  evidence_tier: supplied_prototype
+  source_ids: []
+  verification_methods: [source_trace]
+  verification_status: rejected
+  scope: Original finance statement.
+  limitations: Optimization may require testing, instrumentation, controls, training, engineering, residuals
+    changes, and jurisdiction-specific rate evidence.
+  affected_blocks: [block-role-actions]
+  research_disposition: remove
+- claim_id: claim-role-actions
+  claim_text: A single concept brief can provide different evidence-bounded next actions for operators,
+    engineers, utility leaders, regulators, data teams, and finance teams.
+  claim_type: hardeep_position
+  material: true
+  technical: false
+  evidence_tier: owner_editorial_position
+  source_ids: []
+  verification_methods: [owner_confirmation]
+  verification_status: pending
+  scope: Learning and product design.
+  limitations: Actions require representative-user and role-authority review.
+  affected_blocks: [block-role-actions]
+  research_disposition: retain
+  authority_note: Editorial boundary statement by the owner, not a sourced technical fact. Previously
+    cited the pre-research prototype as evidence, which it cannot be.
+- claim_id: claim-every-number-sourced
+  claim_text: Every published number and material assertion in the brief will expose its evidence class,
+    exact source locator, scope, and review status.
+  claim_type: hardeep_position
+  material: true
+  technical: false
+  evidence_tier: owner_editorial_position
+  source_ids: []
+  verification_methods: [owner_confirmation]
+  verification_status: pending
+  scope: Concept Engine evidence promise.
+  limitations: This is a release requirement, not a statement that the current working prototype already
+    satisfies it.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: retain_as_governance_promise
+  authority_note: Editorial boundary statement by the owner, not a sourced technical fact. Previously
+    cited the pre-research prototype as evidence, which it cannot be.
+- claim_id: claim-evidence-boundary
+  claim_text: The working pilot has complete supplied-claim inventory but incomplete independent and qualified
+    review, so it must not be used as site-specific operating, engineering, or regulatory guidance.
+  claim_type: hardeep_position
+  material: true
+  technical: false
+  evidence_tier: owner_editorial_position
+  source_ids: []
+  verification_methods: [owner_confirmation]
+  verification_status: pending
+  scope: Current package status.
+  limitations: Update after each review gate.
+  affected_blocks: [block-evidence-boundary]
+  research_disposition: retain_until_release
+  authority_note: Editorial boundary statement by the owner, not a sourced technical fact. Previously
+    cited the pre-research prototype as evidence, which it cannot be.
+- claim_id: claim-no-operating-advice
+  claim_text: The working brief does not authorize a facility dose, mixing, chemical, or process change.
+  claim_type: hardeep_position
+  material: true
+  technical: false
+  evidence_tier: owner_editorial_position
+  source_ids: []
+  verification_methods: [owner_confirmation]
+  verification_status: pending
+  scope: Use boundary.
+  limitations: Final wording requires legal, technical, and editorial review.
+  affected_blocks: [block-faq]
+  research_disposition: retain
+  authority_note: Editorial boundary statement by the owner, not a sourced technical fact. Previously
+    cited the pre-research prototype as evidence, which it cannot be.
