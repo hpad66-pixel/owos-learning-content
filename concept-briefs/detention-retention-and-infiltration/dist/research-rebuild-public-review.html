@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="owos-contract" content="owos-concept-brief/2">
 <meta name="owos-compiler-version" content="2.1.0">
-<meta name="owos-package-checksum" content="b2774fddc037dc4e733e000d6e6c573af6b639fc16e24cc6ef15e87681a3f87f">
+<meta name="owos-package-checksum" content="255721143272d40a5680c8d807064bfafbfe7234d1d506de497ff0136b1baeb0">
 <meta name="owos-brief-id" content="owos:concept-brief:003">
 <meta name="owos-brief-version" content="PREVIEW 0.3">
 <meta name="owos-release-state" content="public-review-preview">
@@ -70,6 +70,41 @@ letter-spacing:1.2px;color:var(--blue)}.surface-black .worked-label{color:var(--
 .worked-example p{margin:0 0 9px;font-size:15px;line-height:1.6}
 .visual-component{padding:20px;border:1px dashed #9bb3c2}
 .visual-alt{margin:10px 0 0;font-size:14px;color:#3d5666}
+/* The Graphite shell defaults headings and body copy to light, so any surface
+   introduced here must declare its own treatment or it inherits light text onto
+   a light panel. These follow the shell palette rather than overriding it. */
+body[data-owos-theme="graphite"] .orientation{background:var(--owos-graphite);
+border-bottom-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation h2{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .orientation-card{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation-card h3{color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation-card p,
+body[data-owos-theme="graphite"] .orientation-card li{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-outcomes{background:var(--owos-charcoal)}
+body[data-owos-theme="graphite"] .orientation-outcomes li{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-boundary{background:rgba(125,198,232,.09);
+border-left-color:var(--owos-water);color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-boundary b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .definition{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .definition-term{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .definition-meaning{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .definition-example{color:#bcd9e8}
+body[data-owos-theme="graphite"] .definition-limit{color:#e8cf95}
+body[data-owos-theme="graphite"] .definition b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .worked-example{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .worked-example p{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .worked-example b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .worked-label{color:var(--owos-water)}
+/* Contrast repairs for surfaces the Graphite theme inverts. The theme turns the
+   off_white beat band into charcoal and keeps the assessment card and drawers
+   light, so headings and kickers set for the light composition end up unreadable
+   on the surface they actually land on. */
+body[data-owos-theme="graphite"] .concept-assessment h3{color:var(--ink)}
+body[data-owos-theme="graphite"] .learner-question{color:var(--owos-water)}
+body[data-owos-theme="graphite"] .context-drawer .section-kicker{color:var(--blue)}
 .claim-pending,.claim-rejected{background:#fde4e4;color:var(--red)}figure{margin:20px 0}
 figure img{max-width:100%;height:auto;display:block}figcaption{padding:14px;background:#edf5f8;
 color:#173145}.interaction{padding:24px;background:#000;color:#fff;border:1px solid #333}

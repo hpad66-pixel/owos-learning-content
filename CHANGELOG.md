@@ -40,6 +40,12 @@ Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
   `connected_learning` block types, which had rendered unstyled.
 - Visual captions can now carry a `not_established` statement, so a graphic states what it does not
   prove alongside what to notice.
+- Repaired four contrast defects found in rendered review. The Graphite theme sets headings and body
+  copy light and inverts the `off_white` beat band to charcoal, so components composed for a light
+  surface were rendering light text on light panels. Three were pre-existing and shipped in the
+  reference brief: every learning-check question was near-invisible on its light card, the beat
+  learner question was dark blue on charcoal, and the concept-map drawer kicker was pale cyan on
+  ivory. The rendered page now reports zero low-contrast text nodes.
 
 ### Changed: Detention, Retention, and Infiltration white paper 0.6
 - Added the reader orientation, the situations where the concept becomes consequential, and a
