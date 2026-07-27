@@ -1,6 +1,6 @@
 # OWOS Learning Content
 
-The governed source and build repository for One Water Operating System learning products, by APAS.ai. Taught by Droobi.
+The governed source and build repository for One Water Operating System learning products, by APAS.ai.
 
 **Version:** 0.35.0 &middot; **Last updated:** 2026-07-27
 
@@ -24,7 +24,7 @@ authentication, Supabase migrations, and Cloudflare runtime live in
 
 ```
 core/                     the reusable foundation. Build once, every product uses it.
-  brand/                  OWOS brand, Graphite tokens, Droobi, logos, guidelines
+  brand/                  OWOS brand, Graphite tokens, logos, guidelines
   learning-capabilities/  shared visual, interaction, animation, and assessment registry
   standards/              course, Concept Brief, writing, visual, and experience contracts
   components/             component-gallery.html, quiz-gallery.html, module-template.html,
