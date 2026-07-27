@@ -934,26 +934,35 @@ footer p{margin:0 0 10px;max-width:78ch}
       <div class="split-card wrong">
         <span class="tagline">Unintended</span>
         <h3>Into the sanitary sewer</h3>
-        <p>The same rain can enter the sewer directly through roof leaders, area drains, and leaky
-          manhole covers, or reach it through the ground and enter through cracks and defective
-          joints. Together these are called infiltration and inflow.</p>
+        <p>Federal regulation names both routes. <b>Infiltration</b> is water entering "from the
+          ground through such means as defective pipes, pipe joints, connections, or manholes."
+          <b>Inflow</b> is water entering from "roof leaders, cellar drains, yard drains, area
+          drains, manhole covers, cross connections between storm sewers and sanitary sewers."</p>
         <p>That water is conveyed, pumped, and treated at the utility's expense, and it consumes
           capacity that was sized for wastewater.</p>
       </div>
     </div>
 
     <div class="prose" style="margin-top:28px">
-      <p><b style="color:var(--white)">One correction worth carrying,</b> because it is commonly
-        got wrong. People try to tell inflow from infiltration by the shape of the wet-weather
-        response: a sharp rise that ends with the storm, or a slow rise that decays over days. The
-        sharp response does point to direct connections. But EPA states that rainfall-induced
-        infiltration cannot be distinguished from delayed inflow, and that the slow, persistent
-        signature also covers sump pumps, foundation drains, and indirect cross-connections.</p>
+      <p><b style="color:var(--white)">The trap is thinking you can tell them apart from a flow
+        chart.</b> The regulation separates the two cleanly, and it separates them by <em>route</em>,
+        not by timing. The flow record does not carry the route.</p>
+      <p>The tempting shortcut says a sharp response that ends with the storm means inflow, and a
+        slow response that decays over days means infiltration. EPA's own research reporting removes
+        the second half of that. Rainfall-derived infiltration typically continues past the end of
+        rainfall, and then: a system "may experience a fast RDI response, a slow RDI response, or
+        both." Infiltration is not confined to the slow signature, so a fast response does not prove
+        inflow.</p>
+      <p>Watch how EPA handles the quantity in practice. Its stormwater model reference treats
+        rainfall-derived inflow and infiltration as one combined term, and says estimates of it "are
+        almost always derived from actual wastewater flow records" rather than by modelling the
+        processes that produced it. The rainfall driven portion gets measured as an aggregate, not
+        resolved into its two mechanisms.</p>
       <p>So the shape narrows the question. It does not answer it. Sealing pipe defects does nothing
-        about a sump pump plumbed into the wrong pipe.</p>
+        about a roof leader plumbed into the wrong pipe, and disconnecting downspouts does nothing
+        about a cracked lateral.</p>
     </div>
-  </div>
-</section>
+  </section>
 
 <!-- ============ SOURCES AND SCOPE ============ -->
 <section class="sources" aria-labelledby="src-t">
@@ -980,10 +989,18 @@ footer p{margin:0 0 10px;max-width:78ch}
           <tr><td>Three Keys to BMP Performance: Concentration, Volume, and Total Load</td>
             <td>EPA guidance</td>
             <td>Why a peak or concentration reduction is not a volume or load reduction</td></tr>
-          <tr><td>Guide for Estimating Infiltration and Inflow (EPA Region 1)</td>
-            <td>EPA guidance, archived</td>
-            <td>Direct against delayed inflow, and that rainfall-induced infiltration cannot be
-              separated from delayed inflow</td></tr>
+          <tr><td>40 CFR 35.2005(b)(20) and (21), Definitions</td>
+            <td><b>Federal regulation</b></td>
+            <td>What infiltration and inflow are, and that each is defined as distinct from the
+              other</td></tr>
+          <tr><td>Computer Tools for Sanitary Sewer System Capacity Analysis and Planning
+            (EPA/600/R-07/111)</td><td>EPA research reporting</td>
+            <td>That a system may experience a fast infiltration response, a slow one, or both,
+              which is why response shape does not separate the two</td></tr>
+          <tr><td>Storm Water Management Model Reference Manual Volume I (EPA/600/R-15/162A)</td>
+            <td>EPA technical reference</td>
+            <td>That rainfall-derived inflow and infiltration is estimated as one aggregate from
+              flow records</td></tr>
           <tr><td>Runoff and streamflow science references</td><td>USGS</td>
             <td>Runoff generation, hydrograph shape, and receiving-water response</td></tr>
         </tbody>

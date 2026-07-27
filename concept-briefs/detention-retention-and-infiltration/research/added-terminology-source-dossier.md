@@ -907,6 +907,13 @@ present rather than a rule that always applies".
 
 ## Item 12. Wet-weather response shape as a signature separating inflow from infiltration
 
+> **SUPERSEDED 2026-07-27.** This item's verdict has been overtaken by
+> `ii-authority-verification.md`. The archived Region 1 source below is dropped entirely and is
+> retained here only as the record of what was first attempted. The claim as originally written was
+> definitionally wrong: 40 CFR 35.2005(b)(20) and (21) state that infiltration and inflow are each
+> distinguished from the other. The reason response shape cannot separate them is different and
+> better sourced, and is set out in the verification file. Do not cite anything in this item.
+
 **White-paper sentences it must support** (section 10, worked example "separating two things that
 arrive together"):
 

@@ -2,15 +2,15 @@
 contract: owos-qaqc-certificate/1
 document_id: owos:concept-brief:003
 document_title: Detention, Retention, and Infiltration
-document_version: b.3.0
-artifact_checksum_sha256: 14681e4c439237011451f9d0f257e73e28d476111e3068ae5f2a18b197250864
-source_checksum_sha256: 6892875718303d2205c78c18f1c2497f86c4561ad4c1b47531cc58207e909d42
+document_version: b.2.1
+artifact_checksum_sha256: e526ca741ea9c7dd95fedd73e92a4e6e75c4660937509131902b9efc77d71f71
+source_checksum_sha256: 7225c410a695e9e617a83ecc062a7748b8f2868a8763976011a2d6f707ad1560
 published_url: https://claude.ai/code/artifact/6b5d2166-828d-4d4d-b94e-aead2b987d03
-certificate_version: 2
+certificate_version: 1
 reviewer: Claude (Opus 5), under owner direction
 date: 2026-07-27
-supersedes: b.2.1, retained at qa-qc/QA-QC-b.2.1.md
-publication_state: review_only_archived_citation_blocker_cleared
+supersedes: none, first certificate for this document
+publication_state: review_only_not_released
 ---
 
 # Quality Control Certificate
@@ -21,9 +21,9 @@ publication_state: review_only_archived_citation_blocker_cleared
 | --- | --- |
 | Document | Detention, Retention, and Infiltration |
 | Identifier | `owos:concept-brief:003` |
-| Version | b.3.0 |
-| Governing evidence | `white-paper.md` 0.8, `research/added-terminology-source-dossier.md`, `research/ii-authority-verification.md` |
-| Contract | `owos-concept-brief/2` version 2.3.0 |
+| Version | b.2.1 |
+| Governing evidence | `white-paper.md` 0.7, `research/added-terminology-source-dossier.md` |
+| Contract | `owos-concept-brief/2` version 2.2.0 |
 | Publication state | Review only. Not released. |
 
 ## 2. Graphics
@@ -74,8 +74,7 @@ No element presents a modelled result. Every curve is qualitative, unitless, and
 | Permanent pool and storage above it | EPA wet ponds guidance | Verified |
 | What sets the normal water level | EPA wet ponds guidance, EPA's wording used | Verified. The state term "control elevation" is deliberately not adopted |
 | Peak against volume against load | EPA Three Keys | Verified |
-| Infiltration and inflow definitions | 40 CFR 35.2005(b)(20) and (21), verified independently against govinfo XML | Verified from regulation |
-| Why response shape cannot separate them | EPA/600/R-07/111 and EPA/600/R-15/162A, live | Verified from EPA research reporting |
+| Infiltration and inflow definitions and separability | **See section 5 and section 9. Open.** | **Blocked** |
 | Tailwater effect on outlet release | Source dossier item 7 | Verified, qualified stormwater review outstanding |
 
 No numeric threshold, drawdown time, infiltration rate, separation distance, or removal percentage
@@ -89,23 +88,13 @@ appears anywhere in the document. This was checked by search, not by recollectio
 | EPA NPDES BMP: Wet Ponds | 2, federal agency guidance | www.epa.gov, live | Permanent pool, normal water level |
 | EPA Three Keys to BMP Performance | 2, federal agency guidance | www.epa.gov, live | Peak, volume, concentration, load |
 | USGS runoff and streamflow science | 3, federal technical reference | www.usgs.gov, live | Runoff generation, hydrograph shape |
-| 40 CFR 35.2005(b)(20), (21), (29) Definitions | **1, federal regulation** | govinfo.gov CFR 2025 annual edition, live | What infiltration and inflow are, that each is distinct from the other, and that chronic operational problems include surcharging, backups, bypasses, and overflows |
-| EPA/600/R-07/111 Computer Tools for Sanitary Sewer Capacity Analysis | 3, federal technical reference | nepis.epa.gov, live | A system may experience a fast infiltration response, a slow one, or both |
-| EPA/600/R-15/162A SWMM Reference Manual Vol I | 3, federal technical reference | nepis.epa.gov, live | Rainfall-derived inflow and infiltration is estimated as one aggregate from flow records |
+| EPA Region 1 Guide for Estimating Infiltration and Inflow | **Not tiered. Archived copy only.** | 19january2017snapshot.epa.gov, **archived**, no live copy located | I&I direct against delayed distinction |
 
-**Archived-citation blocker: CLEARED.** The previous certificate at b.2.1 recorded a publication
-blocker because the I&I material rested on EPA's frozen January 2017 web archive. That source is now
-dropped entirely. The definitions come from current regulation, which is a higher tier than the
-guidance it replaced, and the reason response shape cannot separate the two comes from live EPA
-Office of Research and Development reporting. No citation in this document now relies on an archived
-URL. Verification recorded in `research/ii-authority-verification.md`.
-
-**A prediction I made was wrong, and it is recorded here rather than quietly corrected.** Before the
-search I expected 40 CFR 35.2005 to define a combined "Infiltration/Inflow" term as the total
-"without distinguishing the source", which would have supported the claim as originally written. The
-regulation says the opposite: infiltration "does not include, and is distinguished from, inflow", and
-inflow likewise. The claim as written was definitionally wrong and has been rewritten. I confirmed
-this directly against the govinfo XML rather than accepting the search result.
+**Archived-citation finding.** The I&I material rests on EPA's frozen January 2017 web archive. Under
+`owos-qaqc-certificate/1` section 5 this is not tier 1 through 3: it evidences that a document once
+existed at the agency, not that the agency currently publishes it. This is a publication gate. The
+document may not be released while a claim depends on it. Replacement work is under way and recorded
+in section 9.
 
 ## 6. Editorial and instructional
 
@@ -157,7 +146,6 @@ Eleven defects found across this pass. All corrected and re-verified.
 | 9 | Brand accent failed contrast at 2.6:1 on ivory | Accessibility | Darkened to 5.34:1 | Rendered audit |
 | 10 | Two hydrograph labels collided at the crossing point | Clarity | One label repositioned below | Visual re-inspection |
 | 11 | Variant and evidence scaffolding present in learner-facing copy and title | Editorial | Removed | Search, zero occurrences |
-| 12 | I&I passage rested on an archived EPA regional document, and its central sentence was contradicted by current regulation | **Material, publication blocker and a factual error** | Archive dropped; definitions moved to 40 CFR 35.2005; the reason shape fails moved to live EPA research reporting; passage rewritten in both the white paper and the page | Regulation text confirmed directly against govinfo XML by the author, not accepted from the search agent |
 
 What was examined to reach this: all eight graphics individually against the white paper and dossier;
 every quantitative relationship recomputed rather than eyeballed; the full page at three viewports
@@ -167,16 +155,16 @@ a JavaScript-disabled render.
 
 ## 9. Open items and limitations
 
-1. **Resolved.** The I&I citation blocker is cleared. See section 5.
-2. **New conflict for a qualified reviewer.** EPA technical references place foundation drains under
-   inflow. The regulation's own parenthetical places them under infiltration. This is a real
-   inconsistency in the federal record, not an editorial choice, and a qualified collection-system
-   reviewer must resolve it. The page currently follows EPA technical practice.
-3. Independent source verification is not complete for the remaining claims.
-4. Qualified stormwater, wastewater, and permitting practitioner review is not complete.
-5. Community, Graph, and sponsorship routes are inert in the published preview and resolve inside the
+1. **I&I citation is a publication blocker.** The direct-against-delayed distinction currently rests
+   on an archived EPA Region 1 document. Live federal authority is being sought, with `40 CFR
+   35.2005(b)` definitions as the primary candidate because regulation outranks guidance. Until that
+   resolves, this document is review only. If live authority does not support the claim as written,
+   the passage will be weakened to what the record supports rather than kept.
+2. Independent source verification is not complete for any claim.
+3. Qualified stormwater, wastewater, and permitting practitioner review is not complete.
+4. Community, Graph, and sponsorship routes are inert in the published preview and resolve inside the
    OWOS platform.
-6. Learning events are emitted but no recorder is attached in the published build, so nothing is
+5. Learning events are emitted but no recorder is attached in the published build, so nothing is
    recorded.
 
 **A reader must not conclude from this document** that any real asset is adequate, compliant,
@@ -190,8 +178,7 @@ value.
 | b.1.0 | 2026-07-27 | First build of the alternative curriculum reading | Owner request for a second variant | none |
 | b.1.1 | 2026-07-27 | Flip cards rebuilt as a grid stack | Owner reported flip cards not working | none |
 | b.2.0 | 2026-07-27 | Definition graphics, reading rail, cross-sector section, sources surface, connected learning, community and value plane | Owner review | none |
-| b.2.1 | 2026-07-27 | Six graphics defects corrected, brand plane rebuilt, Graph and Community drawers wired, learning events instrumented, Droobi attribution removed | Owner review and graphics QA/QC | `qa-qc/QA-QC-b.2.1.md` |
-| **b.3.0** | **2026-07-27** | **I&I passage rewritten on 40 CFR 35.2005 and live EPA research reporting; archived source dropped; a factual error in the previous version corrected** | **Owner required a defensible regulatory basis; verification found the previous claim was definitionally wrong** | **this certificate** |
+| **b.2.1** | **2026-07-27** | **Six graphics defects corrected, brand plane rebuilt, Graph and Community drawers wired, learning events instrumented, Droobi attribution removed** | **Owner review and graphics QA/QC** | **this certificate** |
 
 Certificates from b.2.1 forward are retained under `qa-qc/`. Versions before b.2.1 predate this
 standard and have no certificate, which is recorded here rather than backfilled.

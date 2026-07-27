@@ -2,9 +2,9 @@
 title: Detention, Retention, and Infiltration
 subtitle: Follow the water before trusting the name
 brief_id: owos:concept-brief:003
-version: research-final-0.7
+version: research-final-0.8
 status: owner_approved_for_evidence_verification_and_curriculum_design
-evidence_status: federal_source_research_complete_added_terminology_dossier_complete_nine_of_twelve_anchored_three_corrected_qualified_review_pending
+evidence_status: ii_authority_verified_against_40cfr35_2005_archive_dropped_qualified_review_pending
 html_authorized: false
 owner: Hardeep Anand
 updated: 2026-07-27
@@ -1268,31 +1268,40 @@ and backups (EPA, 2025c).
 > proposes reading the flow record against rainfall to decide whether the problem is inflow or
 > infiltration, because the two have different remedies and neither is cheap.
 >
-> **Working it through.** The shape of the response does carry information, but it does not split
-> along the line most people expect. EPA describes **direct inflow** as the portion that rises
-> rapidly soon after the storm begins and falls swiftly when it ends, from connections such as catch
-> basins, roof leaders, and manhole covers. It describes **delayed inflow** as the portion that
-> decreases gradually after the storm, from sump pumps, foundation drains, and indirect
-> cross-connections. Then it says the thing that matters here: rainfall-induced infiltration cannot
-> be distinguished from delayed inflow, and is therefore counted as part of it (EPA, 2014).
+> **Working it through.** Start with what the terms actually mean, because federal regulation defines
+> them and it defines them by route, not by timing. Infiltration is water entering "from the ground
+> through such means as defective pipes, pipe joints, connections, or manholes," and the regulation
+> adds that it "does not include, and is distinguished from, inflow." Inflow is water entering from
+> "roof leaders, cellar drains, yard drains, area drains, drains from springs and swampy areas,
+> manhole covers, cross connections between storm sewers and sanitary sewers," and it likewise "does
+> not include, and is distinguished from, infiltration" (40 C.F.R. § 35.2005(b)(20) and (21), 2025).
 >
-> So a sharp response that ends with the storm points to direct connections. A gradual response that
-> decays over days does **not** point to infiltration. It points to a group that contains both
-> rainfall-induced infiltration and several inflow sources, and those have different fixes. Sealing
-> pipe defects does nothing about a sump pump discharging to the sanitary sewer.
+> So as definitions they are cleanly separate. The difficulty is not in the vocabulary. It is that
+> the flow record does not carry the route.
 >
-> Groundwater infiltration is measured differently again. EPA estimates it from low nighttime flows
-> during dry weather, and its seasonal peak from the highest nighttime flows during high groundwater.
-> That is a separate measurement from the storm response, not a feature of the same curve.
+> The tempting shortcut is that a sharp response which ends with the storm means inflow, and a slow
+> response that decays over days means infiltration. EPA's own research reporting removes the second
+> half of that. Rainfall-derived infiltration "typically extend[s] beyond the end of rainfall and
+> takes some time to recede," and then: "A system may experience a fast RDI response, a slow RDI
+> response, or both" (EPA, 2007). Infiltration is not confined to the slow signature, so a fast
+> response does not prove inflow.
 >
-> **What you conclude.** The response shape narrows the question rather than answering it. It
-> separates fast from slow, and slow is a mixed category that still needs field investigation to
-> resolve. Anyone who reads a gradual tail as proof of pipe defects has skipped a step.
+> Notice also how EPA handles the quantity in practice. Its stormwater model reference treats
+> rainfall-derived inflow and infiltration as one combined term and states that estimates of it "are
+> almost always derived from actual wastewater flow records as opposed to attempting to model the
+> distributed set of small scale physical processes directly responsible" (EPA, 2016). The rainfall
+> driven portion gets measured as an aggregate, not resolved into its two mechanisms.
+>
+> **What you conclude.** The response shape narrows the question rather than answering it. It tells
+> you something about how fast water is arriving. It does not tell you the route it took, and the
+> route is what determines the remedy. Sealing pipe defects does nothing about a roof leader plumbed
+> into the wrong pipe, and disconnecting downspouts does nothing about a cracked lateral.
 >
 > **Where this stops.** This does not locate a defect, size a rehabilitation program, or apportion
-> flow between mechanisms. It also does not transfer cleanly between climates: the EPA guidance
-> behind it is regional and builds its seasonal reasoning on snowmelt and soil thaw. Flow monitoring,
-> field investigation, and qualified collection-system assessment remain required.
+> flow between the two mechanisms. Doing that takes flow monitoring, field investigation such as
+> smoke and dye testing and camera inspection, and qualified collection-system assessment. Note also
+> that EPA technical references and the regulation classify foundation drains differently, which is a
+> live inconsistency a qualified reviewer should resolve rather than an editorial choice.
 
 The brief will not attach a universal dollar value to I&I. Cost depends on the amount, timing,
 location, system configuration, energy, treatment process, capacity, and capital alternatives. The
@@ -1800,7 +1809,7 @@ are partial. None were left with an invented citation.
 | Downstream peak coincidence | Found | sourced_fact | **Upgraded** from expert interpretation. EPA states it near-verbatim as a generalization drawn from studies. |
 | Event mean concentration in the load relationship | Found | sourced_fact | EPA technical reference. |
 | First flush as variable rather than a rule | Found | sourced_fact | EPA technical reference. |
-| Wet-weather response shape | Partial | expert_interpretation | **Corrected.** EPA states that rainfall-induced infiltration cannot be distinguished from delayed inflow. The worked example now separates direct from delayed response and names the delayed inflow sources. Classification deliberately not upgraded. |
+| Wet-weather response shape | Found, and **reversed** | sourced_fact for the definitions, expert_interpretation for the reading | **Corrected twice.** The archived regional source is dropped. Definitions now rest on 40 CFR 35.2005(b)(20) and (21), which state that infiltration and inflow are distinguished from each other, the opposite of what the previous draft implied. The reason shape cannot separate them is now EPA's own: a system may experience a fast infiltration response, a slow one, or both. |
 
 Three corrections came out of this search rather than three confirmations. That is the quarantine
 working as intended: the two items flagged as highest review priority were exactly the two that
@@ -1808,16 +1817,20 @@ needed rewriting, and a third turned out to be state vocabulary in a national br
 
 Remaining evidence gaps that a verifier must close:
 
-1. The wet-weather response source exists only on EPA's January 2017 web snapshot. No live copy was
-   found. Whether a national brief may rely on an archived regional document is a gating question
-   for publication, not a footnote.
+1. **Resolved.** The archived regional source is dropped entirely. The I&I material now rests on
+   40 CFR 35.2005 for the definitions and on live EPA Office of Research and Development reports
+   for why the flow record cannot separate the two. Recorded in
+   `research/ii-authority-verification.md`.
 2. Three large federal documents could not be retrieved and nothing from them is cited: HEC-22
    fourth edition, HDS-5 third edition, and NRCS Conservation Practice Standard 378. The HEC-22
    edition that was read is stamped as superseded.
 3. The freeboard definition resolved through a govinfo copy rather than eCFR, and only its first
    sentence returned verbatim. A verifier must open the section directly before the full definition
    is quoted.
-4. Every record remains `verification_status: pending`. Independent verification and qualified
+4. EPA technical references place foundation drains under inflow while the regulation's own
+   parenthetical places them under infiltration. This is a genuine conflict in the federal record. A
+   qualified collection-system reviewer must resolve it; it is not an editorial choice.
+5. Every record remains `verification_status: pending`. Independent verification and qualified
    stormwater, wastewater, and permitting review are unchanged as hard gates.
 
 Important remaining work:
@@ -1935,9 +1948,12 @@ U.S. Environmental Protection Agency. (2004). *Stormwater best management practi
 Volume 1: General considerations* (EPA/600/R-04/121).
 https://nepis.epa.gov/Exe/ZyPDF.cgi/901X0A00.PDF?Dockey=901X0A00.PDF
 
-U.S. Environmental Protection Agency, Region 1. (2014). *Guide for estimating infiltration and
-inflow*. Retrieved from EPA's January 2017 web snapshot.
-https://19january2017snapshot.epa.gov/www3/region1/sso/pdfs/Guide4EstimatingInfiltrationInflow.pdf
+U.S. Environmental Protection Agency. (2007). *Computer tools for sanitary sewer system capacity
+analysis and planning* (EPA/600/R-07/111). https://nepis.epa.gov/Adobe/PDF/P1008BBP.pdf
+
+U.S. Environmental Protection Agency. (2016). *Storm Water Management Model reference manual,
+Volume I: Hydrology (revised)* (EPA/600/R-15/162A).
+https://nepis.epa.gov/Exe/ZyPDF.cgi/P100NYRA.PDF?Dockey=P100NYRA.PDF
 
 U.S. Environmental Protection Agency. (2016). *Storm Water Management Model reference manual,
 Volume III: Water quality* (EPA/600/R-16/093).
@@ -1987,6 +2003,9 @@ https://www.usgs.gov/water-science-school/science/runoff-surface-and-overland-wa
 
 U.S. Geological Survey. (n.d.-b). *Streamflow and the water cycle*.
 https://www.usgs.gov/water-science-school/science/streamflow-and-water-cycle
+
+Definitions, 40 C.F.R. § 35.2005 (2025).
+https://www.govinfo.gov/content/pkg/CFR-2025-title40-vol1/xml/CFR-2025-title40-vol1-sec35-2005.xml
 
 Permit Requirements for Regulated Small MS4 Permits, 40 C.F.R. § 122.34 (2026).
 https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-122/subpart-B/section-122.34
