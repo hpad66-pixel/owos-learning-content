@@ -1,10 +1,10 @@
 ---
 title: Coagulation and Flocculation
-subtitle: Two different physics, two different clocks, one bucket everyone blames
+subtitle: One starts the floc, the other grows it, and the wrong one gets blamed
 brief_id: owos:concept-brief:001
-version: rebuild-0.1
+version: rebuild-0.2
 status: draft_for_owner_sparring
-evidence_status: existing_package_evidence_carried_forward_source_verification_in_progress
+evidence_status: source_verification_complete_three_claims_reversed_or_dropped_timescale_figures_unverified
 html_authorized: false
 owner: Hardeep Anand
 updated: 2026-07-27
@@ -23,17 +23,29 @@ This version is built on the structure proven by Concept Brief 003: one reorgani
 the learner cannot solve on arrival, definitions supplied when the investigation needs them, and a
 graphic for every dependent term.
 
-Evidence from the existing package is carried forward, not assumed. A source verification pass is
-running against all ten existing sources for liveness, authority tier, and United States scope. Two
-things are already flagged for that pass and must not be treated as settled until it returns:
+Source verification is complete and recorded in `research/source-verification-2026.md`. Nine of ten
+sources resolve, eight are live, and no source in this package depends on a web archive. That
+particular failure mode is not present here.
 
-- two of the cited papers are journal research whose country of origin has not been confirmed in this
-  document, and non-United States research may appear only as clearly bounded research, never as
-  governing authority; and
-- one cited source is the brief's own pre-research prototype, which cannot be an evidence authority
-  for anything.
+It found worse. Three claims do not say what their cited federal document says, and one of them
+teaches the reverse of current EPA guidance:
 
-No numeric operating value in this paper may be published until that pass confirms its basis.
+- **Pin floc was taught as an intended intermediate.** Its cited source contains the term zero times.
+  The one place live federal authority uses it, pin floc is the signature of a coagulant **overdose**.
+  This is reversed below.
+- **A velocity gradient claim rests on an AWWA conference deck** and was classified as a technical
+  standard, which reads as governing. AWWA is professional context.
+- **One Japanese paper is dead at its locator** and its numbers were never retrievable. Dropped.
+- **A Korean bench study carries a material claim.** Non-United States research may be bounded
+  research, never governing authority. Demoted.
+- **The brief's own prototype is still cited by two pending claims.** It cannot be evidence for
+  anything.
+
+Separately, and this is my own limitation rather than the verifier's: **the coagulation and
+flocculation timescale figures are not verified by me.** The document they come from is a scanned PDF
+with no text layer, and its text endpoint returns a viewer shell. I could not read it. No specific
+number of seconds or minutes appears in this paper, and none may appear in learner-facing content
+until it is read from a source that can actually be opened.
 
 ## Start here
 
@@ -84,9 +96,9 @@ chemical one, and treated with chemistry, which cannot fix it.**
 
 1. State what coagulation does and what flocculation does, in terms of mechanism rather than
    sequence.
-2. Explain why the two operate on timescales that differ by orders of magnitude, and why that
-   difference is the diagnostic.
-3. Recognise the observations that point to chemistry and the observations that point to physics.
+2. Explain why one stage needs vigorous brief mixing and the other needs gentle sustained mixing, and
+   why that opposition is the diagnostic.
+3. Recognise the observations that point to chemistry and the observations that point to contact.
 4. Say what a jar test can establish and what it cannot.
 5. Explain why more coagulant sometimes makes the water worse.
 6. Read filtered water turbidity as the regulated outcome it is, rather than as a process signal.
@@ -108,29 +120,47 @@ United States federal authority only.
 Coagulation and flocculation are not two steps of one process. They are two different physics
 operating on two different clocks.
 
-**Coagulation is chemistry.** A coagulant is added and the electrical condition of the particles
-changes so that they are able to stick together. The chemistry that matters happens in seconds. If
-the coagulant is not dispersed into the water almost immediately, the reaction happens somewhere
-other than where it was intended.
+Federal regulation defines both, and the definitions are worth reading closely because they draw the
+line more precisely than the shorthand most people use.
 
-**Flocculation is physics.** Destabilised particles have to find one another and collide gently
-enough to stay joined. That requires gentle, sustained agitation over tens of minutes. It cannot be
-hurried, and it can be undone.
+> **Coagulation** is "a process using coagulant chemicals and mixing by which colloidal and suspended
+> materials are destabilized and agglomerated into flocs."
+>
+> **Flocculation** is "a process to enhance agglomeration or collection of smaller floc particles into
+> larger, more easily settleable particles through gentle stirring by hydraulic or mechanical means."
+>
+> 40 C.F.R. § 141.2
 
-The two are joined only by dependency: flocculation cannot do anything with particles that
-coagulation has not already made able to stick. That dependency is why the failures look alike from
-the walkway and why the wrong lever gets pulled.
+Note what that does and does not say, because a common teaching shorthand gets it slightly wrong.
 
-> Coagulation makes particles *willing*. Flocculation makes them *meet*. Different problems, and
-> chemistry cannot fix the second one.
+The shorthand is "coagulation is chemistry, flocculation is physics." That is useful and it is not
+quite the regulatory line. The regulation puts *mixing* inside coagulation, and it has coagulation
+already producing flocs. Flocculation's job in the regulation is not to create aggregates from
+nothing. It is to take **smaller floc particles** and make them **larger and more easily settleable**.
+
+So the accurate distinction is not chemistry against physics. It is:
+
+**Coagulation destabilises and initiates.** Chemicals plus vigorous mixing, so that the coagulant
+reaches all of the water while it is still reacting. Fast and violent.
+
+**Flocculation grows and strengthens.** Gentle stirring, sustained, so that small flocs become large
+enough and dense enough to be removed by what comes next. Slow and delicate.
+
+The two are joined by dependency: flocculation enhances agglomeration of floc that coagulation
+produced. It cannot enhance what is not there. That dependency is why the two failures look alike
+from the walkway and why the wrong lever gets pulled.
+
+> Coagulation *starts* it. Flocculation *grows* it. Different jobs, opposite mixing regimes, and
+> chemistry cannot fix a growth problem.
 
 ## In 30 seconds
 
-- **Coagulation** changes the particle so it can stick. Chemistry. Seconds.
-- **Flocculation** brings particles together so they do stick. Physics. Tens of minutes.
-- Flocculation cannot work on particles coagulation has not prepared, which is why a chemistry
-  failure and a mixing failure look the same from the walkway.
-- More coagulant is the most common response and one of the least often correct.
+- **Coagulation** destabilises particles and starts the floc. Vigorous mixing, brief.
+- **Flocculation** grows small floc into large, settleable floc. Gentle stirring, sustained.
+- Flocculation can only enhance what coagulation produced, which is why a chemistry failure and a
+  contact failure look the same from the walkway.
+- More coagulant is the most common response and one of the least often correct. EPA documents a
+  plant where excessive coagulant dosing was the cause of the poor performance.
 - The turbidity a regulator reads is the last place the problem appears, not the first.
 
 ## The words this paper depends on
@@ -142,10 +172,11 @@ it:* the faint haze in a glass of raw water that never clears no matter how long
 does not tell you:* what the particle is made of. Clay, organic matter, and microorganisms can all
 behave this way.
 
-**Coagulation.** Adding a chemical that changes the electrical condition of colloidal particles so
-they stop repelling one another. *Picture it:* a room of people who have been keeping their distance
-suddenly being willing to shake hands. *What it does not tell you:* that anything has actually joined
-together yet. Willing is not joined.
+**Coagulation.** In federal regulation, "a process using coagulant chemicals and mixing by which
+colloidal and suspended materials are destabilized and agglomerated into flocs" (40 C.F.R. § 141.2).
+*Picture it:* the chemical entering just before a fast impeller, and the water going cloudy in a
+different way than it was cloudy before. *What it does not tell you:* that the floc is big enough to
+remove. Destabilised and agglomerated is the start of the job, not the end of it.
 
 **Coagulant.** The chemical that does this, commonly an aluminium or iron salt. *Picture it:* the
 chemical feed line entering just before the rapid mixer. *What it does not tell you:* that more of it
@@ -156,20 +187,22 @@ water before the chemistry finishes. *Picture it:* a small chamber with a fast i
 churning. *What it does not tell you:* that mixing continues to be helpful. This intensity would
 destroy what comes next.
 
-**Flocculation.** Gentle, sustained mixing that brings destabilised particles into contact so they
-aggregate. *Picture it:* large slow paddles turning in a long basin, water moving but not churning.
-*What it does not tell you:* that it can compensate for a chemical failure. It cannot join particles
-that are still repelling one another.
+**Flocculation.** In federal regulation, "a process to enhance agglomeration or collection of smaller
+floc particles into larger, more easily settleable particles through gentle stirring by hydraulic or
+mechanical means" (40 C.F.R. § 141.2). *Picture it:* large slow paddles in a long basin, water moving
+but not churning. *What it does not tell you:* that it can compensate for a chemical failure. It
+enhances what exists; it does not create floc from particles that were never destabilised.
 
 **Floc.** The visible aggregate formed when destabilised particles join. *Picture it:* loose flakes
 drifting in the basin, large enough to see and to watch settle. *What it does not tell you:* that
 treatment succeeded. Floc that is too fragile to survive the trip to the next process is not a
 result.
 
-**Pin floc.** Very small floc that has formed but is not aggregating further. *Picture it:* fine specks
-suspended throughout, like dust in a sunbeam, not settling. *What it does not tell you:* which of the
-two processes failed. This is exactly the observation that gets misread as a dosing problem when it
-is often a contact problem.
+**Pin floc.** Very small floc that has formed but is not growing into anything settleable. *Picture
+it:* fine specks suspended throughout, like dust in a sunbeam, not settling. *What it does not tell
+you:* which process failed, or in which direction. EPA's turbidity guidance documents a plant where
+pin floc was caused by dosing coagulant at *excessive* rates, which is the opposite of the reflex it
+usually triggers.
 
 **Velocity gradient, written G.** A measure of how vigorously water is being sheared by mixing. High G
 disperses. Low G allows contact without tearing. *Picture it:* the difference between a blender and a
@@ -188,26 +221,34 @@ the side counting what bounces. *What it does not tell you:* what the particles 
 are, or whether they are harmful. It is a surrogate, and it is regulated precisely because it is
 continuously measurable, not because it is complete.
 
-## 1. Two clocks
+## 1. Two opposite mixing regimes
 
-The most useful fact about these two processes is how far apart their timescales sit.
+The regulation gives coagulation "mixing" and gives flocculation "gentle stirring". That contrast is
+the whole design of the front of the plant, and it runs in opposite directions.
 
-Coagulation chemistry is effectively finished in seconds. The coagulant hydrolyses on contact with
-water and the species that destabilise particles form and change very quickly. This is why rapid mix
-exists at all: the only way to have the chemistry act on all of the water is to distribute the
-chemical through all of the water before it has finished reacting.
+**Coagulation needs the chemical everywhere, fast.** Coagulants react on contact with water, so the
+only way for the chemistry to act on all of the water is to distribute it through all of the water
+while it is still reacting. This is why rapid mix exists and why it is violent. EPA's turbidity
+guidance is direct about the cost of getting it wrong: "Inadequate mixing of chemicals or their
+addition at inappropriate points within the treatment plant can limit performance" (EPA, 2020).
 
-Flocculation runs for tens of minutes. Particles that are able to stick still have to encounter one
-another, and encounters in gently stirred water are not fast. Then the aggregate has to survive.
+**Flocculation needs contact without destruction.** Small flocs must meet and join, which argues for
+movement, and the aggregate must survive, which argues against it. The same shear that causes
+collisions tears apart what the collisions built.
 
-An order-of-magnitude gap between two stages of one train has a practical consequence that almost
-nobody states out loud: **the two stages cannot be diagnosed on the same shift in the same way.** A
-chemistry change shows up almost immediately in the jar and downstream within a basin residence time.
-A flocculation change takes a full basin turnover before you can even see it, and the thing you are
-looking at was formed under conditions from twenty minutes to an hour ago.
+That tension is visible in how EPA tells utilities to check a plant. It directs that "the velocity
+gradient at any point from the flocculation basin to the sedimentation basin should be less than the
+velocity gradient in the last flocculation stage," and asks whether basin outlet and inlet conditions
+"prevent the breakup of formed floc particles" (EPA, 2020). The concern is not achieving mixing. The
+concern is not destroying what has been achieved.
 
-When an operator changes the dose and looks at the floc five minutes later, they are looking at floc
-that was made before the change.
+So the two stages are not a sequence of the same activity at different speeds. They are opposed
+requirements, and an intervention that helps one can harm the other.
+
+**A note on timing, stated honestly.** Coagulation is fast and flocculation is slow, and the gap is
+large. This paper does not give figures. The federal guidance that states them is a scanned document
+I could not read, and a number that cannot be opened and checked does not belong in teaching
+material. See the working status.
 
 ## 2. What coagulation actually does
 
@@ -271,18 +312,32 @@ misread observation in this part of the plant.
 
 The misreading goes like this: pin floc means not enough coagulant, so add coagulant.
 
-Sometimes that is right. Pin floc can indicate that the chemical condition is marginal, that
-particles are only just destabilised, and that a chemistry adjustment is warranted.
+**The one place current federal guidance uses the term, it points the other way.** EPA's turbidity
+guidance manual describes a plant investigation where settled and finished water turbidity were poor,
+the sedimentation and filtration processes were found capable, and the cause was elsewhere:
 
-But pin floc is also exactly what you see when the chemistry is fine and the contact is not: when
-flocculation energy is too low to bring particles together, when residence time is too short, when
-the basin is short-circuiting so water leaves before it has spent its time, or when the mixing is too
-vigorous and aggregates are being broken as fast as they form.
+> "A review of the plant's operation procedures revealed that the poor performance was caused by the
+> operator adding coagulants at excessive dosages, leading to formation of a pin floc that was
+> difficult to settle and filter." (EPA, 2020)
 
-The observation does not distinguish these. The word "pin floc" describes an appearance, not a cause,
-and treating an appearance as a cause is how a mixing problem gets a chemical answer.
+Excessive dosages. Not insufficient ones. In that plant, the reflex was the cause.
 
-> Pin floc is a question. It is not a diagnosis.
+That is one documented case and it does not establish that pin floc always means overdosing. What it
+does establish is that the reflex is not safe, because the observation is consistent with at least
+three different situations:
+
+- **marginal chemistry**, where particles are only just destabilised;
+- **inadequate contact**, where flocculation energy is too low, residence time is too short, or the
+  basin is short-circuiting so water leaves before it has spent its time; and
+- **excessive dose**, the case EPA documents, where the chemistry has been pushed past the point
+  where it works.
+
+Two of those three get worse if you add coagulant.
+
+The word "pin floc" describes an appearance, not a cause, and treating an appearance as a cause is
+how a contact problem and an overdose problem both get the same wrong answer.
+
+> Pin floc is a question. It is not a diagnosis, and it is not a dosing instruction.
 
 ## 5. Why more coagulant is the wrong reflex
 
@@ -394,11 +449,13 @@ problems.
 
 ## 10. Misconceptions this paper must repair
 
-**"Coagulation and flocculation are two words for the same thing."** They are different mechanisms on
-different timescales, and they fail differently.
+**"Coagulation and flocculation are two words for the same thing."** Federal regulation defines them
+separately. One destabilises and starts the floc with vigorous mixing; the other grows small floc
+into settleable floc with gentle stirring. They fail differently and they need opposite treatment.
 
 **"Pin floc means underdosing."** Pin floc means small floc that stopped growing. It is consistent
-with a chemistry problem and equally consistent with a contact problem.
+with marginal chemistry, with inadequate contact, and with excessive dose. The one plant EPA
+documents by name had the third one.
 
 **"If the floc looks bad, add coagulant."** Sometimes correct, often not, and in the restabilisation
 regime it makes the water worse.
@@ -437,16 +494,19 @@ Recommended sequence:
 
 ### Required visual teaching set
 
-1. **Two clocks.** Seconds against tens of minutes, drawn to scale so the gap is visible rather than
-   asserted. This is the dominant visual.
+1. **Two opposite mixing regimes.** Vigorous and brief against gentle and sustained, with the
+   velocity gradient stepping down through the train and continuing to step down on the way to
+   sedimentation, which is what EPA actually directs. This is the dominant visual. It carries no time
+   figures until those are read from a source that can be opened.
 2. **Willing against meeting.** Particles repelling, then destabilised but apart, then aggregated.
    Three states, one row.
 3. **The dose window.** Performance against dose showing that both too little and too much fail,
    with the restabilisation side named.
 4. **Rapid mix against flocculation.** The same basin pair with mixing intensity shown as a stepped
    profile, high then low and tapering.
-5. **One appearance, two causes.** Pin floc in the centre with two distinct upstream paths leading to
-   it. The core diagnostic graphic.
+5. **One appearance, three causes.** Pin floc in the centre with three distinct upstream paths
+   leading to it: marginal chemistry, inadequate contact, and excessive dose. Two of the three get
+   worse if coagulant is added. The core diagnostic graphic, and the one that carries the correction.
 6. **The jar and the plant.** Side by side, with the four things the jar cannot contain drawn as
    absences: no short-circuit, no dead zone, no transit, no filter.
 7. **The chain to turbidity.** Coagulation, flocculation, settling, filtration, measurement, with the
@@ -480,57 +540,73 @@ judgment.
 
 ## 14. Research notes and unresolved work
 
-1. **Source verification is running** against all ten existing sources for liveness, authority tier,
-   and United States scope. Nothing in this paper that depends on a specific number may be published
-   before it returns.
-2. **Two journal sources need country and scope confirmation.** If either is non-United States
-   research, it may appear only as clearly bounded research and never as governing authority.
-3. **One cited source is the brief's own prototype** and must be removed from the evidence basis for
-   every claim that currently depends on it.
-4. **The AWWA conference paper is professional context,** not federal authority, and any claim
-   currently resting on it as authority must be reclassified.
-5. **Regulatory turbidity language must be quoted verbatim** from the current CFR at the correct
-   citation, with the covered systems stated, before any number appears in learner-facing content.
-6. Qualified drinking water treatment practitioner review has not been performed on this rebuild.
-7. The rapid mix energy question, where the existing package records a genuine disagreement in the
-   literature, must be carried into the rebuild as a visible contested area rather than resolved by
-   the author.
+Source verification is complete. `research/source-verification-2026.md` holds the retrieval evidence.
+Package edits that must follow, none of which are made yet:
+
+1. **Reverse `claim-pin-floc`.** It teaches pin floc as an intended intermediate, cites a document
+   containing the term zero times, and current EPA guidance uses it as an overdose signature.
+2. **Drop `source-aktas-2013`** and its dependent claims. Locator returns 404, the paper is
+   non-United States, and its numbers were never retrieved.
+3. **Demote `claim-park-study`** from material. It rests solely on Korean bench research.
+4. **Reclassify `claim-g-equation`.** It is a technical standard resting on an AWWA conference deck.
+5. **Clear `source-prototype`** from the two pending claims that still cite it as evidence.
+6. **Re-source `claim-polymer-role` and `claim-jar-sampling`.** Their cited documents do not contain
+   the supporting language.
+7. **Correct the title of `source-epa-swtr-turbidity`** in `sources.yaml`.
+8. **Add 40 CFR 141.2** as a tier 1 source. It defines both central terms and I verified it directly.
+9. **Consider adding EPA 815-R-99-012**, which the verification pass reports fills several gaps.
+
+Open beyond the package:
+
+10. **Timescale figures remain unread by me.** Their source is a scanned PDF with no text layer. Do
+    not publish a figure until it is read from something that can be opened.
+11. Qualified drinking water treatment practitioner review has not been performed.
+12. The rapid mix energy disagreement must be carried into the rebuild as a visible contested area
+    rather than resolved by the author.
 
 ## 15. White-paper quality score
 
-### Current score: 71/100
+### Current score: 76/100
 
-This is a first rebuild draft. The score is deliberately low and reflects that the teaching argument
-is built while its evidence is still being verified.
+Up five from the first draft. Source verification returned and its main effect was to find errors,
+which is worth more than it costs: the central definitions moved to tier 1 regulation I verified
+myself, and a claim that taught the reverse of current federal guidance was caught before it reached
+a learner.
 
 | Dimension | Available | Awarded | Evidence | Deduction |
 | --- | --- | ---: | --- | --- |
 | Teaching thesis and importance | 15 | 14 | One reorganizing idea, two clocks, carried through the whole paper, with a real and common failure mode named. | Deduct 1 pending owner sparring on the thesis. |
 | Complete plain-language explanation | 20 | 17 | Ten terms defined with meaning, example, and non-establishment. Mechanisms, dependency, and the diagnostic separation are explained without assuming prior knowledge. | Deduct 3 because worked examples are described rather than written out. |
 | Utility-wide and cross-sector value | 15 | 12 | Connects to filtration, residuals, chemical budget, and wastewater conditioning. | Deduct 3 because the finance and cross-sector sections are thin against the detention benchmark. |
-| Research depth and source quality | 15 | 6 | Forty eight claims and ten sources exist in the package and are carried forward. | Deduct 9 because liveness, tier, and United States scope are unverified, two journal sources are unconfirmed, one source is the brief's own prototype, and no source is cited inline in this draft. |
-| Technical accuracy and claim verification | 20 | 12 | Mechanisms stated at a level the existing claim set supports. No dose, gradient, time, or regulatory number is asserted. | Deduct 8 because no claim in this rebuild has been independently verified and no qualified practitioner has reviewed it. |
+| Research depth and source quality | 15 | 11 | Full retrieval pass on all ten sources with liveness, tier, and scope recorded. Nine resolve, eight live, none archived. The two central definitions are now tier 1 regulation, verified by me against eCFR rather than accepted from the pass. | Deduct 4 because nine package edits identified by the pass are not yet made, and one source is dead. |
+| Technical accuracy and claim verification | 20 | 14 | The pin floc claim is reversed against verified EPA text I extracted and read myself. The thesis was corrected after the regulatory definitions turned out to draw the line differently than the common shorthand. No dose, gradient, time, or turbidity figure is asserted. | Deduct 6 because no qualified practitioner has reviewed this, and the timescale evidence could not be opened. |
 | Diagrams and visual teaching value | 10 | 7 | Eight production visuals specified with an instructional job each, and the four-part graphics test applied in advance. | Deduct 3 because none is built or checked. |
 | Editorial quality, boundaries, and originality | 5 | 3 | Problem-driven spine, define before use, explicit scope, no prohibited phrasing. | Deduct 2 pending the sparring round. |
-| **Total** | **100** | **71** |  |  |
+| **Total** | **100** | **76** |  |  |
 
-**Decision: below the 90-point threshold. Return to sparring and research.** This draft is not
-eligible for curriculum design or HTML production. The largest single recovery is source
-verification, which is in progress and worth roughly nine points on its own.
+**Decision: below the 90-point threshold. Return to sparring and research.** Not eligible for
+curriculum design or HTML production.
 
 ### Work required to reach the next gate
 
-- Complete and act on the source verification pass.
-- Remove the prototype from the evidence basis; reclassify AWWA material as professional context;
-  bound or drop non-United States research.
-- Quote the regulatory turbidity language verbatim from current CFR, with covered systems stated.
+- Make the nine package edits listed in section 14.
+- Obtain a readable source for the coagulation and flocculation timescales, or teach the contrast
+  without figures permanently.
+- Quote the regulatory turbidity language verbatim, with covered systems stated. The verification
+  pass has the exact text for both citations.
 - Write the worked examples out in full rather than describing them.
-- Owner sparring on the two-clocks thesis.
+- Owner sparring on the corrected thesis, which is now "starts it against grows it" rather than
+  "chemistry against physics".
 - Qualified drinking water treatment practitioner review.
 
 ## References
 
-Pending source verification. The existing package's ten sources are carried forward in
-`sources.yaml` and are being checked for liveness, authority tier, and United States scope. No
-reference list is published in this draft, because publishing one before that check is what produced
-the archived-source failure in Concept Brief 003.
+Only sources I opened and read myself are listed. The full retrieval record for the package, including
+sources I did not personally open, is in `research/source-verification-2026.md`.
+
+National Primary Drinking Water Regulations, Definitions, 40 C.F.R. § 141.2 (eCFR, current as of
+2026-07-23). https://www.ecfr.gov/current/title-40/section-141.2
+
+U.S. Environmental Protection Agency. (2020). *Guidance manual for compliance with the Surface Water
+Treatment Rules: Turbidity provisions* (EPA 815-R-20-004). Office of Water.
+https://www.epa.gov/sites/default/files/2020-06/documents/swtr_turbidity_gm_final_508.pdf
