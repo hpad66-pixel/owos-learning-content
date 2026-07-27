@@ -3,6 +3,32 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.32.0] - 2026-07-27
+### Added: Detention brief Variant B, an alternative curriculum interpretation
+- Added `concept-briefs/detention-retention-and-infiltration/variant-b/` with a rationale document
+  and a self-contained page, for owner comparison against Variant A. Variant A is unchanged and
+  tagged `concept-brief-003-version-a`.
+- Variant B argues that a Concept Brief should install one reorganizing idea rather than survey a
+  domain. Its spine is a puzzle the learner cannot solve yet: a pond in good condition, a clear
+  outlet, a passed inspection, and a street that flooded. Every concept enters because the
+  investigation needs it. Permits, finance, and cross-role framing move to their own briefs.
+- Rebuilt the two visuals that were doing the least work in Variant A:
+  - the route comparison drew a dry detention basin brim-full of water, identical to the wet pond
+    beside it, erasing the one distinction it existed to teach. Variant B uses a single cross-section
+    the learner drives through four conditions, where blocking the outlet visibly moves water to the
+    overflow and a high creek visibly backs it up.
+  - the hydrograph asserted that area represents volume and never shaded the area. Variant B animates
+    both curves, fills both areas, and computes the result: a 47 percent lower peak carrying 2
+    percent less water.
+- Added flip cards that ask exact recall questions rather than fill-in-the-blank.
+- Replaced the twelve-field final form with four questions answerable three ways: watch a model
+  answer type itself at reading speed, write your own, or clear and start again. Answers save to the
+  browser and export as Markdown. Nothing is required to reach the end, because a brief that ends in
+  an unfinished form has taught nothing at the moment it mattered most.
+- Variant B introduces no new technical claims. It carries the three corrections from the source
+  search, including using EPA's own wording for what sets the normal water level rather than the
+  state term.
+
 ## [0.31.0] - 2026-07-27
 ### Changed: Detention white paper 0.7, source anchoring and three corrections
 - Completed a federal source search over the twelve terms quarantined in 0.6 and recorded it in
