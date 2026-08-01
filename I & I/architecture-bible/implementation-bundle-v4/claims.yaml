@@ -1,0 +1,43 @@
+schema_version: 1
+artifact_id: owos:pumpos-ii:implementation-bundle-v4
+claims:
+  - id: V4-C01
+    type: owner_position
+    statement: Version 4 should be separately demarcated and usable as an actionable instance with another development agent.
+    sources: [V4-S05]
+    verification: owner_direction
+  - id: V4-C02
+    type: expert_interpretation
+    statement: The first implementation should be bounded to one basin, one event, one receiving station, one complete lineage, and one reviewed decision.
+    sources: [V4-S01, V4-S05]
+    verification: candidate_product_recommendation_pending_owner_approval
+  - id: V4-C03
+    type: sourced_fact
+    statement: Version 3 separates observed, calculated, modeled, reconciled, and interpreted results.
+    sources: [V4-S01]
+    verification: source_traced
+  - id: V4-C04
+    type: expert_interpretation
+    statement: A coding agent should consume bounded tools and must not become calculation, model-approval, operational-control, compliance, or work-dispatch authority.
+    sources: [V4-S01, V4-S04]
+    verification: candidate_architecture_control_pending_security_and_owner_review
+  - id: V4-C05
+    type: expert_interpretation
+    statement: Golden numerical cases are required before two implementations can be considered numerically equivalent.
+    sources: [V4-S01, V4-S02]
+    verification: candidate_quality_requirement_pending_qualified_numerical_review
+  - id: V4-C06
+    type: unresolved_question
+    statement: The target active PumpOS repository and branch for implementing Version 4 have not been positively identified in this bundle.
+    sources: [V4-S05]
+    verification: blocked_before_wp01_completion
+  - id: V4-C07
+    type: unresolved_question
+    statement: Production cloud architecture requires formal owner and constitutional ratification.
+    sources: [V4-S01]
+    verification: unresolved
+  - id: V4-C08
+    type: sourced_fact
+    statement: The Version 4 bundle contains an agent handoff, binding AGENTS instructions, ordered work packages, acceptance criteria, APIs, tool contracts, schemas, examples, and golden-case structure.
+    sources: [V4-S05]
+    verification: mechanically_validated_candidate

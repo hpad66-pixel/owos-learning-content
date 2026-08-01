@@ -1,0 +1,180 @@
+schema_version: 1
+artifact_id: owos:architecture-bible:pumpos-ii
+version: 0.5.0
+status: integrated_working_candidate
+automated_checks:
+  implementation_bundle_v4:
+    status: passed_mechanical_bundle_validation
+    artifact: implementation-bundle-v4/ii-intelligence-implementation-edition-v4.md
+    sha256: 4db0ff598c22a56eac0d287f01432ab7d32db8dcfd881e9fba0c110b719fc293
+    command: python3 architecture-bible/implementation-bundle-v4/tools/validate_bundle.py
+    result:
+      required_core_files: 16
+      yaml_files_parsed: 14
+      json_files_parsed: 13
+      work_packages: 14
+      dependency_graph: acyclic
+      acceptance_criteria: 61
+      json_schema_identifiers: 7
+      structural_examples_checked: 4
+      openapi_operations: 17
+      openapi_local_references: 16
+      bounded_agent_tools: 14
+      prohibited_agent_tools: 9
+      claim_source_resolution: passed
+      handoff_boundary_markers: passed
+  integrated_system_bible_v3:
+    status: passed_mechanical_build_and_completeness
+    artifact: ii-intelligence-system-bible-v3.md
+    sha256: 2a449a8403d7dbbaf09c94c8e580889fa16a6fea8f095a28d7ca9a460c1363cd
+    result:
+      lines: 13548
+      words: 89271
+      bytes: 654542
+      complete_source_volumes: 4
+      formula_explanations: 39
+      explanation_sections_per_formula: 8
+      source_class_explanations: 11
+      worked_dashboard_metric_explanations: 34
+      model_assurance_metric_contracts: 10
+      decision_explanations: 6
+      beginner_model_runbooks: 2
+      dashboard_figures: 9
+  version_3_validator:
+    status: passed
+    command: python3 architecture-bible/tools/validate_system_bible_v3.py
+    result:
+      four_source_volumes_included_exactly_once: true
+      formula_explanation_coverage: 39_of_39
+      source_explanation_coverage: 11_of_11
+      metric_explanation_coverage: 34_of_34
+      decision_explanation_coverage: 6_of_6
+      model_assurance_metric_contracts: 10_of_10
+      swmm_and_epanet_story_bridges: passed
+      pyswmm_and_wntr_runbooks: passed
+  companion_python_examples:
+    status: syntax_compilation_passed
+    command: python3 -m py_compile architecture-bible/examples/run_swmm_model.py
+    limitation: No approved SWMM input model was available for an execution test.
+  integrated_system_bible_v2:
+    status: passed_mechanical_build_and_completeness
+    artifact: ii-intelligence-system-bible-v2.md
+    sha256: a9dd1c56c147cc5f29f08f1776994d20c61e5792f269bbef4260a6e0e9957963
+    result:
+      lines: 11572
+      words: 75639
+      bytes: 551942
+      complete_source_volumes: 2
+      formula_explanations: 39
+      explanation_sections_per_formula: 8
+      source_class_explanations: 11
+      dashboard_metric_explanations: 34
+      decision_explanations: 6
+      dashboard_figures: 9
+      rtk_master_contents: present
+  version_2_validator:
+    status: passed
+    command: python3 architecture-bible/tools/validate_system_bible_v2.py
+    result:
+      engineering_source_included_exactly_once: true
+      architecture_source_included_exactly_once: true
+      formula_explanation_coverage: 39_of_39
+      source_explanation_coverage: 11_of_11
+      metric_explanation_coverage: 34_of_34
+      decision_explanation_coverage: 6_of_6
+      rtk_discoverability: passed
+  integrated_system_bible:
+    status: passed_mechanical_build
+    artifact: ii-intelligence-system-bible.md
+    sha256: 21e60a618fc43931204d8e3de351bebb44440afed2777e8c3988582d62e1c72d
+    result:
+      lines: 7833
+      words: 42586
+      bytes: 329449
+      complete_source_volumes: 2
+      integrated_parts: 7
+  operationalization_validator:
+    status: passed
+    command: python3 architecture-bible/tools/validate_operationalization.py
+    result:
+      formulae_cataloged: 39
+      source_classes_resolved: 11
+      numbered_dashboard_metrics_resolved: 34
+      decision_bindings_resolved: 6
+      visible_lineage_gaps_retained: 6
+      populated_dashboard_mockups_resolved: 9
+  populated_dashboard_rendering:
+    status: passed_desktop_candidate
+    command: node architecture-bible/tools/capture_dashboard_mockups.cjs
+    result:
+      dashboard_views_rendered: 9
+      visible_undefined_values: 0
+      screenshots_inspected: 9
+      worked_metrics_displayed: 34
+    limitation: Independent mobile, keyboard, screen-reader, product-owner, operator, and usability reviews remain unresolved.
+  generated_document_fences:
+    status: passed
+    result: Code fences balanced.
+  architecture_source_volume_structure:
+    status: passed
+    result:
+      lines: 3259
+      words: 17261
+      bytes: 134922
+      titled_sections: 31
+      code_fence_lines: 82
+      code_fences_balanced: true
+  mermaid_block_balance:
+    status: passed_structural_only
+    result:
+      mermaid_blocks: 19
+      text_wireframes: 16
+      yaml_contract_examples: 6
+    limitation: Mermaid diagrams have not received independent rendered visual review.
+  internal_link_check:
+    status: passed_for_current_markdown_links
+    result: README white-paper link resolves inside the package.
+  prohibited_language_and_punctuation:
+    status: passed
+    result: No em dash, en dash, or Hardeep Soul blocked phrase was found in the package scan.
+  source_identifier_resolution:
+    status: passed
+    result: AB-S1 through AB-S23 are present and referenced identifiers resolve.
+  diagram_identifier_resolution:
+    status: passed
+    result: AB-D01 through AB-D39 are present in the diagram register.
+  yaml_parse:
+    status: passed
+    result: Ten YAML package files parsed successfully.
+  git_whitespace:
+    status: passed
+    result: Direct package scan and no-index diff check reported no trailing-whitespace errors.
+  duplicate_heading_scan:
+    status: reviewed
+    result: Repeated local headings such as Purpose and Acceptance criteria are intentional within separate workstreams.
+manual_reviews:
+  owner_architecture_intent: unresolved
+  pump_os_lead_developer: unresolved
+  ii_engine_developer: unresolved
+  data_architecture: unresolved
+  security_architecture: unresolved
+  graph_and_ontology: unresolved
+  wastewater_engineering: unresolved
+  swmm_modeling: unresolved
+  epanet_modeling: unresolved
+  utility_operations: unresolved
+  regulatory: unresolved
+  executive_readability: unresolved
+  novice_readability: unresolved
+  independent_editorial: unresolved
+hard_gates:
+  source_preservation: partial_external_locators_with_hashes
+  current_state_accuracy: blocked_pending_active_branch_confirmation
+  target_architecture_ratification: blocked
+  formula_production_status: blocked
+  security_review: blocked
+  qualified_technical_review: blocked
+  model_calibration_and_validation: blocked
+  owner_release_approval: blocked
+  version_4_target_repository: blocked
+  version_4_product_boundary_approval: blocked

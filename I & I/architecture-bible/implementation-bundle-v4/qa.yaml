@@ -1,0 +1,46 @@
+schema_version: 1
+artifact_id: owos:pumpos-ii:implementation-bundle-v4
+version: 0.4.0
+status: working_candidate
+automated_checks:
+  bundle_validator:
+    status: passed
+    command: python3 tools/validate_bundle.py
+  yaml_parse:
+    status: passed
+  json_parse:
+    status: passed
+  schema_identifier_uniqueness:
+    status: passed
+  work_package_dependency_graph:
+    status: passed
+  acceptance_identifier_resolution:
+    status: passed
+  openapi_operation_identifier_uniqueness:
+    status: passed
+  example_structure:
+    status: passed
+  source_path_resolution:
+    status: passed
+  prohibited_punctuation:
+    status: passed
+manual_reviews:
+  owner_product_boundary: unresolved
+  software_architecture: unresolved
+  data_architecture: unresolved
+  ii_engineering: unresolved
+  pump_station_engineering: unresolved
+  swmm_modeling: unresolved
+  epanet_modeling: unresolved
+  utility_operations: unresolved
+  cybersecurity: unresolved
+  accessibility: unresolved
+  independent_editorial: unresolved
+hard_gates:
+  target_repository_identification: blocked
+  formula_approval: blocked
+  numerical_verification: blocked
+  model_assurance: blocked
+  security_review: blocked
+  field_pilot: blocked
+  owner_release_approval: blocked

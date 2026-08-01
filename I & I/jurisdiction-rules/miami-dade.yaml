@@ -1,0 +1,54 @@
+schema_version: 1
+rule_pack_id: US-FL-MIAMI-DADE-I-and-I
+version: 0.1.0
+status: candidate_requires_current_legal_regulatory_and_engineering_review
+separation_policy: >-
+  These rules are not part of the universal formula layer. They can be
+  activated only when the project jurisdiction, facility, legal instrument,
+  effective date, and applicability facts match the rule.
+rules:
+  - rule_id: MDC-FED-CD-NAPOT-2013
+    title: Yearly Nominal Daily Average Pump Operating Time
+    governing_record: SRC-CAND-MDC-FEDERAL-CD-2013
+    locator: Document_25_2_Appendix_A_page_1_definition_A_iii
+    formula_id: F-MDC-NAPOT-001
+    threshold_hours_per_day: 10
+    threshold_locator: Document_25_2_Appendix_A_page_3_paragraph_D
+    conditions:
+      - denominator_is_total_installed_pumps_minus_one
+      - numerator_uses_prior_365_day_monthly_daily_average_operating_time
+      - elapsed_time_or_power_basis_must_follow_the_source
+      - variable_or_multispeed_power_equivalence_requires_source_specific_logic
+    legal_status_check_required_at_runtime: true
+    universal_use: prohibited
+  - rule_id: MDC-FDEP-CDWWTP-DWF-I-and-I-2025
+    title: Central District Wastewater Treatment Plant basin dry-weather I&I rate
+    governing_record: SRC-CAND-MDC-FDEP-ORDER-2025
+    locator: consent_order_page_5_paragraph_6_a_2
+    threshold:
+      value: 4600
+      unit: gpd_per_inch_diameter_mile
+    denominator_definition: not_fully_defined_in_the_order_and_requires_accepted_I_and_I_plan
+    facility_boundary: basins_transmitting_to_Central_District_WWTP
+    important_source_language:
+      basis: determined_by_Miami_Dade_WASD_as_maximum_flow_without_exceeding_facility_permitted_capacity
+      potential_revision: source_paragraph_6_c_requires_update_if_lower_flow_is_needed_for_effluent_compliance
+    legal_status_check_required_at_runtime: true
+    universal_use: prohibited
+  - rule_id: MDC-FDEP-CDWWTP-WWF-PE-2025
+    title: Central District wet-weather maximum flow evaluation
+    governing_record: SRC-CAND-MDC-FDEP-ORDER-2025
+    locator: consent_order_pages_5_to_6_paragraph_6_a_3
+    rule: >-
+      A Florida-registered professional engineer evaluates the full system and
+      determines a maximum wet-weather rate compatible with permit and
+      applicable-rule compliance, subject to Department acceptance.
+    numeric_threshold_in_source: false
+    legal_status_check_required_at_runtime: true
+    universal_use: prohibited
+runtime_guards:
+  - reject_rule_pack_if_project_jurisdiction_is_not_Miami_Dade_Florida
+  - reject_rule_if_facility_boundary_does_not_match
+  - reject_rule_if_current_legal_status_has_not_been_verified
+  - never_present_a_rule_threshold_as_a_national_design_standard
+  - preserve_the_exact_denominator_scope_used_by_the_applicable_accepted_plan

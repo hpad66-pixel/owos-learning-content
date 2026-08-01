@@ -1,0 +1,28 @@
+schema_version: 1
+id: GC-001
+name: rainfall_volume_positive
+status: contract_fixture_pending_independent_review
+synthetic: true
+formula:
+  id: F-UNIT-001
+  version: candidate
+purpose: Demonstrate the golden-case contract for rainfall volume over the synthetic 640-acre basin.
+inputs:
+  - {id: rainfall_depth, value: 3.2, unit: in}
+  - {id: basin_area, value: 640, unit: acre}
+expected:
+  result_id: result_synthetic_rainfall_volume_001
+  quantity_type: rainfall_volume
+  full_precision_value: 55.612416
+  unit: MG
+tolerance:
+  type: absolute
+  value: 0.000001
+  unit: MG
+limitations:
+  - This fixture is inherited from the Version 3 synthetic example.
+  - It is not independent formula approval.
+  - It is not facility data.
+required_review_roles:
+  - qualified_ii_engineer
+  - independent_numerical_reviewer

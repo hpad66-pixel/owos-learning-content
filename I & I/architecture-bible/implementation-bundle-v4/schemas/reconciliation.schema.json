@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.apas.example/ii/v4/reconciliation.schema.json",
+  "title": "Result Reconciliation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "tenant_id",
+    "analysis_request_id",
+    "result_ids",
+    "purpose",
+    "compatibility",
+    "comparison_state",
+    "tolerance_policy_id",
+    "created_at"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^recon_[a-z0-9_]+$"},
+    "tenant_id": {"type": "string", "minLength": 3},
+    "analysis_request_id": {"type": "string", "minLength": 3},
+    "result_ids": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 3}
+    },
+    "purpose": {"type": "string", "minLength": 1},
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["quantity", "boundary", "time", "unit"],
+      "properties": {
+        "quantity": {"type": "boolean"},
+        "boundary": {"type": "boolean"},
+        "time": {"type": "boolean"},
+        "unit": {"type": "boolean"}
+      }
+    },
+    "comparison_state": {
+      "enum": [
+        "not_comparable",
+        "agreement",
+        "agreement_with_warning",
+        "material_disagreement",
+        "review_required"
+      ]
+    },
+    "tolerance_policy_id": {"type": "string", "minLength": 3},
+    "difference": {"type": ["number", "null"]},
+    "difference_unit": {"type": ["string", "null"]},
+    "percent_difference": {"type": ["number", "null"]},
+    "warning_codes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

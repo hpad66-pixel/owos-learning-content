@@ -1,0 +1,53 @@
+schema_version: 1
+artifact_id: owos:technical-research:infiltration-and-inflow
+slug: infiltration-and-inflow
+title: Infiltration and Inflow
+version: 0.2.0
+artifact_type: engineering_research_and_computational_specification
+status: source_research_and_formula_inventory
+visibility: internal_governed_draft
+owner: Hardeep Anand
+primary_geography: United States
+case_study_geography: Miami-Dade County, Florida
+application_target: agentic_I_and_I_analysis_application
+purpose: >-
+  Establish the researched engineering, mathematical, data, uncertainty,
+  validation, and decision-control foundation for a universal United States
+  infiltration and inflow analysis application.
+product_boundaries:
+  is_course: false
+  is_lesson: false
+  is_concept_brief: false
+  is_learner_facing_HTML: false
+  is_facility_specific_design: false
+  is_legal_opinion: false
+technical_position:
+  statement: >-
+    I&I calculations are valid only when the system boundary, flow components,
+    time basis, units, data quality, hydrologic conditions, and intended decision
+    are explicit. The application must fail closed rather than convert an
+    undefined input or inapplicable threshold into a confident result.
+correctness_contract:
+  absolute_eternal_correctness_claimed: false
+  formula_provenance_coverage_required: 100_percent
+  material_claim_verification_coverage_required: 100_percent
+  production_formula_review_required: independent_and_qualified
+  dimensional_validation_required: true
+  deterministic_test_vectors_required: true
+  uncertainty_output_required: true
+  applicability_checks_required: true
+  silent_defaulting_prohibited: true
+  fail_closed_on_missing_material_input: true
+authority_boundary:
+  national_layer:
+    - current United States federal statute and regulation
+    - current EPA guidance and EPA technical documentation
+    - United States consensus standards and professional manuals within license
+    - peer-reviewed research within its stated data and transfer limits
+  Miami_Dade_layer:
+    - federal court records
+    - official Miami-Dade records and preserved deliverables
+    - verified local data with dates, methods, and limitations
+  Florida_layer:
+    treatment: jurisdiction_specific_not_universal
+

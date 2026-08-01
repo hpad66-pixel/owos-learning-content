@@ -22,9 +22,17 @@ Three things have to be true:
 
 Ordered by what I would actually build first.
 
+## Naming rule
+
+The public title of every Concept Brief must name the concept being taught. Headline-style hooks may
+be used only as optional subtitles or opening lines; they are not the topic title and must not replace
+clear educational taxonomy.
+
 ---
 
-## 1. Nothing Leaves Without a Path
+## 1. Water Balance and Mass Balance
+
+**Optional teaching line:** Nothing leaves without a path.
 
 **The idea.** Every system has a boundary, and every drop crossing it goes somewhere you can name.
 "It went away" is never an answer, it is an unfinished sentence.
@@ -42,7 +50,9 @@ balance until every path is named. Interactive: remove a path and watch the bala
 
 ---
 
-## 2. A Lower Peak Is Not Less Water
+## 2. Peak Flow and Total Runoff Volume
+
+**Optional teaching line:** A lower peak is not necessarily less water.
 
 **The idea.** Rate and quantity are different measurements, and almost every overstatement in
 stormwater comes from reading one as the other.
@@ -58,7 +68,9 @@ EPA Three Keys, already retrieved and live. This is the fastest genuinely valuab
 
 ---
 
-## 3. The Sample Is a Choice
+## 3. Sampling Location, Timing, and Representativeness
+
+**Optional teaching line:** A sample is the result of choices about where, when, and how it is collected.
 
 **The idea.** Where and when you sample decides the result more often than what happens in the
 laboratory. A sampling location is a decision about what you are willing to find out.
@@ -76,7 +88,9 @@ contradictory stories.
 
 ---
 
-## 4. A Non Detect Is Not a Zero
+## 4. Detection Limits, Reporting Limits, and Non-Detect Results
+
+**Optional teaching line:** A non-detect is not the same as zero.
 
 **The idea.** A laboratory result is the output of a method, and the method decides what counts. A
 non detect is a statement about a reporting limit, not about absence.
@@ -92,7 +106,9 @@ authority is strong: 40 CFR 136 approved methods and detection limit definitions
 
 ---
 
-## 5. Pressure Is the Barrier
+## 5. Distribution-System Pressure and Contamination Intrusion
+
+**Optional teaching line:** Pressure is part of the protective barrier.
 
 **The idea.** In a distribution system the pressure itself is a treatment barrier. Lose it and the
 pipe can take in whatever is around it, and the plant will never see it happen.
@@ -108,7 +124,9 @@ ground as a participant rather than scenery.
 
 ---
 
-## 6. Only Wasting Changes What You Own
+## 6. Return Activated Sludge, Waste Activated Sludge, and Solids Inventory
+
+**Optional teaching line:** Returning solids moves inventory; wasting changes total inventory.
 
 **The idea.** In activated sludge, returning solids moves inventory around and only wasting changes
 how much you have. The lever most operators reach for is not the lever that changes the answer.
@@ -124,7 +142,9 @@ visibly can.
 
 ---
 
-## 7. Compliant Is Not Safe
+## 7. Regulatory Compliance, Health Goals, and Risk
+
+**Optional teaching line:** Compliance and zero risk are not the same claim.
 
 **The idea.** A standard is a negotiated line drawn with the science, the treatment technology, and
 the cost of the day. Meeting it is a legal state, not a health guarantee.
@@ -141,7 +161,9 @@ what a number is. Placed earlier it reads as cynicism.
 
 ---
 
-## 8. Deferred Maintenance Is Borrowing
+## 8. Deferred Maintenance and Life-Cycle Cost
+
+**Optional teaching line:** Deferred maintenance transfers cost and risk into the future.
 
 **The idea.** Choosing not to maintain is not a saving. It is a loan taken at an interest rate nobody
 quotes, repaid later as rehabilitation, capacity, or damage.
@@ -158,7 +180,9 @@ more expensive choice.
 
 ---
 
-## 9. Rain in the Wrong Pipe
+## 9. Infiltration and Inflow in Sanitary Sewer Systems
+
+**Optional teaching line:** Rain and groundwater in a sanitary sewer consume capacity intended for wastewater.
 
 **The idea.** Stormwater that reaches a sanitary sewer is conveyed, pumped, and treated at the
 utility's expense, and it consumes capacity sized for something else.
@@ -174,7 +198,9 @@ settled, because the entire brief hangs on it.
 
 ---
 
-## 10. Coagulation and Flocculation, rebuilt
+## 10. Coagulation vs Flocculation
+
+**Optional teaching line:** Different mechanisms, different mixing conditions, and different failure modes.
 
 **The idea, reframed.** These are not two steps in a sequence. They are two different physics
 operating on opposite timescales, and treating them as one process is why the fix is so often applied

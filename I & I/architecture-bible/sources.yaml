@@ -1,0 +1,262 @@
+schema_version: 1
+artifact_id: owos:architecture-bible:pumpos-ii
+sources:
+  - id: AB-S1
+    title: July 28, 2026 company meeting transcript
+    source_type: owner_supplied_meeting_transcript
+    creator: meeting participants
+    locator: /Users/apas/.codex/attachments/ef83a2bb-927c-41c0-a2dd-84f71a65ed75/pasted-text.txt
+    sha256: da118cc67697cdc43b19b19976a2a90fad795c5b09cc5d437f6f01f30811916d
+    capture_date: 2026-07-28
+    visibility: internal
+    permission: owner_supplied_for_internal_authoring
+    extraction_coverage: complete_1776_line_transcript
+    limitations:
+      - Automated transcription may contain naming and punctuation errors.
+      - Statements are meeting positions and observations, not independent proof of technical or legal claims.
+  - id: AB-S2
+    title: PumpOS repository archive supplied July 28, 2026
+    source_type: owner_supplied_code_and_spec_bundle
+    creator: APAS PumpOS team
+    locator: /Users/apas/Downloads/PumpOS-main (1).zip
+    sha256: 4c12c7990e83a23de04017b7416db00921ff17d49ef179443ede0b0d7f3bdd4b
+    capture_date: 2026-07-28
+    visibility: internal
+    permission: owner_supplied_for_internal_review
+    extraction_coverage:
+      - root AGENTS.md
+      - Constitution
+      - Product Requirements
+      - Solution Architecture
+      - Engineering Specification
+      - feature and status matrix
+      - data-flow traceability
+      - relevant source-tree structure
+    limitations:
+      - Archive is a point-in-time snapshot and may not match the latest remote branch.
+      - Repository statements about implementation status are not production-operability certification.
+  - id: AB-S3
+    title: Infiltration and Inflow national engineering calculation framework
+    source_type: governed_internal_technical_paper
+    creator: APAS and OWOS
+    locator: ../white-paper.md
+    capture_date: 2026-07-28
+    visibility: internal_governed_draft
+    permission: repository_internal
+    extraction_coverage: complete
+    limitations:
+      - Candidate engineering research with unresolved independent and qualified reviews.
+  - id: AB-S4
+    title: Agentic I&I Application Technical Contract
+    source_type: governed_internal_architecture_draft
+    creator: APAS and OWOS
+    locator: ../agent-spec.md
+    capture_date: 2026-07-28
+    visibility: internal_governed_draft
+    permission: repository_internal
+    extraction_coverage: complete
+    limitations:
+      - Implementation is explicitly prohibited until verification gates pass.
+  - id: AB-S5
+    title: I&I formula register
+    source_type: machine_readable_formula_registry
+    creator: APAS and OWOS
+    locator: ../formula-register.yaml
+    capture_date: 2026-07-28
+    visibility: internal_governed_draft
+    permission: repository_internal
+    extraction_coverage: complete
+    limitations:
+      - Candidate formulas are not independently approved for production use.
+  - id: AB-S6
+    title: PumpOS Constitution
+    source_type: ratified_internal_product_standard
+    creator: APAS PumpOS team
+    locator: "AB-S2::PumpOS - 0 - Constitution.md"
+    visibility: internal
+    limitations:
+      - Current document pins DigitalOcean plus RunPod and places I&I in Phase 2.
+      - Any AWS or phase-boundary change requires a formal amendment.
+  - id: AB-S7
+    title: PumpOS Solution Architecture and Engineering Specification
+    source_type: internal_product_specification
+    creator: APAS PumpOS team
+    locator: "AB-S2::PumpOS - 2 - Solution Architecture.md; PumpOS - 3 - Engineering Spec.md"
+    visibility: internal
+    limitations:
+      - Represents the point-in-time archive, including decisions that may now be under reconsideration.
+  - id: AB-S8
+    title: PumpOS feature status and data-flow traceability
+    source_type: internal_implementation_status
+    creator: APAS PumpOS team
+    locator: "AB-S2::docs/AGILE_01_Feature_Status_Matrix.md; docs/AGILE_02_Data_Flow_Traceability.md"
+    visibility: internal
+    limitations:
+      - Status claims require confirmation against the active branch and deployed environment.
+  - id: AB-S9
+    title: Current owner direction for the Architecture Bible
+    source_type: owner_direction
+    creator: Hardeep Anand
+    locator: current_codex_conversation_2026_07_28
+    visibility: internal
+    permission: owner_supplied_for_authoring
+    extraction_coverage: complete_user_request
+    limitations: []
+  - id: AB-S10
+    title: Owner direction to integrate the engineering and operational papers
+    source_type: owner_direction
+    creator: Hardeep Anand
+    locator: current_codex_conversation_2026_07_28_integration_round
+    visibility: internal
+    permission: owner_supplied_for_authoring
+    extraction_coverage: complete_user_request
+    limitations: []
+  - id: AB-S11
+    title: I&I operationalization manifest
+    source_type: machine_readable_traceability_contract
+    creator: APAS and OWOS
+    locator: operationalization-manifest.yaml
+    sha256: 96e2796212dd8d6b47eeff3792359d55bb77f881951e935a8cddbae529bc6724
+    capture_date: 2026-07-28
+    visibility: internal_governed_candidate
+    permission: repository_internal
+    extraction_coverage: complete
+    limitations:
+      - Six formula-contract gaps remain explicit.
+      - Dashboard values are synthetic and not facility data.
+  - id: AB-S12
+    title: Owner direction for narrative-first Version 2 and explicit RTK discoverability
+    source_type: owner_direction
+    creator: Hardeep Anand
+    locator: current_codex_conversation_2026_07_28_explanatory_version_2_round
+    capture_date: 2026-07-28
+    visibility: internal
+    permission: owner_supplied_for_authoring
+    extraction_coverage: complete_user_request
+    limitations: []
+  - id: AB-S13
+    title: Version 2 connected explanatory narrative
+    source_type: governed_internal_narrative
+    creator: APAS and OWOS
+    locator: explanatory-narrative-v2.md
+    sha256: 7698e5273696890dbe2354564f7a1780a7eb67bc002837c91f6a782a9a416d4e
+    capture_date: 2026-07-28
+    visibility: internal_governed_candidate
+    permission: repository_internal
+    extraction_coverage: complete
+    limitations:
+      - Narrative explanation does not change formula production status.
+  - id: AB-S14
+    title: PumpOS and I&I operational Architecture Bible source volume
+    source_type: governed_internal_architecture_paper
+    creator: APAS and OWOS
+    locator: white-paper.md
+    sha256: 95b829814f040d2663b79fb68f9ea09ebf55db26cb7603b4c630982de4377bf2
+    capture_date: 2026-07-28
+    visibility: internal_governed_candidate
+    permission: repository_internal
+    extraction_coverage: complete
+    limitations:
+      - Target architecture remains subject to owner and multidisciplinary ratification.
+  - id: AB-S15
+    title: Owner direction for Version 3 EPA SWMM and EPANET integration
+    source_type: owner_direction
+    creator: Hardeep Anand
+    locator: current_codex_conversation_2026_07_28_model_integration_round
+    capture_date: 2026-07-28
+    visibility: internal
+    permission: owner_supplied_for_authoring
+    extraction_coverage: complete_user_request
+    limitations: []
+  - id: AB-S16
+    title: Version 3 EPA SWMM and EPANET model-integration chapter
+    source_type: governed_internal_model_architecture_paper
+    creator: APAS and OWOS
+    locator: model-integration-v3.md
+    sha256: 7ad48691860e81f80c2ead714e9237d34352a8f02a934c9c3f0cc1b2b5050051
+    capture_date: 2026-07-28
+    visibility: internal_governed_candidate
+    permission: repository_internal
+    extraction_coverage: complete
+    limitations:
+      - Architecture and commands are development candidates pending independent review and dependency scanning.
+      - No basin-specific SWMM or station-specific EPANET model was supplied, calibrated, or executed.
+  - id: AB-S17
+    title: Open-source repository landscape for I&I and pump-system modeling
+    source_type: governed_internal_repository_research
+    creator: APAS and OWOS
+    locator: open-source-repository-landscape.md
+    sha256: 94522b23612033e54db06c645c1a3d6899c27391f64a544a2a8225cd74009179
+    capture_date: 2026-07-28
+    visibility: internal_governed_candidate
+    permission: repository_internal
+    extraction_coverage: complete_62_repository_landscape
+    limitations:
+      - Repository activity, releases, dependencies, and security posture can change and require freshness review.
+  - id: AB-S18
+    title: EPA Storm Water Management Model official source repository
+    source_type: united_states_federal_primary_software_source
+    creator: United States Environmental Protection Agency
+    locator: https://github.com/USEPA/Stormwater-Management-Model
+    capture_date: 2026-07-28
+    visibility: public
+    permission: public_repository
+    extraction_coverage: repository_readme_build_and_engine_scope
+    limitations:
+      - Repository documentation establishes engine scope, not fitness of an APAS model for a specific decision.
+  - id: AB-S19
+    title: PySWMM official source repository
+    source_type: official_open_source_adapter_repository
+    creator: PySWMM maintainers
+    locator: https://github.com/pyswmm/pyswmm
+    capture_date: 2026-07-28
+    visibility: public
+    permission: public_repository
+    extraction_coverage: repository_readme_installation_supported_engines_and_usage
+    limitations:
+      - Package versions and supported engine extras can change and must be pinned and verified.
+  - id: AB-S20
+    title: OpenWaterAnalytics EPANET official source repository
+    source_type: official_open_source_hydraulic_engine_repository
+    creator: OpenWaterAnalytics
+    locator: https://github.com/OpenWaterAnalytics/EPANET
+    capture_date: 2026-07-28
+    visibility: public
+    permission: public_repository
+    extraction_coverage: repository_readme_engine_toolkit_scope_and_build
+    limitations:
+      - Solver availability does not validate an APAS network model, boundary condition, or decision.
+  - id: AB-S21
+    title: EPA Water Network Tool for Resilience official source repository
+    source_type: united_states_federal_primary_software_source
+    creator: United States Environmental Protection Agency
+    locator: https://github.com/USEPA/WNTR
+    capture_date: 2026-07-28
+    visibility: public
+    permission: public_repository
+    extraction_coverage: repository_readme_installation_epanet_compatibility_and_scope
+    limitations:
+      - Python package behavior and dependencies require version pinning and acceptance testing.
+  - id: AB-S22
+    title: Owner direction for a separately actionable Version 4 implementation instance
+    source_type: owner_direction
+    creator: Hardeep Anand
+    locator: current_codex_conversation_2026_07_29_version_4_round
+    capture_date: 2026-07-29
+    visibility: internal
+    permission: owner_supplied_for_authoring
+    extraction_coverage: complete_user_request
+    limitations: []
+  - id: AB-S23
+    title: PumpOS and I&I Intelligence Version 4 compiled implementation edition
+    source_type: governed_internal_implementation_specification
+    creator: APAS and OWOS
+    locator: implementation-bundle-v4/ii-intelligence-implementation-edition-v4.md
+    sha256: 4db0ff598c22a56eac0d287f01432ab7d32db8dcfd881e9fba0c110b719fc293
+    capture_date: 2026-07-29
+    visibility: internal_governed_candidate
+    permission: repository_internal
+    extraction_coverage: complete
+    limitations:
+      - Target implementation repository and branch remain unresolved.
+      - Formula, model, security, pilot, and production approvals remain blocked.

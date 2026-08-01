@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.apas.example/ii/v4/finding.schema.json",
+  "title": "Human-Reviewable Finding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "tenant_id",
+    "analysis_request_id",
+    "version",
+    "status",
+    "title",
+    "statement",
+    "cited_result_ids",
+    "limitations",
+    "required_reviewer_roles",
+    "created_by",
+    "created_at"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^finding_[a-z0-9_]+$"},
+    "tenant_id": {"type": "string", "minLength": 3},
+    "analysis_request_id": {"type": "string", "minLength": 3},
+    "version": {"type": "integer", "minimum": 1},
+    "status": {"enum": ["draft", "submitted", "returned", "rejected", "approved", "superseded"]},
+    "title": {"type": "string", "minLength": 1},
+    "statement": {"type": "string", "minLength": 1},
+    "cited_result_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "data_gap_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"}
+    },
+    "recommendation": {"type": ["string", "null"]},
+    "required_reviewer_roles": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "created_by": {
+      "type": "object",
+      "required": ["actor_id", "actor_type"],
+      "properties": {
+        "actor_id": {"type": "string"},
+        "actor_type": {"enum": ["human", "agent"]}
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "evidence_package_hash": {"type": ["string", "null"], "pattern": "^sha256:[a-f0-9]{64}$"}
+  }
+}

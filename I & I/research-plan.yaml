@@ -1,0 +1,155 @@
+schema_version: 2
+policy: owos-engineering-research/1-draft
+artifact_id: owos:technical-research:infiltration-and-inflow
+created_on: 2026-07-27
+updated_on: 2026-07-27
+current_stage: source_research_and_formula_inventory
+research_objective: >-
+  Build a technically complete, evidence-traceable explanation of infiltration
+  and inflow that uses Miami-Dade County as a case study and gives United States
+  utility professionals reusable calculation, investigation, prioritization,
+  rehabilitation, and verification methods.
+production_blockers:
+  - full_material_claim_extraction
+  - exact_original_source_locators
+  - independent_formula_derivations
+  - dimensional_analysis
+  - deterministic_test_vectors
+  - cross_implementation_comparison
+  - uncertainty_and_sensitivity_validation
+  - qualified_collection_system_engineer_review
+  - qualified_hydrology_and_hydraulics_review
+  - qualified_Miami_Dade_practitioner_review
+research_streams:
+  - id: R01
+    name: terminology_and_system_boundary
+    questions:
+      - What is infiltration, inflow, exfiltration, groundwater infiltration, and rainfall-derived inflow and infiltration?
+      - How do sanitary, combined, and storm sewer systems differ?
+      - What do the terms fail to prove without measurements?
+  - id: R02
+    name: entry_components_and_failure_paths
+    questions:
+      - Which pipe, joint, lateral, cleanout, manhole, wet well, cross-connection, and private-property defects admit unwanted water?
+      - Which pathways respond quickly to rainfall, slowly to groundwater, tides, or antecedent moisture?
+  - id: R03
+    name: consequences_and_system_response
+    questions:
+      - How does I&I affect pump stations, force mains, interceptors, treatment processes, overflows, energy, chemicals, solids handling, and capital capacity?
+      - Which consequences are hydraulic, process, environmental, financial, or public-accountability consequences?
+  - id: R04
+    name: data_and_monitoring
+    questions:
+      - What rainfall, flow, groundwater, tide, SCADA, work-order, GIS, inspection, and treatment-plant data are needed?
+      - What monitoring duration, meter placement, quality-control checks, and uncertainty records are defensible?
+  - id: R05
+    name: calculations_and_models
+    required_methods:
+      - unit_conversion_and_dimensional_analysis
+      - average_and_minimum_dry_weather_flow
+      - groundwater_infiltration_estimation
+      - wet_weather_baseline_construction
+      - rainfall_derived_inflow_and_infiltration_volume
+      - peak_wet_weather_flow_and_peaking_ratio
+      - gallons_per_day_per_inch_diameter_mile_normalization
+      - rainfall_capture_ratio_or_R_value
+      - basin_water_balance
+      - RTK_unit_hydrograph_method
+      - event_regression_and_continuous_simulation
+      - uncertainty_and_sensitivity_analysis
+      - marginal_cost_lifecycle_cost_present_value_and_benefit_cost
+      - avoided_capacity_and_risk_weighted_prioritization
+  - id: R06
+    name: field_investigation_and_source_isolation
+    methods:
+      - basin_flow_monitoring
+      - nighttime_flow_isolation
+      - sanitary_sewer_evaluation_survey
+      - CCTV
+      - smoke_testing
+      - dye_testing
+      - manhole_and_wet_well_inspection
+      - lateral_and_private_source_investigation
+      - groundwater_and_tidal_correlation
+  - id: R07
+    name: rehabilitation_and_source_control
+    methods:
+      - pipe_and_lateral_repair_or_replacement
+      - lining_and_sectional_lining
+      - joint_grouting
+      - manhole_rehabilitation
+      - cleanout_and_lid_correction
+      - disconnection_of_direct_inflow_sources
+      - pump_station_and_controls_work
+      - private_property_and_satellite_system_programs
+  - id: R08
+    name: post_rehabilitation_verification
+    questions:
+      - How should before-and-after monitoring control for rainfall, groundwater, season, and meter error?
+      - How are claimed gallons removed separated from modeled or avoided flow?
+      - What evidence supports operational, financial, and capacity benefits?
+  - id: R09
+    name: miami_dade_case_study
+    topics:
+      - wastewater_collection_and_transmission_system_structure
+      - pump_station_and_volume_sewer_customer_context
+      - federal_consent_decree_history
+      - I_E_I_and_I_I_program_history
+      - high_groundwater_coastal_and_tidal_context_if_verified
+      - current_programs_projects_and_public_records
+      - findings_that_transfer_and_conditions_that_do_not
+  - id: R10
+    name: national_transfer
+    comparison_contexts:
+      - coastal_high_groundwater_systems
+      - inland_groundwater_systems
+      - cold_region_freeze_thaw_systems
+      - arid_systems_with_intense_storm_response
+      - separate_sanitary_systems
+      - combined_sewer_systems_as_a_distinct_boundary
+worked_examples_planned:
+  - name: dry_weather_infiltration_screen
+    output: gpd_and_gpd_per_inch_diameter_mile
+  - name: single_storm_RDII_volume
+    output: gallons_MG_and_percent_of_rainfall_volume
+  - name: RTK_three_triangle_hydrograph
+    output: event_hydrograph_peak_and_volume
+  - name: pump_station_capacity_consequence
+    output: run_time_storage_margin_and_overflow_risk
+  - name: treatment_cost_of_unwanted_water
+    output: annual_marginal_cost_range
+  - name: rehabilitation_business_case
+    output: present_value_benefit_cost_and_payback_with_uncertainty
+  - name: pre_and_post_rehabilitation_verification
+    output: weather_normalized_change_and_confidence_boundary
+  - name: basin_prioritization
+    output: transparent_multi_factor_ranking
+deliverables_proposed:
+  - white-paper.md
+  - claims.yaml
+  - sources.yaml
+  - formula-register.yaml
+  - calculation-test-vectors.yaml
+  - agent-spec.md
+  - verification-plan.yaml
+  - formula-and-units appendix inside the paper
+  - Miami-Dade case-study chapter
+  - separate Florida jurisdiction-specific rule pack
+  - editable calculation workbook
+  - reference implementation after specification approval
+  - references and source-locator register
+evidence_rules:
+  discovery_is_not_verification: true
+  original_source_required_for_material_claims: true
+  independent_source_trace_required: true
+  qualified_technical_review_required: true
+  illustrative_values_labeled: true
+  local_thresholds_not_generalized: true
+  freshness_dates_required: true
+  formula_source_or_derivation_required: true
+  variables_and_units_required: true
+  applicability_and_exclusions_required: true
+  numerical_test_vectors_required: true
+  uncertainty_and_precision_policy_required: true
+  independent_implementation_comparison_required: true
+  fail_closed_conditions_required: true

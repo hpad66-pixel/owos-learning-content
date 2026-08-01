@@ -1,0 +1,179 @@
+schema_version: 1
+artifact_id: owos:architecture-bible:pumpos-ii
+title: PumpOS and I&I Intelligence Architecture Bible
+version: 0.5.0
+status: governed_internal_candidate
+created_on: 2026-07-28
+updated_on: 2026-07-28
+owner: Hardeep Anand
+product_classification: technical_development_grade_white_paper
+current_stage: version_4_implementation_bundle_owner_and_technical_review
+relationship:
+  complements:
+    - ../white-paper.md
+    - ../agent-spec.md
+  does_not_replace:
+    - ../formula-register.yaml
+    - ../verification-plan.yaml
+source_identity:
+  status: established
+  basis:
+    - owner_supplied_meeting_transcript
+    - owner_supplied_pumpos_repository_archive
+    - owner_direction_in_current_conversation
+owner_direction:
+  verbatim: >-
+    Great! I want you to take everything you've built so far, especially your
+    ten items, action items, next steps, and the diagrams that you put in the
+    bounded architecture. 100%, break them down and include that mega diagram,
+    but break it down into sub-diagrams. Each diagram should be explained in
+    detail as a mocked-on file. I need you to explain everything as if my
+    developers understand it, the executive understands it, somebody who
+    doesn't even understand what it is understands it from a simple English
+    standpoint, and the technocrats understand it. I want this to be a technical
+    development-grade white paper. Every bullet, every diagram, every concept
+    should be explained, including why we're doing it and what the value is.
+    With diagrams and dashboards, show that pump OS dashboard. Put the asset
+    management dashboard for manuals ingestion pipeline. Show what the value
+    graph DB is and how that works. Everything has to be with diagrams and
+    process diagrams and so on. Explain everything in this conversation as it
+    relates to I&I: where it sits, why it sits, the whole nine yards. I need a
+    very, very detailed technical white paper with full depth headings,
+    subheadings, titles, glossary, title page. This is going to be a Bible,
+    which will go through vision, various version controls. This will be a
+    complementary Bible to the I&I manual that you built, so all of these will
+    become values. Make sure you build it and then store it in my repository as
+    well.
+  summary:
+    - Preserve and explain every substantive PumpOS and I&I architecture decision from the July 28 meeting.
+    - Include one complete architecture view and smaller diagrams that explain every part.
+    - Explain the system for executives, nontechnical readers, developers, and technical reviewers.
+    - Show PumpOS dashboards, I&I placement, manuals and asset management, governed ingestion, GraphDB, agents, version control, and implementation actions.
+    - Store the development-grade white paper in the I&I repository as a companion to the calculation manual.
+  integration_round_2026_07_28:
+    verbatim: >-
+      Bring everything together in the same style as the second paper,
+      explanatory. Take the first one, and the depth and breadth of both these
+      papers should be exactly detailed. The technocrat and the experts of I&I
+      should understand in depth, even if you are not a technical person: every
+      formula, every glossary, every sentence, every framework, every
+      methodology. What is an input? What are all the inputs? What are all the
+      outputs? What are the inputs in a calculation? What is the output of the
+      calculations? Where is the source of inputs of calculations? For example,
+      if some data sources are SCADA or flow meters or rainfall, where is the
+      source? Where is it coming from? Which formula gets wrangled, and what is
+      the output? How does that output feed into other formulas, and how are
+      decisions being made? Connect the dot of every data point on the
+      dashboards that are being built or decisions that are being made. Why are
+      they important? I should be able to trace that value on a dashboard if
+      there's one that we are going to be recommending, all the way back to the
+      source. You need to mark up these dash modes with numbers when you're
+      showing me your numbers as sample calculations. I need those numbers
+      eventually showing on the dashboard so I can actually understand and
+      follow the numbers in your sample calculations. I need all that in your
+      final document.
+    interpreted_requirements:
+      - Produce one integrated System Bible without removing the separately governed source volumes.
+      - Include the complete text, frameworks, methods, glossaries, diagrams, and boundaries of both source papers.
+      - Explain all 39 registered formulas with inputs, outputs, sources, dependencies, dashboard fields, decisions, and fail-closed limits.
+      - Define the difference among source records, raw data, accepted inputs, derived inputs, outputs, findings, recommendations, approvals, and actions.
+      - Number the synthetic sample values on dashboard mockups and preserve stable metric identifiers.
+      - Validate every dashboard metric path against the generated sample-basin result.
+      - Expose missing formula contracts rather than claiming complete operational wiring.
+  dashboard_correction_round_2026_07_28:
+    verbatim: >-
+      i didnt see all the mock dash boards with the wired up numbers
+    interpreted_requirements:
+      - Add visible, fully populated dashboard compositions rather than only wireframes and a metric table.
+      - Show all 34 numbered worked values across the operational dashboard set.
+      - Provide a single lineage view that exposes every value, source class, formula chain, and exact result path.
+      - Include the fleet, basin, station, operations, economics, manuals, data-gap, action, and lineage views.
+      - Render and inspect the dashboards while retaining their illustrative, nonproduction status.
+  explanatory_version_2_round_2026_07_28:
+    verbatim: >-
+      I don't think the entire document is explaining when you put bullets,
+      sentences, all that stuff. I need it to be explaining it. Think about it
+      like you're explaining to somebody what a formula means, why it is
+      calculated, what the importance of it is, and what it conveys. The same
+      concept has to be explained and used for everything. Think about it as if
+      you're telling a story on why this is important and how it is all getting
+      connected to the larger equation. This is going to become a big agentic
+      application. I thought in the first document there was some RTU or RTK.
+      In the table of contents, I don't see that. Make sure you have wrangled
+      both documents completely and produce the next version.
+    interpreted_requirements:
+      - Create a separately versioned narrative-first integrated paper.
+      - Explain every formula through meaning, purpose, inputs, mechanics, output, importance, connection, agent use, and inference boundary.
+      - Apply the explanatory pattern to every source class, dashboard value, and decision.
+      - Add one connected story from rainfall through verified outcome.
+      - Make RTK explicit in the master table of contents and explain R, T, K, all three formulae, and the worked response.
+      - Mechanically prove that both original papers are present completely after heading normalization.
+  model_integration_version_3_round_2026_07_28:
+    verbatim: >-
+      Wire this into the massive document. Integrate the GitHub repositories,
+      especially EPA SWMM and EPANET, with detailed explanations of what each
+      does, why it matters, and how it connects to deterministic PumpOS
+      calculations. Show model outputs on the dashboard, the value added, what
+      happens with and without the models, and beginner Python installation and
+      execution commands for running EPA SWMM.
+    interpreted_requirements:
+      - Preserve Version 2 and create a separately versioned Version 3 master.
+      - Insert EPA SWMM into the rainfall, RTK, sewer-routing, storage, and overflow chain.
+      - Insert EPANET into the pump, force-main, system-curve, and operating-point chain.
+      - Keep deterministic PumpOS calculations authoritative and reconcile model results explicitly.
+      - Explain model purpose, inputs, outputs, limitations, calibration, validation, and failure modes.
+      - Add beginner PySWMM and WNTR installation and execution runbooks.
+      - Add with-model and without-model scenarios in plain English.
+      - Trace model outputs through stable dashboard metric identifiers and exact result paths.
+      - Include the complete open-source repository landscape in the master document.
+  implementation_bundle_version_4_round_2026_07_29:
+    verbatim: >-
+      Go ahead and do that, and make sure you demarcate this very clearly so
+      that I can use that as a separate actionable instance working with Claude
+      or Kimi3 or something like that. Keep that in mind!
+    interpreted_requirements:
+      - Create a separately demarcated Version 4 implementation bundle.
+      - Make the bundle self-contained for another development agent.
+      - Include a copy-paste launch prompt and binding local AGENTS instructions.
+      - Convert the first operational slice into machine-readable work packages, APIs, tools, schemas, examples, tests, and acceptance gates.
+      - Preserve Version 3 as the explanatory technical authority.
+      - Make unresolved engineering, security, model, pilot, and owner gates explicit.
+  depth: maximum
+  delivery_format:
+    primary: Markdown
+    diagram_format:
+      - Mermaid
+      - text_wireframe
+  publication_intent: internal_architecture_governance_and_development
+scope:
+  included:
+    - PumpOS current-state architecture
+    - proposed PumpOS and I&I target architecture
+    - I&I bounded-context placement
+    - deterministic engine and agent boundary
+    - telemetry and knowledge ingestion
+    - manuals and asset-requirement extraction
+    - Postgres, object storage, retrieval index, and GraphDB responsibilities
+    - dashboard information architecture and wireframes
+    - agent action and approval policy
+    - AWS target-state decision requiring formal ratification
+    - implementation workstreams and acceptance gates
+    - EPA SWMM and PySWMM model integration
+    - EPANET and WNTR model integration
+    - model registry, execution, assurance, reconciliation, and dashboard lineage
+    - separately actionable Version 4 implementation bundle
+    - external-agent handoff and stop conditions
+    - work-package dependency and acceptance contracts
+  excluded:
+    - replacement of the I&I formula manual
+    - approval of any formula for production engineering use
+    - approval of an AWS migration
+    - authorization for autonomous facility control
+    - public release
+evidence_boundary:
+  current_state: must_resolve_to_repository_or_meeting_source
+  owner_vision: identified_as_hardeep_position
+  target_architecture: identified_as_recommendation_until_ratified
+  calculations: delegated_to_existing_ii_formula_register
+  regulatory_rules: delegated_to_versioned_jurisdiction_rule_packs
+  production_claims: prohibited_until_independent_review

@@ -1,0 +1,528 @@
+openapi: 3.1.0
+info:
+  title: PumpOS and I&I Intelligence First-Slice API
+  version: 0.4.0
+  description: Candidate API for one-basin, one-event, one-station analysis. It grants no operational-control authority.
+servers:
+  - url: https://api.example.invalid/ii/v1
+    description: Placeholder only. A production host has not been approved.
+security:
+  - bearerAuth: []
+tags:
+  - {name: Analysis}
+  - {name: Evidence}
+  - {name: Calculation}
+  - {name: Models}
+  - {name: Results}
+  - {name: Workflow}
+paths:
+  /analysis-requests:
+    post:
+      tags: [Analysis]
+      operationId: createAnalysisRequest
+      summary: Create a bounded basin-event-station analysis request
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/analysis-request.schema.json
+      responses:
+        '201':
+          description: Analysis request created
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/analysis-request.schema.json
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /analysis-requests/{analysis_request_id}:
+    get:
+      tags: [Analysis]
+      operationId: getAnalysisRequest
+      summary: Retrieve one analysis request and its workflow state
+      parameters:
+        - $ref: '#/components/parameters/AnalysisRequestId'
+      responses:
+        '200':
+          description: Analysis request
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/analysis-request.schema.json
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /boundary-resolutions:
+    post:
+      tags: [Evidence]
+      operationId: resolveBoundary
+      summary: Resolve the effective basin, source, topology, and receiving-station boundary
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [analysis_request_id]
+              properties:
+                analysis_request_id: {$ref: '#/components/schemas/Identifier'}
+      responses:
+        '201':
+          description: Resolution or structured blocked result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoundaryResolution'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /qualification-runs:
+    post:
+      tags: [Evidence]
+      operationId: createQualificationRun
+      summary: Qualify candidate observations for a declared calculation profile
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [analysis_request_id, boundary_resolution_id, calculation_profile]
+              properties:
+                analysis_request_id: {$ref: '#/components/schemas/Identifier'}
+                boundary_resolution_id: {$ref: '#/components/schemas/Identifier'}
+                calculation_profile: {type: string, minLength: 1}
+                source_series_ids:
+                  type: array
+                  items: {$ref: '#/components/schemas/Identifier'}
+      responses:
+        '202':
+          description: Qualification job accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /input-snapshots:
+    post:
+      tags: [Evidence]
+      operationId: createInputSnapshot
+      summary: Freeze accepted inputs into an immutable snapshot
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/input-snapshot.schema.json
+      responses:
+        '201':
+          description: Immutable snapshot created
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/input-snapshot.schema.json
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /input-snapshots/{snapshot_id}:
+    get:
+      tags: [Evidence]
+      operationId: getInputSnapshot
+      summary: Retrieve an immutable accepted input snapshot
+      parameters:
+        - $ref: '#/components/parameters/SnapshotId'
+      responses:
+        '200':
+          description: Snapshot
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/input-snapshot.schema.json
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /calculation-runs:
+    post:
+      tags: [Calculation]
+      operationId: createCalculationRun
+      summary: Execute a registered deterministic calculation profile
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [analysis_request_id, snapshot_id, calculation_profile, requested_formula_versions]
+              properties:
+                analysis_request_id: {$ref: '#/components/schemas/Identifier'}
+                snapshot_id: {$ref: '#/components/schemas/Identifier'}
+                calculation_profile: {type: string, minLength: 1}
+                requested_formula_versions:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    additionalProperties: false
+                    required: [formula_id, version]
+                    properties:
+                      formula_id: {type: string, pattern: '^F-[A-Z0-9-]+$'}
+                      version: {type: string, minLength: 1}
+      responses:
+        '202':
+          description: Calculation job accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /calculation-runs/{calculation_run_id}:
+    get:
+      tags: [Calculation]
+      operationId: getCalculationRun
+      parameters:
+        - name: calculation_run_id
+          in: path
+          required: true
+          schema: {$ref: '#/components/schemas/Identifier'}
+      responses:
+        '200':
+          description: Calculation run
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /model-runs:
+    post:
+      tags: [Models]
+      operationId: createModelRun
+      summary: Execute a registered model in an isolated worker
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/model-run.schema.json
+      responses:
+        '202':
+          description: Model job accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /model-runs/{model_run_id}:
+    get:
+      tags: [Models]
+      operationId: getModelRun
+      parameters:
+        - name: model_run_id
+          in: path
+          required: true
+          schema: {$ref: '#/components/schemas/Identifier'}
+      responses:
+        '200':
+          description: Model run
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/model-run.schema.json
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /reconciliations:
+    post:
+      tags: [Results]
+      operationId: createReconciliation
+      summary: Compare compatible observed, calculated, and modeled results
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/reconciliation.schema.json
+      responses:
+        '201':
+          description: Reconciliation result
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/reconciliation.schema.json
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /results/{result_id}:
+    get:
+      tags: [Results]
+      operationId: getResult
+      parameters:
+        - $ref: '#/components/parameters/ResultId'
+      responses:
+        '200':
+          description: Result envelope
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/result-envelope.schema.json
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /results/{result_id}/lineage:
+    get:
+      tags: [Results]
+      operationId: getResultLineage
+      summary: Retrieve source-to-result lineage
+      parameters:
+        - $ref: '#/components/parameters/ResultId'
+      responses:
+        '200':
+          description: Directed lineage graph
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineageGraph'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /findings:
+    post:
+      tags: [Workflow]
+      operationId: createFinding
+      summary: Create a draft interpreted finding that cites governed results
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/finding.schema.json
+      responses:
+        '201':
+          description: Draft finding created
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/finding.schema.json
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /findings/{finding_id}/submit:
+    post:
+      tags: [Workflow]
+      operationId: submitFinding
+      summary: Submit a draft finding for human review
+      parameters:
+        - name: finding_id
+          in: path
+          required: true
+          schema: {$ref: '#/components/schemas/Identifier'}
+        - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '202':
+          description: Finding submitted
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/finding.schema.json
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /approvals:
+    post:
+      tags: [Workflow]
+      operationId: createApproval
+      summary: Record an authorized human decision
+      description: Agent actors are prohibited from this operation.
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/approval.schema.json
+      responses:
+        '201':
+          description: Approval or rejection recorded
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/approval.schema.json
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+  /dashboard-payloads/{analysis_request_id}:
+    get:
+      tags: [Analysis]
+      operationId: getDashboardPayload
+      summary: Retrieve lineage-ready first-slice dashboard data
+      parameters:
+        - $ref: '#/components/parameters/AnalysisRequestId'
+      responses:
+        '200':
+          description: Dashboard payload
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                required: [analysis_request_id, generated_at, tiles, workflow_state]
+                properties:
+                  analysis_request_id: {$ref: '#/components/schemas/Identifier'}
+                  generated_at: {type: string, format: date-time}
+                  workflow_state: {type: string}
+                  tiles:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: false
+                      required: [metric_id, state, evidence_class, result_path]
+                      properties:
+                        metric_id: {type: string, pattern: '^M-[0-9]+$'}
+                        state: {enum: [available, warning, blocked, not_run, not_applicable, review_required]}
+                        evidence_class: {$ref: '#/components/schemas/EvidenceClass'}
+                        result_id: {$ref: '#/components/schemas/Identifier'}
+                        result_path: {type: string}
+                        display_value: {type: [string, 'null']}
+                        unit: {type: [string, 'null']}
+                        warning_codes:
+                          type: array
+                          items: {type: string}
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: {type: string, minLength: 16, maxLength: 128}
+    AnalysisRequestId:
+      name: analysis_request_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Identifier'}
+    SnapshotId:
+      name: snapshot_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Identifier'}
+    ResultId:
+      name: result_id
+      in: path
+      required: true
+      schema: {$ref: '#/components/schemas/Identifier'}
+  schemas:
+    Identifier:
+      type: string
+      pattern: '^[a-z][a-z0-9_]{2,127}$'
+    EvidenceClass:
+      enum: [observed, calculated, modeled, reconciled, interpreted]
+    Job:
+      type: object
+      additionalProperties: false
+      required: [id, status, created_at]
+      properties:
+        id: {$ref: '#/components/schemas/Identifier'}
+        status:
+          enum: [requested, validating, blocked, queued, running, completed_with_warnings, completed, failed, superseded]
+        created_at: {type: string, format: date-time}
+        completed_at: {type: [string, 'null'], format: date-time}
+        warning_codes:
+          type: array
+          items: {type: string}
+        error:
+          anyOf:
+            - {$ref: '#/components/schemas/Error'}
+            - {type: 'null'}
+    BoundaryResolution:
+      type: object
+      additionalProperties: false
+      required: [id, analysis_request_id, status, effective_at, warnings]
+      properties:
+        id: {$ref: '#/components/schemas/Identifier'}
+        analysis_request_id: {$ref: '#/components/schemas/Identifier'}
+        status: {enum: [resolved, resolved_with_warning, blocked]}
+        effective_at: {type: string, format: date-time}
+        basin_id: {$ref: '#/components/schemas/Identifier'}
+        receiving_station_ids:
+          type: array
+          items: {$ref: '#/components/schemas/Identifier'}
+        topology_version: {type: [string, 'null']}
+        warnings:
+          type: array
+          items: {type: string}
+    LineageGraph:
+      type: object
+      additionalProperties: false
+      required: [root_result_id, nodes, edges]
+      properties:
+        root_result_id: {$ref: '#/components/schemas/Identifier'}
+        nodes:
+          type: array
+          items:
+            type: object
+            required: [id, type]
+            properties:
+              id: {$ref: '#/components/schemas/Identifier'}
+              type: {type: string}
+        edges:
+          type: array
+          items:
+            type: object
+            required: [from, relationship, to]
+            properties:
+              from: {$ref: '#/components/schemas/Identifier'}
+              relationship: {type: string}
+              to: {$ref: '#/components/schemas/Identifier'}
+    Error:
+      type: object
+      additionalProperties: false
+      required: [code, message, correlation_id]
+      properties:
+        code: {type: string}
+        message: {type: string}
+        correlation_id: {type: string}
+        details: {type: object}
+  responses:
+    ValidationError:
+      description: Request is structurally valid JSON but fails a contract or engineering prerequisite
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/Error'}
+    NotFound:
+      description: Resource not found in the authorized tenant
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/Error'}
+    Conflict:
+      description: State or version conflict
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/Error'}
+    Forbidden:
+      description: Actor lacks authority
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/Error'}

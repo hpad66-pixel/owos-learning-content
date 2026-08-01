@@ -1,0 +1,52 @@
+{
+  "id": "snapshot_synthetic_event_001",
+  "tenant_id": "tenant_synthetic_demo",
+  "analysis_request_id": "analysis_demo_event_001",
+  "boundary_resolution_id": "boundary_synthetic_001",
+  "status": "frozen",
+  "canonical_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "created_at": "2026-07-29T09:10:00-04:00",
+  "created_by": "service_snapshot_demo",
+  "inputs": [
+    {
+      "input_id": "rainfall_depth_event",
+      "quantity_type": "rainfall_depth",
+      "value": 3.2,
+      "unit": "in",
+      "time_basis": {
+        "start": "2026-07-15T00:00:00-04:00",
+        "end": "2026-07-17T00:00:00-04:00",
+        "time_zone": "America/New_York"
+      },
+      "boundary_id": "basin_synthetic_640ac",
+      "source_ref": {
+        "source_id": "source_synthetic_rain_001",
+        "raw_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "qualification_record_id": "qualification_synthetic_rain_001",
+      "warnings": [
+        "SYNTHETIC_EXAMPLE_NOT_FACILITY_DATA"
+      ]
+    },
+    {
+      "input_id": "basin_area",
+      "quantity_type": "area",
+      "value": 640,
+      "unit": "acre",
+      "time_basis": {
+        "start": "2026-07-15T00:00:00-04:00",
+        "end": "2026-07-17T00:00:00-04:00",
+        "time_zone": "America/New_York"
+      },
+      "boundary_id": "basin_synthetic_640ac",
+      "source_ref": {
+        "source_id": "source_synthetic_gis_001",
+        "raw_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+      },
+      "qualification_record_id": "qualification_synthetic_gis_001",
+      "warnings": [
+        "SYNTHETIC_EXAMPLE_NOT_FACILITY_DATA"
+      ]
+    }
+  ]
+}

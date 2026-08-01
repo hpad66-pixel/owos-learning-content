@@ -1,0 +1,329 @@
+schema_version: 1
+artifact_id: owos:architecture-bible:pumpos-ii
+version: 0.4.0
+status: candidate_internal_claim_inventory
+claims:
+  - id: AB-C001
+    type: sourced_fact
+    statement: The supplied PumpOS Constitution requires the engine to compute and the agent to compose.
+    sources:
+      - id: AB-S6
+        locator: Article 1
+    verification: source_traced_not_independently_reviewed
+  - id: AB-C002
+    type: sourced_fact
+    statement: The supplied PumpOS Constitution places I&I in Phase 2.
+    sources:
+      - id: AB-S6
+        locator: Article 10
+    verification: source_traced_not_independently_reviewed
+  - id: AB-C003
+    type: sourced_fact
+    statement: The supplied PumpOS Constitution pins DigitalOcean plus RunPod.
+    sources:
+      - id: AB-S6
+        locator: Article 9
+    verification: source_traced_not_independently_reviewed
+  - id: AB-C004
+    type: sourced_fact
+    statement: The July 28 meeting described moving PumpOS to AWS and using AWS Secrets Manager.
+    sources:
+      - id: AB-S1
+        locator: meeting AWS and deployment discussion
+    verification: transcript_traced_not_deployment_verified
+  - id: AB-C005
+    type: sourced_fact
+    statement: The supplied PumpOS architecture uses Postgres as the structured system of record and GraphDB as a governed projection.
+    sources:
+      - id: AB-S7
+        locator: Solution Architecture sections 5 and Engineering Specification sections 4 and 5
+    verification: source_traced_not_live_state_verified
+  - id: AB-C006
+    type: hardeep_position
+    statement: Every PumpOS dashboard value should support a decision, consequence, or action rather than exist as a vanity metric.
+    sources:
+      - id: AB-S1
+        locator: meeting dashboard and value discussion
+    verification: owner_position
+  - id: AB-C007
+    type: hardeep_position
+    statement: Manuals should contribute maintenance, operating, warranty, and asset-life value rather than only searchable text.
+    sources:
+      - id: AB-S1
+        locator: meeting manual and asset-management discussion
+    verification: owner_position
+  - id: AB-C008
+    type: hardeep_position
+    statement: A separate governed workbench is appropriate for customer document review and graph commit.
+    sources:
+      - id: AB-S1
+        locator: meeting ingestion-workbench discussion
+    verification: meeting_position_requires_ratification
+  - id: AB-C009
+    type: expert_interpretation
+    statement: I&I should be independently governed while remaining natively available inside PumpOS.
+    sources:
+      - id: AB-S1
+        locator: meeting I&I inside-versus-outside discussion
+      - id: AB-S7
+        locator: current PumpOS boundary
+      - id: AB-S3
+        locator: agentic calculation architecture
+    verification: architecture_recommendation_pending_owner_and_team_review
+  - id: AB-C010
+    type: expert_interpretation
+    statement: A directed time-aware topology graph can support cascade reasoning without claiming to be a complete hydraulic model.
+    sources:
+      - id: AB-S1
+        locator: meeting topology and no-full-hydraulic-model discussion
+      - id: AB-S7
+        locator: graph relationship and upstreamOf model
+    verification: architecture_recommendation_pending_engineering_review
+  - id: AB-C011
+    type: sourced_fact
+    statement: The I&I technical paper requires method applicability, versioned formulas, uncertainty, fail-closed behavior, and qualified review.
+    sources:
+      - id: AB-S3
+        locator: document status, agentic calculation architecture, and limitations
+      - id: AB-S4
+        locator: fail-closed conditions
+    verification: source_traced_candidate_research
+  - id: AB-C012
+    type: expert_interpretation
+    statement: Minimum nighttime flow must not be treated automatically as I&I.
+    sources:
+      - id: AB-S3
+        locator: dry-weather flow and groundwater infiltration sections
+    verification: candidate_technical_claim_pending_qualified_review
+  - id: AB-C013
+    type: expert_interpretation
+    statement: One basin should not be assumed to map to exactly one pump station.
+    sources:
+      - id: AB-S1
+        locator: basin and station discussion
+      - id: AB-S3
+        locator: required data model and boundaries
+    verification: candidate_architecture_claim_pending_practitioner_review
+  - id: AB-C014
+    type: expert_interpretation
+    statement: Data gaps should be stored as first-class results rather than hidden or filled by silent defaults.
+    sources:
+      - id: AB-S1
+        locator: missing-data and onboarding discussion
+      - id: AB-S4
+        locator: fail-closed conditions and no silent defaults
+    verification: candidate_architecture_recommendation
+  - id: AB-C015
+    type: unresolved_question
+    statement: AWS may replace or supplement the currently pinned DigitalOcean plus RunPod architecture.
+    sources:
+      - id: AB-S1
+        locator: meeting AWS direction
+      - id: AB-S6
+        locator: Articles 9 and 11
+    verification: unresolved_requires_formal_ratification
+  - id: AB-C016
+    type: unresolved_question
+    statement: The active PumpOS branch and deployed environment may differ from the supplied archive.
+    sources:
+      - id: AB-S2
+        locator: point-in-time archive
+    verification: unresolved_requires_active_repository_and_environment_review
+  - id: AB-C017
+    type: expert_interpretation
+    statement: >-
+      Operationalizing I&I requires a traceable chain from source record through
+      accepted input, formula, result, dashboard, finding, human decision, action,
+      and verified outcome.
+    sources:
+      - id: AB-S3
+        locator: agentic calculation architecture and reproducibility package
+      - id: AB-S4
+        locator: required result envelope and evidence separation
+      - id: AB-S9
+        locator: architecture-bible owner direction
+      - id: AB-S10
+        locator: integrated-system owner direction
+    verification: candidate_system_architecture_claim_pending_multidisciplinary_review
+  - id: AB-C018
+    type: sourced_fact
+    statement: >-
+      The candidate formula registry contains 39 formula records and the
+      operationalization manifest binds 34 numbered synthetic dashboard metrics.
+    sources:
+      - id: AB-S5
+        locator: complete formulae array
+      - id: AB-S11
+        locator: dashboard_metrics
+    verification: mechanically_validated
+  - id: AB-C019
+    type: unresolved_question
+    statement: >-
+      Six sample-code transformations do not yet have complete standalone
+      formula-registry contracts.
+    sources:
+      - id: AB-S11
+        locator: lineage_gaps
+    verification: mechanically_exposed_requires_formula_governance
+  - id: AB-C020
+    type: sourced_fact
+    statement: >-
+      Nine populated dashboard mockups collectively display all 34 numbered
+      synthetic metrics, and each metric can reveal its source classes, formula
+      chain, exact result path, importance, and decision boundary.
+    sources:
+      - id: AB-S11
+        locator: dashboard_metrics and decision_bindings
+    verification: mechanically_validated_and_rendered_candidate
+  - id: AB-C021
+    type: sourced_fact
+    statement: >-
+      Version 2 includes the complete engineering source volume and complete
+      operational Architecture Bible exactly once after heading and trailing
+      whitespace normalization.
+    sources:
+      - id: AB-S3
+        locator: complete engineering paper
+      - id: AB-S14
+        locator: complete operational Architecture Bible
+      - id: AB-S12
+        locator: owner completeness requirement
+    verification: mechanically_validated_by_validate_system_bible_v2
+  - id: AB-C022
+    type: sourced_fact
+    statement: >-
+      Version 2 gives all 39 formulas an eight-part explanatory treatment,
+      explains all 11 source classes, all 34 numbered dashboard metrics, and all
+      six governed decisions, and makes RTK explicit in the master contents.
+    sources:
+      - id: AB-S5
+        locator: complete formulae array
+      - id: AB-S11
+        locator: source_classes, dashboard_metrics, and decision_bindings
+      - id: AB-S12
+        locator: owner explanatory requirement
+      - id: AB-S13
+        locator: connected narrative and RTK explanation
+    verification: mechanically_validated_candidate_pending_owner_and_reader_review
+  - id: AB-C023
+    type: sourced_fact
+    statement: >-
+      EPA SWMM is a dynamic rainfall-runoff and hydraulic simulation engine for
+      stormwater, wastewater, and combined conveyance systems.
+    sources:
+      - id: AB-S18
+        locator: official repository description and README
+    verification: official_source_traced
+  - id: AB-C024
+    type: sourced_fact
+    statement: >-
+      PySWMM provides a Python interface to the SWMM engine and documents both
+      standard installation and installation with a selected supported engine extra.
+    sources:
+      - id: AB-S19
+        locator: official repository installation and usage sections
+    verification: official_source_traced_as_of_capture_date
+  - id: AB-C025
+    type: sourced_fact
+    statement: >-
+      EPANET is an open-source hydraulic and water-quality engine and toolkit
+      for pressurized pipe networks.
+    sources:
+      - id: AB-S20
+        locator: official repository description and README
+    verification: official_source_traced
+  - id: AB-C026
+    type: expert_interpretation
+    statement: >-
+      SWMM should represent the gravity-sewer and rainfall-response problem,
+      while EPANET should independently check the pressurized pump and
+      force-main problem; neither model should silently replace observed data
+      or governed deterministic PumpOS calculations.
+    sources:
+      - id: AB-S3
+        locator: deterministic formula and I&I method framework
+      - id: AB-S16
+        locator: model responsibility and reconciliation sections
+      - id: AB-S18
+        locator: SWMM engine scope
+      - id: AB-S20
+        locator: EPANET engine scope
+    verification: candidate_architecture_recommendation_pending_multidisciplinary_review
+  - id: AB-C027
+    type: sourced_fact
+    statement: >-
+      Version 3 contains the complete model-integration chapter, engineering
+      paper, operational Architecture Bible, and open-source repository
+      landscape exactly once after governed heading normalization.
+    sources:
+      - id: AB-S3
+        locator: complete engineering paper
+      - id: AB-S14
+        locator: complete operational Architecture Bible
+      - id: AB-S16
+        locator: complete model-integration chapter
+      - id: AB-S17
+        locator: complete repository landscape
+    verification: mechanically_validated_by_validate_system_bible_v3
+  - id: AB-C028
+    type: sourced_fact
+    statement: >-
+      Version 3 defines ten additional model-assurance dashboard contracts,
+      M-35 through M-44, without inventing model-run values for the synthetic basin.
+    sources:
+      - id: AB-S16
+        locator: model outputs on the dashboards
+    verification: mechanically_validated_candidate
+  - id: AB-C029
+    type: unresolved_question
+    statement: >-
+      Basin-specific SWMM results and station-specific EPANET results cannot be
+      accepted until approved model files, input snapshots, calibration or field
+      checks, engine versions, run manifests, and qualified reviews exist.
+    sources:
+      - id: AB-S16
+        locator: model assurance and acceptance criteria
+    verification: unresolved_hard_gate
+  - id: AB-C030
+    type: owner_position
+    statement: >-
+      The Version 4 implementation work should be clearly separated and usable
+      as an actionable instance with Claude, Kimi, Codex, or another development agent.
+    sources:
+      - id: AB-S22
+        locator: complete owner request
+    verification: owner_direction
+  - id: AB-C031
+    type: sourced_fact
+    statement: >-
+      Version 4 contains a copy-paste agent handoff, binding AGENTS instructions,
+      14 ordered work packages, 61 acceptance criteria, seven JSON Schemas,
+      17 OpenAPI operations, bounded agent tools, examples, golden-case
+      structure, governance records, a compiler, and a validator.
+    sources:
+      - id: AB-S23
+        locator: complete compiled implementation edition and source bundle
+    verification: mechanically_validated_candidate
+  - id: AB-C032
+    type: expert_interpretation
+    statement: >-
+      The first software slice should remain bounded to one basin, one event,
+      one receiving pump station, one frozen snapshot, one deterministic chain,
+      optional model comparisons, one lineage-complete dashboard payload, and
+      one human-reviewed decision.
+    sources:
+      - id: AB-S23
+        locator: product boundary and user journey
+      - id: AB-S22
+        locator: owner request to operationalize the recommendation
+    verification: proposed_product_boundary_pending_owner_approval
+  - id: AB-C033
+    type: unresolved_question
+    statement: >-
+      The active PumpOS target repository, branch, implementation framework,
+      database migration tool, and deployment environment have not been
+      positively identified for Version 4 implementation.
+    sources:
+      - id: AB-S23
+        locator: WP-01 and decision V4-D08
+    verification: blocked_before_implementation

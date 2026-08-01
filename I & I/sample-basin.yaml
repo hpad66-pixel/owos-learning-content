@@ -1,0 +1,193 @@
+schema_version: 1
+sample_id: MD-EX-01
+name: Illustrative Coastal Basin and Pump Station
+status: synthetic_engineering_example_not_facility_data
+purpose: >-
+  Exercise the universal I&I calculation chain from asset inventory and
+  dry-weather flow through RDII, RTK, pump-station hydraulics, storage,
+  energy, cost, and rehabilitation verification.
+geography:
+  context: Miami_Dade_like_coastal_high_groundwater
+  actual_Miami_Dade_basin: false
+  jurisdictional_thresholds_applied: false
+  time_zone: America/New_York
+units:
+  flow: MGD_and_gpm
+  volume: gal_and_MG
+  rainfall: in
+  area: acre
+  length: ft_and_mi
+  diameter: in
+  head: ft
+  energy: kWh
+  currency: constant_2026_USD
+system_boundary:
+  upstream: building_service_connections_and_satellite_inputs_within_defined_basin
+  downstream: pump_station_discharge_flange_and_force_main_outfall_node
+  excluded:
+    - downstream_treatment_process_hydraulics
+    - real_facility_operating_controls
+    - regulatory_compliance_determination
+    - unmetered_interbasin_transfers
+basin:
+  tributary_area_acre: 640
+  population_person: 12000
+  service_connections: 4200
+  average_base_wastewater_flow_MGD: 1.0
+  average_groundwater_infiltration_MGD: 0.25
+  dry_weather_profile_raw_hourly_multipliers:
+    - 0.55
+    - 0.50
+    - 0.45
+    - 0.45
+    - 0.50
+    - 0.70
+    - 1.00
+    - 1.25
+    - 1.35
+    - 1.25
+    - 1.10
+    - 1.05
+    - 1.00
+    - 0.95
+    - 0.90
+    - 0.95
+    - 1.10
+    - 1.30
+    - 1.40
+    - 1.35
+    - 1.20
+    - 1.00
+    - 0.80
+    - 0.65
+  gravity_sewer_inventory:
+    denominator_scope: public_gravity_main_only
+    diameter_basis: nominal_internal_diameter_for_example
+    segments:
+      - diameter_in: 8
+        length_mi: 28
+      - diameter_in: 10
+        length_mi: 8
+      - diameter_in: 12
+        length_mi: 5
+      - diameter_in: 15
+        length_mi: 2
+      - diameter_in: 18
+        length_mi: 1
+  public_lateral_length_mi_excluded_from_idm_denominator: 20
+rainfall_event:
+  event_id: EVENT-01
+  time_step_min: 15
+  hourly_depths_in:
+    - 0.10
+    - 0.40
+    - 0.90
+    - 0.80
+    - 0.60
+    - 0.40
+  distribution_within_each_hour: uniform_across_four_15_minute_steps
+  antecedent_dry_period_hr: 72
+  initial_abstraction_in: 0
+  annual_equivalent_event_count_for_economic_scenario: 12
+  note: initial_abstraction_is_zero_only_to_isolate_and_test_the_RTK_math
+RTK:
+  parameter_set_id: RTK-SYNTH-01
+  status: synthetic_not_calibrated
+  area_acre: 640
+  components:
+    - response: short
+      R: 0.006
+      T_hr: 1
+      K: 2
+    - response: medium
+      R: 0.010
+      T_hr: 4
+      K: 3
+    - response: long
+      R: 0.016
+      T_hr: 12
+      K: 4
+pump_station:
+  station_id: PS-SYNTH-01
+  status: synthetic_not_for_operation
+  installed_pumps: 3
+  duty_pumps_available_normal: 2
+  standby_pumps: 1
+  identical_pumps: true
+  control_type: staged_constant_speed_for_example
+  pump_curve:
+    basis: illustrative_head_flow_points_at_full_speed
+    points:
+      - flow_gpm: 0
+        head_ft: 140
+        efficiency_fraction: null
+      - flow_gpm: 1000
+        head_ft: 132
+        efficiency_fraction: 0.68
+      - flow_gpm: 2000
+        head_ft: 112
+        efficiency_fraction: 0.80
+      - flow_gpm: 2500
+        head_ft: 95
+        efficiency_fraction: 0.82
+      - flow_gpm: 3000
+        head_ft: 70
+        efficiency_fraction: 0.75
+      - flow_gpm: 3300
+        head_ft: 45
+        efficiency_fraction: 0.65
+  motor_efficiency_fraction: 0.94
+  force_main:
+    internal_diameter_in: 16
+    length_ft: 9500
+    absolute_roughness_ft: 0.0005
+    minor_loss_coefficient_total: 8
+    kinematic_viscosity_ft2_per_s: 0.0000122
+  static_head:
+    minimum_ft: 19
+    nominal_ft: 22
+    maximum_ft: 25
+  wet_well:
+    working_volume_gal: 15000
+    usable_storage_high_alarm_to_overflow_gal: 45000
+    emergency_response_time_min: 30
+  energy_rate_USD_per_kWh: 0.12
+  hydraulic_solver:
+    flow_scan_step_gpm: 1
+    root_tolerance_ft: 0.01
+    friction_method: Darcy_Weisbach_with_Colebrook_White
+  contingency_scenarios:
+    - scenario_id: ONE-PUMP-NORMAL
+      description: One pump available at maximum static head
+      available_pumps: 1
+      capacity_multiplier: 1.00
+    - scenario_id: ONE-PUMP-DERATED-75
+      description: One pump available with a hypothetical 25 percent capacity derating
+      available_pumps: 1
+      capacity_multiplier: 0.75
+    - scenario_id: COMPLETE-OUTAGE-30-MIN
+      description: No pumping for the stated emergency response interval at peak inflow
+      available_pumps: 0
+      capacity_multiplier: 0
+      duration_min: 30
+      analysis_mode: constant_peak_inflow_screen
+economics:
+  marginal_conveyance_and_treatment_cost_USD_per_MG: 650
+  analysis_years: 20
+  real_discount_rate: 0.03
+  annual_real_cost_escalation_rate: 0
+  electricity_rate_USD_per_kWh: 0.12
+rehabilitation_scenario:
+  scenario_id: REHAB-01
+  status: hypothetical
+  capital_cost_USD: 8500000
+  annual_O_and_M_cost_USD: 120000
+  useful_life_years: 20
+  assumed_GWI_reduction_fraction: 0.30
+  assumed_RTK_R_reduction_by_component:
+    short: 0.15
+    medium: 0.35
+    long: 0.45
+  caution: >-
+    These reductions are scenario assumptions for calculation testing. They are
+    not predicted performance and require post-rehabilitation verification.

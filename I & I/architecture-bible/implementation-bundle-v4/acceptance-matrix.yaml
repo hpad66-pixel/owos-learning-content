@@ -1,0 +1,64 @@
+schema_version: 1
+bundle_id: pumpos_ii_implementation_v4
+acceptance_criteria:
+  - {id: AC-001, requirement: Target implementation repository and branch are positively identified, evidence: repository_identity_record, test_type: governance}
+  - {id: AC-002, requirement: All bundle contracts validate in continuous integration, evidence: contract_validation_receipt, test_type: automated}
+  - {id: AC-003, requirement: Architecture decisions and unresolved questions are separately recorded, evidence: decision_register, test_type: review}
+  - {id: AC-004, requirement: Local validation needs no production credential, evidence: clean_environment_test, test_type: automated}
+  - {id: AC-010, requirement: Stable tenant-scoped identities exist for all first-slice entities, evidence: schema_and_migration_test, test_type: automated}
+  - {id: AC-011, requirement: Effective-time topology supports many-to-many basin and station relationships, evidence: topology_fixture_tests, test_type: automated}
+  - {id: AC-012, requirement: Unresolved boundary produces a structured blocked result, evidence: blocked_boundary_test, test_type: automated}
+  - {id: AC-013, requirement: Qualified engineers approve the boundary model for pilot use, evidence: signed_boundary_review, test_type: manual}
+  - {id: AC-020, requirement: Raw source payload and hash are preserved before transformation, evidence: source_ingestion_test, test_type: automated}
+  - {id: AC-021, requirement: Units and time basis are explicit for every observation series, evidence: series_contract_test, test_type: automated}
+  - {id: AC-022, requirement: Qualification records every executed rule and disposition, evidence: qualification_fixture_test, test_type: automated}
+  - {id: AC-023, requirement: Rejected input cannot enter an accepted snapshot, evidence: snapshot_rejection_test, test_type: automated}
+  - {id: AC-024, requirement: Data steward and engineer review the first-slice qualification rules, evidence: signed_qualification_review, test_type: manual}
+  - {id: AC-030, requirement: Accepted snapshots are immutable and content-addressed, evidence: immutability_test, test_type: automated}
+  - {id: AC-031, requirement: Every snapshot value resolves to source and qualification, evidence: lineage_completeness_test, test_type: automated}
+  - {id: AC-032, requirement: Changed accepted evidence creates a new snapshot, evidence: versioning_test, test_type: automated}
+  - {id: AC-040, requirement: Only active registered formula versions execute, evidence: registry_enforcement_test, test_type: automated}
+  - {id: AC-041, requirement: Dimensional and unit mismatches fail closed, evidence: unit_failure_tests, test_type: automated}
+  - {id: AC-042, requirement: Formula dependency order is deterministic and recorded, evidence: planner_test, test_type: automated}
+  - {id: AC-043, requirement: Full precision and display precision remain separate, evidence: precision_roundtrip_test, test_type: automated}
+  - {id: AC-044, requirement: Every calculated result carries complete producing lineage, evidence: result_lineage_test, test_type: automated}
+  - {id: AC-050, requirement: Every first-slice formula has positive and negative golden cases, evidence: golden_case_inventory, test_type: automated}
+  - {id: AC-051, requirement: Chain-level golden outputs match approved expectations, evidence: chain_comparison_report, test_type: automated}
+  - {id: AC-052, requirement: Mass balance and applicable invariants pass, evidence: property_test_report, test_type: automated}
+  - {id: AC-053, requirement: Independent qualified reviewers sign the numerical disposition, evidence: signed_numerical_review, test_type: manual}
+  - {id: AC-060, requirement: Evidence classes remain separate in storage and APIs, evidence: evidence_class_test, test_type: automated}
+  - {id: AC-061, requirement: Reconciliation checks quantity boundary time and unit compatibility, evidence: comparison_eligibility_tests, test_type: automated}
+  - {id: AC-062, requirement: Disagreement preserves every underlying result, evidence: disagreement_lineage_test, test_type: automated}
+  - {id: AC-063, requirement: Missing or failed model output is never represented as zero, evidence: model_absence_test, test_type: automated}
+  - {id: AC-070, requirement: API implementation conforms to openapi.yaml, evidence: openapi_conformance_test, test_type: automated}
+  - {id: AC-071, requirement: State transitions enforce declared roles and preconditions, evidence: state_machine_test, test_type: automated}
+  - {id: AC-072, requirement: Agents cannot create approval records, evidence: authorization_test, test_type: security}
+  - {id: AC-073, requirement: Evidence revision invalidates prior approval, evidence: approval_invalidation_test, test_type: automated}
+  - {id: AC-080, requirement: Every displayed number has value unit evidence class and assurance, evidence: rendered_ui_test, test_type: automated}
+  - {id: AC-081, requirement: Every displayed number opens complete lineage, evidence: full_path_ui_test, test_type: automated}
+  - {id: AC-082, requirement: Blocked warning and disagreement states are visibly distinct, evidence: visual_and_accessibility_review, test_type: manual}
+  - {id: AC-083, requirement: Model metrics fail closed to not_run when no eligible run exists, evidence: model_tile_state_test, test_type: automated}
+  - {id: AC-084, requirement: Desktop phone keyboard and screen-reader workflows pass, evidence: rendered_accessibility_receipt, test_type: manual}
+  - {id: AC-090, requirement: SWMM run requires registered model hash engine and snapshot, evidence: swmm_request_test, test_type: automated}
+  - {id: AC-091, requirement: SWMM executes inside restricted worker boundary, evidence: worker_isolation_test, test_type: security}
+  - {id: AC-092, requirement: SWMM failure and continuity warnings remain visible, evidence: swmm_failure_fixture, test_type: automated}
+  - {id: AC-093, requirement: Modeler approves the declared SWMM assurance state, evidence: signed_swmm_review, test_type: manual}
+  - {id: AC-100, requirement: EPANET run requires registered model hash engine and snapshot, evidence: epanet_request_test, test_type: automated}
+  - {id: AC-101, requirement: EPANET executes inside restricted worker boundary, evidence: worker_isolation_test, test_type: security}
+  - {id: AC-102, requirement: PumpOS and EPANET results are reconciled without replacement, evidence: operating_point_comparison_test, test_type: automated}
+  - {id: AC-103, requirement: Modeler approves the declared EPANET assurance state, evidence: signed_epanet_review, test_type: manual}
+  - {id: AC-110, requirement: Agent tools validate tenant actor purpose and scope, evidence: tool_gateway_authorization_test, test_type: security}
+  - {id: AC-111, requirement: Agent numeric responses preserve evidence class and lineage, evidence: agent_response_contract_test, test_type: automated}
+  - {id: AC-112, requirement: Retrieved content cannot change tool authority, evidence: prompt_injection_test, test_type: security}
+  - {id: AC-113, requirement: Agent cannot write to operational controls or dispatch work, evidence: prohibited_tool_test, test_type: security}
+  - {id: AC-114, requirement: Every agent tool call creates an audit record, evidence: agent_audit_test, test_type: automated}
+  - {id: AC-120, requirement: Cross-tenant access is denied and tested, evidence: tenant_isolation_test, test_type: security}
+  - {id: AC-121, requirement: Secrets are absent from source and managed by approved service, evidence: secret_scan_and_design_review, test_type: security}
+  - {id: AC-122, requirement: Uploaded files and models are validated before execution, evidence: malicious_upload_test, test_type: security}
+  - {id: AC-123, requirement: Model workers enforce network resource and duration restrictions, evidence: sandbox_escape_and_timeout_tests, test_type: security}
+  - {id: AC-124, requirement: Backup restoration and incident response are exercised, evidence: operational_readiness_receipt, test_type: manual}
+  - {id: AC-130, requirement: Pilot source and reviewer identities are approved, evidence: pilot_charter, test_type: governance}
+  - {id: AC-131, requirement: Complete first-slice path runs for one basin event and station, evidence: pilot_execution_receipt, test_type: integration}
+  - {id: AC-132, requirement: Every pilot dashboard value traces to source evidence, evidence: pilot_lineage_report, test_type: automated}
+  - {id: AC-133, requirement: Blocked return rejected and approved workflows are demonstrated, evidence: pilot_workflow_report, test_type: integration}
+  - {id: AC-134, requirement: Qualified reviewers and owner record dispositions, evidence: signed_pilot_disposition, test_type: manual}

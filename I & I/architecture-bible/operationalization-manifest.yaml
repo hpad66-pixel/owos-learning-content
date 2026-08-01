@@ -1,0 +1,685 @@
+schema_version: 1
+manifest_id: owos:ii-operationalization
+version: 0.1.0
+status: candidate_traceability_contract
+formula_registry: ../formula-register.yaml@0.2.0
+sample_dataset: ../sample-basin.yaml@MD-EX-01
+sample_results: ../generated/sample-basin-results.json
+
+source_classes:
+  - id: DS-01
+    name: Flow observations
+    systems:
+      - station influent or discharge flow meter
+      - temporary basin flow meter
+      - SCADA historian
+      - approved laboratory or field export
+    raw_fields:
+      - source_tag
+      - timestamp
+      - value
+      - unit
+      - meter_status
+      - calibration_reference
+    quality_requirements:
+      - canonical station, meter, and basin identity
+      - timestamp and time-zone resolution
+      - unit resolution
+      - gap, duplicate, range, and rate-of-change checks
+      - surcharge, backwater, fouling, and low-depth review where material
+  - id: DS-02
+    name: Rainfall observations
+    systems:
+      - utility rain gauge
+      - approved public weather source
+      - radar or gridded rainfall product
+      - validated uploaded event file
+    raw_fields:
+      - gauge_or_grid_id
+      - timestamp
+      - incremental_depth
+      - unit
+      - quality_code
+      - spatial_method
+    quality_requirements:
+      - gauge identity and coordinates
+      - event clock alignment
+      - missing-period check
+      - spatial-representativeness review
+  - id: DS-03
+    name: Basin and sewer inventory
+    systems:
+      - GIS
+      - asset registry
+      - as-built drawings
+      - field-verified inventory
+    raw_fields:
+      - basin_boundary
+      - area
+      - pipe_segment_id
+      - pipe_length
+      - pipe_diameter
+      - asset_class
+      - effective_date
+    quality_requirements:
+      - duplicate and abandoned segment resolution
+      - diameter basis
+      - included asset classes
+      - numerator and denominator boundary match
+  - id: DS-04
+    name: Population, customer, and sanitary-flow basis
+    systems:
+      - billing system
+      - water-use records
+      - customer information system
+      - planning records
+      - approved industrial and commercial discharge records
+    raw_fields:
+      - population
+      - service_connections
+      - water_use
+      - customer_class
+      - known_process_flow
+      - analysis_period
+    quality_requirements:
+      - same service boundary as measured flow
+      - non-domestic and transferred flows resolved
+      - seasonal and day-type basis recorded
+  - id: DS-05
+    name: Pump performance
+    systems:
+      - manufacturer pump curve
+      - certified test curve
+      - field performance test
+      - VFD speed record
+      - PumpOS asset registry
+    raw_fields:
+      - pump_id
+      - speed
+      - flow
+      - head
+      - pump_efficiency
+      - motor_efficiency
+      - curve_revision
+    quality_requirements:
+      - installed pump and curve applicability
+      - speed and impeller configuration
+      - interpolation boundary
+      - test or manufacturer provenance
+  - id: DS-06
+    name: Force-main and hydraulic geometry
+    systems:
+      - GIS
+      - as-built drawings
+      - survey
+      - design record
+      - field inspection
+    raw_fields:
+      - internal_diameter
+      - length
+      - roughness
+      - fitting_and_valve_loss_coefficients
+      - static_head_range
+      - fluid_properties
+    quality_requirements:
+      - current configuration and valve state
+      - internal-diameter basis
+      - elevation datum
+      - roughness and fluid-property basis
+  - id: DS-07
+    name: Wet-well and control data
+    systems:
+      - SCADA
+      - control narrative
+      - wet-well drawings
+      - level survey
+      - operator-verified settings
+    raw_fields:
+      - level
+      - level_volume_curve
+      - pump_on_and_off_levels
+      - high_alarm_level
+      - overflow_level
+      - usable_storage
+      - pump_state
+      - response_time
+    quality_requirements:
+      - current settings and effective date
+      - level-sensor validation
+      - usable-storage boundary
+      - control-mode applicability
+  - id: DS-08
+    name: Electrical energy and tariff
+    systems:
+      - power meter
+      - VFD
+      - motor-control center
+      - SCADA historian
+      - utility tariff and finance records
+    raw_fields:
+      - kW
+      - kWh
+      - power_factor
+      - demand
+      - tariff
+      - tariff_period
+    quality_requirements:
+      - meter-to-asset association
+      - interval alignment
+      - demand and time-of-use treatment
+      - tariff effective date
+  - id: DS-09
+    name: Cost and rehabilitation scenario
+    systems:
+      - finance system
+      - capital estimate
+      - work-order history
+      - treatment and conveyance marginal-cost study
+      - approved planning assumptions
+    raw_fields:
+      - capital_cost
+      - annual_operations_and_maintenance_cost
+      - marginal_cost_per_million_gallons
+      - discount_rate
+      - useful_life
+      - assumed_reduction
+    quality_requirements:
+      - price year
+      - real or nominal basis
+      - marginal versus average cost
+      - excluded-benefit disclosure
+  - id: DS-10
+    name: Jurisdiction and regulatory evidence
+    systems:
+      - RegOS
+      - official federal instrument
+      - approved jurisdiction rule pack
+    raw_fields:
+      - authority
+      - locator
+      - effective_date
+      - geography
+      - regulated_entity
+      - metric_definition
+      - exceptions
+    quality_requirements:
+      - current legal-status review
+      - applicability review
+      - separation from universal mathematics
+  - id: DS-11
+    name: Manual and maintenance evidence
+    systems:
+      - versioned object storage
+      - Knowledge Intake Workbench
+      - CMMS
+      - PumpOS asset registry
+    raw_fields:
+      - document_id
+      - revision
+      - source_locator
+      - applicable_asset
+      - approved_requirement
+      - completion_evidence
+    quality_requirements:
+      - exact passage locator
+      - asset applicability
+      - qualified review
+      - supersession status
+
+dashboard_metrics:
+  - id: M-01
+    number: 1
+    dashboard: Basin and I&I Workspace
+    label: Event rainfall depth
+    sample_display: 3.20 in
+    result_path: hydrograph_summary.rainfall_depth_in
+    source_classes: [DS-02]
+    formula_ids: []
+    evidence_class: measured_or_sample_input
+    importance: Establishes the storm forcing used by the event calculation.
+    decision_use: Confirms which event and rainfall magnitude the analysis represents.
+  - id: M-02
+    number: 2
+    dashboard: Basin and I&I Workspace
+    label: Rainfall volume over basin
+    sample_display: 55.612 MG
+    result_path: hydrograph_summary.rainfall_volume_gal
+    source_classes: [DS-02, DS-03]
+    formula_ids: [F-UNIT-001]
+    evidence_class: calculated
+    importance: Provides the denominator for rainfall capture and RTK component volume.
+    decision_use: Supports event normalization, not a claim that all rainfall reached the sewer.
+  - id: M-03
+    number: 3
+    dashboard: Basin and I&I Workspace
+    label: Average dry-weather flow
+    sample_display: 1.250 MGD
+    result_path: hydrograph_summary.average_dry_weather_flow_MGD
+    source_classes: [DS-01]
+    formula_ids: [F-DWF-001]
+    evidence_class: calculated_baseline
+    importance: Establishes the ordinary comparison flow before rainfall response is isolated.
+    decision_use: Supports event residuals, ratios, and baseline comparison.
+  - id: M-04
+    number: 4
+    dashboard: Basin and I&I Workspace
+    label: Groundwater infiltration
+    sample_display: 0.250 MGD
+    result_path: inventory_and_dry_weather.GWI_gpd
+    source_classes: [DS-01, DS-04]
+    formula_ids: [F-GWI-001, F-CONV-001]
+    evidence_class: calculated_method_dependent
+    importance: Separates persistent groundwater contribution from base wastewater.
+    decision_use: Supports dry-weather investigation and rehabilitation screening.
+  - id: M-05
+    number: 5
+    dashboard: Basin and I&I Workspace
+    label: Inch-diameter-mile inventory
+    sample_display: 412 in-mi
+    result_path: inventory_and_dry_weather.inch_diameter_mile
+    source_classes: [DS-03]
+    formula_ids: [F-IDM-001]
+    evidence_class: calculated_inventory
+    importance: Provides the declared sewer-inventory denominator.
+    decision_use: Enables normalized comparison when scope and diameter basis match.
+  - id: M-06
+    number: 6
+    dashboard: Basin and I&I Workspace
+    label: Normalized dry-weather GWI
+    sample_display: 606.8 gpd/in-mi
+    result_path: inventory_and_dry_weather.GWI_gpd_per_inch_diameter_mile
+    source_classes: [DS-01, DS-03, DS-04]
+    formula_ids: [F-GWI-001, F-IDM-001, F-NORM-001]
+    evidence_class: calculated_screening_metric
+    importance: Normalizes the selected flow by declared pipe inventory.
+    decision_use: Supports comparison only; no universal pass or fail conclusion.
+  - id: M-07
+    number: 7
+    dashboard: Basin and I&I Workspace
+    label: RDII event volume
+    sample_display: 1.780 MG
+    result_path: hydrograph_summary.integrated_RDII_volume_gal
+    source_classes: [DS-01, DS-02, DS-03]
+    formula_ids: [F-RDII-001, F-RDII-002, F-FLOW-001, F-RTK-001, F-RTK-002, F-RTK-003]
+    evidence_class: modeled_and_integrated
+    importance: Quantifies the event-related volume above the expected baseline.
+    decision_use: Supports event comparison, storage consequence, and rehabilitation scenarios.
+  - id: M-08
+    number: 8
+    dashboard: Basin and I&I Workspace
+    label: Rainfall capture fraction
+    sample_display: 3.20%
+    result_path: hydrograph_summary.capture_fraction_total_R
+    source_classes: [DS-01, DS-02, DS-03]
+    formula_ids: [F-UNIT-001, F-RDII-002, F-RDII-003]
+    evidence_class: calculated_ratio
+    importance: Relates RDII volume to rainfall volume over the same boundary.
+    decision_use: Supports event comparison and RTK calibration; does not locate defects.
+  - id: M-09
+    number: 9
+    dashboard: Basin and I&I Workspace
+    label: Peak RDII flow
+    sample_display: 2.704 MGD
+    result_path: hydrograph_summary.peak_RDII_MGD
+    source_classes: [DS-01, DS-02, DS-03]
+    formula_ids: [F-RTK-001, F-RTK-002, F-RTK-003, F-CONV-001]
+    evidence_class: modeled
+    importance: Identifies the modeled event-related peak added to the station load.
+    decision_use: Feeds peak total flow and station consequence.
+  - id: M-10
+    number: 10
+    dashboard: Basin and I&I Workspace
+    label: Peak total station inflow
+    sample_display: 3.929 MGD / 2,728.3 gpm
+    result_path: hydrograph_summary.peak_total_flow_gpm
+    source_classes: [DS-01, DS-02, DS-03]
+    formula_ids: [F-DWF-001, F-RTK-003, F-CONV-001]
+    evidence_class: modeled_total
+    importance: Carries basin response into pump, storage, and contingency analysis.
+    decision_use: Primary inflow used for the sample station-capacity comparison.
+  - id: M-11
+    number: 11
+    dashboard: Station Workspace
+    label: One-pump operating capacity at maximum static head
+    sample_display: 2,994.3 gpm
+    result_path: pump_station_analysis.operating_points.1_pump_maximum_static_head.total_flow_gpm
+    source_classes: [DS-05, DS-06]
+    formula_ids: [F-HYD-001, F-HYD-002, F-HYD-003, F-HYD-004, F-HYD-005, F-PUMP-001]
+    evidence_class: calculated_operating_point
+    importance: Represents conservative one-pump availability for the sample curves and head.
+    decision_use: Feeds one-pump storage and cycling screens.
+  - id: M-12
+    number: 12
+    dashboard: Station Workspace
+    label: Conservative two-pump firm capacity
+    sample_display: 4,129.8 gpm
+    result_path: pump_station_analysis.capacity.conservative_firm_capacity_gpm
+    source_classes: [DS-05, DS-06]
+    formula_ids: [F-HYD-001, F-HYD-002, F-HYD-003, F-HYD-004, F-HYD-005, F-PUMP-001]
+    evidence_class: calculated_operating_point
+    importance: Provides the available flow for the normal firm-capacity comparison.
+    decision_use: Feeds margin and utilization, not a complete station certification.
+  - id: M-13
+    number: 13
+    dashboard: Station Workspace
+    label: Peak firm-capacity margin
+    sample_display: 1,401.5 gpm / 33.94%
+    result_path: pump_station_analysis.capacity.peak_margin_gpm
+    source_classes: [DS-01, DS-02, DS-03, DS-05, DS-06]
+    formula_ids: [F-PUMP-002]
+    evidence_class: calculated_comparison
+    importance: Shows remaining modeled flow margin under the stated normal scenario.
+    decision_use: Supports normal-condition screening and contingency escalation.
+  - id: M-14
+    number: 14
+    dashboard: Station Workspace
+    label: Peak firm-capacity utilization
+    sample_display: 66.06%
+    result_path: pump_station_analysis.capacity.peak_utilization_fraction
+    source_classes: [DS-01, DS-02, DS-03, DS-05, DS-06]
+    formula_ids: [F-PUMP-002]
+    evidence_class: calculated_ratio
+    importance: Shows how much of the stated available capacity the event uses.
+    decision_use: Supports comparison and prioritization with visible scenario assumptions.
+  - id: M-15
+    number: 15
+    dashboard: Station Workspace
+    label: One-pump normal required storage
+    sample_display: 0 gal
+    result_path: pump_station_analysis.storage.contingency_results.ONE-PUMP-NORMAL.required_storage_gal
+    source_classes: [DS-01, DS-05, DS-06, DS-07]
+    formula_ids: [F-MASS-001, F-FLOW-001, F-PUMP-007]
+    evidence_class: modeled_contingency
+    importance: Shows whether the event creates a storage deficit with one normal pump.
+    decision_use: Supports contingency comparison, not proof of all-condition adequacy.
+  - id: M-16
+    number: 16
+    dashboard: Station Workspace
+    label: Derated one-pump available capacity
+    sample_display: 2,245.7 gpm
+    result_path: pump_station_analysis.storage.contingency_results.ONE-PUMP-DERATED-75.available_capacity_gpm
+    source_classes: [DS-05, DS-06]
+    formula_ids: [F-PUMP-001]
+    evidence_class: hypothetical_scenario
+    importance: Defines the available pumping assumption for the derated contingency.
+    decision_use: Feeds dynamic storage routing.
+  - id: M-17
+    number: 17
+    dashboard: Station Workspace
+    label: Derated one-pump required storage
+    sample_display: 75,312 gal
+    result_path: pump_station_analysis.storage.contingency_results.ONE-PUMP-DERATED-75.required_storage_gal
+    source_classes: [DS-01, DS-05, DS-06, DS-07]
+    formula_ids: [F-MASS-001, F-FLOW-001, F-PUMP-007]
+    evidence_class: modeled_contingency
+    importance: Shows the maximum modeled accumulated deficit during the event.
+    decision_use: Compares required storage with usable storage.
+  - id: M-18
+    number: 18
+    dashboard: Station Workspace
+    label: Derated one-pump storage shortfall
+    sample_display: 30,312 gal
+    result_path: pump_station_analysis.storage.contingency_results.ONE-PUMP-DERATED-75.storage_shortfall_gal
+    source_classes: [DS-01, DS-05, DS-06, DS-07]
+    formula_ids: [F-PUMP-007]
+    evidence_class: modeled_contingency
+    importance: Quantifies modeled storage beyond the declared usable volume.
+    decision_use: Creates a contingency-review finding and draft investigation.
+  - id: M-19
+    number: 19
+    dashboard: Station Workspace
+    label: Complete-outage required storage for 30 minutes
+    sample_display: 81,848 gal
+    result_path: pump_station_analysis.storage.contingency_results.COMPLETE-OUTAGE-30-MIN.required_storage_gal
+    source_classes: [DS-01, DS-07]
+    formula_ids: [F-PUMP-004]
+    evidence_class: constant_peak_screen
+    importance: Screens storage required during a stated no-pumping response interval.
+    decision_use: Supports emergency-response planning with a visible conservative boundary.
+  - id: M-20
+    number: 20
+    dashboard: Station Workspace
+    label: Complete-outage storage shortfall
+    sample_display: 36,848 gal
+    result_path: pump_station_analysis.storage.contingency_results.COMPLETE-OUTAGE-30-MIN.storage_shortfall_gal
+    source_classes: [DS-01, DS-07]
+    formula_ids: [F-PUMP-004]
+    evidence_class: constant_peak_screen
+    importance: Shows the difference between required and usable storage.
+    decision_use: Supports emergency contingency review.
+  - id: M-21
+    number: 21
+    dashboard: Station Workspace
+    label: Time to exhaust usable storage during full outage
+    sample_display: 16.49 min
+    result_path: pump_station_analysis.storage.contingency_results.COMPLETE-OUTAGE-30-MIN.time_to_exhaust_available_storage_min
+    source_classes: [DS-01, DS-07]
+    formula_ids: [F-PUMP-003]
+    evidence_class: constant_peak_screen
+    importance: Converts the stated flow deficit and storage into an illustrative response window.
+    decision_use: Supports response planning; dynamic inflow and controls may change the result.
+  - id: M-22
+    number: 22
+    dashboard: Asset and Station Workspace
+    label: Illustrative cycles per hour
+    sample_display: 2.475 cycles/hr
+    result_path: pump_station_analysis.cycling.cycles_per_hour
+    source_classes: [DS-01, DS-05, DS-07]
+    formula_ids: [F-PUMP-005]
+    evidence_class: calculated_limited_applicability
+    importance: Screens cycling for one constant-speed pump and constant inflow.
+    decision_use: Supports comparison with reviewed manual or control requirements.
+  - id: M-23
+    number: 23
+    dashboard: Station Workspace
+    label: Event pumping energy
+    sample_display: 1,589.9 kWh
+    result_path: pump_station_analysis.energy.event_staged_control_energy_kWh
+    source_classes: [DS-05, DS-06, DS-08]
+    formula_ids: [F-ENERGY-001, F-ENERGY-002]
+    evidence_class: modeled_energy
+    importance: Quantifies energy under the stated staged-control approximation.
+    decision_use: Supports energy comparison and cost calculation.
+  - id: M-24
+    number: 24
+    dashboard: Station Workspace
+    label: Event energy cost
+    sample_display: $190.79
+    result_path: pump_station_analysis.energy.event_staged_control_energy_cost_USD
+    source_classes: [DS-05, DS-06, DS-08]
+    formula_ids: [F-ENERGY-001, F-ENERGY-002]
+    evidence_class: modeled_cost
+    importance: Converts modeled energy to the stated tariff boundary.
+    decision_use: Supports event and scenario comparison, not full demand-charge accounting.
+  - id: M-25
+    number: 25
+    dashboard: Station Workspace
+    label: Aggregate pump hours per average dry-weather day
+    sample_display: 6.892 hr/day
+    result_path: pump_station_analysis.operating_time.aggregate_pump_hours_per_ADWF_day
+    source_classes: [DS-01, DS-05]
+    formula_ids: [F-PUMP-006]
+    evidence_class: calculated_equivalent_hours
+    importance: Relates pumped daily volume to representative single-pump capacity.
+    decision_use: Supports operating-time analysis with visible capacity assumptions.
+  - id: M-26
+    number: 26
+    dashboard: Station Workspace
+    label: Illustrative Miami-Dade NAPOT
+    sample_display: 3.446 hr/day
+    result_path: pump_station_analysis.operating_time.illustrative_Miami_Dade_NAPOT_hours_per_day
+    source_classes: [DS-01, DS-05, DS-10]
+    formula_ids: [F-PUMP-006, F-MDC-NAPOT-001]
+    evidence_class: jurisdiction_specific_illustration
+    importance: Demonstrates the constant-speed rule-pack calculation.
+    decision_use: No current capacity or compliance determination without applicable legal review.
+  - id: M-27
+    number: 27
+    dashboard: Program and Economics Workspace
+    label: Annual modeled I&I reduction
+    sample_display: 35.116 MG/yr
+    result_path: rehabilitation_and_economics.annual_total_I_and_I_reduction_MG
+    source_classes: [DS-01, DS-02, DS-03, DS-09]
+    formula_ids: [F-ECON-002, F-VERIFY-001]
+    evidence_class: hypothetical_scenario
+    importance: Aggregates assumed dry- and wet-weather reductions.
+    decision_use: Feeds the narrow direct-cost screen; it is not measured removal.
+  - id: M-28
+    number: 28
+    dashboard: Program and Economics Workspace
+    label: Annual gross marginal-cost benefit
+    sample_display: $22,826/yr
+    result_path: rehabilitation_and_economics.annual_gross_marginal_cost_benefit_USD
+    source_classes: [DS-09]
+    formula_ids: [F-COST-001]
+    evidence_class: scenario_cost
+    importance: Values only the declared marginal conveyance and treatment cost.
+    decision_use: Feeds present value and must show excluded benefits.
+  - id: M-29
+    number: 29
+    dashboard: Program and Economics Workspace
+    label: Annual net direct benefit
+    sample_display: -$97,174/yr
+    result_path: rehabilitation_and_economics.annual_net_direct_benefit_USD
+    source_classes: [DS-09]
+    formula_ids: [F-COST-001]
+    evidence_class: scenario_cost
+    importance: Preserves the unfavorable narrow direct-cost result.
+    decision_use: Prevents the agent from forcing a favorable business case.
+  - id: M-30
+    number: 30
+    dashboard: Program and Economics Workspace
+    label: Present value of gross benefits
+    sample_display: $339,586
+    result_path: rehabilitation_and_economics.PV_gross_benefits_USD
+    source_classes: [DS-09]
+    formula_ids: [F-PV-001]
+    evidence_class: scenario_economics
+    importance: Discounts declared annual benefits to the base year.
+    decision_use: Feeds NPV and benefit-cost ratio.
+  - id: M-31
+    number: 31
+    dashboard: Program and Economics Workspace
+    label: Present value of total costs
+    sample_display: $10,285,297
+    result_path: rehabilitation_and_economics.PV_total_costs_USD
+    source_classes: [DS-09]
+    formula_ids: [F-PV-001]
+    evidence_class: scenario_economics
+    importance: Combines capital and modeled recurring costs on the declared basis.
+    decision_use: Feeds NPV and benefit-cost ratio.
+  - id: M-32
+    number: 32
+    dashboard: Program and Economics Workspace
+    label: Net present value
+    sample_display: -$9,945,711
+    result_path: rehabilitation_and_economics.NPV_USD
+    source_classes: [DS-09]
+    formula_ids: [F-PV-001, F-ECON-003]
+    evidence_class: scenario_economics
+    importance: Shows benefits minus costs under the narrow declared boundary.
+    decision_use: Supports economic screening with excluded benefits shown separately.
+  - id: M-33
+    number: 33
+    dashboard: Program and Economics Workspace
+    label: Benefit-cost ratio
+    sample_display: 0.033
+    result_path: rehabilitation_and_economics.benefit_cost_ratio
+    source_classes: [DS-09]
+    formula_ids: [F-BCR-001]
+    evidence_class: scenario_economics
+    importance: Compares discounted benefits with discounted costs.
+    decision_use: Screens the stated scenario; it does not include omitted public or capacity benefits.
+  - id: M-34
+    number: 34
+    dashboard: Program and Economics Workspace
+    label: Simple payback
+    sample_display: Not calculable because annual net benefit is nonpositive
+    result_path: rehabilitation_and_economics.simple_payback_years
+    source_classes: [DS-09]
+    formula_ids: [F-ECON-004]
+    evidence_class: failed_closed_screen
+    importance: Demonstrates that a valid output can be unavailable for a defined mathematical reason.
+    decision_use: Blocks a false payback claim.
+
+decision_bindings:
+  - id: DEC-01
+    name: Accept or reject event for analysis
+    metric_ids: [M-01, M-03]
+    required_roles: [I_and_I_analyst]
+    output: accepted_event_or_data_gap
+  - id: DEC-02
+    name: Open basin investigation
+    metric_ids: [M-06, M-07, M-08, M-09]
+    required_roles: [I_and_I_analyst, collection_system_engineer]
+    output: draft_investigation
+  - id: DEC-03
+    name: Review station normal and contingency condition
+    metric_ids: [M-10, M-11, M-12, M-13, M-14, M-15, M-16, M-17, M-18, M-19, M-20, M-21]
+    required_roles: [pump_station_engineer, operations_supervisor]
+    output: approved_contingency_action_or_request_for_more_evidence
+  - id: DEC-04
+    name: Review cycling and energy
+    metric_ids: [M-22, M-23, M-24]
+    required_roles: [asset_manager, pump_station_engineer]
+    output: maintenance_or_efficiency_investigation
+  - id: DEC-05
+    name: Review jurisdiction-specific operating time
+    metric_ids: [M-25, M-26]
+    required_roles: [operations, compliance_reviewer]
+    output: reviewed_rule_pack_finding
+  - id: DEC-06
+    name: Screen rehabilitation economics
+    metric_ids: [M-27, M-28, M-29, M-30, M-31, M-32, M-33, M-34]
+    required_roles: [engineer, finance, capital_planning]
+    output: scenario_review_not_project_authorization
+
+lineage_gaps:
+  - id: LIN-GAP-01
+    metric_ids: [M-10]
+    missing_contract: >-
+      Peak total flow composition and peak-selection logic are executed by the sample
+      code but do not have a dedicated formula-registry identifier.
+    required_resolution: >-
+      Register the time-aligned addition of expected dry-weather flow and RDII, the
+      peak-selection rule, units, tie handling, and tests.
+  - id: LIN-GAP-02
+    metric_ids: [M-11, M-12, M-16]
+    missing_contract: >-
+      Pump-curve interpolation and operating-point root-search policies are described
+      but not represented as separate registry-controlled algorithms.
+    required_resolution: >-
+      Register interpolation domain, extrapolation prohibition, root bracket,
+      tolerance, residual, multiple-intersection policy, and test vectors.
+  - id: LIN-GAP-03
+    metric_ids: [M-18, M-20]
+    missing_contract: >-
+      Storage shortfall is emitted as required storage or routed overflow minus usable
+      storage, but the result contract is not named independently for every scenario.
+    required_resolution: >-
+      Register the shortfall identity and distinguish dynamic routed overflow from a
+      constant-peak screening shortfall.
+  - id: LIN-GAP-04
+    metric_ids: [M-23, M-24]
+    missing_contract: >-
+      The sample staged-control interpolation that converts inflow to one-pump and
+      two-pump power states is not a separately versioned control-dispatch method.
+    required_resolution: >-
+      Register the dispatch approximation, transition rules, time integration,
+      applicability, and comparison with measured kW.
+  - id: LIN-GAP-05
+    metric_ids: [M-27]
+    missing_contract: >-
+      Annual total reduction combines continuous GWI reduction and a repeated-event
+      RDII scenario, but event-frequency aggregation is not a dedicated registry method.
+    required_resolution: >-
+      Register continuous and event-volume annualization, event-count basis,
+      representativeness limits, and uncertainty.
+  - id: LIN-GAP-06
+    metric_ids: [M-29]
+    missing_contract: >-
+      Annual net direct benefit is gross marginal benefit minus annual scenario
+      operations and maintenance cost, but the identity has no formula ID.
+    required_resolution: >-
+      Register the annual net-benefit identity, price-year and sign conventions,
+      included and excluded components, and failure behavior.

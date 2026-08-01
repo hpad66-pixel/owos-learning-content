@@ -1,0 +1,48 @@
+artifact: ii_intelligence_system_bible_v2_build_manifest
+version: 0.1.0
+status: candidate
+generated_at: 2026-07-28
+builder:
+  path: architecture-bible/tools/build_integrated_system_bible_v2.py
+  sha256: 8b30de79343dc34f77f66597e3574a7e3851eab345707a09c935c41e1f91a951
+validator:
+  path: architecture-bible/tools/validate_system_bible_v2.py
+  sha256: 969101f858139a756b0461bdfe571b07b975e949ebb64ca345205a3d00769b05
+inputs:
+  - path: white-paper.md
+    role: complete_engineering_source_volume
+    sha256: ac00345b2f46d417775ffaf5578769f6e4a47a4f3a5e02805313a752d38d884d
+  - path: architecture-bible/white-paper.md
+    role: complete_operational_architecture_source_volume
+    sha256: 95b829814f040d2663b79fb68f9ea09ebf55db26cb7603b4c630982de4377bf2
+  - path: architecture-bible/explanatory-narrative-v2.md
+    role: connected_narrative_spine
+    sha256: 7698e5273696890dbe2354564f7a1780a7eb67bc002837c91f6a782a9a416d4e
+  - path: formula-register.yaml
+    role: formula_authority
+    sha256: 5ebea4094d8bea4ab077639b5793de58eef40595e882b9d833b2fbd261c0164d
+  - path: architecture-bible/operationalization-manifest.yaml
+    role: source_metric_and_decision_authority
+    sha256: 96e2796212dd8d6b47eeff3792359d55bb77f881951e935a8cddbae529bc6724
+  - path: architecture-bible/dashboard-mockups.md
+    role: populated_dashboard_appendix
+    sha256: 4ccf1a7d89098871ac60070f95e39552856ba6d999a99d7365f8dd0e6a40cdd4
+output:
+  path: architecture-bible/ii-intelligence-system-bible-v2.md
+  sha256: a9dd1c56c147cc5f29f08f1776994d20c61e5792f269bbef4260a6e0e9957963
+  lines: 11572
+  words: 75639
+  bytes: 551942
+validation:
+  command: python3 architecture-bible/tools/validate_system_bible_v2.py
+  status: passed
+  complete_source_volumes: 2
+  formula_explanations: 39
+  source_class_explanations: 11
+  dashboard_metric_explanations: 34
+  decision_explanations: 6
+  rtk_discoverability: passed
+  populated_dashboard_figures: 9
+release:
+  approved: false
+  reason: Owner, qualified engineering, source, security, regulatory, accessibility, usability, and field-validation reviews remain open.
