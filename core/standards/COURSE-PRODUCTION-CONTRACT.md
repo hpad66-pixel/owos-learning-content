@@ -34,6 +34,10 @@ Before lesson production, the syllabus must define:
 
 Complete a course design matrix and one module design brief per module. Bulk production begins only after a golden lesson is approved as a capability benchmark.
 
+### Source-derived curriculum gate
+
+When an external article, post, video, transcript, conversation, diagram, or framework inspires a course addition, apply `SOURCE-TO-CURRICULUM-SPARRING-STANDARD.md` before changing the canonical blueprint. Preserve the source and provenance state, separate the source author's idea from Hardeep Anand's interpretation, spar until the original teaching kernel is explicit, and prepare a review package that explains the method, utility case, cross-sector transfer, course connections, visuals, learner actions, assessment, work product, claims, and evidence boundaries. A list of bullets or a renamed source summary does not pass this gate. Hardeep must approve the review package before the canonical blueprint is locked or learner-facing lesson production begins.
+
 ## 3. Complete lesson experience
 
 Every full lesson must provide:
