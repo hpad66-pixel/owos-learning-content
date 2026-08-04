@@ -1,4 +1,14 @@
-# AI Master Class Series
+# One Water AI Executive Fellowship
+
+## Commercial and learning proposition
+
+The fellowship is a 24-week, 64-module applied program for professionals who influence water,
+wastewater, and stormwater decisions. Its target tuition is $10,000 per participant. The price is
+supported by guided instruction, live executive forums, applied studios, expert and peer review, a
+participant-owned Fieldbook, a source-backed implementation portfolio, and a capstone defense.
+
+The program is not sold as access to content. It is sold as the development of professional
+judgment and a governed path from one organizational problem to a defensible 90-day pilot.
 
 ## Working purpose
 
@@ -19,9 +29,9 @@ The series will be a family of courses, not one oversized course. Each course ha
 its own audience and evidence boundary, a clear connection to the One Water knowledge graph, and a
 usable work product.
 
-## First course candidate
+## First course
 
-**Working title:** AI in Utility Work: Foundations for Responsible Decisions
+**Working title:** AI Fluency for One Water
 
 **First module:** AI and utility work: what changes, what does not, and who remains accountable.
 
