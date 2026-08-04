@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Master blueprint development.
+Fellowship blueprint review and participant-tool development.
 
 ## Completed
 
@@ -15,6 +15,10 @@ Master blueprint development.
   applied studios, cybersecurity, procurement, economics, workforce adoption, and capstone defense.
 - Added a curriculum gap and value assessment.
 - Designed the One Water AI Fieldbook and public audience value kit.
+- Selected `One Water AI Executive Fellowship` as the working program brand.
+- Generated the 17-page master curriculum prospectus from the controlled syllabus.
+- Generated the 143-page Fieldbook working edition, covering all 64 modules and the capstone portfolio.
+- Completed PDF text, page-count, module-coverage, and representative-page visual QA.
 
 ## Current module
 
@@ -31,5 +35,6 @@ any factual teaching is finalized.
 
 ## Next action
 
-Review the master syllabus, approve or revise the value proposition and sequence, then build Course 1,
-the first eight Fieldbook records, and Module 01 as the golden lesson.
+Review the two working PDFs. Approve or revise the fellowship brand, value proposition, course sequence,
+and Fieldbook rhythm. After blueprint lock, build Course 1, refine its eight Fieldbook records with
+module-specific instruments, and produce Module 01 as the golden lesson.
