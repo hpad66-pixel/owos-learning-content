@@ -16,6 +16,15 @@ Confirm that the course package has:
 - visual, interaction, assessment, FAQ, and recording-script plans; and
 - an approval record authorizing an Articulate draft.
 
+The approved manuscript begins from
+`../research/MODULE-RESEARCH-AND-VISUAL-BRIEF-TEMPLATE.md`. It must contain the module value
+proposition, verified claims with direct locators, complete instructor teaching, utility examples,
+graphic descriptions, reading guides, learner conclusions, assessments, FAQ, and evidence boundary.
+
+Perplexity may help discover source leads. Do not copy its answer into Articulate as verified course
+content. Open the original source, record it in the source register, verify the claim and locator,
+and update the claims register first.
+
 ## In Rise or Storyline
 
 1. Create the course in the correct team folder and name it with the stable course and module ID.

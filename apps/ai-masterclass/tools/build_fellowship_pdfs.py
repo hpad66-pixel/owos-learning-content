@@ -3,6 +3,9 @@
 
 from __future__ import annotations
 
+import argparse
+import hashlib
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -16,7 +19,17 @@ from reportlab.pdfgen import canvas
 
 ROOT = Path(__file__).resolve().parents[1]
 SYLLABUS = ROOT / "SYLLABUS.md"
+COURSE_METADATA = ROOT / "course.yaml"
+FIELDBOOK_BLUEPRINT = ROOT / "work-products" / "ONE-WATER-AI-FIELDBOOK-BLUEPRINT.md"
 OUTPUT = ROOT / "output" / "pdf"
+CURRICULUM_PDF = OUTPUT / "one-water-ai-executive-fellowship-master-curriculum.pdf"
+FIELDBOOK_PDF = OUTPUT / "one-water-ai-fieldbook-working-edition.pdf"
+SYNC_MANIFEST = OUTPUT / "fellowship-sync-manifest.json"
+BUILDER = Path(__file__).resolve()
+
+PROGRAM_TITLE = "One Water AI Executive Fellowship"
+EXPECTED_COURSES = 8
+EXPECTED_MODULES = 64
 
 PAGE_W, PAGE_H = letter
 MARGIN = 54
@@ -65,6 +78,9 @@ def register_fonts() -> None:
 
 def parse_syllabus() -> list[Course]:
     text = SYLLABUS.read_text(encoding="utf-8")
+    title_match = re.search(r"^# (.+)$", text, re.MULTILINE)
+    if not title_match or title_match.group(1).strip() != PROGRAM_TITLE:
+        raise ValueError(f"The syllabus title must be '{PROGRAM_TITLE}'")
     matches = list(re.finditer(r"^## Course (\d+): (.+)$", text, re.MULTILINE))
     courses: list[Course] = []
     for index, match in enumerate(matches):
@@ -97,9 +113,92 @@ def parse_syllabus() -> list[Course]:
                 modules=modules,
             )
         )
-    if len(courses) != 8 or sum(len(course.modules) for course in courses) != 64:
-        raise ValueError("Expected eight courses and 64 modules in the master syllabus")
+    module_numbers = [module.number for course in courses for module in course.modules]
+    if len(courses) != EXPECTED_COURSES or len(module_numbers) != EXPECTED_MODULES:
+        raise ValueError(
+            f"Expected {EXPECTED_COURSES} courses and {EXPECTED_MODULES} modules in the master syllabus"
+        )
+    if module_numbers != list(range(1, EXPECTED_MODULES + 1)):
+        raise ValueError("Module numbers must be consecutive from 1 through 64")
     return courses
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for block in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def validate_control_records(courses: list[Course]) -> None:
+    metadata = COURSE_METADATA.read_text(encoding="utf-8")
+    blueprint = FIELDBOOK_BLUEPRINT.read_text(encoding="utf-8")
+    required_metadata = [
+        f"title: {PROGRAM_TITLE}",
+        f"courses: {EXPECTED_COURSES}",
+        f"modules: {EXPECTED_MODULES}",
+    ]
+    missing_metadata = [item for item in required_metadata if item not in metadata]
+    if missing_metadata:
+        raise ValueError(f"Course metadata is out of sync: {', '.join(missing_metadata)}")
+    if "Each of the 64 modules" not in blueprint:
+        raise ValueError("The Fieldbook blueprint must declare the 64-module working rhythm")
+    missing_courses = [
+        str(course.number)
+        for course in courses
+        if f"## Course {course.number} Fieldbook records" not in blueprint
+    ]
+    if missing_courses:
+        raise ValueError(
+            "The Fieldbook blueprint is missing course record sections: " + ", ".join(missing_courses)
+        )
+
+
+def build_sync_manifest(courses: list[Course]) -> dict[str, object]:
+    return {
+        "schema": "owos-fellowship-sync/v1",
+        "program_title": PROGRAM_TITLE,
+        "course_count": len(courses),
+        "module_count": sum(len(course.modules) for course in courses),
+        "module_range": [1, EXPECTED_MODULES],
+        "sources": {
+            str(SYLLABUS.relative_to(ROOT)): sha256(SYLLABUS),
+            str(COURSE_METADATA.relative_to(ROOT)): sha256(COURSE_METADATA),
+            str(FIELDBOOK_BLUEPRINT.relative_to(ROOT)): sha256(FIELDBOOK_BLUEPRINT),
+            str(BUILDER.relative_to(ROOT)): sha256(BUILDER),
+        },
+        "outputs": {
+            str(CURRICULUM_PDF.relative_to(ROOT)): {
+                "pages": 17,
+                "sha256": sha256(CURRICULUM_PDF),
+            },
+            str(FIELDBOOK_PDF.relative_to(ROOT)): {
+                "pages": 143,
+                "sha256": sha256(FIELDBOOK_PDF),
+            },
+        },
+    }
+
+
+def check_sync(courses: list[Course]) -> None:
+    if not SYNC_MANIFEST.exists():
+        raise ValueError("Synchronization manifest is missing. Rebuild both PDFs together.")
+    manifest = json.loads(SYNC_MANIFEST.read_text(encoding="utf-8"))
+    if manifest.get("program_title") != PROGRAM_TITLE:
+        raise ValueError("The synchronization manifest has the wrong program title")
+    if manifest.get("course_count") != len(courses):
+        raise ValueError("The synchronization manifest has the wrong course count")
+    if manifest.get("module_count") != EXPECTED_MODULES:
+        raise ValueError("The synchronization manifest has the wrong module count")
+    for relative_path, expected_hash in manifest.get("sources", {}).items():
+        path = ROOT / relative_path
+        if not path.exists() or sha256(path) != expected_hash:
+            raise ValueError(f"Source changed after the last synchronized build: {relative_path}")
+    for relative_path, record in manifest.get("outputs", {}).items():
+        path = ROOT / relative_path
+        if not path.exists() or sha256(path) != record.get("sha256"):
+            raise ValueError(f"Output is missing or stale: {relative_path}")
 
 
 def words(text: str) -> list[str]:
@@ -651,14 +750,30 @@ def build_fieldbook(courses: list[Course], output_path: Path) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Fail if the curriculum, Fieldbook, metadata, builder, or PDFs are out of sync.",
+    )
+    args = parser.parse_args()
+    courses = parse_syllabus()
+    validate_control_records(courses)
+    if args.check:
+        check_sync(courses)
+        print(f"Synchronized: {PROGRAM_TITLE}, {len(courses)} courses, {EXPECTED_MODULES} modules")
+        return
+
     register_fonts()
     OUTPUT.mkdir(parents=True, exist_ok=True)
-    courses = parse_syllabus()
-    build_prospectus(courses, OUTPUT / "one-water-ai-executive-fellowship-master-curriculum.pdf")
-    build_fieldbook(courses, OUTPUT / "one-water-ai-fieldbook-working-edition.pdf")
+    build_prospectus(courses, CURRICULUM_PDF)
+    build_fieldbook(courses, FIELDBOOK_PDF)
+    manifest = build_sync_manifest(courses)
+    SYNC_MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(f"Built {len(courses)} courses and {sum(len(c.modules) for c in courses)} modules")
-    print(OUTPUT / "one-water-ai-executive-fellowship-master-curriculum.pdf")
-    print(OUTPUT / "one-water-ai-fieldbook-working-edition.pdf")
+    print(CURRICULUM_PDF)
+    print(FIELDBOOK_PDF)
+    print(SYNC_MANIFEST)
 
 
 if __name__ == "__main__":

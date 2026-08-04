@@ -10,6 +10,12 @@
 **Ownership:** the participant owns their entries; organizational and confidential material remains
 private unless the participant explicitly shares it for review
 
+**Curriculum source:** `../SYLLABUS.md`
+
+**Synchronization rule:** A change to a course, module, learning job, applied result, or capstone
+requirement must update the curriculum prospectus and Fieldbook in the same controlled build. See
+`../CURRICULUM-SYNCHRONIZATION-CONTRACT.md`.
+
 ## The purpose
 
 The Fieldbook is the connective tissue of the six-month fellowship. It prevents the program from
