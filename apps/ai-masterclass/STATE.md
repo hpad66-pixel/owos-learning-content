@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Inclusive curriculum review, Fellowship blueprint review, and participant-tool development.
+Granular curriculum and gap review before blueprint lock.
 
 ## Completed
 
@@ -58,6 +58,14 @@ Inclusive curriculum review, Fellowship blueprint review, and participant-tool d
   black and gold identity. Long-form reading pages remain cream for legibility and print usability.
 - Rechecked the PDF cover, contents, representative lesson, final glossary, desktop reader, mobile
   reader, responsive contents drawer, module coverage, navigation, JavaScript, and output hashes.
+- Preserved and registered the uploaded AI Master Class gap analysis with its checksum.
+- Compared its 37 numbered proposals against all 64 current module source files and the current
+  684-page curriculum.
+- Identified 21 materially missing areas, 15 partly covered areas, one duplicate, and three targeted
+  enhancements to existing modules. The source numbering skips 19 and 27.
+- Established stable module, section, subsection, proposal, and proposal-subtopic identifiers.
+- Generated a canonical JSON tracker, a 64-module Markdown review, and a responsive collapsible HTML
+  curriculum map with search, coverage filters, page spans, and source locators.
 
 ## Research workflow validation boundary
 
@@ -72,6 +80,9 @@ any factual teaching is finalized.
 
 ## Open decisions
 
+- Review and accept, defer, reject, or consolidate the 37 gap-analysis proposals by stable ID.
+- Decide whether the Builder Readiness Lab becomes part of Module 00, a prerequisite for Part V, or
+  both. The current recommendation is both, without creating another numbered module.
 - Confirm how the premium Executive Fellowship will select and sequence material from the approved
   inclusive One Water AI umbrella curriculum.
 - Decide whether any additional learning experience should become a numbered module. The current
@@ -83,8 +94,9 @@ any factual teaching is finalized.
 
 ## Next action
 
-Review the complete inclusive curriculum and Fellowship program-book packages. After blueprint lock, build Course 1, refine its eight Fieldbook records with
-module-specific instruments, and produce Module 01 as the golden lesson.
+Review the granular curriculum map first. Record decisions by stable ID in the canonical JSON
+tracker. After those decisions, update the approved syllabus and only then rebuild the complete PDF
+and HTML curriculum contents.
 
 For the next research run, copy the module research and visual brief, complete its value proposition
 and research question, then use its controlled Perplexity instruction. Register and verify the
