@@ -76,12 +76,68 @@ Granular curriculum decision review before blueprint lock.
   JavaScript errors, and page-level overflow.
 - Regenerated the separate granular curriculum map from the new official PDF so its module page spans
   match the 788-page edition.
+- Completed a four-agent discovery pass for an internal One Water AI Academy Author Studio covering
+  curriculum architecture, team workflow, quality governance, product experience, and technical
+  delivery.
+- Inspected the existing OWOS Author Studio, Course Production Bible, platform authentication,
+  Supabase learning foundation, and APAS.AI design language so the Academy plan extends the governed
+  platform instead of creating a disconnected application.
+- Created the owner-review plan at
+  `../../../onewater-os-platform/product/one-water-ai-academy-author-studio-plan.md`.
+- Identified two distinct 64-module curriculum lines with overlapping display numbers: the legacy
+  M00 through M63 curriculum behind the current 788-page edition and the separate M1 through M64
+  Executive Fellowship syllabus.
+- Recorded Hardeep's approval to treat the legacy line as the source curriculum and the Fellowship
+  line as a curated delivery sequence, without renumbering either line.
+- Built `output/academy-curriculum-registry.json` from governed sources with 128 unique namespaced
+  module IDs, source and output hashes, page lineage, group metadata, and proposal counts.
+- Added deterministic registry generation and contract tests.
+- Imported the governed registry into the protected OWOS Author Studio response and built the first
+  APAS.ai Academy read-only command center with line switching, grouped browsing, search,
+  status filters, metrics, and explicit authority and release boundaries.
+- Corrected the product boundary after Hardeep clarified that the master curriculum website is not
+  part of Capture Call. The Academy now has a dedicated protected `/academy` application in
+  `onewater-os-platform`.
+- Expanded the registry to carry all current section headings, proposed additions, and enhancement
+  records into the module workspace.
+- Added editable working manuscripts, module assignments, workflow stages, due dates, handoff notes,
+  annotations, stage-specific QC checklists, and append-only revision and activity records.
+- Applied the APAS.ai Academy forest, cream, brass, Fraunces, Inter, and JetBrains Mono design system
+  across the dedicated Academy application.
+- Imported the complete 788-page source curriculum reader and the Fellowship program reader into
+  protected Academy routes without exposing the backing static files directly.
+- Added governed research, manuscript, graphics, Articulate, packaging, assignment, handoff, comment,
+  checklist, owner-decision, return-for-revision, export, and revision-history controls for every
+  registered module.
+- Added server-enforced stage gates, owner-only ready and live transitions, private working-package
+  exports, and an end-to-end authenticated workflow test.
 
 ## Research workflow validation boundary
 
 This change controls staff research and authoring. It does not add or revise a learner-facing module,
 so no full-module conformance claim was made. Module 01 still requires approved sources, factual
 review, a completed design brief, practitioner review, Articulate testing, and release approval.
+
+## Academy Author Studio implementation boundary
+
+Hardeep approved the product direction and the first implementation slice. `owos-learning-content`
+is the curriculum authority. Hardeep then clarified that the internal application requires its own
+private `apas-academy-studio` GitHub repository and production hostname at `academy.apas.ai`.
+`onewater-os-platform` contains the transitional prototype only and is not the long-term application
+authority. Git remains canonical for approved teaching and release records.
+
+APAS.dev is a separate APAS product for commercial real estate and Section 8 housing. It has no role
+in Academy branding, hosting, staging, repository naming, or infrastructure. Academy review builds
+will be access-controlled preview deployments from branches in the dedicated Academy repository.
+
+The dedicated application can now hold working research files, manuscripts, graphics briefs,
+Articulate handoffs, packaging records, annotations, assignments, checklist state, owner decisions,
+and immutable revision snapshots. These platform records are collaboration state and do not
+overwrite the approved Git curriculum. No blueprint lock, Articulate authorization, deployment,
+Graph publication, credential claim, or public release was approved or performed.
+
+Full-module conformance was not run because this turn changed planning and durable direction only. It
+did not create or materially revise a learner-facing module.
 
 ## Current module
 
@@ -90,6 +146,10 @@ any factual teaching is finalized.
 
 ## Open decisions
 
+- Decide which Module 01 belongs in the first editing and review pilot.
+- Approve the provisional capability roles and decide whether Simi is workflow coordinator.
+- Assign the pilot author, evidence reviewer, and technical reviewer from Dhruman, Anmol, and Shreya.
+- Name a qualified utility-practitioner reviewer and a novice-learner reviewer.
 - Review and accept, defer, reject, or consolidate the 37 gap-analysis proposals by stable ID.
 - Decide whether the Builder Readiness Lab becomes part of Module 00, a prerequisite for Part V, or
   both. The current recommendation is both, without creating another numbered module.
@@ -104,8 +164,15 @@ any factual teaching is finalized.
 
 ## Next action
 
-Review the numbered contents in the official curriculum HTML or PDF. Record accept, defer, reject,
-or consolidate decisions by stable ID in the canonical JSON tracker. The gold planned entries are
+Extract the transitional Academy prototype into the dedicated private `apas-academy-studio`
+repository, preserve a single application master, configure access-controlled branch previews, and
+prepare `academy.apas.ai` for a separately authorized production cutover. Then map the seven named
+team members to authenticated identities, select the first module for a real production pilot, and
+confirm the final approval and reviewer assignments. Deployment and public release remain separate
+owner decisions.
+
+In parallel, review the numbered contents in the official curriculum HTML or PDF. Record accept,
+defer, reject, or consolidate decisions by stable ID in the canonical JSON tracker. The gold planned entries are
 visible for review but are not represented as completed learner instruction. After those decisions,
 update the approved syllabus and rebuild the official PDF and HTML from the same tracker.
 
