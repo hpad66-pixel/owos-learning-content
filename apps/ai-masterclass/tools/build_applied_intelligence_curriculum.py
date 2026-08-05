@@ -31,11 +31,13 @@ SKILLS_ZIP = LEGACY_ROOT / "Prompt-Skills-Pack" / "APAS_Prompt_Skills_Starter_Pa
 OUTPUT_HTML = APP_ROOT / "output" / "html" / "one-water-ai-applied-intelligence-curriculum.html"
 OUTPUT_PDF = APP_ROOT / "output" / "pdf" / "one-water-ai-applied-intelligence-curriculum.pdf"
 OUTPUT_MANIFEST = APP_ROOT / "output" / "applied-intelligence-curriculum-manifest.json"
+GRANULAR_TOC = APP_ROOT / "curriculum" / "one-water-ai-granular-toc.json"
 BUILDER = Path(__file__).resolve()
 
 PROGRAM_NAME = "One Water AI"
 PROGRAM_SUBTITLE = "The Applied Intelligence Curriculum for the Water Sector"
 EXPECTED_MODULES = 64
+CURRENT_EDITION = "2.1"
 
 TRACKS = [
     ("Utility Operations and Practice", "Operators, maintainers, supervisors, and utility practitioners"),
@@ -98,6 +100,174 @@ def canonical_titles() -> dict[str, str]:
             if len(titles) == EXPECTED_MODULES:
                 return titles
     raise RuntimeError("Could not read the canonical 64-module title map")
+
+
+def granular_curriculum() -> dict[str, object]:
+    if not GRANULAR_TOC.exists():
+        raise RuntimeError("The granular curriculum tracker is missing")
+    data = json.loads(GRANULAR_TOC.read_text(encoding="utf-8"))
+    modules = data.get("modules", [])
+    if len(modules) != EXPECTED_MODULES:
+        raise RuntimeError("The granular curriculum tracker must contain exactly 64 modules")
+    numbers = [module.get("number") for module in modules]
+    if numbers != [f"{number:02d}" for number in range(EXPECTED_MODULES)]:
+        raise RuntimeError("The granular curriculum tracker is not ordered from Module 00 through Module 63")
+    return data
+
+
+def granular_structure_sha256(data: dict[str, object] | None = None) -> str:
+    """Hash the curriculum structure without creating a PDF page-span dependency cycle."""
+    curriculum = data or granular_curriculum()
+    structure = {
+        "schema_version": curriculum.get("schema_version"),
+        "modules": [
+            {
+                "number": module["number"],
+                "title": module["title"],
+                "current_sections": module.get("current_sections", []),
+                "proposed_additions": module.get("proposed_additions", []),
+                "targeted_enhancements": module.get("targeted_enhancements", []),
+            }
+            for module in curriculum["modules"]
+        ],
+    }
+    payload = json.dumps(structure, ensure_ascii=True, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def anchor_id(section_id: str) -> str:
+    return "owai-" + re.sub(r"[^a-z0-9]+", "-", section_id.lower()).strip("-")
+
+
+def inject_granular_structure(source: str, module: dict[str, object]) -> str:
+    """Add stable section numbers and clearly labeled planned additions to one module."""
+    sections = module["current_sections"]
+    heading_pattern = re.compile(r"<h([23])([^>]*)>(.*?)</h\1>", re.I | re.S)
+    index = 0
+
+    def number_heading(match: re.Match[str]) -> str:
+        nonlocal index
+        if index >= len(sections):
+            raise RuntimeError(f"Module {module['number']} has more h2/h3 headings than its tracker")
+        section = sections[index]
+        expected = "2" if section["level"] == 1 else "3"
+        if match.group(1) != expected:
+            raise RuntimeError(
+                f"Module {module['number']} heading order changed at {section['id']}: "
+                f"expected h{expected}, found h{match.group(1)}"
+            )
+        attrs = match.group(2)
+        if not re.search(r"\bid\s*=", attrs, re.I):
+            attrs += f' id="{anchor_id(section["id"])}"'
+        label = html.escape(section["id"])
+        index += 1
+        return (
+            f'<h{match.group(1)}{attrs}><span class="owai-section-number">{label}</span>'
+            f'{match.group(3)}</h{match.group(1)}>'
+        )
+
+    script_match = re.search(r"<script\b", source, re.I)
+    if script_match:
+        document_markup = source[:script_match.start()]
+        script_markup = source[script_match.start():]
+    else:
+        document_markup = source
+        script_markup = ""
+    source = heading_pattern.sub(number_heading, document_markup) + script_markup
+    if index != len(sections):
+        raise RuntimeError(
+            f"Module {module['number']} tracker has {len(sections)} sections but only {index} headings were found"
+        )
+
+    additions = module.get("proposed_additions", [])
+    enhancements = module.get("targeted_enhancements", [])
+    planned = ""
+    if additions or enhancements:
+        plan_anchor = anchor_id(f"M{module['number']}.PLAN")
+        blocks = []
+        for addition in additions:
+            subtopics = "".join(
+                f'<li id="{anchor_id(item["id"])}"><span class="owai-subtopic-number">{html.escape(item["id"])}</span>{html.escape(item["title"])}</li>'
+                for item in addition["subtopics"]
+            )
+            blocks.append(
+                f'<article class="owai-proposal {html.escape(addition["coverage"])}">'
+                f'<h3 id="{anchor_id(addition["id"])}"><span class="owai-section-number">{html.escape(addition["id"])}</span>{html.escape(addition["title"])}</h3>'
+                f'<div class="owai-proposal-meta"><span>{html.escape(addition["coverage"])}</span><span>{html.escape(addition["decision"])}</span><span>{html.escape(addition["gap_id"])}</span></div>'
+                f'<p>{html.escape(addition["recommendation"])}</p>'
+                f'{f"<ul>{subtopics}</ul>" if subtopics else ""}'
+                '</article>'
+            )
+        for enhancement in enhancements:
+            blocks.append(
+                '<article class="owai-proposal partial">'
+                f'<h3 id="{anchor_id(enhancement["id"])}"><span class="owai-section-number">{html.escape(enhancement["id"])}</span>{html.escape(enhancement["title"])}</h3>'
+                f'<div class="owai-proposal-meta"><span>targeted enhancement</span><span>{html.escape(enhancement["coverage"])}</span></div>'
+                f'<p>{html.escape(enhancement["summary"])}</p>'
+                '</article>'
+            )
+        planned = (
+            '<section class="owai-planned-expansion">'
+            '<div class="owai-planned-kicker">Curriculum expansion under review</div>'
+            f'<h2 id="{plan_anchor}">Planned additions for Module {html.escape(module["number"])}</h2>'
+            '<p class="owai-planned-note">These entries are visible curriculum decisions. They are not represented as finished instruction until research, authoring, review, and approval are complete.</p>'
+            + "".join(blocks)
+            + '</section>'
+        )
+
+    style = """
+<style id="owai-granular-structure">
+.owai-section-number{display:block;margin:0 0 5px;color:#9a6b19;font:800 10px/1.2 'Courier New',monospace;letter-spacing:.08em;text-transform:uppercase;scroll-margin-top:18px}
+.owai-planned-expansion{margin:30px 0 0;padding:24px;border:2px solid #c6922f;border-radius:12px;background:#fff8e8;break-inside:avoid}
+.owai-planned-kicker{color:#865a0d;font:800 10px/1.2 'Courier New',monospace;letter-spacing:.12em;text-transform:uppercase}
+.owai-planned-expansion>h2{margin-top:7px}.owai-planned-note{padding:12px 14px;border-left:4px solid #c6922f;background:#fffdf7;color:#5d5344}
+.owai-proposal{margin-top:15px;padding:15px 17px;border:1px solid #d9c89f;border-left:5px solid #a87416;border-radius:8px;background:#fffdf8;break-inside:avoid}
+.owai-proposal.missing{border-left-color:#a93a30}.owai-proposal.duplicate{border-left-color:#66547c}.owai-proposal h3{margin:0 0 8px}.owai-proposal-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.owai-proposal-meta span{padding:3px 7px;border-radius:999px;background:#eee5d2;color:#5f5443;font:700 9px/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em}
+.owai-proposal ul{margin-bottom:0}.owai-subtopic-number{display:inline-block;min-width:82px;color:#865a0d;font:700 10px/1.4 'Courier New',monospace}
+@media(max-width:700px){.owai-planned-expansion{padding:17px}.owai-subtopic-number{display:block;min-width:0;margin-bottom:2px}}
+</style>
+"""
+    source = source.replace("</head>", style + "</head>")
+    if planned:
+        source = source.replace("</body>", planned + "</body>")
+    return source
+
+
+def module_navigation(module: dict[str, object]) -> list[dict[str, object]]:
+    navigation = [
+        {
+            "id": section["id"],
+            "title": section["title"],
+            "anchor": anchor_id(section["id"]),
+            "kind": "current",
+            "level": section["level"],
+        }
+        for section in module["current_sections"]
+    ]
+    for addition in module.get("proposed_additions", []):
+        navigation.append({
+            "id": addition["id"],
+            "title": addition["title"],
+            "anchor": anchor_id(addition["id"]),
+            "kind": "planned",
+            "level": 1,
+        })
+        navigation.extend({
+            "id": subtopic["id"],
+            "title": subtopic["title"],
+            "anchor": anchor_id(subtopic["id"]),
+            "kind": "planned subtopic",
+            "level": 2,
+        } for subtopic in addition["subtopics"])
+    navigation.extend({
+        "id": enhancement["id"],
+        "title": enhancement["title"],
+        "anchor": anchor_id(enhancement["id"]),
+        "kind": "enhancement",
+        "level": 1,
+    } for enhancement in module.get("targeted_enhancements", []))
+    return navigation
 
 
 def replace_identity(source: str) -> str:
@@ -178,7 +348,7 @@ def cover_document() -> str:
   </section>
   <footer class="footer">
     <div class="author"><strong>Hardeep Anand, PE</strong><span>Founder and CEO, APAS.AI</span></div>
-    <div class="edition">Complete curriculum<br>Edition 2.0 · 2026</div>
+    <div class="edition">Complete granular curriculum<br>Edition {CURRENT_EDITION} · 2026</div>
   </footer>
 </main>
 </body>
@@ -201,7 +371,41 @@ def render_html(chrome: str, source: Path, destination: Path) -> None:
         raise RuntimeError(f"Chrome did not create {destination}")
 
 
-def toc_document(titles: dict[str, str], module_pages: dict[int, int], toc_pages: int) -> str:
+def section_local_pages(module_pdf: Path, module: dict[str, object]) -> dict[str, int]:
+    reader = PdfReader(module_pdf)
+    page_text = [" ".join((page.extract_text() or "").split()).upper() for page in reader.pages]
+    compact_page_text = [re.sub(r"[^A-Z0-9]+", "", text) for text in page_text]
+    records = [(section["id"], section["title"]) for section in module["current_sections"]]
+    for addition in module.get("proposed_additions", []):
+        records.append((addition["id"], addition["title"]))
+        records.extend((item["id"], item["title"]) for item in addition["subtopics"])
+    records.extend((item["id"], item["title"]) for item in module.get("targeted_enhancements", []))
+    pages = {}
+    for identifier, title in records:
+        needle = identifier.upper()
+        compact_needle = re.sub(r"[^A-Z0-9]+", "", needle)
+        for page_index, (text, compact_text) in enumerate(zip(page_text, compact_page_text)):
+            if needle in text or compact_needle in compact_text:
+                pages[identifier] = page_index + 1
+                break
+        if identifier not in pages:
+            title_needle = re.sub(r"[^A-Z0-9]+", "", title.upper())
+            for page_index, compact_text in enumerate(compact_page_text):
+                if title_needle and title_needle in compact_text:
+                    pages[identifier] = page_index + 1
+                    break
+        if identifier not in pages:
+            raise RuntimeError(f"Could not locate {identifier} in the rendered PDF for Module {module['number']}")
+    return pages
+
+
+def toc_document(
+    titles: dict[str, str],
+    module_pages: dict[int, int],
+    toc_pages: int,
+    modules: list[dict[str, object]],
+    local_pages: dict[int, dict[str, int]],
+) -> str:
     current_page = 1 + toc_pages + 1
     start_pages: dict[int, int] = {}
     for number in range(EXPECTED_MODULES):
@@ -213,14 +417,38 @@ def toc_document(titles: dict[str, str], module_pages: dict[int, int], toc_pages
         rows.append(f'<div class="part"><span>{label}</span><strong>{html.escape(part_title)}</strong></div>')
         for number in numbers:
             key = f"{number:02d}"
-            rows.append(f'<div class="row"><span class="number">{key}</span><span class="title">{html.escape(titles[key])}</span><span class="dots"></span><span class="page">{start_pages[number]}</span></div>')
+            module = modules[number]
+            rows.append(
+                f'<div class="row module-row"><span class="number">M{key}</span><span class="title">{html.escape(titles[key])}</span><span class="dots"></span><span class="page">{start_pages[number]}</span></div>'
+            )
+            for section in module["current_sections"]:
+                page = start_pages[number] + local_pages[number][section["id"]] - 1
+                nested = " nested" if section["level"] == 2 else ""
+                rows.append(
+                    f'<div class="row section-row{nested}"><span class="number">{html.escape(section["id"])}</span><span class="title">{html.escape(section["title"])}</span><span class="dots"></span><span class="page">{page}</span></div>'
+                )
+            for addition in module.get("proposed_additions", []):
+                page = start_pages[number] + local_pages[number][addition["id"]] - 1
+                rows.append(
+                    f'<div class="row proposed-row"><span class="number">{html.escape(addition["id"])}</span><span class="title"><b>Planned:</b> {html.escape(addition["title"])}</span><span class="dots"></span><span class="page">{page}</span></div>'
+                )
+                for subtopic in addition["subtopics"]:
+                    sub_page = start_pages[number] + local_pages[number][subtopic["id"]] - 1
+                    rows.append(
+                        f'<div class="row subtopic-row"><span class="number">{html.escape(subtopic["id"])}</span><span class="title">{html.escape(subtopic["title"])}</span><span class="dots"></span><span class="page">{sub_page}</span></div>'
+                    )
+            for enhancement in module.get("targeted_enhancements", []):
+                page = start_pages[number] + local_pages[number][enhancement["id"]] - 1
+                rows.append(
+                    f'<div class="row proposed-row"><span class="number">{html.escape(enhancement["id"])}</span><span class="title"><b>Strengthen:</b> {html.escape(enhancement["title"])}</span><span class="dots"></span><span class="page">{page}</span></div>'
+                )
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{PROGRAM_NAME} | Contents</title>
 <style>
-@page{{size:letter;margin:.48in .62in}}*{{box-sizing:border-box}}body{{margin:0;color:#26221d;background:#f8f5ee;font-family:Georgia,'Times New Roman',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-.header{{margin:0 0 12px;padding-bottom:9px;border-bottom:3px solid #c6922f}}.kicker{{color:#aa771d;font:800 8px/1.2 'Courier New',monospace;letter-spacing:.15em;text-transform:uppercase}}h1{{margin:4px 0 0;font-size:29px;line-height:1;color:#1e1c19}}
-.part{{display:flex;align-items:baseline;gap:9px;margin-top:10px;padding-top:6px;border-top:1px solid #d9d1c4;break-after:avoid}}.part span{{color:#aa771d;font:800 8px/1.2 'Courier New',monospace;text-transform:uppercase;letter-spacing:.12em}}.part strong{{font-size:12px;color:#1e1c19}}
-.row{{display:flex;align-items:baseline;gap:7px;padding:2.2px 0;font-size:8.8px;line-height:1.2;break-inside:avoid}}.number{{width:23px;color:#aa771d;font-family:'Courier New',monospace;font-weight:700}}.title{{max-width:5.75in}}.dots{{flex:1;border-bottom:1px dotted #b8ad9e;transform:translateY(-2px)}}.page{{color:#6d655b;font-variant-numeric:tabular-nums}}
-</style></head><body><header class="header"><div class="kicker">{PROGRAM_NAME}</div><h1>Complete Curriculum Contents</h1></header>{''.join(rows)}</body></html>"""
+@page{{size:letter;margin:.44in .55in}}*{{box-sizing:border-box}}body{{margin:0;color:#26221d;background:#f8f5ee;font-family:Georgia,'Times New Roman',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.header{{margin:0 0 12px;padding-bottom:9px;border-bottom:3px solid #c6922f}}.kicker{{color:#aa771d;font:800 8px/1.2 'Courier New',monospace;letter-spacing:.15em;text-transform:uppercase}}h1{{margin:4px 0 0;font-size:27px;line-height:1;color:#1e1c19}}.explain{{margin:6px 0 0;color:#6d655b;font:9px/1.35 Arial,sans-serif}}
+.part{{display:flex;align-items:baseline;gap:9px;margin-top:11px;padding:7px 0 3px;border-top:2px solid #c6922f;break-after:avoid}}.part span{{color:#aa771d;font:800 8px/1.2 'Courier New',monospace;text-transform:uppercase;letter-spacing:.12em}}.part strong{{font-size:12px;color:#1e1c19}}
+.row{{display:flex;align-items:baseline;gap:6px;padding:1.35px 0;font-size:7.6px;line-height:1.15;break-inside:avoid}}.number{{width:58px;flex:0 0 58px;color:#8a6218;font-family:'Courier New',monospace;font-weight:700}}.title{{max-width:5.5in}}.dots{{flex:1;border-bottom:1px dotted #c5baaa;transform:translateY(-2px)}}.page{{color:#6d655b;font-variant-numeric:tabular-nums}}.module-row{{margin-top:4px;padding:4px 0 2px;border-top:1px solid #ded5c7;font-size:9px;font-weight:700}}.module-row .number{{color:#1e1c19}}.section-row{{padding-left:10px}}.section-row.nested{{padding-left:25px;color:#615a50}}.proposed-row{{margin-top:2px;padding:2px 4px 2px 10px;background:#fff1cc;border-left:3px solid #b78020}}.proposed-row b{{color:#865a0d}}.subtopic-row{{padding-left:25px;color:#6b604f;font-size:7px}}.subtopic-row .number{{width:68px;flex-basis:68px}}
+</style></head><body><header class="header"><div class="kicker">{PROGRAM_NAME} · Edition {CURRENT_EDITION}</div><h1>Complete Granular Curriculum Contents</h1><p class="explain">Current numbered sections show what each module teaches today. Gold entries show planned additions and targeted strengthening that remain under curriculum review.</p></header>{''.join(rows)}</body></html>"""
 
 
 def interactive_reader(cover: str, module_records: list[dict[str, str]]) -> str:
@@ -232,22 +460,28 @@ def interactive_reader(cover: str, module_records: list[dict[str, str]]) -> str:
 <style>
 :root{{--black:#191917;--black2:#25231f;--paper:#f8f5ee;--white:#fffdf7;--ink:#26221d;--muted:#71695e;--line:#d9d1c4;--gold:#d7a43e;--gold2:#f0cf83}}*{{box-sizing:border-box}}html,body{{height:100%;margin:0}}body{{font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);overflow:hidden}}button,input,a{{font:inherit}}
 .app{{display:grid;grid-template-rows:auto 1fr;height:100%}}.topbar{{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;padding:11px 16px;background:var(--black);color:var(--white);border-bottom:3px solid var(--gold)}}.brand{{display:flex;gap:10px;align-items:center;min-width:0}}.mark{{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;background:transparent;color:var(--gold);font-size:10px;font-weight:800}}.brand-copy{{min-width:0}}.brand-copy span{{display:block;color:var(--gold);font:800 8px/1.2 'Courier New',monospace;letter-spacing:.13em;text-transform:uppercase}}.brand-copy strong{{display:block;margin-top:2px;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}.current{{min-width:0;text-align:center}}.current strong{{display:block;font-family:Georgia,'Times New Roman',serif;font-size:13px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}.current span{{display:block;margin-top:3px;color:#bdb6aa;font-size:9px;font-family:'Courier New',monospace;letter-spacing:.07em}}.actions{{display:flex;gap:7px}}.button{{border:1px solid rgba(215,164,62,.48);border-radius:5px;background:transparent;color:var(--white);padding:8px 10px;cursor:pointer;text-decoration:none}}.button.primary{{background:var(--gold);border-color:var(--gold);color:var(--black);font-weight:800}}.button:hover,.button:focus-visible{{outline:2px solid var(--gold2);outline-offset:2px}}
-.workspace{{display:grid;grid-template-columns:330px minmax(0,1fr);min-height:0}}.sidebar{{display:grid;grid-template-rows:auto 1fr;min-height:0;background:var(--paper);border-right:1px solid var(--line)}}.search-wrap{{padding:14px;border-bottom:1px solid var(--line)}}.search-wrap label{{display:block;margin-bottom:6px;color:#9a6b19;font:800 9px/1.2 'Courier New',monospace;text-transform:uppercase;letter-spacing:.11em}}.search{{width:100%;padding:10px;border:1px solid var(--line);border-radius:5px;background:#fffdf8;color:var(--ink)}}.list{{overflow:auto;padding:8px}}.front-link,.module-link{{display:grid;grid-template-columns:40px 1fr;gap:9px;width:100%;border:0;border-radius:5px;padding:10px;text-align:left;background:transparent;color:var(--ink);cursor:pointer}}.front-link:hover,.module-link:hover{{background:#eee7da}}.front-link[aria-current="page"],.module-link[aria-current="page"]{{background:var(--black);color:var(--white)}}.num{{color:#9a6b19;font:700 11px/1.5 'Courier New',monospace}}[aria-current="page"] .num{{color:var(--gold)}}.label{{font-family:Georgia,'Times New Roman',serif;font-size:12.5px;line-height:1.32}}.reader{{position:relative;min-width:0;min-height:0;background:#ded8ce}}.reader iframe{{display:block;width:100%;height:100%;border:0;background:#fffdf8}}.progress{{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(25,25,23,.18)}}.progress span{{display:block;height:100%;width:0;background:var(--gold)}}.menu{{display:none}}
+.workspace{{display:grid;grid-template-columns:420px minmax(0,1fr);min-height:0}}.sidebar{{display:grid;grid-template-rows:auto 1fr;min-height:0;background:var(--paper);border-right:1px solid var(--line)}}.search-wrap{{padding:14px;border-bottom:1px solid var(--line)}}.search-wrap label{{display:block;margin-bottom:6px;color:#9a6b19;font:800 9px/1.2 'Courier New',monospace;text-transform:uppercase;letter-spacing:.11em}}.search{{width:100%;padding:10px;border:1px solid var(--line);border-radius:5px;background:#fffdf8;color:var(--ink)}}.list{{overflow:auto;padding:8px}}.front-link,.open-module,.section-link{{display:grid;grid-template-columns:76px 1fr;gap:9px;width:100%;border:0;border-radius:5px;padding:8px 10px;text-align:left;background:transparent;color:var(--ink);cursor:pointer}}.front-link:hover,.open-module:hover,.section-link:hover{{background:#eee7da}}.front-link[aria-current="page"],.open-module[aria-current="page"]{{background:var(--black);color:var(--white)}}.toc-module{{margin:5px 0;border:1px solid var(--line);border-radius:7px;background:#fffdf8;overflow:hidden}}.toc-module>summary{{display:grid;grid-template-columns:48px 1fr auto;gap:8px;align-items:start;padding:10px;cursor:pointer;list-style:none}}.toc-module>summary::-webkit-details-marker{{display:none}}.toc-module>summary:after{{content:'+';display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#eee3cc;color:#7d5710;font-weight:800}}.toc-module[open]>summary:after{{content:'-'}}.toc-module[open]>summary{{border-bottom:1px solid var(--line);background:#f3ecdf}}.toc-children{{padding:6px}}.open-module{{font-weight:800;border-bottom:1px solid #eee5d7;margin-bottom:4px}}.section-link{{grid-template-columns:86px 1fr;padding:6px 8px;font-size:11px;line-height:1.28}}.section-link.nested{{padding-left:22px;color:#665e52}}.section-link.proposed{{margin-top:3px;background:#fff3d6;border-left:3px solid #b9821f}}.section-link.subtopic{{padding-left:28px;color:#665d4f}}.num{{color:#9a6b19;font:700 10px/1.45 'Courier New',monospace}}[aria-current="page"] .num{{color:var(--gold)}}.label{{font-family:Georgia,'Times New Roman',serif;font-size:12.5px;line-height:1.32}}.toc-module>summary .label{{font-weight:700}}.toc-kind{{display:block;margin-top:2px;color:#8a8174;font:700 8px/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:.05em}}.reader{{position:relative;min-width:0;min-height:0;background:#ded8ce}}.reader iframe{{display:block;width:100%;height:100%;border:0;background:#fffdf8}}.progress{{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(25,25,23,.18)}}.progress span{{display:block;height:100%;width:0;background:var(--gold)}}.menu{{display:none}}
 @media(max-width:850px){{.topbar{{grid-template-columns:auto minmax(0,1fr) auto;padding:9px;gap:8px}}.brand-copy span,.current span{{display:none}}.brand-copy strong{{font-size:11px}}.current strong{{font-size:10px}}.workspace{{grid-template-columns:1fr}}.sidebar{{position:fixed;z-index:30;top:55px;bottom:0;left:0;width:min(90vw,360px);transform:translateX(-105%);transition:transform .2s ease;box-shadow:12px 0 34px rgba(0,0,0,.2)}}body.nav-open .sidebar{{transform:translateX(0)}}.menu{{display:inline-block}}.actions .desktop{{display:none}}}}
 @media(prefers-reduced-motion:reduce){{*{{scroll-behavior:auto!important;transition:none!important}}}}
-</style></head><body><div class="app"><header class="topbar"><div class="brand"><span class="mark">OW</span><div class="brand-copy"><span>One Water Operating System</span><strong>{PROGRAM_NAME}</strong></div></div><div class="current"><strong id="current-title">{PROGRAM_SUBTITLE}</strong><span id="current-number">ONE FOUNDATION · SEVEN TRACKS · 64 MODULES</span></div><div class="actions"><button class="button menu" id="menu" type="button" aria-controls="sidebar" aria-expanded="false">Contents</button><button class="button" id="previous" type="button">Previous</button><button class="button" id="next" type="button">Next</button><a class="button primary desktop" href="../pdf/{OUTPUT_PDF.name}">Download PDF</a></div></header><div class="workspace"><aside class="sidebar" id="sidebar"><div class="search-wrap"><label for="search">Find a module</label><input class="search" id="search" type="search" placeholder="Search all 64 modules"></div><nav class="list" id="list"></nav></aside><main class="reader"><iframe id="frame" title="{PROGRAM_NAME} curriculum"></iframe><div class="progress"><span id="progress"></span></div></main></div></div>
+</style></head><body><div class="app"><header class="topbar"><div class="brand"><span class="mark">OW</span><div class="brand-copy"><span>One Water Operating System</span><strong>{PROGRAM_NAME}</strong></div></div><div class="current"><strong id="current-title">{PROGRAM_SUBTITLE}</strong><span id="current-number">ONE FOUNDATION · SEVEN TRACKS · 64 MODULES</span></div><div class="actions"><button class="button menu" id="menu" type="button" aria-controls="sidebar" aria-expanded="false">Contents</button><button class="button" id="previous" type="button">Previous</button><button class="button" id="next" type="button">Next</button><a class="button primary desktop" href="../pdf/{OUTPUT_PDF.name}">Download PDF</a></div></header><div class="workspace"><aside class="sidebar" id="sidebar"><div class="search-wrap"><label for="search">Find any module, section, or planned addition</label><input class="search" id="search" type="search" placeholder="Search the complete granular contents"></div><nav class="list" id="list"></nav></aside><main class="reader"><iframe id="frame" title="{PROGRAM_NAME} curriculum"></iframe><div class="progress"><span id="progress"></span></div></main></div></div>
 <script>
 const cover={cover_payload};const modules={module_payload};const list=document.getElementById('list');const frame=document.getElementById('frame');const title=document.getElementById('current-title');const number=document.getElementById('current-number');const progress=document.getElementById('progress');const search=document.getElementById('search');const previous=document.getElementById('previous');const next=document.getElementById('next');const menu=document.getElementById('menu');let current=-1;
-function item(buttonClass,num,label,index){{const button=document.createElement('button');button.type='button';button.className=buttonClass;button.dataset.index=String(index);if(index===current)button.setAttribute('aria-current','page');button.innerHTML=`<span class="num">${{num}}</span><span class="label">${{label}}</span>`;button.addEventListener('click',()=>openItem(index,true));return button}}
-function renderList(query=''){{const q=query.trim().toLowerCase();list.innerHTML='';if(!q||'cover tracks audience'.includes(q))list.appendChild(item('front-link','START','Cover and learning tracks',-1));modules.forEach((module,index)=>{{const haystack=`${{module.number}} ${{module.title}}`.toLowerCase();if(q&&!haystack.includes(q))return;list.appendChild(item('module-link',module.number,module.title,index));}})}}
-function openItem(index,push){{current=Math.max(-1,Math.min(modules.length-1,index));if(current<0){{frame.srcdoc=cover;title.textContent='{PROGRAM_SUBTITLE}';number.textContent='ONE FOUNDATION · SEVEN TRACKS · 64 MODULES';progress.style.width='0%';}}else{{const module=modules[current];frame.srcdoc=module.content;frame.title=`Module ${{module.number}}: ${{module.title}}`;title.textContent=module.title;number.textContent=`MODULE ${{module.number}} · ${{current+1}} OF ${{modules.length}}`;progress.style.width=`${{((current+1)/modules.length)*100}}%`;}}previous.disabled=current<0;next.disabled=current===modules.length-1;renderList(search.value);if(push)history.pushState({{index:current}},'',current<0?'#cover':`#module=${{modules[current].number}}`);document.body.classList.remove('nav-open');menu.setAttribute('aria-expanded','false');}}
-function indexFromHash(){{const match=location.hash.match(/module=(\\d{{2}})/);if(!match)return -1;return modules.findIndex(module=>module.number===match[1]);}}search.addEventListener('input',()=>renderList(search.value));previous.addEventListener('click',()=>openItem(current-1,true));next.addEventListener('click',()=>openItem(current+1,true));menu.addEventListener('click',()=>{{const open=document.body.classList.toggle('nav-open');menu.setAttribute('aria-expanded',String(open));}});window.addEventListener('popstate',()=>openItem(indexFromHash(),false));document.addEventListener('keydown',event=>{{if(event.key==='Escape'){{document.body.classList.remove('nav-open');menu.setAttribute('aria-expanded','false');}}}});openItem(indexFromHash(),false);
+let pendingAnchor='';
+function textSpan(className,value){{const span=document.createElement('span');span.className=className;span.textContent=value;return span}}
+function navButton(buttonClass,num,label,index,anchor='',kind=''){{const button=document.createElement('button');button.type='button';button.className=buttonClass;button.dataset.index=String(index);button.dataset.anchor=anchor;if(index===current&&!anchor)button.setAttribute('aria-current','page');button.appendChild(textSpan('num',num));const copy=document.createElement('span');copy.className='label';copy.textContent=label;if(kind)copy.appendChild(textSpan('toc-kind',kind));button.appendChild(copy);button.addEventListener('click',()=>openItem(index,true,anchor));return button}}
+function renderList(query=''){{const q=query.trim().toLowerCase();list.innerHTML='';if(!q||'cover tracks audience'.includes(q))list.appendChild(navButton('front-link','START','Cover and learning tracks',-1));modules.forEach((module,index)=>{{const matchingSections=module.navigation.filter(section=>!q||`${{section.id}} ${{section.title}} ${{section.kind}}`.toLowerCase().includes(q));const moduleMatches=!q||`${{module.number}} ${{module.title}}`.toLowerCase().includes(q);if(q&&!moduleMatches&&!matchingSections.length)return;const details=document.createElement('details');details.className='toc-module';details.open=index===current||Boolean(q);const summary=document.createElement('summary');summary.appendChild(textSpan('num',`M${{module.number}}`));summary.appendChild(textSpan('label',module.title));details.appendChild(summary);const children=document.createElement('div');children.className='toc-children';children.appendChild(navButton('open-module',`M${{module.number}}`,'Open complete module',index));const visibleSections=q&&!moduleMatches?matchingSections:module.navigation;visibleSections.forEach(section=>{{let cls='section-link';if(section.level===2)cls+=' nested';if(section.kind==='planned'||section.kind==='enhancement')cls+=' proposed';if(section.kind==='planned subtopic')cls+=' proposed subtopic';children.appendChild(navButton(cls,section.id,section.title,index,section.anchor,section.kind));}});details.appendChild(children);list.appendChild(details);}})}}
+function scrollToPending(){{if(!pendingAnchor)return;const target=frame.contentWindow&&frame.contentWindow.document.getElementById(pendingAnchor);if(target)target.scrollIntoView({{behavior:'smooth',block:'start'}});pendingAnchor='';}}
+frame.addEventListener('load',scrollToPending);
+function openItem(index,push,anchor=''){{const nextIndex=Math.max(-1,Math.min(modules.length-1,index));const changed=nextIndex!==current;current=nextIndex;pendingAnchor=anchor;if(current<0){{frame.srcdoc=cover;title.textContent='{PROGRAM_SUBTITLE}';number.textContent='ONE FOUNDATION · SEVEN TRACKS · 64 MODULES';progress.style.width='0%';}}else{{const module=modules[current];if(changed||!frame.srcdoc)frame.srcdoc=module.content;else scrollToPending();frame.title=`Module ${{module.number}}: ${{module.title}}`;title.textContent=module.title;number.textContent=`MODULE ${{module.number}} · ${{current+1}} OF ${{modules.length}}`;progress.style.width=`${{((current+1)/modules.length)*100}}%`;}}previous.disabled=current<0;next.disabled=current===modules.length-1;renderList(search.value);if(push)history.pushState({{index:current,anchor}},'',current<0?'#cover':`#module=${{modules[current].number}}${{anchor?'&section='+encodeURIComponent(anchor):''}}`);document.body.classList.remove('nav-open');menu.setAttribute('aria-expanded','false');}}
+function indexFromHash(){{const match=location.hash.match(/module=(\\d{{2}})/);if(!match)return -1;return modules.findIndex(module=>module.number===match[1]);}}function anchorFromHash(){{const match=location.hash.match(/section=([^&]+)/);return match?decodeURIComponent(match[1]):''}}search.addEventListener('input',()=>renderList(search.value));previous.addEventListener('click',()=>openItem(current-1,true));next.addEventListener('click',()=>openItem(current+1,true));menu.addEventListener('click',()=>{{const open=document.body.classList.toggle('nav-open');menu.setAttribute('aria-expanded',String(open));}});window.addEventListener('popstate',()=>openItem(indexFromHash(),false,anchorFromHash()));document.addEventListener('keydown',event=>{{if(event.key==='Escape'){{document.body.classList.remove('nav-open');menu.setAttribute('aria-expanded','false');}}}});openItem(indexFromHash(),false,anchorFromHash());
 </script></body></html>"""
 
 
 def build() -> dict[str, object]:
     paths = source_module_paths()
     titles = canonical_titles()
+    granular = granular_curriculum()
+    granular_modules = {module["number"]: module for module in granular["modules"]}
     chrome = chrome_binary()
     OUTPUT_HTML.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PDF.parent.mkdir(parents=True, exist_ok=True)
@@ -261,10 +495,13 @@ def build() -> dict[str, object]:
         module_records: list[dict[str, str]] = []
         module_pdfs: dict[int, Path] = {}
         module_pages: dict[int, int] = {}
+        local_pages: dict[int, dict[str, int]] = {}
 
         for index, source_path in enumerate(paths):
             number = int(source_path.name.split("_", 2)[1])
+            module = granular_modules[f"{number:02d}"]
             revised = replace_identity(source_path.read_text(encoding="utf-8"))
+            revised = inject_granular_structure(revised, module)
             revised_for_reader = embed_skills_download(revised)
             revised_path = html_dir / source_path.name
             revised_path.write_text(revised, encoding="utf-8")
@@ -272,7 +509,13 @@ def build() -> dict[str, object]:
             render_html(chrome, revised_path, destination)
             module_pdfs[number] = destination
             module_pages[number] = len(PdfReader(destination).pages)
-            module_records.append({"number":f"{number:02d}","title":titles[f"{number:02d}"],"content":revised_for_reader})
+            local_pages[number] = section_local_pages(destination, module)
+            module_records.append({
+                "number": f"{number:02d}",
+                "title": titles[f"{number:02d}"],
+                "content": revised_for_reader,
+                "navigation": module_navigation(module),
+            })
             print(f"Rendered module {number:02d} of 63", flush=True)
 
         cover_html = temp / "cover.html"
@@ -283,11 +526,14 @@ def build() -> dict[str, object]:
         if len(PdfReader(cover_pdf).pages) != 1:
             raise RuntimeError("The branded cover must render as exactly one page")
 
-        toc_pages = 3
+        toc_pages = 48
         toc_html = temp / "toc.html"
         toc_pdf = temp / "toc.pdf"
-        for _ in range(3):
-            toc_html.write_text(toc_document(titles, module_pages, toc_pages), encoding="utf-8")
+        for _ in range(6):
+            toc_html.write_text(
+                toc_document(titles, module_pages, toc_pages, granular["modules"], local_pages),
+                encoding="utf-8",
+            )
             render_html(chrome, toc_html, toc_pdf)
             actual = len(PdfReader(toc_pdf).pages)
             if actual == toc_pages:
@@ -312,11 +558,25 @@ def build() -> dict[str, object]:
             "/Keywords": "One Water, artificial intelligence, water utilities, applied intelligence, curriculum",
         })
         writer.add_outline_item("Cover and Learning Tracks", 0)
+        contents_parent = writer.add_outline_item("Complete Granular Curriculum Contents", 1)
         for roman, part_title, numbers in PARTS:
             numbers_list = list(numbers)
             parent = writer.add_outline_item(f"Part {roman + ': ' if roman else ''}{part_title}", module_start_pages[numbers_list[0]])
             for number in numbers_list:
-                writer.add_outline_item(f"{number:02d}. {titles[f'{number:02d}']}", module_start_pages[number], parent=parent)
+                module = granular["modules"][number]
+                module_parent = writer.add_outline_item(f"M{number:02d}. {titles[f'{number:02d}']}", module_start_pages[number], parent=parent)
+                for section in module["current_sections"]:
+                    target = module_start_pages[number] + local_pages[number][section["id"]] - 1
+                    writer.add_outline_item(f"{section['id']} {section['title']}", target, parent=module_parent)
+                for addition in module.get("proposed_additions", []):
+                    target = module_start_pages[number] + local_pages[number][addition["id"]] - 1
+                    addition_parent = writer.add_outline_item(f"{addition['id']} Planned: {addition['title']}", target, parent=module_parent)
+                    for subtopic in addition["subtopics"]:
+                        sub_target = module_start_pages[number] + local_pages[number][subtopic["id"]] - 1
+                        writer.add_outline_item(f"{subtopic['id']} {subtopic['title']}", sub_target, parent=addition_parent)
+                for enhancement in module.get("targeted_enhancements", []):
+                    target = module_start_pages[number] + local_pages[number][enhancement["id"]] - 1
+                    writer.add_outline_item(f"{enhancement['id']} Strengthen: {enhancement['title']}", target, parent=module_parent)
         with OUTPUT_PDF.open("wb") as handle:
             writer.write(handle)
 
@@ -332,6 +592,7 @@ def build() -> dict[str, object]:
             "legacy_pdf_sha256": sha256(LEGACY_BOOK / "One_Water_AI_Master_Class_Master.pdf"),
             "module_html_hashes": {path.name: sha256(path) for path in paths},
             "glossary_sha256": sha256(LEGACY_GLOSSARY_PDF),
+            "granular_structure_sha256": granular_structure_sha256(granular),
             "builder_sha256": sha256(BUILDER),
         },
         "outputs": {
@@ -344,19 +605,25 @@ def build() -> dict[str, object]:
 def rebuild_reader() -> None:
     paths = source_module_paths()
     titles = canonical_titles()
+    granular = granular_curriculum()
+    granular_modules = {module["number"]: module for module in granular["modules"]}
     module_records = []
     for source_path in paths:
         number = int(source_path.name.split("_", 2)[1])
+        module = granular_modules[f"{number:02d}"]
         revised = replace_identity(source_path.read_text(encoding="utf-8"))
+        revised = inject_granular_structure(revised, module)
         module_records.append({
             "number": f"{number:02d}",
             "title": titles[f"{number:02d}"],
             "content": embed_skills_download(revised),
+            "navigation": module_navigation(module),
         })
     OUTPUT_HTML.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_HTML.write_text(interactive_reader(cover_document(), module_records), encoding="utf-8")
     manifest = json.loads(OUTPUT_MANIFEST.read_text(encoding="utf-8"))
     manifest["source"]["builder_sha256"] = sha256(BUILDER)
+    manifest["source"]["granular_structure_sha256"] = granular_structure_sha256(granular)
     manifest["outputs"][str(OUTPUT_HTML.relative_to(APP_ROOT))]["sha256"] = sha256(OUTPUT_HTML)
     OUTPUT_MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
@@ -367,6 +634,10 @@ def check() -> None:
     manifest = json.loads(OUTPUT_MANIFEST.read_text(encoding="utf-8"))
     if manifest.get("program_name") != PROGRAM_NAME or manifest.get("modules") != EXPECTED_MODULES:
         raise RuntimeError("Program identity or module count is out of sync")
+    if manifest["source"].get("builder_sha256") != sha256(BUILDER):
+        raise RuntimeError("The official curriculum builder changed without a rebuild")
+    if manifest["source"].get("granular_structure_sha256") != granular_structure_sha256():
+        raise RuntimeError("The granular curriculum tracker changed without a rebuild")
     for relative, record in manifest["outputs"].items():
         path = APP_ROOT / relative
         if not path.exists() or sha256(path) != record["sha256"]:
@@ -376,6 +647,8 @@ def check() -> None:
         raise RuntimeError("Legacy Master Class branding remains in the new HTML")
     if html_text.count('"number": "') != EXPECTED_MODULES:
         raise RuntimeError("The interactive HTML does not contain exactly 64 modules")
+    if html_text.count('"navigation": [') != EXPECTED_MODULES:
+        raise RuntimeError("The interactive HTML does not contain granular navigation for all 64 modules")
     script_text = "const cover=" + html_text.split("\n<script>\nconst cover=", 1)[1].rsplit("\n</script>", 1)[0]
     syntax = subprocess.run(["node", "--check"], input=script_text, text=True, capture_output=True)
     if syntax.returncode:
@@ -387,6 +660,10 @@ def check() -> None:
         raise RuntimeError("The new PDF title is missing or legacy branding remains")
     if "Module 63" not in pdf_text or "Master Glossary" not in pdf_text:
         raise RuntimeError("The new PDF is missing the final module or glossary")
+    if "Complete Granular Curriculum Contents" not in normalized_pdf_text:
+        raise RuntimeError("The new PDF is missing the detailed curriculum contents")
+    if "M40.03" not in pdf_text or "M40.P01" not in pdf_text:
+        raise RuntimeError("The new PDF is missing numbered current or planned sections")
     print(f"Verified {PROGRAM_NAME}: {EXPECTED_MODULES} modules, {len(pdf_reader.pages)} PDF pages, complete interactive HTML")
 
 

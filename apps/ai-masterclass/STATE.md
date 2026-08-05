@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Granular curriculum and gap review before blueprint lock.
+Granular curriculum decision review before blueprint lock.
 
 ## Completed
 
@@ -66,6 +66,16 @@ Granular curriculum and gap review before blueprint lock.
 - Established stable module, section, subsection, proposal, and proposal-subtopic identifiers.
 - Generated a canonical JSON tracker, a 64-module Markdown review, and a responsive collapsible HTML
   curriculum map with search, coverage filters, page spans, and source locators.
+- Integrated the canonical granular tracker into the official curriculum build instead of leaving it
+  as a separate review artifact.
+- Rebuilt the official curriculum as a 788-page PDF with a complete granular contents section,
+  exact page references, current-section numbering, planned-addition labels, and nested PDF bookmarks.
+- Rebuilt the official HTML curriculum with 64 collapsible module groups, 1,341 searchable section
+  and subtopic links, stable deep links, a desktop contents rail, and a mobile contents drawer.
+- Added a browser QA test for stable-ID search, deep-link opening, iframe content, responsive contents,
+  JavaScript errors, and page-level overflow.
+- Regenerated the separate granular curriculum map from the new official PDF so its module page spans
+  match the 788-page edition.
 
 ## Research workflow validation boundary
 
@@ -94,9 +104,10 @@ any factual teaching is finalized.
 
 ## Next action
 
-Review the granular curriculum map first. Record decisions by stable ID in the canonical JSON
-tracker. After those decisions, update the approved syllabus and only then rebuild the complete PDF
-and HTML curriculum contents.
+Review the numbered contents in the official curriculum HTML or PDF. Record accept, defer, reject,
+or consolidate decisions by stable ID in the canonical JSON tracker. The gold planned entries are
+visible for review but are not represented as completed learner instruction. After those decisions,
+update the approved syllabus and rebuild the official PDF and HTML from the same tracker.
 
 For the next research run, copy the module research and visual brief, complete its value proposition
 and research question, then use its controlled Perplexity instruction. Register and verify the

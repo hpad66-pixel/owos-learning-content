@@ -99,7 +99,7 @@ curriculum is refined.
 
 #### M00. Orientation, Setup & Your Learning Path
 
-Current PDF pages: 4-12
+Current PDF pages: 20-32
 
 Current sections:
 
@@ -156,7 +156,7 @@ Proposed additions:
 
 #### M01. Why This, Why Now: AI and the World of Water
 
-Current PDF pages: 13-22
+Current PDF pages: 33-43
 
 Current sections:
 
@@ -177,7 +177,7 @@ Current sections:
 
 #### M02. What AI Actually Is: From 1956 to Today
 
-Current PDF pages: 23-30
+Current PDF pages: 44-52
 
 Current sections:
 
@@ -194,7 +194,7 @@ Current sections:
 
 #### M03. The Lexicon of AI: Every Term, Every Token
 
-Current PDF pages: 31-37
+Current PDF pages: 53-59
 
 Current sections:
 
@@ -211,7 +211,7 @@ Current sections:
 
 #### M04. Under the Hood: How the Machine Turns a Question Into an Answer
 
-Current PDF pages: 38-47
+Current PDF pages: 60-69
 
 Current sections:
 
@@ -228,7 +228,7 @@ Current sections:
 
 #### M05. How a Model Is Actually Made
 
-Current PDF pages: 48-55
+Current PDF pages: 70-78
 
 Current sections:
 
@@ -245,7 +245,7 @@ Current sections:
 
 #### M06. The Psychology of an LLM
 
-Current PDF pages: 56-64
+Current PDF pages: 79-88
 
 Current sections:
 
@@ -276,7 +276,7 @@ Targeted enhancements:
 
 #### M07. Reasoning Models and Test-Time Compute
 
-Current PDF pages: 65-70
+Current PDF pages: 89-96
 
 Current sections:
 
@@ -307,7 +307,7 @@ Targeted enhancements:
 
 #### M08. How Machines Read and See: OCR, Vision, and Multimodal AI
 
-Current PDF pages: 71-81
+Current PDF pages: 97-108
 
 Current sections:
 
@@ -333,7 +333,7 @@ Proposed additions:
 
 #### M09. The LLM as an Operating System
 
-Current PDF pages: 82-90
+Current PDF pages: 109-118
 
 Current sections:
 
@@ -350,7 +350,7 @@ Current sections:
 
 #### M10. The Autonomy Slider: Augmentation vs. Automation
 
-Current PDF pages: 91-98
+Current PDF pages: 119-127
 
 Current sections:
 
@@ -377,7 +377,7 @@ Proposed additions:
 
 #### M11. Superintelligence, Honestly
 
-Current PDF pages: 99-106
+Current PDF pages: 128-136
 
 Current sections:
 
@@ -393,7 +393,7 @@ Current sections:
 
 #### M12. Jobs, Money, and the Utility
 
-Current PDF pages: 107-115
+Current PDF pages: 137-147
 
 Current sections:
 
@@ -430,7 +430,7 @@ Proposed additions:
 
 #### M13. Generative AI and RAG
 
-Current PDF pages: 116-125
+Current PDF pages: 148-157
 
 Current sections:
 
@@ -446,7 +446,7 @@ Current sections:
 
 #### M14. The RAG Family, Done Right
 
-Current PDF pages: 126-133
+Current PDF pages: 158-165
 
 Current sections:
 
@@ -463,7 +463,7 @@ Current sections:
 
 #### M15. Embeddings and Vector Databases
 
-Current PDF pages: 134-142
+Current PDF pages: 166-174
 
 Current sections:
 
@@ -479,7 +479,7 @@ Current sections:
 
 #### M16. Fix the Data Before You Worship the AI: Data Readiness
 
-Current PDF pages: 143-150
+Current PDF pages: 175-185
 
 Current sections:
 
@@ -522,7 +522,7 @@ Proposed additions:
 
 #### M17. Life Is a Graph: Taxonomy, Ontology, Knowledge Graphs
 
-Current PDF pages: 151-173
+Current PDF pages: 186-210
 
 Current sections:
 
@@ -568,7 +568,7 @@ Current sections:
 
 #### M18. The Machinery: GraphDB, Neo4j, RDF, SPARQL, SHACL
 
-Current PDF pages: 174-182
+Current PDF pages: 211-219
 
 Current sections:
 
@@ -585,7 +585,7 @@ Current sections:
 
 #### M19. The One Water Ontology: Operationalizing the Hydrologic Cycle
 
-Current PDF pages: 183-192
+Current PDF pages: 220-229
 
 Current sections:
 
@@ -601,7 +601,7 @@ Current sections:
 
 #### M20. Defragmenting the People
 
-Current PDF pages: 193-203
+Current PDF pages: 230-240
 
 Current sections:
 
@@ -619,7 +619,7 @@ Current sections:
 
 #### M21. Data Governance from First Principles
 
-Current PDF pages: 204-214
+Current PDF pages: 241-251
 
 Current sections:
 
@@ -635,7 +635,7 @@ Current sections:
 
 #### M22. AI Governance: NIST AI RMF, ISO/IEC 42001, Responsible AI
 
-Current PDF pages: 215-224
+Current PDF pages: 252-261
 
 Current sections:
 
@@ -652,7 +652,7 @@ Current sections:
 
 #### M23. The ISO Standards Stack and How to Adopt It
 
-Current PDF pages: 225-235
+Current PDF pages: 262-272
 
 Current sections:
 
@@ -668,7 +668,7 @@ Current sections:
 
 #### M24. Evals: How You Measure Whether It Works
 
-Current PDF pages: 236-244
+Current PDF pages: 273-282
 
 Current sections:
 
@@ -704,7 +704,7 @@ Proposed additions:
 
 #### M25. Cybersecurity for Water: CISA, NIST CSF 2.0, AWIA, WaterISAC, ISO 27001
 
-Current PDF pages: 245-253
+Current PDF pages: 283-292
 
 Current sections:
 
@@ -740,7 +740,7 @@ Proposed additions:
 
 #### M26. AI Security and Safety: Prompt Injection, OWASP LLM Top 10
 
-Current PDF pages: 254-262
+Current PDF pages: 293-301
 
 Current sections:
 
@@ -756,7 +756,7 @@ Current sections:
 
 #### M27. Data Privacy, PII, and Where Your Data Goes
 
-Current PDF pages: 263-270
+Current PDF pages: 302-312
 
 Current sections:
 
@@ -795,7 +795,7 @@ Targeted enhancements:
 
 #### M28. The AI Regulation Landscape
 
-Current PDF pages: 271-278
+Current PDF pages: 313-320
 
 Current sections:
 
@@ -811,7 +811,7 @@ Current sections:
 
 #### M29. AI Action Plans and Public-Sector Requirements
 
-Current PDF pages: 279-289
+Current PDF pages: 321-331
 
 Current sections:
 
@@ -827,7 +827,7 @@ Current sections:
 
 #### M30. Policy by Design: Writing AI and Data Policies
 
-Current PDF pages: 290-297
+Current PDF pages: 332-339
 
 Current sections:
 
@@ -843,7 +843,7 @@ Current sections:
 
 #### M31. Provenance, Trust, and Audit
 
-Current PDF pages: 298-309
+Current PDF pages: 340-352
 
 Current sections:
 
@@ -872,7 +872,7 @@ Proposed additions:
 
 #### M32. The Assistants: ChatGPT, Claude, Perplexity, Gemini, Kimi, NotebookLM
 
-Current PDF pages: 310-317
+Current PDF pages: 353-365
 
 Current sections:
 
@@ -951,7 +951,7 @@ Proposed additions:
 
 #### M33. Prompt, Context, and Har&#110;ess Engineering, and Token Maxing
 
-Current PDF pages: 318-327
+Current PDF pages: 366-376
 
 Current sections:
 
@@ -972,7 +972,7 @@ Targeted enhancements:
 
 #### M34. Skills That Write Your Prompts
 
-Current PDF pages: 328-343
+Current PDF pages: 377-392
 
 Current sections:
 
@@ -992,7 +992,7 @@ Current sections:
 
 #### M35. Fine-Tune vs. RAG vs. Prompt: The Decision Framework
 
-Current PDF pages: 344-352
+Current PDF pages: 393-402
 
 Current sections:
 
@@ -1008,7 +1008,7 @@ Current sections:
 
 #### M36. Research, Writing, and Voice
 
-Current PDF pages: 353-361
+Current PDF pages: 403-414
 
 Current sections:
 
@@ -1063,7 +1063,7 @@ Proposed additions:
 
 #### M37. Image, Vision, and Media Generation
 
-Current PDF pages: 362-372
+Current PDF pages: 415-426
 
 Current sections:
 
@@ -1094,7 +1094,7 @@ Proposed additions:
 
 #### M38. Workflows and Automations: Email, Calendars, Scheduling, Chatbots
 
-Current PDF pages: 373-384
+Current PDF pages: 427-441
 
 Current sections:
 
@@ -1151,7 +1151,7 @@ Proposed additions:
 
 #### M39. No-Code and Low-Code Building: Lovable, Bolt, Replit, Vector Shift
 
-Current PDF pages: 385-394
+Current PDF pages: 442-455
 
 Current sections:
 
@@ -1235,7 +1235,7 @@ Proposed additions:
 
 #### M40. Building With AI: Claude Code, Skills, Codex, the IDE, Vibe → Agentic
 
-Current PDF pages: 395-405
+Current PDF pages: 456-472
 
 Current sections:
 
@@ -1337,7 +1337,7 @@ Proposed additions:
 
 #### M41. Agents, Agentic Nests, and Orchestration
 
-Current PDF pages: 406-418
+Current PDF pages: 473-486
 
 Current sections:
 
@@ -1365,7 +1365,7 @@ Proposed additions:
 
 #### M42. Open vs. Closed Models and Running Locally
 
-Current PDF pages: 419-430
+Current PDF pages: 487-499
 
 Current sections:
 
@@ -1392,7 +1392,7 @@ Proposed additions:
 
 #### M43. The Infrastructure: Containers, Docker, DigitalOcean, Deployment, Scaling Laws
 
-Current PDF pages: 431-442
+Current PDF pages: 500-517
 
 Current sections:
 
@@ -1501,7 +1501,7 @@ Proposed additions:
 
 #### M44. Innovation and Patents: Writing Patents With AI
 
-Current PDF pages: 443-452
+Current PDF pages: 518-529
 
 Current sections:
 
@@ -1529,7 +1529,7 @@ Proposed additions:
 
 #### M45. The Operator and Administrator
 
-Current PDF pages: 453-464
+Current PDF pages: 530-543
 
 Current sections:
 
@@ -1563,7 +1563,7 @@ Proposed additions:
 
 #### M46. The Manager
 
-Current PDF pages: 465-475
+Current PDF pages: 544-556
 
 Current sections:
 
@@ -1595,7 +1595,7 @@ Proposed additions:
 
 #### M47. The Executive
 
-Current PDF pages: 476-484
+Current PDF pages: 557-567
 
 Current sections:
 
@@ -1629,7 +1629,7 @@ Proposed additions:
 
 #### M48. The Elected Official: Mayors, Council, Commissioners
 
-Current PDF pages: 485-496
+Current PDF pages: 568-579
 
 Current sections:
 
@@ -1645,7 +1645,7 @@ Current sections:
 
 #### M49. The Consultant
 
-Current PDF pages: 497-504
+Current PDF pages: 580-588
 
 Current sections:
 
@@ -1677,7 +1677,7 @@ Proposed additions:
 
 #### M50. The Vendor: AI-Driven Sales, Marketing, Customer Service, Lead Management
 
-Current PDF pages: 505-516
+Current PDF pages: 589-603
 
 Current sections:
 
@@ -1723,7 +1723,7 @@ Proposed additions:
 
 #### M51. The CIO, CISO, and Chief AI Officer: The Summit
 
-Current PDF pages: 517-529
+Current PDF pages: 604-617
 
 Current sections:
 
@@ -1742,7 +1742,7 @@ Current sections:
 
 #### M52. Change Management and Adoption
 
-Current PDF pages: 530-538
+Current PDF pages: 618-627
 
 Current sections:
 
@@ -1768,7 +1768,7 @@ Proposed additions:
 
 #### M53. The Capstone Studio
 
-Current PDF pages: 539-549
+Current PDF pages: 628-643
 
 Current sections:
 
@@ -1825,7 +1825,7 @@ Proposed additions:
 
 #### M54. Leak & Burst Detection and Non-Revenue Water
 
-Current PDF pages: 550-559
+Current PDF pages: 644-653
 
 Current sections:
 
@@ -1841,7 +1841,7 @@ Current sections:
 
 #### M55. Predictive & Condition-Based Maintenance and Asset Management (EAM)
 
-Current PDF pages: 560-568
+Current PDF pages: 654-662
 
 Current sections:
 
@@ -1857,7 +1857,7 @@ Current sections:
 
 #### M56. Treatment & Process Optimization
 
-Current PDF pages: 569-581
+Current PDF pages: 663-676
 
 Current sections:
 
@@ -1873,7 +1873,7 @@ Current sections:
 
 #### M57. Demand Forecasting and Hydraulic/Network Modeling
 
-Current PDF pages: 582-594
+Current PDF pages: 677-690
 
 Current sections:
 
@@ -1889,7 +1889,7 @@ Current sections:
 
 #### M58. Stormwater, CSO/SSO and Flood/Overflow Prediction
 
-Current PDF pages: 595-607
+Current PDF pages: 691-704
 
 Current sections:
 
@@ -1905,7 +1905,7 @@ Current sections:
 
 #### M59. Regulatory Compliance, Reporting & Consent-Decree Management
 
-Current PDF pages: 608-620
+Current PDF pages: 705-718
 
 Current sections:
 
@@ -1921,7 +1921,7 @@ Current sections:
 
 #### M60. Customer, Billing/CIS & Community Engagement
 
-Current PDF pages: 621-633
+Current PDF pages: 719-732
 
 Current sections:
 
@@ -1949,7 +1949,7 @@ Proposed additions:
 
 #### M61. Digital Twins and the Decision Twin
 
-Current PDF pages: 634-643
+Current PDF pages: 733-743
 
 Current sections:
 
@@ -1965,7 +1965,7 @@ Current sections:
 
 #### M62. AI Sustainability: The Water & Energy Footprint of AI
 
-Current PDF pages: 644-655
+Current PDF pages: 744-758
 
 Current sections:
 
@@ -1981,7 +1981,7 @@ Current sections:
 
 #### M63. Buying AI: Procurement & Vendor Evaluation
 
-Current PDF pages: 656-665
+Current PDF pages: 759-769
 
 Current sections:
 

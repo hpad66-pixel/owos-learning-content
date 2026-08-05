@@ -244,7 +244,7 @@ def outline_pages(pdf: Path) -> dict[str, int]:
                 walk(item)
                 continue
             title = getattr(item, "title", "")
-            match = re.match(r"^(\d{2})\.\s", title)
+            match = re.match(r"^M?(\d{2})\.\s", title)
             if match:
                 pages[match.group(1)] = reader.get_destination_page_number(item) + 1
 
