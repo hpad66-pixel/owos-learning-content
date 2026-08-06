@@ -12,6 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY_SOURCE = ROOT / "curriculum" / "one-water-ai-granular-toc.json"
 SHREYA_REVIEW_SOURCE = ROOT / "curriculum" / "shreya-technical-foundations-review.json"
+RESEARCH_STARTERS_SOURCE = ROOT / "curriculum" / "research-starters" / "index.json"
+ROLE_TRACKS_SOURCE = ROOT / "curriculum" / "role-tracks.json"
 FELLOWSHIP_SOURCE = ROOT / "SYLLABUS.md"
 LEGACY_PDF = ROOT / "output" / "pdf" / "one-water-ai-applied-intelligence-curriculum.pdf"
 FELLOWSHIP_PDF = ROOT / "output" / "pdf" / "one-water-ai-executive-fellowship-master-curriculum.pdf"
@@ -73,6 +75,8 @@ def parse_fellowship() -> tuple[list[dict[str, object]], list[dict[str, object]]
 def build_registry() -> dict[str, object]:
     legacy = json.loads(LEGACY_SOURCE.read_text(encoding="utf-8"))
     shreya_review = json.loads(SHREYA_REVIEW_SOURCE.read_text(encoding="utf-8"))
+    research_starters = json.loads(RESEARCH_STARTERS_SOURCE.read_text(encoding="utf-8"))
+    role_tracks = json.loads(ROLE_TRACKS_SOURCE.read_text(encoding="utf-8"))
     if len(shreya_review["items"]) != 56:
         raise ValueError("Expected 56 items in Shreya's technical foundations review")
     contributor_inputs: dict[str, list[dict[str, object]]] = {}
@@ -133,6 +137,11 @@ def build_registry() -> dict[str, object]:
     if [module["number"] for module in legacy_modules] != list(range(64)):
         raise ValueError("Legacy module numbers must be consecutive from 0 through 63")
     fellowship_courses, fellowship_modules = parse_fellowship()
+    starter_by_module = {item["moduleId"]: item for item in research_starters["items"]}
+    if len(starter_by_module) != 64 or len(role_tracks["tracks"]) != 15:
+        raise ValueError("Expected 64 research starters and 15 role tracks")
+    for module in fellowship_modules:
+        module["researchStarter"] = starter_by_module[module["id"]]
     all_ids = [module["id"] for module in legacy_modules + fellowship_modules]
     if len(all_ids) != len(set(all_ids)):
         raise ValueError("Namespaced module IDs must be unique across both curriculum lines")
@@ -164,6 +173,18 @@ def build_registry() -> dict[str, object]:
             "legacyTargetedEnhancements": sum(module["targetedEnhancementCount"] for module in legacy_modules),
             "contributorReviewItems": len(shreya_review["items"]),
             "contributorReviewCounts": shreya_review["summary"],
+            "researchStarters": len(research_starters["items"]),
+            "roleTracks": len(role_tracks["tracks"]),
+        },
+        "researchStarters": {
+            "schema": research_starters["schema"],
+            "authority": research_starters["authority"],
+            "items": research_starters["items"],
+        },
+        "roleTracks": {
+            "schema": role_tracks["schema"],
+            "authority": role_tracks["authority"],
+            "tracks": role_tracks["tracks"],
         },
         "contributorReviews": [{
             "id": shreya_review["review_id"],

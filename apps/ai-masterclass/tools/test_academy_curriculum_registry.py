@@ -16,12 +16,17 @@ def main() -> None:
     assert registry["lines"][0]["primaryOutput"]["pages"] == 788
     assert registry["authority"]["sourceOfTruth"] == "hpad66-pixel/owos-learning-content"
     assert registry["summary"]["contributorReviewItems"] == 56
+    assert registry["summary"]["researchStarters"] == 64
+    assert registry["summary"]["roleTracks"] == 15
     assert len(registry["contributorReviews"]) == 1
     assert registry["contributorReviews"][0]["contributor"]["name"] == "Shreya"
     contributor_inputs = [item for module in registry["lines"][0]["modules"] for item in module["contributorInputs"]]
     assert len(contributor_inputs) == 56
     assert len({item["id"] for item in contributor_inputs}) == 56
     assert all(item["sourceId"] == "INT-002" for item in contributor_inputs)
+    assert len(registry["researchStarters"]["items"]) == 64
+    assert len(registry["roleTracks"]["tracks"]) == 15
+    assert all(module.get("researchStarter") for module in registry["lines"][1]["modules"])
     assert sum(len(module["sections"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyCurrentSections"]
     assert sum(len(module["proposals"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyProposedAdditions"]
     print("Academy curriculum registry contract passed")
