@@ -111,6 +111,16 @@ Granular curriculum decision review before blueprint lock.
   registered module.
 - Added server-enforced stage gates, owner-only ready and live transitions, private working-package
   exports, and an end-to-end authenticated workflow test.
+- Preserved Shreya's five-page technical foundations source as `INT-002`, verified its checksum,
+  rendered and visually inspected every page, and extracted all 56 topics with stable `STF` IDs.
+- Compared every Shreya topic against the master curriculum and existing proposal inventory: 20 are
+  already done exactly, seven are already planned exactly, 18 need explicit expansion, and 11 are
+  new governed additions.
+- Assigned every topic a primary module home, matched curriculum IDs, integration action, source
+  page, contributor identity, decision state, and release boundary in the canonical curriculum
+  review layer.
+- Extended the Academy curriculum registry so all 56 contributor records travel with their modules
+  and retain Shreya's identity without overwriting the original authorship of existing content.
 
 ## Research workflow validation boundary
 
@@ -163,6 +173,11 @@ any factual teaching is finalized.
 - Identify the first design-cohort participants, instructors, and utility-practitioner reviewers.
 
 ## Next action
+
+Review the 29 proposed actions from Shreya's crosswalk, consisting of 18 expansions and 11 new
+additions. Accept, defer, reject, or consolidate them by stable `STF` ID. After approval, write the
+technical-foundations blueprint, verify learner-facing claims, and decide whether the foundation is
+delivered through Module 00, prerequisite lessons before Parts II and V, or both.
 
 Extract the transitional Academy prototype into the dedicated private `apas-academy-studio`
 repository, preserve a single application master, configure access-controlled branch previews, and

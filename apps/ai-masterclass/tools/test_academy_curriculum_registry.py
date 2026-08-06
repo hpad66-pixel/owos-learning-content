@@ -15,6 +15,13 @@ def main() -> None:
     assert len(module_ids) == len(set(module_ids)) == 128
     assert registry["lines"][0]["primaryOutput"]["pages"] == 788
     assert registry["authority"]["sourceOfTruth"] == "hpad66-pixel/owos-learning-content"
+    assert registry["summary"]["contributorReviewItems"] == 56
+    assert len(registry["contributorReviews"]) == 1
+    assert registry["contributorReviews"][0]["contributor"]["name"] == "Shreya"
+    contributor_inputs = [item for module in registry["lines"][0]["modules"] for item in module["contributorInputs"]]
+    assert len(contributor_inputs) == 56
+    assert len({item["id"] for item in contributor_inputs}) == 56
+    assert all(item["sourceId"] == "INT-002" for item in contributor_inputs)
     assert sum(len(module["sections"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyCurrentSections"]
     assert sum(len(module["proposals"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyProposedAdditions"]
     print("Academy curriculum registry contract passed")

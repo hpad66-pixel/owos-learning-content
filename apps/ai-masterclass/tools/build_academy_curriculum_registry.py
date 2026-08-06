@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY_SOURCE = ROOT / "curriculum" / "one-water-ai-granular-toc.json"
+SHREYA_REVIEW_SOURCE = ROOT / "curriculum" / "shreya-technical-foundations-review.json"
 FELLOWSHIP_SOURCE = ROOT / "SYLLABUS.md"
 LEGACY_PDF = ROOT / "output" / "pdf" / "one-water-ai-applied-intelligence-curriculum.pdf"
 FELLOWSHIP_PDF = ROOT / "output" / "pdf" / "one-water-ai-executive-fellowship-master-curriculum.pdf"
@@ -71,6 +72,18 @@ def parse_fellowship() -> tuple[list[dict[str, object]], list[dict[str, object]]
 
 def build_registry() -> dict[str, object]:
     legacy = json.loads(LEGACY_SOURCE.read_text(encoding="utf-8"))
+    shreya_review = json.loads(SHREYA_REVIEW_SOURCE.read_text(encoding="utf-8"))
+    if len(shreya_review["items"]) != 56:
+        raise ValueError("Expected 56 items in Shreya's technical foundations review")
+    contributor_inputs: dict[str, list[dict[str, object]]] = {}
+    for item in shreya_review["items"]:
+        contributor_inputs.setdefault(item["primary_module"], []).append({
+            **item,
+            "sourceId": shreya_review["source_id"],
+            "contributor": shreya_review["contributor"],
+            "reviewId": shreya_review["review_id"],
+            "releaseBoundary": shreya_review["authority"],
+        })
     legacy_modules = []
     for module in legacy["modules"]:
         proposed = module.get("proposed_additions", [])
@@ -109,7 +122,11 @@ def build_registry() -> dict[str, object]:
                 for addition in proposed
             ],
             "enhancements": enhancements,
-            "status": "proposal-review" if proposed or enhancements else "source-current",
+            "contributorInputs": contributor_inputs.get(module["id"], []),
+            "status": "proposal-review" if proposed or enhancements or any(
+                item["classification"] != "already-done-exactly"
+                for item in contributor_inputs.get(module["id"], [])
+            ) else "source-current",
         })
     if len(legacy_modules) != 64:
         raise ValueError(f"Expected 64 legacy modules, found {len(legacy_modules)}")
@@ -127,7 +144,7 @@ def build_registry() -> dict[str, object]:
     } for part in legacy["parts"]]
     return {
         "schema": "owos-academy-curriculum-registry/v1",
-        "generated": "2026-08-04",
+        "generated": "2026-08-05",
         "title": "One Water AI Academy",
         "mode": "read-only",
         "authority": {
@@ -135,6 +152,7 @@ def build_registry() -> dict[str, object]:
             "sourceOfTruth": "hpad66-pixel/owos-learning-content",
             "application": "hpad66-pixel/onewater-os-platform",
             "releaseBoundary": "Registry visibility does not approve proposed content, production, credentialing, publication, or release.",
+            "attribution": "Contributor inputs retain contributor identity, source ID, source page, stable item ID, placement decision, and release boundary. A duplicate never overwrites original authorship.",
         },
         "summary": {
             "curriculumLines": 2,
@@ -144,7 +162,21 @@ def build_registry() -> dict[str, object]:
             "legacyCurrentSections": sum(module["currentSectionCount"] for module in legacy_modules),
             "legacyProposedAdditions": sum(module["proposedAdditionCount"] for module in legacy_modules),
             "legacyTargetedEnhancements": sum(module["targetedEnhancementCount"] for module in legacy_modules),
+            "contributorReviewItems": len(shreya_review["items"]),
+            "contributorReviewCounts": shreya_review["summary"],
         },
+        "contributorReviews": [{
+            "id": shreya_review["review_id"],
+            "title": shreya_review["title"],
+            "sourceId": shreya_review["source_id"],
+            "sourcePath": shreya_review["source_file"],
+            "sourceSha256": shreya_review["source_sha256"],
+            "contributor": shreya_review["contributor"],
+            "received": shreya_review["received"],
+            "reviewed": shreya_review["reviewed"],
+            "summary": shreya_review["summary"],
+            "authority": shreya_review["authority"],
+        }],
         "lines": [
             {
                 "id": "legacy",
