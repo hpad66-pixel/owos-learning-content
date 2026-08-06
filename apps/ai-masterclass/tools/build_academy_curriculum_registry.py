@@ -14,6 +14,7 @@ LEGACY_SOURCE = ROOT / "curriculum" / "one-water-ai-granular-toc.json"
 SHREYA_REVIEW_SOURCE = ROOT / "curriculum" / "shreya-technical-foundations-review.json"
 RESEARCH_STARTERS_SOURCE = ROOT / "curriculum" / "research-starters" / "index.json"
 ROLE_TRACKS_SOURCE = ROOT / "curriculum" / "role-tracks.json"
+LEARNING_PATHWAYS_SOURCE = ROOT / "curriculum" / "learning-pathways.json"
 FELLOWSHIP_SOURCE = ROOT / "SYLLABUS.md"
 LEGACY_PDF = ROOT / "output" / "pdf" / "one-water-ai-applied-intelligence-curriculum.pdf"
 FELLOWSHIP_PDF = ROOT / "output" / "pdf" / "one-water-ai-executive-fellowship-master-curriculum.pdf"
@@ -77,6 +78,7 @@ def build_registry() -> dict[str, object]:
     shreya_review = json.loads(SHREYA_REVIEW_SOURCE.read_text(encoding="utf-8"))
     research_starters = json.loads(RESEARCH_STARTERS_SOURCE.read_text(encoding="utf-8"))
     role_tracks = json.loads(ROLE_TRACKS_SOURCE.read_text(encoding="utf-8"))
+    learning_pathways = json.loads(LEARNING_PATHWAYS_SOURCE.read_text(encoding="utf-8"))
     if len(shreya_review["items"]) != 56:
         raise ValueError("Expected 56 items in Shreya's technical foundations review")
     contributor_inputs: dict[str, list[dict[str, object]]] = {}
@@ -139,7 +141,16 @@ def build_registry() -> dict[str, object]:
     fellowship_courses, fellowship_modules = parse_fellowship()
     starter_by_module = {item["moduleId"]: item for item in research_starters["items"]}
     if len(starter_by_module) != 64 or len(role_tracks["tracks"]) != 15:
-        raise ValueError("Expected 64 research starters and 15 role tracks")
+        raise ValueError("Expected 64 research starters and 15 source role profiles")
+    if len(learning_pathways["pathways"]) != 6:
+        raise ValueError("Expected one universal core and five role lenses")
+    valid_module_ids = {module["id"] for module in fellowship_modules}
+    valid_track_ids = {track["id"] for track in role_tracks["tracks"]}
+    for pathway in learning_pathways["pathways"]:
+        if not set(pathway["moduleIds"]).issubset(valid_module_ids):
+            raise ValueError(f"Unknown module in learning pathway {pathway['id']}")
+        if not set(pathway["sourceTrackIds"]).issubset(valid_track_ids):
+            raise ValueError(f"Unknown source profile in learning pathway {pathway['id']}")
     for module in fellowship_modules:
         module["researchStarter"] = starter_by_module[module["id"]]
     all_ids = [module["id"] for module in legacy_modules + fellowship_modules]
@@ -153,13 +164,13 @@ def build_registry() -> dict[str, object]:
     } for part in legacy["parts"]]
     return {
         "schema": "owos-academy-curriculum-registry/v1",
-        "generated": "2026-08-05",
+        "generated": "2026-08-06",
         "title": "One Water AI Academy",
         "mode": "read-only",
         "authority": {
             "decision": "The legacy M00-M63 curriculum is the source curriculum line. The Fellowship M1-M64 curriculum is a curated program and delivery sequence derived from the same One Water AI body of knowledge.",
             "sourceOfTruth": "hpad66-pixel/owos-learning-content",
-            "application": "hpad66-pixel/onewater-os-platform",
+            "application": "hpad66-pixel/apas-academy-studio",
             "releaseBoundary": "Registry visibility does not approve proposed content, production, credentialing, publication, or release.",
             "attribution": "Contributor inputs retain contributor identity, source ID, source page, stable item ID, placement decision, and release boundary. A duplicate never overwrites original authorship.",
         },
@@ -175,6 +186,7 @@ def build_registry() -> dict[str, object]:
             "contributorReviewCounts": shreya_review["summary"],
             "researchStarters": len(research_starters["items"]),
             "roleTracks": len(role_tracks["tracks"]),
+            "learningPathways": len(learning_pathways["pathways"]),
         },
         "researchStarters": {
             "schema": research_starters["schema"],
@@ -186,6 +198,7 @@ def build_registry() -> dict[str, object]:
             "authority": role_tracks["authority"],
             "tracks": role_tracks["tracks"],
         },
+        "learningPathways": learning_pathways,
         "contributorReviews": [{
             "id": shreya_review["review_id"],
             "title": shreya_review["title"],

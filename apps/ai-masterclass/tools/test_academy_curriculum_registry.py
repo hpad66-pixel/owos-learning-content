@@ -18,6 +18,7 @@ def main() -> None:
     assert registry["summary"]["contributorReviewItems"] == 56
     assert registry["summary"]["researchStarters"] == 64
     assert registry["summary"]["roleTracks"] == 15
+    assert registry["summary"]["learningPathways"] == 6
     assert len(registry["contributorReviews"]) == 1
     assert registry["contributorReviews"][0]["contributor"]["name"] == "Shreya"
     contributor_inputs = [item for module in registry["lines"][0]["modules"] for item in module["contributorInputs"]]
@@ -26,6 +27,10 @@ def main() -> None:
     assert all(item["sourceId"] == "INT-002" for item in contributor_inputs)
     assert len(registry["researchStarters"]["items"]) == 64
     assert len(registry["roleTracks"]["tracks"]) == 15
+    assert len(registry["learningPathways"]["pathways"]) == 6
+    assert sum(pathway["kind"] == "universal-core" for pathway in registry["learningPathways"]["pathways"]) == 1
+    assert sum(pathway["kind"] == "role-lens" for pathway in registry["learningPathways"]["pathways"]) == 5
+    assert len(next(pathway for pathway in registry["learningPathways"]["pathways"] if pathway["id"] == "one-water-ai-core")["moduleIds"]) == 64
     assert all(module.get("researchStarter") for module in registry["lines"][1]["modules"])
     assert sum(len(module["sections"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyCurrentSections"]
     assert sum(len(module["proposals"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyProposedAdditions"]

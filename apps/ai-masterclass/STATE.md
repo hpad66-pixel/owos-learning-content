@@ -134,6 +134,14 @@ Role-track and module-research blueprint review before learner-facing production
   internal landing-page concepts without representing proposed outcomes as verified public claims.
 - Extended the governed Academy registry so all 64 research starters and 15 role tracks travel with
   the Fellowship modules into the separate private Academy application.
+- Simplified the product-facing learning architecture to one universal `One Water AI Core` and five
+  role lenses. The fifteen original role profiles remain preserved as internal audience research and
+  map into the five lenses without duplicating the 64-module curriculum.
+- Added governed pathway outcomes, demonstrated objectives, portfolio evidence, water-sector
+  examples, analogies, module views, calls to action, common questions, and internal-publication
+  boundaries in `curriculum/learning-pathways.json` and `curriculum/LEARNING-PATHWAYS.md`.
+- Extended the Academy curriculum registry with all six pathways and corrected the application
+  authority to the dedicated `hpad66-pixel/apas-academy-studio` repository.
 
 ## Research workflow validation boundary
 
@@ -159,7 +167,7 @@ and immutable revision snapshots. These platform records are collaboration state
 overwrite the approved Git curriculum. No blueprint lock, Articulate authorization, deployment,
 Graph publication, credential claim, or public release was approved or performed.
 
-Full-module conformance was not run because the new files are research blueprints and role-track
+Full-module conformance was not run because the new files are research blueprints and pathway
 architecture, not approved learner-facing lessons. Each module still requires sourced research,
 claim verification, learning and assessment design, practitioner review, accessibility review,
 Articulate production, release testing, and owner approval.
@@ -178,6 +186,7 @@ any factual teaching is finalized.
 - Review and accept, defer, reject, or consolidate the 37 gap-analysis proposals by stable ID.
 - Decide whether the Builder Readiness Lab becomes part of Module 00, a prerequisite for Part V, or
   both. The current recommendation is both, without creating another numbered module.
+- Review the proposed universal core and five role lenses before any public pathway publication.
 - Confirm how the premium Executive Fellowship will select and sequence material from the approved
   inclusive One Water AI umbrella curriculum.
 - Decide whether any additional learning experience should become a numbered module. The current
@@ -189,12 +198,13 @@ any factual teaching is finalized.
 
 ## Next action
 
-Review the 15 role tracks and select one pilot audience. For that track, choose the first module,
+Use the universal core as the common program architecture, select one role lens for the pilot, and
+choose the first module. Then
 assign the research author, evidence reviewer, utility-practitioner reviewer, technical reviewer,
 novice-learner reviewer, and design owner, then turn the governed research starter into a sourced
-module brief. The recommended pilot is the Administrator or Cross-Functional One Water Leader track
-because each makes the cross-role operating system visible without requiring the first release to
-depend on one specialist discipline.
+module brief. The recommended first lens is Leadership and Public Value because it makes the
+cross-role operating system visible without requiring the first release to depend on one specialist
+discipline.
 
 Review the 29 proposed actions from Shreya's crosswalk, consisting of 18 expansions and 11 new
 additions. Accept, defer, reject, or consolidate them by stable `STF` ID. After approval, write the
