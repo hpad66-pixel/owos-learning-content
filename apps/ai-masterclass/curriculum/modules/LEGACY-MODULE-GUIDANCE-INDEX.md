@@ -1,0 +1,70 @@
+# Legacy Module Guidance Index
+
+All M00 through M63 packages are internal curriculum blueprints. They do not approve learner-facing production or release.
+
+| Module | Package | Placement records | Status |
+| --- | --- | ---: | --- |
+| M00 | `curriculum/modules/module-00-orientation-setup-learning-path` | 48 | prototype for owner review |
+| M01 | `curriculum/modules/legacy-module-01-why-this-why-now-ai-and-the-world-of-water` | 14 | blueprint for owner review |
+| M02 | `curriculum/modules/legacy-module-02-what-ai-actually-is-from-1956-to-today` | 11 | blueprint for owner review |
+| M03 | `curriculum/modules/legacy-module-03-the-lexicon-of-ai-every-term-every-token` | 11 | blueprint for owner review |
+| M04 | `curriculum/modules/legacy-module-04-under-the-hood-how-the-machine-turns-a-question-into-an-answer` | 10 | blueprint for owner review |
+| M05 | `curriculum/modules/legacy-module-05-how-a-model-is-actually-made` | 11 | blueprint for owner review |
+| M06 | `curriculum/modules/legacy-module-06-the-psychology-of-an-llm` | 19 | blueprint for owner review |
+| M07 | `curriculum/modules/legacy-module-07-reasoning-models-and-test-time-compute` | 18 | blueprint for owner review |
+| M08 | `curriculum/modules/legacy-module-08-how-machines-read-and-see-ocr-vision-and-multimodal-ai` | 16 | blueprint for owner review |
+| M09 | `curriculum/modules/legacy-module-09-the-llm-as-an-operating-system` | 10 | blueprint for owner review |
+| M10 | `curriculum/modules/legacy-module-10-the-autonomy-slider-augmentation-vs-automation` | 17 | blueprint for owner review |
+| M11 | `curriculum/modules/legacy-module-11-superintelligence-honestly` | 9 | blueprint for owner review |
+| M12 | `curriculum/modules/legacy-module-12-jobs-money-and-the-utility` | 25 | blueprint for owner review |
+| M13 | `curriculum/modules/legacy-module-13-generative-ai-and-rag` | 10 | blueprint for owner review |
+| M14 | `curriculum/modules/legacy-module-14-the-rag-family-done-right` | 10 | blueprint for owner review |
+| M15 | `curriculum/modules/legacy-module-15-embeddings-and-vector-databases` | 9 | blueprint for owner review |
+| M16 | `curriculum/modules/legacy-module-16-fix-the-data-before-you-worship-the-ai-data-readiness` | 41 | blueprint for owner review |
+| M17 | `curriculum/modules/legacy-module-17-life-is-a-graph-taxonomy-ontology-knowledge-graphs` | 40 | blueprint for owner review |
+| M18 | `curriculum/modules/legacy-module-18-the-machinery-graphdb-neo4j-rdf-sparql-shacl` | 11 | blueprint for owner review |
+| M19 | `curriculum/modules/legacy-module-19-the-one-water-ontology-operationalizing-the-hydrologic-cycle` | 9 | blueprint for owner review |
+| M20 | `curriculum/modules/legacy-module-20-defragmenting-the-people` | 9 | blueprint for owner review |
+| M21 | `curriculum/modules/legacy-module-21-data-governance-from-first-principles` | 9 | blueprint for owner review |
+| M22 | `curriculum/modules/legacy-module-22-ai-governance-nist-ai-rmf-iso-iec-42001-responsible-ai` | 11 | blueprint for owner review |
+| M23 | `curriculum/modules/legacy-module-23-the-iso-standards-stack-and-how-to-adopt-it` | 9 | blueprint for owner review |
+| M24 | `curriculum/modules/legacy-module-24-evals-how-you-measure-whether-it-works` | 29 | blueprint for owner review |
+| M25 | `curriculum/modules/legacy-module-25-cybersecurity-for-water-cisa-nist-csf-2-0-awia-waterisac-iso-27001` | 29 | blueprint for owner review |
+| M26 | `curriculum/modules/legacy-module-26-ai-security-and-safety-prompt-injection-owasp-llm-top-10` | 10 | blueprint for owner review |
+| M27 | `curriculum/modules/legacy-module-27-data-privacy-pii-and-where-your-data-goes` | 28 | blueprint for owner review |
+| M28 | `curriculum/modules/legacy-module-28-the-ai-regulation-landscape` | 9 | blueprint for owner review |
+| M29 | `curriculum/modules/legacy-module-29-ai-action-plans-and-public-sector-requirements` | 9 | blueprint for owner review |
+| M30 | `curriculum/modules/legacy-module-30-policy-by-design-writing-ai-and-data-policies` | 9 | blueprint for owner review |
+| M31 | `curriculum/modules/legacy-module-31-provenance-trust-and-audit` | 20 | blueprint for owner review |
+| M32 | `curriculum/modules/legacy-module-32-the-assistants-chatgpt-claude-perplexity-gemini-kimi-notebooklm` | 70 | blueprint for owner review |
+| M33 | `curriculum/modules/legacy-module-33-prompt-context-tool-orchestration-and-token-maxing` | 12 | blueprint for owner review |
+| M34 | `curriculum/modules/legacy-module-34-skills-that-write-your-prompts` | 13 | blueprint for owner review |
+| M35 | `curriculum/modules/legacy-module-35-fine-tune-vs-rag-vs-prompt-the-decision-framework` | 10 | blueprint for owner review |
+| M36 | `curriculum/modules/legacy-module-36-research-writing-and-voice` | 45 | blueprint for owner review |
+| M37 | `curriculum/modules/legacy-module-37-image-vision-and-media-generation` | 21 | blueprint for owner review |
+| M38 | `curriculum/modules/legacy-module-38-workflows-and-automations-email-calendars-scheduling-chatbots` | 46 | blueprint for owner review |
+| M39 | `curriculum/modules/legacy-module-39-no-code-and-low-code-building-lovable-bolt-replit-vector-shift` | 77 | blueprint for owner review |
+| M40 | `curriculum/modules/legacy-module-40-building-with-ai-claude-code-skills-codex-the-ide-vibe-agentic` | 94 | blueprint for owner review |
+| M41 | `curriculum/modules/legacy-module-41-agents-agentic-nests-and-orchestration` | 21 | blueprint for owner review |
+| M42 | `curriculum/modules/legacy-module-42-open-vs-closed-models-and-running-locally` | 19 | blueprint for owner review |
+| M43 | `curriculum/modules/legacy-module-43-the-infrastructure-containers-docker-digitalocean-deployment-scaling-laws` | 110 | blueprint for owner review |
+| M44 | `curriculum/modules/legacy-module-44-innovation-and-patents-writing-patents-with-ai` | 16 | blueprint for owner review |
+| M45 | `curriculum/modules/legacy-module-45-the-operator-and-administrator` | 24 | blueprint for owner review |
+| M46 | `curriculum/modules/legacy-module-46-the-manager` | 22 | blueprint for owner review |
+| M47 | `curriculum/modules/legacy-module-47-the-executive` | 24 | blueprint for owner review |
+| M48 | `curriculum/modules/legacy-module-48-the-elected-official-mayors-council-commissioners` | 9 | blueprint for owner review |
+| M49 | `curriculum/modules/legacy-module-49-the-consultant` | 22 | blueprint for owner review |
+| M50 | `curriculum/modules/legacy-module-50-the-vendor-ai-driven-sales-marketing-customer-service-lead-management` | 36 | blueprint for owner review |
+| M51 | `curriculum/modules/legacy-module-51-the-cio-ciso-and-chief-ai-officer-the-summit` | 10 | blueprint for owner review |
+| M52 | `curriculum/modules/legacy-module-52-change-management-and-adoption` | 16 | blueprint for owner review |
+| M53 | `curriculum/modules/legacy-module-53-the-capstone-studio` | 45 | blueprint for owner review |
+| M54 | `curriculum/modules/legacy-module-54-leak-and-burst-detection-and-non-revenue-water` | 9 | blueprint for owner review |
+| M55 | `curriculum/modules/legacy-module-55-predictive-and-condition-based-maintenance-and-asset-management-eam` | 9 | blueprint for owner review |
+| M56 | `curriculum/modules/legacy-module-56-treatment-and-process-optimization` | 9 | blueprint for owner review |
+| M57 | `curriculum/modules/legacy-module-57-demand-forecasting-and-hydraulic-network-modeling` | 9 | blueprint for owner review |
+| M58 | `curriculum/modules/legacy-module-58-stormwater-cso-sso-and-flood-overflow-prediction` | 9 | blueprint for owner review |
+| M59 | `curriculum/modules/legacy-module-59-regulatory-compliance-reporting-and-consent-decree-management` | 9 | blueprint for owner review |
+| M60 | `curriculum/modules/legacy-module-60-customer-billing-cis-and-community-engagement` | 18 | blueprint for owner review |
+| M61 | `curriculum/modules/legacy-module-61-digital-twins-and-the-decision-twin` | 9 | blueprint for owner review |
+| M62 | `curriculum/modules/legacy-module-62-ai-sustainability-the-water-and-energy-footprint-of-ai` | 9 | blueprint for owner review |
+| M63 | `curriculum/modules/legacy-module-63-buying-ai-procurement-and-vendor-evaluation` | 15 | blueprint for owner review |

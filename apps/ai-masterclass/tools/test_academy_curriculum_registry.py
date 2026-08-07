@@ -19,6 +19,10 @@ def main() -> None:
     assert registry["summary"]["researchStarters"] == 64
     assert registry["summary"]["roleTracks"] == 15
     assert registry["summary"]["learningPathways"] == 6
+    assert registry["summary"]["guidedLegacyModules"] == 64
+    assert registry["summary"]["legacyPlacementRecords"] == 1397
+    assert registry["legacyGuidance"]["moduleCount"] == 64
+    assert registry["legacyGuidance"]["placementRecordCount"] == 1397
     assert len(registry["contributorReviews"]) == 1
     assert registry["contributorReviews"][0]["contributor"]["name"] == "Shreya"
     contributor_inputs = [item for module in registry["lines"][0]["modules"] for item in module["contributorInputs"]]
@@ -35,8 +39,15 @@ def main() -> None:
     m00 = next(module for module in registry["lines"][0]["modules"] if module["id"] == "legacy:M00")
     assert m00["guidance"]["schema"] == "owos-module-guidance/v1"
     assert len(m00["guidance"]["learnerOutcomes"]) == 7
-    assert len(m00["guidance"]["placement"]["items"]) == 16
+    assert len(m00["guidance"]["placement"]["items"]) == 48
     assert "GOAL.md" in m00["guidance"]["researchPromptMarkdown"]
+    guided_modules = [module for module in registry["lines"][0]["modules"] if module.get("guidance")]
+    assert len(guided_modules) == 64
+    assert all(len(module["guidance"]["learnerOutcomes"]) == 7 for module in guided_modules)
+    assert all(module["guidance"]["requiredWorkProduct"] for module in guided_modules)
+    assert all("GOAL.md" in module["guidance"]["researchPromptMarkdown"] for module in guided_modules)
+    assert all("PLAN.md" in module["guidance"]["researchPromptMarkdown"] for module in guided_modules)
+    assert sum(len(module["guidance"]["placement"]["items"]) for module in guided_modules) == 1397
     assert sum(len(module["sections"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyCurrentSections"]
     assert sum(len(module["proposals"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyProposedAdditions"]
     print("Academy curriculum registry contract passed")

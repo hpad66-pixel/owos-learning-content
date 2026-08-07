@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Role-track and module-research blueprint review before learner-facing production.
+Full legacy module guidance and research blueprint review before learner-facing production.
 
 ## Completed
 
@@ -149,7 +149,7 @@ Role-track and module-research blueprint review before learner-facing production
 - Added a complete M00 design brief, direct staff direction, seven non-negotiable learner outcomes,
   curriculum and internal marketing outcomes, scope and claim boundaries, a goal-first and plan-first
   research prompt, and production status.
-- Reviewed sixteen M00 content records by stable ID. Preserved terminal, application programming
+- Reviewed forty-eight M00 content records by stable ID, including nested proposal subtopics. Preserved terminal, application programming
   interface key, secret-file, code-editor, duplicate, and Shreya contributor records while routing
   them to retain, refine, cross-reference, optional-preparation, or consolidate recommendations.
 - Extended the governed Academy registry with M00 staff guidance, outcome sets, research prompt, and
@@ -157,8 +157,28 @@ Role-track and module-research blueprint review before learner-facing production
   previews, prompt copying, and durable content-placement proposals that preserve original module,
   destination, reason, contributor, reference, revision, decision, and audit history.
 - Browser-tested the M00 editor and content-placement workflow on desktop and a 390 by 844 pixel
-  phone. Guidance rendering, sixteen placement rows, the M40 terminal recommendation, durable save,
+  phone. Guidance rendering, forty-eight placement rows, the M40 terminal recommendation, durable save,
   revision attribution, responsive stacking, and zero page overflow passed with no console errors.
+- Extended the approved M00 curriculum-scrub pattern across every remaining legacy source module,
+  M01 through M63, without deleting or silently moving governed content.
+- Added 63 unique module guidance specifications with a distinct learning job, utility situation,
+  learner decision, analogy, professional work product, evidence boundary, research questions,
+  outcome set, visual sequence, assessment direction, and marketing claim boundary for each module.
+- Generated complete staff packages for all 64 legacy modules: module guidance, staff direction,
+  goal-first and plan-first AI research prompt, content-placement register, production status,
+  design brief, and package index.
+- Reviewed and registered 1,397 granular current sections, proposals, proposal subtopics,
+  enhancements, and Shreya contributor records with stable identifiers, provenance, recommended
+  disposition, destination, reason, review state, and no-delete history.
+- Rebuilt the full legacy course design matrix with varied narrative, interaction, visual, quiz, and
+  professional-work-product patterns instead of repeating one generic module template.
+- Extended the dedicated Academy application with editable opening situations, learner decisions,
+  analogies, work products, research questions, visual directions, outcome sets, prompts, and
+  searchable and filterable placement records for all 64 legacy modules.
+- Browser-tested representative early, middle, complex, contributor-rich, procurement, desktop,
+  and 390 by 844 pixel phone cases. The runtime, editable guidance, seven-outcome sets, prompt
+  previews, 94-record complex module, nested proposal filters, Shreya provenance, and responsive
+  layout passed with no page-level horizontal overflow.
 
 ## Research workflow validation boundary
 
@@ -166,8 +186,9 @@ This change controls staff research and authoring. It does not add or revise a l
 so no full-module conformance claim was made. Module 01 still requires approved sources, factual
 review, a completed design brief, practitioner review, Articulate testing, and release approval.
 
-For the M00 prototype, full-module conformance was not run because no learner-facing lesson,
-recording script, scored module quality-control report, or complete implementation exists. The
+For the 64 legacy module guidance packages, full-module conformance was not run because no
+learner-facing lesson, recording script, scored module quality-control report, or complete
+implementation exists. The
 binding command remains:
 
 ```bash
@@ -179,8 +200,8 @@ python3 tools/course_conformance.py \
   --contract apps/ai-masterclass/.course/full-module-contract.json
 ```
 
-Result: not run and not eligible to run. This turn created a blueprint and authoring workflow, not a
-completed lesson.
+Result: not run and not eligible to run. This work created governed blueprints and an authoring
+workflow, not 64 completed lessons.
 
 ## Academy Author Studio implementation boundary
 
@@ -207,15 +228,15 @@ Articulate production, release testing, and owner approval.
 
 ## Current module
 
-`module-00-orientation-setup-learning-path` is the current curriculum-scrub and staff-direction
-prototype. `module-01-ai-in-utility-work` remains the first learner-facing authoring specimen. Both
-need approved research before factual teaching is finalized.
+The complete legacy source line, `legacy:M00` through `legacy:M63`, now has a curriculum-scrub and
+staff-direction blueprint. `legacy:M01` remains the recommended first learner-facing research and
+authoring specimen. Every module needs approved research before factual teaching is finalized.
 
 ## Open decisions
 
-- Decide which Module 01 belongs in the first editing and review pilot.
 - Approve the provisional capability roles and decide whether Simi is workflow coordinator.
-- Assign the pilot author, evidence reviewer, and technical reviewer from Dhruman, Anmol, and Shreya.
+- Assign the first research wave, starting with `legacy:M01`, across Dhruman, Anmol, and Shreya.
+- Assign an evidence reviewer, technical reviewer, graphics owner, and production owner for that wave.
 - Name a qualified utility-practitioner reviewer and a novice-learner reviewer.
 - Review and accept, defer, reject, or consolidate the 37 gap-analysis proposals by stable ID.
 - Decide whether the Builder Readiness Lab becomes part of Module 00, a prerequisite for Part V, or

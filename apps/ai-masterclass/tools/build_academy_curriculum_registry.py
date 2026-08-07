@@ -16,6 +16,7 @@ RESEARCH_STARTERS_SOURCE = ROOT / "curriculum" / "research-starters" / "index.js
 ROLE_TRACKS_SOURCE = ROOT / "curriculum" / "role-tracks.json"
 LEARNING_PATHWAYS_SOURCE = ROOT / "curriculum" / "learning-pathways.json"
 MODULES_ROOT = ROOT / "curriculum" / "modules"
+LEGACY_GUIDANCE_MANIFEST = ROOT / "curriculum" / "legacy-module-guidance-manifest.json"
 FELLOWSHIP_SOURCE = ROOT / "SYLLABUS.md"
 LEGACY_PDF = ROOT / "output" / "pdf" / "one-water-ai-applied-intelligence-curriculum.pdf"
 FELLOWSHIP_PDF = ROOT / "output" / "pdf" / "one-water-ai-executive-fellowship-master-curriculum.pdf"
@@ -80,6 +81,7 @@ def build_registry() -> dict[str, object]:
     research_starters = json.loads(RESEARCH_STARTERS_SOURCE.read_text(encoding="utf-8"))
     role_tracks = json.loads(ROLE_TRACKS_SOURCE.read_text(encoding="utf-8"))
     learning_pathways = json.loads(LEARNING_PATHWAYS_SOURCE.read_text(encoding="utf-8"))
+    guidance_manifest = json.loads(LEGACY_GUIDANCE_MANIFEST.read_text(encoding="utf-8"))
     module_guidance: dict[str, dict[str, object]] = {}
     for guidance_path in MODULES_ROOT.glob("*/MODULE-GUIDANCE.json"):
         guidance = json.loads(guidance_path.read_text(encoding="utf-8"))
@@ -156,6 +158,11 @@ def build_registry() -> dict[str, object]:
         raise ValueError(f"Expected 64 legacy modules, found {len(legacy_modules)}")
     if [module["number"] for module in legacy_modules] != list(range(64)):
         raise ValueError("Legacy module numbers must be consecutive from 0 through 63")
+    legacy_ids = {module["id"] for module in legacy_modules}
+    if set(module_guidance) != legacy_ids:
+        raise ValueError("Every legacy module must have exactly one governed guidance package")
+    if guidance_manifest["guidedModuleCount"] != 64:
+        raise ValueError("Legacy guidance manifest must cover all 64 source modules")
     fellowship_courses, fellowship_modules = parse_fellowship()
     starter_by_module = {item["moduleId"]: item for item in research_starters["items"]}
     if len(starter_by_module) != 64 or len(role_tracks["tracks"]) != 15:
@@ -205,6 +212,16 @@ def build_registry() -> dict[str, object]:
             "researchStarters": len(research_starters["items"]),
             "roleTracks": len(role_tracks["tracks"]),
             "learningPathways": len(learning_pathways["pathways"]),
+            "guidedLegacyModules": len(module_guidance),
+            "legacyPlacementRecords": sum(len(item["guidance"]["placement"]["items"]) for item in legacy_modules),
+        },
+        "legacyGuidance": {
+            "schema": guidance_manifest["schema"],
+            "status": guidance_manifest["status"],
+            "manifestPath": str(LEGACY_GUIDANCE_MANIFEST.relative_to(ROOT)),
+            "manifestSha256": sha256(LEGACY_GUIDANCE_MANIFEST),
+            "moduleCount": guidance_manifest["guidedModuleCount"],
+            "placementRecordCount": guidance_manifest["placementRecordCount"],
         },
         "researchStarters": {
             "schema": research_starters["schema"],
