@@ -32,6 +32,11 @@ def main() -> None:
     assert sum(pathway["kind"] == "role-lens" for pathway in registry["learningPathways"]["pathways"]) == 5
     assert len(next(pathway for pathway in registry["learningPathways"]["pathways"] if pathway["id"] == "one-water-ai-core")["moduleIds"]) == 64
     assert all(module.get("researchStarter") for module in registry["lines"][1]["modules"])
+    m00 = next(module for module in registry["lines"][0]["modules"] if module["id"] == "legacy:M00")
+    assert m00["guidance"]["schema"] == "owos-module-guidance/v1"
+    assert len(m00["guidance"]["learnerOutcomes"]) == 7
+    assert len(m00["guidance"]["placement"]["items"]) == 16
+    assert "GOAL.md" in m00["guidance"]["researchPromptMarkdown"]
     assert sum(len(module["sections"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyCurrentSections"]
     assert sum(len(module["proposals"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyProposedAdditions"]
     print("Academy curriculum registry contract passed")

@@ -142,12 +142,45 @@ Role-track and module-research blueprint review before learner-facing production
   boundaries in `curriculum/learning-pathways.json` and `curriculum/LEARNING-PATHWAYS.md`.
 - Extended the Academy curriculum registry with all six pathways and corrected the application
   authority to the dedicated `hpad66-pixel/apas-academy-studio` repository.
+- Completed the first curriculum-scrub prototype for legacy M00, `Orientation, Setup & Your Learning
+  Path`, without deleting or silently relocating any current, proposed, or contributed material.
+- Reframed M00 as the contract between the Academy and the learner: orientation, readiness baseline,
+  pathway choice, safe participation, and a versioned One Water AI Learning Charter.
+- Added a complete M00 design brief, direct staff direction, seven non-negotiable learner outcomes,
+  curriculum and internal marketing outcomes, scope and claim boundaries, a goal-first and plan-first
+  research prompt, and production status.
+- Reviewed sixteen M00 content records by stable ID. Preserved terminal, application programming
+  interface key, secret-file, code-editor, duplicate, and Shreya contributor records while routing
+  them to retain, refine, cross-reference, optional-preparation, or consolidate recommendations.
+- Extended the governed Academy registry with M00 staff guidance, outcome sets, research prompt, and
+  placement metadata. Extended the dedicated Academy application with editable guidance, rendered
+  previews, prompt copying, and durable content-placement proposals that preserve original module,
+  destination, reason, contributor, reference, revision, decision, and audit history.
+- Browser-tested the M00 editor and content-placement workflow on desktop and a 390 by 844 pixel
+  phone. Guidance rendering, sixteen placement rows, the M40 terminal recommendation, durable save,
+  revision attribution, responsive stacking, and zero page overflow passed with no console errors.
 
 ## Research workflow validation boundary
 
 This change controls staff research and authoring. It does not add or revise a learner-facing module,
 so no full-module conformance claim was made. Module 01 still requires approved sources, factual
 review, a completed design brief, practitioner review, Articulate testing, and release approval.
+
+For the M00 prototype, full-module conformance was not run because no learner-facing lesson,
+recording script, scored module quality-control report, or complete implementation exists. The
+binding command remains:
+
+```bash
+python3 tools/course_conformance.py \
+  --lesson apps/ai-masterclass/curriculum/module-00-orientation-setup-learning-path.html \
+  --qa apps/ai-masterclass/qa/module-00-orientation-setup-learning-path-quality-control-report.md \
+  --brief apps/ai-masterclass/curriculum/design-briefs/module-00-orientation-setup-learning-path.md \
+  --script apps/ai-masterclass/curriculum/scripts/module-00-orientation-setup-learning-path-video-script.md \
+  --contract apps/ai-masterclass/.course/full-module-contract.json
+```
+
+Result: not run and not eligible to run. This turn created a blueprint and authoring workflow, not a
+completed lesson.
 
 ## Academy Author Studio implementation boundary
 
@@ -174,8 +207,9 @@ Articulate production, release testing, and owner approval.
 
 ## Current module
 
-`module-01-ai-in-utility-work` is the first authoring specimen. It needs approved research before
-any factual teaching is finalized.
+`module-00-orientation-setup-learning-path` is the current curriculum-scrub and staff-direction
+prototype. `module-01-ai-in-utility-work` remains the first learner-facing authoring specimen. Both
+need approved research before factual teaching is finalized.
 
 ## Open decisions
 
@@ -186,6 +220,8 @@ any factual teaching is finalized.
 - Review and accept, defer, reject, or consolidate the 37 gap-analysis proposals by stable ID.
 - Decide whether the Builder Readiness Lab becomes part of Module 00, a prerequisite for Part V, or
   both. The current recommendation is both, without creating another numbered module.
+- Review the M00 prototype and approve, revise, or reject its learning job, seven learner outcomes,
+  Learning Charter, staff direction, and sixteen placement recommendations before blueprint lock.
 - Review the proposed universal core and five role lenses before any public pathway publication.
 - Confirm how the premium Executive Fellowship will select and sequence material from the approved
   inclusive One Water AI umbrella curriculum.
@@ -198,8 +234,13 @@ any factual teaching is finalized.
 
 ## Next action
 
+Review the M00 prototype inside the private Academy. Confirm whether M00 should become the approved
+curriculum-scrub pattern for the remaining legacy modules. If approved, lock the M00 blueprint,
+assign evidence, learning-design, utility-practitioner, novice-learner, accessibility, graphics, and
+production reviewers, then create the source-backed learner manuscript and recording script.
+
 Use the universal core as the common program architecture, select one role lens for the pilot, and
-choose the first module. Then
+choose the first learner-facing module. Then
 assign the research author, evidence reviewer, utility-practitioner reviewer, technical reviewer,
 novice-learner reviewer, and design owner, then turn the governed research starter into a sourced
 module brief. The recommended first lens is Leadership and Public Value because it makes the

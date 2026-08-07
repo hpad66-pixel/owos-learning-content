@@ -15,6 +15,7 @@ SHREYA_REVIEW_SOURCE = ROOT / "curriculum" / "shreya-technical-foundations-revie
 RESEARCH_STARTERS_SOURCE = ROOT / "curriculum" / "research-starters" / "index.json"
 ROLE_TRACKS_SOURCE = ROOT / "curriculum" / "role-tracks.json"
 LEARNING_PATHWAYS_SOURCE = ROOT / "curriculum" / "learning-pathways.json"
+MODULES_ROOT = ROOT / "curriculum" / "modules"
 FELLOWSHIP_SOURCE = ROOT / "SYLLABUS.md"
 LEGACY_PDF = ROOT / "output" / "pdf" / "one-water-ai-applied-intelligence-curriculum.pdf"
 FELLOWSHIP_PDF = ROOT / "output" / "pdf" / "one-water-ai-executive-fellowship-master-curriculum.pdf"
@@ -79,6 +80,21 @@ def build_registry() -> dict[str, object]:
     research_starters = json.loads(RESEARCH_STARTERS_SOURCE.read_text(encoding="utf-8"))
     role_tracks = json.loads(ROLE_TRACKS_SOURCE.read_text(encoding="utf-8"))
     learning_pathways = json.loads(LEARNING_PATHWAYS_SOURCE.read_text(encoding="utf-8"))
+    module_guidance: dict[str, dict[str, object]] = {}
+    for guidance_path in MODULES_ROOT.glob("*/MODULE-GUIDANCE.json"):
+        guidance = json.loads(guidance_path.read_text(encoding="utf-8"))
+        module_id = guidance["moduleId"]
+        if module_id in module_guidance:
+            raise ValueError(f"Duplicate module guidance for {module_id}")
+        staff_path = ROOT / guidance["staffDirectionPath"]
+        prompt_path = ROOT / guidance["researchPromptPath"]
+        placement_path = ROOT / guidance["placementRegisterPath"]
+        module_guidance[module_id] = {
+            **guidance,
+            "staffDirectionMarkdown": staff_path.read_text(encoding="utf-8"),
+            "researchPromptMarkdown": prompt_path.read_text(encoding="utf-8"),
+            "placement": json.loads(placement_path.read_text(encoding="utf-8")),
+        }
     if len(shreya_review["items"]) != 56:
         raise ValueError("Expected 56 items in Shreya's technical foundations review")
     contributor_inputs: dict[str, list[dict[str, object]]] = {}
@@ -94,8 +110,9 @@ def build_registry() -> dict[str, object]:
     for module in legacy["modules"]:
         proposed = module.get("proposed_additions", [])
         enhancements = module.get("targeted_enhancements", [])
+        module_id = f"legacy:{module['id']}"
         legacy_modules.append({
-            "id": f"legacy:{module['id']}",
+            "id": module_id,
             "code": module["id"],
             "number": int(module["number"]),
             "title": module["title"],
@@ -133,6 +150,7 @@ def build_registry() -> dict[str, object]:
                 item["classification"] != "already-done-exactly"
                 for item in contributor_inputs.get(module["id"], [])
             ) else "source-current",
+            **({"guidance": module_guidance[module_id]} if module_id in module_guidance else {}),
         })
     if len(legacy_modules) != 64:
         raise ValueError(f"Expected 64 legacy modules, found {len(legacy_modules)}")
