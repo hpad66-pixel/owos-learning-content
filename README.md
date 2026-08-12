@@ -1,5 +1,13 @@
 # OWOS Learning Content
 
+> **Source and archive. Not the curriculum authority.**
+>
+> Authority for operational Academy curriculum moved to [`APAS-ai/one-water-academy`](https://github.com/APAS-ai/one-water-academy) on 2026-08-12. Author new modules, syllabi, scripts, and diagrams there.
+>
+> This repository holds the legacy 64 module AI Master Class, the Knowledge Graph course, the concept briefs, and the trainers. Read it for material. Do not treat it as current for operational curriculum.
+>
+> Nested repositories with their own remotes: `AI Master CLass/` is [`onewater-ai-master-class`](https://github.com/hpad66-pixel/onewater-ai-master-class) and `Knowledge graph/` is [`onewater-knowledge-graph`](https://github.com/hpad66-pixel/onewater-knowledge-graph). They are excluded here on purpose. Commit inside them, not here.
+
 The governed source and build repository for One Water Operating System learning products, by APAS.ai.
 
 **Version:** 0.38.0 &middot; **Last updated:** 2026-07-27
