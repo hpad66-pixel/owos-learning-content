@@ -6,8 +6,9 @@
 - Direction: Hardeep Anand
 - Curriculum authority reviewed: legacy source curriculum `M00` through `M63`
 - Delivery sequence also reviewed: One Water AI Executive Fellowship `M01` through `M64`
-- Status: review draft, no curriculum change approved
-- Release boundary: this file recommends changes. It does not revise, renumber, approve, or release a module.
+- Status: curriculum-blueprint recommendations approved and implemented on 2026-08-11
+- Release boundary: implementation revises curriculum blueprints and module guidance. It does not
+  by itself create verified learner-facing lessons, authorize a credential, or release a module.
 
 ## Executive judgment
 
@@ -154,21 +155,23 @@ application programming interfaces, Git, testing, and cloud basics. Advanced ele
 reinforcement learning, embodied systems, deeper multi-agent theory, and platform-specific labs.
 These should not become prerequisites for the universal core.
 
-## Recommended first change set, subject to approval
+## Approved first change set and implementation record
 
-1. Make AAI-01 through AAI-13 visible in the module learning jobs, lesson outlines, work products,
-   assessments, and studios.
-2. Approve the Builder Bridge represented by AAI-16 through AAI-18 and the existing M00, M40, M41,
-   and M43 proposals.
-3. Keep AAI-21 through AAI-25 outside the universal core as advanced electives or partner pathways.
-4. Implement PKG-01 through PKG-10 in the program book and Academy experience only after the
-   underlying delivery commitments and credential evidence are real.
-5. Do not renumber either curriculum line. Do not create 25 new modules. Use stable subsection IDs,
-   cross-module threads, studios, and optional pathways.
+1. AAI-01 through AAI-15 are now accepted, numbered expansions in the relevant module guidance,
+   learning objectives, work products, assessment evidence, and visual directions.
+2. Builder Bridge is now an optional eight-module, 48-hour line with accepted module blueprints.
+3. Advanced Agent Systems is now an optional eight-module, 48-hour line covering AAI-21 through
+   AAI-23 plus the advanced depth needed for agent retrieval, memory, interaction, and embodied
+   systems. Platform-specific implementation remains optional and vendor-neutral.
+4. PKG-01 through PKG-07 and PKG-10 now have curriculum and delivery specifications. Faculty names,
+   support service levels, credential evidence, and public claims remain blocked until real evidence
+   and approval exist.
+5. Neither 64-module line was renumbered. The registry now exposes 144 governed module records: 64
+   legacy, 64 Fellowship, 8 Builder Bridge, and 8 Advanced Agent Systems.
 
-## Decision required from Hardeep Anand
+## Decision record
 
-Before curriculum files change, approve, reject, or revise these four decisions:
+Hardeep Anand approved the following direction on 2026-08-11:
 
 1. Production engineering becomes an explicit assessed thread, not only background guidance.
 2. Formal agent planning, multi-agent coordination, and agentic user experience become core depth.
@@ -176,4 +179,3 @@ Before curriculum files change, approve, reject, or revise these four decisions:
    optional pathways rather than universal prerequisites.
 4. Program packaging work begins only where delivery, faculty, mentorship, assessment, and
    credential claims can be supported by real evidence.
-

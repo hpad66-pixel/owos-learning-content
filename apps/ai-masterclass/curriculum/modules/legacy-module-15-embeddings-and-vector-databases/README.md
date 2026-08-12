@@ -19,7 +19,7 @@ Decide whether semantic similarity is useful for a task and what metadata, filte
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_15_Embeddings_and_Vector_Databases.html`
-- Source pages in the governed curriculum: 166 through 174
+- Source pages in the governed curriculum: 167 through 175
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

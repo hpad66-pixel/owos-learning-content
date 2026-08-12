@@ -19,7 +19,7 @@ Choose which steps may be automated, which require review, and how the workflow 
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_38_Workflows_Automations.html`
-- Source pages in the governed curriculum: 427 through 441
+- Source pages in the governed curriculum: 431 through 445
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

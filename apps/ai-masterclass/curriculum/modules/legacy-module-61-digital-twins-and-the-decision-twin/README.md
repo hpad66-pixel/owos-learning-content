@@ -19,7 +19,7 @@ Determine what evidence and relationships a decision-support twin needs before i
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_61_Digital_Decision_Twin.html`
-- Source pages in the governed curriculum: 733 through 743
+- Source pages in the governed curriculum: 742 through 752
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

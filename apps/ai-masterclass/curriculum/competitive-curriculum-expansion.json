@@ -1,0 +1,488 @@
+{
+  "schema": "owos-competitive-curriculum-expansion/v1",
+  "title": "Applied and Agentic AI Production Curriculum Expansion",
+  "approved": "2026-08-11",
+  "owner": "Hardeep Anand",
+  "status": "accepted-curriculum-blueprint",
+  "authority": "These records add approved curriculum depth. Third-party program descriptions are comparison sources, not water-sector authority or permission to reproduce course content. Every factual learner claim remains subject to source, practitioner, technical, accessibility, and release review.",
+  "sourceAudit": "research/competitive-curriculum-audits/2026-08-11-applied-and-agentic-ai-comparison/README.md",
+  "sources": [
+    {
+      "id": "CCA-001",
+      "title": "Applied AI Bundle: Generative and Agentic AI",
+      "sha256": "24e1495b8842a9c5734b2dcb49b9b633df3888a38322f797e01c02cc5ccddf9c"
+    },
+    {
+      "id": "CCA-002",
+      "title": "Applied AI for Digital Transformation",
+      "sha256": "49b35e77037d56d00b965ac0f7c9a25b69375d32fdb8e7f0fb57165a2dfe186e"
+    },
+    {
+      "id": "CCA-003",
+      "title": "Certificate Program in Agentic AI",
+      "sha256": "6586aa3c6b650d49b28dd9590166c3d102ae054e1bdb734d6db94418deba8a43"
+    },
+    {
+      "id": "CCA-004",
+      "title": "Certificate Program in AI and Agentic AI Engineering",
+      "sha256": "87b13ea38ec9b0c996d4db64543ff515dc60b110b2f00c3a7b13aabe33c64d21"
+    },
+    {
+      "id": "CCA-005",
+      "title": "Applied agentic AI learning-path screenshot",
+      "sha256": "e3092ff3b664fee8911a3452038d305f3b6ee0e41d0529a50cc3e29aba9b82bb"
+    }
+  ],
+  "expansions": [
+    {
+      "id": "AAI-01",
+      "proposalId": "M05.CE01",
+      "title": "The production AI lifecycle, from evidence to operation",
+      "kind": "applied",
+      "coverage": "partial",
+      "primaryModule": "M05",
+      "secondaryModules": ["M16", "M24", "M40", "M43", "M53"],
+      "description": "Connect data, model or language-system design, evaluation, release, monitoring, incident response, rollback, and improvement in one traceable lifecycle. The learner should see that a working demonstration is only one controlled stage.",
+      "objectives": [
+        "Explain the difference among experiment, demonstration, pilot, production service, and governed operating capability.",
+        "Trace one utility application through data, model, prompt, context, tool, evaluation, release, monitoring, incident, rollback, and correction records.",
+        "Identify the owner, evidence, entry condition, exit condition, and stop rule at every lifecycle gate.",
+        "Distinguish a model change from a data, retrieval, prompt, tool, permission, interface, or workflow change.",
+        "Create and defend a production AI lifecycle and provenance card for a bounded utility use case."
+      ],
+      "subtopics": [
+        "Experiment, demonstration, pilot, production, and retirement",
+        "Data, model, prompt, context, tool, and configuration versions",
+        "Evaluation and acceptance before release",
+        "Environment promotion and accountable approval",
+        "Monitoring, incident, correction, rollback, and retirement",
+        "One traceable record from source evidence to operating decision"
+      ],
+      "workProduct": "production AI lifecycle and provenance card",
+      "assessmentEvidence": ["lifecycle ordering check", "change-type classification", "utility release-gate decision", "completed lifecycle card"],
+      "visualDirections": ["lifecycle phase-gate flow", "change-layer stack", "source-to-operation provenance network", "incident-correction loop"],
+      "sourceRefs": ["CCA-004 pages 6 to 11", "CCA-001 pages 12 to 15"],
+      "evidenceBoundary": "Do not treat a stage name, vendor platform, deployment, or passing test as proof that a utility application is safe, useful, supported, or approved."
+    },
+    {
+      "id": "AAI-02",
+      "proposalId": "M43.CE01",
+      "title": "Machine Learning Operations pipelines and reproducibility",
+      "kind": "build",
+      "coverage": "partial",
+      "primaryModule": "M43",
+      "secondaryModules": ["M05", "M16", "M24", "M40"],
+      "description": "Teach the operating pipeline that moves data, code, model artifacts, tests, approvals, and monitoring through controlled environments. The learner must be able to reproduce a release and recover from a failed one.",
+      "objectives": [
+        "Explain Machine Learning Operations in plain English as the controlled path from model work to supported operation.",
+        "Map data, code, experiment, model, test, environment, release, monitoring, and rollback dependencies.",
+        "Distinguish version control, experiment tracking, artifact storage, continuous integration, continuous delivery, and deployment.",
+        "Diagnose a reproducibility failure and identify the missing version, dependency, data, or configuration evidence.",
+        "Create a vendor-neutral Machine Learning Operations pipeline and release record."
+      ],
+      "subtopics": [
+        "Pipeline architecture and responsibility",
+        "Data, code, model, configuration, and environment versions",
+        "Experiment tracking and artifact lineage",
+        "Automated tests and continuous integration",
+        "Release approval, deployment strategies, and rollback",
+        "Performance degradation, data drift, model drift, and correction"
+      ],
+      "workProduct": "Machine Learning Operations pipeline and release record",
+      "assessmentEvidence": ["pipeline dependency mapping", "reproducibility fault diagnosis", "release strategy decision", "completed release record"],
+      "visualDirections": ["environment promotion pipeline", "artifact provenance network", "deployment strategy comparison", "drift and rollback timeline"],
+      "sourceRefs": ["CCA-004 pages 7 to 10"],
+      "evidenceBoundary": "Use synthetic or approved data. Do not represent a classroom pipeline as a supported production service or a validated predictive model."
+    },
+    {
+      "id": "AAI-03",
+      "proposalId": "M43.CE02",
+      "title": "Large Language Model Operations and agent operations",
+      "kind": "build",
+      "coverage": "partial",
+      "primaryModule": "M43",
+      "secondaryModules": ["M24", "M26", "M31", "M33", "M41"],
+      "description": "Unify prompt, context, retrieval, tools, models, evaluations, traces, cost, incidents, and human review as one operating discipline for language-model and agent systems.",
+      "objectives": [
+        "Explain how Large Language Model Operations differs from ordinary model deployment and ordinary software operation.",
+        "Version prompts, system instructions, retrieval sources, tools, permissions, evaluations, and model choices as operating dependencies.",
+        "Inspect a trace and separate model, source, tool, permission, orchestration, and human-review failures.",
+        "Define operating measures for quality, groundedness, refusal, tool correctness, latency, cost, and review effort.",
+        "Create an agent operations record with monitoring, incident, rollback, and human-escalation rules."
+      ],
+      "subtopics": [
+        "Prompt, context, retrieval, model, tool, and policy versions",
+        "Offline evaluation, regression testing, and online observation",
+        "Traces, tool calls, state transitions, and human review",
+        "Latency, token use, cost limits, rate limits, and capacity",
+        "Agent incidents, containment, retry limits, escalation, and rollback",
+        "Ownership, service levels, support, and retirement"
+      ],
+      "workProduct": "language-model and agent operations record",
+      "assessmentEvidence": ["trace fault classification", "metric and threshold design", "incident response scenario", "completed operations record"],
+      "visualDirections": ["language-system dependency stack", "trace and tool-call swimlane", "quality-cost-latency tradeoff", "operate-monitor-recover loop"],
+      "sourceRefs": ["CCA-004 pages 8 and 11", "CCA-003 pages 11 to 13"],
+      "evidenceBoundary": "A trace shows what the system recorded. It does not prove completeness, correctness, legal sufficiency, or professional judgment."
+    },
+    {
+      "id": "AAI-04",
+      "proposalId": "M41.CE01",
+      "title": "Agents, goals, environments, and perceived agency",
+      "kind": "concept",
+      "coverage": "partial",
+      "primaryModule": "M41",
+      "secondaryModules": ["M03", "M06", "M10"],
+      "description": "Give learners a precise model for what an agent observes, what it may do, what goal it is pursuing, what environment it operates in, and why people can perceive more intelligence or authority than the system has.",
+      "objectives": [
+        "Distinguish a model response, deterministic workflow, bounded agent, and multi-agent work system.",
+        "Specify a task using goal, performance measure, environment, observations, allowed actions, state, and stop conditions.",
+        "Compare predictable, uncertain, observable, partially observable, static, and changing environments.",
+        "Identify language and interface choices that cause people to overstate agency, understanding, or authority.",
+        "Create a utility agent environment and authority specification."
+      ],
+      "subtopics": [
+        "Rational-agent framing and its limits",
+        "Goals, performance measures, and goal complexity",
+        "Environment types and uncertainty",
+        "Observations, allowed actions, state, and tools",
+        "Reactivity, autonomy, and perceived agency",
+        "Human authority, prohibited action, and stop"
+      ],
+      "workProduct": "utility agent environment and authority specification",
+      "assessmentEvidence": ["system classification", "environment analysis", "agency-language correction", "completed agent specification"],
+      "visualDirections": ["agent-environment loop", "environment property matrix", "agency-perception spectrum", "authority perimeter map"],
+      "sourceRefs": ["CCA-003 page 11", "CCA-005"],
+      "evidenceBoundary": "The academic agent model is a design lens. It does not grant an artificial intelligence system legal, professional, or operating authority."
+    },
+    {
+      "id": "AAI-05",
+      "proposalId": "M41.CE02",
+      "title": "Planning, Reason and Act, reflection, and agentic retrieval",
+      "kind": "build",
+      "coverage": "partial",
+      "primaryModule": "M41",
+      "secondaryModules": ["M07", "M14", "M33"],
+      "description": "Compare fixed workflows with planning patterns that alternate reasoning, tool use, observation, evaluation, revision, and stop. Make observable evidence and control more important than hidden reasoning text.",
+      "objectives": [
+        "Compare fixed workflow, plan-and-execute, Reason and Act, reflection, and agentic retrieval patterns.",
+        "Trace the observable goal, plan, action, tool result, evidence, evaluation, adjustment, and stop for one task.",
+        "Choose the least complicated planning pattern that can satisfy the utility task and consequence boundary.",
+        "Identify endless-loop, tool-selection, stale-evidence, plan-drift, and false-completion failures.",
+        "Create and test a governed agent plan and trace."
+      ],
+      "subtopics": [
+        "Classical plan, language-model plan, and fixed workflow",
+        "Plan-and-execute",
+        "Reason and Act",
+        "Reflection and critique",
+        "Agentic retrieval and iterative source refinement",
+        "Evaluation, retry budget, escalation, and stop"
+      ],
+      "workProduct": "governed agent plan and trace",
+      "assessmentEvidence": ["pattern comparison", "trace ordering", "failure injection and recovery", "completed plan and trace"],
+      "visualDirections": ["planning-pattern comparison", "goal-plan-action-observation stepper", "agentic retrieval loop", "failure and stop decision tree"],
+      "sourceRefs": ["CCA-003 page 12", "CCA-005"],
+      "evidenceBoundary": "Do not expose private hidden reasoning or treat a generated reasoning narrative as proof. Evaluate observable actions, sources, tool results, and outcomes."
+    },
+    {
+      "id": "AAI-06",
+      "proposalId": "M41.CE03",
+      "title": "Multi-agent coordination, conflict, cost, and failure",
+      "kind": "applied",
+      "coverage": "partial",
+      "primaryModule": "M41",
+      "secondaryModules": ["M20", "M24", "M26", "M31", "M51"],
+      "description": "Teach multiple agents as a coordinated work system with explicit roles, communication, shared state, arbitration, evidence, cost, and accountable human decision. More agents can create more failure as easily as more capability.",
+      "objectives": [
+        "Choose among one workflow, one agent, and multiple specialist agents for a bounded utility task.",
+        "Design roles, messages, shared state, source versions, handoffs, arbitration, escalation, and final human authority.",
+        "Identify duplication, disagreement, stale state, deadlock, cascading error, excessive cost, and false consensus.",
+        "Use basic cooperation, incentive, and conflict reasoning without implying that agents are independent professionals.",
+        "Create and test a multi-agent coordination and recovery contract."
+      ],
+      "subtopics": [
+        "Coordination topologies and orchestrators",
+        "Communication contracts and message evidence",
+        "Shared state, source versions, and conflict",
+        "Delegation, arbitration, consensus, and dissent",
+        "Deadlock, cascading failure, duplicated work, and cost multiplication",
+        "Human command, incident response, and final decision"
+      ],
+      "workProduct": "multi-agent coordination and recovery contract",
+      "assessmentEvidence": ["architecture choice", "handoff and state simulation", "failure-propagation diagnosis", "completed coordination contract"],
+      "visualDirections": ["coordination topology network", "shared-state ledger", "disagreement and arbitration swimlane", "failure-propagation chain"],
+      "sourceRefs": ["CCA-003 page 12", "CCA-005"],
+      "evidenceBoundary": "Multiple agents do not create independent truth, professional judgment, or legal authority. Preserve source versions, permissions, cost limits, dissent, and human decision rights."
+    },
+    {
+      "id": "AAI-07",
+      "proposalId": "M10.CE01",
+      "title": "Human-agent interaction and agentic user experience",
+      "kind": "applied",
+      "coverage": "missing",
+      "primaryModule": "M10",
+      "secondaryModules": ["M24", "M31", "M41", "M45", "M46", "M47", "M48", "M49", "M50", "M51", "M52"],
+      "description": "Design the interaction that lets a person understand what the system is doing, inspect its evidence and limits, control consequential actions, interrupt work, correct mistakes, recover, and escalate.",
+      "objectives": [
+        "Explain calibrated trust and common ground in plain English.",
+        "Distinguish transparency, explanation, source evidence, system status, confirmation, and human authority.",
+        "Design progress, preview, confirmation, cancel, interrupt, correction, recovery, and escalation behavior for a utility task.",
+        "Evaluate an interface for automation bias, false confidence, inaccessible interaction, hidden state, and weak failure recovery.",
+        "Create an agent interaction, authority, and recovery specification."
+      ],
+      "subtopics": [
+        "Calibrated trust and common ground",
+        "Visible goal, plan, source, tool, status, limitation, and cost",
+        "Preview and confirmation before consequential action",
+        "Interrupt, cancel, pause, correct, undo, and recover",
+        "Confidence, uncertainty, explanation, and source display",
+        "Accessibility, plain language, escalation, and human handoff"
+      ],
+      "workProduct": "agent interaction, authority, and recovery specification",
+      "assessmentEvidence": ["interface risk critique", "interaction-state ordering", "failure recovery simulation", "completed interaction specification"],
+      "visualDirections": ["human-agent interaction state map", "trust calibration curve", "confirmation and authority swimlane", "failure recovery path map"],
+      "sourceRefs": ["CCA-003 page 13", "CCA-005"],
+      "evidenceBoundary": "A friendly or transparent interface does not make an answer accurate or an action authorized. Interface design must expose, not hide, the remaining evidence and authority limits."
+    },
+    {
+      "id": "AAI-08",
+      "proposalId": "M24.CE01",
+      "title": "Agent-specific evaluation and continuous assurance",
+      "kind": "applied",
+      "coverage": "partial",
+      "primaryModule": "M24",
+      "secondaryModules": ["M26", "M31", "M41", "M43", "M53"],
+      "description": "Extend evaluation from answer quality to the complete agent trajectory, including task result, tool use, source coverage, policy behavior, recovery, latency, cost, and human-review effort.",
+      "objectives": [
+        "Define task success and failure before selecting an agent metric.",
+        "Evaluate answer quality, groundedness, source coverage, tool-call correctness, trajectory, refusal, recovery, latency, cost, and human effort.",
+        "Build a representative test set with ordinary, boundary, adversarial, stale, conflicting, and failure cases.",
+        "Set acceptance thresholds, stop rules, regression tests, reviewers, and correction actions.",
+        "Create an agent evaluation and continuing-assurance plan."
+      ],
+      "subtopics": [
+        "Task outcome and acceptance evidence",
+        "Groundedness, source coverage, and citation support",
+        "Tool-call correctness and trajectory evaluation",
+        "Policy, refusal, permission, and escalation behavior",
+        "Latency, cost, human effort, resilience, and recovery",
+        "Regression set, thresholds, drift, incident, and continuing assurance"
+      ],
+      "workProduct": "agent evaluation and continuing-assurance plan",
+      "assessmentEvidence": ["metric-to-failure matching", "test-case classification", "threshold and stop decision", "completed assurance plan"],
+      "visualDirections": ["agent evaluation coverage matrix", "trajectory trace", "threshold tradeoff chart", "continuous-assurance loop"],
+      "sourceRefs": ["CCA-001 pages 13 to 14", "CCA-004 pages 8 and 11"],
+      "evidenceBoundary": "An average score or one successful demonstration does not prove fitness for a utility task, safety, fairness, compliance, or performance under changed conditions."
+    },
+    {
+      "id": "AAI-09",
+      "proposalId": "M24.CE02",
+      "title": "Observability, drift, degradation, and incident response",
+      "kind": "applied",
+      "coverage": "partial",
+      "primaryModule": "M24",
+      "secondaryModules": ["M05", "M25", "M26", "M31", "M43"],
+      "description": "Teach how a team notices that data, sources, model behavior, prompts, tools, permissions, infrastructure, cost, or human work has changed, then pauses, investigates, corrects, and records the response.",
+      "objectives": [
+        "Explain observability as the evidence needed to understand a changing system, not as a dashboard alone.",
+        "Distinguish data drift, concept drift, model degradation, retrieval staleness, prompt regression, tool failure, permission change, and workflow change.",
+        "Select signals, logs, traces, thresholds, alerts, owners, and response times for one utility application.",
+        "Investigate an incident without overwriting prior evidence and decide whether to continue, restrict, roll back, or stop.",
+        "Create an artificial intelligence observability and incident-response record."
+      ],
+      "subtopics": [
+        "Signals, logs, traces, measures, alerts, and ownership",
+        "Data drift, concept drift, and model degradation",
+        "Retrieval staleness, source conflict, and prompt regression",
+        "Tool, permission, integration, infrastructure, and cost failure",
+        "Containment, pause, rollback, correction, and communication",
+        "Append-only incident, decision, and learning record"
+      ],
+      "workProduct": "AI observability and incident-response record",
+      "assessmentEvidence": ["change-type classification", "signal and threshold design", "incident decision simulation", "completed incident record"],
+      "visualDirections": ["system signal map", "drift and degradation timeline", "incident decision tree", "contain-correct-recover loop"],
+      "sourceRefs": ["CCA-004 pages 8 to 11"],
+      "evidenceBoundary": "A missing alert does not prove a system is healthy. Monitoring scope, blind spots, retention, privacy, and responsible human response must remain visible."
+    },
+    {
+      "id": "AAI-10",
+      "proposalId": "M40.CE01",
+      "title": "Release discipline for AI-assisted software building",
+      "kind": "build",
+      "coverage": "partial",
+      "primaryModule": "M40",
+      "secondaryModules": ["M24", "M26", "M31", "M43", "M53"],
+      "description": "Turn AI-assisted code generation into a controlled engineering process with plans, branches, reviews, tests, environments, dependencies, secrets, artifacts, release evidence, and recovery.",
+      "objectives": [
+        "Explain repository, branch, change, review, test, commit, artifact, release, deployment, and rollback in plain English.",
+        "Set the files, systems, credentials, and actions an AI coding agent may inspect or change.",
+        "Review a change by reading the plan, difference, tests, security effect, and rollback path.",
+        "Reproduce a build in a clean environment without using an unrecorded local dependency or secret.",
+        "Create an AI-assisted software release evidence package."
+      ],
+      "subtopics": [
+        "Goal, plan, issue, user story, and acceptance evidence",
+        "Repository, branch, difference, review, commit, and tag",
+        "Unit, integration, security, accessibility, and regression tests",
+        "Dependencies, lock files, environments, configuration, and secrets",
+        "Build artifact, release notes, approval, deployment, and rollback",
+        "AI coding-agent permissions, evidence, and human ownership"
+      ],
+      "workProduct": "AI-assisted software release evidence package",
+      "assessmentEvidence": ["change-record classification", "difference and test review", "failed-release recovery", "completed release package"],
+      "visualDirections": ["goal-plan-build-test loop", "branch and review graph", "evidence chain", "release and rollback phase gates"],
+      "sourceRefs": ["CCA-004 pages 8 to 10", "CCA-005"],
+      "evidenceBoundary": "Generated code and passing tests do not transfer engineering, cybersecurity, accessibility, privacy, or release responsibility to the artificial intelligence system."
+    },
+    {
+      "id": "AAI-11",
+      "proposalId": "M43.CE03",
+      "title": "Cloud foundations and managed AI platforms",
+      "kind": "build",
+      "coverage": "partial",
+      "primaryModule": "M43",
+      "secondaryModules": ["M25", "M26", "M27", "M42", "M63"],
+      "description": "Teach a vendor-neutral cloud foundation before a learner enters an Azure, Amazon Web Services, Google Cloud, or other platform lab. Every managed service still has identity, data, logging, cost, support, and exit responsibilities.",
+      "objectives": [
+        "Explain cloud region, network, compute, storage, identity, secret, log, managed model endpoint, and service responsibility in plain English.",
+        "Map data and request flow across a minimum supportable hosted artificial intelligence application.",
+        "Compare managed, self-hosted, local, and hybrid patterns for capability, control, privacy, cost, support, and exit.",
+        "Identify identity, permission, secret, network, logging, backup, cost, resilience, and vendor-dependency requirements.",
+        "Create a vendor-neutral cloud AI responsibility and exit map."
+      ],
+      "subtopics": [
+        "Regions, networks, compute, storage, and managed services",
+        "Identity, role, permission, secret, and key rotation",
+        "Managed model and agent platforms",
+        "Logs, backups, resilience, rate, capacity, and recovery",
+        "Consumption cost, budgets, alerts, and support ownership",
+        "Portability, data export, contract, lock-in, and exit"
+      ],
+      "workProduct": "cloud AI responsibility and exit map",
+      "assessmentEvidence": ["cloud-component matching", "responsibility classification", "hosting tradeoff decision", "completed responsibility map"],
+      "visualDirections": ["cloud application stack", "shared-responsibility matrix", "hosted-local-hybrid comparison", "data and exit flow"],
+      "sourceRefs": ["CCA-004 pages 1, 5, and 7", "CCA-005"],
+      "evidenceBoundary": "Named platforms are dated examples. A managed service does not remove the utility's responsibility for data, access, evaluation, contract, cost, records, or accountable use."
+    },
+    {
+      "id": "AAI-12",
+      "proposalId": "M37.CE01",
+      "title": "Synthetic media, deepfakes, disinformation, and content integrity",
+      "kind": "applied",
+      "coverage": "missing",
+      "primaryModule": "M37",
+      "secondaryModules": ["M08", "M22", "M26", "M31", "M48", "M60"],
+      "description": "Prepare learners to verify generated and altered media, preserve source and transformation records, disclose synthetic content, control publication, respond to false public information, and correct the record.",
+      "objectives": [
+        "Distinguish generated media, edited media, misleading context, impersonation, deepfake, error, satire, and deliberate disinformation.",
+        "Inspect source, author, capture time, transformation, metadata, corroboration, approval, and publication history.",
+        "Design disclosure, approval, accessibility, retention, correction, and incident rules for utility communication.",
+        "Respond to a false water-quality, service, emergency, or public-official message without amplifying unsupported content.",
+        "Create a utility synthetic-media integrity and correction protocol."
+      ],
+      "subtopics": [
+        "Generated, edited, synthetic, misleading, and impersonated media",
+        "Source, metadata, provenance, transformation, and corroboration",
+        "Employee, vendor, public-official, and community communication risks",
+        "Disclosure, consent, accessibility, approval, and publication",
+        "Detection limits, evidence preservation, and escalation",
+        "Public correction, incident communication, and trust repair"
+      ],
+      "workProduct": "utility synthetic-media integrity and correction protocol",
+      "assessmentEvidence": ["media-type classification", "provenance inspection", "public-response scenario", "completed integrity protocol"],
+      "visualDirections": ["media provenance chain", "content-integrity decision tree", "publication approval swimlane", "false-message correction timeline"],
+      "sourceRefs": ["CCA-001 page 8", "CCA-002 page 9"],
+      "evidenceBoundary": "Detection tools are imperfect. Do not label media authentic or false without recorded evidence, qualified review, and an honest statement of uncertainty."
+    },
+    {
+      "id": "AAI-13",
+      "proposalId": "M31.CE01",
+      "title": "Explainability, transparency, trace, and justification",
+      "kind": "concept",
+      "coverage": "partial",
+      "primaryModule": "M31",
+      "secondaryModules": ["M22", "M24", "M47", "M63"],
+      "description": "Teach the difference among an understandable explanation, a source trace, an interpretable model, a decision justification, and an unknown mechanism. Match the evidence burden to the consequence and audience.",
+      "objectives": [
+        "Distinguish explanation, transparency, interpretability, traceability, provenance, evidence, and decision justification.",
+        "Identify what a model, application, vendor, reviewer, and accountable decision maker can and cannot explain.",
+        "Match explanation and evidence needs to the task, consequence, affected person, professional standard, and decision right.",
+        "Reject an explanation that is fluent but unsupported, incomplete, inapplicable, or disconnected from the actual system record.",
+        "Create an explanation, evidence, and decision-justification record."
+      ],
+      "subtopics": [
+        "Plain-language explanation and audience",
+        "Model interpretability and technical limits",
+        "Application transparency and system status",
+        "Traceability, provenance, source evidence, and version",
+        "Decision justification, accountable owner, and affected person",
+        "Unknowns, uncertainty, challenge, correction, and appeal"
+      ],
+      "workProduct": "explanation, evidence, and decision-justification record",
+      "assessmentEvidence": ["term distinction matching", "explanation-quality critique", "consequence-based evidence decision", "completed justification record"],
+      "visualDirections": ["explanation-evidence stack", "source-to-decision trace", "audience and consequence matrix", "known-unknown boundary map"],
+      "sourceRefs": ["CCA-001 page 8", "CCA-002 page 9"],
+      "evidenceBoundary": "A plausible explanation can be wrong. Provenance can show origin without proving accuracy. Human justification remains separate from model output."
+    },
+    {
+      "id": "AAI-14",
+      "proposalId": "M52.CE01",
+      "title": "Adoption methods, psychological safety, champions, and operating models",
+      "kind": "applied",
+      "coverage": "partial",
+      "primaryModule": "M52",
+      "secondaryModules": ["M20", "M46", "M47", "M51"],
+      "description": "Turn adoption into a designed operating change involving tasks, identity, participation, learning, support, feedback, labor boundaries, champion networks, and clear decision rights.",
+      "objectives": [
+        "Explain why software launch, training attendance, compliance, confidence, and responsible adoption are different outcomes.",
+        "Compare structured change methods and select only the parts that fit the utility situation.",
+        "Design participation, psychological safety, champion, training, support, feedback, correction, and escalation mechanisms.",
+        "Compare centralized, federated, and hybrid artificial intelligence operating models and centers of excellence.",
+        "Create a workforce adoption, participation, and support plan."
+      ],
+      "subtopics": [
+        "Task, identity, confidence, concern, participation, and professional authority",
+        "Kotter, ADKAR, McKinsey 7S, and fit-to-purpose use",
+        "Psychological safety, challenge, reporting, and correction",
+        "Champions, peer learning, office hours, and support",
+        "Centralized, federated, hybrid, and center-of-excellence models",
+        "Labor, privacy, accessibility, incentives, feedback, and measurement"
+      ],
+      "workProduct": "workforce adoption, participation, and support plan",
+      "assessmentEvidence": ["adoption-outcome classification", "method selection", "operating-model comparison", "completed adoption plan"],
+      "visualDirections": ["adoption feedback loop", "task-and-identity map", "champion and support network", "operating-model comparison"],
+      "sourceRefs": ["CCA-001 page 9", "CCA-002 page 10"],
+      "evidenceBoundary": "Do not label concern as resistance, use learning records as hidden job-performance evidence, or promise adoption from communication and training alone."
+    },
+    {
+      "id": "AAI-15",
+      "proposalId": "M12.CE01",
+      "title": "Value measurement and benefit realization",
+      "kind": "applied",
+      "coverage": "partial",
+      "primaryModule": "M12",
+      "secondaryModules": ["M24", "M47", "M50", "M53"],
+      "description": "Create one measurement spine from the current baseline through adoption, quality, risk, cost, review effort, time to value, benefit ownership, measurement cadence, and the decision to continue or stop.",
+      "objectives": [
+        "Distinguish output, activity, adoption, quality, service outcome, risk reduction, financial value, and public value.",
+        "Define a credible current baseline before estimating a benefit.",
+        "Build measures for quality, error, delay, rework, human review, cost, risk, adoption, and affected service outcomes.",
+        "Assign a benefit owner, source, frequency, threshold, limitation, review, and stop rule for every material measure.",
+        "Create a utility AI value and benefit-realization record."
+      ],
+      "subtopics": [
+        "Problem, current process, baseline, and counterfactual",
+        "Activity, adoption, quality, risk, service, financial, and public-value measures",
+        "Direct, indirect, shifted, avoided, and uncertain cost",
+        "Human-review effort, correction, and operating burden",
+        "Benefit owner, data source, cadence, threshold, and limitation",
+        "Continue, redesign, defer, scale, or stop decision"
+      ],
+      "workProduct": "utility AI value and benefit-realization record",
+      "assessmentEvidence": ["measure-type classification", "baseline fault diagnosis", "risk-adjusted decision scenario", "completed benefit record"],
+      "visualDirections": ["baseline-to-benefit chain", "total-cost iceberg", "measure hierarchy", "continue-redesign-stop phase gates"],
+      "sourceRefs": ["CCA-001 pages 9 and 13", "CCA-002 pages 7, 10, and 11", "CCA-005"],
+      "evidenceBoundary": "Do not promise productivity, savings, return, staff reduction, service improvement, or public value without an approved baseline, complete cost, measured evidence, and accountable owner."
+    }
+  ]
+}

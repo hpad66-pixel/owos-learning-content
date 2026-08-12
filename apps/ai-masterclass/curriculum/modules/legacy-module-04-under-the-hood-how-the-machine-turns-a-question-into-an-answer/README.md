@@ -19,7 +19,7 @@ Decide what evidence and human review are required before using a model response
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_04_Under_the_Hood.html`
-- Source pages in the governed curriculum: 60 through 69
+- Source pages in the governed curriculum: 61 through 70
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

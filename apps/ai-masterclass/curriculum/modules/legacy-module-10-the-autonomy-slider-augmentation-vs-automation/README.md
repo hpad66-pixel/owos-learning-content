@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Set the narrowest useful level of automation and name every human checkpoint, prohibited action, and stop condition.
+Set the narrowest useful automation level and specify visible status, evidence, preview, confirmation, interruption, correction, recovery, prohibited action, and human escalation.
 
 ## Required learner work product
 
-**autonomy and human-authority matrix**
+**agent interaction, autonomy, and recovery specification**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_10_The_Autonomy_Slider.html`
-- Source pages in the governed curriculum: 119 through 127
+- Source pages in the governed curriculum: 120 through 128
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

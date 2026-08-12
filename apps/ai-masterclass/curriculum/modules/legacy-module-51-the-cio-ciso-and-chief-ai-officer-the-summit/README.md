@@ -19,7 +19,7 @@ Assign decision rights, shared controls, operating ownership, architecture, assu
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_51_The_Summit.html`
-- Source pages in the governed curriculum: 604 through 617
+- Source pages in the governed curriculum: 613 through 626
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

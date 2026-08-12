@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Decide whether generated media is appropriate for a utility communication and what evidence, disclosure, consent, and human approval it needs.
+Decide whether generated or altered media may be created, shared, published, corrected, restricted, or rejected for a utility communication purpose.
 
 ## Required learner work product
 
-**generated-media production and review brief**
+**utility synthetic-media integrity and production protocol**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_37_Image_Vision_Media.html`
-- Source pages in the governed curriculum: 415 through 426
+- Source pages in the governed curriculum: 418 through 430
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

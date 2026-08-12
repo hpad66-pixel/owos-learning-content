@@ -39,6 +39,7 @@ SYLLABUS = ROOT / "SYLLABUS.md"
 COURSE_BRIEF = ROOT / "COURSE-BRIEF.md"
 FIELDBOOK_BLUEPRINT = ROOT / "work-products" / "ONE-WATER-AI-FIELDBOOK-BLUEPRINT.md"
 RESEARCH_TEMPLATE = ROOT / "research" / "MODULE-RESEARCH-AND-VISUAL-BRIEF-TEMPLATE.md"
+EXTENSION_PROGRAMS = ROOT / "curriculum" / "extension-programs.json"
 CURRICULUM_PDF = ROOT / "output" / "pdf" / "one-water-ai-executive-fellowship-master-curriculum.pdf"
 FIELDBOOK_PDF = ROOT / "output" / "pdf" / "one-water-ai-fieldbook-working-edition.pdf"
 HTML_DIR = ROOT / "output" / "html"
@@ -123,6 +124,7 @@ def program_data() -> dict[str, object]:
     completion_text = extract_section(markdown, "## Completion evidence", "## Program references used for curriculum comparison")
     references_text = extract_section(markdown, "## Program references used for curriculum comparison")
     value_paragraphs = [clean_markdown(item) for item in re.split(r"\n\s*\n", value_text) if item.strip()]
+    extensions = json.loads(EXTENSION_PROGRAMS.read_text(encoding="utf-8"))["programs"]
     return {
         "courses": courses,
         "value_paragraphs": value_paragraphs,
@@ -132,6 +134,7 @@ def program_data() -> dict[str, object]:
         "rhythm": extract_numbered_items(rhythm_text),
         "completion": extract_bullets(completion_text),
         "references": extract_references(references_text),
+        "extensions": extensions,
     }
 
 
@@ -187,6 +190,31 @@ def build_html(data: dict[str, object]) -> str:
         f'<li><a href="{html.escape(ref["url"])}">{html.escape(ref["label"])}</a></li>'
         for ref in data["references"]
     )
+    extension_cards = []
+    for program in data["extensions"]:
+        module_rows = "".join(
+            f"""
+            <article class="module extension-module">
+              <div class="module-number">{html.escape(module['code'])}</div>
+              <div>
+                <h4>{html.escape(module['title'])}</h4>
+                <p>{html.escape(module['learningJob'])}</p>
+                <p class="result"><strong>Applied result:</strong> {html.escape(module['appliedResult'])}</p>
+              </div>
+            </article>"""
+            for module in program["modules"]
+        )
+        extension_cards.append(
+            f"""
+            <details class="course" open>
+              <summary>
+                <span class="course-kicker">Optional extension · {program['guidedHours']} guided hours</span>
+                <span class="course-title">{html.escape(program['title'])}</span>
+                <span class="course-promise">{html.escape(program['promise'])}</span>
+              </summary>
+              <div class="module-grid">{module_rows}</div>
+            </details>"""
+        )
 
     return f"""<!doctype html>
 <html lang="en">
@@ -309,6 +337,12 @@ def build_html(data: dict[str, object]) -> str:
         <div class="panel"><h3>Required evidence</h3>{html_list(data["capstone"], ordered=True)}</div>
         <div class="panel dark"><h3>Completion evidence</h3>{html_list(data["completion"])}</div>
       </div>
+    </section>
+    <section id="extensions">
+      <p class="section-label">Role-aligned technical depth</p>
+      <h2>Two optional lines. Sixteen additional modules.</h2>
+      <p class="intro">A readiness diagnostic routes participants to the universal core, Builder Bridge, Advanced Agent Systems, both in sequence, or instructor review. The extensions do not change the 64-module core or grant operating authority.</p>
+{''.join(extension_cards).strip()}
     </section>
     <section id="fieldbook">
       <p class="section-label">The companion system</p>
@@ -445,7 +479,7 @@ def build_pdf(data: dict[str, object]) -> None:
     story += section_header("Document map", "What is inside", s)
     toc = [
         ("01", "Program position and value"), ("02", "Audience and program facts"),
-        ("03", "Complete 8-course, 64-module curriculum"), ("04", "Capstone and completion standard"),
+        ("03", "Complete 8-course, 64-module curriculum"), ("03B", "Optional Builder Bridge and Advanced Agent Systems"), ("04", "Capstone and completion standard"),
         ("05", "Fieldbook and participant portfolio"), ("06", "Research, evidence, manuscript, and graphics workflow"),
         ("07", "Articulate, LearnWorlds, and OWOS delivery architecture"), ("08", "Release boundary and reference sources"),
     ]
@@ -482,6 +516,21 @@ def build_pdf(data: dict[str, object]) -> None:
         module_table = Table(module_table_data, colWidths=[2.0 * inch, 2.8 * inch, 1.65 * inch], repeatRows=1, hAlign="LEFT")
         module_table.setStyle(TableStyle([("BACKGROUND", (0,0), (-1,0), GRAPHITE), ("TEXTCOLOR", (0,0), (-1,0), WHITE), ("VALIGN", (0,0), (-1,-1), "TOP"), ("BOX", (0,0), (-1,-1), .5, LINE), ("INNERGRID", (0,0), (-1,-1), .35, LINE), ("ROWBACKGROUNDS", (0,1), (-1,-1), [WHITE, PAPER]), ("LEFTPADDING", (0,0), (-1,-1), 7), ("RIGHTPADDING", (0,0), (-1,-1), 7), ("TOPPADDING", (0,0), (-1,-1), 7), ("BOTTOMPADDING", (0,0), (-1,-1), 7)]))
         story += [KeepTogether(course_header + [module_table]), PageBreak()]
+
+    story += section_header("03B · Optional extensions", "Technical depth by readiness and role", s)
+    story.append(Paragraph("The universal core remains 64 modules. A readiness diagnostic may route a participant to one or both optional 48-hour lines. These blueprints do not grant operating authority or authorize a credential.", s["body"]))
+    for program in data["extensions"]:
+        story += [Spacer(1, 8), Paragraph(html.escape(program["title"]), s["h2"]), Paragraph(html.escape(program["promise"]), s["body"])]
+        rows = [[Paragraph("Module", s["label"]), Paragraph("Learning job", s["label"]), Paragraph("Applied result", s["label"])]]
+        for module in program["modules"]:
+            rows.append([
+                Paragraph(f"<b>{html.escape(module['code'])}. {html.escape(module['title'])}</b>", s["module"]),
+                Paragraph(html.escape(module["learningJob"]), s["module"]),
+                Paragraph(html.escape(module["appliedResult"]), s["module"]),
+            ])
+        extension_table = Table(rows, colWidths=[2.0 * inch, 2.8 * inch, 1.65 * inch], repeatRows=1, hAlign="LEFT")
+        extension_table.setStyle(TableStyle([("BACKGROUND", (0,0), (-1,0), GRAPHITE), ("TEXTCOLOR", (0,0), (-1,0), WHITE), ("VALIGN", (0,0), (-1,-1), "TOP"), ("BOX", (0,0), (-1,-1), .5, LINE), ("INNERGRID", (0,0), (-1,-1), .35, LINE), ("ROWBACKGROUNDS", (0,1), (-1,-1), [WHITE, PAPER]), ("LEFTPADDING", (0,0), (-1,-1), 7), ("RIGHTPADDING", (0,0), (-1,-1), 7), ("TOPPADDING", (0,0), (-1,-1), 7), ("BOTTOMPADDING", (0,0), (-1,-1), 7)]))
+        story += [extension_table, PageBreak()]
 
     story += section_header("04 · Modules 57 to 64", "The capstone turns learning into a governed pilot", s)
     story.append(Paragraph("The capstone must identify and defend the following evidence.", s["body"]))
@@ -583,7 +632,7 @@ def build_manifest(data: dict[str, object]) -> dict[str, object]:
         "program_title": PROGRAM_TITLE,
         "course_count": len(data["courses"]),
         "module_count": sum(len(course.modules) for course in data["courses"]),
-        "sources": {str(path.relative_to(ROOT)): sha256(path) for path in [SYLLABUS, COURSE_BRIEF, FIELDBOOK_BLUEPRINT, RESEARCH_TEMPLATE, BUILDER]},
+        "sources": {str(path.relative_to(ROOT)): sha256(path) for path in [SYLLABUS, COURSE_BRIEF, FIELDBOOK_BLUEPRINT, RESEARCH_TEMPLATE, EXTENSION_PROGRAMS, BUILDER]},
         "outputs": {
             str(path.relative_to(ROOT)): {
                 "sha256": sha256(path),

@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Design a responsible adoption plan that gives affected people a voice, training, support, feedback, correction, and clear professional authority.
+Design a responsible adoption and support plan that gives affected people a voice, psychological safety, training, peer support, feedback, correction, clear authority, and an operating model that can sustain the work.
 
 ## Required learner work product
 
-**AI workforce adoption and capability plan**
+**workforce adoption, participation, and support plan**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_52_Change_Management.html`
-- Source pages in the governed curriculum: 618 through 627
+- Source pages in the governed curriculum: 627 through 636
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Design the smallest supportable deployment architecture for a bounded utility application and name who operates every layer.
+Design the smallest supportable architecture and operating pipeline for a bounded utility application, assign every responsibility, and define release, observation, incident, rollback, cost, support, and exit evidence.
 
 ## Required learner work product
 
-**AI deployment and operations architecture record**
+**AI deployment, operations, and release architecture record**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_43_Infrastructure.html`
-- Source pages in the governed curriculum: 500 through 517
+- Source pages in the governed curriculum: 507 through 526
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

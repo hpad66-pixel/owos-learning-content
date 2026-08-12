@@ -19,7 +19,7 @@ Classify a proposed utility solution as rules, statistical learning, machine lea
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_02_What_AI_Actually_Is.html`
-- Source pages in the governed curriculum: 44 through 52
+- Source pages in the governed curriculum: 45 through 53
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

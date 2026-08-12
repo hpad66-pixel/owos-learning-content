@@ -10,13 +10,13 @@ You are supporting the governed research and development of One Water AI `legacy
 **Change Management and Adoption**. You do not approve facts, curriculum changes, marketing claims, assessments,
 publication, credentials, or release.
 
-The learning job is: Teach adoption as a change in tasks, identity, confidence, participation, learning, incentives, support, authority, and operating routines rather than a software launch.
+The learning job is: Teach adoption as a change in tasks, identity, confidence, participation, learning, incentives, support, authority, feedback, and operating routines, supported by fit-to-purpose change methods and operating models.
 
 The opening utility situation is: A tool is deployed after a short demonstration, but staff do not know when to use it, how to challenge it, where to report failure, or whether their expertise still matters.
 
-The learner must decide: Design a responsible adoption plan that gives affected people a voice, training, support, feedback, correction, and clear professional authority.
+The learner must decide: Design a responsible adoption and support plan that gives affected people a voice, psychological safety, training, peer support, feedback, correction, clear authority, and an operating model that can sustain the work.
 
-The required professional work product is: **AI workforce adoption and capability plan**.
+The required professional work product is: **workforce adoption, participation, and support plan**.
 
 ### Begin with a goal and a plan
 
@@ -42,7 +42,7 @@ every unresolved dependency. Do not write `MODULE-DRAFT.md` until the evidence p
 7. Mark unsupported or conflicting claims `VERIFY` and name the evidence or human review needed.
 8. Protect private, sealed, personal, facility-sensitive, security-sensitive, and
    permission-pending material.
-9. Apply this module boundary: Do not label concern as resistance or use learning data as undisclosed job-performance evidence. Keep workforce, labor, accessibility, and privacy review visible.
+9. Apply this module boundary: Do not label concern as resistance, use learning data as undisclosed job-performance evidence, or promise adoption from communication and training alone. Keep labor, accessibility, privacy, participation, support, and professional authority visible.
 
 ### Required research package
 
@@ -52,16 +52,16 @@ Produce:
 2. a complete source inventory and extraction log with coverage results;
 3. a source register with current United States primary authorities and exact locators;
 4. a claim register with fact type, source, limitation, confidence, reviewer, and approval state;
-5. a plain-English technical paper that explains communication, training, capability, participation, adoption, compliance, confidence, resistance, feedback, and professional identity;
+5. a plain-English technical paper that explains communication, training, capability, participation, psychological safety, champion, support, adoption, compliance, confidence, concern, resistance, feedback, operating model, and professional identity;
 6. one drinking-water case, one wastewater case, one stormwater case, and one cross-functional One
    Water case, with invented cases labeled as instructional scenarios;
 7. Foundation, Practitioner, Leader, and cross-role questions;
 8. failure cases, counterexamples, edge conditions, refusal rules, and stop conditions;
-9. a tested design for the **AI workforce adoption and capability plan**;
+9. a tested design for the **workforce adoption, participation, and support plan**;
 10. at least six likely novice questions with direct answers and evidence needs;
-11. a graphic plan using the natural shapes adoption feedback loop, task-and-capability map, stakeholder participation network, readiness and support heat grid;
+11. a graphic plan using the natural shapes adoption and correction feedback loop, task-identity-capability map, champion and support network, centralized-federated-hybrid operating-model comparison;
 12. two purposeful interaction concepts and at least three varied assessment types;
-13. a recommendation for all 16 content-placement records;
+13. a recommendation for all 23 content-placement records;
 14. internal marketing language that the evidence can support and claims that remain prohibited; and
 15. open questions assigned to evidence, utility-practitioner, technical, novice-learner,
     accessibility, graphics, production, and owner reviewers.

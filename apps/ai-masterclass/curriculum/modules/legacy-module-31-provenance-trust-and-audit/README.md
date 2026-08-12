@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Decide whether an AI-supported record has enough lineage and evidence to enter an accountable utility process.
+Decide whether an artificial intelligence-supported record provides the explanation, evidence, trace, provenance, justification, uncertainty, and human approval required for its consequence and audience.
 
 ## Required learner work product
 
-**provenance and audit evidence ledger**
+**explanation, provenance, and decision-justification record**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_31_Provenance_Trust_and_Audit.html`
-- Source pages in the governed curriculum: 340 through 352
+- Source pages in the governed curriculum: 342 through 355
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

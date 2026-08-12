@@ -19,7 +19,7 @@ Select an appropriate graph representation and validation approach for a bounded
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_18_The_Machinery.html`
-- Source pages in the governed curriculum: 211 through 219
+- Source pages in the governed curriculum: 212 through 220
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

@@ -19,7 +19,7 @@ Define where AI may support an advisory engagement and what must be disclosed, r
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_49_The_Consultant.html`
-- Source pages in the governed curriculum: 580 through 588
+- Source pages in the governed curriculum: 589 through 597
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

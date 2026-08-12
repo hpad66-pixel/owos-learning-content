@@ -19,7 +19,7 @@ Set the identity, access, network, data, monitoring, and response controls for a
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_25_Cybersecurity_for_Water.html`
-- Source pages in the governed curriculum: 283 through 292
+- Source pages in the governed curriculum: 285 through 294
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

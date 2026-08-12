@@ -19,7 +19,7 @@ Choose how to frame, challenge, verify, or stop an AI conversation when agreemen
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_06_Psychology_of_an_LLM.html`
-- Source pages in the governed curriculum: 79 through 88
+- Source pages in the governed curriculum: 80 through 89
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

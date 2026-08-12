@@ -49,7 +49,6 @@ def main() -> None:
     manifest = load(MANIFEST)
     assert manifest["schema"] == "owos-legacy-module-guidance-manifest/v1"
     assert manifest["guidedModuleCount"] == manifest["moduleCount"] == 64
-    assert manifest["placementRecordCount"] == 1397
     assert len(specs["modules"]) == 63
     assert len({item["code"] for item in specs["modules"]}) == 63
     assert len({item["workProduct"] for item in specs["modules"]}) == 63
@@ -59,6 +58,11 @@ def main() -> None:
     contributors: dict[str, list[str]] = {}
     for item in shreya["items"]:
         contributors.setdefault(item["primary_module"], []).append(item["id"])
+    expected_total = sum(
+        len(expected_ids(module, contributors.get(code, [])))
+        for code, module in modules.items()
+    )
+    assert manifest["placementRecordCount"] == expected_total
     known_destinations = {f"legacy:M{number:02d}" for number in range(64)}
     generated_paths: list[Path] = []
 
@@ -107,10 +111,10 @@ def main() -> None:
             assert "—" not in text and "–" not in text, f"Prohibited dash in {path}"
             generated_paths.append(path)
 
-    assert sum(record["placementRecordCount"] for record in manifest["modules"]) == 1397
+    assert sum(record["placementRecordCount"] for record in manifest["modules"]) == expected_total
     before = digest(generated_paths)
     rebuilt = build()
-    assert rebuilt["placementRecordCount"] == 1397
+    assert rebuilt["placementRecordCount"] == expected_total
     after = digest(generated_paths)
     assert before == after, "Guidance build is not deterministic"
     print("Legacy M00-M63 guidance and placement contract passed")

@@ -8,7 +8,7 @@
 
 **Total guided effort:** approximately 132 hours
 
-**Curriculum:** 8 courses, 64 modules, 8 live executive forums, 16 applied studios, and one capstone defense
+**Curriculum:** 8 courses, 64 core modules, 8 live executive forums, 16 applied studios, one capstone defense, and two optional 8-module extension lines
 
 **Cohort size:** 25 participants
 
@@ -51,7 +51,13 @@ Participants do not leave with awareness alone. They leave able to:
 8. compare value, feasibility, consequence, adoption cost, and implementation risk;
 9. lead cross-functional discussion between utility practice, data, technology, legal, security,
    procurement, and executive leadership; and
-10. defend a governed 90-day pilot and a one-year organizational roadmap.
+10. define and evaluate goals, environments, tools, memory, multi-agent handoffs, human authority,
+    and stop conditions;
+11. trace an AI application through development, release, monitoring, incident response, and
+    retirement;
+12. recognize synthetic or manipulated content and protect the provenance of public and internal
+    records; and
+13. defend a governed 90-day pilot and a one-year organizational roadmap.
 
 ## Intended participants
 
@@ -69,6 +75,11 @@ The fellowship is designed for professionals who influence consequential decisio
 
 Participants do not need to program. They do need a real work context, professional judgment, and
 the willingness to test an idea against evidence.
+
+Participants who want to build or operate technical systems complete a readiness diagnostic. The
+result may place them in the Builder Bridge before the core studios, the Advanced Agent Systems line
+after the core, both in sequence, or neither. These extensions are not remedial labels. They are
+role-aligned routes to the level of technical depth a participant needs.
 
 ## Program architecture
 
@@ -144,13 +155,13 @@ permissions, and stop conditions required to keep people in control.
 | Module | Learning job | Applied result |
 | --- | --- | --- |
 | 17. Before the agent | Compare a model response, chatbot, retrieval answer, workflow, and agent | architecture decision record |
-| 18. Inside the agent loop | Follow goal, plan, action, observation, evaluation, adjustment, and stop | agent-loop trace |
-| 19. Agent anatomy | Examine model, instructions, sources, tools, memory, identity, permissions, evaluation, and human owner | dependency map |
+| 18. Inside the agent loop | Follow goal, environment, state, plan, action, observation, evaluation, adjustment, and stop | agent-loop trace |
+| 19. Agent anatomy | Examine model, instructions, environment, sources, tools, memory, identity, permissions, evaluation, and human owner | dependency and authority map |
 | 20. Tools, connectors, and the Model Context Protocol | Understand how an agent reaches approved systems and why connection does not equal authority | tool and connector register |
 | 21. Skills as organizational recipes | Design a reusable Skill with instructions, references, scripts, assets, triggers, and tests | working Claude Skill package |
 | 22. Memory, state, and durable records | Separate temporary context, task state, institutional memory, and authoritative records | state and record plan |
-| 23. Orchestration and multi-agent handoffs | Coordinate specialist roles, shared state, evidence, failure, and human escalation | handoff contract |
-| 24. Design the smallest useful agent | Choose agenticness according to value, consequence, readiness, and review | Utility Agent Canvas |
+| 23. Orchestration and multi-agent handoffs | Coordinate specialist roles, shared state, communication, disagreement, evidence, failure, and human escalation | handoff and conflict contract |
+| 24. Design the smallest useful agent | Choose agenticness according to value, consequence, readiness, review, interaction burden, and recovery needs | Utility Agent Canvas and agent experience map |
 
 ### Course 3 live forum
 
@@ -193,10 +204,10 @@ not do, who checks it, and what evidence survives.
 | 34. Privacy, confidentiality, and data rights | Identify personal, sensitive, contractual, and restricted information boundaries | privacy and data-use record |
 | 35. Cybersecurity and adversarial failure | Recognize prompt injection, unsafe tool use, data leakage, poisoned context, and excessive privilege | threat and control map |
 | 36. Identity, permissions, and segregation of duties | Separate who asks, retrieves, recommends, approves, writes, and administers | permission matrix |
-| 37. Human authority, escalation, and stop conditions | Name the accountable owner and design pause, refusal, and escalation rules | authority and escalation map |
-| 38. Evaluation, testing, and continuous assurance | Test usefulness, accuracy, source coverage, refusal behavior, resilience, cost, and drift | evaluation plan |
+| 37. Human authority, escalation, content integrity, and stop conditions | Name the accountable owner, recognize manipulated content, and design pause, refusal, provenance, and escalation rules | authority, content-integrity, and escalation map |
+| 38. Evaluation, testing, observability, and continuous assurance | Test usefulness, accuracy, source coverage, refusal behavior, resilience, cost, drift, traces, and incident signals | evaluation and observability plan |
 | 39. Vendor, model, and procurement governance | Compare claims, architecture, data use, service boundaries, exit terms, and evidence | AI procurement scorecard |
-| 40. The governed AI application record | Assemble purpose, sources, roles, controls, evaluations, incidents, and approvals | AI governance and control record |
+| 40. The governed AI application record | Assemble purpose, sources, roles, controls, evaluations, release gates, monitoring, incidents, change history, retirement, and approvals | AI lifecycle governance record |
 
 ### Course 5 live forum
 
@@ -213,11 +224,11 @@ funding, workforce preparation, and an operating rhythm.
 | Module | Learning job | Applied result |
 | --- | --- | --- |
 | 41. Problem formulation before technology selection | Convert a complaint or idea into a measurable professional problem | problem statement |
-| 42. Value, baseline, and measurement | Define current effort, error, delay, risk, rework, and service outcomes | value baseline |
-| 43. The full cost of AI | Account for models, infrastructure, integration, data, review, security, change, and failure | total-cost model |
+| 42. Value, baseline, and measurement | Define current effort, error, delay, risk, rework, service outcomes, benefit ownership, and measurement cadence | value baseline and benefits register |
+| 43. The full cost and operating stack of AI | Account for models, infrastructure, integration, data, LLMOps, observability, review, security, change, and failure | total-cost and operating-stack model |
 | 44. Build, buy, partner, or do nothing | Compare strategic control, speed, capability, dependency, and exit cost | sourcing decision record |
 | 45. AI operating model and decision rights | Define sponsors, product owners, technical owners, stewards, assurance, users, and escalation | operating-model canvas |
-| 46. Workforce capability and responsible adoption | Map changing tasks, learning needs, participation, anxiety, and professional authority | workforce capability plan |
+| 46. Workforce capability and responsible adoption | Map changing tasks, participation, training, process redesign, communication, resistance, decision rights, and professional authority | adoption and workforce capability plan |
 | 47. Portfolio governance and sequencing | Fund learning in stages and stop weak initiatives before they become sunk costs | portfolio roadmap |
 | 48. Executive narrative and one-year roadmap | Explain the problem, opportunity, evidence, risk, investment, and sequence | investment case and one-year roadmap |
 
@@ -239,10 +250,10 @@ No programming background is required.
 | 50. Source-grounded answer studio | Compare unsupported generation with governed retrieval and citations | RAG test record |
 | 51. Claude Skill studio | Build, trigger, test, revise, and document a reusable utility workflow | tested Claude Skill |
 | 52. Tool-use and permission studio | Connect a bounded read-only tool and inspect every request and result | tool-use evidence log |
-| 53. Agent workflow studio | Build a goal-to-result loop with evaluation, retry limits, and escalation | agent trace |
+| 53. Agent workflow studio | Build a goal-to-result loop with a defined environment, tool policy, evaluation, retry limits, observability, and escalation | production-grade agent trace |
 | 54. Multi-agent decision-room studio | Observe specialist perspectives, shared evidence, disagreement, synthesis, and human decision | multi-agent decision record |
 | 55. Failure and red-team studio | Trigger unsupported claims, stale sources, instruction attacks, missing authority, and endless retries | failure and recovery log |
-| 56. Evaluation and pilot rehearsal | Test historical cases, record metrics, inspect human effort, and prepare a controlled demonstration | prototype evidence package |
+| 56. Evaluation and pilot rehearsal | Test historical cases, record metrics, inspect human effort, exercise failure alerts and rollback, and prepare a controlled demonstration | release rehearsal evidence package |
 
 ### Course 7 live forum
 
@@ -266,6 +277,57 @@ measure, govern, and stop when necessary.
 | 62. Evaluation, economics, and success criteria | Define test cases, baseline, thresholds, cost limits, review effort, and stop conditions | measurement and financial plan |
 | 63. Ninety-day pilot and one-year adoption roadmap | Sequence discovery, build, test, review, decision, and possible expansion | 90-day pilot brief and one-year roadmap |
 | 64. Capstone defense and professional commitment | Present the case, answer challenges, revise the plan, and state the next accountable action | defended implementation portfolio |
+
+## Optional extension lines
+
+The 64-module Fellowship remains the universal core. Two optional lines provide deeper technical
+work for participants whose roles require it. Entry is based on the readiness diagnostic, prior
+evidence, or instructor review. Completion of an extension does not grant operating authority.
+
+### Builder Bridge, 48 guided hours
+
+| Module | Learning job | Applied result |
+| --- | --- | --- |
+| BB01. Python and computational thinking for utility work | Read, change, run, test, and explain a small program | Python task map and tested script evidence record |
+| BB02. Data structures, files, and application data | Preserve meaning, source, types, identifiers, and limitations while using application data | governed application-data contract and validation log |
+| BB03. Application programming interfaces, HTTP, and tool connections | Trace an authenticated request, permission, response, failure, and log | governed tool-connection contract and request log |
+| BB04. Git, GitHub, and reproducible work | Preserve who changed what, why, how it was reviewed, and how it can be reversed | reproducible change and review record |
+| BB05. Testing, dependencies, and environments | Prove that work is testable and reproducible outside one laptop | test, dependency, and environment evidence package |
+| BB06. Cloud foundations, identity, secrets, and cost | Explain the smallest supportable hosted application and its responsibilities | cloud responsibility, cost, and recovery map |
+| BB07. Continuous integration, delivery, and release control | Move an approved change through checks, approval, release, observation, and rollback | continuous delivery and release-control record |
+| BB08. Builder readiness practicum | Defend a reproducible read-only utility application | application and release evidence package |
+
+### Advanced Agent Systems, 48 guided hours
+
+| Module | Learning job | Applied result |
+| --- | --- | --- |
+| AA01. Agents, goals, environments, and perceived agency | Specify performance, environment, observations, actions, state, tools, and authority | advanced agent environment and authority model |
+| AA02. Planning, reasoning, tool use, and stop conditions | Compare planning patterns and control plan drift, tool use, retries, cost, and stopping | advanced planning and stop-control specification |
+| AA03. Agentic retrieval and evidence-grounded research | Plan, retrieve, evaluate, refine, cite, and stop an evidence search | agentic research trace, claim register, and evidence package |
+| AA04. Memory, state, durable records, and correction | Separate temporary state, memory, model behavior, and authoritative records | agent state, memory, and authoritative-record plan |
+| AA05. Multi-agent coordination, conflict, and failure | Test roles, communication, shared state, arbitration, cascading failure, and human command | multi-agent evaluation and recovery package |
+| AA06. Human-agent interaction and agentic user experience | Make status, evidence, control, interruption, correction, accessibility, and recovery visible | accessible agentic experience and recovery specification |
+| AA07. Reinforcement, feedback, and continual learning | Choose permitted learning methods and control unsafe change | learning-method decision and safety record |
+| AA08. Embodied artificial intelligence and water robotics | Define simulation, interlocks, emergency stop, and human authority for physical systems | embodied-system evidence, control, and authority case |
+
+The governed details, objectives, assessments, prerequisites, visuals, and production prompts for
+these modules are maintained in `curriculum/extensions/` and `curriculum/extension-programs.json`.
+
+## Applied milestones
+
+The course-level work products accumulate into four formal reviews:
+
+1. **Fluency and evidence review, after Course 2:** the participant explains the proposed problem,
+   architecture family, data, knowledge, sources, limitations, and accountable owner.
+2. **Agent and opportunity review, after Course 4:** the participant defends the smallest useful
+   design and compares it with fixed workflow, retrieval, and non-AI alternatives.
+3. **Governance and investment review, after Course 6:** the participant presents controls,
+   authority, evaluation, lifecycle, cost, adoption, and the decision to build, buy, partner, or stop.
+4. **Prototype and capstone defense, after Course 8:** the participant demonstrates ordinary and
+   failure cases, preserves the evidence, and defends a 90-day pilot with a one-year roadmap.
+
+No milestone is passed by attendance alone. Each uses observable evidence, reviewer feedback, a
+revision record, and an explicit decision: proceed, revise, narrow, defer, or stop.
 
 ## Capstone completion standard
 

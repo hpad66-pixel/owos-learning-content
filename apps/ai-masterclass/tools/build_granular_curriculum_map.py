@@ -23,6 +23,8 @@ from docx import Document
 from lxml import html
 from pypdf import PdfReader
 
+from competitive_curriculum import apply_competitive_expansion
+
 
 ROOT = Path(__file__).resolve().parents[3]
 COURSE = ROOT / "apps" / "ai-masterclass"
@@ -371,7 +373,7 @@ def create_model() -> dict:
             "targeted_enhancements": enhancements_by_module[module],
         })
 
-    return {
+    model = {
         "schema": "owos-granular-curriculum-map/v1",
         "generated": str(date.today()),
         "program": {
@@ -426,6 +428,12 @@ def create_model() -> dict:
             }
         ],
     }
+    if JSON_OUT.exists():
+        previous = json.loads(JSON_OUT.read_text(encoding="utf-8"))
+        for preserved_key in ["contributor_reviews"]:
+            if preserved_key in previous:
+                model[preserved_key] = previous[preserved_key]
+    return apply_competitive_expansion(model)
 
 
 def md_escape(value: str) -> str:

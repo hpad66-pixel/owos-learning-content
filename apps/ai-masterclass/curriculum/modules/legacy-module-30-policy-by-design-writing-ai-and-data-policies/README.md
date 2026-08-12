@@ -19,7 +19,7 @@ Draft a policy rule that a real employee can apply to a real utility task and th
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_30_Policy_by_Design.html`
-- Source pages in the governed curriculum: 332 through 339
+- Source pages in the governed curriculum: 334 through 341
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

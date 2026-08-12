@@ -19,7 +19,7 @@ Separate a current planning issue from a speculative scenario and decide what ac
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_11_Superintelligence_Honestly.html`
-- Source pages in the governed curriculum: 128 through 136
+- Source pages in the governed curriculum: 129 through 137
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

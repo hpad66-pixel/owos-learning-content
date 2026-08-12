@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Decide which tasks should change, what new review work appears, and how the complete cost and workforce consequence will be measured.
+Decide which tasks should change, what new work appears, which measures establish value, who owns each benefit, and when the evidence requires redesign or stop.
 
 ## Required learner work product
 
-**task, cost, and workforce impact map**
+**utility AI value and benefit-realization record**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_12_Jobs_Money_and_the_Utility.html`
-- Source pages in the governed curriculum: 137 through 147
+- Source pages in the governed curriculum: 138 through 148
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

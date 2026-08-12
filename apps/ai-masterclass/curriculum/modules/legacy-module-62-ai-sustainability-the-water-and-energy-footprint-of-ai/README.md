@@ -19,7 +19,7 @@ Decide what environmental evidence an AI investment or procurement decision requ
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_62_AI_Sustainability.html`
-- Source pages in the governed curriculum: 744 through 758
+- Source pages in the governed curriculum: 753 through 767
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

@@ -19,7 +19,7 @@ Decide whether a forecast or simulation is fit for the planning or operating que
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_57_Demand_Hydraulic_Modeling.html`
-- Source pages in the governed curriculum: 677 through 690
+- Source pages in the governed curriculum: 686 through 699
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

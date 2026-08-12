@@ -2,7 +2,8 @@
 
 ## Current phase
 
-Full legacy module guidance and research blueprint review before learner-facing production.
+Approved curriculum-blueprint expansion and source-backed module production planning before
+learner-facing lesson production.
 
 ## Completed
 
@@ -179,6 +180,46 @@ Full legacy module guidance and research blueprint review before learner-facing 
   and 390 by 844 pixel phone cases. The runtime, editable guidance, seven-outcome sets, prompt
   previews, 94-record complex module, nested proposal filters, Shreya provenance, and responsive
   layout passed with no page-level horizontal overflow.
+- Completed the 2026-08-11 competitive curriculum audit against four supplied applied and agentic
+  artificial intelligence program brochures, one supplied learning-path image, and current public
+  program pages from Harvard, MIT, Johns Hopkins, and Virginia Tech.
+- Preserved exact-checksum copies of all five supplied comparison sources in the controlled source
+  library and registered their comparison-only evidence boundary.
+- Approved and implemented 15 curriculum expansions covering production lifecycle, Machine Learning
+  Operations, Large Language Model Operations and agent operations, formal agent foundations,
+  planning, multi-agent coordination and failure, human-agent interaction, agent evaluation,
+  observability and incidents, software release discipline, cloud foundations, content integrity,
+  explainability, organizational adoption, and value realization.
+- Added at least five observable objectives, six teaching subtopics, a professional work product,
+  assessment evidence, visual directions, source lineage, and release boundaries for every accepted
+  expansion.
+- Rebuilt all 64 legacy guidance packages with 1,502 stable placement records. The accepted
+  competitive additions appear in their primary module homes without deleting or silently moving
+  the existing curriculum.
+- Added the optional 48-hour, eight-module Builder Bridge for Python, application data,
+  application programming interfaces, Git and GitHub, testing and environments, cloud foundations,
+  continuous delivery, and a reproducible practicum.
+- Added the optional 48-hour, eight-module Advanced Agent Systems line for formal agents, planning,
+  agentic retrieval, memory, multi-agent coordination, human-agent interaction, learning methods,
+  and embodied artificial intelligence in water settings.
+- Generated 16 governed extension module packages. Each contains a complete blueprint, eight-lesson
+  sequence, observable outcomes, assessment evidence, One Water context requirements, visual
+  directions, a research and production prompt, and an honest production-gate record.
+- Added a program delivery specification covering readiness placement, workload, instructional
+  modes, constructive alignment, milestone reviews, assessment evidence, tool policy, instructor
+  roles, portfolio structure, accessibility, release gates, and market-claim boundaries.
+- Strengthened the Fellowship syllabus without renumbering its 64-module core. Added explicit
+  production, formal agent, human-agent experience, content integrity, lifecycle, adoption, and
+  benefit-realization outcomes plus four assessed milestone reviews.
+- Expanded the governed Academy registry from 128 to 144 module records across four lines: 64
+  legacy, 64 Fellowship, 8 Builder Bridge, and 8 Advanced Agent Systems. Registry and legacy
+  guidance contract tests pass.
+- Rebuilt and synchronized the official inclusive curriculum as a 797-page PDF and a complete HTML
+  reader with 64 modules and 1,446 detailed links. Desktop and mobile browser checks passed with no
+  page-level overflow or console errors.
+- Rebuilt the 20-page Fellowship program book so the optional extension lines are visible alongside
+  the unchanged 64-module core. Rebuilt the core prospectus, Fieldbook, package, and manifests from
+  the controlled sources.
 
 ## Research workflow validation boundary
 
@@ -238,16 +279,17 @@ authoring specimen. Every module needs approved research before factual teaching
 - Assign the first research wave, starting with `legacy:M01`, across Dhruman, Anmol, and Shreya.
 - Assign an evidence reviewer, technical reviewer, graphics owner, and production owner for that wave.
 - Name a qualified utility-practitioner reviewer and a novice-learner reviewer.
-- Review and accept, defer, reject, or consolidate the 37 gap-analysis proposals by stable ID.
-- Decide whether the Builder Readiness Lab becomes part of Module 00, a prerequisite for Part V, or
-  both. The current recommendation is both, without creating another numbered module.
+- Review and accept, defer, reject, or consolidate the remaining earlier gap-analysis proposals that
+  are not part of the approved 2026-08-11 competitive expansion.
+- Approve the readiness diagnostic instrument and its placement thresholds for core only, Builder
+  Bridge, Advanced Agent Systems, both in sequence, or instructor review.
 - Review the M00 prototype and approve, revise, or reject its learning job, seven learner outcomes,
   Learning Charter, staff direction, and sixteen placement recommendations before blueprint lock.
 - Review the proposed universal core and five role lenses before any public pathway publication.
 - Confirm how the premium Executive Fellowship will select and sequence material from the approved
   inclusive One Water AI umbrella curriculum.
-- Decide whether any additional learning experience should become a numbered module. The current
-  approved draft remains eight courses and exactly 64 numbered modules.
+- Keep the universal core at exactly 64 Fellowship modules. Review the optional BB01 through BB08
+  and AA01 through AA08 blueprints before research assignment and lesson production.
 - Add the first approved source package, including any PDFs, videos, articles, or transcripts.
 - Confirm whether Module 01 will be the golden lesson for the series.
 - Confirm Articulate Rise, Storyline, or a mixed build for the module.
@@ -255,10 +297,11 @@ authoring specimen. Every module needs approved research before factual teaching
 
 ## Next action
 
-Review the M00 prototype inside the private Academy. Confirm whether M00 should become the approved
-curriculum-scrub pattern for the remaining legacy modules. If approved, lock the M00 blueprint,
-assign evidence, learning-design, utility-practitioner, novice-learner, accessibility, graphics, and
-production reviewers, then create the source-backed learner manuscript and recording script.
+Select the first production wave from the accepted curriculum. The recommended wave is M05 for the
+production lifecycle, M10 for human-agent interaction, M24 for evaluation and incident response,
+M41 for formal and multi-agent design, and BB01 for the technical bridge. Assign evidence,
+learning-design, utility-practitioner, technical, novice-learner, accessibility, graphics, and
+production reviewers before writing learner-facing claims.
 
 Use the universal core as the common program architecture, select one role lens for the pilot, and
 choose the first learner-facing module. Then
@@ -272,6 +315,12 @@ Review the 29 proposed actions from Shreya's crosswalk, consisting of 18 expansi
 additions. Accept, defer, reject, or consolidate them by stable `STF` ID. After approval, write the
 technical-foundations blueprint, verify learner-facing claims, and decide whether the foundation is
 delivered through Module 00, prerequisite lessons before Parts II and V, or both.
+
+Build and approve the readiness diagnostic. Then assign the first Builder Bridge and Advanced Agent
+Systems research packages. Use each package's research and production prompt, register current
+United States primary sources, complete its claim register, and pass domain, technical,
+instructional, assessment, accessibility, packaging, and owner gates. Curriculum-blueprint approval
+does not yet make any extension module learner-facing or releasable.
 
 Extract the transitional Academy prototype into the dedicated private `apas-academy-studio`
 repository, preserve a single application master, configure access-controlled branch previews, and

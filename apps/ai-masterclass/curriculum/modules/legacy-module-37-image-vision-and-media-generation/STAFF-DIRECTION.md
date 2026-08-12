@@ -2,25 +2,25 @@
 
 ## Your assignment
 
-Teach image, audio, video, and media generation as governed communication work involving purpose, source rights, representation, accuracy, accessibility, disclosure, and review.
+Teach image, audio, video, and synthetic-media creation together with source integrity, consent, provenance, disclosure, approval, accessibility, publication, incident response, and correction.
 
 Open with this situation: A public-education graphic looks convincing but depicts the wrong valve arrangement and contains text that no technical reviewer approved.
 
-Ask the learner to decide before teaching begins: **Decide whether generated media is appropriate for a utility communication and what evidence, disclosure, consent, and human approval it needs.**
+Ask the learner to decide before teaching begins: **Decide whether generated or altered media may be created, shared, published, corrected, restricted, or rejected for a utility communication purpose.**
 
 Use this analogy once as the front door, then return to the utility work: A rendering can help people see a future project, but nobody mistakes it for the signed drawing. Generated media needs the same label and review.
 
-The learner must leave with a saved **generated-media production and review brief**. If the module does not produce that
+The learner must leave with a saved **utility synthetic-media integrity and production protocol**. If the module does not produce that
 record and evidence, the module is not complete.
 
 ## Non-negotiable learner outcomes
 
 1. Explain Image, Vision, and Media Generation in plain English and connect it to a real water, wastewater, stormwater, or One Water decision.
-2. Distinguish source media, generated media, edit, simulation, evidence, likeness, rights, disclosure, and accessible alternative without using one term to hide several different jobs.
+2. Distinguish generated media, edited media, misleading context, impersonation, deepfake, error, satire, disinformation, source, transformation, disclosure, approval, and correction without using one term to hide several different jobs.
 3. Analyze the module situation, identify missing evidence, and name the professional consequence of a weak decision.
 4. Compare how the same question changes across drinking water, wastewater, stormwater, administration, engineering, finance, technology, and public leadership.
-5. Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not use generated media as engineering, inspection, incident, laboratory, or historical evidence. Verify rights, consent, technical details, and text.
-6. Create a usable generated-media production and review brief with evidence, roles, limits, review steps, and the next accountable action.
+5. Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not label media authentic or false without recorded evidence and qualified review. Do not generate a person's likeness or voice without authority, or publish unsupported water-quality, service, emergency, or public claims.
+6. Create a usable utility synthetic-media integrity and production protocol with evidence, roles, limits, review steps, and the next accountable action.
 7. Defend the recommendation to Foundation, Practitioner, and Leader audiences while keeping disagreement and uncertainty visible.
 
 ## Research team
@@ -30,21 +30,21 @@ authority for load-bearing water, public-sector, privacy, cybersecurity, accessi
 or legal claims. Give exact page, section, table, figure, or paragraph locators.
 
 - What must an intelligent newcomer understand about Image, Vision, and Media Generation before using it in utility work?
-- Which sources can support the distinctions among source media, generated media, edit, simulation, evidence, likeness, rights, disclosure, and accessible alternative?
-- What evidence would allow a practitioner to make this decision: Decide whether generated media is appropriate for a utility communication and what evidence, disclosure, consent, and human approval it needs.
-- Which failure modes, counterexamples, and edge conditions could make the generated-media production and review brief misleading?
+- Which sources can support the distinctions among generated media, edited media, misleading context, impersonation, deepfake, error, satire, disinformation, source, transformation, disclosure, approval, and correction?
+- What evidence would allow a practitioner to make this decision: Decide whether generated or altered media may be created, shared, published, corrected, restricted, or rejected for a utility communication purpose.
+- Which failure modes, counterexamples, and edge conditions could make the utility synthetic-media integrity and production protocol misleading?
 - How does the question change across drinking water, wastewater, stormwater, reuse, finance, engineering, administration, technology, and public accountability?
 - Which actions require qualified operator, engineer, water-quality, cybersecurity, privacy, legal, procurement, records, finance, accessibility, or executive review?
-- Which claims remain outside the module boundary: Do not use generated media as engineering, inspection, incident, laboratory, or historical evidence. Verify rights, consent, technical details, and text.
+- Which claims remain outside the module boundary: Do not label media authentic or false without recorded evidence and qualified review. Do not generate a person's likeness or voice without authority, or publish unsupported water-quality, service, emergency, or public claims.
 
 Deliver the original source inventory, extraction log, source register, claim register, evidence
 boundary, glossary candidates, failure cases, review questions, and a recommendation for all
-21 granular content records. Separate sourced fact, Hardeep Anand position,
+28 granular content records. Separate sourced fact, Hardeep Anand position,
 expert interpretation, internal curriculum decision, instructional scenario, and unresolved question.
 
 ## Curriculum and learning-design team
 
-Use backward design from the **generated-media production and review brief** and the completion evidence. Align each
+Use backward design from the **utility synthetic-media integrity and production protocol** and the completion evidence. Align each
 outcome to teaching, practice, feedback, assessment, and a saved record. Keep Foundation,
 Practitioner, and Leader views connected to the same completion standard. The module belongs in
 **Using AI in Professional Work** and must not absorb the learning job of an adjacent module.
@@ -72,26 +72,49 @@ outcome, the opening decision, the work product, or the evidence boundary. Use t
 and one strong analogy. Do not invent a utility, incident, quotation, statistic, law, standard, or
 source.
 
+## Accepted 2026-08-11 curriculum expansions
+
+These records are approved for curriculum-blueprint integration. Their factual claims, finished teaching, assessment implementation, and release remain gated.
+
+### `M37.CE01` Synthetic media, deepfakes, disinformation, and content integrity
+
+Prepare learners to verify generated and altered media, preserve source and transformation records, disclose synthetic content, control publication, respond to false public information, and correct the record.
+
+- Required work product: **utility synthetic-media integrity and correction protocol**
+- Secondary module connections: M08, M22, M26, M31, M48, M60
+- Learning objectives:
+  - Distinguish generated media, edited media, misleading context, impersonation, deepfake, error, satire, and deliberate disinformation.
+  - Inspect source, author, capture time, transformation, metadata, corroboration, approval, and publication history.
+  - Design disclosure, approval, accessibility, retention, correction, and incident rules for utility communication.
+  - Respond to a false water-quality, service, emergency, or public-official message without amplifying unsupported content.
+  - Create a utility synthetic-media integrity and correction protocol.
+- Assessment evidence:
+  - media-type classification
+  - provenance inspection
+  - public-response scenario
+  - completed integrity protocol
+- Evidence boundary: Detection tools are imperfect. Do not label media authentic or false without recorded evidence, qualified review, and an honest statement of uncertainty.
+
 ## Graphics and interaction team
 
 Run the Visual Arsenal selection process against the researched ideas. The current natural-shape
 candidates are:
 
-- **media provenance chain**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **acceptable-use matrix**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **source-edit-generation comparison**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **review and disclosure workflow**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **media provenance and transformation chain**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **content-integrity decision tree**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **publication approval swimlane**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **false-message correction timeline**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
 
     Build at least two purposeful interactions using **consequence simulator** and **control-plan builder**
     as the starting pair. One must expose the consequence of the learner's decision. One must help
-    the learner create or review the **generated-media production and review brief**. Decorative stock
+    the learner create or review the **utility synthetic-media integrity and production protocol**. Decorative stock
 imagery, repeated icon cards, and color-only variation do not count.
 
 ## Assessment team
 
 Use this varied sequence as the starting design: estimate and explain, matching, decision multiple choice, final applied check. Place each check beside
 the idea it evaluates. Give immediate explanatory feedback and retry. The final applied check must
-inspect required fields in the **generated-media production and review brief**. Scrolling, time spent, confidence, and an
+inspect required fields in the **utility synthetic-media integrity and production protocol**. Scrolling, time spent, confidence, and an
 unreviewed reflection do not prove completion.
 
 ## Articulate and production team
@@ -103,8 +126,8 @@ and deterministic completion. Record the exact curriculum revision used.
 
 ## Marketing and enrollment team
 
-You may say that the module helps the learner **decide whether generated media is appropriate for a utility communication and what evidence, disclosure, consent, and human approval it needs** and produce a
-**generated-media production and review brief**. You may not promise savings, compliance, certification, safety,
+You may say that the module helps the learner **decide whether generated or altered media may be created, shared, published, corrected, restricted, or rejected for a utility communication purpose** and produce a
+**utility synthetic-media integrity and production protocol**. You may not promise savings, compliance, certification, safety,
 implementation success, career advancement, or professional mastery. All public claims require a
 separate source and approval record.
 
@@ -112,7 +135,7 @@ separate source and approval record.
 
 Reject the module when:
 
-- the learner cannot explain the core distinctions among source media, generated media, edit, simulation, evidence, likeness, rights, disclosure, and accessible alternative;
+- the learner cannot explain the core distinctions among generated media, edited media, misleading context, impersonation, deepfake, error, satire, disinformation, source, transformation, disclosure, approval, and correction;
 - the opening situation disappears and the module becomes a glossary or product tour;
 - the work product has no source, role, limitation, review, or next-action fields;
 - a current section, proposal, subtopic, enhancement, or contributor record is omitted or moved
@@ -126,7 +149,7 @@ Reject the module when:
 
 ## Evidence and scope boundary
 
-Do not use generated media as engineering, inspection, incident, laboratory, or historical evidence. Verify rights, consent, technical details, and text.
+Do not label media authentic or false without recorded evidence and qualified review. Do not generate a person's likeness or voice without authority, or publish unsupported water-quality, service, emergency, or public claims.
 
 ## Definition of a successful blueprint
 

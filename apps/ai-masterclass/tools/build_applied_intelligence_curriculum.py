@@ -208,9 +208,9 @@ def inject_granular_structure(source: str, module: dict[str, object]) -> str:
             )
         planned = (
             '<section class="owai-planned-expansion">'
-            '<div class="owai-planned-kicker">Curriculum expansion under review</div>'
-            f'<h2 id="{plan_anchor}">Planned additions for Module {html.escape(module["number"])}</h2>'
-            '<p class="owai-planned-note">These entries are visible curriculum decisions. They are not represented as finished instruction until research, authoring, review, and approval are complete.</p>'
+            '<div class="owai-planned-kicker">Curriculum expansion register</div>'
+            f'<h2 id="{plan_anchor}">Current and proposed additions for Module {html.escape(module["number"])}</h2>'
+            '<p class="owai-planned-note">The status badge on each entry governs its curriculum decision. Accepted means an approved curriculum blueprint, not finished instruction. Every entry still requires research, authoring, review, accessibility, packaging, and release approval before learner delivery.</p>'
             + "".join(blocks)
             + '</section>'
         )

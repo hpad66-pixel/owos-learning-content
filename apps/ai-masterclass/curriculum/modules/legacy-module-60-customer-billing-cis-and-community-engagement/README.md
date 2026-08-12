@@ -19,7 +19,7 @@ Determine which customer interaction may receive AI support and how the official
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_60_Customer_Billing_Community.html`
-- Source pages in the governed curriculum: 719 through 732
+- Source pages in the governed curriculum: 728 through 741
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

@@ -1,6 +1,6 @@
 {
   "schema": "owos-granular-curriculum-map/v1",
-  "generated": "2026-08-05",
+  "generated": "2026-08-11",
   "program": {
     "title": "One Water AI",
     "subtitle": "The Applied Intelligence Curriculum for the Water Sector",
@@ -14,14 +14,16 @@
     "nested_current_section": "M40.03a",
     "proposed_addition": "M40.P01",
     "proposed_subtopic": "M40.P01a",
-    "targeted_enhancement": "ME-033"
+    "targeted_enhancement": "ME-033",
+    "competitive_expansion": "M41.CE01"
   },
   "status_legend": {
     "current": "Already present in the current module source.",
     "partial": "The course introduces the subject but lacks the proposed depth or practice.",
     "missing": "The proposed capability is not materially taught today.",
     "duplicate": "The proposal repeats another gap and should be consolidated.",
-    "proposed": "Recommended for review. It is not yet approved learner-facing content."
+    "proposed": "Recommended for review. It is not yet approved learner-facing content.",
+    "accepted": "Approved for curriculum-blueprint integration. Facts, lesson production, credentials, and release remain subject to their own gates."
   },
   "source_review": {
     "title": "AI MASTER CLASS GAP ANALYSIS",
@@ -35,23 +37,6 @@
     ],
     "note": "The review refers to a 602-page course. The current compiled curriculum is 684 pages, so the module source and current PDF were used for this comparison."
   },
-  "contributor_reviews": [
-    {
-      "id": "CR-INT-002",
-      "source_id": "INT-002",
-      "contributor": {
-        "id": "shreya",
-        "name": "Shreya",
-        "role": "Technical researcher and reviewer"
-      },
-      "title": "Technical foundations curriculum crosswalk",
-      "file": "apps/ai-masterclass/curriculum/shreya-technical-foundations-review.json",
-      "source_item_count": 56,
-      "reviewed": "2026-08-05",
-      "status": "mapped for curriculum review",
-      "release_boundary": "Mappings and proposals are tracked. New or expanded learner-facing content still requires evidence review and blueprint approval."
-    }
-  ],
   "revision_tracking": {
     "canonical_file": "apps/ai-masterclass/curriculum/one-water-ai-granular-toc.json",
     "method": "Update coverage, decision, placement, and last_updated by stable item ID, then rebuild the Markdown and HTML views.",
@@ -71,7 +56,9 @@
       "partial": 15,
       "duplicate": 1
     },
-    "targeted_enhancement_count": 3
+    "targeted_enhancement_count": 3,
+    "competitive_expansion_count": 15,
+    "accepted_competitive_expansions": 15
   },
   "parts": [
     {
@@ -1226,8 +1213,8 @@
         "title": "Front Matter"
       },
       "pages": {
-        "start": 20,
-        "end": 32
+        "start": 21,
+        "end": 33
       },
       "source_file": "AI Master CLass/HTML/Module_00_Orientation.html",
       "current_sections": [
@@ -1480,8 +1467,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 33,
-        "end": 43
+        "start": 34,
+        "end": 44
       },
       "source_file": "AI Master CLass/HTML/Module_01_Why_This_Why_Now.html",
       "current_sections": [
@@ -1598,8 +1585,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 44,
-        "end": 52
+        "start": 45,
+        "end": 53
       },
       "source_file": "AI Master CLass/HTML/Module_02_What_AI_Actually_Is.html",
       "current_sections": [
@@ -1686,8 +1673,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 53,
-        "end": 59
+        "start": 54,
+        "end": 60
       },
       "source_file": "AI Master CLass/HTML/Module_03_The_Lexicon_of_AI.html",
       "current_sections": [
@@ -1774,8 +1761,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 60,
-        "end": 69
+        "start": 61,
+        "end": 70
       },
       "source_file": "AI Master CLass/HTML/Module_04_Under_the_Hood.html",
       "current_sections": [
@@ -1862,8 +1849,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 70,
-        "end": 78
+        "start": 71,
+        "end": 79
       },
       "source_file": "AI Master CLass/HTML/Module_05_How_a_Model_Is_Made.html",
       "current_sections": [
@@ -1938,7 +1925,77 @@
           "coverage": "current"
         }
       ],
-      "proposed_additions": [],
+      "proposed_additions": [
+        {
+          "id": "M05.CE01",
+          "gap_id": "AAI-01",
+          "competitiveExpansionId": "AAI-01",
+          "title": "The production AI lifecycle, from evidence to operation",
+          "kind": "applied",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Connect data, model or language-system design, evaluation, release, monitoring, incident response, rollback, and improvement in one traceable lifecycle. The learner should see that a working demonstration is only one controlled stage.",
+          "description": "Connect data, model or language-system design, evaluation, release, monitoring, incident response, rollback, and improvement in one traceable lifecycle. The learner should see that a working demonstration is only one controlled stage.",
+          "learningObjectives": [
+            "Explain the difference among experiment, demonstration, pilot, production service, and governed operating capability.",
+            "Trace one utility application through data, model, prompt, context, tool, evaluation, release, monitoring, incident, rollback, and correction records.",
+            "Identify the owner, evidence, entry condition, exit condition, and stop rule at every lifecycle gate.",
+            "Distinguish a model change from a data, retrieval, prompt, tool, permission, interface, or workflow change.",
+            "Create and defend a production AI lifecycle and provenance card for a bounded utility use case."
+          ],
+          "workProduct": "production AI lifecycle and provenance card",
+          "assessmentEvidence": [
+            "lifecycle ordering check",
+            "change-type classification",
+            "utility release-gate decision",
+            "completed lifecycle card"
+          ],
+          "visualDirections": [
+            "lifecycle phase-gate flow",
+            "change-layer stack",
+            "source-to-operation provenance network",
+            "incident-correction loop"
+          ],
+          "secondaryModules": [
+            "M16",
+            "M24",
+            "M40",
+            "M43",
+            "M53"
+          ],
+          "sourceRefs": [
+            "CCA-004 pages 6 to 11",
+            "CCA-001 pages 12 to 15"
+          ],
+          "evidenceBoundary": "Do not treat a stage name, vendor platform, deployment, or passing test as proof that a utility application is safe, useful, supported, or approved.",
+          "subtopics": [
+            {
+              "id": "M05.CE01a",
+              "title": "Experiment, demonstration, pilot, production, and retirement"
+            },
+            {
+              "id": "M05.CE01b",
+              "title": "Data, model, prompt, context, tool, and configuration versions"
+            },
+            {
+              "id": "M05.CE01c",
+              "title": "Evaluation and acceptance before release"
+            },
+            {
+              "id": "M05.CE01d",
+              "title": "Environment promotion and accountable approval"
+            },
+            {
+              "id": "M05.CE01e",
+              "title": "Monitoring, incident, correction, rollback, and retirement"
+            },
+            {
+              "id": "M05.CE01f",
+              "title": "One traceable record from source evidence to operating decision"
+            }
+          ]
+        }
+      ],
       "targeted_enhancements": []
     },
     {
@@ -1950,8 +2007,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 79,
-        "end": 88
+        "start": 80,
+        "end": 89
       },
       "source_file": "AI Master CLass/HTML/Module_06_Psychology_of_an_LLM.html",
       "current_sections": [
@@ -2083,8 +2140,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 89,
-        "end": 96
+        "start": 90,
+        "end": 97
       },
       "source_file": "AI Master CLass/HTML/Module_07_Reasoning_Models.html",
       "current_sections": [
@@ -2216,8 +2273,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 97,
-        "end": 108
+        "start": 98,
+        "end": 109
       },
       "source_file": "AI Master CLass/HTML/Module_08_How_Machines_Read_and_See.html",
       "current_sections": [
@@ -2336,8 +2393,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 109,
-        "end": 118
+        "start": 110,
+        "end": 119
       },
       "source_file": "AI Master CLass/HTML/Module_09_LLM_as_OS.html",
       "current_sections": [
@@ -2424,8 +2481,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 119,
-        "end": 127
+        "start": 120,
+        "end": 128
       },
       "source_file": "AI Master CLass/HTML/Module_10_The_Autonomy_Slider.html",
       "current_sections": [
@@ -2532,6 +2589,81 @@
               "title": "The human counterweight to the whole 'delegate to AI' arc"
             }
           ]
+        },
+        {
+          "id": "M10.CE01",
+          "gap_id": "AAI-07",
+          "competitiveExpansionId": "AAI-07",
+          "title": "Human-agent interaction and agentic user experience",
+          "kind": "applied",
+          "coverage": "missing",
+          "decision": "accepted",
+          "recommendation": "Design the interaction that lets a person understand what the system is doing, inspect its evidence and limits, control consequential actions, interrupt work, correct mistakes, recover, and escalate.",
+          "description": "Design the interaction that lets a person understand what the system is doing, inspect its evidence and limits, control consequential actions, interrupt work, correct mistakes, recover, and escalate.",
+          "learningObjectives": [
+            "Explain calibrated trust and common ground in plain English.",
+            "Distinguish transparency, explanation, source evidence, system status, confirmation, and human authority.",
+            "Design progress, preview, confirmation, cancel, interrupt, correction, recovery, and escalation behavior for a utility task.",
+            "Evaluate an interface for automation bias, false confidence, inaccessible interaction, hidden state, and weak failure recovery.",
+            "Create an agent interaction, authority, and recovery specification."
+          ],
+          "workProduct": "agent interaction, authority, and recovery specification",
+          "assessmentEvidence": [
+            "interface risk critique",
+            "interaction-state ordering",
+            "failure recovery simulation",
+            "completed interaction specification"
+          ],
+          "visualDirections": [
+            "human-agent interaction state map",
+            "trust calibration curve",
+            "confirmation and authority swimlane",
+            "failure recovery path map"
+          ],
+          "secondaryModules": [
+            "M24",
+            "M31",
+            "M41",
+            "M45",
+            "M46",
+            "M47",
+            "M48",
+            "M49",
+            "M50",
+            "M51",
+            "M52"
+          ],
+          "sourceRefs": [
+            "CCA-003 page 13",
+            "CCA-005"
+          ],
+          "evidenceBoundary": "A friendly or transparent interface does not make an answer accurate or an action authorized. Interface design must expose, not hide, the remaining evidence and authority limits.",
+          "subtopics": [
+            {
+              "id": "M10.CE01a",
+              "title": "Calibrated trust and common ground"
+            },
+            {
+              "id": "M10.CE01b",
+              "title": "Visible goal, plan, source, tool, status, limitation, and cost"
+            },
+            {
+              "id": "M10.CE01c",
+              "title": "Preview and confirmation before consequential action"
+            },
+            {
+              "id": "M10.CE01d",
+              "title": "Interrupt, cancel, pause, correct, undo, and recover"
+            },
+            {
+              "id": "M10.CE01e",
+              "title": "Confidence, uncertainty, explanation, and source display"
+            },
+            {
+              "id": "M10.CE01f",
+              "title": "Accessibility, plain language, escalation, and human handoff"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -2545,8 +2677,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 128,
-        "end": 136
+        "start": 129,
+        "end": 137
       },
       "source_file": "AI Master CLass/HTML/Module_11_Superintelligence_Honestly.html",
       "current_sections": [
@@ -2626,8 +2758,8 @@
         "title": "Foundations and Mental Models"
       },
       "pages": {
-        "start": 137,
-        "end": 147
+        "start": 138,
+        "end": 148
       },
       "source_file": "AI Master CLass/HTML/Module_12_Jobs_Money_and_the_Utility.html",
       "current_sections": [
@@ -2773,6 +2905,75 @@
               "title": "HR with AI: job descriptions, resume screening, structured interview questions, offer letters, with the fair-hiring cautions"
             }
           ]
+        },
+        {
+          "id": "M12.CE01",
+          "gap_id": "AAI-15",
+          "competitiveExpansionId": "AAI-15",
+          "title": "Value measurement and benefit realization",
+          "kind": "applied",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Create one measurement spine from the current baseline through adoption, quality, risk, cost, review effort, time to value, benefit ownership, measurement cadence, and the decision to continue or stop.",
+          "description": "Create one measurement spine from the current baseline through adoption, quality, risk, cost, review effort, time to value, benefit ownership, measurement cadence, and the decision to continue or stop.",
+          "learningObjectives": [
+            "Distinguish output, activity, adoption, quality, service outcome, risk reduction, financial value, and public value.",
+            "Define a credible current baseline before estimating a benefit.",
+            "Build measures for quality, error, delay, rework, human review, cost, risk, adoption, and affected service outcomes.",
+            "Assign a benefit owner, source, frequency, threshold, limitation, review, and stop rule for every material measure.",
+            "Create a utility AI value and benefit-realization record."
+          ],
+          "workProduct": "utility AI value and benefit-realization record",
+          "assessmentEvidence": [
+            "measure-type classification",
+            "baseline fault diagnosis",
+            "risk-adjusted decision scenario",
+            "completed benefit record"
+          ],
+          "visualDirections": [
+            "baseline-to-benefit chain",
+            "total-cost iceberg",
+            "measure hierarchy",
+            "continue-redesign-stop phase gates"
+          ],
+          "secondaryModules": [
+            "M24",
+            "M47",
+            "M50",
+            "M53"
+          ],
+          "sourceRefs": [
+            "CCA-001 pages 9 and 13",
+            "CCA-002 pages 7, 10, and 11",
+            "CCA-005"
+          ],
+          "evidenceBoundary": "Do not promise productivity, savings, return, staff reduction, service improvement, or public value without an approved baseline, complete cost, measured evidence, and accountable owner.",
+          "subtopics": [
+            {
+              "id": "M12.CE01a",
+              "title": "Problem, current process, baseline, and counterfactual"
+            },
+            {
+              "id": "M12.CE01b",
+              "title": "Activity, adoption, quality, risk, service, financial, and public-value measures"
+            },
+            {
+              "id": "M12.CE01c",
+              "title": "Direct, indirect, shifted, avoided, and uncertain cost"
+            },
+            {
+              "id": "M12.CE01d",
+              "title": "Human-review effort, correction, and operating burden"
+            },
+            {
+              "id": "M12.CE01e",
+              "title": "Benefit owner, data source, cadence, threshold, and limitation"
+            },
+            {
+              "id": "M12.CE01f",
+              "title": "Continue, redesign, defer, scale, or stop decision"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -2786,8 +2987,8 @@
         "title": "Retrieval, Generation and the Data Foundation"
       },
       "pages": {
-        "start": 148,
-        "end": 157
+        "start": 149,
+        "end": 158
       },
       "source_file": "AI Master CLass/HTML/Module_13_Generative_AI_and_RAG.html",
       "current_sections": [
@@ -2867,8 +3068,8 @@
         "title": "Retrieval, Generation and the Data Foundation"
       },
       "pages": {
-        "start": 158,
-        "end": 165
+        "start": 159,
+        "end": 166
       },
       "source_file": "AI Master CLass/HTML/Module_14_The_RAG_Family_Done_Right.html",
       "current_sections": [
@@ -2955,8 +3156,8 @@
         "title": "Retrieval, Generation and the Data Foundation"
       },
       "pages": {
-        "start": 166,
-        "end": 174
+        "start": 167,
+        "end": 175
       },
       "source_file": "AI Master CLass/HTML/Module_15_Embeddings_and_Vector_Databases.html",
       "current_sections": [
@@ -3036,8 +3237,8 @@
         "title": "Retrieval, Generation and the Data Foundation"
       },
       "pages": {
-        "start": 175,
-        "end": 185
+        "start": 176,
+        "end": 186
       },
       "source_file": "AI Master CLass/HTML/Module_16_Fix_the_Data.html",
       "current_sections": [
@@ -3238,8 +3439,8 @@
         "title": "Retrieval, Generation and the Data Foundation"
       },
       "pages": {
-        "start": 186,
-        "end": 210
+        "start": 187,
+        "end": 211
       },
       "source_file": "AI Master CLass/HTML/Module_17_Life_Is_a_Graph.html",
       "current_sections": [
@@ -3549,8 +3750,8 @@
         "title": "Retrieval, Generation and the Data Foundation"
       },
       "pages": {
-        "start": 211,
-        "end": 219
+        "start": 212,
+        "end": 220
       },
       "source_file": "AI Master CLass/HTML/Module_18_The_Machinery.html",
       "current_sections": [
@@ -3637,8 +3838,8 @@
         "title": "Retrieval, Generation and the Data Foundation"
       },
       "pages": {
-        "start": 220,
-        "end": 229
+        "start": 221,
+        "end": 230
       },
       "source_file": "AI Master CLass/HTML/Module_19_The_One_Water_Ontology.html",
       "current_sections": [
@@ -3718,8 +3919,8 @@
         "title": "Retrieval, Generation and the Data Foundation"
       },
       "pages": {
-        "start": 230,
-        "end": 240
+        "start": 231,
+        "end": 241
       },
       "source_file": "AI Master CLass/HTML/Module_20_Defragmenting_the_People.html",
       "current_sections": [
@@ -3799,8 +4000,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 241,
-        "end": 251
+        "start": 242,
+        "end": 252
       },
       "source_file": "AI Master CLass/HTML/Module_21_Data_Governance_First_Principles.html",
       "current_sections": [
@@ -3880,8 +4081,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 252,
-        "end": 261
+        "start": 253,
+        "end": 262
       },
       "source_file": "AI Master CLass/HTML/Module_22_AI_Governance.html",
       "current_sections": [
@@ -3968,8 +4169,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 262,
-        "end": 272
+        "start": 263,
+        "end": 273
       },
       "source_file": "AI Master CLass/HTML/Module_23_The_ISO_Standards_Stack.html",
       "current_sections": [
@@ -4049,8 +4250,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 273,
-        "end": 282
+        "start": 274,
+        "end": 284
       },
       "source_file": "AI Master CLass/HTML/Module_24_Evals.html",
       "current_sections": [
@@ -4200,6 +4401,143 @@
               "title": "The numeric version of 'verify every output' for a CIO acting on an AI-made chart"
             }
           ]
+        },
+        {
+          "id": "M24.CE01",
+          "gap_id": "AAI-08",
+          "competitiveExpansionId": "AAI-08",
+          "title": "Agent-specific evaluation and continuous assurance",
+          "kind": "applied",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Extend evaluation from answer quality to the complete agent trajectory, including task result, tool use, source coverage, policy behavior, recovery, latency, cost, and human-review effort.",
+          "description": "Extend evaluation from answer quality to the complete agent trajectory, including task result, tool use, source coverage, policy behavior, recovery, latency, cost, and human-review effort.",
+          "learningObjectives": [
+            "Define task success and failure before selecting an agent metric.",
+            "Evaluate answer quality, groundedness, source coverage, tool-call correctness, trajectory, refusal, recovery, latency, cost, and human effort.",
+            "Build a representative test set with ordinary, boundary, adversarial, stale, conflicting, and failure cases.",
+            "Set acceptance thresholds, stop rules, regression tests, reviewers, and correction actions.",
+            "Create an agent evaluation and continuing-assurance plan."
+          ],
+          "workProduct": "agent evaluation and continuing-assurance plan",
+          "assessmentEvidence": [
+            "metric-to-failure matching",
+            "test-case classification",
+            "threshold and stop decision",
+            "completed assurance plan"
+          ],
+          "visualDirections": [
+            "agent evaluation coverage matrix",
+            "trajectory trace",
+            "threshold tradeoff chart",
+            "continuous-assurance loop"
+          ],
+          "secondaryModules": [
+            "M26",
+            "M31",
+            "M41",
+            "M43",
+            "M53"
+          ],
+          "sourceRefs": [
+            "CCA-001 pages 13 to 14",
+            "CCA-004 pages 8 and 11"
+          ],
+          "evidenceBoundary": "An average score or one successful demonstration does not prove fitness for a utility task, safety, fairness, compliance, or performance under changed conditions.",
+          "subtopics": [
+            {
+              "id": "M24.CE01a",
+              "title": "Task outcome and acceptance evidence"
+            },
+            {
+              "id": "M24.CE01b",
+              "title": "Groundedness, source coverage, and citation support"
+            },
+            {
+              "id": "M24.CE01c",
+              "title": "Tool-call correctness and trajectory evaluation"
+            },
+            {
+              "id": "M24.CE01d",
+              "title": "Policy, refusal, permission, and escalation behavior"
+            },
+            {
+              "id": "M24.CE01e",
+              "title": "Latency, cost, human effort, resilience, and recovery"
+            },
+            {
+              "id": "M24.CE01f",
+              "title": "Regression set, thresholds, drift, incident, and continuing assurance"
+            }
+          ]
+        },
+        {
+          "id": "M24.CE02",
+          "gap_id": "AAI-09",
+          "competitiveExpansionId": "AAI-09",
+          "title": "Observability, drift, degradation, and incident response",
+          "kind": "applied",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Teach how a team notices that data, sources, model behavior, prompts, tools, permissions, infrastructure, cost, or human work has changed, then pauses, investigates, corrects, and records the response.",
+          "description": "Teach how a team notices that data, sources, model behavior, prompts, tools, permissions, infrastructure, cost, or human work has changed, then pauses, investigates, corrects, and records the response.",
+          "learningObjectives": [
+            "Explain observability as the evidence needed to understand a changing system, not as a dashboard alone.",
+            "Distinguish data drift, concept drift, model degradation, retrieval staleness, prompt regression, tool failure, permission change, and workflow change.",
+            "Select signals, logs, traces, thresholds, alerts, owners, and response times for one utility application.",
+            "Investigate an incident without overwriting prior evidence and decide whether to continue, restrict, roll back, or stop.",
+            "Create an artificial intelligence observability and incident-response record."
+          ],
+          "workProduct": "AI observability and incident-response record",
+          "assessmentEvidence": [
+            "change-type classification",
+            "signal and threshold design",
+            "incident decision simulation",
+            "completed incident record"
+          ],
+          "visualDirections": [
+            "system signal map",
+            "drift and degradation timeline",
+            "incident decision tree",
+            "contain-correct-recover loop"
+          ],
+          "secondaryModules": [
+            "M05",
+            "M25",
+            "M26",
+            "M31",
+            "M43"
+          ],
+          "sourceRefs": [
+            "CCA-004 pages 8 to 11"
+          ],
+          "evidenceBoundary": "A missing alert does not prove a system is healthy. Monitoring scope, blind spots, retention, privacy, and responsible human response must remain visible.",
+          "subtopics": [
+            {
+              "id": "M24.CE02a",
+              "title": "Signals, logs, traces, measures, alerts, and ownership"
+            },
+            {
+              "id": "M24.CE02b",
+              "title": "Data drift, concept drift, and model degradation"
+            },
+            {
+              "id": "M24.CE02c",
+              "title": "Retrieval staleness, source conflict, and prompt regression"
+            },
+            {
+              "id": "M24.CE02d",
+              "title": "Tool, permission, integration, infrastructure, and cost failure"
+            },
+            {
+              "id": "M24.CE02e",
+              "title": "Containment, pause, rollback, correction, and communication"
+            },
+            {
+              "id": "M24.CE02f",
+              "title": "Append-only incident, decision, and learning record"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -4213,8 +4551,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 283,
-        "end": 292
+        "start": 285,
+        "end": 294
       },
       "source_file": "AI Master CLass/HTML/Module_25_Cybersecurity_for_Water.html",
       "current_sections": [
@@ -4380,8 +4718,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 293,
-        "end": 301
+        "start": 295,
+        "end": 303
       },
       "source_file": "AI Master CLass/HTML/Module_26_AI_Security_and_Safety.html",
       "current_sections": [
@@ -4461,8 +4799,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 302,
-        "end": 312
+        "start": 304,
+        "end": 314
       },
       "source_file": "AI Master CLass/HTML/Module_27_Data_Privacy_PII.html",
       "current_sections": [
@@ -4632,8 +4970,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 313,
-        "end": 320
+        "start": 315,
+        "end": 322
       },
       "source_file": "AI Master CLass/HTML/Module_28_AI_Regulation_Landscape.html",
       "current_sections": [
@@ -4713,8 +5051,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 321,
-        "end": 331
+        "start": 323,
+        "end": 333
       },
       "source_file": "AI Master CLass/HTML/Module_29_AI_Action_Plans.html",
       "current_sections": [
@@ -4794,8 +5132,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 332,
-        "end": 339
+        "start": 334,
+        "end": 341
       },
       "source_file": "AI Master CLass/HTML/Module_30_Policy_by_Design.html",
       "current_sections": [
@@ -4875,8 +5213,8 @@
         "title": "Governance, Security and Provenance"
       },
       "pages": {
-        "start": 340,
-        "end": 352
+        "start": 342,
+        "end": 355
       },
       "source_file": "AI Master CLass/HTML/Module_31_Provenance_Trust_and_Audit.html",
       "current_sections": [
@@ -4983,6 +5321,74 @@
               "title": "The human counterweight to the whole 'delegate to AI' arc"
             }
           ]
+        },
+        {
+          "id": "M31.CE01",
+          "gap_id": "AAI-13",
+          "competitiveExpansionId": "AAI-13",
+          "title": "Explainability, transparency, trace, and justification",
+          "kind": "concept",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Teach the difference among an understandable explanation, a source trace, an interpretable model, a decision justification, and an unknown mechanism. Match the evidence burden to the consequence and audience.",
+          "description": "Teach the difference among an understandable explanation, a source trace, an interpretable model, a decision justification, and an unknown mechanism. Match the evidence burden to the consequence and audience.",
+          "learningObjectives": [
+            "Distinguish explanation, transparency, interpretability, traceability, provenance, evidence, and decision justification.",
+            "Identify what a model, application, vendor, reviewer, and accountable decision maker can and cannot explain.",
+            "Match explanation and evidence needs to the task, consequence, affected person, professional standard, and decision right.",
+            "Reject an explanation that is fluent but unsupported, incomplete, inapplicable, or disconnected from the actual system record.",
+            "Create an explanation, evidence, and decision-justification record."
+          ],
+          "workProduct": "explanation, evidence, and decision-justification record",
+          "assessmentEvidence": [
+            "term distinction matching",
+            "explanation-quality critique",
+            "consequence-based evidence decision",
+            "completed justification record"
+          ],
+          "visualDirections": [
+            "explanation-evidence stack",
+            "source-to-decision trace",
+            "audience and consequence matrix",
+            "known-unknown boundary map"
+          ],
+          "secondaryModules": [
+            "M22",
+            "M24",
+            "M47",
+            "M63"
+          ],
+          "sourceRefs": [
+            "CCA-001 page 8",
+            "CCA-002 page 9"
+          ],
+          "evidenceBoundary": "A plausible explanation can be wrong. Provenance can show origin without proving accuracy. Human justification remains separate from model output.",
+          "subtopics": [
+            {
+              "id": "M31.CE01a",
+              "title": "Plain-language explanation and audience"
+            },
+            {
+              "id": "M31.CE01b",
+              "title": "Model interpretability and technical limits"
+            },
+            {
+              "id": "M31.CE01c",
+              "title": "Application transparency and system status"
+            },
+            {
+              "id": "M31.CE01d",
+              "title": "Traceability, provenance, source evidence, and version"
+            },
+            {
+              "id": "M31.CE01e",
+              "title": "Decision justification, accountable owner, and affected person"
+            },
+            {
+              "id": "M31.CE01f",
+              "title": "Unknowns, uncertainty, challenge, correction, and appeal"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -4996,8 +5402,8 @@
         "title": "Using AI in Professional Work"
       },
       "pages": {
-        "start": 353,
-        "end": 365
+        "start": 356,
+        "end": 368
       },
       "source_file": "AI Master CLass/HTML/Module_32_The_Assistants.html",
       "current_sections": [
@@ -5374,8 +5780,8 @@
         "title": "Using AI in Professional Work"
       },
       "pages": {
-        "start": 366,
-        "end": 376
+        "start": 369,
+        "end": 379
       },
       "source_file": "AI Master CLass/HTML/Module_33_Prompt_Context_Harness.html",
       "current_sections": [
@@ -5473,8 +5879,8 @@
         "title": "Using AI in Professional Work"
       },
       "pages": {
-        "start": 377,
-        "end": 392
+        "start": 380,
+        "end": 395
       },
       "source_file": "AI Master CLass/HTML/Module_34_Skills_That_Write_Your_Prompts.html",
       "current_sections": [
@@ -5582,8 +5988,8 @@
         "title": "Using AI in Professional Work"
       },
       "pages": {
-        "start": 393,
-        "end": 402
+        "start": 396,
+        "end": 405
       },
       "source_file": "AI Master CLass/HTML/Module_35_FineTune_RAG_Prompt.html",
       "current_sections": [
@@ -5663,8 +6069,8 @@
         "title": "Using AI in Professional Work"
       },
       "pages": {
-        "start": 403,
-        "end": 414
+        "start": 406,
+        "end": 417
       },
       "source_file": "AI Master CLass/HTML/Module_36_Research_Writing_Voice.html",
       "current_sections": [
@@ -5924,8 +6330,8 @@
         "title": "Using AI in Professional Work"
       },
       "pages": {
-        "start": 415,
-        "end": 426
+        "start": 418,
+        "end": 430
       },
       "source_file": "AI Master CLass/HTML/Module_37_Image_Vision_Media.html",
       "current_sections": [
@@ -6048,6 +6454,76 @@
               "title": "The disclosure rule for public utility comms"
             }
           ]
+        },
+        {
+          "id": "M37.CE01",
+          "gap_id": "AAI-12",
+          "competitiveExpansionId": "AAI-12",
+          "title": "Synthetic media, deepfakes, disinformation, and content integrity",
+          "kind": "applied",
+          "coverage": "missing",
+          "decision": "accepted",
+          "recommendation": "Prepare learners to verify generated and altered media, preserve source and transformation records, disclose synthetic content, control publication, respond to false public information, and correct the record.",
+          "description": "Prepare learners to verify generated and altered media, preserve source and transformation records, disclose synthetic content, control publication, respond to false public information, and correct the record.",
+          "learningObjectives": [
+            "Distinguish generated media, edited media, misleading context, impersonation, deepfake, error, satire, and deliberate disinformation.",
+            "Inspect source, author, capture time, transformation, metadata, corroboration, approval, and publication history.",
+            "Design disclosure, approval, accessibility, retention, correction, and incident rules for utility communication.",
+            "Respond to a false water-quality, service, emergency, or public-official message without amplifying unsupported content.",
+            "Create a utility synthetic-media integrity and correction protocol."
+          ],
+          "workProduct": "utility synthetic-media integrity and correction protocol",
+          "assessmentEvidence": [
+            "media-type classification",
+            "provenance inspection",
+            "public-response scenario",
+            "completed integrity protocol"
+          ],
+          "visualDirections": [
+            "media provenance chain",
+            "content-integrity decision tree",
+            "publication approval swimlane",
+            "false-message correction timeline"
+          ],
+          "secondaryModules": [
+            "M08",
+            "M22",
+            "M26",
+            "M31",
+            "M48",
+            "M60"
+          ],
+          "sourceRefs": [
+            "CCA-001 page 8",
+            "CCA-002 page 9"
+          ],
+          "evidenceBoundary": "Detection tools are imperfect. Do not label media authentic or false without recorded evidence, qualified review, and an honest statement of uncertainty.",
+          "subtopics": [
+            {
+              "id": "M37.CE01a",
+              "title": "Generated, edited, synthetic, misleading, and impersonated media"
+            },
+            {
+              "id": "M37.CE01b",
+              "title": "Source, metadata, provenance, transformation, and corroboration"
+            },
+            {
+              "id": "M37.CE01c",
+              "title": "Employee, vendor, public-official, and community communication risks"
+            },
+            {
+              "id": "M37.CE01d",
+              "title": "Disclosure, consent, accessibility, approval, and publication"
+            },
+            {
+              "id": "M37.CE01e",
+              "title": "Detection limits, evidence preservation, and escalation"
+            },
+            {
+              "id": "M37.CE01f",
+              "title": "Public correction, incident communication, and trust repair"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -6061,8 +6537,8 @@
         "title": "Using AI in Professional Work"
       },
       "pages": {
-        "start": 427,
-        "end": 441
+        "start": 431,
+        "end": 445
       },
       "source_file": "AI Master CLass/HTML/Module_38_Workflows_Automations.html",
       "current_sections": [
@@ -6315,8 +6791,8 @@
         "title": "Building AI Systems"
       },
       "pages": {
-        "start": 442,
-        "end": 455
+        "start": 446,
+        "end": 459
       },
       "source_file": "AI Master CLass/HTML/Module_39_NoCode_LowCode.html",
       "current_sections": [
@@ -6716,8 +7192,8 @@
         "title": "Building AI Systems"
       },
       "pages": {
-        "start": 456,
-        "end": 472
+        "start": 460,
+        "end": 477
       },
       "source_file": "AI Master CLass/HTML/Module_40_Building_With_AI.html",
       "current_sections": [
@@ -7187,6 +7663,75 @@
               "title": "When to hand a task to no-code vs. write code"
             }
           ]
+        },
+        {
+          "id": "M40.CE01",
+          "gap_id": "AAI-10",
+          "competitiveExpansionId": "AAI-10",
+          "title": "Release discipline for AI-assisted software building",
+          "kind": "build",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Turn AI-assisted code generation into a controlled engineering process with plans, branches, reviews, tests, environments, dependencies, secrets, artifacts, release evidence, and recovery.",
+          "description": "Turn AI-assisted code generation into a controlled engineering process with plans, branches, reviews, tests, environments, dependencies, secrets, artifacts, release evidence, and recovery.",
+          "learningObjectives": [
+            "Explain repository, branch, change, review, test, commit, artifact, release, deployment, and rollback in plain English.",
+            "Set the files, systems, credentials, and actions an AI coding agent may inspect or change.",
+            "Review a change by reading the plan, difference, tests, security effect, and rollback path.",
+            "Reproduce a build in a clean environment without using an unrecorded local dependency or secret.",
+            "Create an AI-assisted software release evidence package."
+          ],
+          "workProduct": "AI-assisted software release evidence package",
+          "assessmentEvidence": [
+            "change-record classification",
+            "difference and test review",
+            "failed-release recovery",
+            "completed release package"
+          ],
+          "visualDirections": [
+            "goal-plan-build-test loop",
+            "branch and review graph",
+            "evidence chain",
+            "release and rollback phase gates"
+          ],
+          "secondaryModules": [
+            "M24",
+            "M26",
+            "M31",
+            "M43",
+            "M53"
+          ],
+          "sourceRefs": [
+            "CCA-004 pages 8 to 10",
+            "CCA-005"
+          ],
+          "evidenceBoundary": "Generated code and passing tests do not transfer engineering, cybersecurity, accessibility, privacy, or release responsibility to the artificial intelligence system.",
+          "subtopics": [
+            {
+              "id": "M40.CE01a",
+              "title": "Goal, plan, issue, user story, and acceptance evidence"
+            },
+            {
+              "id": "M40.CE01b",
+              "title": "Repository, branch, difference, review, commit, and tag"
+            },
+            {
+              "id": "M40.CE01c",
+              "title": "Unit, integration, security, accessibility, and regression tests"
+            },
+            {
+              "id": "M40.CE01d",
+              "title": "Dependencies, lock files, environments, configuration, and secrets"
+            },
+            {
+              "id": "M40.CE01e",
+              "title": "Build artifact, release notes, approval, deployment, and rollback"
+            },
+            {
+              "id": "M40.CE01f",
+              "title": "AI coding-agent permissions, evidence, and human ownership"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -7200,8 +7745,8 @@
         "title": "Building AI Systems"
       },
       "pages": {
-        "start": 473,
-        "end": 486
+        "start": 478,
+        "end": 493
       },
       "source_file": "AI Master CLass/HTML/Module_41_Agents_Orchestration.html",
       "current_sections": [
@@ -7315,6 +7860,209 @@
               "title": "Computer-use / browser agents: OpenAI Operator, Anthropic computer-use, Claude-for-Chrome, what they do, why they're fragile, the human-in-the-loop rule for live systems"
             }
           ]
+        },
+        {
+          "id": "M41.CE01",
+          "gap_id": "AAI-04",
+          "competitiveExpansionId": "AAI-04",
+          "title": "Agents, goals, environments, and perceived agency",
+          "kind": "concept",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Give learners a precise model for what an agent observes, what it may do, what goal it is pursuing, what environment it operates in, and why people can perceive more intelligence or authority than the system has.",
+          "description": "Give learners a precise model for what an agent observes, what it may do, what goal it is pursuing, what environment it operates in, and why people can perceive more intelligence or authority than the system has.",
+          "learningObjectives": [
+            "Distinguish a model response, deterministic workflow, bounded agent, and multi-agent work system.",
+            "Specify a task using goal, performance measure, environment, observations, allowed actions, state, and stop conditions.",
+            "Compare predictable, uncertain, observable, partially observable, static, and changing environments.",
+            "Identify language and interface choices that cause people to overstate agency, understanding, or authority.",
+            "Create a utility agent environment and authority specification."
+          ],
+          "workProduct": "utility agent environment and authority specification",
+          "assessmentEvidence": [
+            "system classification",
+            "environment analysis",
+            "agency-language correction",
+            "completed agent specification"
+          ],
+          "visualDirections": [
+            "agent-environment loop",
+            "environment property matrix",
+            "agency-perception spectrum",
+            "authority perimeter map"
+          ],
+          "secondaryModules": [
+            "M03",
+            "M06",
+            "M10"
+          ],
+          "sourceRefs": [
+            "CCA-003 page 11",
+            "CCA-005"
+          ],
+          "evidenceBoundary": "The academic agent model is a design lens. It does not grant an artificial intelligence system legal, professional, or operating authority.",
+          "subtopics": [
+            {
+              "id": "M41.CE01a",
+              "title": "Rational-agent framing and its limits"
+            },
+            {
+              "id": "M41.CE01b",
+              "title": "Goals, performance measures, and goal complexity"
+            },
+            {
+              "id": "M41.CE01c",
+              "title": "Environment types and uncertainty"
+            },
+            {
+              "id": "M41.CE01d",
+              "title": "Observations, allowed actions, state, and tools"
+            },
+            {
+              "id": "M41.CE01e",
+              "title": "Reactivity, autonomy, and perceived agency"
+            },
+            {
+              "id": "M41.CE01f",
+              "title": "Human authority, prohibited action, and stop"
+            }
+          ]
+        },
+        {
+          "id": "M41.CE02",
+          "gap_id": "AAI-05",
+          "competitiveExpansionId": "AAI-05",
+          "title": "Planning, Reason and Act, reflection, and agentic retrieval",
+          "kind": "build",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Compare fixed workflows with planning patterns that alternate reasoning, tool use, observation, evaluation, revision, and stop. Make observable evidence and control more important than hidden reasoning text.",
+          "description": "Compare fixed workflows with planning patterns that alternate reasoning, tool use, observation, evaluation, revision, and stop. Make observable evidence and control more important than hidden reasoning text.",
+          "learningObjectives": [
+            "Compare fixed workflow, plan-and-execute, Reason and Act, reflection, and agentic retrieval patterns.",
+            "Trace the observable goal, plan, action, tool result, evidence, evaluation, adjustment, and stop for one task.",
+            "Choose the least complicated planning pattern that can satisfy the utility task and consequence boundary.",
+            "Identify endless-loop, tool-selection, stale-evidence, plan-drift, and false-completion failures.",
+            "Create and test a governed agent plan and trace."
+          ],
+          "workProduct": "governed agent plan and trace",
+          "assessmentEvidence": [
+            "pattern comparison",
+            "trace ordering",
+            "failure injection and recovery",
+            "completed plan and trace"
+          ],
+          "visualDirections": [
+            "planning-pattern comparison",
+            "goal-plan-action-observation stepper",
+            "agentic retrieval loop",
+            "failure and stop decision tree"
+          ],
+          "secondaryModules": [
+            "M07",
+            "M14",
+            "M33"
+          ],
+          "sourceRefs": [
+            "CCA-003 page 12",
+            "CCA-005"
+          ],
+          "evidenceBoundary": "Do not expose private hidden reasoning or treat a generated reasoning narrative as proof. Evaluate observable actions, sources, tool results, and outcomes.",
+          "subtopics": [
+            {
+              "id": "M41.CE02a",
+              "title": "Classical plan, language-model plan, and fixed workflow"
+            },
+            {
+              "id": "M41.CE02b",
+              "title": "Plan-and-execute"
+            },
+            {
+              "id": "M41.CE02c",
+              "title": "Reason and Act"
+            },
+            {
+              "id": "M41.CE02d",
+              "title": "Reflection and critique"
+            },
+            {
+              "id": "M41.CE02e",
+              "title": "Agentic retrieval and iterative source refinement"
+            },
+            {
+              "id": "M41.CE02f",
+              "title": "Evaluation, retry budget, escalation, and stop"
+            }
+          ]
+        },
+        {
+          "id": "M41.CE03",
+          "gap_id": "AAI-06",
+          "competitiveExpansionId": "AAI-06",
+          "title": "Multi-agent coordination, conflict, cost, and failure",
+          "kind": "applied",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Teach multiple agents as a coordinated work system with explicit roles, communication, shared state, arbitration, evidence, cost, and accountable human decision. More agents can create more failure as easily as more capability.",
+          "description": "Teach multiple agents as a coordinated work system with explicit roles, communication, shared state, arbitration, evidence, cost, and accountable human decision. More agents can create more failure as easily as more capability.",
+          "learningObjectives": [
+            "Choose among one workflow, one agent, and multiple specialist agents for a bounded utility task.",
+            "Design roles, messages, shared state, source versions, handoffs, arbitration, escalation, and final human authority.",
+            "Identify duplication, disagreement, stale state, deadlock, cascading error, excessive cost, and false consensus.",
+            "Use basic cooperation, incentive, and conflict reasoning without implying that agents are independent professionals.",
+            "Create and test a multi-agent coordination and recovery contract."
+          ],
+          "workProduct": "multi-agent coordination and recovery contract",
+          "assessmentEvidence": [
+            "architecture choice",
+            "handoff and state simulation",
+            "failure-propagation diagnosis",
+            "completed coordination contract"
+          ],
+          "visualDirections": [
+            "coordination topology network",
+            "shared-state ledger",
+            "disagreement and arbitration swimlane",
+            "failure-propagation chain"
+          ],
+          "secondaryModules": [
+            "M20",
+            "M24",
+            "M26",
+            "M31",
+            "M51"
+          ],
+          "sourceRefs": [
+            "CCA-003 page 12",
+            "CCA-005"
+          ],
+          "evidenceBoundary": "Multiple agents do not create independent truth, professional judgment, or legal authority. Preserve source versions, permissions, cost limits, dissent, and human decision rights.",
+          "subtopics": [
+            {
+              "id": "M41.CE03a",
+              "title": "Coordination topologies and orchestrators"
+            },
+            {
+              "id": "M41.CE03b",
+              "title": "Communication contracts and message evidence"
+            },
+            {
+              "id": "M41.CE03c",
+              "title": "Shared state, source versions, and conflict"
+            },
+            {
+              "id": "M41.CE03d",
+              "title": "Delegation, arbitration, consensus, and dissent"
+            },
+            {
+              "id": "M41.CE03e",
+              "title": "Deadlock, cascading failure, duplicated work, and cost multiplication"
+            },
+            {
+              "id": "M41.CE03f",
+              "title": "Human command, incident response, and final decision"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -7328,8 +8076,8 @@
         "title": "Building AI Systems"
       },
       "pages": {
-        "start": 487,
-        "end": 499
+        "start": 494,
+        "end": 506
       },
       "source_file": "AI Master CLass/HTML/Module_42_Open_Closed_Local.html",
       "current_sections": [
@@ -7449,8 +8197,8 @@
         "title": "Building AI Systems"
       },
       "pages": {
-        "start": 500,
-        "end": 517
+        "start": 507,
+        "end": 526
       },
       "source_file": "AI Master CLass/HTML/Module_43_Infrastructure.html",
       "current_sections": [
@@ -7948,6 +8696,211 @@
               "title": "Insight to recommendation: a one-page decision memo with the evidence, the caveats, and what would change your mind"
             }
           ]
+        },
+        {
+          "id": "M43.CE01",
+          "gap_id": "AAI-02",
+          "competitiveExpansionId": "AAI-02",
+          "title": "Machine Learning Operations pipelines and reproducibility",
+          "kind": "build",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Teach the operating pipeline that moves data, code, model artifacts, tests, approvals, and monitoring through controlled environments. The learner must be able to reproduce a release and recover from a failed one.",
+          "description": "Teach the operating pipeline that moves data, code, model artifacts, tests, approvals, and monitoring through controlled environments. The learner must be able to reproduce a release and recover from a failed one.",
+          "learningObjectives": [
+            "Explain Machine Learning Operations in plain English as the controlled path from model work to supported operation.",
+            "Map data, code, experiment, model, test, environment, release, monitoring, and rollback dependencies.",
+            "Distinguish version control, experiment tracking, artifact storage, continuous integration, continuous delivery, and deployment.",
+            "Diagnose a reproducibility failure and identify the missing version, dependency, data, or configuration evidence.",
+            "Create a vendor-neutral Machine Learning Operations pipeline and release record."
+          ],
+          "workProduct": "Machine Learning Operations pipeline and release record",
+          "assessmentEvidence": [
+            "pipeline dependency mapping",
+            "reproducibility fault diagnosis",
+            "release strategy decision",
+            "completed release record"
+          ],
+          "visualDirections": [
+            "environment promotion pipeline",
+            "artifact provenance network",
+            "deployment strategy comparison",
+            "drift and rollback timeline"
+          ],
+          "secondaryModules": [
+            "M05",
+            "M16",
+            "M24",
+            "M40"
+          ],
+          "sourceRefs": [
+            "CCA-004 pages 7 to 10"
+          ],
+          "evidenceBoundary": "Use synthetic or approved data. Do not represent a classroom pipeline as a supported production service or a validated predictive model.",
+          "subtopics": [
+            {
+              "id": "M43.CE01a",
+              "title": "Pipeline architecture and responsibility"
+            },
+            {
+              "id": "M43.CE01b",
+              "title": "Data, code, model, configuration, and environment versions"
+            },
+            {
+              "id": "M43.CE01c",
+              "title": "Experiment tracking and artifact lineage"
+            },
+            {
+              "id": "M43.CE01d",
+              "title": "Automated tests and continuous integration"
+            },
+            {
+              "id": "M43.CE01e",
+              "title": "Release approval, deployment strategies, and rollback"
+            },
+            {
+              "id": "M43.CE01f",
+              "title": "Performance degradation, data drift, model drift, and correction"
+            }
+          ]
+        },
+        {
+          "id": "M43.CE02",
+          "gap_id": "AAI-03",
+          "competitiveExpansionId": "AAI-03",
+          "title": "Large Language Model Operations and agent operations",
+          "kind": "build",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Unify prompt, context, retrieval, tools, models, evaluations, traces, cost, incidents, and human review as one operating discipline for language-model and agent systems.",
+          "description": "Unify prompt, context, retrieval, tools, models, evaluations, traces, cost, incidents, and human review as one operating discipline for language-model and agent systems.",
+          "learningObjectives": [
+            "Explain how Large Language Model Operations differs from ordinary model deployment and ordinary software operation.",
+            "Version prompts, system instructions, retrieval sources, tools, permissions, evaluations, and model choices as operating dependencies.",
+            "Inspect a trace and separate model, source, tool, permission, orchestration, and human-review failures.",
+            "Define operating measures for quality, groundedness, refusal, tool correctness, latency, cost, and review effort.",
+            "Create an agent operations record with monitoring, incident, rollback, and human-escalation rules."
+          ],
+          "workProduct": "language-model and agent operations record",
+          "assessmentEvidence": [
+            "trace fault classification",
+            "metric and threshold design",
+            "incident response scenario",
+            "completed operations record"
+          ],
+          "visualDirections": [
+            "language-system dependency stack",
+            "trace and tool-call swimlane",
+            "quality-cost-latency tradeoff",
+            "operate-monitor-recover loop"
+          ],
+          "secondaryModules": [
+            "M24",
+            "M26",
+            "M31",
+            "M33",
+            "M41"
+          ],
+          "sourceRefs": [
+            "CCA-004 pages 8 and 11",
+            "CCA-003 pages 11 to 13"
+          ],
+          "evidenceBoundary": "A trace shows what the system recorded. It does not prove completeness, correctness, legal sufficiency, or professional judgment.",
+          "subtopics": [
+            {
+              "id": "M43.CE02a",
+              "title": "Prompt, context, retrieval, model, tool, and policy versions"
+            },
+            {
+              "id": "M43.CE02b",
+              "title": "Offline evaluation, regression testing, and online observation"
+            },
+            {
+              "id": "M43.CE02c",
+              "title": "Traces, tool calls, state transitions, and human review"
+            },
+            {
+              "id": "M43.CE02d",
+              "title": "Latency, token use, cost limits, rate limits, and capacity"
+            },
+            {
+              "id": "M43.CE02e",
+              "title": "Agent incidents, containment, retry limits, escalation, and rollback"
+            },
+            {
+              "id": "M43.CE02f",
+              "title": "Ownership, service levels, support, and retirement"
+            }
+          ]
+        },
+        {
+          "id": "M43.CE03",
+          "gap_id": "AAI-11",
+          "competitiveExpansionId": "AAI-11",
+          "title": "Cloud foundations and managed AI platforms",
+          "kind": "build",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Teach a vendor-neutral cloud foundation before a learner enters an Azure, Amazon Web Services, Google Cloud, or other platform lab. Every managed service still has identity, data, logging, cost, support, and exit responsibilities.",
+          "description": "Teach a vendor-neutral cloud foundation before a learner enters an Azure, Amazon Web Services, Google Cloud, or other platform lab. Every managed service still has identity, data, logging, cost, support, and exit responsibilities.",
+          "learningObjectives": [
+            "Explain cloud region, network, compute, storage, identity, secret, log, managed model endpoint, and service responsibility in plain English.",
+            "Map data and request flow across a minimum supportable hosted artificial intelligence application.",
+            "Compare managed, self-hosted, local, and hybrid patterns for capability, control, privacy, cost, support, and exit.",
+            "Identify identity, permission, secret, network, logging, backup, cost, resilience, and vendor-dependency requirements.",
+            "Create a vendor-neutral cloud AI responsibility and exit map."
+          ],
+          "workProduct": "cloud AI responsibility and exit map",
+          "assessmentEvidence": [
+            "cloud-component matching",
+            "responsibility classification",
+            "hosting tradeoff decision",
+            "completed responsibility map"
+          ],
+          "visualDirections": [
+            "cloud application stack",
+            "shared-responsibility matrix",
+            "hosted-local-hybrid comparison",
+            "data and exit flow"
+          ],
+          "secondaryModules": [
+            "M25",
+            "M26",
+            "M27",
+            "M42",
+            "M63"
+          ],
+          "sourceRefs": [
+            "CCA-004 pages 1, 5, and 7",
+            "CCA-005"
+          ],
+          "evidenceBoundary": "Named platforms are dated examples. A managed service does not remove the utility's responsibility for data, access, evaluation, contract, cost, records, or accountable use.",
+          "subtopics": [
+            {
+              "id": "M43.CE03a",
+              "title": "Regions, networks, compute, storage, and managed services"
+            },
+            {
+              "id": "M43.CE03b",
+              "title": "Identity, role, permission, secret, and key rotation"
+            },
+            {
+              "id": "M43.CE03c",
+              "title": "Managed model and agent platforms"
+            },
+            {
+              "id": "M43.CE03d",
+              "title": "Logs, backups, resilience, rate, capacity, and recovery"
+            },
+            {
+              "id": "M43.CE03e",
+              "title": "Consumption cost, budgets, alerts, and support ownership"
+            },
+            {
+              "id": "M43.CE03f",
+              "title": "Portability, data export, contract, lock-in, and exit"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -7961,8 +8914,8 @@
         "title": "Building AI Systems"
       },
       "pages": {
-        "start": 518,
-        "end": 529
+        "start": 527,
+        "end": 538
       },
       "source_file": "AI Master CLass/HTML/Module_44_Innovation_Patents.html",
       "current_sections": [
@@ -8078,8 +9031,8 @@
         "title": "Role-Based Practice"
       },
       "pages": {
-        "start": 530,
-        "end": 543
+        "start": 539,
+        "end": 552
       },
       "source_file": "AI Master CLass/HTML/Module_45_Operator_Administrator.html",
       "current_sections": [
@@ -8234,8 +9187,8 @@
         "title": "Role-Based Practice"
       },
       "pages": {
-        "start": 544,
-        "end": 556
+        "start": 553,
+        "end": 565
       },
       "source_file": "AI Master CLass/HTML/Module_46_The_Manager.html",
       "current_sections": [
@@ -8382,8 +9335,8 @@
         "title": "Role-Based Practice"
       },
       "pages": {
-        "start": 557,
-        "end": 567
+        "start": 566,
+        "end": 576
       },
       "source_file": "AI Master CLass/HTML/Module_47_The_Executive.html",
       "current_sections": [
@@ -8538,8 +9491,8 @@
         "title": "Role-Based Practice"
       },
       "pages": {
-        "start": 568,
-        "end": 579
+        "start": 577,
+        "end": 588
       },
       "source_file": "AI Master CLass/HTML/Module_48_Elected_Official.html",
       "current_sections": [
@@ -8619,8 +9572,8 @@
         "title": "Role-Based Practice"
       },
       "pages": {
-        "start": 580,
-        "end": 588
+        "start": 589,
+        "end": 597
       },
       "source_file": "AI Master CLass/HTML/Module_49_The_Consultant.html",
       "current_sections": [
@@ -8767,8 +9720,8 @@
         "title": "Role-Based Practice"
       },
       "pages": {
-        "start": 589,
-        "end": 603
+        "start": 598,
+        "end": 612
       },
       "source_file": "AI Master CLass/HTML/Module_50_The_Vendor.html",
       "current_sections": [
@@ -8985,8 +9938,8 @@
         "title": "Role-Based Practice"
       },
       "pages": {
-        "start": 604,
-        "end": 617
+        "start": 613,
+        "end": 626
       },
       "source_file": "AI Master CLass/HTML/Module_51_The_Summit.html",
       "current_sections": [
@@ -9073,8 +10026,8 @@
         "title": "The Human Layer and Capstones"
       },
       "pages": {
-        "start": 618,
-        "end": 627
+        "start": 627,
+        "end": 636
       },
       "source_file": "AI Master CLass/HTML/Module_52_Change_Management.html",
       "current_sections": [
@@ -9177,6 +10130,74 @@
               "title": "The personal/SMB privacy playbook: turn off training/history, temporary chat, what 'memory' retains, what connecting Gmail/Drive exposes, free vs API data handling"
             }
           ]
+        },
+        {
+          "id": "M52.CE01",
+          "gap_id": "AAI-14",
+          "competitiveExpansionId": "AAI-14",
+          "title": "Adoption methods, psychological safety, champions, and operating models",
+          "kind": "applied",
+          "coverage": "partial",
+          "decision": "accepted",
+          "recommendation": "Turn adoption into a designed operating change involving tasks, identity, participation, learning, support, feedback, labor boundaries, champion networks, and clear decision rights.",
+          "description": "Turn adoption into a designed operating change involving tasks, identity, participation, learning, support, feedback, labor boundaries, champion networks, and clear decision rights.",
+          "learningObjectives": [
+            "Explain why software launch, training attendance, compliance, confidence, and responsible adoption are different outcomes.",
+            "Compare structured change methods and select only the parts that fit the utility situation.",
+            "Design participation, psychological safety, champion, training, support, feedback, correction, and escalation mechanisms.",
+            "Compare centralized, federated, and hybrid artificial intelligence operating models and centers of excellence.",
+            "Create a workforce adoption, participation, and support plan."
+          ],
+          "workProduct": "workforce adoption, participation, and support plan",
+          "assessmentEvidence": [
+            "adoption-outcome classification",
+            "method selection",
+            "operating-model comparison",
+            "completed adoption plan"
+          ],
+          "visualDirections": [
+            "adoption feedback loop",
+            "task-and-identity map",
+            "champion and support network",
+            "operating-model comparison"
+          ],
+          "secondaryModules": [
+            "M20",
+            "M46",
+            "M47",
+            "M51"
+          ],
+          "sourceRefs": [
+            "CCA-001 page 9",
+            "CCA-002 page 10"
+          ],
+          "evidenceBoundary": "Do not label concern as resistance, use learning records as hidden job-performance evidence, or promise adoption from communication and training alone.",
+          "subtopics": [
+            {
+              "id": "M52.CE01a",
+              "title": "Task, identity, confidence, concern, participation, and professional authority"
+            },
+            {
+              "id": "M52.CE01b",
+              "title": "Kotter, ADKAR, McKinsey 7S, and fit-to-purpose use"
+            },
+            {
+              "id": "M52.CE01c",
+              "title": "Psychological safety, challenge, reporting, and correction"
+            },
+            {
+              "id": "M52.CE01d",
+              "title": "Champions, peer learning, office hours, and support"
+            },
+            {
+              "id": "M52.CE01e",
+              "title": "Centralized, federated, hybrid, and center-of-excellence models"
+            },
+            {
+              "id": "M52.CE01f",
+              "title": "Labor, privacy, accessibility, incentives, feedback, and measurement"
+            }
+          ]
         }
       ],
       "targeted_enhancements": []
@@ -9190,8 +10211,8 @@
         "title": "The Human Layer and Capstones"
       },
       "pages": {
-        "start": 628,
-        "end": 643
+        "start": 637,
+        "end": 652
       },
       "source_file": "AI Master CLass/HTML/Module_53_Capstone_Studio.html",
       "current_sections": [
@@ -9451,8 +10472,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 644,
-        "end": 653
+        "start": 653,
+        "end": 662
       },
       "source_file": "AI Master CLass/HTML/Module_54_Leak_Detection_NRW.html",
       "current_sections": [
@@ -9532,8 +10553,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 654,
-        "end": 662
+        "start": 663,
+        "end": 671
       },
       "source_file": "AI Master CLass/HTML/Module_55_Predictive_Maintenance_EAM.html",
       "current_sections": [
@@ -9613,8 +10634,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 663,
-        "end": 676
+        "start": 672,
+        "end": 685
       },
       "source_file": "AI Master CLass/HTML/Module_56_Treatment_Process_Optimization.html",
       "current_sections": [
@@ -9694,8 +10715,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 677,
-        "end": 690
+        "start": 686,
+        "end": 699
       },
       "source_file": "AI Master CLass/HTML/Module_57_Demand_Hydraulic_Modeling.html",
       "current_sections": [
@@ -9775,8 +10796,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 691,
-        "end": 704
+        "start": 700,
+        "end": 713
       },
       "source_file": "AI Master CLass/HTML/Module_58_Stormwater_Overflow_Prediction.html",
       "current_sections": [
@@ -9856,8 +10877,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 705,
-        "end": 718
+        "start": 714,
+        "end": 727
       },
       "source_file": "AI Master CLass/HTML/Module_59_Regulatory_Compliance.html",
       "current_sections": [
@@ -9937,8 +10958,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 719,
-        "end": 732
+        "start": 728,
+        "end": 741
       },
       "source_file": "AI Master CLass/HTML/Module_60_Customer_Billing_Community.html",
       "current_sections": [
@@ -10062,8 +11083,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 733,
-        "end": 743
+        "start": 742,
+        "end": 752
       },
       "source_file": "AI Master CLass/HTML/Module_61_Digital_Decision_Twin.html",
       "current_sections": [
@@ -10143,8 +11164,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 744,
-        "end": 758
+        "start": 753,
+        "end": 767
       },
       "source_file": "AI Master CLass/HTML/Module_62_AI_Sustainability.html",
       "current_sections": [
@@ -10224,8 +11245,8 @@
         "title": "AI Across the Water Lifecycle"
       },
       "pages": {
-        "start": 759,
-        "end": 769
+        "start": 768,
+        "end": 778
       },
       "source_file": "AI Master CLass/HTML/Module_63_Buying_AI_Procurement.html",
       "current_sections": [
@@ -10331,14 +11352,60 @@
   ],
   "revision_log": [
     {
-      "date": "2026-08-05",
-      "version": "0.2",
-      "change": "Mapped all 56 technical foundation topics supplied by Shreya to stable curriculum homes, preserved exact and planned duplicates, and registered partial expansions and new additions without promoting them to approved learner-facing content."
-    },
-    {
       "date": "2026-08-04",
       "version": "0.1",
       "change": "Established the stable granular hierarchy and mapped the uploaded gap analysis against the current 64 modules and 684-page curriculum."
+    },
+    {
+      "date": "2026-08-11",
+      "version": "1.2",
+      "change": "Integrated fifteen accepted applied and agentic artificial intelligence curriculum expansions with stable IDs, learning objectives, work products, assessment evidence, visual direction, source lineage, and release boundaries."
     }
-  ]
+  ],
+  "contributor_reviews": [
+    {
+      "id": "CR-INT-002",
+      "source_id": "INT-002",
+      "contributor": {
+        "id": "shreya",
+        "name": "Shreya",
+        "role": "Technical researcher and reviewer"
+      },
+      "title": "Technical foundations curriculum crosswalk",
+      "file": "apps/ai-masterclass/curriculum/shreya-technical-foundations-review.json",
+      "source_item_count": 56,
+      "reviewed": "2026-08-05",
+      "status": "mapped for curriculum review",
+      "release_boundary": "Mappings and proposals are tracked. New or expanded learner-facing content still requires evidence review and blueprint approval."
+    }
+  ],
+  "competitive_expansion": {
+    "schema": "owos-competitive-curriculum-expansion/v1",
+    "title": "Applied and Agentic AI Production Curriculum Expansion",
+    "approved": "2026-08-11",
+    "owner": "Hardeep Anand",
+    "status": "accepted-curriculum-blueprint",
+    "authority": "These records add approved curriculum depth. Third-party program descriptions are comparison sources, not water-sector authority or permission to reproduce course content. Every factual learner claim remains subject to source, practitioner, technical, accessibility, and release review.",
+    "sourceAudit": "research/competitive-curriculum-audits/2026-08-11-applied-and-agentic-ai-comparison/README.md",
+    "sourcePath": "curriculum/competitive-curriculum-expansion.json",
+    "sourceCount": 5,
+    "expansionCount": 15,
+    "expansionIds": [
+      "AAI-01",
+      "AAI-02",
+      "AAI-03",
+      "AAI-04",
+      "AAI-05",
+      "AAI-06",
+      "AAI-07",
+      "AAI-08",
+      "AAI-09",
+      "AAI-10",
+      "AAI-11",
+      "AAI-12",
+      "AAI-13",
+      "AAI-14",
+      "AAI-15"
+    ]
+  }
 }

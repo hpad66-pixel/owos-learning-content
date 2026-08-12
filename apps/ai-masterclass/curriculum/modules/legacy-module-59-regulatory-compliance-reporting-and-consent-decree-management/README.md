@@ -19,7 +19,7 @@ Decide which compliance tasks may receive AI support and which statements or sub
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_59_Regulatory_Compliance.html`
-- Source pages in the governed curriculum: 705 through 718
+- Source pages in the governed curriculum: 714 through 727
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

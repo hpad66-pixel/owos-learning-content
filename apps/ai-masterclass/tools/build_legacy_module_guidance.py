@@ -276,6 +276,10 @@ def design_pattern(number: int) -> tuple[str, str, str]:
 def guidance_payload(module: dict, spec: dict, package_dir: Path, placement: dict) -> dict:
     module_id = f"legacy:{module['id']}"
     title = module["title"]
+    accepted_expansions = [
+        addition for addition in module.get("proposed_additions", [])
+        if addition.get("decision") == "accepted"
+    ]
     return {
         "schema": "owos-module-guidance/v1",
         "moduleId": module_id,
@@ -303,6 +307,8 @@ def guidance_payload(module: dict, spec: dict, package_dir: Path, placement: dic
         "scopeBoundary": spec["boundary"],
         "researchQuestions": research_questions(spec, title),
         "visualDirections": spec["visuals"],
+        "acceptedExpansionCount": len(accepted_expansions),
+        "acceptedExpansions": accepted_expansions,
         "staffDirectionPath": relative(package_dir / "STAFF-DIRECTION.md"),
         "researchPromptPath": relative(package_dir / "AI-RESEARCH-AND-PRODUCTION-PROMPT.md"),
         "designBriefPath": relative(design_brief_path(module)),
@@ -352,6 +358,33 @@ def render_staff_direction(module: dict, spec: dict, placement: dict) -> str:
     quiz_sequence = QUIZ_SEQUENCES[module["number"] % len(QUIZ_SEQUENCES)]
     narrative, interaction_one, interaction_two = design_pattern(module["number"])
     section_titles = [authored_text(section["title"]) for section in module.get("current_sections", [])]
+    accepted_expansions = [
+        addition for addition in module.get("proposed_additions", [])
+        if addition.get("decision") == "accepted"
+    ]
+    expansion_direction = ""
+    if accepted_expansions:
+        blocks = []
+        for addition in accepted_expansions:
+            objectives = addition.get("learningObjectives", [])
+            assessments = addition.get("assessmentEvidence", [])
+            blocks.append(
+                f"### `{addition['id']}` {authored_text(addition['title'])}\n\n"
+                f"{authored_text(addition.get('description', addition.get('recommendation', '')))}\n\n"
+                f"- Required work product: **{authored_text(addition.get('workProduct', spec['workProduct']))}**\n"
+                f"- Secondary module connections: {', '.join(addition.get('secondaryModules', [])) or 'none'}\n"
+                f"- Learning objectives:\n"
+                + "\n".join(f"  - {authored_text(item)}" for item in objectives)
+                + "\n- Assessment evidence:\n"
+                + "\n".join(f"  - {authored_text(item)}" for item in assessments)
+                + f"\n- Evidence boundary: {authored_text(addition.get('evidenceBoundary', spec['boundary']))}"
+            )
+        expansion_direction = (
+            "\n\n## Accepted 2026-08-11 curriculum expansions\n\n"
+            "These records are approved for curriculum-blueprint integration. Their factual claims, "
+            "finished teaching, assessment implementation, and release remain gated.\n\n"
+            + "\n\n".join(blocks)
+        )
     decision_phrase = spec["decision"].rstrip(".").lower()
     return f"""# Staff Direction for {module['id']}: {title}
 
@@ -405,7 +438,7 @@ using it. Explain the major ideas already present in the source sequence:
 These headings are source inventory, not permission to keep weak prose. Every section must serve an
 outcome, the opening decision, the work product, or the evidence boundary. Use the module situation
 and one strong analogy. Do not invent a utility, incident, quotation, statistic, law, standard, or
-source.
+source.{expansion_direction}
 
 ## Graphics and interaction team
 
@@ -815,7 +848,7 @@ def build() -> dict:
             "title": module["title"],
             "status": "blueprint-for-owner-review",
             "authority": "Placement recommendations preserve every current, proposed, enhanced, and contributed record. They do not alter canonical curriculum until separately approved and committed.",
-            "updated": "2026-08-06",
+            "updated": "2026-08-11",
             "granularCoverage": {
                 "currentSections": len(module.get("current_sections", [])),
                 "proposals": len(module.get("proposed_additions", [])),
@@ -847,7 +880,7 @@ def build() -> dict:
     write_text(INDEX, "\n".join(index_rows))
     manifest = {
         "schema": "owos-legacy-module-guidance-manifest/v1",
-        "generated": "2026-08-06",
+        "generated": "2026-08-11",
         "status": "internal-blueprint-source",
         "moduleCount": len(manifest_modules),
         "guidedModuleCount": len(manifest_modules),

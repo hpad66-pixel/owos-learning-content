@@ -8,11 +8,14 @@ def main() -> None:
     registry = build_registry()
     assert registry["schema"] == "owos-academy-curriculum-registry/v1"
     assert registry["mode"] == "read-only"
-    assert registry["summary"]["registeredModules"] == 128
-    assert [line["role"] for line in registry["lines"]] == ["source-curriculum", "curated-delivery-sequence"]
-    assert [len(line["modules"]) for line in registry["lines"]] == [64, 64]
+    assert registry["summary"]["registeredModules"] == 144
+    assert [line["role"] for line in registry["lines"]] == [
+        "source-curriculum", "curated-delivery-sequence",
+        "optional-technical-preparation", "optional-advanced-specialization",
+    ]
+    assert [len(line["modules"]) for line in registry["lines"]] == [64, 64, 8, 8]
     module_ids = [module["id"] for line in registry["lines"] for module in line["modules"]]
-    assert len(module_ids) == len(set(module_ids)) == 128
+    assert len(module_ids) == len(set(module_ids)) == 144
     assert registry["lines"][0]["primaryOutput"]["pages"] == 788
     assert registry["authority"]["sourceOfTruth"] == "hpad66-pixel/owos-learning-content"
     assert registry["summary"]["contributorReviewItems"] == 56
@@ -20,9 +23,9 @@ def main() -> None:
     assert registry["summary"]["roleTracks"] == 15
     assert registry["summary"]["learningPathways"] == 6
     assert registry["summary"]["guidedLegacyModules"] == 64
-    assert registry["summary"]["legacyPlacementRecords"] == 1397
+    assert registry["summary"]["legacyPlacementRecords"] == registry["legacyGuidance"]["placementRecordCount"]
     assert registry["legacyGuidance"]["moduleCount"] == 64
-    assert registry["legacyGuidance"]["placementRecordCount"] == 1397
+    assert registry["legacyGuidance"]["placementRecordCount"] > 1397
     assert len(registry["contributorReviews"]) == 1
     assert registry["contributorReviews"][0]["contributor"]["name"] == "Shreya"
     contributor_inputs = [item for module in registry["lines"][0]["modules"] for item in module["contributorInputs"]]
@@ -47,9 +50,21 @@ def main() -> None:
     assert all(module["guidance"]["requiredWorkProduct"] for module in guided_modules)
     assert all("GOAL.md" in module["guidance"]["researchPromptMarkdown"] for module in guided_modules)
     assert all("PLAN.md" in module["guidance"]["researchPromptMarkdown"] for module in guided_modules)
-    assert sum(len(module["guidance"]["placement"]["items"]) for module in guided_modules) == 1397
+    assert sum(len(module["guidance"]["placement"]["items"]) for module in guided_modules) == registry["legacyGuidance"]["placementRecordCount"]
     assert sum(len(module["sections"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyCurrentSections"]
     assert sum(len(module["proposals"]) for module in registry["lines"][0]["modules"]) == registry["summary"]["legacyProposedAdditions"]
+    assert registry["summary"]["curriculumLines"] == 4
+    assert registry["summary"]["extensionModules"] == 16
+    assert registry["summary"]["extensionGuidedHours"] == 96
+    assert sum(len(line["modules"]) for line in registry["lines"][2:]) == 16
+    assert all(len(module["outcomes"]) >= 5 for line in registry["lines"][2:] for module in line["modules"])
+    accepted = [
+        proposal for module in registry["lines"][0]["modules"]
+        for proposal in module["proposals"]
+        if proposal.get("competitiveExpansionId")
+    ]
+    assert len(accepted) == 15
+    assert all(proposal["decision"] == "accepted" for proposal in accepted)
     print("Academy curriculum registry contract passed")
 
 

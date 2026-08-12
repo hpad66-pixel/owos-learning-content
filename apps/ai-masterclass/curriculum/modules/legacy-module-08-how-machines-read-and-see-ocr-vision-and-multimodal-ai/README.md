@@ -19,7 +19,7 @@ Decide whether extracted or interpreted media is adequate for reference, require
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_08_How_Machines_Read_and_See.html`
-- Source pages in the governed curriculum: 97 through 108
+- Source pages in the governed curriculum: 98 through 109
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

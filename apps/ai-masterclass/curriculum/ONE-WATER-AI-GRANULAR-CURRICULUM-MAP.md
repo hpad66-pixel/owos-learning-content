@@ -99,7 +99,7 @@ curriculum is refined.
 
 #### M00. Orientation, Setup & Your Learning Path
 
-Current PDF pages: 20-32
+Current PDF pages: 21-33
 
 Current sections:
 
@@ -156,7 +156,7 @@ Proposed additions:
 
 #### M01. Why This, Why Now: AI and the World of Water
 
-Current PDF pages: 33-43
+Current PDF pages: 34-44
 
 Current sections:
 
@@ -177,7 +177,7 @@ Current sections:
 
 #### M02. What AI Actually Is: From 1956 to Today
 
-Current PDF pages: 44-52
+Current PDF pages: 45-53
 
 Current sections:
 
@@ -194,7 +194,7 @@ Current sections:
 
 #### M03. The Lexicon of AI: Every Term, Every Token
 
-Current PDF pages: 53-59
+Current PDF pages: 54-60
 
 Current sections:
 
@@ -211,7 +211,7 @@ Current sections:
 
 #### M04. Under the Hood: How the Machine Turns a Question Into an Answer
 
-Current PDF pages: 60-69
+Current PDF pages: 61-70
 
 Current sections:
 
@@ -228,7 +228,7 @@ Current sections:
 
 #### M05. How a Model Is Actually Made
 
-Current PDF pages: 70-78
+Current PDF pages: 71-79
 
 Current sections:
 
@@ -243,9 +243,19 @@ Current sections:
 - `M05.09` Next [transition]
 - `M05.10` Sources [evidence]
 
+Proposed additions:
+
+- `M05.CE01` The production AI lifecycle, from evidence to operation [partial; accepted; AAI-01]
+  - `M05.CE01a` Experiment, demonstration, pilot, production, and retirement
+  - `M05.CE01b` Data, model, prompt, context, tool, and configuration versions
+  - `M05.CE01c` Evaluation and acceptance before release
+  - `M05.CE01d` Environment promotion and accountable approval
+  - `M05.CE01e` Monitoring, incident, correction, rollback, and retirement
+  - `M05.CE01f` One traceable record from source evidence to operating decision
+
 #### M06. The Psychology of an LLM
 
-Current PDF pages: 79-88
+Current PDF pages: 80-89
 
 Current sections:
 
@@ -276,7 +286,7 @@ Targeted enhancements:
 
 #### M07. Reasoning Models and Test-Time Compute
 
-Current PDF pages: 89-96
+Current PDF pages: 90-97
 
 Current sections:
 
@@ -307,7 +317,7 @@ Targeted enhancements:
 
 #### M08. How Machines Read and See: OCR, Vision, and Multimodal AI
 
-Current PDF pages: 97-108
+Current PDF pages: 98-109
 
 Current sections:
 
@@ -333,7 +343,7 @@ Proposed additions:
 
 #### M09. The LLM as an Operating System
 
-Current PDF pages: 109-118
+Current PDF pages: 110-119
 
 Current sections:
 
@@ -350,7 +360,7 @@ Current sections:
 
 #### M10. The Autonomy Slider: Augmentation vs. Automation
 
-Current PDF pages: 119-127
+Current PDF pages: 120-128
 
 Current sections:
 
@@ -374,10 +384,17 @@ Proposed additions:
   - `M10.P01e` Keep a manual baseline
   - `M10.P01f` Cross-model verification as a cheap independent check: paste the same question to a different model and see where they disagree
   - `M10.P01g` The human counterweight to the whole 'delegate to AI' arc
+- `M10.CE01` Human-agent interaction and agentic user experience [missing; accepted; AAI-07]
+  - `M10.CE01a` Calibrated trust and common ground
+  - `M10.CE01b` Visible goal, plan, source, tool, status, limitation, and cost
+  - `M10.CE01c` Preview and confirmation before consequential action
+  - `M10.CE01d` Interrupt, cancel, pause, correct, undo, and recover
+  - `M10.CE01e` Confidence, uncertainty, explanation, and source display
+  - `M10.CE01f` Accessibility, plain language, escalation, and human handoff
 
 #### M11. Superintelligence, Honestly
 
-Current PDF pages: 128-136
+Current PDF pages: 129-137
 
 Current sections:
 
@@ -393,7 +410,7 @@ Current sections:
 
 #### M12. Jobs, Money, and the Utility
 
-Current PDF pages: 137-147
+Current PDF pages: 138-148
 
 Current sections:
 
@@ -425,12 +442,19 @@ Proposed additions:
   - `M12.P02d` Bookkeeping/month-end: generate and chase invoices, categorize/reconcile transactions, QuickBooks, expense capture from receipts
   - `M12.P02e` Review a contract/NDA/MSA with AI: flag auto-renewal traps, liability caps, IP/data-rights, where legal review stays mandatory
   - `M12.P02f` HR with AI: job descriptions, resume screening, structured interview questions, offer letters, with the fair-hiring cautions
+- `M12.CE01` Value measurement and benefit realization [partial; accepted; AAI-15]
+  - `M12.CE01a` Problem, current process, baseline, and counterfactual
+  - `M12.CE01b` Activity, adoption, quality, risk, service, financial, and public-value measures
+  - `M12.CE01c` Direct, indirect, shifted, avoided, and uncertain cost
+  - `M12.CE01d` Human-review effort, correction, and operating burden
+  - `M12.CE01e` Benefit owner, data source, cadence, threshold, and limitation
+  - `M12.CE01f` Continue, redesign, defer, scale, or stop decision
 
 ### Part II: Retrieval, Generation and the Data Foundation
 
 #### M13. Generative AI and RAG
 
-Current PDF pages: 148-157
+Current PDF pages: 149-158
 
 Current sections:
 
@@ -446,7 +470,7 @@ Current sections:
 
 #### M14. The RAG Family, Done Right
 
-Current PDF pages: 158-165
+Current PDF pages: 159-166
 
 Current sections:
 
@@ -463,7 +487,7 @@ Current sections:
 
 #### M15. Embeddings and Vector Databases
 
-Current PDF pages: 166-174
+Current PDF pages: 167-175
 
 Current sections:
 
@@ -479,7 +503,7 @@ Current sections:
 
 #### M16. Fix the Data Before You Worship the AI: Data Readiness
 
-Current PDF pages: 175-185
+Current PDF pages: 176-186
 
 Current sections:
 
@@ -522,7 +546,7 @@ Proposed additions:
 
 #### M17. Life Is a Graph: Taxonomy, Ontology, Knowledge Graphs
 
-Current PDF pages: 186-210
+Current PDF pages: 187-211
 
 Current sections:
 
@@ -568,7 +592,7 @@ Current sections:
 
 #### M18. The Machinery: GraphDB, Neo4j, RDF, SPARQL, SHACL
 
-Current PDF pages: 211-219
+Current PDF pages: 212-220
 
 Current sections:
 
@@ -585,7 +609,7 @@ Current sections:
 
 #### M19. The One Water Ontology: Operationalizing the Hydrologic Cycle
 
-Current PDF pages: 220-229
+Current PDF pages: 221-230
 
 Current sections:
 
@@ -601,7 +625,7 @@ Current sections:
 
 #### M20. Defragmenting the People
 
-Current PDF pages: 230-240
+Current PDF pages: 231-241
 
 Current sections:
 
@@ -619,7 +643,7 @@ Current sections:
 
 #### M21. Data Governance from First Principles
 
-Current PDF pages: 241-251
+Current PDF pages: 242-252
 
 Current sections:
 
@@ -635,7 +659,7 @@ Current sections:
 
 #### M22. AI Governance: NIST AI RMF, ISO/IEC 42001, Responsible AI
 
-Current PDF pages: 252-261
+Current PDF pages: 253-262
 
 Current sections:
 
@@ -652,7 +676,7 @@ Current sections:
 
 #### M23. The ISO Standards Stack and How to Adopt It
 
-Current PDF pages: 262-272
+Current PDF pages: 263-273
 
 Current sections:
 
@@ -668,7 +692,7 @@ Current sections:
 
 #### M24. Evals: How You Measure Whether It Works
 
-Current PDF pages: 273-282
+Current PDF pages: 274-284
 
 Current sections:
 
@@ -701,10 +725,24 @@ Proposed additions:
   - `M24.P02f` Average vs median vs distribution
   - `M24.P02g` 'does this chart's axis lie', truncated y-axis, cherry-picked window, dual axes
   - `M24.P02h` The numeric version of 'verify every output' for a CIO acting on an AI-made chart
+- `M24.CE01` Agent-specific evaluation and continuous assurance [partial; accepted; AAI-08]
+  - `M24.CE01a` Task outcome and acceptance evidence
+  - `M24.CE01b` Groundedness, source coverage, and citation support
+  - `M24.CE01c` Tool-call correctness and trajectory evaluation
+  - `M24.CE01d` Policy, refusal, permission, and escalation behavior
+  - `M24.CE01e` Latency, cost, human effort, resilience, and recovery
+  - `M24.CE01f` Regression set, thresholds, drift, incident, and continuing assurance
+- `M24.CE02` Observability, drift, degradation, and incident response [partial; accepted; AAI-09]
+  - `M24.CE02a` Signals, logs, traces, measures, alerts, and ownership
+  - `M24.CE02b` Data drift, concept drift, and model degradation
+  - `M24.CE02c` Retrieval staleness, source conflict, and prompt regression
+  - `M24.CE02d` Tool, permission, integration, infrastructure, and cost failure
+  - `M24.CE02e` Containment, pause, rollback, correction, and communication
+  - `M24.CE02f` Append-only incident, decision, and learning record
 
 #### M25. Cybersecurity for Water: CISA, NIST CSF 2.0, AWIA, WaterISAC, ISO 27001
 
-Current PDF pages: 283-292
+Current PDF pages: 285-294
 
 Current sections:
 
@@ -740,7 +778,7 @@ Proposed additions:
 
 #### M26. AI Security and Safety: Prompt Injection, OWASP LLM Top 10
 
-Current PDF pages: 293-301
+Current PDF pages: 295-303
 
 Current sections:
 
@@ -756,7 +794,7 @@ Current sections:
 
 #### M27. Data Privacy, PII, and Where Your Data Goes
 
-Current PDF pages: 302-312
+Current PDF pages: 304-314
 
 Current sections:
 
@@ -795,7 +833,7 @@ Targeted enhancements:
 
 #### M28. The AI Regulation Landscape
 
-Current PDF pages: 313-320
+Current PDF pages: 315-322
 
 Current sections:
 
@@ -811,7 +849,7 @@ Current sections:
 
 #### M29. AI Action Plans and Public-Sector Requirements
 
-Current PDF pages: 321-331
+Current PDF pages: 323-333
 
 Current sections:
 
@@ -827,7 +865,7 @@ Current sections:
 
 #### M30. Policy by Design: Writing AI and Data Policies
 
-Current PDF pages: 332-339
+Current PDF pages: 334-341
 
 Current sections:
 
@@ -843,7 +881,7 @@ Current sections:
 
 #### M31. Provenance, Trust, and Audit
 
-Current PDF pages: 340-352
+Current PDF pages: 342-355
 
 Current sections:
 
@@ -867,12 +905,19 @@ Proposed additions:
   - `M31.P01e` Keep a manual baseline
   - `M31.P01f` Cross-model verification as a cheap independent check: paste the same question to a different model and see where they disagree
   - `M31.P01g` The human counterweight to the whole 'delegate to AI' arc
+- `M31.CE01` Explainability, transparency, trace, and justification [partial; accepted; AAI-13]
+  - `M31.CE01a` Plain-language explanation and audience
+  - `M31.CE01b` Model interpretability and technical limits
+  - `M31.CE01c` Application transparency and system status
+  - `M31.CE01d` Traceability, provenance, source evidence, and version
+  - `M31.CE01e` Decision justification, accountable owner, and affected person
+  - `M31.CE01f` Unknowns, uncertainty, challenge, correction, and appeal
 
 ### Part IV: Using AI in Professional Work
 
 #### M32. The Assistants: ChatGPT, Claude, Perplexity, Gemini, Kimi, NotebookLM
 
-Current PDF pages: 353-365
+Current PDF pages: 356-368
 
 Current sections:
 
@@ -951,7 +996,7 @@ Proposed additions:
 
 #### M33. Prompt, Context, and Har&#110;ess Engineering, and Token Maxing
 
-Current PDF pages: 366-376
+Current PDF pages: 369-379
 
 Current sections:
 
@@ -972,7 +1017,7 @@ Targeted enhancements:
 
 #### M34. Skills That Write Your Prompts
 
-Current PDF pages: 377-392
+Current PDF pages: 380-395
 
 Current sections:
 
@@ -992,7 +1037,7 @@ Current sections:
 
 #### M35. Fine-Tune vs. RAG vs. Prompt: The Decision Framework
 
-Current PDF pages: 393-402
+Current PDF pages: 396-405
 
 Current sections:
 
@@ -1008,7 +1053,7 @@ Current sections:
 
 #### M36. Research, Writing, and Voice
 
-Current PDF pages: 403-414
+Current PDF pages: 406-417
 
 Current sections:
 
@@ -1063,7 +1108,7 @@ Proposed additions:
 
 #### M37. Image, Vision, and Media Generation
 
-Current PDF pages: 415-426
+Current PDF pages: 418-430
 
 Current sections:
 
@@ -1091,10 +1136,17 @@ Proposed additions:
   - `M37.P01i` Design for non-designers: Canva templates + Brand Kit + Magic Studio
   - `M37.P01j` A one-pager/deck/social graphic
   - `M37.P01k` The disclosure rule for public utility comms
+- `M37.CE01` Synthetic media, deepfakes, disinformation, and content integrity [missing; accepted; AAI-12]
+  - `M37.CE01a` Generated, edited, synthetic, misleading, and impersonated media
+  - `M37.CE01b` Source, metadata, provenance, transformation, and corroboration
+  - `M37.CE01c` Employee, vendor, public-official, and community communication risks
+  - `M37.CE01d` Disclosure, consent, accessibility, approval, and publication
+  - `M37.CE01e` Detection limits, evidence preservation, and escalation
+  - `M37.CE01f` Public correction, incident communication, and trust repair
 
 #### M38. Workflows and Automations: Email, Calendars, Scheduling, Chatbots
 
-Current PDF pages: 427-441
+Current PDF pages: 431-445
 
 Current sections:
 
@@ -1151,7 +1203,7 @@ Proposed additions:
 
 #### M39. No-Code and Low-Code Building: Lovable, Bolt, Replit, Vector Shift
 
-Current PDF pages: 442-455
+Current PDF pages: 446-459
 
 Current sections:
 
@@ -1235,7 +1287,7 @@ Proposed additions:
 
 #### M40. Building With AI: Claude Code, Skills, Codex, the IDE, Vibe → Agentic
 
-Current PDF pages: 456-472
+Current PDF pages: 460-477
 
 Current sections:
 
@@ -1334,10 +1386,17 @@ Proposed additions:
   - `M40.P10f` Recognize when to stop and start a fresh context instead of arguing
   - `M40.P10g` Rules/convention files so the agent stays on your patterns
   - `M40.P10h` When to hand a task to no-code vs. write code
+- `M40.CE01` Release discipline for AI-assisted software building [partial; accepted; AAI-10]
+  - `M40.CE01a` Goal, plan, issue, user story, and acceptance evidence
+  - `M40.CE01b` Repository, branch, difference, review, commit, and tag
+  - `M40.CE01c` Unit, integration, security, accessibility, and regression tests
+  - `M40.CE01d` Dependencies, lock files, environments, configuration, and secrets
+  - `M40.CE01e` Build artifact, release notes, approval, deployment, and rollback
+  - `M40.CE01f` AI coding-agent permissions, evidence, and human ownership
 
 #### M41. Agents, Agentic Nests, and Orchestration
 
-Current PDF pages: 473-486
+Current PDF pages: 478-493
 
 Current sections:
 
@@ -1362,10 +1421,31 @@ Proposed additions:
   - `M41.P01e` Test the tool shows up
   - `M41.P01f` The agent-builder landscape, dated: n8n vs Zapier vs Make (a chooser), and the code frameworks (LangGraph, CrewAI) + vendor SDKs (OpenAI Agents SDK, Claude Agent SDK)
   - `M41.P01g` Computer-use / browser agents: OpenAI Operator, Anthropic computer-use, Claude-for-Chrome, what they do, why they're fragile, the human-in-the-loop rule for live systems
+- `M41.CE01` Agents, goals, environments, and perceived agency [partial; accepted; AAI-04]
+  - `M41.CE01a` Rational-agent framing and its limits
+  - `M41.CE01b` Goals, performance measures, and goal complexity
+  - `M41.CE01c` Environment types and uncertainty
+  - `M41.CE01d` Observations, allowed actions, state, and tools
+  - `M41.CE01e` Reactivity, autonomy, and perceived agency
+  - `M41.CE01f` Human authority, prohibited action, and stop
+- `M41.CE02` Planning, Reason and Act, reflection, and agentic retrieval [partial; accepted; AAI-05]
+  - `M41.CE02a` Classical plan, language-model plan, and fixed workflow
+  - `M41.CE02b` Plan-and-execute
+  - `M41.CE02c` Reason and Act
+  - `M41.CE02d` Reflection and critique
+  - `M41.CE02e` Agentic retrieval and iterative source refinement
+  - `M41.CE02f` Evaluation, retry budget, escalation, and stop
+- `M41.CE03` Multi-agent coordination, conflict, cost, and failure [partial; accepted; AAI-06]
+  - `M41.CE03a` Coordination topologies and orchestrators
+  - `M41.CE03b` Communication contracts and message evidence
+  - `M41.CE03c` Shared state, source versions, and conflict
+  - `M41.CE03d` Delegation, arbitration, consensus, and dissent
+  - `M41.CE03e` Deadlock, cascading failure, duplicated work, and cost multiplication
+  - `M41.CE03f` Human command, incident response, and final decision
 
 #### M42. Open vs. Closed Models and Running Locally
 
-Current PDF pages: 487-499
+Current PDF pages: 494-506
 
 Current sections:
 
@@ -1392,7 +1472,7 @@ Proposed additions:
 
 #### M43. The Infrastructure: Containers, Docker, DigitalOcean, Deployment, Scaling Laws
 
-Current PDF pages: 500-517
+Current PDF pages: 507-526
 
 Current sections:
 
@@ -1498,10 +1578,31 @@ Proposed additions:
   - `M43.P10e` Read-only, never UPDATE/DELETE
   - `M43.P10f` Choosing the right chart (trend=line, distribution=histogram) and reading a misleading one
   - `M43.P10g` Insight to recommendation: a one-page decision memo with the evidence, the caveats, and what would change your mind
+- `M43.CE01` Machine Learning Operations pipelines and reproducibility [partial; accepted; AAI-02]
+  - `M43.CE01a` Pipeline architecture and responsibility
+  - `M43.CE01b` Data, code, model, configuration, and environment versions
+  - `M43.CE01c` Experiment tracking and artifact lineage
+  - `M43.CE01d` Automated tests and continuous integration
+  - `M43.CE01e` Release approval, deployment strategies, and rollback
+  - `M43.CE01f` Performance degradation, data drift, model drift, and correction
+- `M43.CE02` Large Language Model Operations and agent operations [partial; accepted; AAI-03]
+  - `M43.CE02a` Prompt, context, retrieval, model, tool, and policy versions
+  - `M43.CE02b` Offline evaluation, regression testing, and online observation
+  - `M43.CE02c` Traces, tool calls, state transitions, and human review
+  - `M43.CE02d` Latency, token use, cost limits, rate limits, and capacity
+  - `M43.CE02e` Agent incidents, containment, retry limits, escalation, and rollback
+  - `M43.CE02f` Ownership, service levels, support, and retirement
+- `M43.CE03` Cloud foundations and managed AI platforms [partial; accepted; AAI-11]
+  - `M43.CE03a` Regions, networks, compute, storage, and managed services
+  - `M43.CE03b` Identity, role, permission, secret, and key rotation
+  - `M43.CE03c` Managed model and agent platforms
+  - `M43.CE03d` Logs, backups, resilience, rate, capacity, and recovery
+  - `M43.CE03e` Consumption cost, budgets, alerts, and support ownership
+  - `M43.CE03f` Portability, data export, contract, lock-in, and exit
 
 #### M44. Innovation and Patents: Writing Patents With AI
 
-Current PDF pages: 518-529
+Current PDF pages: 527-538
 
 Current sections:
 
@@ -1529,7 +1630,7 @@ Proposed additions:
 
 #### M45. The Operator and Administrator
 
-Current PDF pages: 530-543
+Current PDF pages: 539-552
 
 Current sections:
 
@@ -1563,7 +1664,7 @@ Proposed additions:
 
 #### M46. The Manager
 
-Current PDF pages: 544-556
+Current PDF pages: 553-565
 
 Current sections:
 
@@ -1595,7 +1696,7 @@ Proposed additions:
 
 #### M47. The Executive
 
-Current PDF pages: 557-567
+Current PDF pages: 566-576
 
 Current sections:
 
@@ -1629,7 +1730,7 @@ Proposed additions:
 
 #### M48. The Elected Official: Mayors, Council, Commissioners
 
-Current PDF pages: 568-579
+Current PDF pages: 577-588
 
 Current sections:
 
@@ -1645,7 +1746,7 @@ Current sections:
 
 #### M49. The Consultant
 
-Current PDF pages: 580-588
+Current PDF pages: 589-597
 
 Current sections:
 
@@ -1677,7 +1778,7 @@ Proposed additions:
 
 #### M50. The Vendor: AI-Driven Sales, Marketing, Customer Service, Lead Management
 
-Current PDF pages: 589-603
+Current PDF pages: 598-612
 
 Current sections:
 
@@ -1723,7 +1824,7 @@ Proposed additions:
 
 #### M51. The CIO, CISO, and Chief AI Officer: The Summit
 
-Current PDF pages: 604-617
+Current PDF pages: 613-626
 
 Current sections:
 
@@ -1742,7 +1843,7 @@ Current sections:
 
 #### M52. Change Management and Adoption
 
-Current PDF pages: 618-627
+Current PDF pages: 627-636
 
 Current sections:
 
@@ -1765,10 +1866,17 @@ Proposed additions:
   - `M52.P01d` A delegation decision rule: hand off the repeatable/low-stakes/draft-quality, keep judgment/relationships/final sign-off
   - `M52.P01e` A daily/weekly loop: triage inbox, draft, review, delegate to an agent, spot-check, built incrementally
   - `M52.P01f` The personal/SMB privacy playbook: turn off training/history, temporary chat, what 'memory' retains, what connecting Gmail/Drive exposes, free vs API data handling
+- `M52.CE01` Adoption methods, psychological safety, champions, and operating models [partial; accepted; AAI-14]
+  - `M52.CE01a` Task, identity, confidence, concern, participation, and professional authority
+  - `M52.CE01b` Kotter, ADKAR, McKinsey 7S, and fit-to-purpose use
+  - `M52.CE01c` Psychological safety, challenge, reporting, and correction
+  - `M52.CE01d` Champions, peer learning, office hours, and support
+  - `M52.CE01e` Centralized, federated, hybrid, and center-of-excellence models
+  - `M52.CE01f` Labor, privacy, accessibility, incentives, feedback, and measurement
 
 #### M53. The Capstone Studio
 
-Current PDF pages: 628-643
+Current PDF pages: 637-652
 
 Current sections:
 
@@ -1825,7 +1933,7 @@ Proposed additions:
 
 #### M54. Leak & Burst Detection and Non-Revenue Water
 
-Current PDF pages: 644-653
+Current PDF pages: 653-662
 
 Current sections:
 
@@ -1841,7 +1949,7 @@ Current sections:
 
 #### M55. Predictive & Condition-Based Maintenance and Asset Management (EAM)
 
-Current PDF pages: 654-662
+Current PDF pages: 663-671
 
 Current sections:
 
@@ -1857,7 +1965,7 @@ Current sections:
 
 #### M56. Treatment & Process Optimization
 
-Current PDF pages: 663-676
+Current PDF pages: 672-685
 
 Current sections:
 
@@ -1873,7 +1981,7 @@ Current sections:
 
 #### M57. Demand Forecasting and Hydraulic/Network Modeling
 
-Current PDF pages: 677-690
+Current PDF pages: 686-699
 
 Current sections:
 
@@ -1889,7 +1997,7 @@ Current sections:
 
 #### M58. Stormwater, CSO/SSO and Flood/Overflow Prediction
 
-Current PDF pages: 691-704
+Current PDF pages: 700-713
 
 Current sections:
 
@@ -1905,7 +2013,7 @@ Current sections:
 
 #### M59. Regulatory Compliance, Reporting & Consent-Decree Management
 
-Current PDF pages: 705-718
+Current PDF pages: 714-727
 
 Current sections:
 
@@ -1921,7 +2029,7 @@ Current sections:
 
 #### M60. Customer, Billing/CIS & Community Engagement
 
-Current PDF pages: 719-732
+Current PDF pages: 728-741
 
 Current sections:
 
@@ -1949,7 +2057,7 @@ Proposed additions:
 
 #### M61. Digital Twins and the Decision Twin
 
-Current PDF pages: 733-743
+Current PDF pages: 742-752
 
 Current sections:
 
@@ -1965,7 +2073,7 @@ Current sections:
 
 #### M62. AI Sustainability: The Water & Energy Footprint of AI
 
-Current PDF pages: 744-758
+Current PDF pages: 753-767
 
 Current sections:
 
@@ -1981,7 +2089,7 @@ Current sections:
 
 #### M63. Buying AI: Procurement & Vendor Evaluation
 
-Current PDF pages: 759-769
+Current PDF pages: 768-778
 
 Current sections:
 
@@ -2009,3 +2117,4 @@ Proposed additions:
 | Date | Version | Change |
 | --- | --- | --- |
 | 2026-08-04 | 0.1 | Established the stable granular hierarchy and mapped the uploaded gap analysis against the current 64 modules and 684-page curriculum. |
+| 2026-08-11 | 1.2 | Integrated fifteen accepted applied and agentic artificial intelligence curriculum expansions with stable IDs, learning objectives, work products, assessment evidence, visual direction, source lineage, and release boundaries. |

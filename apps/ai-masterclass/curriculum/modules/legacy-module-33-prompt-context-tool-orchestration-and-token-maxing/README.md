@@ -19,7 +19,7 @@ Decide which failure belongs to the prompt, the supplied context, the surroundin
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: recorded exactly in `MODULE-GUIDANCE.json`
-- Source pages in the governed curriculum: 366 through 376
+- Source pages in the governed curriculum: 369 through 379
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

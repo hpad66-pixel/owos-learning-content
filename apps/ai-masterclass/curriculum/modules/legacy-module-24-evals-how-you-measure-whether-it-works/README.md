@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Define the test set, metrics, thresholds, reviewers, failure response, and stop rule for one utility application.
+Define the test set, signals, metrics, thresholds, reviewers, incident response, regression checks, correction action, and stop rule for a utility artificial intelligence or agent system.
 
 ## Required learner work product
 
-**AI evaluation and assurance plan**
+**agent evaluation, observability, and continuing-assurance plan**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_24_Evals.html`
-- Source pages in the governed curriculum: 273 through 282
+- Source pages in the governed curriculum: 274 through 284
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

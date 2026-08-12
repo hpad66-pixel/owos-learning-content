@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the governed two-line curriculum registry for Academy Author Studio."""
+"""Build the governed curriculum registry for Academy Author Studio."""
 
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ SHREYA_REVIEW_SOURCE = ROOT / "curriculum" / "shreya-technical-foundations-revie
 RESEARCH_STARTERS_SOURCE = ROOT / "curriculum" / "research-starters" / "index.json"
 ROLE_TRACKS_SOURCE = ROOT / "curriculum" / "role-tracks.json"
 LEARNING_PATHWAYS_SOURCE = ROOT / "curriculum" / "learning-pathways.json"
+EXTENSION_PROGRAMS_SOURCE = ROOT / "curriculum" / "extension-programs.json"
 MODULES_ROOT = ROOT / "curriculum" / "modules"
 LEGACY_GUIDANCE_MANIFEST = ROOT / "curriculum" / "legacy-module-guidance-manifest.json"
 FELLOWSHIP_SOURCE = ROOT / "SYLLABUS.md"
@@ -81,6 +82,7 @@ def build_registry() -> dict[str, object]:
     research_starters = json.loads(RESEARCH_STARTERS_SOURCE.read_text(encoding="utf-8"))
     role_tracks = json.loads(ROLE_TRACKS_SOURCE.read_text(encoding="utf-8"))
     learning_pathways = json.loads(LEARNING_PATHWAYS_SOURCE.read_text(encoding="utf-8"))
+    extension_programs = json.loads(EXTENSION_PROGRAMS_SOURCE.read_text(encoding="utf-8"))
     guidance_manifest = json.loads(LEGACY_GUIDANCE_MANIFEST.read_text(encoding="utf-8"))
     module_guidance: dict[str, dict[str, object]] = {}
     for guidance_path in MODULES_ROOT.glob("*/MODULE-GUIDANCE.json"):
@@ -138,11 +140,7 @@ def build_registry() -> dict[str, object]:
             ],
             "proposals": [
                 {
-                    "id": addition["id"],
-                    "title": addition["title"],
-                    "coverage": addition.get("coverage", "missing"),
-                    "decision": addition.get("decision", "proposed"),
-                    "subtopics": addition.get("subtopics", []),
+                    **addition,
                 }
                 for addition in proposed
             ],
@@ -187,23 +185,69 @@ def build_registry() -> dict[str, object]:
         "subtitle": part.get("subtitle", ""),
         "moduleIds": [f"legacy:M{number}" for number in part["modules"]],
     } for part in legacy["parts"]]
+    extension_lines = []
+    extension_module_ids = []
+    for program in extension_programs["programs"]:
+        modules = []
+        for module in program["modules"]:
+            module_record = {
+                **module,
+                "groupId": program["id"],
+                "groupTitle": program["title"],
+                "status": "accepted-curriculum-blueprint",
+                "appliedResult": module["appliedResult"],
+            }
+            modules.append(module_record)
+            extension_module_ids.append(module_record["id"])
+        extension_lines.append({
+            "id": program["lineId"],
+            "label": program["title"],
+            "shortLabel": program["shortTitle"],
+            "numbering": program["numbering"],
+            "role": program["role"],
+            "description": program["promise"],
+            "source": {
+                "path": str(EXTENSION_PROGRAMS_SOURCE.relative_to(ROOT)),
+                "sha256": sha256(EXTENSION_PROGRAMS_SOURCE),
+            },
+            "guidedHours": program["guidedHours"],
+            "entryRule": extension_programs["entryRule"],
+            "completionProduct": program["completionProduct"],
+            "groups": [{
+                "id": program["id"],
+                "title": program["title"],
+                "promise": program["promise"],
+                "moduleIds": [module["id"] for module in modules],
+            }],
+            "modules": modules,
+        })
+    if len(extension_lines) != 2 or len(extension_module_ids) != 16:
+        raise ValueError("Expected two optional extension lines and sixteen extension modules")
+    if len(extension_module_ids) != len(set(extension_module_ids)):
+        raise ValueError("Extension module IDs must be unique")
+    if set(extension_module_ids).intersection(all_ids):
+        raise ValueError("Extension module IDs must not collide with core curriculum IDs")
     return {
         "schema": "owos-academy-curriculum-registry/v1",
         "generated": "2026-08-06",
         "title": "One Water AI Academy",
         "mode": "read-only",
         "authority": {
-            "decision": "The legacy M00-M63 curriculum is the source curriculum line. The Fellowship M1-M64 curriculum is a curated program and delivery sequence derived from the same One Water AI body of knowledge.",
+            "decision": "The legacy M00-M63 curriculum is the source curriculum line. Fellowship M1-M64 is the universal curated delivery sequence. Builder Bridge and Advanced Agent Systems are optional extensions with separate prerequisites and completion evidence.",
             "sourceOfTruth": "hpad66-pixel/owos-learning-content",
             "application": "hpad66-pixel/apas-academy-studio",
             "releaseBoundary": "Registry visibility does not approve proposed content, production, credentialing, publication, or release.",
             "attribution": "Contributor inputs retain contributor identity, source ID, source page, stable item ID, placement decision, and release boundary. A duplicate never overwrites original authorship.",
         },
         "summary": {
-            "curriculumLines": 2,
-            "registeredModules": 128,
+            "curriculumLines": 4,
+            "registeredModules": 144,
             "legacyModules": 64,
             "fellowshipModules": 64,
+            "extensionModules": 16,
+            "builderBridgeModules": 8,
+            "advancedAgentSystemsModules": 8,
+            "extensionGuidedHours": sum(program["guidedHours"] for program in extension_programs["programs"]),
             "legacyCurrentSections": sum(module["currentSectionCount"] for module in legacy_modules),
             "legacyProposedAdditions": sum(module["proposedAdditionCount"] for module in legacy_modules),
             "legacyTargetedEnhancements": sum(module["targetedEnhancementCount"] for module in legacy_modules),
@@ -246,6 +290,7 @@ def build_registry() -> dict[str, object]:
             "summary": shreya_review["summary"],
             "authority": shreya_review["authority"],
         }],
+        "extensionPrograms": extension_programs,
         "lines": [
             {
                 "id": "legacy",
@@ -271,6 +316,7 @@ def build_registry() -> dict[str, object]:
                 "groups": fellowship_courses,
                 "modules": fellowship_modules,
             },
+            *extension_lines,
         ],
     }
 

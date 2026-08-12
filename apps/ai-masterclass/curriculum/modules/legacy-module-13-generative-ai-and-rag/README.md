@@ -19,7 +19,7 @@ Choose between unsupported generation, source-grounded retrieval, a fixed workfl
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_13_Generative_AI_and_RAG.html`
-- Source pages in the governed curriculum: 148 through 157
+- Source pages in the governed curriculum: 149 through 158
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

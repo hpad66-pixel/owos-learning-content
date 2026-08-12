@@ -19,7 +19,7 @@ Select and defend a retrieval pattern for one bounded utility question.
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_14_The_RAG_Family_Done_Right.html`
-- Source pages in the governed curriculum: 158 through 165
+- Source pages in the governed curriculum: 159 through 166
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

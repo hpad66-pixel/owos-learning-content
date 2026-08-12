@@ -19,7 +19,7 @@ Assign accountable roles and controls for one data element that affects a conseq
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_21_Data_Governance_First_Principles.html`
-- Source pages in the governed curriculum: 241 through 251
+- Source pages in the governed curriculum: 242 through 252
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

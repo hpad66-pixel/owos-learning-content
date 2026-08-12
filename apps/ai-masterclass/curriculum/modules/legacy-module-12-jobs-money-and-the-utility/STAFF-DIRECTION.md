@@ -2,25 +2,25 @@
 
 ## Your assignment
 
-Connect AI to tasks, work design, cost, value, professional development, and utility economics without reducing people to positions that disappear or savings that have not been measured.
+Connect artificial intelligence to tasks, work design, baseline, adoption, quality, risk, complete cost, review effort, time to value, benefit ownership, and utility economics without turning estimates into promised results.
 
 Open with this situation: A budget proposal counts model fees and staff hours saved but ignores data cleanup, review, integration, training, support, error recovery, and work that shifts to another team.
 
-Ask the learner to decide before teaching begins: **Decide which tasks should change, what new review work appears, and how the complete cost and workforce consequence will be measured.**
+Ask the learner to decide before teaching begins: **Decide which tasks should change, what new work appears, which measures establish value, who owns each benefit, and when the evidence requires redesign or stop.**
 
 Use this analogy once as the front door, then return to the utility work: A household budget does not improve because one bill moved to another column. AI value must count the complete flow of work and money.
 
-The learner must leave with a saved **task, cost, and workforce impact map**. If the module does not produce that
+The learner must leave with a saved **utility AI value and benefit-realization record**. If the module does not produce that
 record and evidence, the module is not complete.
 
 ## Non-negotiable learner outcomes
 
 1. Explain Jobs, Money, and the Utility in plain English and connect it to a real water, wastewater, stormwater, or One Water decision.
-2. Distinguish job, task, capability, productivity, displacement, augmentation, direct cost, and total cost without using one term to hide several different jobs.
+2. Distinguish job, task, output, activity, adoption, quality, service outcome, risk reduction, direct cost, shifted cost, public value, financial value, and realized benefit without using one term to hide several different jobs.
 3. Analyze the module situation, identify missing evidence, and name the professional consequence of a weak decision.
 4. Compare how the same question changes across drinking water, wastewater, stormwater, administration, engineering, finance, technology, and public leadership.
-5. Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not promise staff reductions, salary growth, productivity gains, return on investment, or ratepayer savings without an approved baseline and measured evidence.
-6. Create a usable task, cost, and workforce impact map with evidence, roles, limits, review steps, and the next accountable action.
+5. Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not promise staff reductions, productivity, return, ratepayer savings, service improvement, risk reduction, or public value without an approved baseline, complete cost, measured evidence, and accountable benefit owner.
+6. Create a usable utility AI value and benefit-realization record with evidence, roles, limits, review steps, and the next accountable action.
 7. Defend the recommendation to Foundation, Practitioner, and Leader audiences while keeping disagreement and uncertainty visible.
 
 ## Research team
@@ -30,21 +30,21 @@ authority for load-bearing water, public-sector, privacy, cybersecurity, accessi
 or legal claims. Give exact page, section, table, figure, or paragraph locators.
 
 - What must an intelligent newcomer understand about Jobs, Money, and the Utility before using it in utility work?
-- Which sources can support the distinctions among job, task, capability, productivity, displacement, augmentation, direct cost, and total cost?
-- What evidence would allow a practitioner to make this decision: Decide which tasks should change, what new review work appears, and how the complete cost and workforce consequence will be measured.
-- Which failure modes, counterexamples, and edge conditions could make the task, cost, and workforce impact map misleading?
+- Which sources can support the distinctions among job, task, output, activity, adoption, quality, service outcome, risk reduction, direct cost, shifted cost, public value, financial value, and realized benefit?
+- What evidence would allow a practitioner to make this decision: Decide which tasks should change, what new work appears, which measures establish value, who owns each benefit, and when the evidence requires redesign or stop.
+- Which failure modes, counterexamples, and edge conditions could make the utility AI value and benefit-realization record misleading?
 - How does the question change across drinking water, wastewater, stormwater, reuse, finance, engineering, administration, technology, and public accountability?
 - Which actions require qualified operator, engineer, water-quality, cybersecurity, privacy, legal, procurement, records, finance, accessibility, or executive review?
-- Which claims remain outside the module boundary: Do not promise staff reductions, salary growth, productivity gains, return on investment, or ratepayer savings without an approved baseline and measured evidence.
+- Which claims remain outside the module boundary: Do not promise staff reductions, productivity, return, ratepayer savings, service improvement, risk reduction, or public value without an approved baseline, complete cost, measured evidence, and accountable benefit owner.
 
 Deliver the original source inventory, extraction log, source register, claim register, evidence
 boundary, glossary candidates, failure cases, review questions, and a recommendation for all
-25 granular content records. Separate sourced fact, Hardeep Anand position,
+32 granular content records. Separate sourced fact, Hardeep Anand position,
 expert interpretation, internal curriculum decision, instructional scenario, and unresolved question.
 
 ## Curriculum and learning-design team
 
-Use backward design from the **task, cost, and workforce impact map** and the completion evidence. Align each
+Use backward design from the **utility AI value and benefit-realization record** and the completion evidence. Align each
 outcome to teaching, practice, feedback, assessment, and a saved record. Keep Foundation,
 Practitioner, and Leader views connected to the same completion standard. The module belongs in
 **Foundations and Mental Models** and must not absorb the learning job of an adjacent module.
@@ -72,26 +72,49 @@ outcome, the opening decision, the work product, or the evidence boundary. Use t
 and one strong analogy. Do not invent a utility, incident, quotation, statistic, law, standard, or
 source.
 
+## Accepted 2026-08-11 curriculum expansions
+
+These records are approved for curriculum-blueprint integration. Their factual claims, finished teaching, assessment implementation, and release remain gated.
+
+### `M12.CE01` Value measurement and benefit realization
+
+Create one measurement spine from the current baseline through adoption, quality, risk, cost, review effort, time to value, benefit ownership, measurement cadence, and the decision to continue or stop.
+
+- Required work product: **utility AI value and benefit-realization record**
+- Secondary module connections: M24, M47, M50, M53
+- Learning objectives:
+  - Distinguish output, activity, adoption, quality, service outcome, risk reduction, financial value, and public value.
+  - Define a credible current baseline before estimating a benefit.
+  - Build measures for quality, error, delay, rework, human review, cost, risk, adoption, and affected service outcomes.
+  - Assign a benefit owner, source, frequency, threshold, limitation, review, and stop rule for every material measure.
+  - Create a utility AI value and benefit-realization record.
+- Assessment evidence:
+  - measure-type classification
+  - baseline fault diagnosis
+  - risk-adjusted decision scenario
+  - completed benefit record
+- Evidence boundary: Do not promise productivity, savings, return, staff reduction, service improvement, or public value without an approved baseline, complete cost, measured evidence, and accountable owner.
+
 ## Graphics and interaction team
 
 Run the Visual Arsenal selection process against the researched ideas. The current natural-shape
 candidates are:
 
-- **task-change map**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **total-cost iceberg**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **before-and-after workload Sankey**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **value-evidence scorecard**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **baseline-to-benefit chain**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **total-cost and shifted-work iceberg**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **measure hierarchy**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **continue-redesign-stop phase gates**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
 
     Build at least two purposeful interactions using **failure injection** and **recovery and artifact builder**
     as the starting pair. One must expose the consequence of the learner's decision. One must help
-    the learner create or review the **task, cost, and workforce impact map**. Decorative stock
+    the learner create or review the **utility AI value and benefit-realization record**. Decorative stock
 imagery, repeated icon cards, and color-only variation do not count.
 
 ## Assessment team
 
 Use this varied sequence as the starting design: question flip cards, classify and retry, scenario multiple choice, final applied check. Place each check beside
 the idea it evaluates. Give immediate explanatory feedback and retry. The final applied check must
-inspect required fields in the **task, cost, and workforce impact map**. Scrolling, time spent, confidence, and an
+inspect required fields in the **utility AI value and benefit-realization record**. Scrolling, time spent, confidence, and an
 unreviewed reflection do not prove completion.
 
 ## Articulate and production team
@@ -103,8 +126,8 @@ and deterministic completion. Record the exact curriculum revision used.
 
 ## Marketing and enrollment team
 
-You may say that the module helps the learner **decide which tasks should change, what new review work appears, and how the complete cost and workforce consequence will be measured** and produce a
-**task, cost, and workforce impact map**. You may not promise savings, compliance, certification, safety,
+You may say that the module helps the learner **decide which tasks should change, what new work appears, which measures establish value, who owns each benefit, and when the evidence requires redesign or stop** and produce a
+**utility AI value and benefit-realization record**. You may not promise savings, compliance, certification, safety,
 implementation success, career advancement, or professional mastery. All public claims require a
 separate source and approval record.
 
@@ -112,7 +135,7 @@ separate source and approval record.
 
 Reject the module when:
 
-- the learner cannot explain the core distinctions among job, task, capability, productivity, displacement, augmentation, direct cost, and total cost;
+- the learner cannot explain the core distinctions among job, task, output, activity, adoption, quality, service outcome, risk reduction, direct cost, shifted cost, public value, financial value, and realized benefit;
 - the opening situation disappears and the module becomes a glossary or product tour;
 - the work product has no source, role, limitation, review, or next-action fields;
 - a current section, proposal, subtopic, enhancement, or contributor record is omitted or moved
@@ -126,7 +149,7 @@ Reject the module when:
 
 ## Evidence and scope boundary
 
-Do not promise staff reductions, salary growth, productivity gains, return on investment, or ratepayer savings without an approved baseline and measured evidence.
+Do not promise staff reductions, productivity, return, ratepayer savings, service improvement, risk reduction, or public value without an approved baseline, complete cost, measured evidence, and accountable benefit owner.
 
 ## Definition of a successful blueprint
 

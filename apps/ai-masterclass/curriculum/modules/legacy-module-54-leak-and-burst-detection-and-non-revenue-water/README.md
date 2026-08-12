@@ -19,7 +19,7 @@ Determine whether an alert or pattern justifies investigation and what evidence 
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_54_Leak_Detection_NRW.html`
-- Source pages in the governed curriculum: 644 through 653
+- Source pages in the governed curriculum: 653 through 662
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

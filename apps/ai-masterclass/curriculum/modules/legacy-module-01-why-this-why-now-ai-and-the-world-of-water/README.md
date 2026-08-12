@@ -19,7 +19,7 @@ Decide whether a proposed AI use belongs in learning, advisory support, or a hum
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_01_Why_This_Why_Now.html`
-- Source pages in the governed curriculum: 33 through 43
+- Source pages in the governed curriculum: 34 through 44
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

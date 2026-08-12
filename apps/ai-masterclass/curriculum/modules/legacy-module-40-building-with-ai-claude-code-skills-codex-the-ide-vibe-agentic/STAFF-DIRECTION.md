@@ -2,25 +2,25 @@
 
 ## Your assignment
 
-Teach AI-assisted software building as a governed process from goal and plan through code, tests, review, deployment, monitoring, and human ownership.
+Teach artificial-intelligence-assisted software building as a governed process from problem, goal, and plan through repository change, review, tests, dependencies, environment, artifact, release, deployment, observation, and rollback.
 
 Open with this situation: A coding agent changes several files and reports success, but the builder cannot explain the design, tests, permissions, security effect, or rollback path.
 
-Ask the learner to decide before teaching begins: **Decide what an AI coding agent may inspect or change, what evidence proves the change, and when a qualified person must stop or approve it.**
+Ask the learner to decide before teaching begins: **Decide what a coding agent may inspect or change, what tests and review prove the change, what release evidence is required, and when a qualified person must stop, approve, recover, or roll back.**
 
 Use this analogy once as the front door, then return to the utility work: A contractor can work quickly, but the owner still needs drawings, inspections, change records, and acceptance evidence. AI-assisted code is no different.
 
-The learner must leave with a saved **AI-assisted build plan and evidence log**. If the module does not produce that
+The learner must leave with a saved **AI-assisted software release evidence package**. If the module does not produce that
 record and evidence, the module is not complete.
 
 ## Non-negotiable learner outcomes
 
 1. Explain Building With AI: Claude Code, Skills, Codex, the IDE, Vibe → Agentic in plain English and connect it to a real water, wastewater, stormwater, or One Water decision.
-2. Distinguish goal, plan, prompt, repository, code change, test, review, commit, deployment, monitoring, and rollback without using one term to hide several different jobs.
+2. Distinguish problem, goal, plan, repository, branch, difference, code change, test, dependency, environment, artifact, review, commit, release, deployment, monitoring, and rollback without using one term to hide several different jobs.
 3. Analyze the module situation, identify missing evidence, and name the professional consequence of a weak decision.
 4. Compare how the same question changes across drinking water, wastewater, stormwater, administration, engineering, finance, technology, and public leadership.
-5. Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Use sandboxed examples, protect credentials, inspect changes, and preserve review. Do not present vibe building as a substitute for engineering or security responsibility.
-6. Create a usable AI-assisted build plan and evidence log with evidence, roles, limits, review steps, and the next accountable action.
+5. Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Use sandboxed examples, protect credentials, inspect changes, reproduce builds, and preserve review. Generated code and passing tests do not transfer engineering, security, privacy, accessibility, or release responsibility.
+6. Create a usable AI-assisted software release evidence package with evidence, roles, limits, review steps, and the next accountable action.
 7. Defend the recommendation to Foundation, Practitioner, and Leader audiences while keeping disagreement and uncertainty visible.
 
 ## Research team
@@ -30,21 +30,21 @@ authority for load-bearing water, public-sector, privacy, cybersecurity, accessi
 or legal claims. Give exact page, section, table, figure, or paragraph locators.
 
 - What must an intelligent newcomer understand about Building With AI: Claude Code, Skills, Codex, the IDE, Vibe → Agentic before using it in utility work?
-- Which sources can support the distinctions among goal, plan, prompt, repository, code change, test, review, commit, deployment, monitoring, and rollback?
-- What evidence would allow a practitioner to make this decision: Decide what an AI coding agent may inspect or change, what evidence proves the change, and when a qualified person must stop or approve it.
-- Which failure modes, counterexamples, and edge conditions could make the AI-assisted build plan and evidence log misleading?
+- Which sources can support the distinctions among problem, goal, plan, repository, branch, difference, code change, test, dependency, environment, artifact, review, commit, release, deployment, monitoring, and rollback?
+- What evidence would allow a practitioner to make this decision: Decide what a coding agent may inspect or change, what tests and review prove the change, what release evidence is required, and when a qualified person must stop, approve, recover, or roll back.
+- Which failure modes, counterexamples, and edge conditions could make the AI-assisted software release evidence package misleading?
 - How does the question change across drinking water, wastewater, stormwater, reuse, finance, engineering, administration, technology, and public accountability?
 - Which actions require qualified operator, engineer, water-quality, cybersecurity, privacy, legal, procurement, records, finance, accessibility, or executive review?
-- Which claims remain outside the module boundary: Use sandboxed examples, protect credentials, inspect changes, and preserve review. Do not present vibe building as a substitute for engineering or security responsibility.
+- Which claims remain outside the module boundary: Use sandboxed examples, protect credentials, inspect changes, reproduce builds, and preserve review. Generated code and passing tests do not transfer engineering, security, privacy, accessibility, or release responsibility.
 
 Deliver the original source inventory, extraction log, source register, claim register, evidence
 boundary, glossary candidates, failure cases, review questions, and a recommendation for all
-94 granular content records. Separate sourced fact, Hardeep Anand position,
+101 granular content records. Separate sourced fact, Hardeep Anand position,
 expert interpretation, internal curriculum decision, instructional scenario, and unresolved question.
 
 ## Curriculum and learning-design team
 
-Use backward design from the **AI-assisted build plan and evidence log** and the completion evidence. Align each
+Use backward design from the **AI-assisted software release evidence package** and the completion evidence. Align each
 outcome to teaching, practice, feedback, assessment, and a saved record. Keep Foundation,
 Practitioner, and Leader views connected to the same completion standard. The module belongs in
 **Building AI Systems** and must not absorb the learning job of an adjacent module.
@@ -72,26 +72,49 @@ outcome, the opening decision, the work product, or the evidence boundary. Use t
 and one strong analogy. Do not invent a utility, incident, quotation, statistic, law, standard, or
 source.
 
+## Accepted 2026-08-11 curriculum expansions
+
+These records are approved for curriculum-blueprint integration. Their factual claims, finished teaching, assessment implementation, and release remain gated.
+
+### `M40.CE01` Release discipline for AI-assisted software building
+
+Turn AI-assisted code generation into a controlled engineering process with plans, branches, reviews, tests, environments, dependencies, secrets, artifacts, release evidence, and recovery.
+
+- Required work product: **AI-assisted software release evidence package**
+- Secondary module connections: M24, M26, M31, M43, M53
+- Learning objectives:
+  - Explain repository, branch, change, review, test, commit, artifact, release, deployment, and rollback in plain English.
+  - Set the files, systems, credentials, and actions an AI coding agent may inspect or change.
+  - Review a change by reading the plan, difference, tests, security effect, and rollback path.
+  - Reproduce a build in a clean environment without using an unrecorded local dependency or secret.
+  - Create an AI-assisted software release evidence package.
+- Assessment evidence:
+  - change-record classification
+  - difference and test review
+  - failed-release recovery
+  - completed release package
+- Evidence boundary: Generated code and passing tests do not transfer engineering, cybersecurity, accessibility, privacy, or release responsibility to the artificial intelligence system.
+
 ## Graphics and interaction team
 
 Run the Visual Arsenal selection process against the researched ideas. The current natural-shape
 candidates are:
 
-- **goal-plan-build-test loop**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **agent permission boundary**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **code change evidence chain**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
-- **deployment and rollback phase gates**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **goal-plan-build-test-release loop**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **branch and review graph**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **change evidence chain**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
+- **release and rollback phase gates**: state its teaching job, reading order, learner action, conclusion, alternative text, phone transformation, and reduced-motion equivalent.
 
     Build at least two purposeful interactions using **evidence sorter** and **accountable-record builder**
     as the starting pair. One must expose the consequence of the learner's decision. One must help
-    the learner create or review the **AI-assisted build plan and evidence log**. Decorative stock
+    the learner create or review the **AI-assisted software release evidence package**. Decorative stock
 imagery, repeated icon cards, and color-only variation do not count.
 
 ## Assessment team
 
 Use this varied sequence as the starting design: question flip cards, classify and retry, scenario multiple choice, final applied check. Place each check beside
 the idea it evaluates. Give immediate explanatory feedback and retry. The final applied check must
-inspect required fields in the **AI-assisted build plan and evidence log**. Scrolling, time spent, confidence, and an
+inspect required fields in the **AI-assisted software release evidence package**. Scrolling, time spent, confidence, and an
 unreviewed reflection do not prove completion.
 
 ## Articulate and production team
@@ -103,8 +126,8 @@ and deterministic completion. Record the exact curriculum revision used.
 
 ## Marketing and enrollment team
 
-You may say that the module helps the learner **decide what an ai coding agent may inspect or change, what evidence proves the change, and when a qualified person must stop or approve it** and produce a
-**AI-assisted build plan and evidence log**. You may not promise savings, compliance, certification, safety,
+You may say that the module helps the learner **decide what a coding agent may inspect or change, what tests and review prove the change, what release evidence is required, and when a qualified person must stop, approve, recover, or roll back** and produce a
+**AI-assisted software release evidence package**. You may not promise savings, compliance, certification, safety,
 implementation success, career advancement, or professional mastery. All public claims require a
 separate source and approval record.
 
@@ -112,7 +135,7 @@ separate source and approval record.
 
 Reject the module when:
 
-- the learner cannot explain the core distinctions among goal, plan, prompt, repository, code change, test, review, commit, deployment, monitoring, and rollback;
+- the learner cannot explain the core distinctions among problem, goal, plan, repository, branch, difference, code change, test, dependency, environment, artifact, review, commit, release, deployment, monitoring, and rollback;
 - the opening situation disappears and the module becomes a glossary or product tour;
 - the work product has no source, role, limitation, review, or next-action fields;
 - a current section, proposal, subtopic, enhancement, or contributor record is omitted or moved
@@ -126,7 +149,7 @@ Reject the module when:
 
 ## Evidence and scope boundary
 
-Use sandboxed examples, protect credentials, inspect changes, and preserve review. Do not present vibe building as a substitute for engineering or security responsibility.
+Use sandboxed examples, protect credentials, inspect changes, reproduce builds, and preserve review. Generated code and passing tests do not transfer engineering, security, privacy, accessibility, or release responsibility.
 
 ## Definition of a successful blueprint
 

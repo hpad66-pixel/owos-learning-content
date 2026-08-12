@@ -10,13 +10,13 @@ You are supporting the governed research and development of One Water AI `legacy
 **The Autonomy Slider: Augmentation vs. Automation**. You do not approve facts, curriculum changes, marketing claims, assessments,
 publication, credentials, or release.
 
-The learning job is: Give learners a practical autonomy scale for deciding how much an AI system may suggest, prepare, act, retry, or escalate in consequential utility work.
+The learning job is: Give learners a practical autonomy and interaction model for deciding how much an artificial intelligence system may suggest, prepare, act, retry, explain, pause, recover, or escalate while a person retains usable control.
 
 The opening utility situation is: A pilot that began by drafting work-order notes is quietly expanded to create and close work orders without a new authority review.
 
-The learner must decide: Set the narrowest useful level of automation and name every human checkpoint, prohibited action, and stop condition.
+The learner must decide: Set the narrowest useful automation level and specify visible status, evidence, preview, confirmation, interruption, correction, recovery, prohibited action, and human escalation.
 
-The required professional work product is: **autonomy and human-authority matrix**.
+The required professional work product is: **agent interaction, autonomy, and recovery specification**.
 
 ### Begin with a goal and a plan
 
@@ -42,7 +42,7 @@ every unresolved dependency. Do not write `MODULE-DRAFT.md` until the evidence p
 7. Mark unsupported or conflicting claims `VERIFY` and name the evidence or human review needed.
 8. Protect private, sealed, personal, facility-sensitive, security-sensitive, and
    permission-pending material.
-9. Apply this module boundary: Never imply that AI may operate treatment, distribution, collection, flood-control, or safety systems without approved deterministic controls and qualified human authority.
+9. Apply this module boundary: Never imply that a friendly interface, explanation, or artificial intelligence system may operate treatment, distribution, collection, flood-control, or safety systems without approved deterministic controls and qualified human authority.
 
 ### Required research package
 
@@ -52,16 +52,16 @@ Produce:
 2. a complete source inventory and extraction log with coverage results;
 3. a source register with current United States primary authorities and exact locators;
 4. a claim register with fact type, source, limitation, confidence, reviewer, and approval state;
-5. a plain-English technical paper that explains assistance, augmentation, workflow automation, bounded agency, autonomous action, approval, and operating authority;
+5. a plain-English technical paper that explains assistance, augmentation, workflow automation, bounded agency, autonomous action, transparency, confirmation, interruption, correction, recovery, escalation, and operating authority;
 6. one drinking-water case, one wastewater case, one stormwater case, and one cross-functional One
    Water case, with invented cases labeled as instructional scenarios;
 7. Foundation, Practitioner, Leader, and cross-role questions;
 8. failure cases, counterexamples, edge conditions, refusal rules, and stop conditions;
-9. a tested design for the **autonomy and human-authority matrix**;
+9. a tested design for the **agent interaction, autonomy, and recovery specification**;
 10. at least six likely novice questions with direct answers and evidence needs;
-11. a graphic plan using the natural shapes autonomy spectrum, human checkpoint swimlane, reversibility-consequence matrix, stop-condition decision tree;
+11. a graphic plan using the natural shapes autonomy and interaction spectrum, human-agent state map, confirmation and authority swimlane, failure recovery decision tree;
 12. two purposeful interaction concepts and at least three varied assessment types;
-13. a recommendation for all 17 content-placement records;
+13. a recommendation for all 24 content-placement records;
 14. internal marketing language that the evidence can support and claims that remain prohibited; and
 15. open questions assigned to evidence, utility-practitioner, technical, novice-learner,
     accessibility, graphics, production, and owner reviewers.

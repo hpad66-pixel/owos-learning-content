@@ -19,7 +19,7 @@ Choose one task that may receive bounded support and define the source, review, 
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_45_Operator_Administrator.html`
-- Source pages in the governed curriculum: 530 through 543
+- Source pages in the governed curriculum: 539 through 552
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

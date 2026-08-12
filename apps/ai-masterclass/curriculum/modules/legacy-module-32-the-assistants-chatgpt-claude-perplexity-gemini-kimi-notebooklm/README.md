@@ -19,7 +19,7 @@ Select an approved assistant and operating mode for a bounded utility task, or d
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_32_The_Assistants.html`
-- Source pages in the governed curriculum: 353 through 365
+- Source pages in the governed curriculum: 356 through 368
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

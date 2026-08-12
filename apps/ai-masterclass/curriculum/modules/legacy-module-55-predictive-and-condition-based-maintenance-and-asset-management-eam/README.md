@@ -19,7 +19,7 @@ Decide whether evidence supports monitor, inspect, maintain, plan, or escalate f
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_55_Predictive_Maintenance_EAM.html`
-- Source pages in the governed curriculum: 654 through 662
+- Source pages in the governed curriculum: 663 through 671
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

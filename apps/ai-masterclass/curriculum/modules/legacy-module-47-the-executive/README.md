@@ -19,7 +19,7 @@ Approve, redesign, defer, or stop a proposed AI investment using a complete evid
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_47_The_Executive.html`
-- Source pages in the governed curriculum: 557 through 567
+- Source pages in the governed curriculum: 566 through 576
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

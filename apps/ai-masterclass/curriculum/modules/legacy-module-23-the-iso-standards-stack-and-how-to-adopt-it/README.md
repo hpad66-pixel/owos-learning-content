@@ -19,7 +19,7 @@ Build a staged standards-adoption path that names scope, owner, evidence, depend
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_23_The_ISO_Standards_Stack.html`
-- Source pages in the governed curriculum: 262 through 272
+- Source pages in the governed curriculum: 263 through 273
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

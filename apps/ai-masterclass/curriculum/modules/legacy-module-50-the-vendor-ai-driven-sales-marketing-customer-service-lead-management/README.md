@@ -19,7 +19,7 @@ Choose an AI-assisted commercial workflow and define the evidence, consent, disc
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_50_The_Vendor.html`
-- Source pages in the governed curriculum: 589 through 603
+- Source pages in the governed curriculum: 598 through 612
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

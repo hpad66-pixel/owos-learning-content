@@ -19,7 +19,7 @@ Select an appropriate answer mode and review path for a routine, analytical, or 
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_07_Reasoning_Models.html`
-- Source pages in the governed curriculum: 89 through 96
+- Source pages in the governed curriculum: 90 through 97
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

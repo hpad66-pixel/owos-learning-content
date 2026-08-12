@@ -10,13 +10,13 @@ You are supporting the governed research and development of One Water AI `legacy
 **Evals: How You Measure Whether It Works**. You do not approve facts, curriculum changes, marketing claims, assessments,
 publication, credentials, or release.
 
-The learning job is: Teach evaluation as a continuing evidence process that tests usefulness, accuracy, source coverage, refusal, resilience, cost, drift, and human-review effort.
+The learning job is: Teach evaluation and observability as a continuing evidence process that tests answer and task quality, source coverage, tool correctness, trajectory, policy behavior, refusal, recovery, drift, latency, cost, and human-review effort.
 
 The opening utility situation is: A source-grounded assistant answers common questions well but fails on outdated procedures, conflicting documents, and questions outside its permission boundary.
 
-The learner must decide: Define the test set, metrics, thresholds, reviewers, failure response, and stop rule for one utility application.
+The learner must decide: Define the test set, signals, metrics, thresholds, reviewers, incident response, regression checks, correction action, and stop rule for a utility artificial intelligence or agent system.
 
-The required professional work product is: **AI evaluation and assurance plan**.
+The required professional work product is: **agent evaluation, observability, and continuing-assurance plan**.
 
 ### Begin with a goal and a plan
 
@@ -42,7 +42,7 @@ every unresolved dependency. Do not write `MODULE-DRAFT.md` until the evidence p
 7. Mark unsupported or conflicting claims `VERIFY` and name the evidence or human review needed.
 8. Protect private, sealed, personal, facility-sensitive, security-sensitive, and
    permission-pending material.
-9. Apply this module boundary: A benchmark or average score does not prove safety, utility fitness, fairness, compliance, or performance on the organization's own cases.
+9. Apply this module boundary: A benchmark, dashboard, average score, missing alert, or one successful demonstration does not prove utility fitness, safety, fairness, compliance, or performance under changed conditions.
 
 ### Required research package
 
@@ -52,16 +52,16 @@ Produce:
 2. a complete source inventory and extraction log with coverage results;
 3. a source register with current United States primary authorities and exact locators;
 4. a claim register with fact type, source, limitation, confidence, reviewer, and approval state;
-5. a plain-English technical paper that explains test case, metric, threshold, benchmark, acceptance, failure, drift, and continuing assurance;
+5. a plain-English technical paper that explains test case, task outcome, groundedness, source coverage, tool correctness, trajectory, metric, signal, trace, threshold, benchmark, drift, incident, acceptance, and continuing assurance;
 6. one drinking-water case, one wastewater case, one stormwater case, and one cross-functional One
    Water case, with invented cases labeled as instructional scenarios;
 7. Foundation, Practitioner, Leader, and cross-role questions;
 8. failure cases, counterexamples, edge conditions, refusal rules, and stop conditions;
-9. a tested design for the **AI evaluation and assurance plan**;
+9. a tested design for the **agent evaluation, observability, and continuing-assurance plan**;
 10. at least six likely novice questions with direct answers and evidence needs;
-11. a graphic plan using the natural shapes evaluation lifecycle, test coverage matrix, threshold tradeoff chart, failure and correction loop;
+11. a graphic plan using the natural shapes agent evaluation coverage matrix, trace and signal map, drift-incident-correction timeline, continuing-assurance loop;
 12. two purposeful interaction concepts and at least three varied assessment types;
-13. a recommendation for all 29 content-placement records;
+13. a recommendation for all 43 content-placement records;
 14. internal marketing language that the evidence can support and claims that remain prohibited; and
 15. open questions assigned to evidence, utility-practitioner, technical, novice-learner,
     accessibility, graphics, production, and owner reviewers.

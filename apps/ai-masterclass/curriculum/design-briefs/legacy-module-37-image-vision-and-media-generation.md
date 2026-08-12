@@ -8,37 +8,37 @@
 | Curriculum part | Using AI in Professional Work |
 | Learner roles | Foundation, Practitioner, Leader, and cross-role One Water participants |
 | Controlled sources | governed source module, granular curriculum, approved source package, contributor review, and registered claims |
-| Evidence boundary | Blueprint direction only. Do not use generated media as engineering, inspection, incident, laboratory, or historical evidence. Verify rights, consent, technical details, and text. |
+| Evidence boundary | Blueprint direction only. Do not label media authentic or false without recorded evidence and qualified review. Do not generate a person's likeness or voice without authority, or publish unsupported water-quality, service, emergency, or public claims. |
 
 ## Learning job
 
 | Question | Answer |
 | --- | --- |
 | What consequential situation opens the lesson? | A public-education graphic looks convincing but depicts the wrong valve arrangement and contains text that no technical reviewer approved. |
-| What must the learner decide before teaching begins? | Decide whether generated media is appropriate for a utility communication and what evidence, disclosure, consent, and human approval it needs. |
+| What must the learner decide before teaching begins? | Decide whether generated or altered media may be created, shared, published, corrected, restricted, or rejected for a utility communication purpose. |
 | What professional consequence makes this matter? | A weak decision can disconnect evidence, people, authority, cost, service, and public consequence. |
 | What should the learner be able to do afterward? | Explain the core distinctions, evaluate the evidence and boundary, make the decision, and defend the result. |
-| What usable work product will the learner create? | generated-media production and review brief |
+| What usable work product will the learner create? | utility synthetic-media integrity and production protocol |
 | What evidence is required for completion? | Required teaching, interactions, distributed checks, saved work product, source boundary, and next accountable action. |
 
 ## Non-negotiable outcomes
 
 1. Explain Image, Vision, and Media Generation in plain English and connect it to a real water, wastewater, stormwater, or One Water decision.
-2. Distinguish source media, generated media, edit, simulation, evidence, likeness, rights, disclosure, and accessible alternative without using one term to hide several different jobs.
+2. Distinguish generated media, edited media, misleading context, impersonation, deepfake, error, satire, disinformation, source, transformation, disclosure, approval, and correction without using one term to hide several different jobs.
 3. Analyze the module situation, identify missing evidence, and name the professional consequence of a weak decision.
 4. Compare how the same question changes across drinking water, wastewater, stormwater, administration, engineering, finance, technology, and public leadership.
-5. Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not use generated media as engineering, inspection, incident, laboratory, or historical evidence. Verify rights, consent, technical details, and text.
-6. Create a usable generated-media production and review brief with evidence, roles, limits, review steps, and the next accountable action.
+5. Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not label media authentic or false without recorded evidence and qualified review. Do not generate a person's likeness or voice without authority, or publish unsupported water-quality, service, emergency, or public claims.
+6. Create a usable utility synthetic-media integrity and production protocol with evidence, roles, limits, review steps, and the next accountable action.
 7. Defend the recommendation to Foundation, Practitioner, and Leader audiences while keeping disagreement and uncertainty visible.
 
 ## Concept-to-experience plan
 
 | Teaching idea | Natural shape | Selected visual | Learner action | What changes or becomes visible | Quiz type |
 | --- | --- | --- | --- | --- | --- |
-| Core distinctions: source media, generated media, edit, simulation, evidence, likeness, rights, disclosure, and accessible alternative | cause and evidence sequence | media provenance chain | inspect, compare, decide, or build | evidence, consequence, or relationship becomes visible | estimate and explain |
-| The module's consequential utility situation | comparison and tradeoff | acceptable-use matrix | inspect, compare, decide, or build | evidence, consequence, or relationship becomes visible | matching |
-| The learner decision, evidence, and human authority | structured explanation | source-edit-generation comparison | inspect, compare, decide, or build | evidence, consequence, or relationship becomes visible | decision multiple choice |
-| The completed generated-media production and review brief | process and handoff | review and disclosure workflow | inspect, compare, decide, or build | evidence, consequence, or relationship becomes visible | final applied check |
+| Core distinctions: generated media, edited media, misleading context, impersonation, deepfake, error, satire, disinformation, source, transformation, disclosure, approval, and correction | cause and evidence sequence | media provenance and transformation chain | inspect, compare, decide, or build | evidence, consequence, or relationship becomes visible | estimate and explain |
+| The module's consequential utility situation | branching decision | content-integrity decision tree | inspect, compare, decide, or build | evidence, consequence, or relationship becomes visible | matching |
+| The learner decision, evidence, and human authority | role handoff | publication approval swimlane | inspect, compare, decide, or build | evidence, consequence, or relationship becomes visible | decision multiple choice |
+| The completed utility synthetic-media integrity and production protocol | change over time | false-message correction timeline | inspect, compare, decide, or build | evidence, consequence, or relationship becomes visible | final applied check |
 
 ## Module design fingerprint
 
@@ -46,14 +46,14 @@
 | --- | --- |
 | Narrative architecture | system walkthrough to controlled intervention to simulated consequence to control plan |
 | Mental model | A rendering can help people see a future project, but nobody mistakes it for the signed drawing. Generated media needs the same label and review. |
-| Purposeful interaction 1 | consequence simulator, applied to: Decide whether generated media is appropriate for a utility communication and what evidence, disclosure, consent, and human approval it needs. |
-| Purposeful interaction 2 | control-plan builder, producing or reviewing the generated-media production and review brief |
-| Visual types | media provenance chain, acceptable-use matrix, source-edit-generation comparison, review and disclosure workflow |
+| Purposeful interaction 1 | consequence simulator, applied to: Decide whether generated or altered media may be created, shared, published, corrected, restricted, or rejected for a utility communication purpose. |
+| Purposeful interaction 2 | control-plan builder, producing or reviewing the utility synthetic-media integrity and production protocol |
+| Visual types | media provenance and transformation chain, content-integrity decision tree, publication approval swimlane, false-message correction timeline |
 | Visual pacing | no more than two full prose blocks without a meaningful graphic, worked example, decision, interaction, or instructor callout |
 | Quiz sequence | estimate and explain, matching, decision multiple choice, final applied check |
 | Distributed assessment | after the core distinction, after the evidence boundary, after the decision consequence, and at work-product completion |
 | Role treatment | Foundation explains, Practitioner applies and checks, Leader sets authority and investment, cross-role work preserves handoffs |
-| Professional work product | generated-media production and review brief |
+| Professional work product | utility synthetic-media integrity and production protocol |
 | Same-page Graph behavior | show concepts, roles, sources, assets, records, decisions, contributors, and adjacent modules without leaving the lesson |
 | Animation purpose | reveal a sequence, dependency, consequence, or change in the selected visuals |
 | Reduced-motion equivalent | all steps, labels, relationships, and conclusions remain visible without movement |
@@ -68,7 +68,7 @@ result means. Add a debrief after any change or consequence that is not self-evi
 
 ## Professional work product
 
-The **generated-media production and review brief** must record the problem, user, decision, approved evidence, assumptions,
+The **utility synthetic-media integrity and production protocol** must record the problem, user, decision, approved evidence, assumptions,
 roles, human authority, limitations, review steps, result, and next accountable action. The final
 applied check must verify required fields and send incomplete work back for revision.
 
@@ -84,11 +84,11 @@ decision.
 
 1. What does **Image, Vision, and Media Generation** mean in ordinary utility language?
 2. Where can this help in drinking water, wastewater, stormwater, or cross-functional work?
-3. What is the difference among source media, generated media, edit, simulation, evidence, likeness, rights, disclosure, and accessible alternative?
+3. What is the difference among generated media, edited media, misleading context, impersonation, deepfake, error, satire, disinformation, source, transformation, disclosure, approval, and correction?
 4. What evidence must I inspect before making the module decision?
 5. What remains a human decision and who owns it?
 6. What should I do when the source, record, model, or people disagree?
-7. What must be present in the **generated-media production and review brief** before it is reviewable?
+7. What must be present in the **utility synthetic-media integrity and production protocol** before it is reviewable?
 
 Each answer must be direct, use one utility example, state the evidence boundary, and use a diagram,
 comparison, or worked sequence when prose alone hides the relationship.
@@ -98,8 +98,8 @@ comparison, or worked sequence when prose alone hides the relationship.
 - Previous module reviewed: M36.
 - Next module reviewed: M38.
 - Opening pattern: begins with the module-specific situation, not a repeated definition panel.
-- Dominant visual: media provenance chain.
-- Ordered visual-shape sequence: cause and evidence sequence, comparison and tradeoff, structured explanation, process and handoff.
+- Dominant visual: media provenance and transformation chain.
+- Ordered visual-shape sequence: cause and evidence sequence, branching decision, role handoff, change over time.
 - Interaction pair: consequence simulator and control-plan builder.
 - Work-product format must be visibly fitted to this professional decision.
 - Structural fingerprint remains pending rendered production and all-module comparison.

@@ -19,7 +19,7 @@ Choose a model deployment pattern for a bounded task and defend its data, cost, 
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_42_Open_Closed_Local.html`
-- Source pages in the governed curriculum: 487 through 499
+- Source pages in the governed curriculum: 494 through 506
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

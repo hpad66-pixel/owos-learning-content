@@ -19,7 +19,7 @@ Identify how an instruction or source could alter system behavior and choose pre
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_26_AI_Security_and_Safety.html`
-- Source pages in the governed curriculum: 293 through 301
+- Source pages in the governed curriculum: 295 through 303
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

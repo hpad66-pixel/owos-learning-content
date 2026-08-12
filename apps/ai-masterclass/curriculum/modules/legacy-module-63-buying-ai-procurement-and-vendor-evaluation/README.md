@@ -19,7 +19,7 @@ Recommend buy, build, partner, pilot, defer, or stop for one utility need and de
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_63_Buying_AI_Procurement.html`
-- Source pages in the governed curriculum: 759 through 769
+- Source pages in the governed curriculum: 768 through 778
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

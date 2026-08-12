@@ -19,7 +19,7 @@ Choose the structure needed to organize terms, define meaning, or connect relati
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_17_Life_Is_a_Graph.html`
-- Source pages in the governed curriculum: 186 through 210
+- Source pages in the governed curriculum: 187 through 211
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

@@ -2,53 +2,125 @@
   "schema": "owos-module-guidance/v1",
   "moduleId": "legacy:M40",
   "status": "blueprint-for-owner-review",
-  "purpose": "Teach AI-assisted software building as a governed process from goal and plan through code, tests, review, deployment, monitoring, and human ownership.",
-  "staffSummary": "Build M40 around one consequential utility situation and one decision: Decide what an AI coding agent may inspect or change, what evidence proves the change, and when a qualified person must stop or approve it. The learner must leave with a usable AI-assisted build plan and evidence log, not a collection of definitions.",
+  "purpose": "Teach artificial-intelligence-assisted software building as a governed process from problem, goal, and plan through repository change, review, tests, dependencies, environment, artifact, release, deployment, observation, and rollback.",
+  "staffSummary": "Build M40 around one consequential utility situation and one decision: Decide what a coding agent may inspect or change, what tests and review prove the change, what release evidence is required, and when a qualified person must stop, approve, recover, or roll back. The learner must leave with a usable AI-assisted software release evidence package, not a collection of definitions.",
   "openingSituation": "A coding agent changes several files and reports success, but the builder cannot explain the design, tests, permissions, security effect, or rollback path.",
-  "learnerDecision": "Decide what an AI coding agent may inspect or change, what evidence proves the change, and when a qualified person must stop or approve it.",
+  "learnerDecision": "Decide what a coding agent may inspect or change, what tests and review prove the change, what release evidence is required, and when a qualified person must stop, approve, recover, or roll back.",
   "analogy": "A contractor can work quickly, but the owner still needs drawings, inspections, change records, and acceptance evidence. AI-assisted code is no different.",
   "learnerOutcomes": [
     "Explain Building With AI: Claude Code, Skills, Codex, the IDE, Vibe → Agentic in plain English and connect it to a real water, wastewater, stormwater, or One Water decision.",
-    "Distinguish goal, plan, prompt, repository, code change, test, review, commit, deployment, monitoring, and rollback without using one term to hide several different jobs.",
+    "Distinguish problem, goal, plan, repository, branch, difference, code change, test, dependency, environment, artifact, review, commit, release, deployment, monitoring, and rollback without using one term to hide several different jobs.",
     "Analyze the module situation, identify missing evidence, and name the professional consequence of a weak decision.",
     "Compare how the same question changes across drinking water, wastewater, stormwater, administration, engineering, finance, technology, and public leadership.",
-    "Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Use sandboxed examples, protect credentials, inspect changes, and preserve review. Do not present vibe building as a substitute for engineering or security responsibility.",
-    "Create a usable AI-assisted build plan and evidence log with evidence, roles, limits, review steps, and the next accountable action.",
+    "Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Use sandboxed examples, protect credentials, inspect changes, reproduce builds, and preserve review. Generated code and passing tests do not transfer engineering, security, privacy, accessibility, or release responsibility.",
+    "Create a usable AI-assisted software release evidence package with evidence, roles, limits, review steps, and the next accountable action.",
     "Defend the recommendation to Foundation, Practitioner, and Leader audiences while keeping disagreement and uncertainty visible."
   ],
   "curriculumOutcomes": [
     "Give Building With AI: Claude Code, Skills, Codex, the IDE, Vibe → Agentic one clear learning job inside Building AI Systems.",
-    "Connect the module to a consequential decision and the AI-assisted build plan and evidence log.",
+    "Connect the module to a consequential decision and the AI-assisted software release evidence package.",
     "Preserve current content, proposals, enhancements, and contributor records by stable identifier.",
     "Separate verified evidence, Hardeep positions, expert interpretation, instructional scenarios, and unresolved questions.",
     "Create an explicit bridge to the preceding and following modules without duplicating their work."
   ],
   "marketingOutcomes": [
-    "Describe the practical value as helping a learner make and explain this decision: Decide what an AI coding agent may inspect or change, what evidence proves the change, and when a qualified person must stop or approve it.",
-    "Name the AI-assisted build plan and evidence log as the visible result of the module.",
+    "Describe the practical value as helping a learner make and explain this decision: Decide what a coding agent may inspect or change, what tests and review prove the change, what release evidence is required, and when a qualified person must stop, approve, recover, or roll back.",
+    "Name the AI-assisted software release evidence package as the visible result of the module.",
     "Do not promise savings, compliance, certification, safety, performance, implementation success, or career outcomes without separately approved evidence."
   ],
-  "requiredWorkProduct": "AI-assisted build plan and evidence log",
-  "definitionOfDone": "The learner explains the core distinctions, completes the required evidence and decision activities, passes distributed checks, saves a complete AI-assisted build plan and evidence log, and names the next accountable action.",
-  "scopeBoundary": "Use sandboxed examples, protect credentials, inspect changes, and preserve review. Do not present vibe building as a substitute for engineering or security responsibility.",
+  "requiredWorkProduct": "AI-assisted software release evidence package",
+  "definitionOfDone": "The learner explains the core distinctions, completes the required evidence and decision activities, passes distributed checks, saves a complete AI-assisted software release evidence package, and names the next accountable action.",
+  "scopeBoundary": "Use sandboxed examples, protect credentials, inspect changes, reproduce builds, and preserve review. Generated code and passing tests do not transfer engineering, security, privacy, accessibility, or release responsibility.",
   "researchQuestions": [
     "What must an intelligent newcomer understand about Building With AI: Claude Code, Skills, Codex, the IDE, Vibe → Agentic before using it in utility work?",
-    "Which sources can support the distinctions among goal, plan, prompt, repository, code change, test, review, commit, deployment, monitoring, and rollback?",
-    "What evidence would allow a practitioner to make this decision: Decide what an AI coding agent may inspect or change, what evidence proves the change, and when a qualified person must stop or approve it.",
-    "Which failure modes, counterexamples, and edge conditions could make the AI-assisted build plan and evidence log misleading?",
+    "Which sources can support the distinctions among problem, goal, plan, repository, branch, difference, code change, test, dependency, environment, artifact, review, commit, release, deployment, monitoring, and rollback?",
+    "What evidence would allow a practitioner to make this decision: Decide what a coding agent may inspect or change, what tests and review prove the change, what release evidence is required, and when a qualified person must stop, approve, recover, or roll back.",
+    "Which failure modes, counterexamples, and edge conditions could make the AI-assisted software release evidence package misleading?",
     "How does the question change across drinking water, wastewater, stormwater, reuse, finance, engineering, administration, technology, and public accountability?",
     "Which actions require qualified operator, engineer, water-quality, cybersecurity, privacy, legal, procurement, records, finance, accessibility, or executive review?",
-    "Which claims remain outside the module boundary: Use sandboxed examples, protect credentials, inspect changes, and preserve review. Do not present vibe building as a substitute for engineering or security responsibility."
+    "Which claims remain outside the module boundary: Use sandboxed examples, protect credentials, inspect changes, reproduce builds, and preserve review. Generated code and passing tests do not transfer engineering, security, privacy, accessibility, or release responsibility."
   ],
   "visualDirections": [
-    "goal-plan-build-test loop",
-    "agent permission boundary",
-    "code change evidence chain",
-    "deployment and rollback phase gates"
+    "goal-plan-build-test-release loop",
+    "branch and review graph",
+    "change evidence chain",
+    "release and rollback phase gates"
+  ],
+  "acceptedExpansionCount": 1,
+  "acceptedExpansions": [
+    {
+      "id": "M40.CE01",
+      "gap_id": "AAI-10",
+      "competitiveExpansionId": "AAI-10",
+      "title": "Release discipline for AI-assisted software building",
+      "kind": "build",
+      "coverage": "partial",
+      "decision": "accepted",
+      "recommendation": "Turn AI-assisted code generation into a controlled engineering process with plans, branches, reviews, tests, environments, dependencies, secrets, artifacts, release evidence, and recovery.",
+      "description": "Turn AI-assisted code generation into a controlled engineering process with plans, branches, reviews, tests, environments, dependencies, secrets, artifacts, release evidence, and recovery.",
+      "learningObjectives": [
+        "Explain repository, branch, change, review, test, commit, artifact, release, deployment, and rollback in plain English.",
+        "Set the files, systems, credentials, and actions an AI coding agent may inspect or change.",
+        "Review a change by reading the plan, difference, tests, security effect, and rollback path.",
+        "Reproduce a build in a clean environment without using an unrecorded local dependency or secret.",
+        "Create an AI-assisted software release evidence package."
+      ],
+      "workProduct": "AI-assisted software release evidence package",
+      "assessmentEvidence": [
+        "change-record classification",
+        "difference and test review",
+        "failed-release recovery",
+        "completed release package"
+      ],
+      "visualDirections": [
+        "goal-plan-build-test loop",
+        "branch and review graph",
+        "evidence chain",
+        "release and rollback phase gates"
+      ],
+      "secondaryModules": [
+        "M24",
+        "M26",
+        "M31",
+        "M43",
+        "M53"
+      ],
+      "sourceRefs": [
+        "CCA-004 pages 8 to 10",
+        "CCA-005"
+      ],
+      "evidenceBoundary": "Generated code and passing tests do not transfer engineering, cybersecurity, accessibility, privacy, or release responsibility to the artificial intelligence system.",
+      "subtopics": [
+        {
+          "id": "M40.CE01a",
+          "title": "Goal, plan, issue, user story, and acceptance evidence"
+        },
+        {
+          "id": "M40.CE01b",
+          "title": "Repository, branch, difference, review, commit, and tag"
+        },
+        {
+          "id": "M40.CE01c",
+          "title": "Unit, integration, security, accessibility, and regression tests"
+        },
+        {
+          "id": "M40.CE01d",
+          "title": "Dependencies, lock files, environments, configuration, and secrets"
+        },
+        {
+          "id": "M40.CE01e",
+          "title": "Build artifact, release notes, approval, deployment, and rollback"
+        },
+        {
+          "id": "M40.CE01f",
+          "title": "AI coding-agent permissions, evidence, and human ownership"
+        }
+      ]
+    }
   ],
   "staffDirectionPath": "curriculum/modules/legacy-module-40-building-with-ai-claude-code-skills-codex-the-ide-vibe-agentic/STAFF-DIRECTION.md",
   "researchPromptPath": "curriculum/modules/legacy-module-40-building-with-ai-claude-code-skills-codex-the-ide-vibe-agentic/AI-RESEARCH-AND-PRODUCTION-PROMPT.md",
   "designBriefPath": "curriculum/design-briefs/legacy-module-40-building-with-ai-claude-code-skills-codex-the-ide-vibe-agentic.md",
   "placementRegisterPath": "curriculum/modules/legacy-module-40-building-with-ai-claude-code-skills-codex-the-ide-vibe-agentic/CONTENT-PLACEMENT-REGISTER.json",
-  "placementRecordCount": 94
+  "placementRecordCount": 101
 }

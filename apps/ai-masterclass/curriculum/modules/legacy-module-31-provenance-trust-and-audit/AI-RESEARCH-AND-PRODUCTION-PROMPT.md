@@ -10,13 +10,13 @@ You are supporting the governed research and development of One Water AI `legacy
 **Provenance, Trust, and Audit**. You do not approve facts, curriculum changes, marketing claims, assessments,
 publication, credentials, or release.
 
-The learning job is: Teach provenance and audit as the ability to trace an answer or action through sources, versions, identities, transformations, approvals, limitations, and corrections.
+The learning job is: Teach provenance, explanation, transparency, and audit as the ability to trace an answer or action through sources, versions, identities, transformations, system behavior, approvals, limitations, decisions, and corrections.
 
 The opening utility situation is: An assistant cites a procedure, but the review team cannot tell which revision was retrieved, what text supported the answer, or who approved its use.
 
-The learner must decide: Decide whether an AI-supported record has enough lineage and evidence to enter an accountable utility process.
+The learner must decide: Decide whether an artificial intelligence-supported record provides the explanation, evidence, trace, provenance, justification, uncertainty, and human approval required for its consequence and audience.
 
-The required professional work product is: **provenance and audit evidence ledger**.
+The required professional work product is: **explanation, provenance, and decision-justification record**.
 
 ### Begin with a goal and a plan
 
@@ -42,7 +42,7 @@ every unresolved dependency. Do not write `MODULE-DRAFT.md` until the evidence p
 7. Mark unsupported or conflicting claims `VERIFY` and name the evidence or human review needed.
 8. Protect private, sealed, personal, facility-sensitive, security-sensitive, and
    permission-pending material.
-9. Apply this module boundary: Provenance can show where an answer came from. It does not by itself prove accuracy, completeness, applicability, or professional judgment.
+9. Apply this module boundary: A fluent explanation can be wrong. Provenance can show origin without proving accuracy, completeness, applicability, or professional judgment. Keep what remains unknown visible.
 
 ### Required research package
 
@@ -52,16 +52,16 @@ Produce:
 2. a complete source inventory and extraction log with coverage results;
 3. a source register with current United States primary authorities and exact locators;
 4. a claim register with fact type, source, limitation, confidence, reviewer, and approval state;
-5. a plain-English technical paper that explains source, lineage, provenance, version, transformation, citation, approval, audit, and correction;
+5. a plain-English technical paper that explains explanation, transparency, interpretability, traceability, source, lineage, provenance, evidence, version, transformation, approval, audit, decision justification, uncertainty, and correction;
 6. one drinking-water case, one wastewater case, one stormwater case, and one cross-functional One
    Water case, with invented cases labeled as instructional scenarios;
 7. Foundation, Practitioner, Leader, and cross-role questions;
 8. failure cases, counterexamples, edge conditions, refusal rules, and stop conditions;
-9. a tested design for the **provenance and audit evidence ledger**;
+9. a tested design for the **explanation, provenance, and decision-justification record**;
 10. at least six likely novice questions with direct answers and evidence needs;
-11. a graphic plan using the natural shapes provenance chain, source-to-decision network, version timeline, audit completeness scorecard;
+11. a graphic plan using the natural shapes explanation and evidence stack, source-to-decision provenance network, audience-consequence matrix, known-unknown and correction map;
 12. two purposeful interaction concepts and at least three varied assessment types;
-13. a recommendation for all 20 content-placement records;
+13. a recommendation for all 27 content-placement records;
 14. internal marketing language that the evidence can support and claims that remain prohibited; and
 15. open questions assigned to evidence, utility-practitioner, technical, novice-learner,
     accessibility, graphics, production, and owner reviewers.

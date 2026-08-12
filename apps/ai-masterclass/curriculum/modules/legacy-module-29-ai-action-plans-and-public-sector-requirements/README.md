@@ -19,7 +19,7 @@ Determine which actions a public utility should take now, monitor, or route for 
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_29_AI_Action_Plans.html`
-- Source pages in the governed curriculum: 321 through 331
+- Source pages in the governed curriculum: 323 through 333
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

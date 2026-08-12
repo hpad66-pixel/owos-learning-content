@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Decide what an AI coding agent may inspect or change, what evidence proves the change, and when a qualified person must stop or approve it.
+Decide what a coding agent may inspect or change, what tests and review prove the change, what release evidence is required, and when a qualified person must stop, approve, recover, or roll back.
 
 ## Required learner work product
 
-**AI-assisted build plan and evidence log**
+**AI-assisted software release evidence package**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_40_Building_With_AI.html`
-- Source pages in the governed curriculum: 456 through 472
+- Source pages in the governed curriculum: 460 through 477
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

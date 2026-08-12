@@ -19,7 +19,7 @@ Decide whether a no-code or low-code tool fits a bounded prototype and what cont
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_39_NoCode_LowCode.html`
-- Source pages in the governed curriculum: 442 through 455
+- Source pages in the governed curriculum: 446 through 459
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

@@ -19,7 +19,7 @@ Identify which application components are required for a bounded utility task an
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_09_LLM_as_OS.html`
-- Source pages in the governed curriculum: 109 through 118
+- Source pages in the governed curriculum: 110 through 119
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

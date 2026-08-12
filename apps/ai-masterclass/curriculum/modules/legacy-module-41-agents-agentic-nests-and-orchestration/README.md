@@ -9,17 +9,17 @@ record.
 
 ## Module decision
 
-Choose between a fixed workflow, one agent, or multiple specialists and define the handoff and escalation contract.
+Choose between a fixed workflow, one agent, or multiple specialists, then define the planning pattern, tool and state boundary, handoff, disagreement, recovery, escalation, and human-decision contract.
 
 ## Required learner work product
 
-**utility agent and orchestration canvas**
+**utility agent architecture, coordination, and recovery contract**
 
 ## Authority and status
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_41_Agents_Orchestration.html`
-- Source pages in the governed curriculum: 473 through 486
+- Source pages in the governed curriculum: 478 through 493
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

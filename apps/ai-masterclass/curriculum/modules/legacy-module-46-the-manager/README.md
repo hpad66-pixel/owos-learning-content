@@ -19,7 +19,7 @@ Decide whether a team is ready to test one use case and what management system w
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_46_The_Manager.html`
-- Source pages in the governed curriculum: 544 through 556
+- Source pages in the governed curriculum: 553 through 565
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

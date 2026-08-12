@@ -19,7 +19,7 @@ Choose the precise term needed to describe a model, product, input, output, sour
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_03_The_Lexicon_of_AI.html`
-- Source pages in the governed curriculum: 53 through 59
+- Source pages in the governed curriculum: 54 through 60
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

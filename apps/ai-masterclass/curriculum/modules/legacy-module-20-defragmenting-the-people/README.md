@@ -19,7 +19,7 @@ Decide how to investigate a conflict between the official record and current fie
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_20_Defragmenting_the_People.html`
-- Source pages in the governed curriculum: 230 through 240
+- Source pages in the governed curriculum: 231 through 241
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

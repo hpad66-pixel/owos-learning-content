@@ -19,7 +19,7 @@ Determine what public evidence and safeguards are needed before supporting an AI
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_48_Elected_Official.html`
-- Source pages in the governed curriculum: 568 through 579
+- Source pages in the governed curriculum: 577 through 588
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

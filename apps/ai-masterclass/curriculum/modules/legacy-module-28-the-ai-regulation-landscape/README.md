@@ -19,7 +19,7 @@ Determine which legal or policy questions require qualified review for a propose
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_28_AI_Regulation_Landscape.html`
-- Source pages in the governed curriculum: 313 through 320
+- Source pages in the governed curriculum: 315 through 322
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

@@ -2,7 +2,7 @@
 
 | Stage | Status | Evidence or next action |
 | --- | --- | --- |
-| Source curriculum preserved | complete | Source file and 21 granular placement records remain traceable. |
+| Source curriculum preserved | complete | Source file and 28 granular placement records remain traceable. |
 | Staff direction | blueprint for owner review | Review learning job, outcomes, work product, scope, and team instructions. |
 | Research and extraction | pending | Register primary sources, extract complete evidence, and verify claims. |
 | Claims and evidence | pending | Separate fact, interpretation, Hardeep position, scenario, and unresolved question. |

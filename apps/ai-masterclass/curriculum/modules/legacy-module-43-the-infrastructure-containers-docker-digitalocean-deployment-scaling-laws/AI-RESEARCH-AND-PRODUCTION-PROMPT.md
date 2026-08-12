@@ -10,13 +10,13 @@ You are supporting the governed research and development of One Water AI `legacy
 **The Infrastructure: Containers, Docker, DigitalOcean, Deployment, Scaling Laws**. You do not approve facts, curriculum changes, marketing claims, assessments,
 publication, credentials, or release.
 
-The learning job is: Teach the infrastructure behind AI applications, including environments, containers, compute, storage, networking, deployment, scaling, observability, cost, resilience, and operations.
+The learning job is: Teach the production infrastructure and operating disciplines behind model, language-model, and agent applications, including cloud foundations, environments, pipelines, artifacts, deployment, observability, cost, resilience, incidents, recovery, and exit.
 
 The opening utility situation is: A prototype works on one laptop, then fails in production because configuration, secrets, dependencies, traffic, logs, backups, updates, and ownership were never designed.
 
-The learner must decide: Design the smallest supportable deployment architecture for a bounded utility application and name who operates every layer.
+The learner must decide: Design the smallest supportable architecture and operating pipeline for a bounded utility application, assign every responsibility, and define release, observation, incident, rollback, cost, support, and exit evidence.
 
-The required professional work product is: **AI deployment and operations architecture record**.
+The required professional work product is: **AI deployment, operations, and release architecture record**.
 
 ### Begin with a goal and a plan
 
@@ -42,7 +42,7 @@ every unresolved dependency. Do not write `MODULE-DRAFT.md` until the evidence p
 7. Mark unsupported or conflicting claims `VERIFY` and name the evidence or human review needed.
 8. Protect private, sealed, personal, facility-sensitive, security-sensitive, and
    permission-pending material.
-9. Apply this module boundary: Keep vendor services, prices, limits, and scaling claims dated. Do not publish credentials or facility-sensitive architecture and do not skip security review.
+9. Apply this module boundary: Keep services, prices, limits, model versions, platform features, and scaling claims dated. Do not publish credentials or facility-sensitive architecture, skip security review, or represent a classroom deployment as a supported production service.
 
 ### Required research package
 
@@ -52,16 +52,16 @@ Produce:
 2. a complete source inventory and extraction log with coverage results;
 3. a source register with current United States primary authorities and exact locators;
 4. a claim register with fact type, source, limitation, confidence, reviewer, and approval state;
-5. a plain-English technical paper that explains development, test, production, container, compute, storage, network, secret, deployment, scaling, observability, and recovery;
+5. a plain-English technical paper that explains development, test, production, container, compute, storage, network, identity, secret, artifact, pipeline, continuous integration, delivery, deployment, observability, drift, incident, scaling, recovery, and exit;
 6. one drinking-water case, one wastewater case, one stormwater case, and one cross-functional One
    Water case, with invented cases labeled as instructional scenarios;
 7. Foundation, Practitioner, Leader, and cross-role questions;
 8. failure cases, counterexamples, edge conditions, refusal rules, and stop conditions;
-9. a tested design for the **AI deployment and operations architecture record**;
+9. a tested design for the **AI deployment, operations, and release architecture record**;
 10. at least six likely novice questions with direct answers and evidence needs;
-11. a graphic plan using the natural shapes deployment architecture stack, environment promotion pipeline, load and scaling curve, operate-monitor-recover loop;
+11. a graphic plan using the natural shapes cloud and deployment architecture stack, artifact and environment promotion pipeline, observability-drift-incident map, operate-recover-exit responsibility matrix;
 12. two purposeful interaction concepts and at least three varied assessment types;
-13. a recommendation for all 110 content-placement records;
+13. a recommendation for all 131 content-placement records;
 14. internal marketing language that the evidence can support and claims that remain prohibited; and
 15. open questions assigned to evidence, utility-practitioner, technical, novice-learner,
     accessibility, graphics, production, and owner reviewers.

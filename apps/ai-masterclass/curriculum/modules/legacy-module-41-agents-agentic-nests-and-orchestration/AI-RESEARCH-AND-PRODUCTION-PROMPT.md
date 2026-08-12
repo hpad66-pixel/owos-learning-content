@@ -10,13 +10,13 @@ You are supporting the governed research and development of One Water AI `legacy
 **Agents, Agentic Nests, and Orchestration**. You do not approve facts, curriculum changes, marketing claims, assessments,
 publication, credentials, or release.
 
-The learning job is: Teach agents and orchestration as bounded work systems with goals, instructions, tools, state, evidence, evaluation, handoffs, stop conditions, and accountable humans.
+The learning job is: Teach agents as bounded work systems with goals, environment, observations, actions, plans, tools, state, evidence, evaluation, handoffs, coordination, interaction, stop conditions, recovery, and accountable humans.
 
 The opening utility situation is: Three agents produce separate recommendations, but they use different source versions and no person owns disagreement or the final decision.
 
-The learner must decide: Choose between a fixed workflow, one agent, or multiple specialists and define the handoff and escalation contract.
+The learner must decide: Choose between a fixed workflow, one agent, or multiple specialists, then define the planning pattern, tool and state boundary, handoff, disagreement, recovery, escalation, and human-decision contract.
 
-The required professional work product is: **utility agent and orchestration canvas**.
+The required professional work product is: **utility agent architecture, coordination, and recovery contract**.
 
 ### Begin with a goal and a plan
 
@@ -42,7 +42,7 @@ every unresolved dependency. Do not write `MODULE-DRAFT.md` until the evidence p
 7. Mark unsupported or conflicting claims `VERIFY` and name the evidence or human review needed.
 8. Protect private, sealed, personal, facility-sensitive, security-sensitive, and
    permission-pending material.
-9. Apply this module boundary: Do not imply that multiple agents create independent truth or professional authority. Preserve sources, permissions, cost limits, and human decision rights.
+9. Apply this module boundary: Do not imply that planning text, multiple agents, perceived agency, or tool access creates independent truth, professional judgment, or operating authority. Preserve sources, permissions, cost limits, dissent, and human decision rights.
 
 ### Required research package
 
@@ -52,16 +52,16 @@ Produce:
 2. a complete source inventory and extraction log with coverage results;
 3. a source register with current United States primary authorities and exact locators;
 4. a claim register with fact type, source, limitation, confidence, reviewer, and approval state;
-5. a plain-English technical paper that explains workflow, agent, specialist, orchestrator, shared state, handoff, evaluation, retry, escalation, and stop;
+5. a plain-English technical paper that explains workflow, agent, goal, environment, observation, action, plan, Reason and Act, tool, state, specialist, orchestrator, shared state, handoff, evaluation, retry, conflict, deadlock, recovery, escalation, and stop;
 6. one drinking-water case, one wastewater case, one stormwater case, and one cross-functional One
    Water case, with invented cases labeled as instructional scenarios;
 7. Foundation, Practitioner, Leader, and cross-role questions;
 8. failure cases, counterexamples, edge conditions, refusal rules, and stop conditions;
-9. a tested design for the **utility agent and orchestration canvas**;
+9. a tested design for the **utility agent architecture, coordination, and recovery contract**;
 10. at least six likely novice questions with direct answers and evidence needs;
-11. a graphic plan using the natural shapes agent loop stepper, multi-agent handoff network, shared-state ledger, workflow-or-agent decision matrix;
+11. a graphic plan using the natural shapes agent-environment and planning stepper, multi-agent coordination topology, shared-state and disagreement ledger, failure-propagation and recovery chain;
 12. two purposeful interaction concepts and at least three varied assessment types;
-13. a recommendation for all 21 content-placement records;
+13. a recommendation for all 42 content-placement records;
 14. internal marketing language that the evidence can support and claims that remain prohibited; and
 15. open questions assigned to evidence, utility-practitioner, technical, novice-learner,
     accessibility, graphics, production, and owner reviewers.

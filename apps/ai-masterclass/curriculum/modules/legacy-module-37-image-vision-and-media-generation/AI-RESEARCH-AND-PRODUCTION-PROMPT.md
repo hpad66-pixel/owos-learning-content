@@ -10,13 +10,13 @@ You are supporting the governed research and development of One Water AI `legacy
 **Image, Vision, and Media Generation**. You do not approve facts, curriculum changes, marketing claims, assessments,
 publication, credentials, or release.
 
-The learning job is: Teach image, audio, video, and media generation as governed communication work involving purpose, source rights, representation, accuracy, accessibility, disclosure, and review.
+The learning job is: Teach image, audio, video, and synthetic-media creation together with source integrity, consent, provenance, disclosure, approval, accessibility, publication, incident response, and correction.
 
 The opening utility situation is: A public-education graphic looks convincing but depicts the wrong valve arrangement and contains text that no technical reviewer approved.
 
-The learner must decide: Decide whether generated media is appropriate for a utility communication and what evidence, disclosure, consent, and human approval it needs.
+The learner must decide: Decide whether generated or altered media may be created, shared, published, corrected, restricted, or rejected for a utility communication purpose.
 
-The required professional work product is: **generated-media production and review brief**.
+The required professional work product is: **utility synthetic-media integrity and production protocol**.
 
 ### Begin with a goal and a plan
 
@@ -42,7 +42,7 @@ every unresolved dependency. Do not write `MODULE-DRAFT.md` until the evidence p
 7. Mark unsupported or conflicting claims `VERIFY` and name the evidence or human review needed.
 8. Protect private, sealed, personal, facility-sensitive, security-sensitive, and
    permission-pending material.
-9. Apply this module boundary: Do not use generated media as engineering, inspection, incident, laboratory, or historical evidence. Verify rights, consent, technical details, and text.
+9. Apply this module boundary: Do not label media authentic or false without recorded evidence and qualified review. Do not generate a person's likeness or voice without authority, or publish unsupported water-quality, service, emergency, or public claims.
 
 ### Required research package
 
@@ -52,16 +52,16 @@ Produce:
 2. a complete source inventory and extraction log with coverage results;
 3. a source register with current United States primary authorities and exact locators;
 4. a claim register with fact type, source, limitation, confidence, reviewer, and approval state;
-5. a plain-English technical paper that explains source media, generated media, edit, simulation, evidence, likeness, rights, disclosure, and accessible alternative;
+5. a plain-English technical paper that explains generated media, edited media, misleading context, impersonation, deepfake, error, satire, disinformation, source, transformation, disclosure, approval, and correction;
 6. one drinking-water case, one wastewater case, one stormwater case, and one cross-functional One
    Water case, with invented cases labeled as instructional scenarios;
 7. Foundation, Practitioner, Leader, and cross-role questions;
 8. failure cases, counterexamples, edge conditions, refusal rules, and stop conditions;
-9. a tested design for the **generated-media production and review brief**;
+9. a tested design for the **utility synthetic-media integrity and production protocol**;
 10. at least six likely novice questions with direct answers and evidence needs;
-11. a graphic plan using the natural shapes media provenance chain, acceptable-use matrix, source-edit-generation comparison, review and disclosure workflow;
+11. a graphic plan using the natural shapes media provenance and transformation chain, content-integrity decision tree, publication approval swimlane, false-message correction timeline;
 12. two purposeful interaction concepts and at least three varied assessment types;
-13. a recommendation for all 21 content-placement records;
+13. a recommendation for all 28 content-placement records;
 14. internal marketing language that the evidence can support and claims that remain prohibited; and
 15. open questions assigned to evidence, utility-practitioner, technical, novice-learner,
     accessibility, graphics, production, and owner reviewers.

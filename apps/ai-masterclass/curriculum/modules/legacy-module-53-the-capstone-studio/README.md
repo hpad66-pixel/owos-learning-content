@@ -19,7 +19,7 @@ Defend whether the proposed pilot should proceed, be redesigned, wait for readin
 
 - Curriculum authority: `hpad66-pixel/owos-learning-content`
 - Source file: `AI Master CLass/HTML/Module_53_Capstone_Studio.html`
-- Source pages in the governed curriculum: 628 through 643
+- Source pages in the governed curriculum: 637 through 652
 - Current status: blueprint for owner review
 - Release boundary: this package is not an approved learner manuscript, Articulate build, credential,
   or public release

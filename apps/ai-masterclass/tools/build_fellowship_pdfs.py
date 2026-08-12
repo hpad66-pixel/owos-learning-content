@@ -135,7 +135,7 @@ def validate_control_records(courses: list[Course]) -> None:
     metadata = COURSE_METADATA.read_text(encoding="utf-8")
     blueprint = FIELDBOOK_BLUEPRINT.read_text(encoding="utf-8")
     required_metadata = [
-        f"title: {PROGRAM_TITLE}",
+        f"premium_cohort: {PROGRAM_TITLE}",
         f"courses: {EXPECTED_COURSES}",
         f"modules: {EXPECTED_MODULES}",
     ]

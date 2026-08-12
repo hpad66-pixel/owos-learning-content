@@ -2,53 +2,259 @@
   "schema": "owos-module-guidance/v1",
   "moduleId": "legacy:M41",
   "status": "blueprint-for-owner-review",
-  "purpose": "Teach agents and orchestration as bounded work systems with goals, instructions, tools, state, evidence, evaluation, handoffs, stop conditions, and accountable humans.",
-  "staffSummary": "Build M41 around one consequential utility situation and one decision: Choose between a fixed workflow, one agent, or multiple specialists and define the handoff and escalation contract. The learner must leave with a usable utility agent and orchestration canvas, not a collection of definitions.",
+  "purpose": "Teach agents as bounded work systems with goals, environment, observations, actions, plans, tools, state, evidence, evaluation, handoffs, coordination, interaction, stop conditions, recovery, and accountable humans.",
+  "staffSummary": "Build M41 around one consequential utility situation and one decision: Choose between a fixed workflow, one agent, or multiple specialists, then define the planning pattern, tool and state boundary, handoff, disagreement, recovery, escalation, and human-decision contract. The learner must leave with a usable utility agent architecture, coordination, and recovery contract, not a collection of definitions.",
   "openingSituation": "Three agents produce separate recommendations, but they use different source versions and no person owns disagreement or the final decision.",
-  "learnerDecision": "Choose between a fixed workflow, one agent, or multiple specialists and define the handoff and escalation contract.",
+  "learnerDecision": "Choose between a fixed workflow, one agent, or multiple specialists, then define the planning pattern, tool and state boundary, handoff, disagreement, recovery, escalation, and human-decision contract.",
   "analogy": "A staffed incident room works because roles, evidence, handoffs, command, and the decision log are explicit. More people without coordination create noise.",
   "learnerOutcomes": [
     "Explain Agents, Agentic Nests, and Orchestration in plain English and connect it to a real water, wastewater, stormwater, or One Water decision.",
-    "Distinguish workflow, agent, specialist, orchestrator, shared state, handoff, evaluation, retry, escalation, and stop without using one term to hide several different jobs.",
+    "Distinguish workflow, agent, goal, environment, observation, action, plan, Reason and Act, tool, state, specialist, orchestrator, shared state, handoff, evaluation, retry, conflict, deadlock, recovery, escalation, and stop without using one term to hide several different jobs.",
     "Analyze the module situation, identify missing evidence, and name the professional consequence of a weak decision.",
     "Compare how the same question changes across drinking water, wastewater, stormwater, administration, engineering, finance, technology, and public leadership.",
-    "Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not imply that multiple agents create independent truth or professional authority. Preserve sources, permissions, cost limits, and human decision rights.",
-    "Create a usable utility agent and orchestration canvas with evidence, roles, limits, review steps, and the next accountable action.",
+    "Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not imply that planning text, multiple agents, perceived agency, or tool access creates independent truth, professional judgment, or operating authority. Preserve sources, permissions, cost limits, dissent, and human decision rights.",
+    "Create a usable utility agent architecture, coordination, and recovery contract with evidence, roles, limits, review steps, and the next accountable action.",
     "Defend the recommendation to Foundation, Practitioner, and Leader audiences while keeping disagreement and uncertainty visible."
   ],
   "curriculumOutcomes": [
     "Give Agents, Agentic Nests, and Orchestration one clear learning job inside Building AI Systems.",
-    "Connect the module to a consequential decision and the utility agent and orchestration canvas.",
+    "Connect the module to a consequential decision and the utility agent architecture, coordination, and recovery contract.",
     "Preserve current content, proposals, enhancements, and contributor records by stable identifier.",
     "Separate verified evidence, Hardeep positions, expert interpretation, instructional scenarios, and unresolved questions.",
     "Create an explicit bridge to the preceding and following modules without duplicating their work."
   ],
   "marketingOutcomes": [
-    "Describe the practical value as helping a learner make and explain this decision: Choose between a fixed workflow, one agent, or multiple specialists and define the handoff and escalation contract.",
-    "Name the utility agent and orchestration canvas as the visible result of the module.",
+    "Describe the practical value as helping a learner make and explain this decision: Choose between a fixed workflow, one agent, or multiple specialists, then define the planning pattern, tool and state boundary, handoff, disagreement, recovery, escalation, and human-decision contract.",
+    "Name the utility agent architecture, coordination, and recovery contract as the visible result of the module.",
     "Do not promise savings, compliance, certification, safety, performance, implementation success, or career outcomes without separately approved evidence."
   ],
-  "requiredWorkProduct": "utility agent and orchestration canvas",
-  "definitionOfDone": "The learner explains the core distinctions, completes the required evidence and decision activities, passes distributed checks, saves a complete utility agent and orchestration canvas, and names the next accountable action.",
-  "scopeBoundary": "Do not imply that multiple agents create independent truth or professional authority. Preserve sources, permissions, cost limits, and human decision rights.",
+  "requiredWorkProduct": "utility agent architecture, coordination, and recovery contract",
+  "definitionOfDone": "The learner explains the core distinctions, completes the required evidence and decision activities, passes distributed checks, saves a complete utility agent architecture, coordination, and recovery contract, and names the next accountable action.",
+  "scopeBoundary": "Do not imply that planning text, multiple agents, perceived agency, or tool access creates independent truth, professional judgment, or operating authority. Preserve sources, permissions, cost limits, dissent, and human decision rights.",
   "researchQuestions": [
     "What must an intelligent newcomer understand about Agents, Agentic Nests, and Orchestration before using it in utility work?",
-    "Which sources can support the distinctions among workflow, agent, specialist, orchestrator, shared state, handoff, evaluation, retry, escalation, and stop?",
-    "What evidence would allow a practitioner to make this decision: Choose between a fixed workflow, one agent, or multiple specialists and define the handoff and escalation contract.",
-    "Which failure modes, counterexamples, and edge conditions could make the utility agent and orchestration canvas misleading?",
+    "Which sources can support the distinctions among workflow, agent, goal, environment, observation, action, plan, Reason and Act, tool, state, specialist, orchestrator, shared state, handoff, evaluation, retry, conflict, deadlock, recovery, escalation, and stop?",
+    "What evidence would allow a practitioner to make this decision: Choose between a fixed workflow, one agent, or multiple specialists, then define the planning pattern, tool and state boundary, handoff, disagreement, recovery, escalation, and human-decision contract.",
+    "Which failure modes, counterexamples, and edge conditions could make the utility agent architecture, coordination, and recovery contract misleading?",
     "How does the question change across drinking water, wastewater, stormwater, reuse, finance, engineering, administration, technology, and public accountability?",
     "Which actions require qualified operator, engineer, water-quality, cybersecurity, privacy, legal, procurement, records, finance, accessibility, or executive review?",
-    "Which claims remain outside the module boundary: Do not imply that multiple agents create independent truth or professional authority. Preserve sources, permissions, cost limits, and human decision rights."
+    "Which claims remain outside the module boundary: Do not imply that planning text, multiple agents, perceived agency, or tool access creates independent truth, professional judgment, or operating authority. Preserve sources, permissions, cost limits, dissent, and human decision rights."
   ],
   "visualDirections": [
-    "agent loop stepper",
-    "multi-agent handoff network",
-    "shared-state ledger",
-    "workflow-or-agent decision matrix"
+    "agent-environment and planning stepper",
+    "multi-agent coordination topology",
+    "shared-state and disagreement ledger",
+    "failure-propagation and recovery chain"
+  ],
+  "acceptedExpansionCount": 3,
+  "acceptedExpansions": [
+    {
+      "id": "M41.CE01",
+      "gap_id": "AAI-04",
+      "competitiveExpansionId": "AAI-04",
+      "title": "Agents, goals, environments, and perceived agency",
+      "kind": "concept",
+      "coverage": "partial",
+      "decision": "accepted",
+      "recommendation": "Give learners a precise model for what an agent observes, what it may do, what goal it is pursuing, what environment it operates in, and why people can perceive more intelligence or authority than the system has.",
+      "description": "Give learners a precise model for what an agent observes, what it may do, what goal it is pursuing, what environment it operates in, and why people can perceive more intelligence or authority than the system has.",
+      "learningObjectives": [
+        "Distinguish a model response, deterministic workflow, bounded agent, and multi-agent work system.",
+        "Specify a task using goal, performance measure, environment, observations, allowed actions, state, and stop conditions.",
+        "Compare predictable, uncertain, observable, partially observable, static, and changing environments.",
+        "Identify language and interface choices that cause people to overstate agency, understanding, or authority.",
+        "Create a utility agent environment and authority specification."
+      ],
+      "workProduct": "utility agent environment and authority specification",
+      "assessmentEvidence": [
+        "system classification",
+        "environment analysis",
+        "agency-language correction",
+        "completed agent specification"
+      ],
+      "visualDirections": [
+        "agent-environment loop",
+        "environment property matrix",
+        "agency-perception spectrum",
+        "authority perimeter map"
+      ],
+      "secondaryModules": [
+        "M03",
+        "M06",
+        "M10"
+      ],
+      "sourceRefs": [
+        "CCA-003 page 11",
+        "CCA-005"
+      ],
+      "evidenceBoundary": "The academic agent model is a design lens. It does not grant an artificial intelligence system legal, professional, or operating authority.",
+      "subtopics": [
+        {
+          "id": "M41.CE01a",
+          "title": "Rational-agent framing and its limits"
+        },
+        {
+          "id": "M41.CE01b",
+          "title": "Goals, performance measures, and goal complexity"
+        },
+        {
+          "id": "M41.CE01c",
+          "title": "Environment types and uncertainty"
+        },
+        {
+          "id": "M41.CE01d",
+          "title": "Observations, allowed actions, state, and tools"
+        },
+        {
+          "id": "M41.CE01e",
+          "title": "Reactivity, autonomy, and perceived agency"
+        },
+        {
+          "id": "M41.CE01f",
+          "title": "Human authority, prohibited action, and stop"
+        }
+      ]
+    },
+    {
+      "id": "M41.CE02",
+      "gap_id": "AAI-05",
+      "competitiveExpansionId": "AAI-05",
+      "title": "Planning, Reason and Act, reflection, and agentic retrieval",
+      "kind": "build",
+      "coverage": "partial",
+      "decision": "accepted",
+      "recommendation": "Compare fixed workflows with planning patterns that alternate reasoning, tool use, observation, evaluation, revision, and stop. Make observable evidence and control more important than hidden reasoning text.",
+      "description": "Compare fixed workflows with planning patterns that alternate reasoning, tool use, observation, evaluation, revision, and stop. Make observable evidence and control more important than hidden reasoning text.",
+      "learningObjectives": [
+        "Compare fixed workflow, plan-and-execute, Reason and Act, reflection, and agentic retrieval patterns.",
+        "Trace the observable goal, plan, action, tool result, evidence, evaluation, adjustment, and stop for one task.",
+        "Choose the least complicated planning pattern that can satisfy the utility task and consequence boundary.",
+        "Identify endless-loop, tool-selection, stale-evidence, plan-drift, and false-completion failures.",
+        "Create and test a governed agent plan and trace."
+      ],
+      "workProduct": "governed agent plan and trace",
+      "assessmentEvidence": [
+        "pattern comparison",
+        "trace ordering",
+        "failure injection and recovery",
+        "completed plan and trace"
+      ],
+      "visualDirections": [
+        "planning-pattern comparison",
+        "goal-plan-action-observation stepper",
+        "agentic retrieval loop",
+        "failure and stop decision tree"
+      ],
+      "secondaryModules": [
+        "M07",
+        "M14",
+        "M33"
+      ],
+      "sourceRefs": [
+        "CCA-003 page 12",
+        "CCA-005"
+      ],
+      "evidenceBoundary": "Do not expose private hidden reasoning or treat a generated reasoning narrative as proof. Evaluate observable actions, sources, tool results, and outcomes.",
+      "subtopics": [
+        {
+          "id": "M41.CE02a",
+          "title": "Classical plan, language-model plan, and fixed workflow"
+        },
+        {
+          "id": "M41.CE02b",
+          "title": "Plan-and-execute"
+        },
+        {
+          "id": "M41.CE02c",
+          "title": "Reason and Act"
+        },
+        {
+          "id": "M41.CE02d",
+          "title": "Reflection and critique"
+        },
+        {
+          "id": "M41.CE02e",
+          "title": "Agentic retrieval and iterative source refinement"
+        },
+        {
+          "id": "M41.CE02f",
+          "title": "Evaluation, retry budget, escalation, and stop"
+        }
+      ]
+    },
+    {
+      "id": "M41.CE03",
+      "gap_id": "AAI-06",
+      "competitiveExpansionId": "AAI-06",
+      "title": "Multi-agent coordination, conflict, cost, and failure",
+      "kind": "applied",
+      "coverage": "partial",
+      "decision": "accepted",
+      "recommendation": "Teach multiple agents as a coordinated work system with explicit roles, communication, shared state, arbitration, evidence, cost, and accountable human decision. More agents can create more failure as easily as more capability.",
+      "description": "Teach multiple agents as a coordinated work system with explicit roles, communication, shared state, arbitration, evidence, cost, and accountable human decision. More agents can create more failure as easily as more capability.",
+      "learningObjectives": [
+        "Choose among one workflow, one agent, and multiple specialist agents for a bounded utility task.",
+        "Design roles, messages, shared state, source versions, handoffs, arbitration, escalation, and final human authority.",
+        "Identify duplication, disagreement, stale state, deadlock, cascading error, excessive cost, and false consensus.",
+        "Use basic cooperation, incentive, and conflict reasoning without implying that agents are independent professionals.",
+        "Create and test a multi-agent coordination and recovery contract."
+      ],
+      "workProduct": "multi-agent coordination and recovery contract",
+      "assessmentEvidence": [
+        "architecture choice",
+        "handoff and state simulation",
+        "failure-propagation diagnosis",
+        "completed coordination contract"
+      ],
+      "visualDirections": [
+        "coordination topology network",
+        "shared-state ledger",
+        "disagreement and arbitration swimlane",
+        "failure-propagation chain"
+      ],
+      "secondaryModules": [
+        "M20",
+        "M24",
+        "M26",
+        "M31",
+        "M51"
+      ],
+      "sourceRefs": [
+        "CCA-003 page 12",
+        "CCA-005"
+      ],
+      "evidenceBoundary": "Multiple agents do not create independent truth, professional judgment, or legal authority. Preserve source versions, permissions, cost limits, dissent, and human decision rights.",
+      "subtopics": [
+        {
+          "id": "M41.CE03a",
+          "title": "Coordination topologies and orchestrators"
+        },
+        {
+          "id": "M41.CE03b",
+          "title": "Communication contracts and message evidence"
+        },
+        {
+          "id": "M41.CE03c",
+          "title": "Shared state, source versions, and conflict"
+        },
+        {
+          "id": "M41.CE03d",
+          "title": "Delegation, arbitration, consensus, and dissent"
+        },
+        {
+          "id": "M41.CE03e",
+          "title": "Deadlock, cascading failure, duplicated work, and cost multiplication"
+        },
+        {
+          "id": "M41.CE03f",
+          "title": "Human command, incident response, and final decision"
+        }
+      ]
+    }
   ],
   "staffDirectionPath": "curriculum/modules/legacy-module-41-agents-agentic-nests-and-orchestration/STAFF-DIRECTION.md",
   "researchPromptPath": "curriculum/modules/legacy-module-41-agents-agentic-nests-and-orchestration/AI-RESEARCH-AND-PRODUCTION-PROMPT.md",
   "designBriefPath": "curriculum/design-briefs/legacy-module-41-agents-agentic-nests-and-orchestration.md",
   "placementRegisterPath": "curriculum/modules/legacy-module-41-agents-agentic-nests-and-orchestration/CONTENT-PLACEMENT-REGISTER.json",
-  "placementRecordCount": 21
+  "placementRecordCount": 42
 }
