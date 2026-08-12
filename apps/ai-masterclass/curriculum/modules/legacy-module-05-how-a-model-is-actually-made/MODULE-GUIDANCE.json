@@ -1,0 +1,126 @@
+{
+  "schema": "owos-module-guidance/v1",
+  "moduleId": "legacy:M05",
+  "status": "blueprint-for-owner-review",
+  "purpose": "Explain how models and language systems move from data and design through training, evaluation, release, monitoring, incident response, rollback, correction, and retirement so learners can ask where behavior and limitations came from.",
+  "staffSummary": "Build M05 around one consequential utility situation and one decision: Identify the complete lifecycle, provenance, evaluation, operating, and recovery evidence a utility needs before accepting a model or language-system suitability claim. The learner must leave with a usable production AI lifecycle and provenance card, not a collection of definitions.",
+  "openingSituation": "A supplier reports a strong benchmark score, but the utility cannot see the training boundary, evaluation population, adaptation method, or operating conditions.",
+  "learnerDecision": "Identify the complete lifecycle, provenance, evaluation, operating, and recovery evidence a utility needs before accepting a model or language-system suitability claim.",
+  "analogy": "Hiring someone, training them, testing them, assigning a job, and supervising their work are different steps. Model development also needs those steps kept separate.",
+  "learnerOutcomes": [
+    "Explain How a Model Is Actually Made in plain English and connect it to a real water, wastewater, stormwater, or One Water decision.",
+    "Distinguish data preparation, experiment, training, adaptation, evaluation, artifact, release, deployment, monitoring, incident, rollback, correction, and retirement without using one term to hide several different jobs.",
+    "Analyze the module situation, identify missing evidence, and name the professional consequence of a weak decision.",
+    "Compare how the same question changes across drinking water, wastewater, stormwater, administration, engineering, finance, technology, and public leadership.",
+    "Evaluate sources, assumptions, limitations, permissions, and human authority using this boundary: Do not infer training data, architecture, labor, performance, monitoring quality, or production fitness from marketing or one demonstration. Keep proprietary, unknown, untested, and unapproved details visible.",
+    "Create a usable production AI lifecycle and provenance card with evidence, roles, limits, review steps, and the next accountable action.",
+    "Defend the recommendation to Foundation, Practitioner, and Leader audiences while keeping disagreement and uncertainty visible."
+  ],
+  "curriculumOutcomes": [
+    "Give How a Model Is Actually Made one clear learning job inside Foundations and Mental Models.",
+    "Connect the module to a consequential decision and the production AI lifecycle and provenance card.",
+    "Preserve current content, proposals, enhancements, and contributor records by stable identifier.",
+    "Separate verified evidence, Hardeep positions, expert interpretation, instructional scenarios, and unresolved questions.",
+    "Create an explicit bridge to the preceding and following modules without duplicating their work."
+  ],
+  "marketingOutcomes": [
+    "Describe the practical value as helping a learner make and explain this decision: Identify the complete lifecycle, provenance, evaluation, operating, and recovery evidence a utility needs before accepting a model or language-system suitability claim.",
+    "Name the production AI lifecycle and provenance card as the visible result of the module.",
+    "Do not promise savings, compliance, certification, safety, performance, implementation success, or career outcomes without separately approved evidence."
+  ],
+  "requiredWorkProduct": "production AI lifecycle and provenance card",
+  "definitionOfDone": "The learner explains the core distinctions, completes the required evidence and decision activities, passes distributed checks, saves a complete production AI lifecycle and provenance card, and names the next accountable action.",
+  "scopeBoundary": "Do not infer training data, architecture, labor, performance, monitoring quality, or production fitness from marketing or one demonstration. Keep proprietary, unknown, untested, and unapproved details visible.",
+  "researchQuestions": [
+    "What must an intelligent newcomer understand about How a Model Is Actually Made before using it in utility work?",
+    "Which sources can support the distinctions among data preparation, experiment, training, adaptation, evaluation, artifact, release, deployment, monitoring, incident, rollback, correction, and retirement?",
+    "What evidence would allow a practitioner to make this decision: Identify the complete lifecycle, provenance, evaluation, operating, and recovery evidence a utility needs before accepting a model or language-system suitability claim.",
+    "Which failure modes, counterexamples, and edge conditions could make the production AI lifecycle and provenance card misleading?",
+    "How does the question change across drinking water, wastewater, stormwater, reuse, finance, engineering, administration, technology, and public accountability?",
+    "Which actions require qualified operator, engineer, water-quality, cybersecurity, privacy, legal, procurement, records, finance, accessibility, or executive review?",
+    "Which claims remain outside the module boundary: Do not infer training data, architecture, labor, performance, monitoring quality, or production fitness from marketing or one demonstration. Keep proprietary, unknown, untested, and unapproved details visible."
+  ],
+  "visualDirections": [
+    "production lifecycle phase gates",
+    "training and evidence funnel",
+    "versioned artifact provenance network",
+    "monitor-incident-rollback loop"
+  ],
+  "acceptedExpansionCount": 1,
+  "acceptedExpansions": [
+    {
+      "id": "M05.CE01",
+      "gap_id": "AAI-01",
+      "competitiveExpansionId": "AAI-01",
+      "title": "The production AI lifecycle, from evidence to operation",
+      "kind": "applied",
+      "coverage": "partial",
+      "decision": "accepted",
+      "recommendation": "Connect data, model or language-system design, evaluation, release, monitoring, incident response, rollback, and improvement in one traceable lifecycle. The learner should see that a working demonstration is only one controlled stage.",
+      "description": "Connect data, model or language-system design, evaluation, release, monitoring, incident response, rollback, and improvement in one traceable lifecycle. The learner should see that a working demonstration is only one controlled stage.",
+      "learningObjectives": [
+        "Explain the difference among experiment, demonstration, pilot, production service, and governed operating capability.",
+        "Trace one utility application through data, model, prompt, context, tool, evaluation, release, monitoring, incident, rollback, and correction records.",
+        "Identify the owner, evidence, entry condition, exit condition, and stop rule at every lifecycle gate.",
+        "Distinguish a model change from a data, retrieval, prompt, tool, permission, interface, or workflow change.",
+        "Create and defend a production AI lifecycle and provenance card for a bounded utility use case."
+      ],
+      "workProduct": "production AI lifecycle and provenance card",
+      "assessmentEvidence": [
+        "lifecycle ordering check",
+        "change-type classification",
+        "utility release-gate decision",
+        "completed lifecycle card"
+      ],
+      "visualDirections": [
+        "lifecycle phase-gate flow",
+        "change-layer stack",
+        "source-to-operation provenance network",
+        "incident-correction loop"
+      ],
+      "secondaryModules": [
+        "M16",
+        "M24",
+        "M40",
+        "M43",
+        "M53"
+      ],
+      "sourceRefs": [
+        "CCA-004 pages 6 to 11",
+        "CCA-001 pages 12 to 15"
+      ],
+      "evidenceBoundary": "Do not treat a stage name, vendor platform, deployment, or passing test as proof that a utility application is safe, useful, supported, or approved.",
+      "subtopics": [
+        {
+          "id": "M05.CE01a",
+          "title": "Experiment, demonstration, pilot, production, and retirement"
+        },
+        {
+          "id": "M05.CE01b",
+          "title": "Data, model, prompt, context, tool, and configuration versions"
+        },
+        {
+          "id": "M05.CE01c",
+          "title": "Evaluation and acceptance before release"
+        },
+        {
+          "id": "M05.CE01d",
+          "title": "Environment promotion and accountable approval"
+        },
+        {
+          "id": "M05.CE01e",
+          "title": "Monitoring, incident, correction, rollback, and retirement"
+        },
+        {
+          "id": "M05.CE01f",
+          "title": "One traceable record from source evidence to operating decision"
+        }
+      ]
+    }
+  ],
+  "staffDirectionPath": "curriculum/modules/legacy-module-05-how-a-model-is-actually-made/STAFF-DIRECTION.md",
+  "researchPromptPath": "curriculum/modules/legacy-module-05-how-a-model-is-actually-made/AI-RESEARCH-AND-PRODUCTION-PROMPT.md",
+  "designBriefPath": "curriculum/design-briefs/legacy-module-05-how-a-model-is-actually-made.md",
+  "placementRegisterPath": "curriculum/modules/legacy-module-05-how-a-model-is-actually-made/CONTENT-PLACEMENT-REGISTER.json",
+  "placementRecordCount": 18
+}

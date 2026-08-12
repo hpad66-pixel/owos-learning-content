@@ -188,7 +188,7 @@ Before drafting, read `COURSE-BRIEF.md`, `STATE.md`, `APPROVALS.md`, `course.yam
 
 Create a module design brief before each lesson and maintain the course design matrix. Chapter 09 is a capability benchmark, not a page template. Every module must select its visual, interaction, quiz, animation, and work-product mix from the learning problem and must be checked against adjacent modules for repetition.
 
-Use compact Graph, Community, and Start actions in the lesson header. Graph and Community each open a white responsive drawer. Start moves to the beginning of the lesson. Reserve an explicit `#owos-course-community` anchor inside `main`, immediately before bottom navigation, for the complete connected-learning section. Floating cards and hanging rails are prohibited. Dark blue, navy, and gradient surfaces always use tested light text.
+Use compact Graph, Community, and Start actions in the lesson header. Graph and Community each open one white right-side drawer over the unchanged lesson. Close, Escape, backdrop selection, and browser Back remove the drawer and return focus to its top control. Start moves to the beginning of the lesson. Reserve an explicit `#owos-course-community` anchor inside `main`, immediately before bottom navigation, for the complete connected-learning section. Floating cards and hanging rails are prohibited. Dark blue, navy, and gradient surfaces always use tested light text.
 
 End every module with a module-specific FAQ before the evidence boundary and bottom connected-learning section. Anticipate novice questions, answer them directly in plain English, use a utility example, and add a diagram, comparison, or worked sequence when it improves understanding.
 

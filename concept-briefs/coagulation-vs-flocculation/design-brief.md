@@ -55,6 +55,12 @@ date: 2026-07-25
 
 ## Teaching sequence
 
+The page opens with a plain-language orientation that names the subject, the audience and assumed
+prior knowledge, the consequence of not understanding the distinction, the learner-facing outcomes,
+the time estimate, and the scope boundary. Coagulation, flocculation, floc, separation, and jar test
+are then defined in plain English, each with an example and a statement of what the term does not
+settle, before the live jar asks the learner to use them.
+
 The brief begins with the process mechanism because the learner must see that coagulation and
 flocculation perform different jobs. It then establishes the United States federal treatment and
 combined-filter-effluent frame before introducing technical terms. A process-fit section shows how an upstream condition can
@@ -68,6 +74,7 @@ role decisions, and the boundary between a public learning brief and a private f
 | --- | --- | --- | --- | --- | --- |
 | Coagulation condition and particle contact | Cause and effect over time | Four-stage qualitative vessel | Coagulation changes particle stability or creates precipitates, while flocculation changes contact and aggregate growth | Stage controls form a two-by-two grid above a full-width canvas | A static canvas frame and the same text carry the complete state |
 | Where failures travel | Process and dependency | Treatment-train consequence map | A clarification error becomes a solids-loading and filter problem downstream | The overview scales to the content width and stacked sector cards preserve readable meaning | Dashed paths remain visible without animated flow |
+| Locating the failing stage | Worked reasoning from a concrete observation | Cloudy flocculation basin worked example | An observation locates a stage and produces a bounded evidence question, not a setting | One readable column with labeled situation, reasoning, result, and boundary | No motion required |
 | Corrections and contested claims | Evidence comparison | Claim correction table | A correction needs the original statement, replacement, source, and review state | Table becomes labeled records | No motion required |
 
 The supplied v4.2 page is the experience reference, not merely a palette reference. The working

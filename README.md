@@ -1,8 +1,8 @@
 # OWOS Learning Content
 
-The governed source and build repository for One Water Operating System learning products, by APAS.ai. Taught by Droobi.
+The governed source and build repository for One Water Operating System learning products, by APAS.ai.
 
-**Version:** 0.18.0 &middot; **Last updated:** 2026-07-26
+**Version:** 0.38.0 &middot; **Last updated:** 2026-07-27
 
 This is the learning-content monorepo. It contains two governed production systems:
 
@@ -24,7 +24,7 @@ authentication, Supabase migrations, and Cloudflare runtime live in
 
 ```
 core/                     the reusable foundation. Build once, every product uses it.
-  brand/                  OWOS brand, Graphite tokens, Droobi, logos, guidelines
+  brand/                  OWOS brand, Graphite tokens, logos, guidelines
   learning-capabilities/  shared visual, interaction, animation, and assessment registry
   standards/              course, Concept Brief, writing, visual, and experience contracts
   components/             component-gallery.html, quiz-gallery.html, module-template.html,
@@ -88,7 +88,13 @@ python3 tools/concept_brief_compiler.py build concept-briefs/<brief> \
   --output concept-briefs/<brief>/dist/preview.html
 python3 tools/concept_brief_compiler.py portfolio-check concept-briefs
 python3 tools/test-concept-brief-compiler.py
+node tools/audit-concept-brief-rendering.cjs concept-briefs/<brief>/dist/preview.html
 ```
+
+The rendered audit opens the compiled page at desktop, tablet, and phone and fails on contrast,
+edge-hugging text, horizontal overflow, and touch targets under 24 pixels. Structural validation
+cannot see the page, so both are required before owner review. It needs Playwright:
+`npm install playwright && npx playwright install chromium`.
 
 Release-ready validation is deliberately stricter than current educational publication. Numeric
 scores and attractive HTML never override missing source, practitioner, accessibility, Graph,

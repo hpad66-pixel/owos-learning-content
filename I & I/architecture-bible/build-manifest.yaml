@@ -1,0 +1,52 @@
+artifact: ii_intelligence_system_bible_build_manifest
+version: 0.2.0
+status: candidate
+generated_at: 2026-07-28
+builder:
+  path: architecture-bible/tools/build_integrated_system_bible.py
+  sha256: f896da8549025cb9d52cb42c3368521fdfe586cb149e1d3a6514e449ad6ad907
+validator:
+  path: architecture-bible/tools/validate_operationalization.py
+  sha256: b51aade9dbf562aaf328ff67788630bec6a95e412e7bd986fd3fd998a70c508b
+dashboard_builder:
+  path: architecture-bible/tools/build_dashboard_mockups.py
+  sha256: edf9525a380c8cdf9d2cf8e0b9ad62770c3824c93a02da14e2512d20fc46aee9
+dashboard_renderer:
+  path: architecture-bible/tools/capture_dashboard_mockups.cjs
+  sha256: ad79de24d03949996b9041f6874afec30cdc652fdbed9187767bdcbf6e874798
+inputs:
+  - path: architecture-bible/white-paper.md
+    sha256: 95b829814f040d2663b79fb68f9ea09ebf55db26cb7603b4c630982de4377bf2
+  - path: white-paper.md
+    sha256: ac00345b2f46d417775ffaf5578769f6e4a47a4f3a5e02805313a752d38d884d
+  - path: formula-register.yaml
+    sha256: 5ebea4094d8bea4ab077639b5793de58eef40595e882b9d833b2fbd261c0164d
+  - path: sample-basin.yaml
+    sha256: ea442f1c8ca3dc74de48a8b4e781a94625fdba5671dbba7defce7b00a70378c6
+  - path: generated/sample-basin-results.json
+    sha256: 272d8600131461cf2369cafb9850dc08acd890be2da8a44e17c25e0e326fa34f
+  - path: architecture-bible/operationalization-manifest.yaml
+    sha256: 96e2796212dd8d6b47eeff3792359d55bb77f881951e935a8cddbae529bc6724
+  - path: architecture-bible/dashboard-mockups.md
+    sha256: 4ccf1a7d89098871ac60070f95e39552856ba6d999a99d7365f8dd0e6a40cdd4
+output:
+  path: architecture-bible/ii-intelligence-system-bible.md
+  sha256: 21e60a618fc43931204d8e3de351bebb44440afed2777e8c3988582d62e1c72d
+  words: 42586
+  lines: 7833
+dashboard_output:
+  path: architecture-bible/dashboard-mockups/index.html
+  sha256: 041d4e0d942c99035bda34f2548229806ec536c2773016dd78deb7d2c80aed2c
+  screenshots: 9
+validation:
+  command: python3 architecture-bible/tools/validate_operationalization.py
+  status: passed
+  formulae_cataloged: 39
+  source_classes_resolved: 11
+  dashboard_metrics_resolved: 34
+  decision_bindings_resolved: 6
+  visible_lineage_gaps_retained: 6
+  populated_dashboard_mockups_resolved: 9
+release:
+  approved: false
+  reason: Owner, engineering, security, accessibility, and jurisdiction reviews remain open.

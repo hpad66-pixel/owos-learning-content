@@ -1,0 +1,55 @@
+artifact: ii_intelligence_system_bible_v3_build_manifest
+version: 0.4.0
+status: candidate
+generated_at: '2026-07-28'
+builder:
+  path: architecture-bible/tools/build_integrated_system_bible_v3.py
+  sha256: 71b8781eb33a60dd8ef98c207459ea7589e2447f887dc69b82bffdb0320de61f
+validator:
+  path: architecture-bible/tools/validate_system_bible_v3.py
+  sha256: 394422dc7670c6076339a0765ee6d1fe6df9d1df2317e9ca26792426453ffb54
+inputs:
+- path: white-paper.md
+  role: complete_engineering_source_volume
+  sha256: ac00345b2f46d417775ffaf5578769f6e4a47a4f3a5e02805313a752d38d884d
+- path: architecture-bible/white-paper.md
+  role: complete_operational_architecture_source_volume
+  sha256: 95b829814f040d2663b79fb68f9ea09ebf55db26cb7603b4c630982de4377bf2
+- path: architecture-bible/explanatory-narrative-v2.md
+  role: connected_narrative_spine
+  sha256: 7698e5273696890dbe2354564f7a1780a7eb67bc002837c91f6a782a9a416d4e
+- path: architecture-bible/model-integration-v3.md
+  role: swmm_epanet_model_integration_volume
+  sha256: 7ad48691860e81f80c2ead714e9237d34352a8f02a934c9c3f0cc1b2b5050051
+- path: architecture-bible/open-source-repository-landscape.md
+  role: complete_open_source_repository_landscape
+  sha256: 94522b23612033e54db06c645c1a3d6899c27391f64a544a2a8225cd74009179
+- path: formula-register.yaml
+  role: formula_authority
+  sha256: 5ebea4094d8bea4ab077639b5793de58eef40595e882b9d833b2fbd261c0164d
+- path: architecture-bible/operationalization-manifest.yaml
+  role: source_metric_and_decision_authority
+  sha256: 96e2796212dd8d6b47eeff3792359d55bb77f881951e935a8cddbae529bc6724
+- path: architecture-bible/dashboard-mockups.md
+  role: populated_dashboard_appendix
+  sha256: 4ccf1a7d89098871ac60070f95e39552856ba6d999a99d7365f8dd0e6a40cdd4
+output:
+  path: architecture-bible/ii-intelligence-system-bible-v3.md
+  sha256: 2a449a8403d7dbbaf09c94c8e580889fa16a6fea8f095a28d7ca9a460c1363cd
+  lines: 13548
+  words: 89271
+  bytes: 654542
+validation:
+  command: python3 architecture-bible/tools/validate_system_bible_v3.py
+  status: passed
+  complete_source_volumes: 4
+  formula_explanations: 39
+  source_class_explanations: 11
+  worked_dashboard_metric_explanations: 34
+  model_assurance_metric_contracts: 10
+  decision_explanations: 6
+  populated_dashboard_figures: 9
+release:
+  approved: false
+  reason: Owner, qualified engineering and modeling, source, security, regulatory,
+    accessibility, usability, calibration, and field-validation reviews remain open.

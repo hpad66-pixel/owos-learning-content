@@ -1,0 +1,56 @@
+artifact: pumpos_ii_implementation_bundle_v4_build
+version: 0.4.0
+status: candidate
+generated_at: '2026-07-29'
+builder:
+  path: tools/build_implementation_edition.py
+  sha256: ea38c1ac26a2057b3d5c4e5189085fd0a06156c30de3c352656b5dfe392f89a4
+validator:
+  path: tools/validate_bundle.py
+  sha256: c801d50e68da0ad529a41e7d1cd9ff76888116acb475c2015df080fcf1b2cecc
+inputs:
+- path: AGENTS.md
+  sha256: 1a4ce952eff8fead8dafa4525d5a22159a4e61466752c357bc901415ab78cf53
+- path: COPY-PASTE-AGENT-HANDOFF.md
+  sha256: 6d474effa5c05623458cf8a3afedbf141912ba9d10fc1450ad11de427568b254
+- path: implementation-edition.md
+  sha256: a739bc5a5274d43d2bf8d0de7712eae3ed0554155fb2cdfa9852d1948bcb78e1
+- path: work-packages.yaml
+  sha256: d00dc8a89ab1ce7d99accef9684bec0fd7ff507e8bfdc1ed21945f65ab19b14b
+- path: acceptance-matrix.yaml
+  sha256: 4c6c8568a7b470db18b200e43e003652a3997505ec761c5d7eb1619b7f3582e7
+- path: openapi.yaml
+  sha256: 569bde6995032a5a9c0720301b13ea8e7716d7a219c89617cc6a575be331c454
+- path: agent-tools.yaml
+  sha256: 7d4149d6058f8c635a00de2b64167bb080f1b62034bff40547cf131ee4b95ea2
+- path: formula-contract-template.yaml
+  sha256: de7b4ce405f1f8408ebecffc6cf92858692aa81ecbd7cb96130cc30d829f3419
+- path: golden-cases/golden-case-register.yaml
+  sha256: 038f6dc58608d3d46393eb458983b24430083e53f78d5ae1d9a5032b4c4c875d
+- path: schemas/analysis-request.schema.json
+  sha256: d52deaf6a623b7d9090a6190c1401b5f71b2f31a0618c902a408039beda80537
+- path: schemas/approval.schema.json
+  sha256: 6c660806478e74867ad33233bb97ac74de5c9b84a52707763f1ac47af49fe009
+- path: schemas/finding.schema.json
+  sha256: bf26e498f463bf6b45576a53f40bf29d15b6ad8d7b1f077fd69adae2edc021a2
+- path: schemas/input-snapshot.schema.json
+  sha256: df905619f995dbcfe4c501a0642a57a16e96f9a9d365b1bc6b6d2d2f31cb35e3
+- path: schemas/model-run.schema.json
+  sha256: 32356364fbe5f80a6a52516927e049e4693396e7a7d85b8059f8d221e3a62381
+- path: schemas/reconciliation.schema.json
+  sha256: 07bbcfd4ac39b3d0a9ba99975565b0db2a1d17d5a36901da7c0ea81950a31b8c
+- path: schemas/result-envelope.schema.json
+  sha256: 375939a522c93967aa6eedb367733eb56069342b4ba2f79b3b195d3a06ec462d
+output:
+  path: ii-intelligence-implementation-edition-v4.md
+  sha256: 4db0ff598c22a56eac0d287f01432ab7d32db8dcfd881e9fba0c110b719fc293
+  lines: 3218
+  words: 11305
+  bytes: 107216
+validation:
+  command: python3 tools/validate_bundle.py
+  status: passed
+release:
+  approved: false
+  reason: Owner, repository, engineering, numerical, model, security, pilot, and release
+    gates remain open.

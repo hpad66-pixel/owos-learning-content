@@ -1,0 +1,332 @@
+#!/usr/bin/env python3
+"""Build the governed curriculum registry for Academy Author Studio."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import re
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+LEGACY_SOURCE = ROOT / "curriculum" / "one-water-ai-granular-toc.json"
+SHREYA_REVIEW_SOURCE = ROOT / "curriculum" / "shreya-technical-foundations-review.json"
+RESEARCH_STARTERS_SOURCE = ROOT / "curriculum" / "research-starters" / "index.json"
+ROLE_TRACKS_SOURCE = ROOT / "curriculum" / "role-tracks.json"
+LEARNING_PATHWAYS_SOURCE = ROOT / "curriculum" / "learning-pathways.json"
+EXTENSION_PROGRAMS_SOURCE = ROOT / "curriculum" / "extension-programs.json"
+MODULES_ROOT = ROOT / "curriculum" / "modules"
+LEGACY_GUIDANCE_MANIFEST = ROOT / "curriculum" / "legacy-module-guidance-manifest.json"
+FELLOWSHIP_SOURCE = ROOT / "SYLLABUS.md"
+LEGACY_PDF = ROOT / "output" / "pdf" / "one-water-ai-applied-intelligence-curriculum.pdf"
+FELLOWSHIP_PDF = ROOT / "output" / "pdf" / "one-water-ai-executive-fellowship-master-curriculum.pdf"
+OUTPUT = ROOT / "output" / "academy-curriculum-registry.json"
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for block in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def parse_fellowship() -> tuple[list[dict[str, object]], list[dict[str, object]]]:
+    text = FELLOWSHIP_SOURCE.read_text(encoding="utf-8")
+    course_matches = list(re.finditer(r"^## Course (\d+): (.+)$", text, re.MULTILINE))
+    courses: list[dict[str, object]] = []
+    modules: list[dict[str, object]] = []
+    for index, match in enumerate(course_matches):
+        course_number = int(match.group(1))
+        end = course_matches[index + 1].start() if index + 1 < len(course_matches) else len(text)
+        section = text[match.start():end]
+        promise_match = re.search(r"### Course promise\s+\n\s*(.+?)(?=\n\n\| Module)", section, re.DOTALL)
+        promise = " ".join(promise_match.group(1).split()) if promise_match else ""
+        course_module_ids: list[str] = []
+        for line in section.splitlines():
+            module_match = re.match(r"\|\s*(\d+)\.\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|$", line)
+            if not module_match:
+                continue
+            number = int(module_match.group(1))
+            module_id = f"fellowship:M{number:02d}"
+            course_module_ids.append(module_id)
+            modules.append({
+                "id": module_id,
+                "code": f"M{number}",
+                "number": number,
+                "title": module_match.group(2).strip(),
+                "groupId": f"course-{course_number}",
+                "groupTitle": f"Course {course_number}: {match.group(2).strip()}",
+                "learningJob": module_match.group(3).strip(),
+                "appliedResult": module_match.group(4).strip(),
+                "status": "curriculum-candidate",
+            })
+        courses.append({
+            "id": f"course-{course_number}",
+            "number": course_number,
+            "title": match.group(2).strip(),
+            "promise": promise,
+            "moduleIds": course_module_ids,
+        })
+    if len(courses) != 8 or len(modules) != 64:
+        raise ValueError(f"Expected 8 fellowship courses and 64 modules, found {len(courses)} and {len(modules)}")
+    if [module["number"] for module in modules] != list(range(1, 65)):
+        raise ValueError("Fellowship module numbers must be consecutive from 1 through 64")
+    return courses, modules
+
+
+def build_registry() -> dict[str, object]:
+    legacy = json.loads(LEGACY_SOURCE.read_text(encoding="utf-8"))
+    shreya_review = json.loads(SHREYA_REVIEW_SOURCE.read_text(encoding="utf-8"))
+    research_starters = json.loads(RESEARCH_STARTERS_SOURCE.read_text(encoding="utf-8"))
+    role_tracks = json.loads(ROLE_TRACKS_SOURCE.read_text(encoding="utf-8"))
+    learning_pathways = json.loads(LEARNING_PATHWAYS_SOURCE.read_text(encoding="utf-8"))
+    extension_programs = json.loads(EXTENSION_PROGRAMS_SOURCE.read_text(encoding="utf-8"))
+    guidance_manifest = json.loads(LEGACY_GUIDANCE_MANIFEST.read_text(encoding="utf-8"))
+    module_guidance: dict[str, dict[str, object]] = {}
+    for guidance_path in MODULES_ROOT.glob("*/MODULE-GUIDANCE.json"):
+        guidance = json.loads(guidance_path.read_text(encoding="utf-8"))
+        module_id = guidance["moduleId"]
+        if module_id in module_guidance:
+            raise ValueError(f"Duplicate module guidance for {module_id}")
+        staff_path = ROOT / guidance["staffDirectionPath"]
+        prompt_path = ROOT / guidance["researchPromptPath"]
+        placement_path = ROOT / guidance["placementRegisterPath"]
+        module_guidance[module_id] = {
+            **guidance,
+            "staffDirectionMarkdown": staff_path.read_text(encoding="utf-8"),
+            "researchPromptMarkdown": prompt_path.read_text(encoding="utf-8"),
+            "placement": json.loads(placement_path.read_text(encoding="utf-8")),
+        }
+    if len(shreya_review["items"]) != 56:
+        raise ValueError("Expected 56 items in Shreya's technical foundations review")
+    contributor_inputs: dict[str, list[dict[str, object]]] = {}
+    for item in shreya_review["items"]:
+        contributor_inputs.setdefault(item["primary_module"], []).append({
+            **item,
+            "sourceId": shreya_review["source_id"],
+            "contributor": shreya_review["contributor"],
+            "reviewId": shreya_review["review_id"],
+            "releaseBoundary": shreya_review["authority"],
+        })
+    legacy_modules = []
+    for module in legacy["modules"]:
+        proposed = module.get("proposed_additions", [])
+        enhancements = module.get("targeted_enhancements", [])
+        module_id = f"legacy:{module['id']}"
+        legacy_modules.append({
+            "id": module_id,
+            "code": module["id"],
+            "number": int(module["number"]),
+            "title": module["title"],
+            "groupId": f"part-{module['part']['id']}",
+            "groupTitle": module["part"]["title"],
+            "pageStart": module["pages"]["start"],
+            "pageEnd": module["pages"]["end"],
+            "sourceFile": module["source_file"],
+            "currentSectionCount": len(module.get("current_sections", [])),
+            "proposedAdditionCount": len(proposed),
+            "targetedEnhancementCount": len(enhancements),
+            "sections": [
+                {
+                    "id": section["id"],
+                    "title": section["title"],
+                    "level": section.get("level", 1),
+                    "type": section.get("type", "instruction"),
+                    "coverage": section.get("coverage", "current"),
+                }
+                for section in module.get("current_sections", [])
+            ],
+            "proposals": [
+                {
+                    **addition,
+                }
+                for addition in proposed
+            ],
+            "enhancements": enhancements,
+            "contributorInputs": contributor_inputs.get(module["id"], []),
+            "status": "proposal-review" if proposed or enhancements or any(
+                item["classification"] != "already-done-exactly"
+                for item in contributor_inputs.get(module["id"], [])
+            ) else "source-current",
+            **({"guidance": module_guidance[module_id]} if module_id in module_guidance else {}),
+        })
+    if len(legacy_modules) != 64:
+        raise ValueError(f"Expected 64 legacy modules, found {len(legacy_modules)}")
+    if [module["number"] for module in legacy_modules] != list(range(64)):
+        raise ValueError("Legacy module numbers must be consecutive from 0 through 63")
+    legacy_ids = {module["id"] for module in legacy_modules}
+    if set(module_guidance) != legacy_ids:
+        raise ValueError("Every legacy module must have exactly one governed guidance package")
+    if guidance_manifest["guidedModuleCount"] != 64:
+        raise ValueError("Legacy guidance manifest must cover all 64 source modules")
+    fellowship_courses, fellowship_modules = parse_fellowship()
+    starter_by_module = {item["moduleId"]: item for item in research_starters["items"]}
+    if len(starter_by_module) != 64 or len(role_tracks["tracks"]) != 15:
+        raise ValueError("Expected 64 research starters and 15 source role profiles")
+    if len(learning_pathways["pathways"]) != 6:
+        raise ValueError("Expected one universal core and five role lenses")
+    valid_module_ids = {module["id"] for module in fellowship_modules}
+    valid_track_ids = {track["id"] for track in role_tracks["tracks"]}
+    for pathway in learning_pathways["pathways"]:
+        if not set(pathway["moduleIds"]).issubset(valid_module_ids):
+            raise ValueError(f"Unknown module in learning pathway {pathway['id']}")
+        if not set(pathway["sourceTrackIds"]).issubset(valid_track_ids):
+            raise ValueError(f"Unknown source profile in learning pathway {pathway['id']}")
+    for module in fellowship_modules:
+        module["researchStarter"] = starter_by_module[module["id"]]
+    all_ids = [module["id"] for module in legacy_modules + fellowship_modules]
+    if len(all_ids) != len(set(all_ids)):
+        raise ValueError("Namespaced module IDs must be unique across both curriculum lines")
+    legacy_groups = [{
+        "id": f"part-{part['id']}",
+        "title": part["title"],
+        "subtitle": part.get("subtitle", ""),
+        "moduleIds": [f"legacy:M{number}" for number in part["modules"]],
+    } for part in legacy["parts"]]
+    extension_lines = []
+    extension_module_ids = []
+    for program in extension_programs["programs"]:
+        modules = []
+        for module in program["modules"]:
+            module_record = {
+                **module,
+                "groupId": program["id"],
+                "groupTitle": program["title"],
+                "status": "accepted-curriculum-blueprint",
+                "appliedResult": module["appliedResult"],
+            }
+            modules.append(module_record)
+            extension_module_ids.append(module_record["id"])
+        extension_lines.append({
+            "id": program["lineId"],
+            "label": program["title"],
+            "shortLabel": program["shortTitle"],
+            "numbering": program["numbering"],
+            "role": program["role"],
+            "description": program["promise"],
+            "source": {
+                "path": str(EXTENSION_PROGRAMS_SOURCE.relative_to(ROOT)),
+                "sha256": sha256(EXTENSION_PROGRAMS_SOURCE),
+            },
+            "guidedHours": program["guidedHours"],
+            "entryRule": extension_programs["entryRule"],
+            "completionProduct": program["completionProduct"],
+            "groups": [{
+                "id": program["id"],
+                "title": program["title"],
+                "promise": program["promise"],
+                "moduleIds": [module["id"] for module in modules],
+            }],
+            "modules": modules,
+        })
+    if len(extension_lines) != 2 or len(extension_module_ids) != 16:
+        raise ValueError("Expected two optional extension lines and sixteen extension modules")
+    if len(extension_module_ids) != len(set(extension_module_ids)):
+        raise ValueError("Extension module IDs must be unique")
+    if set(extension_module_ids).intersection(all_ids):
+        raise ValueError("Extension module IDs must not collide with core curriculum IDs")
+    return {
+        "schema": "owos-academy-curriculum-registry/v1",
+        "generated": "2026-08-06",
+        "title": "One Water AI Academy",
+        "mode": "read-only",
+        "authority": {
+            "decision": "The legacy M00-M63 curriculum is the source curriculum line. Fellowship M1-M64 is the universal curated delivery sequence. Builder Bridge and Advanced Agent Systems are optional extensions with separate prerequisites and completion evidence.",
+            "sourceOfTruth": "hpad66-pixel/owos-learning-content",
+            "application": "hpad66-pixel/apas-academy-studio",
+            "releaseBoundary": "Registry visibility does not approve proposed content, production, credentialing, publication, or release.",
+            "attribution": "Contributor inputs retain contributor identity, source ID, source page, stable item ID, placement decision, and release boundary. A duplicate never overwrites original authorship.",
+        },
+        "summary": {
+            "curriculumLines": 4,
+            "registeredModules": 144,
+            "legacyModules": 64,
+            "fellowshipModules": 64,
+            "extensionModules": 16,
+            "builderBridgeModules": 8,
+            "advancedAgentSystemsModules": 8,
+            "extensionGuidedHours": sum(program["guidedHours"] for program in extension_programs["programs"]),
+            "legacyCurrentSections": sum(module["currentSectionCount"] for module in legacy_modules),
+            "legacyProposedAdditions": sum(module["proposedAdditionCount"] for module in legacy_modules),
+            "legacyTargetedEnhancements": sum(module["targetedEnhancementCount"] for module in legacy_modules),
+            "contributorReviewItems": len(shreya_review["items"]),
+            "contributorReviewCounts": shreya_review["summary"],
+            "researchStarters": len(research_starters["items"]),
+            "roleTracks": len(role_tracks["tracks"]),
+            "learningPathways": len(learning_pathways["pathways"]),
+            "guidedLegacyModules": len(module_guidance),
+            "legacyPlacementRecords": sum(len(item["guidance"]["placement"]["items"]) for item in legacy_modules),
+        },
+        "legacyGuidance": {
+            "schema": guidance_manifest["schema"],
+            "status": guidance_manifest["status"],
+            "manifestPath": str(LEGACY_GUIDANCE_MANIFEST.relative_to(ROOT)),
+            "manifestSha256": sha256(LEGACY_GUIDANCE_MANIFEST),
+            "moduleCount": guidance_manifest["guidedModuleCount"],
+            "placementRecordCount": guidance_manifest["placementRecordCount"],
+        },
+        "researchStarters": {
+            "schema": research_starters["schema"],
+            "authority": research_starters["authority"],
+            "items": research_starters["items"],
+        },
+        "roleTracks": {
+            "schema": role_tracks["schema"],
+            "authority": role_tracks["authority"],
+            "tracks": role_tracks["tracks"],
+        },
+        "learningPathways": learning_pathways,
+        "contributorReviews": [{
+            "id": shreya_review["review_id"],
+            "title": shreya_review["title"],
+            "sourceId": shreya_review["source_id"],
+            "sourcePath": shreya_review["source_file"],
+            "sourceSha256": shreya_review["source_sha256"],
+            "contributor": shreya_review["contributor"],
+            "received": shreya_review["received"],
+            "reviewed": shreya_review["reviewed"],
+            "summary": shreya_review["summary"],
+            "authority": shreya_review["authority"],
+        }],
+        "extensionPrograms": extension_programs,
+        "lines": [
+            {
+                "id": "legacy",
+                "label": "Applied Intelligence source curriculum",
+                "shortLabel": "Source curriculum",
+                "numbering": "M00-M63",
+                "role": "source-curriculum",
+                "description": "The governed module source, granular contents, evidence, and proposed additions behind the complete Applied Intelligence curriculum.",
+                "source": {"path": str(LEGACY_SOURCE.relative_to(ROOT)), "sha256": sha256(LEGACY_SOURCE)},
+                "primaryOutput": {"path": str(LEGACY_PDF.relative_to(ROOT)), "pages": 788, "sha256": sha256(LEGACY_PDF)},
+                "groups": legacy_groups,
+                "modules": legacy_modules,
+            },
+            {
+                "id": "fellowship",
+                "label": "Executive Fellowship delivery sequence",
+                "shortLabel": "Fellowship sequence",
+                "numbering": "M1-M64",
+                "role": "curated-delivery-sequence",
+                "description": "The eight-course premium cohort sequence that organizes the shared One Water AI body of knowledge into a 24-week applied program.",
+                "source": {"path": str(FELLOWSHIP_SOURCE.relative_to(ROOT)), "sha256": sha256(FELLOWSHIP_SOURCE)},
+                "primaryOutput": {"path": str(FELLOWSHIP_PDF.relative_to(ROOT)), "pages": 17, "sha256": sha256(FELLOWSHIP_PDF)},
+                "groups": fellowship_courses,
+                "modules": fellowship_modules,
+            },
+            *extension_lines,
+        ],
+    }
+
+
+def main() -> None:
+    registry = build_registry()
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(registry, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"Built {OUTPUT.relative_to(ROOT)} with {registry['summary']['registeredModules']} registered modules")
+
+
+if __name__ == "__main__":
+    main()

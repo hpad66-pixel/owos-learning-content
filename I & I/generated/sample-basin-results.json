@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "sample_id": "MD-EX-01",
+  "status": "synthetic_calculation_example_not_for_facility_use",
+  "input_file": "sample-basin.yaml",
+  "formula_registry": "formula-register.yaml@0.2.0",
+  "inventory_and_dry_weather": {
+    "gravity_main_length_mi": 44,
+    "inch_diameter_mile": 412,
+    "GWI_gpd": 250000.0,
+    "GWI_gpcd": 20.833333333333332,
+    "GWI_gpd_per_inch_diameter_mile": 606.7961165048544,
+    "ADWF_MGD": 1.25,
+    "ADWF_gpcd": 104.16666666666667
+  },
+  "hydrograph_summary": {
+    "rainfall_depth_in": 3.2,
+    "rainfall_volume_gal": 55611977.14285714,
+    "expected_RDII_volume_gal": 1779583.2685714283,
+    "integrated_RDII_volume_gal": 1779583.2685714287,
+    "volume_closure_error_fraction": 2.6166872634262953e-16,
+    "capture_fraction_total_R": 0.032,
+    "component_expected_volumes_gal": {
+      "short": 333671.86285714287,
+      "medium": 556119.7714285713,
+      "long": 889791.6342857141
+    },
+    "component_integrated_volumes_gal": {
+      "short": 333671.86285714287,
+      "medium": 556119.7714285714,
+      "long": 889791.6342857144
+    },
+    "peak_RDII_MGD": 2.704132388571429,
+    "peak_RDII_time_hr": 4.75,
+    "peak_total_flow_MGD": 3.928700757802198,
+    "peak_total_flow_gpm": 2728.2644151404156,
+    "peak_total_flow_time_hr": 6.0,
+    "peak_dry_weather_flow_MGD": 1.7269230769230768,
+    "average_dry_weather_flow_MGD": 1.25
+  },
+  "pump_station_analysis": {
+    "operating_points": {
+      "1_pump_minimum_static_head": {
+        "pumps_operating": 1,
+        "static_head_ft": 19,
+        "total_flow_gpm": 3049.125,
+        "per_pump_flow_gpm": 3049.125,
+        "head_ft": 65.90692129381367,
+        "pump_efficiency_fraction": 0.733625,
+        "motor_efficiency_fraction": 0.94,
+        "total_input_kW": 54.87482651320879,
+        "specific_energy_kWh_per_MG": 299.94849075941886
+      },
+      "1_pump_nominal_static_head": {
+        "pumps_operating": 1,
+        "static_head_ft": 22,
+        "total_flow_gpm": 3022.625,
+        "per_pump_flow_gpm": 3022.625,
+        "head_ft": 68.11699360636148,
+        "pump_efficiency_fraction": 0.7424583333333333,
+        "motor_efficiency_fraction": 0.94,
+        "total_input_kW": 55.5531493889072,
+        "specific_energy_kWh_per_MG": 306.3184560269479
+      },
+      "1_pump_maximum_static_head": {
+        "pumps_operating": 1,
+        "static_head_ft": 25,
+        "total_flow_gpm": 2994.25,
+        "per_pump_flow_gpm": 2994.25,
+        "head_ft": 70.27855855201008,
+        "pump_efficiency_fraction": 0.750805,
+        "motor_efficiency_fraction": 0.94,
+        "total_input_kW": 56.146769884092926,
+        "specific_energy_kWh_per_MG": 312.5255065770111
+      },
+      "2_pump_minimum_static_head": {
+        "pumps_operating": 2,
+        "static_head_ft": 19,
+        "total_flow_gpm": 4233.75,
+        "per_pump_flow_gpm": 2116.875,
+        "head_ft": 108.0199272834486,
+        "pump_efficiency_fraction": 0.804675,
+        "motor_efficiency_fraction": 0.94,
+        "total_input_kW": 113.85434537169102,
+        "specific_energy_kWh_per_MG": 448.20133991414633
+      },
+      "2_pump_nominal_static_head": {
+        "pumps_operating": 2,
+        "static_head_ft": 22,
+        "total_flow_gpm": 4182.125,
+        "per_pump_flow_gpm": 2091.0625,
+        "head_ft": 108.90748737357193,
+        "pump_efficiency_fraction": 0.8036425,
+        "motor_efficiency_fraction": 0.94,
+        "total_input_kW": 113.53581474016866,
+        "specific_energy_kWh_per_MG": 452.4646152381411
+      },
+      "2_pump_maximum_static_head": {
+        "pumps_operating": 2,
+        "static_head_ft": 25,
+        "total_flow_gpm": 4129.75,
+        "per_pump_flow_gpm": 2064.875,
+        "head_ft": 109.7901665235505,
+        "pump_efficiency_fraction": 0.8025950000000001,
+        "motor_efficiency_fraction": 0.94,
+        "total_input_kW": 113.17012219620459,
+        "specific_energy_kWh_per_MG": 456.72709080938955
+      }
+    },
+    "capacity": {
+      "conservative_firm_capacity_gpm": 4129.75,
+      "conservative_firm_capacity_MGD": 5.946840000000001,
+      "conservative_one_pump_capacity_gpm": 2994.25,
+      "peak_inflow_gpm": 2728.2644151404156,
+      "peak_margin_gpm": 1401.4855848595844,
+      "peak_margin_fraction": 0.33936329919718733,
+      "peak_utilization_fraction": 0.6606367008028127
+    },
+    "storage": {
+      "usable_storage_gal": 45000,
+      "routing_method": "trapezoidal average inflow by interval with storage bounded below by zero and actual storage capped at usable volume",
+      "contingency_results": {
+        "ONE-PUMP-NORMAL": {
+          "analysis_mode": "event_dynamic_storage_routing",
+          "available_capacity_gpm": 2994.25,
+          "peak_deficit_gpm": 0.0,
+          "constant_peak_time_to_exhaust_storage_min": null,
+          "required_storage_gal": 0.0,
+          "available_storage_gal": 45000,
+          "storage_shortfall_gal": 0.0,
+          "cumulative_overflow_gal": 0.0
+        },
+        "ONE-PUMP-DERATED-75": {
+          "analysis_mode": "event_dynamic_storage_routing",
+          "available_capacity_gpm": 2245.6875,
+          "peak_deficit_gpm": 482.5769151404156,
+          "constant_peak_time_to_exhaust_storage_min": 93.24938385605604,
+          "required_storage_gal": 75311.84486630038,
+          "available_storage_gal": 45000,
+          "storage_shortfall_gal": 30311.84486630038,
+          "cumulative_overflow_gal": 30311.844866300373
+        },
+        "COMPLETE-OUTAGE-30-MIN": {
+          "analysis_mode": "constant_peak_inflow_screen",
+          "available_capacity_gpm": 0.0,
+          "peak_deficit_gpm": 2728.2644151404156,
+          "duration_min": 30,
+          "required_storage_gal": 81847.93245421247,
+          "available_storage_gal": 45000,
+          "storage_shortfall_gal": 36847.93245421247,
+          "time_to_exhaust_available_storage_min": 16.494002469215943
+        }
+      }
+    },
+    "energy": {
+      "event_staged_control_energy_kWh": 1589.9260098602365,
+      "event_staged_control_energy_cost_USD": 190.79112118322837,
+      "calculation_boundary": "illustrative staged duty interpolation between nominal one-pump and two-pump operating points"
+    },
+    "cycling": {
+      "applicable": true,
+      "fill_time_min": 17.28,
+      "draw_time_min": 6.961947798284009,
+      "cycle_time_min": 24.24194779828401,
+      "cycles_per_hour": 2.475048642924937
+    },
+    "operating_time": {
+      "aggregate_pump_hours_per_ADWF_day": 6.892463780102836,
+      "firm_equivalent_hours_per_ADWF_day": 5.044696006618641,
+      "illustrative_Miami_Dade_NAPOT_hours_per_day": 3.446231890051418,
+      "NAPOT_boundary": "illustrative constant-speed calculation only; not a current capacity or compliance determination"
+    },
+    "formula_ids": [
+      "F-HYD-001",
+      "F-HYD-002",
+      "F-HYD-003",
+      "F-HYD-004",
+      "F-HYD-005",
+      "F-PUMP-001",
+      "F-PUMP-002",
+      "F-PUMP-003",
+      "F-PUMP-004",
+      "F-PUMP-005",
+      "F-PUMP-006",
+      "F-PUMP-007",
+      "F-MDC-NAPOT-001",
+      "F-ENERGY-001",
+      "F-ENERGY-002"
+    ]
+  },
+  "rehabilitation_and_economics": {
+    "baseline_GWI_MGD": 0.25,
+    "post_scenario_GWI_MGD": 0.175,
+    "baseline_event_RDII_gal": 1779583.2685714287,
+    "post_scenario_event_RDII_gal": 1134484.3337142859,
+    "post_scenario_R_by_component": {
+      "short": 0.0051,
+      "medium": 0.006500000000000001,
+      "long": 0.0088
+    },
+    "annual_equivalent_event_count": 12,
+    "annual_GWI_reduction_MG": 27.375000000000004,
+    "annual_RDII_reduction_MG": 7.741187218285715,
+    "annual_total_I_and_I_reduction_MG": 35.11618721828572,
+    "annual_gross_marginal_cost_benefit_USD": 22825.521691885715,
+    "annual_scenario_O_and_M_cost_USD": 120000,
+    "annual_net_direct_benefit_USD": -97174.47830811428,
+    "PV_gross_benefits_USD": 339586.1251478115,
+    "PV_total_costs_USD": 10285296.98325466,
+    "NPV_USD": -9945710.858106848,
+    "benefit_cost_ratio": 0.03301665724389744,
+    "simple_payback_years": null,
+    "excluded_benefits": [
+      "avoided_or_deferred_capacity",
+      "overflow_risk_reduction",
+      "regulatory_risk",
+      "service_reliability",
+      "environmental_and_public_health_benefits"
+    ],
+    "formula_ids": [
+      "F-ECON-002",
+      "F-COST-001",
+      "F-PV-001",
+      "F-BCR-001",
+      "F-ECON-003",
+      "F-ECON-004"
+    ]
+  },
+  "calculation_lineage": {
+    "rainfall_to_RDII_hydrograph": [
+      "F-UNIT-001",
+      "F-RTK-001",
+      "F-RTK-002",
+      "F-RTK-003",
+      "F-FLOW-001"
+    ],
+    "dry_weather_and_inventory": [
+      "F-DWF-001",
+      "F-GWI-001",
+      "F-IDM-001",
+      "F-NORM-001"
+    ],
+    "pump_operating_points": [
+      "F-HYD-001",
+      "F-HYD-002",
+      "F-HYD-003",
+      "F-HYD-004",
+      "F-HYD-005",
+      "F-PUMP-001",
+      "F-PUMP-002",
+      "F-PUMP-003",
+      "F-PUMP-004",
+      "F-PUMP-005",
+      "F-PUMP-006",
+      "F-PUMP-007",
+      "F-MDC-NAPOT-001",
+      "F-ENERGY-001",
+      "F-ENERGY-002"
+    ],
+    "rehabilitation_economics": [
+      "F-ECON-002",
+      "F-COST-001",
+      "F-PV-001",
+      "F-BCR-001",
+      "F-ECON-003",
+      "F-ECON-004"
+    ]
+  },
+  "validation": {
+    "RTK_volume_closure_absolute_fraction": 2.6166872634262953e-16,
+    "RTK_volume_closure_pass": true,
+    "all_values_are_finite": true
+  }
+}

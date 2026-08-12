@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The governed research, writing, visual-design, and course-production workflow for every One Water AI Executive Fellowship module.">
+  <title>How Every Fellowship Module Gets Built | One Water Operating System</title>
+  <style>
+    :root {
+      --graphite: #1c1b19;
+      --charcoal: #292826;
+      --charcoal-2: #302f2c;
+      --process: #10232e;
+      --white: #f2f1ec;
+      --body: #d9d6cf;
+      --muted: #aaa49a;
+      --water: #7dc6e8;
+      --water-light: #8ed0ed;
+      --amber: #e0a64a;
+      --green: #4ac88c;
+      --red: #ee7968;
+      --line: rgba(242, 241, 236, 0.14);
+      --max: 1480px;
+      --display: Arial, Barlow, sans-serif;
+      --mono: "Courier New", "Space Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--graphite);
+      color: var(--body);
+      font-family: var(--display);
+      font-size: 17px;
+      line-height: 1.62;
+    }
+    a { color: var(--water-light); }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 3px;
+    }
+    .shell { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(28, 27, 25, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+    .topbar .shell {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: #0a78ba;
+      flex: none;
+    }
+    .brand strong { color: var(--white); font-size: 15px; display: block; }
+    .brand span { color: var(--muted); font: 700 10px/1.2 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; }
+    .toplinks { display: flex; gap: 18px; font: 700 12px/1 var(--mono); }
+    .toplinks a { text-decoration: none; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(76px, 10vw, 152px) 0 76px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 82% 20%, rgba(125, 198, 232, 0.15), transparent 28%),
+        linear-gradient(135deg, var(--graphite), var(--process));
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -200px;
+      bottom: -310px;
+      border: 1px solid rgba(125, 198, 232, 0.22);
+      border-radius: 50%;
+      box-shadow: 0 0 0 70px rgba(125, 198, 232, 0.04), 0 0 0 140px rgba(125, 198, 232, 0.025);
+    }
+    .kicker { color: var(--water); font: 700 12px/1.2 var(--mono); letter-spacing: 0.18em; text-transform: uppercase; }
+    h1, h2, h3 { color: var(--white); line-height: 1.06; letter-spacing: -0.035em; }
+    h1 { max-width: 900px; margin: 20px 0 24px; font-size: clamp(46px, 7.4vw, 108px); }
+    h2 { font-size: clamp(34px, 4vw, 62px); margin: 12px 0 18px; }
+    h3 { font-size: 23px; margin: 0 0 12px; }
+    .hero-copy { max-width: 810px; font-size: clamp(19px, 2vw, 25px); color: var(--body); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid rgba(125, 198, 232, 0.45);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--water-light);
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .button.primary { background: var(--water); color: #10232e; border-color: var(--water); }
+    .button:hover { transform: translateY(-1px); }
+    .truth-strip { border-bottom: 1px solid var(--line); background: #211f1d; }
+    .truth-strip .shell { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .truth {
+      padding: 28px 30px;
+      border-right: 1px solid var(--line);
+    }
+    .truth:first-child { padding-left: 0; }
+    .truth:last-child { border-right: 0; }
+    .truth b { display: block; color: var(--white); margin-bottom: 5px; }
+    .truth span { color: var(--muted); font-size: 14px; }
+    section { padding: 90px 0; border-bottom: 1px solid var(--line); }
+    .section-head { max-width: 820px; margin-bottom: 40px; }
+    .section-head p { font-size: 20px; margin: 0; }
+    .pipeline-wrap {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--charcoal);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
+    }
+    .pipeline-scroll { overflow-x: auto; padding: 24px; scrollbar-color: var(--water) var(--charcoal-2); }
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(146px, 1fr));
+      gap: 12px;
+      min-width: 1210px;
+      counter-reset: stage;
+    }
+    .stage {
+      position: relative;
+      min-height: 138px;
+      padding: 18px 15px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--charcoal-2);
+      color: var(--body);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+    .stage::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      width: 16px;
+      height: 1px;
+      background: rgba(125, 198, 232, 0.34);
+    }
+    .stage:last-child::after { display: none; }
+    .stage:hover { border-color: rgba(125, 198, 232, 0.55); transform: translateY(-2px); }
+    .stage[aria-selected="true"] { background: var(--process); border-color: var(--water); box-shadow: inset 0 0 0 1px var(--water); }
+    .stage-no { display: block; color: var(--water); font: 700 11px/1 var(--mono); letter-spacing: 0.12em; margin-bottom: 17px; }
+    .stage b { display: block; color: var(--white); font-size: 16px; line-height: 1.2; margin-bottom: 8px; }
+    .stage small { display: block; color: var(--muted); font-size: 12px; line-height: 1.4; }
+    .stage-detail {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(290px, 0.75fr);
+      gap: 34px;
+      padding: clamp(28px, 5vw, 58px);
+      background: var(--process);
+      border-top: 1px solid var(--line);
+    }
+    .stage-detail .stage-label { color: var(--water); font: 700 11px/1.2 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; }
+    .stage-detail h3 { font-size: clamp(28px, 3vw, 44px); margin-top: 12px; }
+    .stage-detail p { font-size: 18px; max-width: 760px; }
+    .deliverable {
+      align-self: start;
+      padding: 22px;
+      border: 1px solid rgba(74, 200, 140, 0.35);
+      border-radius: 16px;
+      background: rgba(74, 200, 140, 0.07);
+    }
+    .deliverable span { color: var(--green); font: 700 10px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; }
+    .deliverable strong { display: block; color: var(--white); font-size: 19px; margin: 12px 0 8px; }
+    .deliverable p { margin: 0; color: var(--muted); font-size: 14px; }
+    .gate-note { margin-top: 18px; color: var(--amber); font-size: 14px; }
+    .md-layout { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 28px; align-items: stretch; }
+    .paper {
+      position: relative;
+      min-height: 640px;
+      padding: clamp(28px, 4vw, 54px);
+      border-radius: 24px;
+      background: #f4f1e9;
+      color: #282724;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+    }
+    .paper::before { content: "MODULE-MANUSCRIPT.md"; display: block; color: #0876ad; font: 700 11px/1 var(--mono); letter-spacing: 0.12em; margin-bottom: 34px; }
+    .paper h3 { color: #1f1e1b; font-size: clamp(32px, 4vw, 52px); }
+    .paper p { color: #55514b; }
+    .paper-list { list-style: none; padding: 0; margin: 30px 0 0; }
+    .paper-list li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; padding: 13px 0; border-top: 1px solid #d8d2c6; }
+    .paper-list b { color: #0876ad; font: 700 12px/1.5 var(--mono); }
+    .paper-list span { color: #2d2b27; font-weight: 700; }
+    .md-notes { display: grid; gap: 16px; }
+    .note {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--charcoal);
+    }
+    .note .tag { color: var(--water); font: 700 10px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; }
+    .note p { margin-bottom: 0; }
+    .note.stop { border-color: rgba(238, 121, 104, 0.35); }
+    .note.stop .tag { color: var(--red); }
+    .research-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .source-card {
+      min-height: 230px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--charcoal);
+    }
+    .source-card .number { color: var(--water); font: 700 11px/1 var(--mono); }
+    .source-card h3 { margin-top: 28px; }
+    .source-card p { color: var(--muted); font-size: 15px; }
+    .prompt-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: start;
+      padding: 28px;
+      border: 1px solid rgba(224, 166, 74, 0.42);
+      border-radius: 20px;
+      background: rgba(224, 166, 74, 0.07);
+    }
+    .prompt-box code { white-space: pre-wrap; color: var(--body); font: 14px/1.65 var(--mono); }
+    .copy-state { color: var(--green); font: 700 12px/1 var(--mono); min-height: 18px; margin-top: 10px; }
+    .final-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .final-card { padding: 26px; border-radius: 18px; background: var(--charcoal); border: 1px solid var(--line); }
+    .final-card b { color: var(--white); }
+    .final-card p { color: var(--muted); font-size: 15px; }
+    footer { padding: 46px 0 70px; color: var(--muted); font-size: 14px; }
+    footer .shell { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+    @media (max-width: 1000px) {
+      .truth-strip .shell, .md-layout, .stage-detail { grid-template-columns: 1fr; }
+      .truth { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0; }
+      .research-grid { grid-template-columns: repeat(2, 1fr); }
+      .final-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 660px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      .topbar .shell { min-height: 64px; }
+      .toplinks { display: none; }
+      .hero { padding-top: 70px; }
+      .truth { padding: 22px 0; }
+      section { padding: 64px 0; }
+      .pipeline-scroll { padding: 14px; }
+      .stage-detail { padding: 26px 20px; }
+      .research-grid { grid-template-columns: 1fr; }
+      .prompt-box { grid-template-columns: 1fr; }
+      .paper { min-height: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 32 32" role="img" aria-label="One Water mark"><path d="M16 3S8.5 12 8.5 18a7.5 7.5 0 0 0 15 0C23.5 12 16 3 16 3Z" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="16" cy="18" r="3" fill="#f2c94c"/></svg>
+        </span>
+        <span><strong>One Water AI Executive Fellowship</strong><span>Staff authoring map</span></span>
+      </div>
+      <nav class="toplinks" aria-label="Page links">
+        <a href="#workflow">Workflow</a>
+        <a href="#manuscript">Markdown</a>
+        <a href="#research-brief">Research brief</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <div class="kicker">How every module gets built</div>
+        <h1>Research becomes evidence. Evidence becomes teaching.</h1>
+        <p class="hero-copy">One module begins with a professional question. It ends as a cited Markdown manuscript that tells the instructor what to teach, the designer what to show, Articulate what to assemble, and the reviewer what must be verified.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="research/MODULE-RESEARCH-AND-VISUAL-BRIEF-TEMPLATE.md">Open the module template</a>
+          <a class="button" href="#workflow">See the complete workflow</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="truth-strip">
+      <div class="shell">
+        <div class="truth"><b>Perplexity finds leads.</b><span>The original source proves the claim.</span></div>
+        <div class="truth"><b>Markdown carries the teaching.</b><span>Citations, examples, visual directions, and limitations stay together.</span></div>
+        <div class="truth"><b>Articulate assembles the experience.</b><span>It does not decide facts, claims, or release status.</span></div>
+      </div>
+    </div>
+
+    <section id="workflow">
+      <div class="shell">
+        <div class="section-head">
+          <div class="kicker">The governed module pipeline</div>
+          <h2>Eight stages. Seven stop gates.</h2>
+          <p>Select any stage. The panel shows the work, the saved deliverable, and what must be true before the next stage begins.</p>
+        </div>
+
+        <div class="pipeline-wrap" data-visual-family="process" data-visual-shape="phase-gate-flow">
+          <div class="pipeline-scroll" aria-label="Module production stages">
+            <div class="pipeline" role="tablist" aria-label="Eight module production stages">
+              <button class="stage" role="tab" aria-selected="true" aria-controls="stage-panel" data-stage="0"><span class="stage-no">01</span><b>Define value</b><small>Problem, learner, decision, work product</small></button>
+              <button class="stage" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="1"><span class="stage-no">02</span><b>Discover sources</b><small>Perplexity and direct research</small></button>
+              <button class="stage" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="2"><span class="stage-no">03</span><b>Preserve evidence</b><small>Originals, metadata, permissions</small></button>
+              <button class="stage" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="3"><span class="stage-no">04</span><b>Verify claims</b><small>Open, read, locate, qualify</small></button>
+              <button class="stage" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="4"><span class="stage-no">05</span><b>Write manuscript</b><small>Complete cited Markdown paper</small></button>
+              <button class="stage" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="5"><span class="stage-no">06</span><b>Design graphics</b><small>Natural shapes and teaching jobs</small></button>
+              <button class="stage" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="6"><span class="stage-no">07</span><b>Assemble learning</b><small>Articulate package and interactions</small></button>
+              <button class="stage" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="7"><span class="stage-no">08</span><b>Review and release</b><small>Accuracy, practice, access, approval</small></button>
+            </div>
+          </div>
+          <div class="stage-detail" id="stage-panel" role="tabpanel" aria-live="polite">
+            <div>
+              <div class="stage-label" id="detail-label">Stage 01</div>
+              <h3 id="detail-title">Define the value before researching the topic</h3>
+              <p id="detail-copy">Name the utility problem, the intended learner, the decision that improves, and the work product the learner will keep. This keeps the research focused on professional value instead of collecting interesting facts.</p>
+              <p class="gate-note" id="detail-gate">Gate: Do not begin research until the module question and value proposition are clear.</p>
+            </div>
+            <aside class="deliverable">
+              <span>Saved deliverable</span>
+              <strong id="detail-output">Module value brief</strong>
+              <p id="detail-location">Recorded at the top of MODULE-MANUSCRIPT.md and aligned with the syllabus.</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="manuscript">
+      <div class="shell">
+        <div class="section-head">
+          <div class="kicker">The controlled handoff</div>
+          <h2>One Markdown file carries the whole teaching case.</h2>
+          <p>The manuscript is not a summary. It is the complete, citation-backed paper and the production brief for the module.</p>
+        </div>
+        <div class="md-layout">
+          <article class="paper">
+            <h3>Everything needed to teach one module</h3>
+            <p>The paper is written in plain English and can stand on its own without a video. The production team should never have to guess where a claim came from or what a graphic is supposed to teach.</p>
+            <ol class="paper-list">
+              <li><b>01</b><span>Module value proposition and learner promise</span></li>
+              <li><b>02</b><span>Research question, scope, and evidence date</span></li>
+              <li><b>03</b><span>Complete instructor manuscript with utility examples</span></li>
+              <li><b>04</b><span>Numbered citations with direct source locators</span></li>
+              <li><b>05</b><span>Claim types, fact-check results, and limitations</span></li>
+              <li><b>06</b><span>Graphic descriptions, reading guides, and conclusions</span></li>
+              <li><b>07</b><span>Interactions, assessments, work product, and FAQ</span></li>
+              <li><b>08</b><span>Evidence boundary and approval state</span></li>
+            </ol>
+          </article>
+          <div class="md-notes">
+            <article class="note">
+              <span class="tag">Value first</span>
+              <h3>Every module earns its place.</h3>
+              <p>The manuscript names who receives value, what professional action improves, and what the learner can carry back to work.</p>
+            </article>
+            <article class="note">
+              <span class="tag">Citation discipline</span>
+              <h3>A direct locator travels with each claim.</h3>
+              <p>A useful citation identifies the original issuer, date, direct URL, and exact page, section, table, figure, or paragraph.</p>
+            </article>
+            <article class="note">
+              <span class="tag">Graphic discipline</span>
+              <h3>The manuscript explains the picture before it is drawn.</h3>
+              <p>For every graphic, it states the teaching job, natural shape, reading order, learner action, accessible meaning, mobile form, and conclusion.</p>
+            </article>
+            <article class="note stop">
+              <span class="tag">Stop condition</span>
+              <h3>Unsupported claims do not move forward.</h3>
+              <p>If the original source cannot be opened, located, or applied honestly, the claim stays qualified, unresolved, or removed.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research-brief">
+      <div class="shell">
+        <div class="section-head">
+          <div class="kicker">Before every research run</div>
+          <h2>Give Perplexity a professional question, not a topic.</h2>
+          <p>Broad searches create broad summaries. A controlled research brief produces claim leads, direct sources, applicability limits, and unresolved questions that a fact checker can examine.</p>
+        </div>
+        <div class="research-grid">
+          <article class="source-card"><span class="number">01</span><h3>State the utility decision</h3><p>What must a utility professional understand, compare, approve, or produce after this module?</p></article>
+          <article class="source-card"><span class="number">02</span><h3>Request original sources</h3><p>Prioritize United States authorities, standards issuers, peer-reviewed research, and first-party technical documentation.</p></article>
+          <article class="source-card"><span class="number">03</span><h3>Demand exact locators</h3><p>Ask for the page, section, table, figure, or paragraph that supports each proposed claim.</p></article>
+          <article class="source-card"><span class="number">04</span><h3>Ask what remains uncertain</h3><p>Record conflicts, limitations, time sensitivity, geographic boundaries, and claims that still need verification.</p></article>
+        </div>
+
+        <div class="prompt-box" style="margin-top: 28px;">
+          <div>
+            <code id="researchPrompt">Research [MODULE TITLE] for water, wastewater, and stormwater professionals in the United States. Begin with this professional question: [QUESTION]. The learner must produce [WORK PRODUCT]. For every factual claim, provide the original source, direct URL, publication date, exact locator, what the source supports, its limitation, its utility applicability, and any credible disagreement. Separate sourced fact, expert interpretation, Hardeep Anand's position, instructional scenario, and unresolved question. Do not invent quotations, statistics, examples, or citations. End with a source table and a list of claims that still require verification.</code>
+            <div class="copy-state" id="copyState" aria-live="polite"></div>
+          </div>
+          <button class="button" id="copyPrompt" type="button">Copy research instruction</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="section-head">
+          <div class="kicker">What the staff hands forward</div>
+          <h2>Every stage leaves evidence.</h2>
+          <p>The next person receives a saved artifact, not a verbal promise that work happened.</p>
+        </div>
+        <div class="final-grid">
+          <article class="final-card"><b>Research team</b><p>Preserved originals, source register, research synthesis, and claim leads with direct locators.</p></article>
+          <article class="final-card"><b>Course team</b><p>A complete Markdown manuscript, graphic instructions, assessment logic, work product, FAQ, and evidence boundary.</p></article>
+          <article class="final-card"><b>Production team</b><p>An approved Articulate package, tracked QA results, versioned export, and recorded LearnWorlds handoff.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <span>One Water Operating System, powered by APAS.AI</span>
+      <span>Staff working map. Release requires recorded approval.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+      var stages = [
+        { title: "Define the value before researching the topic", copy: "Name the utility problem, the intended learner, the decision that improves, and the work product the learner will keep. This keeps the research focused on professional value instead of collecting interesting facts.", gate: "Gate: Do not begin research until the module question and value proposition are clear.", output: "Module value brief", location: "Recorded at the top of MODULE-MANUSCRIPT.md and aligned with the syllabus." },
+        { title: "Use Perplexity to discover, compare, and locate", copy: "Search from one professional question. Ask for original sources, direct links, dates, exact locators, limitations, and credible disagreement. YouTube and LinkedIn may reveal useful expert perspectives, but they do not replace the original authority behind a factual claim.", gate: "Gate: A Perplexity citation is a lead. The original source must still be opened and reviewed.", output: "Research source candidate set", location: "Preserved as research leads before any claim is treated as verified." },
+        { title: "Preserve every accepted source and its provenance", copy: "Save or register the original source with its author, issuer, date, direct location, permission, intended use, and limitation. Keep source language separate from Hardeep's interpretation and from instructional scenarios.", gate: "Gate: No source enters the manuscript until its identity, permission, and intended use are visible.", output: "Registered source package", location: "research/originals/ and research/SOURCE-REGISTER.md" },
+        { title: "Fact-check every material claim against the source", copy: "Open the source, read the surrounding context, find the exact locator, and confirm what the evidence supports. Check currency, United States applicability, utility transfer, uncertainty, and contrary evidence. Unsupported statements are rewritten, qualified, or removed.", gate: "Gate: Every material claim needs a review state in the claims register.", output: "Verified claim ledger", location: "research/CLAIMS-REGISTER.md and research/EVIDENCE-BOUNDARIES.md" },
+        { title: "Write the complete cited Markdown manuscript", copy: "Turn the verified research into a complete paper that can teach without a video. Explain every technical term in ordinary language, use one credible utility example, distinguish fact from interpretation, and carry numbered citations to the original sources.", gate: "Gate: The paper must be complete, readable, cited, and honest about what remains unknown.", output: "MODULE-MANUSCRIPT.md", location: "curriculum/modules/module-NN-slug/MODULE-MANUSCRIPT.md" },
+        { title: "Describe graphics by the job they must perform", copy: "Identify the natural shape of each teaching idea. Specify the visual, what it shows, how to read it, what the learner does, the conclusion it supports, accessible text, mobile behavior, reduced-motion meaning, and the source behind it.", gate: "Gate: No graphic is approved if it merely decorates a heading or repeats the prose.", output: "Visual and interaction plan", location: "The graphic brief is preserved inside the manuscript and the module visual plan." },
+        { title: "Assemble the approved experience in Articulate", copy: "Use the controlled manuscript and import package to create the lesson blocks, graphics, narration, interactions, and knowledge checks. Articulate may speed production, but it may not invent facts, approve claims, or become the only copy of a teaching improvement.", gate: "Gate: Meaningful Articulate changes return to the governed repository.", output: "Versioned Articulate draft", location: "Tracked in the module production status and release records." },
+        { title: "Review the evidence, learning, access, and release", copy: "Run factual, practitioner, learning-design, mobile, keyboard, contrast, reduced-motion, and interaction checks. Record what passed and what remains untested. Hardeep approves the release scope before LearnWorlds delivery or shared Graph promotion.", gate: "Gate: A finished-looking page is not a released course module.", output: "QA report and approved release record", location: "qa/, release/, APPROVALS.md, and the exact source commit." }
+      ];
+      var buttons = Array.prototype.slice.call(document.querySelectorAll(".stage"));
+      var label = document.getElementById("detail-label");
+      var title = document.getElementById("detail-title");
+      var copy = document.getElementById("detail-copy");
+      var gate = document.getElementById("detail-gate");
+      var output = document.getElementById("detail-output");
+      var location = document.getElementById("detail-location");
+
+      function selectStage(index, focus) {
+        var stage = stages[index];
+        buttons.forEach(function (button, buttonIndex) {
+          button.setAttribute("aria-selected", buttonIndex === index ? "true" : "false");
+          button.tabIndex = buttonIndex === index ? 0 : -1;
+        });
+        label.textContent = "Stage " + String(index + 1).padStart(2, "0");
+        title.textContent = stage.title;
+        copy.textContent = stage.copy;
+        gate.textContent = stage.gate;
+        output.textContent = stage.output;
+        location.textContent = stage.location;
+        if (focus) buttons[index].focus();
+      }
+
+      buttons.forEach(function (button, index) {
+        button.addEventListener("click", function () { selectStage(index, false); });
+        button.addEventListener("keydown", function (event) {
+          var target = index;
+          if (event.key === "ArrowRight") target = Math.min(buttons.length - 1, index + 1);
+          if (event.key === "ArrowLeft") target = Math.max(0, index - 1);
+          if (event.key === "Home") target = 0;
+          if (event.key === "End") target = buttons.length - 1;
+          if (target !== index) {
+            event.preventDefault();
+            selectStage(target, true);
+          }
+        });
+      });
+
+      document.getElementById("copyPrompt").addEventListener("click", function () {
+        var text = document.getElementById("researchPrompt").textContent;
+        var state = document.getElementById("copyState");
+        if (!navigator.clipboard) {
+          state.textContent = "Select the text and copy it manually.";
+          return;
+        }
+        navigator.clipboard.writeText(text).then(function () {
+          state.textContent = "Research instruction copied.";
+        }).catch(function () {
+          state.textContent = "Select the text and copy it manually.";
+        });
+      });
+    }());
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.apas.example/ii/v4/model-run.schema.json",
+  "title": "Governed Model Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "tenant_id",
+    "analysis_request_id",
+    "snapshot_id",
+    "model",
+    "purpose",
+    "status",
+    "assurance_state",
+    "requested_outputs",
+    "requested_by",
+    "created_at"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^modelrun_[a-z0-9_]+$"},
+    "tenant_id": {"type": "string", "minLength": 3},
+    "analysis_request_id": {"type": "string", "minLength": 3},
+    "snapshot_id": {"type": "string", "minLength": 3},
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "engine", "engine_version", "file_hash"],
+      "properties": {
+        "id": {"type": "string", "minLength": 3},
+        "version": {"type": "string", "minLength": 1},
+        "engine": {"enum": ["swmm", "epanet", "wntr"]},
+        "engine_version": {"type": "string", "minLength": 1},
+        "file_hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}
+      }
+    },
+    "purpose": {"enum": ["exploration", "screening", "planning", "comparison"]},
+    "status": {
+      "enum": [
+        "requested",
+        "validating",
+        "blocked",
+        "queued",
+        "running",
+        "completed_with_warnings",
+        "completed",
+        "failed",
+        "superseded"
+      ]
+    },
+    "assurance_state": {
+      "enum": [
+        "draft",
+        "exploratory",
+        "calibrated",
+        "validated",
+        "approved_for_screening",
+        "approved_for_planning",
+        "expired",
+        "rejected"
+      ]
+    },
+    "requested_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "settings": {"type": "object"},
+    "requested_by": {
+      "type": "object",
+      "required": ["actor_id", "actor_type"],
+      "properties": {
+        "actor_id": {"type": "string"},
+        "actor_type": {"enum": ["human", "service", "agent"]}
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "started_at": {"type": ["string", "null"], "format": "date-time"},
+    "completed_at": {"type": ["string", "null"], "format": "date-time"},
+    "worker_manifest_hash": {"type": ["string", "null"]},
+    "artifact_refs": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "warning_codes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "error": {
+      "type": ["object", "null"],
+      "properties": {
+        "code": {"type": "string"},
+        "message": {"type": "string"}
+      }
+    }
+  }
+}

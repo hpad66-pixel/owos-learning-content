@@ -1,0 +1,1684 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detention, Retention, and Infiltration | OWOS Concept Brief</title>
+<meta name="description" content="A pond in good condition. A clear outlet. A street that flooded anyway. Work out why.">
+<style>
+:root{
+  --graphite:#1c1b19; --charcoal:#292826; --panel:#211f1d; --deep:#141311;
+  --white:#f2f1ec; --body:#d9d6cf; --muted:#a29c91;
+  --water:#7dc6e8; --water-deep:#2b7399; --amber:#e0a64a; --green:#7fb069; --red:#e07a63;
+  --line:rgba(242,241,236,.12);
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --wrap:min(1080px, calc(100% - 64px));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--graphite);color:var(--body);
+  font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{width:var(--wrap);margin:0 auto}
+h1,h2,h3,h4{color:var(--white);line-height:1.15;margin:0}
+a{color:var(--water)}
+.kicker{font:700 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--water);margin:0 0 14px}
+
+/* ---------- hero ---------- */
+header{padding:86px 0 74px;background:
+  radial-gradient(ellipse at 78% 14%, rgba(125,198,232,.16), transparent 55%), var(--deep);
+  border-bottom:1px solid var(--line)}
+header h1{font-size:clamp(38px,6.4vw,74px);letter-spacing:-.02em;margin:0 0 18px}
+header .lede{font-size:clamp(19px,2.2vw,25px);color:var(--body);max-width:30ch;margin:0}
+.variant-flag{display:inline-block;margin-bottom:22px;padding:7px 14px;border:1px solid var(--water);
+  border-radius:100px;font:700 11px/1 var(--mono);letter-spacing:.14em;color:var(--water)}
+
+/* ---------- generic section ---------- */
+section{padding:74px 0;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+section h2{font-size:clamp(27px,3.4vw,40px);margin:0 0 20px;max-width:24ch}
+.prose{max-width:65ch}
+.prose p{margin:0 0 18px}
+.prose p:last-child{margin-bottom:0}
+.lead{font-size:19px;color:var(--white)}
+
+/* ---------- orientation ---------- */
+.orient{background:var(--deep)}
+.orient-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:18px;margin:30px 0}
+.ocard{padding:22px;background:var(--charcoal);border-left:3px solid var(--water)}
+.ocard h3{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--water);margin:0 0 10px}
+.ocard p{margin:0;font-size:15.5px}
+.objectives{margin-top:8px;padding:28px;background:var(--panel);border-top:2px solid var(--water)}
+.objectives h3{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--water);margin:0 0 16px}
+.objectives ol{margin:0;padding-left:22px;max-width:72ch}
+.objectives li{margin:0 0 10px}
+.boundary{margin-top:22px;padding:18px 20px;border-left:3px solid var(--amber);
+  background:rgba(224,166,74,.09);max-width:72ch;font-size:15.5px}
+.boundary b{color:var(--white)}
+
+/* ---------- 30 seconds ---------- */
+.thirty{background:var(--charcoal)}
+.thirty ol{counter-reset:t;list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.thirty li{counter-increment:t;position:relative;padding:24px 24px 24px 58px;background:var(--panel)}
+.thirty li::before{content:counter(t,decimal-leading-zero);position:absolute;left:22px;top:24px;
+  font:800 15px/1 var(--mono);color:var(--water)}
+
+/* ---------- puzzle ---------- */
+.puzzle{background:var(--deep)}
+.evidence-list{display:grid;gap:12px;margin:26px 0 0;padding:0;list-style:none;max-width:72ch}
+.evidence-list li{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:var(--charcoal);
+  border-left:3px solid var(--muted)}
+.evidence-list .tick{color:var(--green);font:700 15px/1.5 var(--mono);flex:0 0 auto}
+.evidence-list .cross{color:var(--red);font:700 15px/1.5 var(--mono);flex:0 0 auto}
+.puzzle-q{margin-top:30px;padding:26px;border:1px solid var(--water);background:rgba(125,198,232,.07);max-width:72ch}
+.puzzle-q p{margin:0;font-size:20px;color:var(--white)}
+
+/* ---------- definitions ---------- */
+.defs{display:grid;gap:16px;margin-top:30px}
+.def{padding:24px;background:var(--charcoal);border-left:3px solid var(--water);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:24px;align-items:start}
+.def-text{min-width:0}
+.def-fig{margin:0;min-width:0}
+.def-fig svg{display:block;width:100%;height:auto;background:var(--deep);border:1px solid var(--line)}
+.def-fig figcaption{margin:9px 0 0;padding:0;background:none;font:600 11px/1.5 var(--mono);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);max-width:none}
+@media (max-width:860px){.def{grid-template-columns:1fr}.def-fig{order:-1}}
+.def h3{font-size:20px;margin:0 0 10px}
+.def p{margin:0 0 8px;font-size:15.5px}
+.def .pic{color:#bcd9e8}
+.def .not{color:#e8cf95}
+.def b{color:var(--white)}
+
+/* ---------- interactive figure shell ---------- */
+figure{margin:30px 0 0}
+.stage{background:var(--deep);border:1px solid var(--line);padding:22px}
+.stage svg{display:block;width:100%;height:auto}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button{font:600 14px/1 var(--sans);padding:12px 17px;min-height:44px;cursor:pointer;
+  background:var(--panel);color:var(--white);border:1px solid #4a4741;border-radius:3px}
+button:hover{border-color:var(--water);color:var(--water)}
+button[aria-pressed="true"]{background:var(--water-deep);border-color:var(--water);color:#fff}
+button:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.readout{margin-top:18px;padding:18px 20px;background:var(--panel);border-left:3px solid var(--water);
+  min-height:96px}
+.readout .rk{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--water);
+  display:block;margin-bottom:9px}
+.readout p{margin:0 0 8px;font-size:15.5px}
+.readout p:last-child{margin:0}
+figcaption{margin-top:16px;padding:16px 18px;background:rgba(125,198,232,.07);font-size:15px;max-width:78ch}
+figcaption b{color:var(--white)}
+
+/* ---------- flip cards ---------- */
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:16px;margin-top:28px}
+/* The faces are stacked in one grid cell rather than absolutely positioned, so
+   the card sizes itself to whichever face is taller. The inner element must be
+   a block-level box: as an inline span its width, height, and min-height are
+   all ignored, which collapsed the card to zero height. */
+.flip{display:block;background:transparent;border:0;padding:0;perspective:1100px;
+  text-align:left;font:inherit;min-height:0}
+.flip-in{display:grid;position:relative;min-height:200px;
+  transition:transform .5s;transform-style:preserve-3d}
+.flip[aria-pressed="true"] .flip-in{transform:rotateY(180deg)}
+.flip-f,.flip-b{grid-area:1 / 1;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  padding:22px;display:flex;flex-direction:column;justify-content:center;border-radius:3px}
+.flip-f{background:var(--charcoal);border:1px solid #4a4741}
+.flip-b{background:var(--water-deep);border:1px solid var(--water);transform:rotateY(180deg)}
+.flip-f p,.flip-b p{margin:0;font-size:16px}
+.flip-f .q{color:var(--white);font-weight:600}
+.flip-b .a{color:#fff}
+.flip-tag{font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--water);margin-bottom:11px}
+.flip-b .flip-tag{color:#eaf7fd}
+.flip-b .flip-hint{color:#eaf7fd}
+.flip-hint{margin-top:14px;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.flip-in{transition:none}}
+
+/* ---------- work product ---------- */
+.work{background:var(--deep)}
+.wp-intro{max-width:68ch}
+.wq{margin-top:22px;padding:24px;background:var(--charcoal);border-left:3px solid var(--water);scroll-margin-top:80px}
+.wq h3{font-size:17.5px;margin:0 0 6px}
+.wq .why{margin:0 0 14px;font-size:14.5px;color:var(--muted)}
+.wq textarea{width:100%;min-height:112px;padding:15px;background:#15140f;color:var(--white);
+  border:1px solid #4a4741;border-radius:3px;font:15px/1.65 var(--mono);resize:vertical}
+.wq textarea:focus{outline:2px solid var(--water);outline-offset:1px}
+.wq textarea.typing{border-color:var(--water);box-shadow:0 0 0 1px var(--water) inset}
+.wq-controls{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px;align-items:center}
+.wq-controls .status{font:600 12px/1 var(--mono);letter-spacing:.06em;color:var(--muted);margin-left:2px}
+.wq-controls .status.done{color:var(--green)}
+.wq-controls .status.live{color:var(--water)}
+.wp-global{display:flex;flex-wrap:wrap;gap:11px;align-items:center;margin-top:30px;padding:22px;
+  background:var(--panel);border-top:2px solid var(--water)}
+.wp-global .note{font-size:14.5px;color:var(--muted);flex:1 1 260px;margin:0}
+
+/* ---------- progress rail ---------- */
+.rail{position:sticky;top:0;z-index:40;background:rgba(20,19,17,.94);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.rail-in{display:flex;align-items:center;gap:16px;padding:11px 0;flex-wrap:wrap}
+.rail-bar{flex:1 1 180px;height:5px;background:#332f2a;border-radius:100px;overflow:hidden;min-width:120px}
+.rail-fill{display:block;height:100%;width:0;background:var(--water);transition:width .25s linear}
+.rail-txt{font:600 12px/1 var(--mono);letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.rail-txt b{color:var(--water)}
+@media (prefers-reduced-motion: reduce){.rail-fill{transition:none}}
+
+/* ---------- cross sector ---------- */
+.cross{background:var(--charcoal)}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:28px}
+.split-card{padding:24px;background:var(--panel);border-top:3px solid var(--water)}
+.split-card.wrong{border-top-color:var(--amber)}
+.split-card h3{font-size:18px;margin:0 0 10px}
+.split-card p{margin:0 0 10px;font-size:15.5px}
+.split-card p:last-child{margin:0}
+.split-card .tagline{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--water);margin-bottom:12px;display:block}
+.split-card.wrong .tagline{color:var(--amber)}
+
+/* ---------- sources ---------- */
+.sources{background:var(--deep)}
+.src-table{width:100%;border-collapse:collapse;margin-top:24px;font-size:14.5px}
+.src-table th{text-align:left;padding:11px 14px;border-bottom:2px solid var(--water);
+  font:700 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--water);
+  vertical-align:bottom}
+.src-table td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.src-table tr:last-child td{border-bottom:0}
+.src-wrap{overflow-x:auto}
+.scope-note{margin-top:22px;padding:18px 20px;border-left:3px solid var(--amber);
+  background:rgba(224,166,74,.09);max-width:78ch;font-size:15px}
+.scope-note b{color:var(--white)}
+
+/* ---------- connected learning ---------- */
+.next{background:var(--charcoal)}
+.next-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:26px}
+.next-card{padding:22px;background:var(--panel);border-left:3px solid var(--water)}
+.next-card .lane{font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--water);display:block;margin-bottom:10px}
+.next-card h3{font-size:17px;margin:0 0 8px}
+.next-card p{margin:0;font-size:15px;color:var(--body)}
+
+/* ---------- community + value plane ---------- */
+.plane{background:var(--white);color:#211f1b}
+.plane h2,.plane h3{color:#151412}
+.plane .kicker{color:#1d5c90}
+.plane .prose p{color:#3d3a34}
+.comm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:28px}
+.comm-card{padding:24px;background:#f0ede6;border-top:3px solid #1d5c90}
+.comm-card h3{font-size:17px;margin:0 0 10px}
+.comm-card p{margin:0 0 10px;font-size:15px;color:#3d3a34}
+.comm-card ul{margin:0;padding-left:19px;font-size:15px;color:#3d3a34}
+.comm-card li{margin:0 0 7px}
+.seed{display:inline-block;margin:5px 6px 0 0;padding:8px 13px;background:#fff;border:1px solid #c9c3b8;
+  border-radius:100px;font-size:13.5px;color:#3d3a34}
+.plane .cta{display:inline-block;margin-top:16px;padding:13px 20px;min-height:44px;background:#1d5c90;
+  color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:15px}
+.plane .cta:hover{background:#164a75}
+.value{margin-top:34px;padding:28px;background:#151412;color:#d9d6cf;border-radius:3px}
+.value h3{color:#f2f1ec;font-size:19px;margin:0 0 12px}
+.value p{margin:0 0 12px;font-size:15.5px}
+.value p:last-child{margin:0}
+
+/* ---------- sponsors and brand ---------- */
+.sponsors{margin-top:34px;padding-top:28px;border-top:1px solid #d3cec4}
+.sponsor-head{max-width:62ch}
+.sponsor-head h3{font-size:19px;margin:0 0 8px}
+.sponsor-head p{margin:0;font-size:14.5px;color:#5c574e}
+.sponsor-row{list-style:none;display:grid;gap:12px;margin:22px 0 0;padding:0;
+  grid-template-columns:repeat(auto-fit,minmax(212px,1fr))}
+.sponsor{display:flex;align-items:center;gap:13px;padding:15px 16px;background:#fff;
+  border:1px solid #ddd8cd;border-radius:3px}
+.sponsor-open{border-style:dashed;background:transparent}
+.sponsor-logo{width:42px;height:42px;flex:0 0 auto;border-radius:3px;background:#e6e1d6;
+  display:grid;place-items:center;font:800 13px/1 var(--mono);color:#8a8377}
+.sponsor-logo::after{content:attr(data-cat)}
+.sponsor-open .sponsor-logo{background:transparent;border:1px dashed #b9b3a6}
+.sponsor-name{font-weight:700;font-size:14px;color:#151412;line-height:1.3}
+.sponsor-name span{display:block;font-weight:400;font-size:12.5px;color:#6b665c;margin-top:3px}
+.plane .cta.ghost{background:transparent;color:#1d5c90;border:1px solid #1d5c90}
+.plane .cta.ghost:hover{background:#1d5c90;color:#fff}
+.brandbar{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:34px;
+  padding-top:26px;border-top:1px solid #d3cec4}
+.brandmark{display:flex;align-items:center;gap:14px}
+.brandmark .sq{width:42px;height:42px;flex:0 0 auto;border-radius:4px;
+  background:linear-gradient(145deg,#d9b45c,#b8912f);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.brandmark .nm{display:block;font:800 25px/1.05 var(--sans);letter-spacing:-.02em;
+  color:#151412;white-space:nowrap}
+.brandmark .nm .dot{color:#7a5f18}
+.brandmark .nm .sub{display:block;font:500 11.5px/1.4 var(--mono);letter-spacing:.1em;
+  text-transform:uppercase;color:#6b665c;margin-top:8px;white-space:normal}
+.taught{margin:0;font-size:14.5px;color:#5c574e}
+.taught b{color:#151412}
+.legal{margin-top:24px;padding-top:18px;border-top:1px solid #d3cec4;font-size:13px;color:#6b665c}
+.legal p{margin:0;max-width:88ch}
+
+/* ---------- top drawers ---------- */
+.topbar{display:flex;gap:9px;margin-left:auto}
+.drawer-btn{font:600 13px/1 var(--sans);padding:10px 15px;min-height:40px;background:var(--panel);
+  color:var(--white);border:1px solid #4a4741;border-radius:100px;cursor:pointer}
+.drawer-btn:hover{border-color:var(--water);color:var(--water)}
+.backdrop{position:fixed;inset:0;background:rgba(8,8,8,.62);opacity:0;pointer-events:none;
+  transition:opacity .2s;z-index:90}
+.backdrop.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:#f7f5ef;color:#211f1b;
+  z-index:100;transform:translateX(100%);transition:transform .26s ease;overflow-y:auto;
+  box-shadow:-14px 0 40px rgba(0,0,0,.4)}
+.drawer.on{transform:translateX(0)}
+.drawer-in{padding:26px}
+.drawer h2{color:#151412;font-size:22px;margin:0 0 6px}
+.drawer .dk{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:#1d5c90;margin:0 0 14px}
+.drawer p{font-size:14.5px;color:#3d3a34;margin:0 0 14px}
+.drawer h3{font-size:15px;margin:22px 0 9px;color:#151412}
+.drawer ul{margin:0;padding-left:19px;font-size:14.5px;color:#3d3a34}
+.drawer li{margin:0 0 8px}
+.drawer-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;
+  background:#e6e1d6;border:1px solid #ccc6b9;color:#151412;font-size:19px;line-height:1;cursor:pointer}
+.node{display:inline-block;margin:0 6px 7px 0;padding:7px 12px;background:#fff;border:1px solid #ccc6b9;
+  border-radius:100px;font-size:13px;color:#3d3a34}
+.node.self{background:#1d5c90;color:#fff;border-color:#1d5c90;font-weight:600}
+.drawer .cta{display:inline-block;margin-top:8px;padding:12px 18px;min-height:44px;background:#1d5c90;
+  color:#fff;text-decoration:none;border-radius:3px;font-weight:600;font-size:14.5px}
+@media (prefers-reduced-motion: reduce){.drawer,.backdrop{transition:none}}
+@media (max-width:560px){.drawer{width:100%}}
+
+/* ---------- recap ---------- */
+.recap{background:var(--charcoal)}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:18px;margin-top:26px}
+.recap-card{padding:24px;background:var(--panel);border-top:2px solid var(--water)}
+.recap-card h3{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--water);margin:0 0 12px}
+.recap-card p{margin:0;font-size:16px}
+
+/* ---------- footer ---------- */
+footer{padding:44px 0 60px;background:var(--deep);color:var(--muted);font-size:14.5px}
+footer p{margin:0 0 10px;max-width:78ch}
+.disclaim{padding:16px 18px;border-left:3px solid var(--amber);background:rgba(224,166,74,.08);
+  color:var(--body);margin-bottom:20px;max-width:78ch}
+
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (max-width:760px){
+  :root{--wrap:min(1080px, calc(100% - 32px))}
+  section{padding:54px 0}
+  .wq-controls button{flex:1 1 auto}
+}
+</style>
+</head>
+<body>
+
+<div class="rail" aria-hidden="false">
+  <div class="wrap rail-in">
+    <span class="rail-txt" id="railStage">START</span>
+    <span class="rail-bar"><span class="rail-fill" id="railFill"></span></span>
+    <span class="rail-txt"><b id="railLeft">15</b> MIN LEFT</span>
+    <span class="topbar">
+      <button type="button" class="drawer-btn" data-open="graph" aria-haspopup="dialog"
+        aria-controls="graphDrawer" aria-expanded="false">Graph</button>
+      <button type="button" class="drawer-btn" data-open="community" aria-haspopup="dialog"
+        aria-controls="commDrawer" aria-expanded="false">Community</button>
+    </span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <span class="variant-flag">OWOS CONCEPT BRIEF &middot; STORMWATER</span>
+    <h1>The pond was fine.<br>The street still flooded.</h1>
+    <p class="lede">Detention, retention, and infiltration &mdash; and why the name on the drawing is
+      the weakest evidence you have.</p>
+  </div>
+</header>
+
+<!-- ============ ORIENTATION ============ -->
+<section class="orient" aria-labelledby="o-t">
+  <div class="wrap">
+    <p class="kicker">Start here</p>
+    <h2 id="o-t">What actually happens to rain after it lands, and why a familiar word keeps getting
+      people into trouble.</h2>
+
+    <div class="orient-grid">
+      <div class="ocard">
+        <h3>Who this is for</h3>
+        <p>Anyone who has to talk about, pay for, inspect, approve, explain, or answer for a
+          stormwater asset without being the person who designed it.</p>
+      </div>
+      <div class="ocard">
+        <h3>What you need first</h3>
+        <p>Only that rain runs off streets and roofs into drains. No hydrology, no hydraulics, no
+          regulatory background.</p>
+      </div>
+      <div class="ocard">
+        <h3>Why it matters</h3>
+        <p>Utilities approve assets that do not do what their name implies, and add capacity when the
+          real problem was a blocked outlet. Neither mistake requires carelessness. Both require
+          trusting a word.</p>
+      </div>
+      <div class="ocard">
+        <h3>How long</h3>
+        <p>About 15 minutes. Nothing here requires you to type anything.</p>
+      </div>
+    </div>
+
+    <div class="objectives">
+      <h3>What you will be able to do</h3>
+      <ol>
+        <li>Say what detention, retention, and infiltration actually describe, and why the three
+          words are used inconsistently in practice.</li>
+        <li>Trace where water can go from any storage practice, including the routes nobody
+          intended.</li>
+        <li>Read a hydrograph well enough to know when someone is overstating what it proves.</li>
+        <li>Explain why a lower peak is not less water.</li>
+        <li>Work out how a maintenance condition changes the route without diagnosing a real
+          asset.</li>
+        <li>Ask the four questions that make a stormwater conversation productive.</li>
+      </ol>
+    </div>
+
+    <p class="boundary"><b>What this will not do:</b> size, design, model, permit, inspect, operate,
+      or certify anything. No drawdown times, infiltration rates, separation distances, or removal
+      percentages. United States federal and EPA authority only; state requirements are handled
+      separately.</p>
+  </div>
+</section>
+
+<!-- ============ 30 SECONDS ============ -->
+<section class="thirty" aria-labelledby="t-t">
+  <div class="wrap">
+    <p class="kicker">In 30 seconds</p>
+    <h2 id="t-t">If you stop reading here, keep these four.</h2>
+    <ol>
+      <li><b>Detention</b> holds water and lets it out later. It changes <em>when</em> water arrives
+        far more than <em>how much</em>.</li>
+      <li><b>Retention</b> means two different things depending on who is speaking. Ask which.</li>
+      <li><b>Infiltration</b> means water crossed into the ground. That is a doorway, not a
+        destination.</li>
+      <li>A name describes a category. Only the route describes behaviour.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ THE PUZZLE ============ -->
+<section class="puzzle" aria-labelledby="p-t">
+  <div class="wrap">
+    <p class="kicker">The problem</p>
+    <h2 id="p-t">Everything checked out. It flooded anyway.</h2>
+    <div class="prose">
+      <p class="lead">A residential street floods during a storm. Upstream sits a stormwater pond
+        that was built for that development. The utility sends an inspector.</p>
+      <p>Here is what the inspection found.</p>
+    </div>
+
+    <ul class="evidence-list">
+      <li><span class="tick">PASS</span><span>The pond held water during the storm and returned to
+        its normal level afterward.</span></li>
+      <li><span class="tick">PASS</span><span>The outlet structure was clear. No blockage, no
+        debris.</span></li>
+      <li><span class="tick">PASS</span><span>The embankment was sound. No erosion, no
+        settlement.</span></li>
+      <li><span class="tick">PASS</span><span>Records confirm the pond was built to the approved
+        plan and accepted by the utility.</span></li>
+      <li><span class="cross">AND</span><span>The street flooded.</span></li>
+    </ul>
+
+    <div class="puzzle-q">
+      <p>Nothing on that list is wrong. So what would you ask next?</p>
+    </div>
+
+    <div class="prose" style="margin-top:26px">
+      <p>Most people ask whether the pond is big enough. That is a reasonable guess and it is
+        usually the wrong first question, because it assumes the pond was supposed to prevent this.
+        Work out what the pond actually does first. Then the flooding either follows from it or it
+        does not.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEFINITIONS ============ -->
+<section aria-labelledby="d-t">
+  <div class="wrap">
+    <p class="kicker">The words you need</p>
+    <h2 id="d-t">Six words, each with what it does <em>not</em> tell you.</h2>
+    <div class="prose">
+      <p>That last part is the useful half. Almost every expensive misunderstanding in this subject
+        comes from a word being asked to prove more than it can.</p>
+    </div>
+
+    <div class="defs">
+      <div class="def"><div class="def-text"><h3>Detention</h3>
+        <p>Holding water temporarily and letting it out afterward.</p>
+        <p class="pic"><b>Picture it:</b> a crowd leaving a stadium through one gate. Everyone gets
+          out. It just takes longer, and the street outside is never as crowded as the stadium.</p>
+        <p class="not"><b>What it does not tell you:</b> how much water leaves in total. Almost all
+          of it does. Detention is a delay device, not a disposal device.</p>
+      </div><figure class="def-fig"><svg viewBox="0 26 400 158" role="img" aria-labelledby="dt dd"><title id="dt">Detention: runoff enters faster than the outlet releases it</title><desc id="dd">A basin with a large fast inflow arrow and a small slow outflow arrow through a low opening. Water piles up between the two.</desc><rect width="400" height="190" fill="#141311"/>
+<path d="M0 96 L96 96 L136 150 L268 150 L308 96 L400 96 L400 190 L0 190Z" fill="#3a3329"/>
+<clipPath id="dBowl"><path d="M96 96 L136 150 L268 150 L308 96 Z"/></clipPath>
+<g clip-path="url(#dBowl)"><rect x="90" y="108" width="230" height="60" fill="#7dc6e8" opacity=".8"/></g>
+<path d="M96 96 L136 150 L268 150 L308 96" fill="none" stroke="#6f685e" stroke-width="2"/>
+<path d="M18 46 L74 82" stroke="#7dc6e8" stroke-width="11" fill="none" marker-end="url(#dIn)"/>
+<text x="14" y="38" font-family="monospace" font-size="10" fill="#7dc6e8">IN, FAST</text>
+<rect x="308" y="78" width="14" height="72" fill="#4a4741" stroke="#6f685e"/>
+<circle cx="315" cy="139" r="3.4" fill="#141311" stroke="#7dc6e8" stroke-width="1.6"/>
+<path d="M324 139 L372 139" stroke="#7dc6e8" stroke-width="3" fill="none" marker-end="url(#dOut)"/>
+<text x="300" y="120" font-family="monospace" font-size="10" fill="#7dc6e8">OUT, SLOW</text>
+<line x1="96" y1="108" x2="316" y2="108" stroke="#cfeaf8" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="150" y="103" font-family="monospace" font-size="10" fill="#f2f1ec">WATER PILES UP HERE</text>
+<text x="14" y="170" font-family="monospace" font-size="10" fill="#a29c91">SHOWN DURING THE STORM. THIS BASIN IS DRY BETWEEN THEM.</text>
+<defs>
+<marker id="dIn" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto"><path d="M0 0L11 5.5L0 11Z" fill="#7dc6e8"/></marker>
+<marker id="dOut" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#7dc6e8"/></marker>
+</defs></svg><figcaption>Wide inlet, narrow outlet. That gap is the whole idea.</figcaption></figure></div>
+      <div class="def"><div class="def-text"><h3>Retention</h3>
+        <p>In the strict sense, water kept back so it does not leave later through a surface outlet.
+          In everyday use, "retention pond" usually just means a pond with water in it all the time.</p>
+        <p class="pic"><b>Picture it:</b> a neighbourhood pond that always looks full.</p>
+        <p class="not"><b>What it does not tell you:</b> which of those two meanings the speaker
+          intends. This is the single most reliable source of confusion in the subject.</p>
+      </div><figure class="def-fig"><svg viewBox="0 14 400 172" role="img" aria-labelledby="rt rd"><title id="rt">Retention: the same word used for two different arrangements</title><desc id="rd">Left: a basin with water soaking into the ground and no outlet. Right: a pond holding a permanent pool with an outlet structure.</desc><rect width="400" height="190" fill="#141311"/>
+<line x1="200" y1="16" x2="200" y2="180" stroke="#4a4741" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="14" y="26" font-family="monospace" font-size="10" fill="#a29c91">MEANING 1</text><text x="212" y="26" font-family="monospace" font-size="10" fill="#a29c91">MEANING 2</text>
+<text x="14" y="40" font-family="monospace" font-size="10" fill="#f2f1ec">KEPT, NO SURFACE EXIT</text><text x="212" y="40" font-family="monospace" font-size="10" fill="#f2f1ec">A POND THAT STAYS WET</text>
+<path d="M8 108 L52 108 L74 142 L150 142 L172 108 L192 108 L192 182 L8 182Z" fill="#3a3329"/>
+<clipPath id="rA"><path d="M52 108 L74 142 L150 142 L172 108 Z"/></clipPath>
+<g clip-path="url(#rA)"><rect x="46" y="120" width="132" height="34" fill="#7dc6e8" opacity=".75"/></g>
+<path d="M52 108 L74 142 L150 142 L172 108" fill="none" stroke="#6f685e" stroke-width="1.6"/>
+<path d="M92 148 L92 172" stroke="#7dc6e8" stroke-width="2.6" stroke-dasharray="4 4" marker-end="url(#rD)"/>
+<path d="M132 148 L132 172" stroke="#7dc6e8" stroke-width="2.6" stroke-dasharray="4 4" marker-end="url(#rD)"/>
+<text x="52" y="180" font-family="monospace" font-size="10" fill="#7dc6e8">INTO THE GROUND</text>
+<path d="M208 108 L252 108 L274 142 L350 142 L372 108 L392 108 L392 182 L208 182Z" fill="#3a3329"/>
+<clipPath id="rB"><path d="M252 108 L274 142 L350 142 L372 108 Z"/></clipPath>
+<g clip-path="url(#rB)"><rect x="246" y="120" width="132" height="34" fill="#2b7399"/></g>
+<path d="M252 108 L274 142 L350 142 L372 108" fill="none" stroke="#6f685e" stroke-width="1.6"/>
+<rect x="372" y="100" width="10" height="42" fill="#4a4741" stroke="#6f685e"/>
+<circle cx="377" cy="132" r="2.6" fill="#141311" stroke="#7dc6e8" stroke-width="1.4"/>
+<text x="248" y="180" font-family="monospace" font-size="10" fill="#7dc6e8">AND IT HAS AN OUTLET</text>
+<defs><marker id="rD" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#7dc6e8"/></marker></defs></svg><figcaption>One word. Two completely different pictures.</figcaption></figure></div>
+      <div class="def"><div class="def-text"><h3>Infiltration</h3>
+        <p>Water crossing from the surface down into soil or engineered material.</p>
+        <p class="pic"><b>Picture it:</b> rain vanishing into a lawn while the driveway beside it
+          runs.</p>
+        <p class="not"><b>What it does not tell you:</b> where the water finally goes. It may reach
+          groundwater, move sideways, be taken up by plants, or land in a pipe and come straight
+          back out downstream.</p>
+      </div><figure class="def-fig"><svg viewBox="0 4 400 182" role="img" aria-labelledby="it id"><title id="it">Infiltration: water crosses into the ground and can then take four routes</title><desc id="id">Water crosses a dashed line at the ground surface, then branches to groundwater, sideways movement, an underdrain returning to the pipe network, and plant uptake.</desc><rect width="400" height="190" fill="#141311"/>
+<rect x="0" y="62" width="400" height="128" fill="#3a3329"/>
+<path d="M170 12 L200 52" stroke="#7dc6e8" stroke-width="7" fill="none" marker-end="url(#iA)"/>
+<line x1="18" y1="62" x2="382" y2="62" stroke="#e0a64a" stroke-width="2.4" stroke-dasharray="7 5"/>
+<text x="18" y="56" font-family="monospace" font-size="10" fill="#e0a64a">THE DOORWAY</text>
+<text x="252" y="56" font-family="monospace" font-size="10" fill="#a29c91">SURFACE</text>
+<path d="M200 66 L92 116" stroke="#7dc6e8" stroke-width="2.6" fill="none" marker-end="url(#iB)"/>
+<path d="M200 66 L168 132" stroke="#7dc6e8" stroke-width="2.6" fill="none" marker-end="url(#iB)"/>
+<path d="M200 66 L262 122" stroke="#7dc6e8" stroke-width="2.6" fill="none" marker-end="url(#iB)"/>
+<path d="M200 66 L318 100" stroke="#7dc6e8" stroke-width="2.6" fill="none" marker-end="url(#iB)"/>
+<path d="M330 96 L344 60" stroke="#7dc6e8" stroke-width="2.2" fill="none" marker-end="url(#iB)" stroke-dasharray="4 3"/>
+<text x="332" y="52" font-family="monospace" font-size="10" fill="#7dc6e8">BACK TO AIR</text>
+<text x="34" y="132" font-family="monospace" font-size="10" fill="#f2f1ec">GROUNDWATER</text>
+<text x="130" y="150" font-family="monospace" font-size="10" fill="#f2f1ec">SIDEWAYS</text>
+<text x="228" y="140" font-family="monospace" font-size="10" fill="#f2f1ec">UNDERDRAIN,</text><text x="228" y="152" font-family="monospace" font-size="10" fill="#f2f1ec">BACK TO PIPE</text>
+<text x="312" y="122" font-family="monospace" font-size="10" fill="#f2f1ec">PLANTS</text>
+<text x="94" y="178" font-family="monospace" font-size="10" fill="#e0a64a">FOUR EXITS. THE WORD NAMES NONE OF THEM.</text>
+<defs>
+<marker id="iA" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7dc6e8"/></marker>
+<marker id="iB" markerUnits="userSpaceOnUse" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#7dc6e8"/></marker>
+</defs></svg><figcaption>Crossing the line is the event. It is not the destination.</figcaption></figure></div>
+      <div class="def"><div class="def-text"><h3>Permanent pool</h3>
+        <p>The water a wet pond is designed to keep between storms.</p>
+        <p class="pic"><b>Picture it:</b> the normal water line you see on an ordinary dry day, with
+          a ring of vegetation around it.</p>
+        <p class="not"><b>What it does not tell you:</b> that the pond is full. Storm storage is
+          normally provided <em>above</em> the permanent pool, so a pond that looks full may have all
+          of its working capacity still available.</p>
+      </div><figure class="def-fig"><svg viewBox="0 36 400 148" role="img" aria-labelledby="pt pd"><title id="pt">Permanent pool with storm storage above it</title><desc id="pd">A pond cross-section. The lower shaded band is the permanent pool that is always present. The lighter band above it is the storm storage, marked as the working capacity.</desc><rect width="400" height="190" fill="#141311"/>
+<path d="M0 60 L84 60 L124 150 L276 150 L316 60 L400 60 L400 190 L0 190Z" fill="#3a3329"/>
+<clipPath id="pBowl"><path d="M84 60 L124 150 L276 150 L316 60 Z"/></clipPath>
+<g clip-path="url(#pBowl)">
+<rect x="78" y="112" width="244" height="46" fill="#2b7399"/>
+<rect x="78" y="60" width="244" height="52" fill="none" stroke="#e0a64a" stroke-width="1.5" stroke-dasharray="6 5"/>
+</g>
+<path d="M84 60 L124 150 L276 150 L316 60" fill="none" stroke="#6f685e" stroke-width="2"/>
+<line x1="96" y1="112" x2="308" y2="112" stroke="#8ed0ed" stroke-width="1.8" stroke-dasharray="6 5"/>
+<text x="130" y="136" font-family="monospace" font-size="10" fill="#f2f1ec">PERMANENT POOL</text>
+<text x="130" y="148" font-family="monospace" font-size="10" fill="#a29c91">ALWAYS THERE</text>
+<text x="120" y="88" font-family="monospace" font-size="11" fill="#e0a64a" font-weight="bold">STORM STORAGE</text>
+<text x="120" y="102" font-family="monospace" font-size="10" fill="#e0a64a">THIS IS THE WORKING CAPACITY</text>
+<path d="M348 62 L348 110" stroke="#e0a64a" stroke-width="2.4" marker-start="url(#pU)" marker-end="url(#pU2)"/>
+<text x="356" y="90" font-family="monospace" font-size="10" fill="#e0a64a">FREE</text>
+<defs>
+<marker id="pU" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="4" refY="7" orient="auto"><path d="M4 0L8 8L0 8Z" fill="#e0a64a"/></marker>
+<marker id="pU2" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="4" refY="1" orient="auto"><path d="M4 8L0 0L8 0Z" fill="#e0a64a"/></marker>
+</defs></svg><figcaption>The capacity is the empty space above the water.</figcaption></figure></div>
+      <div class="def"><div class="def-text"><h3>Outlet and overflow</h3>
+        <p>The outlet controls how water leaves under ordinary conditions. The overflow is the route
+          water uses when it rises higher than the outlet can handle.</p>
+        <p class="pic"><b>Picture it:</b> a concrete riser with a small hole near its base, and a
+          broad low notch in the bank that is usually dry and mowed.</p>
+        <p class="not"><b>What it does not tell you:</b> that either one is clear, or that the
+          overflow has ever been tested by a real storm.</p>
+      </div><figure class="def-fig"><svg viewBox="0 30 400 154" role="img" aria-labelledby="ot od"><title id="ot">Outlet and overflow at different elevations</title><desc id="od">A pond with a riser containing a small low opening for ordinary release, and a wider notch higher in the bank for overflow.</desc><rect width="400" height="190" fill="#141311"/>
+<path d="M0 54 L120 54 L156 148 L262 148 L298 54 L400 54 L400 190 L0 190Z" fill="#3a3329"/>
+<clipPath id="oBowl"><path d="M120 54 L156 148 L262 148 L298 54 Z"/></clipPath>
+<g clip-path="url(#oBowl)"><rect x="114" y="110" width="196" height="46" fill="#2b7399"/></g>
+<path d="M120 54 L156 148 L262 148 L298 54" fill="none" stroke="#6f685e" stroke-width="2"/>
+<rect x="298" y="46" width="16" height="102" fill="#4a4741" stroke="#6f685e"/>
+<circle cx="306" cy="136" r="4" fill="#141311" stroke="#7dc6e8" stroke-width="1.8"/>
+<path d="M316 136 L376 136" stroke="#7dc6e8" stroke-width="3.4" fill="none" marker-end="url(#oA)"/>
+<text x="316" y="126" font-family="monospace" font-size="10" fill="#7dc6e8">ORDINARY</text>
+<path d="M262 74 L298 74" stroke="#e0a64a" stroke-width="4"/>
+<path d="M290 78 L318 96 L372 116" stroke="#e0a64a" stroke-width="3.4" fill="none" marker-end="url(#oB)"/>
+<text x="140" y="68" font-family="monospace" font-size="10" fill="#e0a64a">OVERFLOW, HIGHER UP</text>
+<text x="120" y="176" font-family="monospace" font-size="10" fill="#a29c91">ONE FOR EVERY DAY. ONE FOR THE DAY THAT IS NOT.</text>
+<defs>
+<marker id="oA" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#7dc6e8"/></marker>
+<marker id="oB" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#e0a64a"/></marker>
+</defs></svg><figcaption>Two exits, set at two different heights, for two different days.</figcaption></figure></div>
+      <div class="def"><div class="def-text"><h3>Tailwater</h3>
+        <p>The water level in the receiving system just downstream of an outlet.</p>
+        <p class="pic"><b>Picture it:</b> the creek the pond drains into, already running high from
+          the same storm.</p>
+        <p class="not"><b>What it does not tell you:</b> anything you can see from the pond. And it
+          matters, because an outlet does not discharge into empty air. It discharges into whatever
+          is already there.</p>
+      </div><figure class="def-fig"><svg viewBox="0 12 400 172" role="img" aria-labelledby="tt td"><title id="tt">Tailwater: the same outlet discharging into a low and a high receiving water</title><desc id="td">Two panels. On the left the creek is low and the outflow arrow is thick and fast. On the right the creek is high and the outflow arrow is thin and slow.</desc><rect width="400" height="190" fill="#141311"/>
+<line x1="200" y1="14" x2="200" y2="182" stroke="#4a4741" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="14" y="26" font-family="monospace" font-size="10" fill="#a29c91">CREEK LOW</text><text x="212" y="26" font-family="monospace" font-size="10" fill="#a29c91">CREEK HIGH</text>
+<rect x="8" y="52" width="52" height="96" fill="#3a3329"/>
+<rect x="8" y="70" width="52" height="78" fill="#2b7399"/>
+<rect x="60" y="44" width="12" height="104" fill="#4a4741" stroke="#6f685e"/>
+<circle cx="66" cy="118" r="3.4" fill="#141311" stroke="#7dc6e8" stroke-width="1.6"/>
+<path d="M74 118 L150 118" stroke="#7dc6e8" stroke-width="5" fill="none" marker-end="url(#tA)"/>
+<rect x="150" y="132" width="42" height="16" fill="#2b7399"/>
+<text x="150" y="126" font-family="monospace" font-size="10" fill="#a29c91">LOW</text>
+<text x="78" y="106" font-family="monospace" font-size="10" fill="#7dc6e8">BIG DROP, FAST</text>
+<rect x="208" y="52" width="52" height="96" fill="#3a3329"/>
+<rect x="208" y="70" width="52" height="78" fill="#2b7399"/>
+<rect x="260" y="44" width="12" height="104" fill="#4a4741" stroke="#6f685e"/>
+<circle cx="266" cy="118" r="3.4" fill="#141311" stroke="#7dc6e8" stroke-width="1.6"/>
+<path d="M274 118 L330 118" stroke="#e0a64a" stroke-width="2" fill="none" marker-end="url(#tB)"/>
+<rect x="330" y="100" width="62" height="48" fill="#2b7399"/>
+<text x="330" y="94" font-family="monospace" font-size="10" fill="#a29c91">HIGH</text>
+<text x="274" y="98" font-family="monospace" font-size="10" fill="#e0a64a">SMALL DROP, SLOW</text>
+<text x="18" y="176" font-family="monospace" font-size="10" fill="#a29c91">NOTHING ABOUT THE POND CHANGED BETWEEN THESE TWO.</text>
+<defs>
+<marker id="tA" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#7dc6e8"/></marker>
+<marker id="tB" markerUnits="userSpaceOnUse" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#e0a64a"/></marker>
+</defs></svg><figcaption>Same outlet. Same pond. Different downstream water.</figcaption></figure></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERACTIVE 1: ROUTE ============ -->
+<section aria-labelledby="r-t">
+  <div class="wrap">
+    <p class="kicker">Follow the water</p>
+    <h2 id="r-t">Change one condition. Watch the water go somewhere else.</h2>
+    <div class="prose">
+      <p>This is the same pond in four states. Nothing about its size or its design changes between
+        them. Only the conditions change. Watch where the water ends up.</p>
+    </div>
+
+    <figure>
+      <div class="stage">
+        <svg id="routeSvg" viewBox="0 96 900 200" role="img" aria-labelledby="rt rd">
+          <title id="rt">Cross-section of a stormwater pond showing where water leaves under four conditions</title>
+          <desc id="rd">A pond bowl with an inlet, a permanent pool, storm storage above it, an
+            outlet riser, an overflow notch in the right bank, and a receiving creek downstream.
+            Changing the condition raises the water and moves it to a different exit.</desc>
+          <defs>
+            <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9"
+                    refX="8" refY="4.5" orient="auto">
+              <path d="M0 0L9 4.5L0 9Z" fill="#7dc6e8"/></marker>
+            <marker id="aa" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9"
+                    refX="8" refY="4.5" orient="auto">
+              <path d="M0 0L9 4.5L0 9Z" fill="#e0a64a"/></marker>
+            <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9"
+                    refX="8" refY="4.5" orient="auto">
+              <path d="M0 0L9 4.5L0 9Z" fill="#e07a63"/></marker>
+            <clipPath id="bowlClip">
+              <path d="M200 150 L280 250 L620 250 L700 150 Z"/>
+            </clipPath>
+          </defs>
+
+          <rect x="0" y="96" width="900" height="200" fill="#141311"/>
+
+          <!-- ground mass -->
+          <path d="M0 150 L200 150 L280 250 L620 250 L700 150 L900 150 L900 296 L0 296Z" fill="#3a3329"/>
+          <path d="M0 268 L900 268 L900 296 L0 296Z" fill="#2a251d"/>
+
+          <!-- water, clipped to the bowl -->
+          <g clip-path="url(#bowlClip)">
+            <rect id="permPool" x="190" y="225" width="520" height="60" fill="#2b7399"/>
+            <rect id="stormWater" x="190" y="225" width="520" height="0" fill="#8ed0ed" opacity=".82"/>
+          </g>
+          <line x1="243" y1="225" x2="660" y2="225" stroke="#8ed0ed" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <text x="300" y="219" font-size="11" fill="#8ed0ed" font-family="monospace">NORMAL POOL</text>
+          <line id="stormLine" x1="215" y1="225" x2="690" y2="225" stroke="#cfeaf8" stroke-width="2" opacity="0"/>
+          <text id="stormLabel" x="300" y="200" font-size="11" fill="#cfeaf8" font-family="monospace" opacity="0">STORM STORAGE</text>
+
+          <!-- bowl outline -->
+          <path d="M200 150 L280 250 L620 250 L700 150" fill="none" stroke="#6f685e" stroke-width="2.5"/>
+
+          <!-- inlet -->
+          <path d="M92 118 L176 143" stroke="#7dc6e8" stroke-width="4" fill="none" marker-end="url(#ah)"/>
+          <text x="74" y="110" font-size="11" fill="#a29c91" font-family="monospace">INLET</text>
+
+          <!-- outlet riser -->
+          <rect x="700" y="120" width="22" height="130" fill="#4a4741" stroke="#6f685e" stroke-width="2"/>
+          <circle id="outletHole" cx="711" cy="236" r="5.5" fill="#141311" stroke="#8ed0ed" stroke-width="2"/>
+          <text x="672" y="113" font-size="11" fill="#a29c91" font-family="monospace">OUTLET</text>
+
+          <!-- overflow notch cut into the right bank -->
+          <path d="M660 168 L700 168" stroke="#e0a64a" stroke-width="4"/>
+          <text x="598" y="162" font-size="11" fill="#e0a64a" font-family="monospace">OVERFLOW</text>
+
+          <!-- creek -->
+          <rect id="creek" x="790" y="228" width="110" height="12" fill="#2b7399"/>
+          <text x="792" y="202" font-size="11" fill="#a29c91" font-family="monospace">CREEK</text>
+
+          <!-- exits -->
+          <path id="exitOutlet" d="M724 238 L784 238" stroke="#7dc6e8" stroke-width="4" fill="none"
+                marker-end="url(#ah)" opacity="0"/>
+          <path id="exitOverflow" d="M726 170 L782 222" stroke="#e0a64a" stroke-width="4" fill="none"
+                marker-end="url(#aa)" opacity="0"/>
+          <path id="exitBack" d="M690 208 L420 208" stroke="#e07a63" stroke-width="3.5" fill="none"
+                marker-end="url(#ar)" opacity="0" stroke-dasharray="8 6"/>
+          <text id="backLabel" x="470" y="184" font-size="11" fill="#e07a63" font-family="monospace"
+                opacity="0">RELEASE SLOWS, WATER BACKS UP</text>
+        </svg>
+      </div>
+
+      <div class="controls" role="group" aria-label="Pond condition">
+        <button type="button" class="route-btn" data-state="0" aria-pressed="true">Between storms</button>
+        <button type="button" class="route-btn" data-state="1" aria-pressed="false">Storm, outlet clear</button>
+        <button type="button" class="route-btn" data-state="2" aria-pressed="false">Storm, outlet blocked</button>
+        <button type="button" class="route-btn" data-state="3" aria-pressed="false">Storm, creek already high</button>
+      </div>
+
+      <div class="readout" id="routeReadout" role="status" aria-live="polite"></div>
+
+      <figcaption><b>What to notice:</b> the pond is identical in all four states. Its size never
+        changes, its design never changes, and in three of the four it is in perfectly good
+        condition. The water leaves by a different route anyway.
+        <b>What this does not prove:</b> anything about a real pond's capacity, drawdown, or
+        compliance. These are authored teaching states, not a model.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ INTERACTIVE 2: HYDROGRAPH ============ -->
+<section aria-labelledby="h-t">
+  <div class="wrap">
+    <p class="kicker">The measurement everyone misreads</p>
+    <h2 id="h-t">A lower peak is not less water.</h2>
+    <div class="prose">
+      <p>This is the single most common overstatement in stormwater conversation, and it is easy to
+        see once someone shades the area instead of just saying it. Press play.</p>
+    </div>
+
+    <figure>
+      <div class="stage">
+        <svg id="hydro" viewBox="0 0 900 430" role="img" aria-labelledby="ht hd">
+          <title id="ht">Inflow and outflow hydrographs with the area under each curve shaded</title>
+          <desc id="hd">Two curves over time. Inflow rises to an early high peak. Outflow rises to a
+            lower, later peak and continues longer. The shaded area under each curve is
+            approximately equal, showing that a lower peak does not mean less total water.</desc>
+          <rect width="900" height="430" fill="#141311"/>
+          <!-- grid -->
+          <g stroke="#2e2c28" stroke-width="1">
+            <line x1="80" y1="60" x2="860" y2="60"/><line x1="80" y1="140" x2="860" y2="140"/>
+            <line x1="80" y1="220" x2="860" y2="220"/><line x1="80" y1="300" x2="860" y2="300"/>
+          </g>
+          <line x1="80" y1="350" x2="860" y2="350" stroke="#6f685e" stroke-width="2"/>
+          <line x1="80" y1="40" x2="80" y2="350" stroke="#6f685e" stroke-width="2"/>
+          <text x="26" y="200" font-family="var(--mono)" font-size="12" fill="#a29c91"
+                transform="rotate(-90 26 200)">FLOW RATE</text>
+          <text x="440" y="382" font-family="var(--mono)" font-size="12" fill="#a29c91">TIME</text>
+
+          <path id="fillIn"  d="" fill="#e0a64a" opacity=".22"/>
+          <path id="fillOut" d="" fill="#7dc6e8" opacity=".26"/>
+          <path id="lineIn"  d="" fill="none" stroke="#e0a64a" stroke-width="4"/>
+          <path id="lineOut" d="" fill="none" stroke="#7dc6e8" stroke-width="4"/>
+
+          <g id="peakIn" opacity="0">
+            <line x1="0" y1="0" x2="0" y2="0" stroke="#e0a64a" stroke-dasharray="5 5" stroke-width="2"/>
+            <text font-family="var(--mono)" font-size="12" fill="#e0a64a">INFLOW PEAK</text>
+          </g>
+          <g id="peakOut" opacity="0">
+            <line x1="0" y1="0" x2="0" y2="0" stroke="#7dc6e8" stroke-dasharray="5 5" stroke-width="2"/>
+            <text font-family="var(--mono)" font-size="12" fill="#7dc6e8">OUTFLOW PEAK</text>
+          </g>
+          <g id="crossMark" opacity="0">
+            <circle r="6" fill="none" stroke="#e0a64a" stroke-width="2.5"/>
+            <text font-family="var(--mono)" font-size="11" fill="#e0a64a">CURVES CROSS HERE</text>
+          </g>
+
+          <g transform="translate(640,58)">
+            <rect x="0" y="0" width="16" height="4" fill="#e0a64a"/>
+            <text x="24" y="6" font-family="var(--mono)" font-size="12" fill="#d9d6cf">INFLOW</text>
+            <rect x="0" y="20" width="16" height="4" fill="#7dc6e8"/>
+            <text x="24" y="26" font-family="var(--mono)" font-size="12" fill="#d9d6cf">OUTFLOW</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="controls">
+        <button type="button" id="hydroPlay">Play the storm</button>
+        <button type="button" id="hydroFill" aria-pressed="false">Shade the volume</button>
+        <button type="button" id="hydroReset">Reset</button>
+      </div>
+
+      <div class="readout" id="hydroReadout" role="status" aria-live="polite">
+        <span class="rk">Reading</span>
+        <p>Press play. Watch the orange curve peak early and high, then the blue curve peak later and
+          lower.</p>
+      </div>
+
+      <figcaption><b>What to notice:</b> when both areas are shaded they are close to the same size.
+        The blue curve is lower, and it is also wider and longer. That is what detention does: it
+        spreads the same water over more time.
+        <b>What this does not prove:</b> these are qualitative teaching curves with no units. They
+        are not model output, and they do not describe any real site.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ RESOLVING THE PUZZLE ============ -->
+<section aria-labelledby="s-t">
+  <div class="wrap">
+    <p class="kicker">Back to the street</p>
+    <h2 id="s-t">Now the inspection makes sense.</h2>
+    <div class="prose">
+      <p>Every item on that inspection list was true, and none of them was evidence about flooding.
+        The inspection confirmed that the pond was in good <em>condition</em>. The complaint was
+        about <em>capacity and timing</em> somewhere downstream. Those are different claims needing
+        different evidence.</p>
+      <p>Three explanations now fit the facts without anything being broken:</p>
+      <p><b>The pond was never meant to prevent this.</b> Detention lowers and delays a discharge
+        peak. It does not remove water. If the street floods because the total volume arriving
+        downstream exceeds what the drainage there can carry, a working pond upstream changes the
+        timing and not the outcome.</p>
+      <p><b>The creek was already high.</b> Tailwater reduces the difference in level across the
+        outlet, so the pond releases more slowly than expected and holds water longer. The pond looks
+        like it is misbehaving. It is responding to a downstream condition nobody inspected.</p>
+      <p><b>The delay landed at the wrong moment.</b> EPA's stormwater design guide reports that some
+        basins "actually increase downstream peak discharges as a result of the overlapping of their
+        detained volumes with mainstream peaks," and that when volumes from different tributaries
+        join downstream "there is nothing to prevent them from combining to produce inadvertently
+        high peak rates." A basin can satisfy its own release condition at its own outlet and still
+        make things worse at a point further down.</p>
+      <p>EPA also notes the other side: selectively located basins do reduce flood peaks. The
+        conclusion is not that detention fails. It is that the outcome depends on placement and
+        timing across a watershed, and cannot be read off a single site.</p>
+      <p class="lead">Which is the same sentence you started with. A name describes a category. Only
+        the route describes behaviour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLIP CARDS ============ -->
+<section aria-labelledby="f-t">
+  <div class="wrap">
+    <p class="kicker">Check yourself</p>
+    <h2 id="f-t">Answer before you flip.</h2>
+    <div class="prose">
+      <p>Say your answer out loud first. The gap between what you can recognise and what you can
+        produce is where the learning actually is.</p>
+    </div>
+
+    <div class="flips" id="flips">
+      <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
+        <span class="flip-f"><span class="flip-tag">Question</span>
+          <p class="q">A pond is full of water on a dry day. How much storm storage does it have?</p>
+          <span class="flip-hint">Tap to reveal</span></span>
+        <span class="flip-b"><span class="flip-tag">Answer</span>
+          <p class="a">You cannot tell. If it is a wet pond, that is the permanent pool and the storm
+            storage sits above it, possibly entirely available.</p><span class="flip-hint">Tap to go back</span></span>
+      </span></button>
+
+      <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
+        <span class="flip-f"><span class="flip-tag">Question</span>
+          <p class="q">An outflow peak is half the inflow peak. How much less water left the site?</p>
+          <span class="flip-hint">Tap to reveal</span></span>
+        <span class="flip-b"><span class="flip-tag">Answer</span>
+          <p class="a">Probably almost none. Peak is a rate. Volume is the area under the curve. A
+            detention basin releases nearly all of what it received.</p><span class="flip-hint">Tap to go back</span></span>
+      </span></button>
+
+      <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
+        <span class="flip-f"><span class="flip-tag">Question</span>
+          <p class="q">Water disappeared into a bioretention cell. Where did it go?</p>
+          <span class="flip-hint">Tap to reveal</span></span>
+        <span class="flip-b"><span class="flip-tag">Answer</span>
+          <p class="a">Unknown from that observation. Native soil, an underdrain back to the storm
+            pipe, plant uptake, or lateral movement. Infiltration is a doorway, not a
+            destination.</p><span class="flip-hint">Tap to go back</span></span>
+      </span></button>
+
+      <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
+        <span class="flip-f"><span class="flip-tag">Question</span>
+          <p class="q">A basin is holding water three days after the storm. Is the outlet blocked?</p>
+          <span class="flip-hint">Tap to reveal</span></span>
+        <span class="flip-b"><span class="flip-tag">Answer</span>
+          <p class="a">Maybe not. High tailwater slows release without any obstruction. Ask what the
+            receiving water was doing before you diagnose the outlet.</p><span class="flip-hint">Tap to go back</span></span>
+      </span></button>
+
+      <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
+        <span class="flip-f"><span class="flip-tag">Question</span>
+          <p class="q">Someone says "we provided retention." What do you ask?</p>
+          <span class="flip-hint">Tap to reveal</span></span>
+        <span class="flip-b"><span class="flip-tag">Answer</span>
+          <p class="a">Which meaning: water kept from later surface discharge, or a pond with a
+            permanent pool? They imply completely different behaviour.</p><span class="flip-hint">Tap to go back</span></span>
+      </span></button>
+
+      <button type="button" class="flip" aria-pressed="false"><span class="flip-in">
+        <span class="flip-f"><span class="flip-tag">Question</span>
+          <p class="q">Every basin in the watershed meets its release limit. Is the watershed
+            protected?</p>
+          <span class="flip-hint">Tap to reveal</span></span>
+        <span class="flip-b"><span class="flip-tag">Answer</span>
+          <p class="a">Not established. Individually compliant releases can arrive together and
+            combine into a higher downstream peak. That is a watershed question, not a site
+            one.</p><span class="flip-hint">Tap to go back</span></span>
+      </span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK PRODUCT ============ -->
+<section class="work" aria-labelledby="w-t">
+  <div class="wrap">
+    <p class="kicker">Put it to work</p>
+    <h2 id="w-t">Four questions that make any stormwater conversation productive.</h2>
+    <div class="prose wp-intro">
+      <p>You are handed a stormwater asset you have never seen. These four questions get you further
+        than knowing what it is called.</p>
+      <p><b>You do not have to type anything.</b> Press <em>Watch it answered</em> and a worked
+        response writes itself out, so you can see the reasoning form rather than read a finished
+        block. If you would rather write your own, the box is yours. Either way counts as
+        finishing.</p>
+    </div>
+
+    <div id="workspace"></div>
+
+    <div class="wp-global">
+      <p class="note">Answers stay in this browser only. Nothing is uploaded, and no facility
+        information should be entered here.</p>
+      <button type="button" id="watchAll">Watch all four</button>
+      <button type="button" id="saveAll">Save to this browser</button>
+      <button type="button" id="exportAll">Download as Markdown</button>
+      <button type="button" id="clearAll">Clear everything</button>
+    </div>
+    <p id="wpStatus" class="status" role="status" aria-live="polite"
+       style="margin-top:12px;font:600 13px/1.5 var(--mono);color:var(--muted)"></p>
+  </div>
+</section>
+
+<!-- ============ CROSS SECTOR ============ -->
+<section class="cross" aria-labelledby="x-t">
+  <div class="wrap">
+    <p class="kicker">The same rain, the wrong pipe</p>
+    <h2 id="x-t">Everything so far assumed the water stayed in the stormwater system.</h2>
+    <div class="prose">
+      <p>It does not always. Rain that reaches a separate sanitary sewer becomes someone else's
+        problem and someone else's cost, and the utility pays to carry and treat water that was
+        never supposed to be there. This is why the route matters beyond stormwater.</p>
+    </div>
+
+    <div class="split">
+      <div class="split-card">
+        <span class="tagline">Intended</span>
+        <h3>Into the stormwater system</h3>
+        <p>Runoff reaches an inlet, moves through storage, leaves by an outlet or an overflow, and
+          arrives at a receiving water.</p>
+        <p>Everything on this page so far describes this route.</p>
+      </div>
+      <div class="split-card wrong">
+        <span class="tagline">Unintended</span>
+        <h3>Into the sanitary sewer</h3>
+        <p>Federal regulation names both routes. <b>Infiltration</b> is water entering "from the
+          ground through such means as defective pipes, pipe joints, connections, or manholes."
+          <b>Inflow</b> is water entering from "roof leaders, cellar drains, yard drains, area
+          drains, manhole covers, cross connections between storm sewers and sanitary sewers."</p>
+        <p>That water is conveyed, pumped, and treated at the utility's expense, and it consumes
+          capacity that was sized for wastewater.</p>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:28px">
+      <p><b style="color:var(--white)">The trap is thinking you can tell them apart from a flow
+        chart.</b> The regulation separates the two cleanly, and it separates them by <em>route</em>,
+        not by timing. The flow record does not carry the route.</p>
+      <p>The tempting shortcut says a sharp response that ends with the storm means inflow, and a
+        slow response that decays over days means infiltration. EPA's own research reporting removes
+        the second half of that. Rainfall-derived infiltration typically continues past the end of
+        rainfall, and then: a system "may experience a fast RDI response, a slow RDI response, or
+        both." Infiltration is not confined to the slow signature, so a fast response does not prove
+        inflow.</p>
+      <p>Watch how EPA handles the quantity in practice. Its stormwater model reference treats
+        rainfall-derived inflow and infiltration as one combined term, and says estimates of it "are
+        almost always derived from actual wastewater flow records" rather than by modelling the
+        processes that produced it. The rainfall driven portion gets measured as an aggregate, not
+        resolved into its two mechanisms.</p>
+      <p>So the shape narrows the question. It does not answer it. Sealing pipe defects does nothing
+        about a roof leader plumbed into the wrong pipe, and disconnecting downspouts does nothing
+        about a cracked lateral.</p>
+    </div>
+  </section>
+
+<!-- ============ SOURCES AND SCOPE ============ -->
+<section class="sources" aria-labelledby="src-t">
+  <div class="wrap">
+    <p class="kicker">Where this comes from</p>
+    <h2 id="src-t">Every claim on this page traces to a federal source.</h2>
+    <div class="prose">
+      <p>United States federal statute, regulation, and agency guidance only. State requirements are
+        deliberately excluded from this brief and handled separately.</p>
+    </div>
+
+    <div class="src-wrap">
+      <table class="src-table">
+        <thead><tr><th scope="col">Source</th><th scope="col">Authority</th>
+          <th scope="col">What it supports here</th></tr></thead>
+        <tbody>
+          <tr><td>Stormwater Best Management Practice Design Guide, Volume 1
+            (EPA/600/R-04/121)</td><td>EPA technical reference</td>
+            <td>Downstream peak coincidence, detention as delay rather than removal, and the
+              counterweight that selectively located basins do reduce peaks</td></tr>
+          <tr><td>NPDES Stormwater Best Management Practice: Wet Ponds</td><td>EPA guidance</td>
+            <td>The permanent pool, storm storage above it, and the outlet arrangement that sets the
+              normal water level</td></tr>
+          <tr><td>Three Keys to BMP Performance: Concentration, Volume, and Total Load</td>
+            <td>EPA guidance</td>
+            <td>Why a peak or concentration reduction is not a volume or load reduction</td></tr>
+          <tr><td>40 CFR 35.2005(b)(20) and (21), Definitions</td>
+            <td><b>Federal regulation</b></td>
+            <td>What infiltration and inflow are, and that each is defined as distinct from the
+              other</td></tr>
+          <tr><td>Computer Tools for Sanitary Sewer System Capacity Analysis and Planning
+            (EPA/600/R-07/111)</td><td>EPA research reporting</td>
+            <td>That a system may experience a fast infiltration response, a slow one, or both,
+              which is why response shape does not separate the two</td></tr>
+          <tr><td>Storm Water Management Model Reference Manual Volume I (EPA/600/R-15/162A)</td>
+            <td>EPA technical reference</td>
+            <td>That rainfall-derived inflow and infiltration is estimated as one aggregate from
+              flow records</td></tr>
+          <tr><td>Runoff and streamflow science references</td><td>USGS</td>
+            <td>Runoff generation, hydrograph shape, and receiving-water response</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="scope-note"><b>What is still open.</b> This brief is an educational explanation under
+      active review. Independent source verification and qualified stormwater, wastewater, and
+      permitting review are not complete. Every diagram is a qualitative teaching graphic with no
+      units, not model output. Nothing here establishes design adequacy, infiltration suitability,
+      flood protection, permit compliance, or the condition of any real asset.</p>
+  </div>
+</section>
+
+<!-- ============ CONNECTED LEARNING ============ -->
+<section class="next" aria-labelledby="n-t">
+  <div class="wrap">
+    <p class="kicker">Keep learning</p>
+    <h2 id="n-t">This brief deliberately stops short of four things.</h2>
+    <div class="prose">
+      <p>Each of these deserves its own brief rather than a paragraph here. That is the difference
+        between a concept brief and a chapter.</p>
+    </div>
+    <div class="next-grid">
+      <div class="next-card"><span class="lane">Go deeper</span>
+        <h3>Reading a Storm Hydrograph</h3>
+        <p>The curve in depth: rising limb, lag, recession, and what calibration does and does not
+          buy you.</p></div>
+      <div class="next-card"><span class="lane">Go deeper</span>
+        <h3>Infiltration and Inflow</h3>
+        <p>Finding it, measuring it, and deciding what to fix first when the signature will not
+          separate cleanly.</p></div>
+      <div class="next-card"><span class="lane">Go wider</span>
+        <h3>NPDES Permits in Plain English</h3>
+        <p>What a permit actually obliges, who carries it, and why it cannot prove an asset is
+          working.</p></div>
+      <div class="next-card"><span class="lane">Go wider</span>
+        <h3>Stormwater Control Measure Maintenance</h3>
+        <p>Turning condition into a funded work plan, and the lifecycle cost of deferring it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECAP ============ -->
+<section class="recap" aria-labelledby="rc-t">
+  <div class="wrap">
+    <p class="kicker">Before you leave</p>
+    <h2 id="rc-t">Carry three things forward.</h2>
+    <div class="recap-grid">
+      <div class="recap-card">
+        <h3>What changed</h3>
+        <p>You stopped reading a pond by its name and started reading it by where the water can
+          go.</p>
+      </div>
+      <div class="recap-card">
+        <h3>What to observe</h3>
+        <p>The inlet, the normal water level, what sits above it, the outlet, the overflow, and what
+          the receiving water was doing at the same time.</p>
+      </div>
+      <div class="recap-card">
+        <h3>What not to assume</h3>
+        <p>That a passed inspection is evidence about flooding, that a lower peak is less water, or
+          that a working asset means a solved problem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY AND VALUE PLANE ============ -->
+<section class="plane" aria-labelledby="pl-t">
+  <div class="wrap">
+    <p class="kicker">From understanding to practice</p>
+    <h2 id="pl-t">This is where the concept stops and your system starts.</h2>
+    <div class="prose">
+      <p>A brief can give you the route, the vocabulary, and the questions. It cannot tell you what
+        is true at your site. That part is a conversation with people who have stood at the outlet.</p>
+    </div>
+
+    <div class="comm-grid">
+      <div class="comm-card">
+        <h3>Bring a question to practitioners</h3>
+        <p>Operators, inspectors, and engineers who work these systems answer here. Discussion is
+          practitioner conversation, not verified instruction, and it is labelled that way.</p>
+        <p style="margin-bottom:6px"><b>Good questions to open with:</b></p>
+        <span class="seed">What does "retention" mean in your jurisdiction?</span>
+        <span class="seed">How do you tell tailwater from a blocked outlet?</span>
+        <span class="seed">What finally proved your I&amp;I source?</span>
+        <a class="cta" href="/community?brief=owos:concept-brief:003">Open the practitioner community</a>
+      </div>
+
+      <div class="comm-card">
+        <h3>Found something wrong here?</h3>
+        <p>Say so. A correction is not a comment thread. It becomes a tracked proposal, goes back
+          through source and qualified review, and if it holds, this brief is versioned and anyone
+          who completed it is notified.</p>
+        <ul>
+          <li>Name the exact sentence.</li>
+          <li>Give the source that contradicts it.</li>
+          <li>We publish the outcome either way.</li>
+        </ul>
+        <a class="cta" href="/community?brief=owos:concept-brief:003&amp;intent=correction">Propose a correction</a>
+      </div>
+    </div>
+
+    <div class="value">
+      <h3>Why this is free to read</h3>
+      <p>Concept Briefs exist because the water sector loses real money to vocabulary. A utility
+        approves an asset that does not do what its name implies, adds capacity when the problem was
+        a blocked outlet, or explains a pond to a public meeting in a way that does not survive the
+        next storm. None of that requires anyone to be careless.</p>
+      <p>APAS.ai builds and governs this material. Briefs are published open
+        because the shared vocabulary is only worth anything if everyone at the table has it.</p>
+    </div>
+
+    <div class="sponsors">
+      <div class="sponsor-head">
+        <h3>Supported by the companies that build and maintain this infrastructure</h3>
+        <p>Placement is paid. Editorial is not for sale. No sponsor sees a brief before it publishes,
+          and none has any authority over a claim, a source, a correction, a review, or a release.
+          That separation is the product.</p>
+      </div>
+      <ul class="sponsor-row">
+        <li class="sponsor"><span class="sponsor-logo" data-cat="GI" aria-hidden="true"></span>
+          <span class="sponsor-name">Green infrastructure<span>Bioretention, swales, permeable surfaces</span></span></li>
+        <li class="sponsor"><span class="sponsor-logo" data-cat="IN" aria-hidden="true"></span>
+          <span class="sponsor-name">Inspection and monitoring<span>Flow, level, and condition assessment</span></span></li>
+        <li class="sponsor"><span class="sponsor-logo" data-cat="MT" aria-hidden="true"></span>
+          <span class="sponsor-name">Maintenance and rehabilitation<span>Sediment, outlets, underdrains</span></span></li>
+        <li class="sponsor sponsor-open"><span class="sponsor-logo" data-cat="+" aria-hidden="true"></span>
+          <span class="sponsor-name">Your category here<span>Reach practitioners while they learn</span></span></li>
+      </ul>
+      <a class="cta ghost" href="#pl-t" data-route="sponsor">Sponsor a Concept Brief</a>
+    </div>
+
+    <div class="brandbar">
+      <div class="brandmark">
+        <span class="sq" aria-hidden="true"></span>
+        <span class="nm">APAS<span class="dot">.</span>ai<span class="sub">One Water Operating System</span></span>
+      </div>
+      <p class="taught">Independent water sector education</p>
+    </div>
+
+    <div class="legal">
+      <p>&copy; 2026 APAS.ai. Reproduce for non commercial education with attribution and without
+        alteration. Cited federal material is a work of the United States Government and carries no
+        copyright in the United States.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="disclaim">This brief explains the concept. Facility decisions still require your
+      approved procedures and qualified judgment.</p>
+  </div>
+</footer>
+
+
+<div class="backdrop" id="backdrop" hidden></div>
+
+<aside class="drawer" id="graphDrawer" role="dialog" aria-modal="true"
+       aria-labelledby="gd-t" hidden>
+  <button type="button" class="drawer-close" data-close aria-label="Close">&times;</button>
+  <div class="drawer-in">
+    <p class="dk">Concept map</p>
+    <h2 id="gd-t">Where this sits</h2>
+    <p>Concept Briefs are nodes. These are the ones this brief touches, and how.</p>
+    <h3>This brief</h3>
+    <span class="node self">The Route, Not the Name</span>
+    <h3>Requires</h3>
+    <span class="node">Nothing Leaves Without a Path</span>
+    <h3>Prerequisite for</h3>
+    <span class="node">Reading a Storm Hydrograph</span>
+    <span class="node">Stormwater Control Measure Maintenance</span>
+    <h3>Adjacent</h3>
+    <span class="node">Infiltration and Inflow</span>
+    <span class="node">Concentration Is Not Load</span>
+    <span class="node">NPDES Permits in Plain English</span>
+    <h3>Repairs</h3>
+    <p>A label describes behaviour. Seven of the nine terms on this page are routinely
+      read as evidence of performance.</p>
+    <a class="cta" href="#" data-route="graph">Open the full OWOS Graph</a>
+  </div>
+</aside>
+
+<aside class="drawer" id="commDrawer" role="dialog" aria-modal="true"
+       aria-labelledby="cd-t" hidden>
+  <button type="button" class="drawer-close" data-close aria-label="Close">&times;</button>
+  <div class="drawer-in">
+    <p class="dk">Practitioner conversation</p>
+    <h2 id="cd-t">Ask the people who stood at the outlet</h2>
+    <p>Discussion here is practitioner conversation, not verified instruction, and it is labelled
+      that way wherever it appears.</p>
+    <h3>Open with</h3>
+    <ul>
+      <li>What does "retention" mean in your jurisdiction?</li>
+      <li>How do you tell tailwater from a blocked outlet?</li>
+      <li>What finally proved your I&amp;I source?</li>
+    </ul>
+    <h3>Found an error?</h3>
+    <p>A correction is not a comment. Name the sentence, give the source that contradicts it, and it
+      becomes a tracked proposal that re-enters source and qualified review. The outcome publishes
+      either way.</p>
+    <a class="cta" href="#" data-route="community">Open the community</a>
+    <p style="margin-top:16px;font-size:13px;color:#6b665c">Moderation, verified answers, and
+      analytics are shared across every OWOS brief. Nothing facility specific should be posted.</p>
+  </div>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- learning record ----------------
+     Every event is emitted through one channel so the OWOS platform can attach a
+     recorder without this page changing. Events carry the brief, its version, and
+     the compiler contract, and never carry facility information. With no recorder
+     attached they go nowhere, which is the correct behaviour for a static page. */
+  var OWOS = window.OWOS = window.OWOS || {};
+  OWOS.brief = {
+    id: "owos:concept-brief:003",
+    version: "b.2.0",
+    contract: "owos-concept-brief/2",
+    namespace: "owos.concept_brief.003"
+  };
+  OWOS.events = OWOS.events || [];
+  OWOS.track = function(name, detail){
+    var evt = {
+      event: OWOS.brief.namespace + "." + name,
+      brief: OWOS.brief.id,
+      brief_version: OWOS.brief.version,
+      at: new Date().toISOString(),
+      detail: detail || {}
+    };
+    OWOS.events.push(evt);
+    try { window.dispatchEvent(new CustomEvent("owos:event", {detail: evt})); } catch(e){}
+    if (typeof OWOS.recorder === "function") { try { OWOS.recorder(evt); } catch(e){} }
+  };
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  OWOS.track("started", {});
+  (function(){
+    var fired={};
+    var io = "IntersectionObserver" in window ? new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var id=e.target.getAttribute("aria-labelledby")||e.target.id;
+        if(fired[id]) return; fired[id]=true;
+        OWOS.track("section.reached", {section:id});
+        if(id==="rc-t") OWOS.track("completed", {});
+      });
+    }, {threshold:.4}) : null;
+    if(io) document.querySelectorAll("section[aria-labelledby]").forEach(function(x){io.observe(x);});
+  })();
+
+  /* ---------------- top drawers ---------------- */
+  (function(){
+    var backdrop=document.getElementById("backdrop");
+    var drawers={graph:document.getElementById("graphDrawer"),
+                 community:document.getElementById("commDrawer")};
+    var openName=null, lastTrigger=null;
+
+    function close(){
+      if(!openName) return;
+      var d=drawers[openName];
+      d.classList.remove("on"); backdrop.classList.remove("on");
+      window.setTimeout(function(){ d.hidden=true; backdrop.hidden=true; }, 200);
+      document.querySelectorAll("[data-open]").forEach(function(b){
+        b.setAttribute("aria-expanded","false"); });
+      document.body.style.overflow="";
+      if(lastTrigger) lastTrigger.focus();
+      if(location.hash === "#" + openName) history.back();
+      OWOS.track("drawer.closed", {drawer: openName});
+      openName=null;
+    }
+    function open(name, trigger){
+      if(openName) close();
+      var d=drawers[name]; if(!d) return;
+      lastTrigger=trigger||null;
+      backdrop.hidden=false; d.hidden=false;
+      window.requestAnimationFrame(function(){
+        backdrop.classList.add("on"); d.classList.add("on");
+      });
+      if(trigger) trigger.setAttribute("aria-expanded","true");
+      document.body.style.overflow="hidden";
+      d.querySelector(".drawer-close").focus();
+      openName=name;
+      history.pushState({drawer:name}, "", "#"+name);
+      OWOS.track("drawer.opened", {drawer:name});
+    }
+    document.querySelectorAll("[data-open]").forEach(function(b){
+      b.addEventListener("click", function(){ open(b.dataset.open, b); });
+    });
+    document.addEventListener("click", function(e){
+      if(e.target.closest("[data-close]")) close();
+    });
+    backdrop.addEventListener("click", close);
+    document.addEventListener("keydown", function(e){
+      if(e.key==="Escape" && openName) close();
+      if(e.key==="Tab" && openName){
+        var d=drawers[openName];
+        var f=d.querySelectorAll("button, a[href], [tabindex]:not([tabindex='-1'])");
+        if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    window.addEventListener("popstate", function(){ if(openName) close(); });
+  })();
+
+  /* ---------------- reading progress ---------------- */
+  (function(){
+    var fill = document.getElementById("railFill");
+    var stage = document.getElementById("railStage");
+    var left = document.getElementById("railLeft");
+    if(!fill) return;
+    var TOTAL_MIN = 15;
+    var marks = [].slice.call(document.querySelectorAll("section[aria-labelledby]"));
+    var names = ["START HERE","IN 30 SECONDS","THE PROBLEM","THE WORDS","FOLLOW THE WATER",
+                 "THE HYDROGRAPH","BACK TO THE STREET","CHECK YOURSELF","PUT IT TO WORK",
+                 "WRONG PIPE","SOURCES","KEEP LEARNING","BEFORE YOU LEAVE","PRACTICE"];
+    function update(){
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - window.innerHeight;
+      var pct = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      fill.style.width = (pct * 100).toFixed(1) + "%";
+      left.textContent = Math.max(0, Math.round(TOTAL_MIN * (1 - pct)));
+      var current = 0;
+      for (var i = 0; i < marks.length; i++){
+        if (marks[i].getBoundingClientRect().top <= 120) current = i;
+      }
+      stage.textContent = names[current] || names[names.length - 1];
+    }
+    var ticking = false;
+    window.addEventListener("scroll", function(){
+      if(ticking) return; ticking = true;
+      requestAnimationFrame(function(){ update(); ticking = false; });
+    }, {passive:true});
+    window.addEventListener("resize", update);
+    update();
+  })();
+
+  /* ---------------- interactive 1: route ---------------- */
+  var POOL_Y = 225;
+  var STATES = [
+    { label:"Between storms",
+      level:POOL_Y, outlet:false, blocked:false, over:false, back:false, creekH:12,
+      title:"Nothing is happening, and that is the point",
+      body:["The permanent pool sits at its normal level. This is what a visitor sees on an ordinary day.",
+            "All of the storm storage is the empty space above that line. A pond that looks full can be completely ready."] },
+    { label:"Storm, outlet clear",
+      level:196, outlet:true, blocked:false, over:false, back:false, creekH:12,
+      title:"Working exactly as designed",
+      body:["Runoff arrives faster than the outlet releases it, so the water surface rises into the storage above the pool.",
+            "Water leaves slowly through the outlet and keeps leaving after the rain stops. The peak going out is lower and later than the peak coming in.",
+            "Note what has not happened: the volume is not gone. It is being handed downstream over a longer period."] },
+    { label:"Storm, outlet blocked",
+      level:167, outlet:false, blocked:true, over:true, back:false, creekH:12,
+      title:"The ordinary route closes, so water finds another",
+      body:["With the outlet obstructed, the level keeps climbing until it reaches the overflow notch in the bank.",
+            "Now the water leaves fast and uncontrolled through a route meant for emergencies, not for routine release.",
+            "From the road this pond still looks like a pond. The failure is a hole the size of your fist."] },
+    { label:"Storm, creek already high",
+      level:205, outlet:true, blocked:false, over:false, back:true, creekH:30,
+      title:"Nothing here is broken",
+      body:["The outlet is clear and the pond is sound. The receiving creek is already running high from the same storm.",
+            "That reduces the difference in level across the outlet, so release slows. Water backs up and the pond drains far more slowly than expected.",
+            "An inspector arriving two days later finds standing water and a perfect outlet. The cause was never in the pond."] }
+  ];
+
+  var stormWater = document.getElementById("stormWater");
+  var stormLine  = document.getElementById("stormLine");
+  var stormLabel = document.getElementById("stormLabel");
+  var exitOutlet = document.getElementById("exitOutlet");
+  var exitOver   = document.getElementById("exitOverflow");
+  var exitBack   = document.getElementById("exitBack");
+  var backLabel  = document.getElementById("backLabel");
+  var creek      = document.getElementById("creek");
+  var hole       = document.getElementById("outletHole");
+  var readout    = document.getElementById("routeReadout");
+  var routeBtns  = [].slice.call(document.querySelectorAll(".route-btn"));
+
+  function drawRoute(s){
+    var y = s.level, rising = y < POOL_Y;
+    stormWater.setAttribute("y", y);
+    stormWater.setAttribute("height", rising ? (POOL_Y - y) : 0);
+    stormLine.setAttribute("y1", y); stormLine.setAttribute("y2", y);
+    stormLine.setAttribute("opacity", rising ? "1" : "0");
+    stormLabel.setAttribute("y", y - 7);
+    stormLabel.setAttribute("opacity", rising ? "1" : "0");
+    exitOutlet.setAttribute("opacity", s.outlet ? "1" : "0");
+    exitOver.setAttribute("opacity",   s.over   ? "1" : "0");
+    exitBack.setAttribute("opacity",   s.back   ? "1" : "0");
+    backLabel.setAttribute("opacity",  s.back   ? "1" : "0");
+    hole.setAttribute("fill", s.blocked ? "#e07a63" : "#141311");
+    creek.setAttribute("height", s.creekH);
+    creek.setAttribute("y", 240 - s.creekH);
+    var html = '<span class="rk">'+s.label+'</span><p><b style="color:var(--white)">'+s.title+'</b></p>';
+    s.body.forEach(function(p){ html += "<p>"+p+"</p>"; });
+    readout.innerHTML = html;
+  }
+  routeBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      routeBtns.forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+      btn.setAttribute("aria-pressed","true");
+      drawRoute(STATES[+btn.dataset.state]);
+      OWOS.track("interaction.route.state", {state: STATES[+btn.dataset.state].label});
+    });
+  });
+  drawRoute(STATES[0]);
+
+  /* ---------------- interactive 2: hydrograph ---------------- */
+  var X0=80, X1=860, YB=350, YT=60;
+  function curve(t, peakT, peakV, spread){
+    var d=(t-peakT)/spread; return peakV*Math.exp(-d*d);
+  }
+  function pts(peakT, peakV, spread, upTo){
+    var a=[];
+    for(var i=0;i<=120;i++){
+      var t=i/120;
+      if(t>upTo) break;
+      var v=curve(t, peakT, peakV, spread);
+      a.push([X0+t*(X1-X0), YB-v*(YB-YT)]);
+    }
+    return a;
+  }
+  function toPath(a){ return a.length? "M"+a.map(function(p){return p[0].toFixed(1)+" "+p[1].toFixed(1);}).join("L") : ""; }
+  function toArea(a){ return a.length? toPath(a)+"L"+a[a.length-1][0].toFixed(1)+" "+YB+"L"+a[0][0].toFixed(1)+" "+YB+"Z" : ""; }
+
+  // Reservoir routing: storage rises while inflow exceeds outflow and falls once it
+  // does not, so peak outflow occurs exactly where the curves cross on the inflow
+  // recession. These values satisfy that and hold volume nearly constant.
+  var IN={peakT:.30, peakV:.86, spread:.13};
+  var OUT={peakT:.40, peakV:.476, spread:.235};
+
+  var lineIn=document.getElementById("lineIn"), lineOut=document.getElementById("lineOut");
+  var fillIn=document.getElementById("fillIn"), fillOut=document.getElementById("fillOut");
+  var pIn=document.getElementById("peakIn"), pOut=document.getElementById("peakOut");
+  var hReadout=document.getElementById("hydroReadout");
+  var showFill=false, raf=null, progress=0;
+
+  function areaOf(c){
+    var s=0; for(var i=0;i<=400;i++){ s+=curve(i/400,c.peakT,c.peakV,c.spread); } return s/400;
+  }
+  function markPeak(g,c,colour,below){
+    var x=X0+c.peakT*(X1-X0), y=YB-c.peakV*(YB-YT);
+    var ln=g.querySelector("line"), tx=g.querySelector("text");
+    ln.setAttribute("x1",x);ln.setAttribute("x2",x);ln.setAttribute("y1",y);ln.setAttribute("y2",YB);
+    // The outflow peak and the crossing label land on the same point, so one sits below.
+    tx.setAttribute("x", below ? x-124 : x-52);
+    tx.setAttribute("y", below ? y+26 : y-12);
+    g.setAttribute("opacity","1");
+  }
+  function render(upTo){
+    var a=pts(IN.peakT,IN.peakV,IN.spread,upTo), b=pts(OUT.peakT,OUT.peakV,OUT.spread,upTo);
+    lineIn.setAttribute("d",toPath(a)); lineOut.setAttribute("d",toPath(b));
+    fillIn.setAttribute("d", showFill?toArea(a):""); fillOut.setAttribute("d", showFill?toArea(b):"");
+    if(upTo>=IN.peakT) markPeak(pIn,IN,"#e0a64a"); else pIn.setAttribute("opacity","0");
+    if(upTo>=OUT.peakT) markPeak(pOut,OUT,"#7dc6e8",true); else pOut.setAttribute("opacity","0");
+    var cm=document.getElementById("crossMark");
+    if(upTo>=OUT.peakT){
+      var cx=X0+OUT.peakT*(X1-X0), cy=YB-OUT.peakV*(YB-YT);
+      cm.querySelector("circle").setAttribute("cx",cx);
+      cm.querySelector("circle").setAttribute("cy",cy);
+      cm.querySelector("text").setAttribute("x",cx+12);
+      cm.querySelector("text").setAttribute("y",cy-14);
+      cm.setAttribute("opacity","1");
+    } else cm.setAttribute("opacity","0");
+  }
+  function finishText(){
+    var ai=areaOf(IN), ao=areaOf(OUT);
+    var pctPeak=Math.round((1-OUT.peakV/IN.peakV)*100);
+    var pctVol=Math.round((1-ao/ai)*100);
+    hReadout.innerHTML='<span class="rk">Reading</span>'+
+      "<p>The outflow peak is about <b style=\"color:var(--white)\">"+pctPeak+"% lower</b> than the inflow peak.</p>"+
+      "<p>The outflow volume, the shaded area, is only about <b style=\"color:var(--white)\">"+pctVol+"% smaller</b>.</p>"+
+      "<p>The rate changed a great deal. The amount barely changed at all. Anyone quoting the peak reduction as a volume reduction is overstating the result by roughly "+(pctPeak-pctVol)+" points.</p>"+
+      "<p>Notice where the outflow peaks: exactly where the two curves cross. Up to that moment more was arriving than leaving and the basin was still filling. After it, the basin empties. That crossing is not a drawing choice, it is what storage does.</p>";
+  }
+  function play(){
+    if(raf) cancelAnimationFrame(raf);
+    progress=0;
+    if(reduced){ progress=1; render(1); finishText(); return; }
+    var start=null;
+    function step(ts){
+      if(!start) start=ts;
+      progress=Math.min(1,(ts-start)/2600);
+      render(progress);
+      if(progress<1){ raf=requestAnimationFrame(step); } else { finishText(); }
+    }
+    raf=requestAnimationFrame(step);
+  }
+  document.getElementById("hydroPlay").addEventListener("click", function(){
+    OWOS.track("interaction.hydrograph.played", {}); play();
+  });
+  document.getElementById("hydroFill").addEventListener("click", function(){
+    showFill=!showFill; this.setAttribute("aria-pressed", showFill?"true":"false");
+    this.textContent = showFill? "Hide the volume" : "Shade the volume";
+    render(progress||1); if(progress>=1||progress===0) finishText();
+  });
+  document.getElementById("hydroReset").addEventListener("click", function(){
+    if(raf) cancelAnimationFrame(raf); progress=0; render(0);
+    pIn.setAttribute("opacity","0"); pOut.setAttribute("opacity","0");
+    document.getElementById("crossMark").setAttribute("opacity","0");
+    hReadout.innerHTML='<span class="rk">Reading</span><p>Press play. Watch the orange curve peak early and high, then the blue curve peak later and lower.</p>';
+  });
+  render(0);
+
+  /* ---------------- flip cards ---------------- */
+  [].slice.call(document.querySelectorAll(".flip")).forEach(function(card){
+    card.addEventListener("click", function(){
+      var open = card.getAttribute("aria-pressed")==="true";
+      card.setAttribute("aria-pressed", open?"false":"true");
+      if(!open) OWOS.track("check.flipcard.revealed", {card:(card.querySelector(".q")||{}).textContent||""});
+    });
+  });
+
+  /* ---------------- work product with typewriter ---------------- */
+  var QUESTIONS = [
+    { id:"route",
+      q:"Where can the water go from here, including the routes nobody intended?",
+      why:"This is the question a name cannot answer for you.",
+      model:"Inlet from the parking area and the roof drains. Water waits in the basin above the normal pool. Ordinary exit is the outlet structure to the creek. Other exits I can see: the overflow notch on the north bank, and a low point at the access track where water could leave before it ever reaches the basin. I have not confirmed whether an underdrain exists, so I cannot say whether anything returns to the pipe network below ground." },
+    { id:"control",
+      q:"What controls the release, and what would change it?",
+      why:"Separates the designed behaviour from the current behaviour.",
+      model:"The outlet opening sets the ordinary release. Its behaviour changes with the water level, because a higher stage pushes more through. It would also change if the opening were obstructed by sediment or debris, or if the creek downstream came up, since tailwater reduces the difference in level across the outlet and slows release without anything being broken." },
+    { id:"intent",
+      q:"What result was this asset supposed to produce, and for which storm?",
+      why:"Most disagreements are two people holding different objectives.",
+      model:"I do not know yet, and that is the finding. The plan set and the approval record should state whether the objective was peak-rate control, water-quality treatment, volume reduction, or some combination, and which design storm was used. Until I have that, I cannot say whether the asset is underperforming or performing exactly as intended against an objective that never covered the complaint." },
+    { id:"evidence",
+      q:"What evidence would settle this, and what evidence do I actually have?",
+      why:"Keeps the conversation honest about what is known.",
+      model:"Have: a visual inspection, the as-built record, and a resident complaint with a date. Need: rainfall for that event, water level in the basin over time, the creek stage during the same window, the design objective and storm, and confirmation of whether an underdrain or bypass exists. The inspection tells me the asset is in good condition. It tells me nothing about capacity or timing, which is what the complaint is about." }
+  ];
+
+  var KEY="owos-cb003-variant-b-work";
+  var ws=document.getElementById("workspace");
+  var status=document.getElementById("wpStatus");
+  var timers={};
+
+  QUESTIONS.forEach(function(item, i){
+    var box=document.createElement("div");
+    box.className="wq";
+    box.innerHTML =
+      '<h3>'+(i+1)+'. '+item.q+'</h3>'+
+      '<p class="why">'+item.why+'</p>'+
+      '<textarea id="ta-'+item.id+'" aria-label="'+item.q.replace(/"/g,"&quot;")+'" placeholder="Watch it answered, or write your own. Neither is required."></textarea>'+
+      '<div class="wq-controls">'+
+        '<button type="button" data-watch="'+item.id+'">Watch it answered</button>'+
+        '<button type="button" data-stop="'+item.id+'">Stop</button>'+
+        '<button type="button" data-clear="'+item.id+'">Clear</button>'+
+        '<span class="status" data-status="'+item.id+'"></span>'+
+      '</div>';
+    ws.appendChild(box);
+  });
+
+  function setStatus(id, text, cls){
+    var el=document.querySelector('[data-status="'+id+'"]');
+    if(!el) return;
+    el.textContent=text||"";
+    el.className="status"+(cls?" "+cls:"");
+  }
+
+  function typeInto(id, text, done){
+    var ta=document.getElementById("ta-"+id);
+    stopTyping(id);
+    ta.value=""; ta.classList.add("typing");
+    setStatus(id,"writing...","live");
+    if(reduced){
+      ta.value=text; ta.classList.remove("typing");
+      setStatus(id,"model answer shown","done"); if(done) done(); return;
+    }
+    var i=0;
+    timers[id]=setInterval(function(){
+      // burst a few characters per tick so it reads at natural speed
+      var burst = 2 + Math.floor(Math.random()*3);
+      ta.value = text.slice(0, i += burst);
+      ta.scrollTop = ta.scrollHeight;
+      if(i>=text.length){
+        stopTyping(id);
+        ta.value=text; ta.classList.remove("typing");
+        setStatus(id,"model answer shown","done");
+        if(done) done();
+      }
+    }, 16);
+  }
+  function stopTyping(id){
+    if(timers[id]){ clearInterval(timers[id]); delete timers[id]; }
+    var ta=document.getElementById("ta-"+id);
+    if(ta) ta.classList.remove("typing");
+  }
+
+  ws.addEventListener("click", function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    if(b.dataset.watch){
+      var q=QUESTIONS.filter(function(x){return x.id===b.dataset.watch;})[0];
+      OWOS.track("work.answer.watched", {question: q.id});
+      typeInto(q.id, q.model);
+    }
+    if(b.dataset.stop){
+      stopTyping(b.dataset.stop);
+      setStatus(b.dataset.stop,"stopped, edit freely","");
+    }
+    if(b.dataset.clear){
+      stopTyping(b.dataset.clear);
+      document.getElementById("ta-"+b.dataset.clear).value="";
+      setStatus(b.dataset.clear,"cleared","");
+    }
+  });
+  ws.addEventListener("input", function(e){
+    if(e.target.tagName==="TEXTAREA"){
+      var id=e.target.id.replace("ta-","");
+      stopTyping(id); setStatus(id,"your words","");
+      OWOS.track("work.answer.authored", {question:id});
+    }
+  });
+
+  document.getElementById("watchAll").addEventListener("click", function(){
+    var n=0;
+    (function next(){
+      if(n>=QUESTIONS.length){ status.textContent="All four answered. Edit any of them, or download."; return; }
+      var q=QUESTIONS[n++];
+      document.getElementById("ta-"+q.id).scrollIntoView({block:"center", behavior: reduced?"auto":"smooth"});
+      typeInto(q.id, q.model, function(){ setTimeout(next, 320); });
+    })();
+  });
+
+  document.getElementById("saveAll").addEventListener("click", function(){
+    var out={};
+    QUESTIONS.forEach(function(q){ out[q.id]=document.getElementById("ta-"+q.id).value; });
+    try{
+      localStorage.setItem(KEY, JSON.stringify(out));
+      status.textContent="Saved to this browser. It will be here when you come back.";
+    }catch(err){
+      status.textContent="This browser refused local storage, so nothing was saved. Use Download instead.";
+    }
+  });
+
+  document.getElementById("exportAll").addEventListener("click", function(){
+    var lines=["# Stormwater asset: four questions","",
+               "_Worked from the OWOS Concept Brief: Detention, Retention, and Infiltration._",
+               "_Conceptual reasoning only. Facility decisions require approved procedures and qualified judgment._",""];
+    QUESTIONS.forEach(function(q,i){
+      lines.push("## "+(i+1)+". "+q.q, "", (document.getElementById("ta-"+q.id).value||"_Not answered._"), "");
+    });
+    var blob=new Blob([lines.join("\n")],{type:"text/markdown"});
+    var a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);
+    a.download="stormwater-four-questions.md";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1500);
+    OWOS.track("work.exported", {format:"markdown"});
+    status.textContent="Downloaded as Markdown.";
+  });
+
+  document.getElementById("clearAll").addEventListener("click", function(){
+    QUESTIONS.forEach(function(q){
+      stopTyping(q.id);
+      document.getElementById("ta-"+q.id).value="";
+      setStatus(q.id,"","");
+    });
+    try{ localStorage.removeItem(KEY); }catch(err){}
+    status.textContent="Cleared, including anything saved in this browser.";
+  });
+
+  try{
+    var saved=JSON.parse(localStorage.getItem(KEY)||"{}");
+    var restored=false;
+    QUESTIONS.forEach(function(q){
+      if(saved[q.id]){ document.getElementById("ta-"+q.id).value=saved[q.id]; restored=true; }
+    });
+    if(restored) status.textContent="Restored what you had in this browser.";
+  }catch(err){}
+})();
+</script>
+</body>
+</html>

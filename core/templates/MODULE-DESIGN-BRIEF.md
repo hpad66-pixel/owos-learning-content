@@ -54,7 +54,7 @@ structure. A changed label, icon, color, or heading does not create a distinct v
 | Header Graph, Community, and Start actions | |
 | Bottom connected-learning section | |
 | Explicit bottom `#owos-course-community` anchor before navigation | |
-| Drawer focus return and mobile behavior | |
+| Right-side drawer focus return, Escape, backdrop, browser-Back, and mobile behavior | |
 | Module-specific FAQ location and disclosure behavior | |
 | Animation and teaching purpose | |
 | Reduced-motion equivalent | |

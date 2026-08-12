@@ -1,0 +1,101 @@
+schema_version: 2
+artifact_id: owos:technical-research:infiltration-and-inflow
+version: 0.2.0
+status: computationally_reproducible_candidate_engineering_research
+automated_checks:
+  yaml_parse:
+    status: passed
+    date: 2026-07-27
+    coverage: all_12_current_yaml_research_and_computational_specification_files
+  prohibited_punctuation_and_language_scan:
+    status: passed
+    date: 2026-07-27
+    coverage: all_current_source_files
+  formula_test_suite:
+    status: passed_seed_suite
+    date: 2026-07-27
+    command: python3 tools/validate_seed_formulas.py
+    result: 13_of_13_seed_tests_passed
+    limitations:
+      - seed_suite_is_not_independent_formula_verification
+      - no_production_formula_is_approved
+  sample_basin_golden_suite:
+    status: passed
+    date: 2026-07-27
+    command: python3 tools/test_sample_basin.py
+    result: 6_of_6_end_to_end_tests_passed
+    coverage:
+      - RTK_mass_closure_and_capture_fraction
+      - inventory_denominator
+      - peak_flow_and_firm_capacity
+      - contingency_storage
+      - negative_economic_result_preservation
+      - formula_lineage_resolution
+  formula_source_and_paper_wiring:
+    status: passed
+    date: 2026-07-27
+    command: python3 tools/check_formula_wiring.py
+    result: 39_registered_formulae_17_sources_30_sample_formulae_37_paper_references_resolved
+  preserved_source_checksums:
+    status: passed_for_all_current_preserved_PDFs
+    date: 2026-07-27
+    result:
+      preserved_PDFs: 7
+      checksum_algorithm: SHA-256
+      missing_checksums: 0
+    limitations:
+      - several_context_sources_remain_locator_only
+      - checksum_integrity_does_not_verify_technical_correctness
+  document_render_and_layout:
+    status: passed_internal_visual_review
+    date: 2026-07-27
+    result:
+      pages_reviewed: 38
+      page_size: US_Letter
+      figures: 6
+      tables: 12
+      table_geometry: passed
+      headings:
+        level_1: 18
+        level_2: 59
+        level_3: 3
+      image_alt_descriptions: 6
+      accessibility_findings:
+        high: 0
+        medium: 0
+        low: 0
+      PDF_markup_artifact_scan: passed
+    limitations:
+      - internal_visual_review_is_not_independent_editorial_or_accessibility_certification
+manual_reviews:
+  independent_source: unresolved
+  qualified_collection_system_practitioner: unresolved
+  qualified_wastewater_operations: unresolved
+  qualified_treatment_process: unresolved
+  qualified_hydrogeology: unresolved
+  qualified_economics: unresolved
+  qualified_regulatory: unresolved
+  Miami_Dade_practitioner: unresolved
+  internal_editorial_and_render_review: completed_non_independent
+  independent_editorial: unresolved
+  independent_formula_derivation: unresolved
+  dimensional_analysis: unresolved
+  numerical_benchmark_review: unresolved
+  agent_safety_review: unresolved
+  software_quality_review: unresolved
+  owner_production_approval: unresolved
+hard_gates:
+  source_preservation: partial_seven_preserved_some_locator_only
+  claim_verification_and_accuracy: blocked
+  formula_provenance_and_derivation: candidate_trace_complete_independent_review_blocked
+  units_and_dimensions: automated_sample_pass_independent_review_blocked
+  deterministic_numerical_validation: automated_sample_pass_independent_comparison_blocked
+  uncertainty_and_applicability: blocked
+  qualified_technical_practice: blocked
+  Miami_Dade_case_validation: blocked
+  agent_fail_closed_behavior: blocked
+  independent_reproducibility: blocked
+  production_release_control: blocked
+corrections:
+  status: no_released_claims
+  open_items: []

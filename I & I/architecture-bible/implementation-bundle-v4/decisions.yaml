@@ -1,0 +1,43 @@
+schema_version: 1
+artifact_id: owos:pumpos-ii:implementation-bundle-v4
+decisions:
+  - id: V4-D01
+    status: locked_for_candidate
+    decision: Version 4 is a separate folder and does not modify or replace Version 3.
+    rationale: External agents need an unambiguous implementation boundary.
+  - id: V4-D02
+    status: proposed_pending_owner_approval
+    decision: The first operational slice is one basin, one event, one receiving station, one calculation chain, optional models, and one reviewed decision.
+    rationale: This is the smallest complete evidence-to-action vertical slice.
+  - id: V4-D03
+    status: locked_for_candidate
+    decision: Deterministic calculations, models, agents, and human approvals remain separate authorities.
+    rationale: Prevents an agent or solver from being mistaken for engineering or operating authority.
+  - id: V4-D04
+    status: locked_for_candidate
+    decision: Every numeric result retains exactly one evidence class.
+    rationale: Prevents modeled or interpreted values from appearing observed.
+  - id: V4-D05
+    status: locked_for_candidate
+    decision: Accepted input snapshots are immutable and content-addressed.
+    rationale: Enables reproducibility, audit, approval validity, and version comparison.
+  - id: V4-D06
+    status: proposed_pending_technical_review
+    decision: Long-running calculations and model runs use asynchronous job resources.
+    rationale: Prevents solver duration from blocking normal API and dashboard operation.
+  - id: V4-D07
+    status: locked_for_candidate
+    decision: Missing data, model failure, and unresolved boundaries produce structured blocked or failed states rather than zero.
+    rationale: Prevents false numerical success.
+  - id: V4-D08
+    status: unresolved
+    decision: Target PumpOS repository, branch, language, framework, database migration tool, and cloud environment.
+    rationale: Must be resolved in WP-01 from positively identified current implementation context.
+  - id: V4-D09
+    status: unresolved
+    decision: Exact pilot basin, event, receiving station, utility reviewers, and approved data sources.
+    rationale: Requires owner and utility coordination.
+  - id: V4-D10
+    status: unresolved
+    decision: Formula versions eligible for first pilot execution.
+    rationale: Requires formula governance and qualified review.

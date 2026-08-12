@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Complete program book for the One Water AI Executive Fellowship.">
+  <title>One Water AI Executive Fellowship | Program Book</title>
+  <style>
+    :root { --navy:#0b2231; --graphite:#102b3a; --water:#0786c6; --sky:#dff3fc; --gold:#e6b84a; --ink:#172638; --muted:#556779; --line:#d7e3eb; --paper:#f5f9fc; --white:#fff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Arial, Helvetica, sans-serif; line-height:1.58; }
+    a { color:#036fa8; }
+    .topbar { position:sticky; top:0; z-index:20; display:flex; gap:20px; align-items:center; justify-content:space-between; padding:14px clamp(18px,4vw,64px); background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; color:var(--navy); }
+    .drop { width:34px; height:34px; display:grid; place-items:center; border-radius:11px; color:white; background:linear-gradient(145deg,var(--water),#0a5f91); }
+    .actions { display:flex; flex-wrap:wrap; gap:8px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:8px 15px; border-radius:11px; text-decoration:none; font-weight:700; background:var(--water); color:white; border:1px solid var(--water); }
+    .button.secondary { color:var(--navy); background:white; border-color:var(--line); }
+    .hero { color:white; background:linear-gradient(135deg,var(--navy) 0%,#07507a 58%,#0794d4 100%); overflow:hidden; }
+    .hero-inner { max-width:1280px; margin:auto; padding:clamp(64px,10vw,125px) clamp(22px,5vw,70px); position:relative; }
+    .hero-inner:after { content:""; position:absolute; width:430px; height:430px; border:1px solid rgba(255,255,255,.22); border-radius:50%; right:-110px; bottom:-280px; box-shadow:0 0 0 70px rgba(255,255,255,.06),0 0 0 140px rgba(255,255,255,.04); }
+    .eyebrow { margin:0 0 12px; color:#bdeaff; text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; font-weight:800; }
+    h1 { max-width:900px; margin:0; font-size:clamp(2.7rem,7vw,6rem); line-height:.96; letter-spacing:-.055em; }
+    .lede { max-width:790px; margin:25px 0 0; font-size:clamp(1.05rem,2vw,1.35rem); color:#eef9ff; }
+    .facts { max-width:1280px; margin:-34px auto 0; padding:0 clamp(22px,5vw,70px); position:relative; z-index:2; display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .fact { background:white; border:1px solid var(--line); border-radius:17px; padding:22px; box-shadow:0 12px 35px rgba(7,35,54,.10); }
+    .fact strong { display:block; font-size:1.6rem; color:var(--navy); }
+    .fact span { color:var(--muted); font-size:.9rem; }
+    main { max-width:1280px; margin:auto; padding:54px clamp(22px,5vw,70px) 90px; }
+    section { margin:0 0 72px; scroll-margin-top:95px; }
+    .section-label { color:var(--water); text-transform:uppercase; letter-spacing:.15em; font-size:.75rem; font-weight:800; }
+    h2 { margin:.25rem 0 1rem; color:var(--navy); font-size:clamp(2rem,4vw,3.4rem); line-height:1.04; letter-spacing:-.035em; }
+    h3 { color:var(--navy); }
+    .intro { max-width:820px; color:var(--muted); font-size:1.12rem; }
+    .two-col { display:grid; grid-template-columns:1.05fr .95fr; gap:26px; }
+    .panel { background:white; border:1px solid var(--line); border-radius:20px; padding:clamp(22px,3vw,34px); }
+    .panel.dark { background:var(--navy); color:white; border:0; }
+    .panel.dark h3 { color:white; }
+    .panel.dark p, .panel.dark li { color:#dceaf2; }
+    .workflow { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:25px; }
+    .step { position:relative; min-height:215px; padding:22px; background:white; border:1px solid var(--line); border-radius:18px; }
+    .step span { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--sky); color:#075f8e; font-weight:800; }
+    .step h4 { margin:18px 0 8px; font-size:1.05rem; color:var(--navy); }
+    .step p { margin:0; color:var(--muted); font-size:.93rem; }
+    .course { margin:16px 0; background:white; border:1px solid var(--line); border-radius:20px; overflow:hidden; }
+    .course summary { cursor:pointer; list-style:none; padding:26px clamp(22px,4vw,42px); background:linear-gradient(120deg,#eef8fd,#fff); }
+    .course summary::-webkit-details-marker { display:none; }
+    .course-kicker { display:block; color:#0675ad; text-transform:uppercase; letter-spacing:.13em; font-size:.72rem; font-weight:800; }
+    .course-title { display:block; margin:6px 0; color:var(--navy); font-size:clamp(1.35rem,3vw,2rem); font-weight:800; line-height:1.12; }
+    .course-promise { display:block; max-width:860px; color:var(--muted); }
+    .module-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border-top:1px solid var(--line); }
+    .module { display:grid; grid-template-columns:48px 1fr; gap:16px; padding:23px; background:white; }
+    .module-number { font-size:1.2rem; font-weight:800; color:var(--water); }
+    .module h4 { margin:0 0 7px; color:var(--navy); font-size:1rem; }
+    .module p { margin:0; color:var(--muted); font-size:.92rem; }
+    .module .result { margin-top:8px; color:var(--ink); }
+    .architecture { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; align-items:center; margin-top:25px; }
+    .arch-node { min-height:138px; display:flex; flex-direction:column; justify-content:center; padding:18px; border-radius:17px; background:white; border:1px solid var(--line); }
+    .arch-node strong { color:var(--navy); }
+    .arch-node span { margin-top:6px; color:var(--muted); font-size:.88rem; }
+    .status { border-left:5px solid var(--gold); }
+    footer { padding:35px clamp(22px,5vw,70px); background:var(--navy); color:#dceaf2; }
+    footer strong { color:white; }
+    @media (max-width:900px) { .facts,.workflow { grid-template-columns:1fr 1fr; } .two-col,.module-grid,.architecture { grid-template-columns:1fr; } .arch-node { min-height:auto; } }
+    @media (max-width:560px) { .topbar { align-items:flex-start; } .brand span { max-width:155px; } .actions .secondary { display:none; } .facts,.workflow { grid-template-columns:1fr; } .facts { margin-top:0; padding-top:18px; } h1 { font-size:2.65rem; } .module { grid-template-columns:38px 1fr; padding:19px 16px; } }
+    @media print { .topbar { display:none; } .hero-inner { padding:55px; } .facts { margin:15px auto 0; } details > * { display:block !important; } .course,.panel,.step,.module { break-inside:avoid; box-shadow:none; } main { padding:35px; } }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Document downloads">
+    <div class="brand"><span class="drop">OW</span><span>One Water AI Executive Fellowship</span></div>
+    <div class="actions">
+      <a class="button secondary" href="../pdf/one-water-ai-executive-fellowship-master-curriculum.pdf">Curriculum PDF</a>
+      <a class="button secondary" href="../pdf/one-water-ai-fieldbook-working-edition.pdf">Fieldbook PDF</a>
+      <a class="button" href="../pdf/one-water-ai-executive-fellowship-program-book.pdf">Download this PDF</a>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">One Water Operating System · Powered by APAS.AI</p>
+      <h1>One Water AI Executive Fellowship</h1>
+      <p class="lede">A six-month applied program for professionals responsible for water, wastewater, and stormwater decisions. Learn the technology in plain English, test it against utility work, and leave with a governed implementation portfolio.</p>
+    </div>
+  </header>
+  <div class="facts" aria-label="Program facts">
+    <div class="fact"><strong>24 weeks</strong><span>Six-month cohort</span></div>
+    <div class="fact"><strong>64 modules</strong><span>Eight connected courses</span></div>
+    <div class="fact"><strong>132 hours</strong><span>Guided and applied work</span></div>
+    <div class="fact"><strong>$10,000</strong><span>Target tuition per participant</span></div>
+  </div>
+  <main>
+    <section id="purpose">
+      <p class="section-label">The position</p>
+      <h2>Professional judgment, not content access</h2>
+      <div class="two-col">
+        <div class="panel"><p>The water sector does not need another general course that explains what artificial intelligence is. It needs leaders who can tell the difference between a demonstration and a defensible utility application. It needs operators, engineers, managers, data leaders, procurement teams, consultants, and executives who can work from the same language, test the same evidence, and identify the person who remains accountable.</p><p>The One Water AI Executive Fellowship is a six-month applied program for professionals responsible for water, wastewater, and stormwater decisions. Participants learn the technology in plain English, apply it to utility work, build with current tools, test failure and governance controls, and leave with an implementation portfolio for one real organizational opportunity.</p><p>This is not a collection of videos. It is a working program. Every course produces part of the participant&#x27;s One Water AI Fieldbook. Every studio converts an idea into a decision, diagram, control, or work product. Every claim must carry its source and limitation. Every proposed use case must name its data, knowledge, risk, owner, measurement, stop condition, and next action.</p></div>
+        <div class="panel dark"><h3>What participants leave able to do</h3><ol><li>explain machine learning, generative AI, retrieval, knowledge graphs, skills, tools, agents, and agentic systems without hiding behind jargon;</li><li>distinguish chat, retrieval, deterministic workflow, single-agent, and multi-agent approaches;</li><li>diagnose whether a utility problem is ready for AI or still requires data, process, knowledge, governance, or organizational repair;</li><li>build and test prompts, reusable Claude Skills, source-grounded retrieval patterns, and bounded agent workflows;</li><li>evaluate output quality, provenance, permissions, failure modes, cost, and human-review effort;</li><li>identify valuable applications across operations, maintenance, water quality, customer service, capital delivery, regulation, finance, and administration;</li><li>create an AI governance and procurement record suitable for organizational review;</li><li>compare value, feasibility, consequence, adoption cost, and implementation risk;</li><li>lead cross-functional discussion between utility practice, data, technology, legal, security, procurement, and executive leadership; and</li><li>defend a governed 90-day pilot and a one-year organizational roadmap.</li></ol></div>
+      </div>
+    </section>
+    <section id="audience">
+      <p class="section-label">Who it serves</p>
+      <h2>Built for people who influence consequential decisions</h2>
+      <div class="two-col">
+        <div class="panel"><h3>Intended participants</h3><ul><li>general managers, executive directors, and deputy directors;</li><li>operations, maintenance, engineering, water-quality, stormwater, and wastewater leaders;</li><li>capital-program, asset-management, customer-service, finance, and communications leaders;</li><li>chief information, technology, data, cybersecurity, innovation, and transformation officers;</li><li>legal, privacy, procurement, risk, audit, and governance professionals;</li><li>senior consultants, solution providers, researchers, regulators, association leaders, and</li><li>selected emerging leaders with the authority and organizational support to complete an applied</li></ul></div>
+        <div class="panel status"><h3>Current release boundary</h3><p>This program book is the current, rebranded program architecture. It contains the complete 8-course, 64-module Fellowship blueprint and its production system. It is not a claim that all 64 learner-facing Articulate modules have been authored or released.</p><p>The older 686-page <em>One Water AI Master Class</em> compilation remains a legacy source library. It must be mapped, reviewed, and rewritten into this Fellowship sequence before any section is treated as current learner content.</p></div>
+      </div>
+    </section>
+    <section id="curriculum">
+      <p class="section-label">Complete curriculum</p>
+      <h2>Eight courses. Sixty-four modules. One implementation portfolio.</h2>
+      <p class="intro">Open any course to see every module, the learning job, and the Fieldbook result. The sequence moves from shared language to trusted context, bounded agents, utility applications, governance, economics, studios, and a defended pilot.</p>
+      
+            <details class="course" id="course-1" open>
+              <summary>
+                <span class="course-kicker">Course 1 · Weeks 1 to 3</span>
+                <span class="course-title">AI Fluency for One Water</span>
+                <span class="course-promise">Build a shared language for AI and connect every term to a recognizable utility task, decision, or consequence.</span>
+              </summary>
+              <div class="module-grid">
+            <article class="module">
+              <div class="module-number">01</div>
+              <div>
+                <h4>AI and utility work</h4>
+                <p>Separate useful assistance from accountable authority</p>
+                <p class="result"><strong>Fieldbook result:</strong> AI use-case boundary card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">02</div>
+              <div>
+                <h4>How we arrived here</h4>
+                <p>Understand rules, statistics, machine learning, deep learning, and generative AI as related but different approaches</p>
+                <p class="result"><strong>Fieldbook result:</strong> AI family map</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">03</div>
+              <div>
+                <h4>Models, tokens, prompts, and context</h4>
+                <p>Explain what a model receives and produces without treating it as a person</p>
+                <p class="result"><strong>Fieldbook result:</strong> prompt and context anatomy sheet</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">04</div>
+              <div>
+                <h4>Language, images, audio, and multimodal AI</h4>
+                <p>Recognize what changes when systems work across more than text</p>
+                <p class="result"><strong>Fieldbook result:</strong> multimodal utility opportunity card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">05</div>
+              <div>
+                <h4>Chatbot, retrieval, workflow, agent, or agentic system</h4>
+                <p>Choose the least complicated architecture that can perform a task</p>
+                <p class="result"><strong>Fieldbook result:</strong> system classifier</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">06</div>
+              <div>
+                <h4>Working effectively with an AI assistant</h4>
+                <p>Frame a task, provide context, define output, test assumptions, and revise</p>
+                <p class="result"><strong>Fieldbook result:</strong> reusable utility prompt pattern</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">07</div>
+              <div>
+                <h4>Claude Skills and reusable organizational instructions</h4>
+                <p>Understand a Skill as a versioned package of instructions, references, scripts, and assets that teaches a repeatable workflow</p>
+                <p class="result"><strong>Fieldbook result:</strong> first utility Claude Skill specification</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">08</div>
+              <div>
+                <h4>Fluency checkpoint</h4>
+                <p>Explain a proposed AI use case to an operator, executive, technologist, and procurement professional</p>
+                <p class="result"><strong>Fieldbook result:</strong> AI terms and decision field card</p>
+              </div>
+            </article></div>
+            </details>
+            <details class="course" id="course-2" open>
+              <summary>
+                <span class="course-kicker">Course 2 · Weeks 4 to 6</span>
+                <span class="course-title">Data, Knowledge, and Trusted Context</span>
+                <span class="course-promise">Understand why useful AI depends on connected records, shared meaning, current sources, permission, and traceable evidence.</span>
+              </summary>
+              <div class="module-grid">
+            <article class="module">
+              <div class="module-number">09</div>
+              <div>
+                <h4>Data before AI</h4>
+                <p>Diagnose why AI amplifies disconnected or poor-quality data</p>
+                <p class="result"><strong>Fieldbook result:</strong> readiness diagnosis</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">10</div>
+              <div>
+                <h4>Data quality and observability</h4>
+                <p>Identify completeness, accuracy, timeliness, consistency, and monitoring needs</p>
+                <p class="result"><strong>Fieldbook result:</strong> data-quality control card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">11</div>
+              <div>
+                <h4>Metadata, lineage, and provenance</h4>
+                <p>Explain where a record came from, how it changed, and why it may be trusted</p>
+                <p class="result"><strong>Fieldbook result:</strong> lineage trace</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">12</div>
+              <div>
+                <h4>Taxonomy and ontology</h4>
+                <p>Build shared language and relationships without beginning with software</p>
+                <p class="result"><strong>Fieldbook result:</strong> utility concept map</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">13</div>
+              <div>
+                <h4>Knowledge graphs and the systems lens</h4>
+                <p>See assets, people, records, decisions, sources, and consequences as connected relationships</p>
+                <p class="result"><strong>Fieldbook result:</strong> knowledge relationship map</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">14</div>
+              <div>
+                <h4>Embeddings and vector retrieval</h4>
+                <p>Explain similarity search, what it can retrieve, and what it cannot prove</p>
+                <p class="result"><strong>Fieldbook result:</strong> retrieval comparison sheet</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">15</div>
+              <div>
+                <h4>Retrieval-augmented generation</h4>
+                <p>Design a source-grounded answer path with citations and access boundaries</p>
+                <p class="result"><strong>Fieldbook result:</strong> RAG answer contract</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">16</div>
+              <div>
+                <h4>Context engineering and the trusted answer</h4>
+                <p>Select the minimum useful context for a task and preserve its source and limitation</p>
+                <p class="result"><strong>Fieldbook result:</strong> data and knowledge readiness map</p>
+              </div>
+            </article></div>
+            </details>
+            <details class="course" id="course-3" open>
+              <summary>
+                <span class="course-kicker">Course 3 · Weeks 7 to 9</span>
+                <span class="course-title">Agents, Skills, and Orchestration</span>
+                <span class="course-promise">See how AI moves from a response to bounded work, then design the instructions, tools, handoffs, permissions, and stop conditions required to keep people in control.</span>
+              </summary>
+              <div class="module-grid">
+            <article class="module">
+              <div class="module-number">17</div>
+              <div>
+                <h4>Before the agent</h4>
+                <p>Compare a model response, chatbot, retrieval answer, workflow, and agent</p>
+                <p class="result"><strong>Fieldbook result:</strong> architecture decision record</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">18</div>
+              <div>
+                <h4>Inside the agent loop</h4>
+                <p>Follow goal, plan, action, observation, evaluation, adjustment, and stop</p>
+                <p class="result"><strong>Fieldbook result:</strong> agent-loop trace</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">19</div>
+              <div>
+                <h4>Agent anatomy</h4>
+                <p>Examine model, instructions, sources, tools, memory, identity, permissions, evaluation, and human owner</p>
+                <p class="result"><strong>Fieldbook result:</strong> dependency map</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">20</div>
+              <div>
+                <h4>Tools, connectors, and the Model Context Protocol</h4>
+                <p>Understand how an agent reaches approved systems and why connection does not equal authority</p>
+                <p class="result"><strong>Fieldbook result:</strong> tool and connector register</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">21</div>
+              <div>
+                <h4>Skills as organizational recipes</h4>
+                <p>Design a reusable Skill with instructions, references, scripts, assets, triggers, and tests</p>
+                <p class="result"><strong>Fieldbook result:</strong> working Claude Skill package</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">22</div>
+              <div>
+                <h4>Memory, state, and durable records</h4>
+                <p>Separate temporary context, task state, institutional memory, and authoritative records</p>
+                <p class="result"><strong>Fieldbook result:</strong> state and record plan</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">23</div>
+              <div>
+                <h4>Orchestration and multi-agent handoffs</h4>
+                <p>Coordinate specialist roles, shared state, evidence, failure, and human escalation</p>
+                <p class="result"><strong>Fieldbook result:</strong> handoff contract</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">24</div>
+              <div>
+                <h4>Design the smallest useful agent</h4>
+                <p>Choose agenticness according to value, consequence, readiness, and review</p>
+                <p class="result"><strong>Fieldbook result:</strong> Utility Agent Canvas</p>
+              </div>
+            </article></div>
+            </details>
+            <details class="course" id="course-4" open>
+              <summary>
+                <span class="course-kicker">Course 4 · Weeks 10 to 12</span>
+                <span class="course-title">Utility Applications and Opportunity Design</span>
+                <span class="course-promise">Move from generic AI excitement to a disciplined portfolio of opportunities grounded in utility work, available evidence, affected people, and measurable value.</span>
+              </summary>
+              <div class="module-grid">
+            <article class="module">
+              <div class="module-number">25</div>
+              <div>
+                <h4>Operations and operator support</h4>
+                <p>Examine bounded advisory, retrieval, shift, and exception-management patterns</p>
+                <p class="result"><strong>Fieldbook result:</strong> operations opportunity card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">26</div>
+              <div>
+                <h4>Maintenance and asset management</h4>
+                <p>Connect work orders, history, inspection, condition, failure, and planning</p>
+                <p class="result"><strong>Fieldbook result:</strong> maintenance opportunity card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">27</div>
+              <div>
+                <h4>Water quality, laboratory, and compliance support</h4>
+                <p>Trace evidence, limits, reviews, and certification boundaries</p>
+                <p class="result"><strong>Fieldbook result:</strong> evidence-chain card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">28</div>
+              <div>
+                <h4>Customer service and public communication</h4>
+                <p>Improve retrieval, consistency, routing, drafting, and accessibility while protecting privacy</p>
+                <p class="result"><strong>Fieldbook result:</strong> customer-service use-case card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">29</div>
+              <div>
+                <h4>Capital planning, engineering, and project delivery</h4>
+                <p>Connect requirements, risks, changes, schedules, records, and decision history</p>
+                <p class="result"><strong>Fieldbook result:</strong> capital-delivery opportunity card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">30</div>
+              <div>
+                <h4>Stormwater, wastewater, drinking water, and One Water coordination</h4>
+                <p>Examine cross-domain relationships without erasing domain-specific authority</p>
+                <p class="result"><strong>Fieldbook result:</strong> One Water relationship map</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">31</div>
+              <div>
+                <h4>Finance, procurement, legal, and administration</h4>
+                <p>Identify high-volume knowledge work and its evidence and approval requirements</p>
+                <p class="result"><strong>Fieldbook result:</strong> administrative opportunity card</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">32</div>
+              <div>
+                <h4>Opportunity portfolio and prioritization</h4>
+                <p>Compare value, feasibility, consequence, readiness, cost, and adoption effort</p>
+                <p class="result"><strong>Fieldbook result:</strong> prioritized utility opportunity portfolio</p>
+              </div>
+            </article></div>
+            </details>
+            <details class="course" id="course-5" open>
+              <summary>
+                <span class="course-kicker">Course 5 · Weeks 13 to 15</span>
+                <span class="course-title">Governance, Security, and Human Authority</span>
+                <span class="course-promise">Build governance into the design so that the organization knows what the system may do, what it may not do, who checks it, and what evidence survives.</span>
+              </summary>
+              <div class="module-grid">
+            <article class="module">
+              <div class="module-number">33</div>
+              <div>
+                <h4>Risk and consequence tiers</h4>
+                <p>Match review and control strength to possible harm and reversibility</p>
+                <p class="result"><strong>Fieldbook result:</strong> use-case risk tier</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">34</div>
+              <div>
+                <h4>Privacy, confidentiality, and data rights</h4>
+                <p>Identify personal, sensitive, contractual, and restricted information boundaries</p>
+                <p class="result"><strong>Fieldbook result:</strong> privacy and data-use record</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">35</div>
+              <div>
+                <h4>Cybersecurity and adversarial failure</h4>
+                <p>Recognize prompt injection, unsafe tool use, data leakage, poisoned context, and excessive privilege</p>
+                <p class="result"><strong>Fieldbook result:</strong> threat and control map</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">36</div>
+              <div>
+                <h4>Identity, permissions, and segregation of duties</h4>
+                <p>Separate who asks, retrieves, recommends, approves, writes, and administers</p>
+                <p class="result"><strong>Fieldbook result:</strong> permission matrix</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">37</div>
+              <div>
+                <h4>Human authority, escalation, and stop conditions</h4>
+                <p>Name the accountable owner and design pause, refusal, and escalation rules</p>
+                <p class="result"><strong>Fieldbook result:</strong> authority and escalation map</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">38</div>
+              <div>
+                <h4>Evaluation, testing, and continuous assurance</h4>
+                <p>Test usefulness, accuracy, source coverage, refusal behavior, resilience, cost, and drift</p>
+                <p class="result"><strong>Fieldbook result:</strong> evaluation plan</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">39</div>
+              <div>
+                <h4>Vendor, model, and procurement governance</h4>
+                <p>Compare claims, architecture, data use, service boundaries, exit terms, and evidence</p>
+                <p class="result"><strong>Fieldbook result:</strong> AI procurement scorecard</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">40</div>
+              <div>
+                <h4>The governed AI application record</h4>
+                <p>Assemble purpose, sources, roles, controls, evaluations, incidents, and approvals</p>
+                <p class="result"><strong>Fieldbook result:</strong> AI governance and control record</p>
+              </div>
+            </article></div>
+            </details>
+            <details class="course" id="course-6" open>
+              <summary>
+                <span class="course-kicker">Course 6 · Weeks 16 to 18</span>
+                <span class="course-title">Strategy, Economics, and Organizational Change</span>
+                <span class="course-promise">Turn isolated experiments into a sequenced organizational program with value measures, ownership, funding, workforce preparation, and an operating rhythm.</span>
+              </summary>
+              <div class="module-grid">
+            <article class="module">
+              <div class="module-number">41</div>
+              <div>
+                <h4>Problem formulation before technology selection</h4>
+                <p>Convert a complaint or idea into a measurable professional problem</p>
+                <p class="result"><strong>Fieldbook result:</strong> problem statement</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">42</div>
+              <div>
+                <h4>Value, baseline, and measurement</h4>
+                <p>Define current effort, error, delay, risk, rework, and service outcomes</p>
+                <p class="result"><strong>Fieldbook result:</strong> value baseline</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">43</div>
+              <div>
+                <h4>The full cost of AI</h4>
+                <p>Account for models, infrastructure, integration, data, review, security, change, and failure</p>
+                <p class="result"><strong>Fieldbook result:</strong> total-cost model</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">44</div>
+              <div>
+                <h4>Build, buy, partner, or do nothing</h4>
+                <p>Compare strategic control, speed, capability, dependency, and exit cost</p>
+                <p class="result"><strong>Fieldbook result:</strong> sourcing decision record</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">45</div>
+              <div>
+                <h4>AI operating model and decision rights</h4>
+                <p>Define sponsors, product owners, technical owners, stewards, assurance, users, and escalation</p>
+                <p class="result"><strong>Fieldbook result:</strong> operating-model canvas</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">46</div>
+              <div>
+                <h4>Workforce capability and responsible adoption</h4>
+                <p>Map changing tasks, learning needs, participation, anxiety, and professional authority</p>
+                <p class="result"><strong>Fieldbook result:</strong> workforce capability plan</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">47</div>
+              <div>
+                <h4>Portfolio governance and sequencing</h4>
+                <p>Fund learning in stages and stop weak initiatives before they become sunk costs</p>
+                <p class="result"><strong>Fieldbook result:</strong> portfolio roadmap</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">48</div>
+              <div>
+                <h4>Executive narrative and one-year roadmap</h4>
+                <p>Explain the problem, opportunity, evidence, risk, investment, and sequence</p>
+                <p class="result"><strong>Fieldbook result:</strong> investment case and one-year roadmap</p>
+              </div>
+            </article></div>
+            </details>
+            <details class="course" id="course-7" open>
+              <summary>
+                <span class="course-kicker">Course 7 · Weeks 19 to 21</span>
+                <span class="course-title">Applied AI Studios</span>
+                <span class="course-promise">Build enough to understand the mechanics, expose failure, and make better implementation decisions. No programming background is required.</span>
+              </summary>
+              <div class="module-grid">
+            <article class="module">
+              <div class="module-number">49</div>
+              <div>
+                <h4>Prompt and context studio</h4>
+                <p>Improve an unclear utility task through role, context, constraints, output, and evaluation</p>
+                <p class="result"><strong>Fieldbook result:</strong> tested prompt pattern</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">50</div>
+              <div>
+                <h4>Source-grounded answer studio</h4>
+                <p>Compare unsupported generation with governed retrieval and citations</p>
+                <p class="result"><strong>Fieldbook result:</strong> RAG test record</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">51</div>
+              <div>
+                <h4>Claude Skill studio</h4>
+                <p>Build, trigger, test, revise, and document a reusable utility workflow</p>
+                <p class="result"><strong>Fieldbook result:</strong> tested Claude Skill</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">52</div>
+              <div>
+                <h4>Tool-use and permission studio</h4>
+                <p>Connect a bounded read-only tool and inspect every request and result</p>
+                <p class="result"><strong>Fieldbook result:</strong> tool-use evidence log</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">53</div>
+              <div>
+                <h4>Agent workflow studio</h4>
+                <p>Build a goal-to-result loop with evaluation, retry limits, and escalation</p>
+                <p class="result"><strong>Fieldbook result:</strong> agent trace</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">54</div>
+              <div>
+                <h4>Multi-agent decision-room studio</h4>
+                <p>Observe specialist perspectives, shared evidence, disagreement, synthesis, and human decision</p>
+                <p class="result"><strong>Fieldbook result:</strong> multi-agent decision record</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">55</div>
+              <div>
+                <h4>Failure and red-team studio</h4>
+                <p>Trigger unsupported claims, stale sources, instruction attacks, missing authority, and endless retries</p>
+                <p class="result"><strong>Fieldbook result:</strong> failure and recovery log</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">56</div>
+              <div>
+                <h4>Evaluation and pilot rehearsal</h4>
+                <p>Test historical cases, record metrics, inspect human effort, and prepare a controlled demonstration</p>
+                <p class="result"><strong>Fieldbook result:</strong> prototype evidence package</p>
+              </div>
+            </article></div>
+            </details>
+            <details class="course" id="course-8" open>
+              <summary>
+                <span class="course-kicker">Course 8 · Weeks 22 to 24</span>
+                <span class="course-title">Capstone, From Opportunity to Governed Pilot</span>
+                <span class="course-promise">Convert one real organizational opportunity into a pilot that leadership can understand, challenge, measure, govern, and stop when necessary.</span>
+              </summary>
+              <div class="module-grid">
+            <article class="module">
+              <div class="module-number">57</div>
+              <div>
+                <h4>Capstone charter and stakeholder agreement</h4>
+                <p>Confirm the problem, sponsor, affected people, scope, and decision process</p>
+                <p class="result"><strong>Fieldbook result:</strong> capstone charter</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">58</div>
+              <div>
+                <h4>Current-state process and baseline</h4>
+                <p>Document how the work happens today and where cost, delay, risk, or rework occurs</p>
+                <p class="result"><strong>Fieldbook result:</strong> current-state map</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">59</div>
+              <div>
+                <h4>Data and knowledge readiness</h4>
+                <p>Identify approved sources, missing records, definitions, permissions, and provenance</p>
+                <p class="result"><strong>Fieldbook result:</strong> readiness plan</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">60</div>
+              <div>
+                <h4>Architecture and workflow decision</h4>
+                <p>Select the least complicated technical pattern and justify every component</p>
+                <p class="result"><strong>Fieldbook result:</strong> architecture decision record</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">61</div>
+              <div>
+                <h4>Governance, security, and human authority</h4>
+                <p>Complete the controls, permissions, review, incident, and escalation design</p>
+                <p class="result"><strong>Fieldbook result:</strong> pilot control plan</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">62</div>
+              <div>
+                <h4>Evaluation, economics, and success criteria</h4>
+                <p>Define test cases, baseline, thresholds, cost limits, review effort, and stop conditions</p>
+                <p class="result"><strong>Fieldbook result:</strong> measurement and financial plan</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">63</div>
+              <div>
+                <h4>Ninety-day pilot and one-year adoption roadmap</h4>
+                <p>Sequence discovery, build, test, review, decision, and possible expansion</p>
+                <p class="result"><strong>Fieldbook result:</strong> 90-day pilot brief and one-year roadmap</p>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-number">64</div>
+              <div>
+                <h4>Capstone defense and professional commitment</h4>
+                <p>Present the case, answer challenges, revise the plan, and state the next accountable action</p>
+                <p class="result"><strong>Fieldbook result:</strong> defended implementation portfolio</p>
+              </div>
+            </article></div>
+            </details>
+    </section>
+    <section id="capstone">
+      <p class="section-label">Modules 57 to 64</p>
+      <h2>The capstone turns learning into a governed pilot</h2>
+      <div class="two-col">
+        <div class="panel"><h3>Required evidence</h3><ol><li>the utility problem, current process, and baseline;</li><li>intended outcome, affected people, and measurable value;</li><li>accountable sponsor, owner, reviewers, users, and decision rights;</li><li>approved sources, data limitations, definitions, and provenance;</li><li>selected architecture and reason simpler alternatives were rejected;</li><li>tools, connections, identity, permissions, and records;</li><li>human checkpoints, prohibited actions, stop conditions, and escalation;</li><li>test cases, evaluation thresholds, incident response, and continuing assurance;</li><li>model, infrastructure, integration, review, workforce, and change costs;</li><li>the 90-day pilot sequence and one-year organizational roadmap; and</li><li>a candid statement of what remains unknown.</li></ol></div>
+        <div class="panel dark"><h3>Completion evidence</h3><ul><li>completion of required Articulate modules and assessments;</li><li>participation in at least six of eight live executive forums;</li><li>completion of required studios and fieldwork;</li><li>a completed One Water AI Fieldbook;</li><li>a source-backed capstone portfolio;</li><li>a capstone defense and revision; and</li><li>an explicit statement of professional responsibility and next action.</li></ul></div>
+      </div>
+    </section>
+    <section id="fieldbook">
+      <p class="section-label">The companion system</p>
+      <h2>The Fieldbook keeps the 64 modules connected</h2>
+      <div class="two-col">
+        <div class="panel"><p>The One Water AI Fieldbook is part workbook, part laboratory notebook, part decision record, and part executive playbook. Every module adds one decision, map, test, reflection, or professional record. By Module 64, those records form the participant's implementation portfolio.</p><p>Participants retain their private entries. Confidential organizational material is not shared unless the participant chooses to submit it for review.</p><a class="button" href="../pdf/one-water-ai-fieldbook-working-edition.pdf">Download the 143-page Fieldbook</a></div>
+        <div class="panel"><h3>Repeating module rhythm</h3><ol><li><strong>Before:</strong> What do I currently believe, and what decision would I make?</li><li><strong>Learn:</strong> What relationship, mechanism, or distinction matters?</li><li><strong>Apply:</strong> What does this mean for one utility task or organizational situation?</li><li><strong>Keep:</strong> What record enters my implementation portfolio?</li></ol></div>
+      </div>
+    </section>
+    <section id="workflow">
+      <p class="section-label">From research to instruction</p>
+      <h2>Every module follows the same governed production path</h2>
+      <p class="intro">Research tools help find material. They do not become the evidence. The original source, exact locator, reviewer, and limitation stay with the claim.</p>
+      <div class="workflow"><div class="step"><span>1</span><h4>Define value</h4><p>Name the utility decision, audience, work product, and professional value.</p></div><div class="step"><span>2</span><h4>Discover sources</h4><p>Use Perplexity or another research tool to find source leads, then open the originals.</p></div><div class="step"><span>3</span><h4>Preserve evidence</h4><p>Register direct URLs, files, dates, permissions, and exact locators.</p></div><div class="step"><span>4</span><h4>Verify claims</h4><p>Check every material claim against the original source and record limitations.</p></div><div class="step"><span>5</span><h4>Write the manuscript</h4><p>Produce one complete Markdown teaching paper in plain English.</p></div><div class="step"><span>6</span><h4>Design graphics</h4><p>Describe visuals that explain a process, relationship, comparison, or decision.</p></div><div class="step"><span>7</span><h4>Assemble learning</h4><p>Build the approved lesson in Articulate with interactions, checks, and accessibility.</p></div><div class="step"><span>8</span><h4>Review and release</h4><p>Run factual, practitioner, learning, accessibility, and publishing gates.</p></div></div>
+    </section>
+    <section id="manuscript">
+      <p class="section-label">The controlled Markdown file</p>
+      <h2>One module record carries the research, teaching, and visual direction</h2>
+      <div class="two-col">
+        <div class="panel"><h3>What the manuscript contains</h3><ul><li>the module value proposition and audience;</li><li>research questions, source inventory, and claim ledger;</li><li>a complete instructor explanation in plain English;</li><li>a utility example, limitation, failure, and decision method;</li><li>graphic instructions that state what each visual teaches;</li><li>distributed assessments with explanatory feedback;</li><li>frequently asked questions, citations, and approval state.</li></ul></div>
+        <div class="panel"><h3>Graphics must teach</h3><p>A graphic is chosen because a process, relationship, comparison, cause, hierarchy, quantity, place, or change is easier to understand visually. Decorative technology images do not count.</p><p>Each visual states what it must show, how the learner uses it, the conclusion the learner should reach, its accessible description, and its mobile behavior.</p><a class="button secondary" href="../../research/MODULE-RESEARCH-AND-VISUAL-BRIEF-TEMPLATE.md">Open the module template</a></div>
+      </div>
+    </section>
+    <section id="delivery">
+      <p class="section-label">Delivery architecture</p>
+      <h2>The repository controls truth. Articulate teaches. LearnWorlds delivers.</h2>
+      <div class="architecture" aria-label="Content and delivery architecture">
+        <div class="arch-node"><strong>Research and annotations</strong><span>Original sources, transcripts, conversations, and practitioner judgment.</span></div>
+        <div class="arch-node"><strong>GitHub source of truth</strong><span>Versioned syllabus, manuscript, claims, graphics brief, Fieldbook, and approvals.</span></div>
+        <div class="arch-node"><strong>Articulate</strong><span>Learner-facing instruction, interactions, quizzes, accessibility, and SCORM or xAPI package.</span></div>
+        <div class="arch-node"><strong>LearnWorlds</strong><span>Enrollment, cohort access, commerce, progress, community, and course delivery.</span></div>
+        <div class="arch-node"><strong>OWOS knowledge graph</strong><span>Governed concepts, relationships, sources, and deeper evidence exploration.</span></div>
+      </div>
+    </section>
+    <section id="references">
+      <p class="section-label">Reference boundary</p>
+      <h2>Curriculum comparison sources</h2>
+      <div class="panel"><p>These sources informed the curriculum gap review. They do not authorize copying third-party course content and they do not serve as authority for utility operations.</p><ul><li><a href="https://executive.mit.edu/ai-executive-academy.html">MIT Sloan AI Executive Academy, current topics and sample schedule</a></li><li><a href="https://executive.mit.edu/ai-essentials.html">MIT Sloan AI Essentials, playbook, team simulation, action learning, governance, and adoption</a></li><li><a href="https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf">Anthropic, The Complete Guide to Building Skills for Claude</a></li></ul></div>
+    </section>
+  </main>
+  <footer><strong>One Water AI Executive Fellowship</strong><br>One Water Operating System · Powered by APAS.AI<br>Controlled program document. Curriculum and production status remain governed by repository approvals.</footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "id": "modelrun_synthetic_swmm_001",
+  "tenant_id": "tenant_synthetic_demo",
+  "analysis_request_id": "analysis_demo_event_001",
+  "snapshot_id": "snapshot_synthetic_event_001",
+  "model": {
+    "id": "model_synthetic_swmm_001",
+    "version": "0.0.0-demo",
+    "engine": "swmm",
+    "engine_version": "5.2.4",
+    "file_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333"
+  },
+  "purpose": "exploration",
+  "status": "blocked",
+  "assurance_state": "draft",
+  "requested_outputs": [
+    "M-35",
+    "M-36",
+    "M-37",
+    "M-38",
+    "M-39",
+    "M-40"
+  ],
+  "settings": {},
+  "requested_by": {
+    "actor_id": "agent_synthetic_demo",
+    "actor_type": "agent"
+  },
+  "created_at": "2026-07-29T09:15:00-04:00",
+  "started_at": null,
+  "completed_at": null,
+  "worker_manifest_hash": null,
+  "artifact_refs": [],
+  "warning_codes": [
+    "MODEL_NOT_APPROVED_FOR_EXECUTION",
+    "SYNTHETIC_EXAMPLE_NOT_FACILITY_DATA"
+  ],
+  "error": {
+    "code": "MODEL_ASSURANCE_BLOCKED",
+    "message": "The draft synthetic model is not eligible for execution."
+  }
+}

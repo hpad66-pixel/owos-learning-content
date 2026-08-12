@@ -1,0 +1,75 @@
+schema_version: 1
+formula_id: F-EXAMPLE-001
+version: 0.0.0-template
+status: template_not_executable
+name: Replace with controlled formula name
+purpose: Explain the exact question answered.
+evidence_boundary:
+  supports: []
+  does_not_establish: []
+applicability:
+  required_conditions: []
+  prohibited_conditions: []
+inputs:
+  - id: input_quantity
+    meaning: Explain physical meaning.
+    data_type: quantity
+    dimension: flow
+    canonical_unit: gpm
+    allowed_units: [gpm]
+    required: true
+    minimum: null
+    maximum: null
+    source_classes: []
+    quality_requirements: []
+outputs:
+  - id: output_quantity
+    meaning: Explain result meaning.
+    data_type: quantity
+    dimension: flow
+    unit: gpm
+    evidence_class: calculated
+equations:
+  - id: equation_1
+    expression: output_quantity = input_quantity
+    variable_definitions:
+      output_quantity: Controlled output
+      input_quantity: Controlled input
+procedure:
+  - Validate formula status and applicability.
+  - Validate identity, boundary, time, dimension, and units.
+  - Execute using full precision.
+  - Apply declared warning and failure rules.
+  - Store output and complete lineage.
+dependencies: []
+unit_policy:
+  conversion_registry: required
+  calculation_unit: gpm
+  output_unit: gpm
+precision:
+  calculation: implementation_defined_pending_review
+  storage: full_available_precision
+  display: separately_declared
+uncertainty:
+  method: none_declared
+warnings: []
+fail_closed_when:
+  - required_input_missing
+  - unit_unresolved
+  - boundary_unresolved
+  - formula_inactive
+result_contract:
+  schema: schemas/result-envelope.schema.json
+  result_path: replace.me
+allowed_consumers: []
+allowed_decision_uses: []
+required_review_roles: []
+sources: []
+golden_cases:
+  - id: replace_with_positive_case
+  - id: replace_with_blocked_case
+change_control:
+  owner: unassigned
+  approval_required: true
+  semantic_versioning: true
+  old_runs_remain_reproducible: true

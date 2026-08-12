@@ -1,0 +1,159 @@
+schema_version: 1
+artifact_id: owos:architecture-bible:pumpos-ii
+diagrams:
+  - id: AB-D01
+    title: Mega architecture
+    job: Show the complete path from utility evidence to controlled action.
+    truth_boundary: Proposed target architecture, not a deployed-state claim.
+  - id: AB-D02
+    title: Product and bounded-context map
+    job: Separate the PumpOS experience from independently governed services.
+    truth_boundary: Recommended ownership model requiring ratification.
+  - id: AB-D03
+    title: Line Rule
+    job: Show why deterministic calculation and agent composition remain separate.
+    truth_boundary: Existing PumpOS constitutional rule plus proposed I&I extension.
+  - id: AB-D04
+    title: Telemetry ingestion
+    job: Show how sensor values become accepted records and findings.
+    truth_boundary: Combines current PumpOS patterns with target adapters.
+  - id: AB-D05
+    title: Knowledge ingestion
+    job: Show human-governed document classification and commit.
+    truth_boundary: Target workflow. The meeting demo is not represented as production complete.
+  - id: AB-D06
+    title: Manual-to-executable-knowledge pipeline
+    job: Show how a manual becomes reviewed asset requirements and maintenance findings.
+    truth_boundary: Proposed workflow. Automated extraction does not approve requirements.
+  - id: AB-D07
+    title: GraphDB projection and query value
+    job: Explain why graph relationships complement, but do not replace, Postgres.
+    truth_boundary: Current PumpOS projection rule plus proposed knowledge extensions.
+  - id: AB-D08
+    title: Four-level I&I model
+    job: Connect asset, station, basin, and fleet reasoning.
+    truth_boundary: Analytical model, not a claim that every utility has one station per basin.
+  - id: AB-D09
+    title: I&I calculation lifecycle
+    job: Show the approved path from request to reproducible result.
+    truth_boundary: Delegates formulas to the I&I formula registry.
+  - id: AB-D10
+    title: Directed topology and cascade
+    job: Show arbitrary upstream and downstream connectivity.
+    truth_boundary: Operational topology, not a full hydraulic simulation.
+  - id: AB-D11
+    title: Result and provenance envelope
+    job: Show the evidence needed to reproduce and review a number.
+    truth_boundary: Target data contract.
+  - id: AB-D12
+    title: Agent action ladder
+    job: Show increasing authority and required approval.
+    truth_boundary: Proposed policy. No autonomous control is authorized.
+  - id: AB-D13
+    title: PumpOS information architecture
+    job: Show the relationship among dashboard surfaces.
+    truth_boundary: Target dashboard structure.
+  - id: AB-D14
+    title: Fleet Command Center wireframe
+    job: Show executive and operations rollup.
+    truth_boundary: Conceptual wireframe using illustrative states.
+  - id: AB-D15
+    title: Station Workspace wireframe
+    job: Show station evidence, calculations, topology, and action in one context.
+    truth_boundary: Conceptual wireframe using illustrative states.
+  - id: AB-D16
+    title: Basin and I&I Workspace wireframe
+    job: Show rainfall, flow, decomposition, uncertainty, and downstream consequence.
+    truth_boundary: Conceptual wireframe using illustrative states.
+  - id: AB-D17
+    title: Asset and Manual Compliance wireframe
+    job: Show asset identity, manual applicability, tasks, and risk.
+    truth_boundary: Conceptual wireframe using illustrative states.
+  - id: AB-D18
+    title: Data Gap Center wireframe
+    job: Turn missing evidence into an explicit acquisition plan.
+    truth_boundary: Conceptual wireframe.
+  - id: AB-D19
+    title: Action and Approval Center wireframe
+    job: Separate findings, recommendations, drafts, approvals, and completed actions.
+    truth_boundary: Conceptual wireframe.
+  - id: AB-D20
+    title: Deployment and trust boundaries
+    job: Show tenant, identity, secrets, network, and service boundaries.
+    truth_boundary: Proposed AWS target pending formal architecture amendment.
+  - id: AB-D21
+    title: Version-control dependency chain
+    job: Show which changes invalidate calculations, dashboards, agent behavior, and reports.
+    truth_boundary: Proposed governance contract.
+  - id: AB-D22
+    title: Implementation program
+    job: Show the ordered workstreams and gates from decision freeze to field validation.
+    truth_boundary: Recommended execution plan.
+  - id: AB-D23
+    title: Canonical object lifecycle
+    job: Separate request, method selection, calculation run, result, finding, recommendation, approval, action, and verification.
+    truth_boundary: Proposed integrated contract requiring implementation ratification.
+  - id: AB-D24
+    title: Rainfall-to-RDII method chain
+    job: Show how rainfall and basin area feed RTK and event-volume outputs.
+    truth_boundary: Candidate method chain controlled by the formula registry.
+  - id: AB-D25
+    title: Dry-weather and GWI method chain
+    job: Show how accepted flow and sanitary basis produce GWI and normalized metrics.
+    truth_boundary: Method-dependent analytical chain, not a defect-location claim.
+  - id: AB-D26
+    title: Pump and force-main method chain
+    job: Show how geometry, pump curves, and hydraulics produce operating points and capacity comparisons.
+    truth_boundary: Candidate sample analysis, not station certification.
+  - id: AB-D27
+    title: Storage and contingency method chain
+    job: Show how event inflow, capacity, storage, and response time produce shortfall and time screens.
+    truth_boundary: Dynamic routing and constant-peak screening remain visibly distinct.
+  - id: AB-D28
+    title: Energy and operating-time method chain
+    job: Show how operating points and time produce power, energy, cost, cycling, and operating-time measures.
+    truth_boundary: Staged-control dispatch gap remains visible.
+  - id: AB-D29
+    title: Rehabilitation economics method chain
+    job: Show how modeled reduction and cost assumptions produce annual benefit, present value, NPV, BCR, and payback behavior.
+    truth_boundary: Hypothetical scenario with material excluded benefits.
+  - id: AB-D30
+    title: Numbered synthetic dashboards
+    job: Bind 34 displayed sample values to result paths, formula chains, source classes, evidence classes, and decisions.
+    truth_boundary: Synthetic test data only, not a real Miami-Dade facility.
+  - id: AB-D31
+    title: Populated Fleet Command Center
+    job: Show the cross-domain sample values that direct management attention to basin, station, and economic review.
+    truth_boundary: Development mockup populated from synthetic run RUN-MD-EX-01, not an implemented PumpOS screen.
+  - id: AB-D32
+    title: Populated Basin and I&I Workspace
+    job: Display M-01 through M-10 with direct source, formula, result-path, and decision drill-down.
+    truth_boundary: Development mockup using illustrative event data, not an accepted utility event.
+  - id: AB-D33
+    title: Populated Station Hydraulics and Resiliency
+    job: Display M-10 through M-21 for normal capacity, derating, outage storage, and time-to-exhaust review.
+    truth_boundary: Candidate calculation screen, not station certification or an operating command.
+  - id: AB-D34
+    title: Populated Operations, Cycling, and Energy
+    job: Display M-22 through M-26 for cycling, energy, cost, and operating-time review.
+    truth_boundary: Includes modeled and jurisdiction-specific illustrative values with visible evidence classes.
+  - id: AB-D35
+    title: Populated Program and Economics Workspace
+    job: Display M-27 through M-34, including negative economics and the fail-closed payback result.
+    truth_boundary: Hypothetical screening scenario, not capital authorization.
+  - id: AB-D36
+    title: Populated Asset and Manual Compliance
+    job: Connect operating results to approved document applicability, requirements, and missing evidence.
+    truth_boundary: Asset and document identifiers are illustrative; no manufacturer requirement is asserted.
+  - id: AB-D37
+    title: Populated Data Gap Center
+    job: Display all six current formula-contract gaps, affected metrics, and required resolution.
+    truth_boundary: Represents current candidate-contract gaps, not an inventory of field data defects.
+  - id: AB-D38
+    title: Populated Action and Approval Center
+    job: Show how numbered findings support a draft action, named approval, and completion-evidence requirement.
+    truth_boundary: Draft authority only; no autonomous equipment command or project authorization.
+  - id: AB-D39
+    title: Populated Calculation Lineage Explorer
+    job: Display all 34 values with exact result paths, source classes, and formula chains in one auditable view.
+    truth_boundary: Mechanical traceability of the synthetic sample, not independent technical verification.

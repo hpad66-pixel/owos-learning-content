@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="owos-contract" content="owos-concept-brief/2">
 <meta name="owos-compiler-version" content="2.1.0">
-<meta name="owos-package-checksum" content="65ee086e943f537b4736eaf82105b5a457706c63a051c52d8425890cd8e6d07b">
+<meta name="owos-package-checksum" content="2772b07e993388ef5f4e00fc671040b9de534afef5ec2f62cefce714844d050c">
 <meta name="owos-brief-id" content="owos:concept-brief:001">
 <meta name="owos-brief-version" content="EDITION 1.0">
 <meta name="owos-release-state" content="public-review-preview">
@@ -35,13 +35,73 @@ solid var(--gold);background:rgba(29,92,144,.08)}.surface-black .block-callout,
 .surface-black .block-decision,.surface-black .block-protocol,.surface-black .block-diagnostic{
 background:#151515}.claim{display:inline-block;margin:0 7px 8px 0;padding:4px 8px;border-radius:3px;
 font:700 10px ui-monospace,monospace;text-transform:uppercase;background:#dbeaf3;color:#164f74}
+.block-heading{margin-top:44px}.block-metric,.block-evidence,.block-role,
+.block-connected_learning{padding:22px;background:rgba(29,92,144,.05);
+border-top:2px solid var(--blue)}.surface-black .block-metric,.surface-black .block-evidence,
+.surface-black .block-role,.surface-black .block-connected_learning{background:#141414;
+border-top-color:var(--cyan)}
+.orientation{padding:64px 0;background:var(--off);border-bottom:2px solid var(--gold)}
+.orientation h2{font-size:clamp(26px,3.4vw,40px);line-height:1.12;margin:6px 0 26px;
+max-width:900px}.orientation-grid{display:grid;
+grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:18px}
+.orientation-card{padding:20px;background:var(--white);border-left:3px solid var(--blue)}
+.orientation-card h3{margin:0 0 8px;font:700 12px ui-monospace,monospace;
+text-transform:uppercase;letter-spacing:1.1px;color:var(--blue)}
+.orientation-card p,.orientation-card li{margin:0 0 6px;font-size:15px;line-height:1.55}
+.orientation-card ul{margin:0;padding-left:18px}
+.orientation-outcomes{margin-top:26px;padding:24px;background:var(--black);color:#eee}
+.orientation-outcomes h3{margin:0 0 12px;font:700 12px ui-monospace,monospace;
+text-transform:uppercase;letter-spacing:1.1px;color:var(--cyan)}
+.orientation-outcomes ol{margin:0;padding-left:20px;max-width:860px}
+.orientation-outcomes li{margin:0 0 8px;line-height:1.55}
+.orientation-boundary{margin:22px 0 0;max-width:860px;padding:14px 16px;
+border-left:3px solid var(--gold);background:rgba(197,160,74,.1);font-size:15px}
+.definition-set{display:grid;gap:16px;margin-top:20px}
+.definition{padding:20px;background:var(--white);border-left:3px solid var(--gold)}
+.surface-black .definition{background:#141414}
+.definition-term{margin:0 0 8px;font-size:19px;line-height:1.25}
+.definition p{margin:0 0 7px;font-size:15px;line-height:1.55}
+.definition-example{color:#2c4a5e}.surface-black .definition-example{color:#b9cbd5}
+.definition-limit{color:#6b4d16}.surface-black .definition-limit{color:#d8bd7c}
+.worked-example{margin-top:20px;padding:24px;background:rgba(29,92,144,.07);
+border-left:4px solid var(--blue)}.surface-black .worked-example{background:#131c22}
+.worked-label{margin:0 0 12px;font:700 11px ui-monospace,monospace;text-transform:uppercase;
+letter-spacing:1.2px;color:var(--blue)}.surface-black .worked-label{color:var(--cyan)}
+.worked-example p{margin:0 0 9px;font-size:15px;line-height:1.6}
+.visual-component{padding:20px;border:1px dashed #9bb3c2}
+.visual-alt{margin:10px 0 0;font-size:14px;color:#3d5666}
 .claim-pending,.claim-rejected{background:#fde4e4;color:var(--red)}figure{margin:20px 0}
 figure img{max-width:100%;height:auto;display:block}figcaption{padding:14px;background:#edf5f8;
 color:#173145}.interaction{padding:24px;background:#000;color:#fff;border:1px solid #333}
-.boundary{color:#c7d8e2;font-size:14px}.quick-nav{display:flex;flex-wrap:wrap;gap:10px;
-margin-top:28px}.quick-nav a{display:inline-block;padding:10px 14px;border:1px solid #5f7483;
-border-radius:999px;color:#fff;text-decoration:none;font-weight:700}.quick-nav a:hover,
-.quick-nav a:focus-visible{background:#fff;color:#07131d;outline:3px solid var(--gold);
+.boundary{color:#c7d8e2;font-size:14px}.transfer-layout{display:grid;
+grid-template-columns:minmax(280px,.8fr) minmax(320px,1.2fr);gap:24px;margin-top:24px}
+.transfer-controls fieldset{display:grid;gap:8px;margin:0 0 14px;padding:14px;border:1px solid #3e5869}
+.transfer-controls legend{padding:0 7px;color:#8ed0ed;font:700 11px ui-monospace,monospace;
+letter-spacing:.08em}.transfer-choice{display:grid;gap:4px;min-height:58px;padding:11px 12px;
+border:1px solid #54788e;background:#10232e;color:#fff;text-align:left;font:inherit;cursor:pointer}
+.transfer-choice span{color:#b9cbd5;font-size:12px;line-height:1.35}
+.transfer-choice[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 4px 0 0 var(--gold);
+background:#263321}.transfer-choice:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.transfer-choice.compact{min-height:52px}.transfer-stage{display:grid;align-content:start;gap:16px;
+padding:20px;background:#111a20;border:1px solid #324754}.transfer-boundary-graphic{display:grid;
+grid-template-columns:90px minmax(150px,1fr) 90px;align-items:center;gap:10px;padding:26px 8px}
+.transfer-box{display:grid;place-items:center;min-height:150px;padding:18px;border:3px dashed #42d3b3;
+text-align:center}.transfer-box b{color:#fff;font-size:22px}.transfer-box span{color:#9db4c2;
+font-size:12px}.transfer-arrow{position:relative;color:#42d3b3;font:700 11px
+ui-monospace,monospace;text-align:center}.transfer-arrow:after{content:"";display:block;
+height:4px;margin-top:8px;background:#42d3b3}.transfer-arrow.in:after{clip-path:polygon(0 25%,80% 25%,80% 0,100% 50%,80% 100%,80% 75%,0 75%)}
+.transfer-arrow.out:after{clip-path:polygon(0 25%,80% 25%,80% 0,100% 50%,80% 100%,80% 75%,0 75%)}
+.transfer-ledger{display:grid;gap:1px;margin:0;background:#344854}.transfer-ledger div{display:grid;
+grid-template-columns:1fr 1fr;gap:12px;padding:11px 13px;background:#17242c}.transfer-ledger dt{
+color:#9db4c2}.transfer-ledger dd{margin:0;text-align:right;font-weight:800}
+.transfer-ledger .transfer-residual{background:#2c2118}.transfer-residual-value{color:var(--gold);
+font-size:24px}.transfer-result{padding:15px;border-left:4px solid #42d3b3;background:#172d28}
+.transfer-stop{padding:14px;border:1px solid #8e3d3d;background:#281717;color:#ffd8d8}
+.transfer-fallback{padding:18px;background:#fff;color:#10263b}.quick-nav{display:flex;flex-wrap:wrap;gap:10px;
+margin-top:28px}.quick-nav a,.quick-nav button{display:inline-block;padding:10px 14px;border:1px solid #5f7483;
+border-radius:999px;background:transparent;color:#fff;text-decoration:none;font:inherit;font-weight:700;
+cursor:pointer}.quick-nav a:hover,.quick-nav button:hover,
+.quick-nav a:focus-visible,.quick-nav button:focus-visible{background:#fff;color:#07131d;outline:3px solid var(--gold);
 outline-offset:2px}.jar-layout{display:grid;grid-template-columns:minmax(0,1.35fr)
 minmax(250px,.65fr);gap:24px;align-items:start}.jar-controls fieldset{border:1px solid #3e5869;
 border-radius:8px;margin:0 0 16px;padding:14px}.jar-controls legend{padding:0 7px;
@@ -114,6 +174,9 @@ color:#10263b;font:inherit;font-weight:800;cursor:pointer}.assessment-card[aria-
 background:#10232e;color:#f2f1ec}.assessment-match-row{display:grid;
 grid-template-columns:minmax(0,1fr) minmax(180px,.6fr);gap:12px;align-items:center}
 .assessment-match-row select{min-height:44px;padding:8px;font:inherit}
+.assessment-match-row,.assessment-match-row span,.assessment-match-row select{min-width:0;
+max-width:100%}.assessment-match-row select{width:100%}.assessment-match-row span{
+overflow-wrap:anywhere}
 .assessment-work-check{min-height:44px;padding:10px 16px;border:0;background:#174f77;color:#fff;
 font:inherit;font-weight:800}@media(max-width:640px){.assessment-match-row{grid-template-columns:1fr}}
 summary{font-weight:750;cursor:pointer}.connected{padding:60px 0;background:#fff}
@@ -155,13 +218,21 @@ font-weight:800;text-decoration:none}.commercial-card.placeholder .commercial-ac
 .commercial-action:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .commercial-directory-note{margin:18px 0 0;color:#565047;font-size:12px}
 .commercial-directory-note a{color:#174f77;font-weight:800}
+.drawer-connection-grid{display:grid;gap:10px;margin:20px 0}.drawer-connection{padding:14px;
+border:1px solid #d7e4eb;background:#f7fbfd}.drawer-connection span{color:#1d5c90;
+font:700 10px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}
+.drawer-connection h3{margin:.35em 0;color:#10263b;font-size:18px}.drawer-connection p{
+margin:.35em 0;color:#526774;font-size:14px}.drawer-connection a{color:#174f77;font-weight:800}
 footer{padding:32px 0;background:#061f31;color:#bdd5e2;font-size:13px;overflow-wrap:anywhere}
 @media(max-width:760px){.jar-layout{grid-template-columns:1fr}.jar-view{width:min(100%,330px)}}
 @media(max-width:760px){.commercial-head,.commercial-grid{grid-template-columns:1fr}
 .commercial-card{grid-template-columns:130px minmax(0,1fr)}}
+@media(max-width:840px){.transfer-layout{grid-template-columns:1fr}}
 @media(max-width:640px){header{padding:50px 0}.beat{padding:46px 0}.interaction{padding:18px}
 .commercial-card{grid-template-columns:1fr}.commercial-logo-wrap{max-width:220px}
-.jar-control{width:calc(100% - 8px)}}
+.jar-control{width:calc(100% - 8px)}.transfer-boundary-graphic{grid-template-columns:1fr;
+gap:14px}.transfer-arrow{text-align:left}.transfer-ledger div{grid-template-columns:1fr}
+.transfer-ledger dd{text-align:left}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;
 transition:none!important}}
 </style>
@@ -961,6 +1032,73 @@ footer {
 }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+:root {
+  --owos-graphite: #1c1b19;
+  --owos-charcoal: #292826;
+  --owos-charcoal-2: #302f2c;
+  --owos-process: #10232e;
+  --owos-white: #f2f1ec;
+  --owos-body: #d9d6cf;
+  --owos-muted: #a29c91;
+  --owos-line: #3d3a36;
+  --owos-water: #7dc6e8;
+  --owos-water-light: #8ed0ed;
+  --owos-amber: #e0a64a;
+  --owos-green: #4ac88c;
+  --owos-red: #ee7968;
+  --owos-sans: Arial, Barlow, sans-serif;
+  --owos-mono: "Courier New", "Space Mono", monospace;
+}
+
+[data-owos-theme="graphite"] {
+  color-scheme: dark;
+  background: var(--owos-graphite);
+  color: var(--owos-body);
+  font-family: var(--owos-sans);
+}
+
+[data-owos-theme="graphite"] :is(h1, h2, h3, h4) {
+  color: var(--owos-white);
+  font-family: var(--owos-sans);
+  font-weight: 800;
+}
+
+[data-owos-theme="graphite"] :is(a, .owos-concept, .owos-active) {
+  color: var(--owos-water);
+}
+
+[data-owos-theme="graphite"] :focus-visible {
+  outline: 3px solid var(--owos-water);
+  outline-offset: 3px;
+}
+
+[data-owos-theme="graphite"] .owos-surface {
+  border: 1px solid var(--owos-line);
+  background: var(--owos-charcoal);
+  color: var(--owos-body);
+}
+
+[data-owos-theme="graphite"] .owos-technical-label {
+  color: var(--owos-water-light);
+  font-family: var(--owos-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+[data-owos-theme="graphite"] .owos-caution { color: var(--owos-amber); }
+[data-owos-theme="graphite"] .owos-positive { color: var(--owos-green); }
+[data-owos-theme="graphite"] .owos-critical { color: var(--owos-red); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-owos-theme="graphite"] *,
+  [data-owos-theme="graphite"] *::before,
+  [data-owos-theme="graphite"] *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* OWOS Graphite Edition public presentation layer. */
@@ -1987,19 +2125,669 @@ body.drawer-open {
     backdrop-filter: none;
   }
 }
+
+/*
+ * OWOS Concept Brief shared Graphite shell.
+ *
+ * This locks the presentation grammar proven by the Coagulation vs Flocculation
+ * reference without cloning its topic-specific teaching composition.
+ */
+:root {
+  --owos-concept-shell-version: "graphite-reference-1";
+}
+
+body[data-owos-theme="graphite"] {
+  background: var(--owos-graphite);
+  color: var(--owos-body);
+  font-family: var(--owos-sans);
+}
+
+body[data-owos-theme="graphite"] .wrap {
+  width: min(1160px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+body[data-owos-theme="graphite"] header {
+  background:
+    radial-gradient(circle at 84% 20%, rgba(125, 198, 232, .16), transparent 26rem),
+    var(--owos-graphite);
+  border-bottom: 1px solid var(--owos-line);
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] header .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: end;
+}
+
+body[data-owos-theme="graphite"] header h1 {
+  color: var(--owos-white);
+  font-size: clamp(58px, 9vw, 118px);
+  letter-spacing: -.05em;
+}
+
+body[data-owos-theme="graphite"] header p {
+  color: #c8c4bd;
+}
+
+body[data-owos-theme="graphite"] .meta,
+body[data-owos-theme="graphite"] .section-kicker {
+  color: var(--owos-water-light);
+  font-family: var(--owos-mono);
+  letter-spacing: .08em;
+}
+
+body[data-owos-theme="graphite"] .quick-nav a,
+body[data-owos-theme="graphite"] .quick-nav button {
+  border-color: #4a4742;
+  border-radius: 0;
+  background: #232220;
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .quick-nav :is(a, button):hover,
+body[data-owos-theme="graphite"] .quick-nav :is(a, button):focus-visible {
+  border-color: var(--owos-water);
+  background: var(--owos-water);
+  color: var(--owos-process);
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway {
+  padding: clamp(34px, 5vw, 58px) 0;
+  border-block: 1px solid rgba(125, 198, 232, .22);
+  background: var(--owos-process);
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway h2 {
+  margin: 0 0 22px;
+  color: var(--owos-white);
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  background: #48606d;
+  list-style: none;
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway li {
+  position: relative;
+  min-height: 106px;
+  padding: 23px 22px 23px 54px;
+  background: #172f3c;
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] .quick-takeaway li::before {
+  content: counter(list-item);
+  position: absolute;
+  left: 21px;
+  color: var(--owos-water);
+  font: 700 12px var(--owos-mono);
+}
+
+body[data-owos-theme="graphite"] .band {
+  border-block: 1px solid var(--owos-line);
+  background: #252422;
+}
+
+body[data-owos-theme="graphite"] .band::after {
+  height: 2px;
+  background: linear-gradient(90deg, var(--owos-water), rgba(125, 198, 232, 0));
+}
+
+body[data-owos-theme="graphite"] .band-n {
+  color: rgba(142, 208, 237, .72);
+  font-family: var(--owos-sans);
+  font-weight: 800;
+}
+
+body[data-owos-theme="graphite"] .band-k {
+  color: var(--owos-water);
+  font-family: var(--owos-mono);
+}
+
+body[data-owos-theme="graphite"] .band-h {
+  color: var(--owos-white);
+  font-family: var(--owos-sans);
+  font-weight: 800;
+}
+
+body[data-owos-theme="graphite"] .beat {
+  border-bottom: 1px solid rgba(242, 241, 236, .055);
+}
+
+body[data-owos-theme="graphite"] .surface-white,
+body[data-owos-theme="graphite"] .surface-blue {
+  background: #211f1d;
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .surface-off_white {
+  background: var(--owos-charcoal);
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .surface-black {
+  background: var(--owos-graphite);
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .block {
+  max-width: none;
+  margin: 0;
+}
+
+body[data-owos-theme="graphite"] .beat .block > h2:first-child {
+  display: none;
+}
+
+body[data-owos-theme="graphite"] .block > p {
+  max-width: 900px;
+}
+
+body[data-owos-theme="graphite"] .connected-learning,
+body[data-owos-theme="graphite"] .community-public,
+body[data-owos-theme="graphite"] .sop-workspace,
+body[data-owos-theme="graphite"] .commercial-zone,
+body[data-owos-theme="graphite"] .concept-finish {
+  padding: clamp(64px, 9vw, 120px) 0;
+}
+
+body[data-owos-theme="graphite"] .connected-learning {
+  border-top: 1px solid var(--owos-line);
+  background: #171614;
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] .connected-learning h2,
+body[data-owos-theme="graphite"] .community-public h2,
+body[data-owos-theme="graphite"] .sop-workspace h2,
+body[data-owos-theme="graphite"] .commercial-zone h2 {
+  max-width: 800px;
+  margin: 0 0 18px;
+  font-size: clamp(36px, 5vw, 68px);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+body[data-owos-theme="graphite"] .connection-grid,
+body[data-owos-theme="graphite"] .drawer-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 34px;
+  border: 1px solid #49463f;
+  background: #49463f;
+}
+
+body[data-owos-theme="graphite"] .connection-card {
+  padding: 28px;
+  background: #252422;
+  color: var(--owos-body);
+}
+
+body[data-owos-theme="graphite"] .connection-card > span {
+  color: var(--owos-water);
+  font: 700 10px var(--owos-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+body[data-owos-theme="graphite"] .connection-card p {
+  color: #c8c1b6;
+}
+
+body[data-owos-theme="graphite"] .connection-card a,
+body[data-owos-theme="graphite"] .drawer-bottom-link {
+  color: var(--owos-water);
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+body[data-owos-theme="graphite"] .community-layout,
+body[data-owos-theme="graphite"] .sop-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+  gap: clamp(34px, 6vw, 80px);
+  align-items: start;
+}
+
+body[data-owos-theme="graphite"] .community-public,
+body[data-owos-theme="graphite"] .commercial-zone,
+body[data-owos-theme="graphite"] .concept-finish {
+  color-scheme: light;
+  border-top: 1px solid #d9d1c5;
+  background: #f3efe8;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .community-public :is(h2, h3),
+body[data-owos-theme="graphite"] .commercial-zone :is(h2, h3),
+body[data-owos-theme="graphite"] .concept-finish :is(h2, h3) {
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .community-public p,
+body[data-owos-theme="graphite"] .commercial-zone p,
+body[data-owos-theme="graphite"] .concept-finish p {
+  color: #565047;
+}
+
+body[data-owos-theme="graphite"] .privacy-warning {
+  margin: 24px 0;
+  padding: 16px;
+  border-left: 4px solid var(--owos-amber);
+  background: #f2ead6;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .question-list {
+  display: grid;
+  gap: 10px;
+}
+
+body[data-owos-theme="graphite"] .seed-question {
+  padding: 18px;
+  border: 1px solid #ccc3b7;
+  background: #fff;
+  color: #211f1b;
+  font: 700 15px/1.45 var(--owos-sans);
+  text-align: left;
+}
+
+body[data-owos-theme="graphite"] .primary-action,
+body[data-owos-theme="graphite"] .secondary-action {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 17px;
+  border: 1px solid var(--owos-water);
+  background: var(--owos-water);
+  color: #07131d;
+  font: 800 13px var(--owos-sans);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body[data-owos-theme="graphite"] .secondary-action {
+  border-color: #847e75;
+  background: transparent;
+  color: inherit;
+}
+
+body[data-owos-theme="graphite"] .sop-workspace {
+  border-top: 1px solid rgba(125, 198, 232, .28);
+  background: var(--owos-process);
+  color: var(--owos-white);
+}
+
+body[data-owos-theme="graphite"] .sop-grid :is(.sop-outline-card, .sop-boundary-card) {
+  padding: 28px;
+  background: #f3efe8;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .sop-grid :is(h3, p, li) {
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .sop-outline-card ol {
+  display: grid;
+  gap: 1px;
+  padding: 0;
+  border: 1px solid #cfc7bb;
+  background: #cfc7bb;
+  list-style: none;
+  counter-reset: outline;
+}
+
+body[data-owos-theme="graphite"] .sop-outline-card li {
+  position: relative;
+  padding: 18px 18px 18px 58px;
+  background: #fff;
+  counter-increment: outline;
+}
+
+body[data-owos-theme="graphite"] .sop-outline-card li::before {
+  content: counter(outline, decimal-leading-zero);
+  position: absolute;
+  top: 18px;
+  left: 17px;
+  color: #0871ad;
+  font: 800 12px var(--owos-mono);
+}
+
+body[data-owos-theme="graphite"] .sop-outline-card li :is(b, span) {
+  display: block;
+}
+
+body[data-owos-theme="graphite"] .commercial-card {
+  border-color: #cfc7ba;
+  background: #fff;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .commercial-logo-wrap {
+  background: #f3efe8;
+}
+
+body[data-owos-theme="graphite"] .final-recap {
+  padding: 0 0 46px;
+  border: 0;
+  border-bottom: 1px solid #cfc7ba;
+  background: transparent;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .final-recap h2 {
+  margin: 0 0 28px;
+  color: #211f1b;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+
+body[data-owos-theme="graphite"] .final-recap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 0;
+  border: 1px solid #cfc7ba;
+  background: #cfc7ba;
+}
+
+body[data-owos-theme="graphite"] .final-recap-grid article {
+  padding: 24px;
+  background: #fff;
+}
+
+body[data-owos-theme="graphite"] .final-recap-grid span {
+  color: #174f77;
+  font: 700 11px var(--owos-mono);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+body[data-owos-theme="graphite"] .community-feedback {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(320px, 1.2fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: start;
+  margin-top: 42px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #211f1b;
+}
+
+body[data-owos-theme="graphite"] .community-feedback form {
+  display: grid;
+  gap: 0;
+  padding: 24px;
+  border: 1px solid #d8d0c4;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(28, 27, 25, .08);
+}
+
+body[data-owos-theme="graphite"] .community-feedback form > label:not(.testimonial-consent) {
+  margin: 0 0 7px;
+  color: #211f1b;
+  font: 700 11px/1.3 var(--owos-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body[data-owos-theme="graphite"] .community-feedback :is(input, select, textarea) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border: 1px solid #aaa092;
+  border-radius: 3px;
+  background: #fff;
+  color: #211f1b;
+  font: inherit;
+}
+
+body[data-owos-theme="graphite"] .community-feedback textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+body[data-owos-theme="graphite"] .testimonial-consent {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 18px;
+  color: #4e4941;
+  font-size: 12px;
+}
+
+body[data-owos-theme="graphite"] .testimonial-consent input {
+  flex: none;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 1px 0 0;
+}
+
+body[data-owos-theme="graphite"] .context-drawer {
+  color-scheme: light;
+  border-left: 1px solid #d7d2ca;
+  background: #f7f5ef;
+  color: #242321;
+}
+
+body[data-owos-theme="graphite"] .context-drawer :is(h2, h3) {
+  color: #1c1b19;
+}
+
+body[data-owos-theme="graphite"] .drawer-connection {
+  border-color: #d4d0c8;
+  background: #fff;
+}
+
+body[data-owos-theme="graphite"] footer {
+  border-top: 1px solid var(--owos-line);
+  background: #151412;
+  color: var(--owos-muted);
+}
+
+@media (max-width: 760px) {
+  body[data-owos-theme="graphite"] .wrap {
+    width: min(1160px, calc(100% - 32px));
+  }
+
+  body[data-owos-theme="graphite"] header .wrap,
+  body[data-owos-theme="graphite"] .quick-takeaway ol,
+  body[data-owos-theme="graphite"] .connection-grid,
+  body[data-owos-theme="graphite"] .community-layout,
+  body[data-owos-theme="graphite"] .sop-grid,
+  body[data-owos-theme="graphite"] .community-feedback,
+  body[data-owos-theme="graphite"] .final-recap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-owos-theme="graphite"] .community-feedback {
+    padding: 0;
+  }
+
+  body[data-owos-theme="graphite"] .final-recap {
+    padding: 0 0 32px;
+  }
+}
+
+
+/* The Graphite shell defaults headings and body copy to light, so any surface
+   introduced here must declare its own treatment or it inherits light text onto
+   a light panel. These follow the shell palette rather than overriding it. */
+body[data-owos-theme="graphite"] .orientation{background:var(--owos-graphite);
+border-bottom-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation h2{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .orientation-card{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation-card h3{color:var(--owos-water)}
+body[data-owos-theme="graphite"] .orientation-card p,
+body[data-owos-theme="graphite"] .orientation-card li{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-outcomes{background:var(--owos-charcoal)}
+body[data-owos-theme="graphite"] .orientation-outcomes li{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-boundary{background:rgba(125,198,232,.09);
+border-left-color:var(--owos-water);color:var(--owos-body)}
+body[data-owos-theme="graphite"] .orientation-boundary b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .definition{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .definition-term{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .definition-meaning{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .definition-example{color:#bcd9e8}
+body[data-owos-theme="graphite"] .definition-limit{color:#e8cf95}
+body[data-owos-theme="graphite"] .definition b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .worked-example{background:var(--owos-charcoal);
+border-left-color:var(--owos-water)}
+body[data-owos-theme="graphite"] .worked-example p{color:var(--owos-body)}
+body[data-owos-theme="graphite"] .worked-example b{color:var(--owos-white)}
+body[data-owos-theme="graphite"] .worked-label{color:var(--owos-water)}
+/* Contrast repairs for surfaces the Graphite theme inverts. The theme turns the
+   off_white beat band into charcoal and keeps the assessment card and drawers
+   light, so headings and kickers set for the light composition end up unreadable
+   on the surface they actually land on. */
+/* Cards carry a correct text colour for their own background, and a brief
+   may use a light or a dark variant of the same card. Headings and links
+   inherit from the card instead of being forced to one surface. */
+.concept-assessment h3,.concept-assessment h4{color:inherit}
+body[data-owos-theme="graphite"] .concept-assessment h3,
+body[data-owos-theme="graphite"] .concept-assessment h4{color:inherit}
+body[data-owos-theme="graphite"] .learner-question{color:var(--owos-water)}
+body[data-owos-theme="graphite"] .context-drawer .section-kicker{color:#1d5c90}
+/* Gutter repairs. The band header and the status bar carried colour and type
+   but no content geometry, so their text ran to the viewport edge while every
+   beat body sat inside the wrapper. The bar stays full bleed; only its text
+   moves in. */
+.band-in{width:min(1080px,calc(100% - 32px));margin:0 auto;padding:18px 0;
+display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;align-items:baseline}
+.band-txt{min-width:0}
+.status{padding-inline:max(16px,calc((100% - 1080px)/2))}
+body[data-owos-theme="graphite"] .band-in{width:min(1160px,calc(100% - 80px))}
+body[data-owos-theme="graphite"] .status{padding-inline:max(40px,calc((100% - 1160px)/2))}
+@media (max-width:760px){
+.band-in{width:min(1080px,calc(100% - 32px))}
+body[data-owos-theme="graphite"] .band-in{width:min(1160px,calc(100% - 32px))}
+body[data-owos-theme="graphite"] .status{padding-inline:16px}
+}
+/* Native form controls inherit the theme's dark color-scheme, which renders a
+   dark dropdown on the light assessment card. Controls follow the surface they
+   sit on, not the page. */
+.concept-assessment, .concept-assessment select, .concept-assessment input,
+.concept-assessment textarea, .concept-assessment button,
+.community-feedback, .community-feedback input, .community-feedback textarea,
+.community-feedback select, .context-drawer, .context-drawer input,
+.context-drawer select, .context-drawer textarea{color-scheme:light}
+.concept-assessment select, .concept-assessment input[type="text"],
+.concept-assessment textarea, .community-feedback input,
+.community-feedback textarea{background:#fff;color:#10263b;
+border:1px solid #8ba6b8;border-radius:3px;font:inherit;padding:10px 12px;
+min-height:44px}
+.concept-assessment select{appearance:none;
+background-image:linear-gradient(45deg,transparent 50%,#1d5c90 50%),
+linear-gradient(135deg,#1d5c90 50%,transparent 50%);
+background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%;
+background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:38px}
+input[type="radio"],input[type="checkbox"]{width:24px;height:24px;min-height:0;
+accent-color:#1d5c90;flex:0 0 auto}
+.assessment-option{display:flex;gap:12px;align-items:flex-start;
+min-height:44px;padding:11px 14px;cursor:pointer}
+/* Inline links inside cards were 17px tall, below the 24px touch minimum, and
+   were coloured for a surface the card does not always use. They inherit the
+   card's colour and carry an underline so the affordance survives. */
+.feedback-actions a,.community-public a,.connection-card a,
+.commercial-card a:not(.commercial-action),.drawer-connection a:not(.primary-action),
+.commercial-directory-note a,.concept-finish a:not(.primary-action),
+.editorial-table a,.source-table a{
+color:inherit;text-decoration:underline;text-underline-offset:2px;
+display:inline-block;min-height:24px;padding:4px 0}
+body[data-owos-theme="graphite"] .feedback-actions a,
+body[data-owos-theme="graphite"] .community-public a,
+body[data-owos-theme="graphite"] .connection-card a,
+body[data-owos-theme="graphite"] .commercial-card a:not(.commercial-action),
+body[data-owos-theme="graphite"] .commercial-directory-note a,
+body[data-owos-theme="graphite"] .concept-finish a:not(.primary-action){
+color:inherit;text-decoration:underline}
+/* The primary action read dark blue on light cyan at 3.72:1. A primary control
+   should be the most legible thing on its surface, so it becomes solid. */
+a.primary-action,button.primary-action,
+a.commercial-action,button.commercial-action{background:#1d5c90;color:#fff;
+border-color:#1d5c90;text-decoration:none}
+body[data-owos-theme="graphite"] a.primary-action,
+body[data-owos-theme="graphite"] button.primary-action,
+body[data-owos-theme="graphite"] a.commercial-action,
+body[data-owos-theme="graphite"] button.commercial-action{background:#1d5c90;
+color:#fff;border-color:#1d5c90;text-decoration:none}
+
+/* Full-bleed pull quotes escape the wrapper with a negative inline margin
+   computed from the parent width, which only lands exactly when the parent is
+   perfectly centred. It is not, so the box drifted a couple of pixels past the
+   viewport. Anchoring the bleed to the viewport itself removes the dependency:
+   the element is positioned relative to its own left edge, so it cannot overshoot
+   regardless of what the wrapper is doing. */
+.pullquote{position:relative;left:0;width:auto;max-width:100%;
+margin-inline:calc(-1 * clamp(0px, var(--pq-bleed, 0px), 100px));
+overflow-wrap:break-word}
+@media (max-width:760px){.pullquote{margin-inline:0}}
 </style>
 </head>
 <body data-owos-theme="graphite">
 <div class="status" role="status">Educational concept brief. Use this brief to understand the process, not to change a facility setting.</div>
-<header><div class="wrap"><div class="hero-copy"><div class="meta">UNIT PROCESS · CLARIFICATION TRAIN ·
+<header><div class="wrap"><div class="hero-copy"><div class="meta">OWOS CONCEPT BRIEF ·
 owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">VS</span> Flocculation</h1><p>Understand the different jobs of coagulation and flocculation, see how each can fail, and know what evidence to check before changing a process.</p>
 <div class="meta">DRINKING WATER · UNITED STATES AUTHORITY · QUALITATIVE JAR · EDUCATIONAL USE</div>
 </div><div class="hero-side"><div class="meta">OWOS CONCEPT BRIEF · EDITION 1.0</div>
-<p>Two different jobs. Two different mixing purposes. One connected treatment sequence.</p>
+<p>Understand the different jobs of coagulation and flocculation, see how each can fail, and know what evidence to check before changing a process.</p>
 <nav class="quick-nav" aria-label="Concept Brief">
-<a href="#beat-01-why">Start</a><a href="#block-jar">Live jar</a><a href="#block-evidence-boundary">Sources</a><button type="button" data-drawer-open="community-drawer">Community</button>
+<a href="#beat-01-why">Start</a><a href="#block-jar">Live jar</a><button type="button" data-drawer-open="graph-drawer">Graph</button><button type="button" data-drawer-open="community-drawer">Community</button>
 </nav></div></div></header>
 <main>
+<section class="orientation" aria-labelledby="orientation-title">
+  <div class="wrap">
+    <p class="section-kicker">START HERE</p>
+    <h2 id="orientation-title">How coagulation and flocculation do two different jobs in drinking-water clarification, and how to tell which stage a problem belongs to.</h2>
+    <div class="orientation-grid">
+      <div class="orientation-card">
+        <h3>Who this is for</h3>
+        <p>Plant operators, engineers, compliance staff, utility leadership, data and source-water roles, and suppliers who work around drinking-water clarification. You need only the basic awareness that clarification removes particles before filtration. No chemistry background is assumed.</p>
+      </div>
+      <div class="orientation-card">
+        <h3>Why it matters</h3>
+        <p>Treating the two steps as one operation leads people to change a coagulant dose or a mixing setting in response to a symptom they have not traced. That can shift solids loading, clarification, filtration, residuals handling, and chemical cost, and it leaves no record explaining why the change was considered, authorized, monitored, or reversed.</p>
+      </div>
+      <div class="orientation-card">
+        <h3>What you need first</h3>
+        <ul><li>Basic awareness that drinking-water clarification removes particles before filtration.</li></ul>
+      </div>
+      <div class="orientation-card">
+        <h3>How long it takes</h3>
+        <p>Plan for roughly twenty minutes of reading plus a few minutes of participation in the live jar and the two learning checks. Timed novice-reader and active-participation study is still pending, so treat this as an estimate rather than a credit-bearing time claim.</p>
+      </div>
+    </div>
+    <div class="orientation-outcomes">
+      <h3>What you will be able to do</h3>
+      <ol><li>Explain the different jobs of coagulation, flocculation, and downstream separation.</li><li>Diagnose which stage and evidence should be investigated before a process change.</li><li>Explain why an illustrative model cannot authorize a facility operating decision.</li></ol>
+    </div>
+    <p class="orientation-boundary"><b>What this does not cover:</b>
+      This brief does not give facility-specific dosing, mixing, design, regulatory, safety, or health guidance, and it does not replace an approved facility procedure or qualified professional judgment. It centers conventional and direct filtration drinking-water treatment under United States authority. Wastewater, stormwater, reuse, and industrial work appear only as adjacent contexts that need their own separately governed evidence.</p>
+  </div>
+</section>
 <section class="quick-takeaway" aria-labelledby="quick-takeaway-title">
   <div class="wrap">
     <p class="section-kicker">IN 30 SECONDS</p>
@@ -2007,7 +2795,10 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
     <ol><li>Coagulation changes particle stability or creates precipitates that can capture particles.</li><li>Flocculation creates controlled contact so destabilized material can grow into removable aggregates.</li><li>Sedimentation and filtration remove what the upstream chemistry and contact stages prepared.</li></ol>
   </div>
 </section>
-<div class="band"><div class="band-in"><div class="band-n">01</div><div class="band-txt"><div class="band-k">Why does the distinction matter?</div><div class="band-h">Chemistry changes the particle before physics can remove it</div></div></div></div><section class="beat surface-white" id="beat-01-why"><div class="wrap"><p class="learner-question">Why does the distinction matter?</p><article class="block block-prose" id="block-opening"><h2>Chemistry changes the particle before physics can remove it</h2><p>Coagulation and flocculation are often spoken about as one operation, but they solve different problems. Coagulation changes particle stability or creates precipitates that can capture particles. Flocculation gives those destabilized particles and precipitates controlled opportunities to collide and grow into aggregates that the next separation step can handle.</p><p>Use a simple mental model: change the condition, create contact, then separate. Charge neutralization can be part of the first step, but it is not the only coagulation mechanism. Water chemistry, coagulant, dose, pH, alkalinity, temperature, particles, and mixing all affect what actually happens.</p><div class="card-grid stakes"><div class="card"><h3>REGULATORY</h3><p>United States federal drinking water rules evaluate filtered-water performance and the complete treatment train. The rule language does not support saying that regulatory credit is earned at coagulation instead of at the filter.</p><span class="card-label">FEDERAL FRAME</span></div><div class="card"><h3>OPERATIONAL</h3><p>Too little, too much, or poorly applied chemical can change solids loading, clarification, filtration, residuals, and cost. The symptom does not identify one universal cause.</p><span class="card-label">PROCESS CONSEQUENCE</span></div><div class="card"><h3>PUBLIC TRUST</h3><p>Turbidity is an important treatment-performance indicator. It is not a direct pathogen measurement, and it must be interpreted within the applicable treatment and monitoring requirements.</p><span class="card-label">EVIDENCE BOUNDARY</span></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">02</div><div class="band-txt"><div class="band-k">What changes when one condition is weak?</div><div class="band-h">The live jar</div></div></div></div><section class="beat surface-black" id="beat-02-live-jar"><div class="wrap"><p class="learner-question">What changes when one condition is weak?</p><article class="block block-interaction" id="block-jar"><h2>The live jar</h2><p>Start with the balanced teaching state. Change one qualitative condition at a time. Watch which part of the sequence becomes weak, then read the diagnostic explanation. The controls are deliberately non-numeric. They teach cause and consequence without pretending that one dose or mixing value applies to every facility.</p><div class="interaction jar-model" data-stage="raw" data-coagulant="balanced" data-flocculation="balanced"><h3>Qualitative clarification sequence</h3><p>Reveal how chemical condition and flocculation energy affect different stages without presenting a transferable dose or mixing threshold.</p><p class="boundary"><b>Model boundary:</b> Educational qualitative model. Low, balanced, and excess are not quantities or recommendations. Results do not represent a facility, product, water, design, regulation, safety limit, or health limit.</p><div class="sim"><div class="sim-top"><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="raw" aria-label="Raw water" aria-pressed="true"><span class="stage-number">STAGE 00</span><span class="stage-title">Raw water</span><span class="stage-note">Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="coagulation" aria-label="Coagulation" aria-pressed="false"><span class="stage-number">STAGE 01</span><span class="stage-title">Coagulation</span><span class="stage-note">Chemical conditions change particle stability or create precipitates that can capture particles.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="flocculation" aria-label="Flocculation" aria-pressed="false"><span class="stage-number">STAGE 02</span><span class="stage-title">Flocculation</span><span class="stage-note">Controlled contact allows destabilized particles and precipitates to form larger aggregates.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="separation" aria-label="Separation" aria-pressed="false"><span class="stage-number">STAGE 03</span><span class="stage-title">Separation</span><span class="stage-note">Settling or another separation step receives the aggregate population created upstream.</span></button></div><div class="canvas-shell" aria-hidden="true"><canvas class="jar-canvas"></canvas><div class="canvas-label">QUALITATIVE PARTICLE MODEL</div></div><div class="condition-rail"><fieldset><legend>COAGULANT CONDITION</legend><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="low" aria-pressed="false">Insufficient condition</button><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="balanced" aria-pressed="true">Effective teaching condition</button><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="excess" aria-pressed="false">Excess condition</button></fieldset><fieldset><legend>FLOCCULATION ENERGY</legend><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="low" aria-pressed="false">Limited contact</button><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="balanced" aria-pressed="true">Controlled contact</button><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="excess" aria-pressed="false">Excessive energy</button></fieldset></div><div class="sim-cap"><div class="jar-result" role="status" aria-live="polite" aria-atomic="true"><p class="jar-stage-result"></p><p class="jar-condition-result"></p><p class="jar-question"></p></div><div class="qualitative-readout"><span>PARTICLE STATE <b class="readout-particle">DISPERSED</b></span><span>AGGREGATE STATE <b class="readout-aggregate">FINE</b></span><span>NEXT PROCESS <b class="readout-next">COAGULATION</b></span></div></div></div><div class="stability-graphic"><svg viewBox="0 0 900 260" role="img" aria-labelledby="stability-title stability-desc"><title id="stability-title">From particle stability to separable aggregates</title><desc id="stability-desc">A qualitative sequence shows a dispersed particle population, a changed coagulation condition, controlled contact, and larger aggregates that can reach separation.</desc><rect width="900" height="260" fill="#151515"/><text x="24" y="30" class="svg-kicker">FROM STABILITY TO SEPARATION</text><g class="dispersed-particles"><circle cx="105" cy="126" r="25"/><circle cx="196" cy="100" r="18"/><circle cx="184" cy="178" r="15"/><circle cx="90" cy="191" r="11"/></g><text x="145" y="235" class="svg-label">A particle population may remain dispersed</text><path d="M265 132H350" class="svg-arrow"/><text x="307" y="112" class="svg-step">CHANGE CONDITION</text><g class="prepared-particles"><circle cx="430" cy="126" r="22"/><circle cx="481" cy="126" r="22"/><circle cx="456" cy="171" r="17"/></g><text x="455" y="235" class="svg-label">A changed condition creates contact</text><path d="M545 132H630" class="svg-arrow"/><text x="587" y="112" class="svg-step">CONTROL CONTACT</text><g class="aggregate"><circle cx="744" cy="139" r="52"/><circle cx="727" cy="124" r="16"/><circle cx="762" cy="130" r="18"/><circle cx="742" cy="159" r="15"/></g><text x="744" y="235" class="svg-label">Aggregates reach separation</text></svg><div class="stability-mobile"><div><b>01 · DISPERSED</b><span>A particle population may remain dispersed.</span></div><div><b>02 · CONDITION CHANGES</b><span>Destabilization or precipitate capture creates contact.</span></div><div><b>03 · AGGREGATES GROW</b><span>Larger aggregates can reach the next separation step.</span></div></div></div><noscript><div class="jar-fallback"><h4>Text equivalent</h4><ol><li><b>Raw water:</b> Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.</li><li><b>Coagulation:</b> Chemical conditions change particle stability or create precipitates that can capture particles.</li><li><b>Flocculation:</b> Controlled contact allows destabilized particles and precipitates to form larger aggregates.</li><li><b>Separation:</b> Settling or another separation step receives the aggregate population created upstream.</li></ol><ul><li><b>Insufficient condition:</b> The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness.</li><li><b>Effective teaching condition:</b> The model shows particles prepared for contact. This is a teaching state, not a dose target.</li><li><b>Excess condition:</b> The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence.</li><li><b>Limited contact:</b> The model shows small aggregates because contact opportunity is limited.</li><li><b>Controlled contact:</b> The model shows aggregate growth under a qualitative teaching condition.</li><li><b>Excessive energy:</b> The model shows aggregate breakage as a possible consequence of excessive shear.</li></ul><p><b>Next evidence question:</b> Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?</p></div></noscript><script type="application/json" class="jar-data">{"stages":[{"id":"raw","label":"Raw water","explanation":"Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary."},{"id":"coagulation","label":"Coagulation","explanation":"Chemical conditions change particle stability or create precipitates that can capture particles."},{"id":"flocculation","label":"Flocculation","explanation":"Controlled contact allows destabilized particles and precipitates to form larger aggregates."},{"id":"separation","label":"Separation","explanation":"Settling or another separation step receives the aggregate population created upstream."}],"coagulant":[{"id":"low","label":"Insufficient condition","result":"The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness."},{"id":"balanced","label":"Effective teaching condition","result":"The model shows particles prepared for contact. This is a teaching state, not a dose target."},{"id":"excess","label":"Excess condition","result":"The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence."}],"flocculation":[{"id":"low","label":"Limited contact","result":"The model shows small aggregates because contact opportunity is limited."},{"id":"balanced","label":"Controlled contact","result":"The model shows aggregate growth under a qualitative teaching condition."},{"id":"excess","label":"Excessive energy","result":"The model shows aggregate breakage as a possible consequence of excessive shear."}],"next_evidence_question":"Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?"}</script></div><div class="pullquote"><p>Coagulation changes the condition. Flocculation creates the contact. Separation reveals whether the upstream sequence worked.</p><span>ONE WATER FOUNDATION · CONCEPT BRIEF 001</span></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">03</div><div class="band-txt"><div class="band-k">What language do I need to describe the sequence accurately?</div><div class="band-h">Key terms explained</div></div></div></div><section class="beat surface-white" id="beat-03-terms"><div class="wrap"><p class="learner-question">What language do I need to describe the sequence accurately?</p><article class="block block-prose" id="block-terms"><h2>Key terms explained</h2><p>The language matters because each term points to a different observation, measurement, or decision.</p><div class="card-grid "><div class="card"><h3>COLLOID</h3><p>A very small suspended particle. Whether it settles depends on size, density, shape, water conditions, and particle interactions. Do not treat one size range as a universal settling verdict.</p><div class="example"><b>AT THE PLANT</b>At the plant, ask what the particle population is and how it behaves through the actual train.</div></div><div class="card"><h3>ZETA POTENTIAL</h3><p>An electrokinetic measurement associated with particle interactions. It can inform an investigation, but there is no universal target that applies to every water and coagulant.</p><div class="example"><b>AT THE PLANT</b>Use the instrument as evidence alongside chemistry, jar results, and process performance.</div></div><div class="card"><h3>COAGULANT</h3><p>A chemical that can destabilize particles or form hydroxide precipitates that capture particles. Charge neutralization is one mechanism, not the whole story.</p><div class="example"><b>AT THE PLANT</b>Product chemistry, dose basis, pH, alkalinity, temperature, and application point all matter.</div></div><div class="card"><h3>FLOCCULANT OR POLYMER</h3><p>A polymer can have different jobs, but those jobs cannot be transferred casually between drinking water, wastewater, filtration, and residuals handling.</p><div class="example"><b>AT THE PLANT</b>Define the exact product, sector, purpose, dose basis, and application point before assigning it one fixed job.</div></div><div class="card"><h3>G VALUE</h3><p>G is the mean velocity-gradient parameter used to summarize bulk mixing intensity. It is useful for design and diagnosis, but it does not reveal every local shear condition or prove wasted energy.</p><div class="example"><b>AT THE PLANT</b>Treat G and detention time as design and diagnostic inputs, not universal setpoints or diagnoses.</div></div><div class="card"><h3>TAPERED FLOCCULATION</h3><p>Mixing intensity is reduced through successive stages so aggregate growth can continue with less avoidable breakage.</p><div class="example"><b>AT THE PLANT</b>The actual staging and range must follow the facility design basis and current conditions.</div></div><div class="card"><h3>ALKALINITY</h3><p>The water&#x27;s buffering capacity. Aluminum and iron salts can consume alkalinity and lower pH, which can change coagulation performance.</p><div class="example"><b>AT THE PLANT</b>Review pH and alkalinity with product, dose, and raw-water changes.</div></div><div class="card"><h3>JAR TEST</h3><p>A bench-scale comparison used to examine treatment conditions. It can support a decision when it represents the process and follows the approved facility method.</p><div class="example"><b>AT THE PLANT</b>A jar result is evidence. It is not automatic permission to change a full-scale process.</div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">04</div><div class="band-txt"><div class="band-k">Where does the consequence appear downstream?</div><div class="band-h">Where it sits in the treatment train</div></div></div></div><section class="beat surface-black" id="beat-04-system"><div class="wrap"><p class="learner-question">Where does the consequence appear downstream?</p><article class="block block-visual" id="block-system-fit"><h2>Where it sits in the treatment train</h2><p>Read the map from top to bottom. A weak chemical condition can leave particles poorly prepared for contact. Weak or excessive flocculation can leave aggregates too small, too fragile, or broken. Clarification and filtration then receive a different solids load and particle population. A downstream symptom narrows the investigation, but it does not prove one cause.</p><figure><img src="../visuals/treatment-train-placeholder.svg" alt="Horizontal conventional surface-water treatment train from source through rapid mix, flocculation, separation, filtration, and disinfection. A lower diagnostic rail lists evidence to review before assigning one cause."><figcaption><b>How to read this:</b> Read the treatment train from left to right, then use the lower diagnostic rail to trace a downstream symptom backward through source water, chemistry, mixing, and observations. <b>Conclusion:</b> A problem at one stage changes the load and conditions seen downstream.</figcaption></figure><div class="card-grid "><div class="card"><h3>DRINKING WATER</h3><p>This brief centers conventional and direct filtration drinking-water treatment under United States authority. Facility design and rule applicability still control.</p></div><div class="card"><h3>WASTEWATER</h3><p>Some particle and chemical mechanisms may recur, but objectives, residuals, permits, equipment, and evidence differ. Use a separately governed brief.</p></div><div class="card"><h3>STORMWATER</h3><p>Chemically assisted treatment may be used in specific systems, but flashy flows, permits, receiving waters, and site controls require their own evidence.</p></div><div class="card"><h3>REUSE AND INDUSTRIAL</h3><p>Pretreatment may affect downstream separation and fouling, but the application, water matrix, product, and performance objective must be reviewed separately.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">05</div><div class="band-txt"><div class="band-k">What does a defensible jar-test workflow preserve?</div><div class="band-h">Jar test protocol</div></div></div></div><section class="beat surface-black" id="beat-07-protocol"><div class="wrap"><p class="learner-question">What does a defensible jar-test workflow preserve?</p><article class="block block-protocol" id="block-protocol"><h2>Jar test protocol</h2><p>The original timers and revolutions per minute looked facility-ready. This governed version preserves the three-stage workflow but removes universal settings.</p><div class="protocol-grid"><div class="protocol-step"><div class="step-number">1</div><h3>RAPID MIX</h3><p>Add the approved coagulant according to the facility method and reproduce the relevant rapid-mix condition. Record product, dose basis, water, time, and equipment.</p></div><div class="protocol-step"><div class="step-number">2</div><h3>CONTROLLED FLOCCULATION</h3><p>Reproduce the approved staged contact sequence. Observe formation, size, strength, breakage, and clarity between aggregates without inventing a universal speed.</p></div><div class="protocol-step"><div class="step-number">3</div><h3>SEPARATE AND SAMPLE</h3><p>Stop mixing, use the approved settling or separation interval, and sample from the same defined location and depth so comparisons remain meaningful.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">06</div><div class="band-txt"><div class="band-k">What should I do before changing a setting?</div><div class="band-h">Do this, not that</div></div></div></div><section class="beat surface-white" id="beat-08-judgment"><div class="wrap"><p class="learner-question">What should I do before changing a setting?</p><article class="block block-decision" id="block-decisions"><h2>Do this, not that</h2><p>Good operating judgment starts by separating a symptom from an authorized change. The written change-control pattern below is OWOS recommended governance, not a federal regulatory requirement.</p><div class="comparisons"><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Add every chemical at one convenient point because the process is described as coagulation and flocculation.</p></div><div class="do-this"><span>DO THIS</span><p>Match chemical application to the approved product purpose, process stage, mixing condition, and facility procedure.</p><div class="consequence">Product chemistry and application determine whether a polymer survives, contacts the intended solids, and performs its assigned job.</div></div></div><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Hold one coagulant dose through every source-water condition because it worked before.</p></div><div class="do-this"><span>DO THIS</span><p>Investigate meaningful raw-water and process shifts with the approved monitoring and test method, then follow change authority and documentation.</p><div class="consequence">A facility-specific record explains why a change was considered, authorized, monitored, and reversed if needed.</div></div></div><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Respond to one turbidity result by raising dose alone.</p></div><div class="do-this"><span>DO THIS</span><p>Confirm sample location, pH, alkalinity, temperature, product and feed condition, raw-water change, flow, mixing equipment, and downstream observations.</p><div class="consequence">The same symptom can arise from different chemical, mechanical, sampling, or process causes.</div></div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">07</div><div class="band-txt"><div class="band-k">What is missing from our current decision record?</div><div class="band-h">Where does your plant stand?</div></div></div></div><section class="beat surface-black" id="beat-09-diagnostic"><div class="wrap"><p class="learner-question">What is missing from our current decision record?</p><article class="block block-diagnostic" id="block-diagnostic"><h2>Where does your plant stand?</h2><p>Eight questions. The point is not a score. The point is to expose the missing record before someone reaches for a setting.</p><ol class="audit-list"><li><span>01</span><p>When was the last representative jar or pilot test tied to a meaningful water or process change?</p></li><li><span>02</span><p>Is the rapid-mix and flocculation design basis documented and still representative of the installed equipment?</p></li><li><span>03</span><p>Is each chemical product, purpose, feed point, and authority current and documented?</p></li><li><span>04</span><p>Are pH, alkalinity, temperature, turbidity, flow, dose, and process observations time aligned?</p></li><li><span>05</span><p>Can staff distinguish intended microfloc from a downstream separation problem?</p></li><li><span>06</span><p>Is there a written dose-change procedure with limits, monitoring, rollback, and escalation?</p></li><li><span>07</span><p>Are residuals production and disposal consequences reviewed with chemical changes?</p></li><li><span>08</span><p>Can the facility trace a change from observation to test, authorization, performance, and final record?</p></li></ol><div class="pullquote"><p>A dictionary tells you what a word means. A concept brief tells you what to look for when the process goes wrong.</p><span>ONE WATER FOUNDATION</span></div></article><article class="block block-visual" id="block-cross-sector-transfer"><h2>Carry the question across sectors, not the setting</h2><p>Drinking water, wastewater, and stormwater professionals can share the particle-conditioning and separation mental model. Each sector must reestablish its own source, loading, process, procedure, monitoring, and authority boundary.</p><figure><img src="../visuals/cross-sector-particle-pathways.svg" alt="Three sector-specific rows trace particles or solids from source through conditioning or aggregation to separation. A boundary states that shared physics does not create shared settings or authority."><figcaption><b>How to read this:</b> Read each sector row from left to right, then read the lower boundary rail to see what must be reverified before the concept transfers. <b>Conclusion:</b> Transfer the diagnostic question across sectors, but never transfer a setting or operating instruction without new evidence and qualified authority.</figcaption></figure></article><article class="block block-assessment" id="block-stage-check"><h2>Diagnose before changing</h2><p>Use the complete treatment sequence to decide what a downstream symptom does and does not prove.</p><section class="concept-assessment" id="assessment-stage-check" data-concept-assessment="multiple-choice" data-completion="clarification-stage-check"><p class="assessment-kicker">LEARNING CHECK</p><h3>A filter run becomes short after a source-water change. What is the strongest first conclusion from this brief?</h3><div class="assessment-options"><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="0" data-correct="false"> Increase coagulant dose because short filter runs prove underdosing.</label><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="1" data-correct="true"> Trace source water, chemistry, mixing, clarification, and filter evidence before assigning one cause.</label><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="2" data-correct="false"> Backwash more often because filtration is independent of upstream treatment.</label></div><button type="button" class="assessment-check">Check answer</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. A downstream symptom narrows the investigation but does not prove one upstream cause.</template><template data-incorrect-feedback>The symptom does not authorize a setting change. Follow the evidence chain across the complete clarification and filtration sequence.</template><p class="assessment-retry">Review the treatment-train reading guide and choose the answer that preserves uncertainty and change authority.</p><noscript><p>Enable JavaScript to record this check. The explanation remains in the evidence-backed lesson and structured assessment record.</p></noscript></section></article><article class="block block-assessment" id="block-transfer-check"><h2>See the judgment before you try it</h2><p>Follow one realistic symptom from a tempting shortcut to a responsible evidence question. Then try the same pattern yourself if it would help. The practice is optional and does not ask for facility-sensitive information.</p><section class="concept-assessment guided-rehearsal" id="assessment-evidence-question" data-concept-assessment="reflection" data-optional="true" data-completion="evidence-question-transfer"><p class="assessment-kicker">WORKED DECISION REHEARSAL</p><h3>Watch one shortcut become a responsible evidence question</h3><p class="rehearsal-intro">This is a decision rehearsal, not an operating recommendation. Step through how a learner can investigate a symptom without guessing at a cause or setting.</p><div class="rehearsal-case"><div><span class="rehearsal-label">SCENARIO</span><p>After a source-water change, a filter run becomes shorter than usual. The learner can see the symptom, but does not yet know its cause.</p></div><div class="rehearsal-shortcut"><span class="rehearsal-label">TEMPTING SHORTCUT</span><p>Increase the coagulant dose. Short filter runs must mean the plant is underdosing.</p></div></div><div class="rehearsal-steps"><article class="rehearsal-step" data-rehearsal-step="0"><span>STEP 01</span><h4>Start with the observation</h4><p>Record what changed, when it changed, and where it was observed. In this example, the observation is a shorter filter run after a source-water change.</p></article><article class="rehearsal-step" data-rehearsal-step="1"><span>STEP 02</span><h4>Separate the symptom from the cause</h4><p>A short filter run can narrow the investigation, but it does not prove underdosing. Chemistry, feed condition, mixing, clarification, filtration, sampling, and equipment remain possible evidence paths.</p></article><article class="rehearsal-step" data-rehearsal-step="2"><span>STEP 03</span><h4>Name what is missing</h4><p>Ask for time-aligned source-water measurements, chemical and feed records, process conditions, sample locations, downstream observations, and the approved test or procedure.</p></article><article class="rehearsal-step" data-rehearsal-step="3"><span>STEP 04</span><h4>Preserve authority and control</h4><p>Identify who may review or authorize a change, what will be monitored, and what rollback or escalation boundary applies before anyone changes a setting.</p></article></div><div class="rehearsal-controls" aria-label="Worked example controls"><button type="button" class="rehearsal-back">Previous step</button><span class="rehearsal-progress" role="status" aria-live="polite"></span><button type="button" class="rehearsal-next">Next step</button></div><div class="rehearsal-result"><span class="rehearsal-label">THE BETTER QUESTION</span><p>What evidence do we need from the source water, chemical feed, mixing, clarification, filter, and approved facility procedure to explain the shorter run, and who is authorized to decide, monitor, and reverse any change?</p></div><div class="optional-practice"><div><span class="assessment-kicker">OPTIONAL PRACTICE</span><h4>Want to try it yourself?</h4><p>This practice is optional. Use a familiar symptom, but do not enter facility-sensitive values, security information, customer data, or a proposed operating setting.</p></div><button type="button" class="practice-toggle" aria-expanded="false">Try it yourself</button><div class="practice-panel" hidden><label>Write one evidence question<textarea rows="5" data-reflection-response placeholder="We observed… Before changing anything, what evidence, approved procedure, authorized reviewer, monitoring, and rollback boundary do we need?"></textarea></label><button type="button" class="assessment-reveal">Compare with the example</button><div class="assessment-model" hidden><p>A useful question identifies the observation and location, asks for the missing water and process evidence, names the approved procedure and authorized reviewer, and preserves monitoring and rollback without proposing a universal setting.</p><p><b>Try again:</b> Revise the question until it guides investigation without becoming an operating instruction.</p></div><p class="assessment-feedback" role="status" aria-live="polite"></p></div></div><noscript><p>The worked example remains complete above. Optional practice requires JavaScript, but it is not required to use or finish this brief.</p></noscript></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">08</div><div class="band-txt"><div class="band-k">What does this mean for my role?</div><div class="band-h">What this means for you</div></div></div></div><section class="beat surface-white" id="beat-10-roles"><div class="wrap"><p class="learner-question">What does this mean for my role?</p><article class="block block-role" id="block-role-actions"><h2>What this means for you</h2><p>One mechanism creates different responsibilities. Each role should leave with one bounded question, not a generic operating instruction.</p><div class="card-grid "><div class="card"><h3>UTILITY DIRECTOR</h3><p>Ask whether recurring clarification problems point to training, instrumentation, maintenance, procedure, source-water change, or capital need.</p><div class="example"><b>AT THE PLANT</b>Monday: request one time-aligned view of source conditions, chemical use, clarification, filtration, and residuals.</div></div><div class="card"><h3>PLANT OPERATOR</h3><p>Document the symptom, sample location, water conditions, equipment state, approved test, and what changed before the symptom appeared.</p><div class="example"><b>AT THE PLANT</b>Monday: verify that the current jar-test and dose-change procedures match the plant.</div></div><div class="card"><h3>COMPLIANCE AND ENGINEERING</h3><p>Confirm the applicable United States federal rule, facility design basis, monitoring provisions, and record retention before interpreting performance.</p><div class="example"><b>AT THE PLANT</b>Monday: trace one recent process change through approval, monitoring, and the compliance record.</div></div><div class="card"><h3>IT AND SCADA</h3><p>Make source, chemistry, process, and performance records queryable at compatible timestamps without turning the data model into automatic operating authority.</p><div class="example"><b>AT THE PLANT</b>Monday: inspect tag definitions, time resolution, gaps, units, and historian alignment.</div></div><div class="card"><h3>GIS AND SOURCE WATER</h3><p>Connect rainfall, source conditions, intake observations, and plant response as evidence for investigation, not as an automatic dose command.</p><div class="example"><b>AT THE PLANT</b>Monday: compare one documented source-water event with the plant record.</div></div><div class="card"><h3>FINANCE AND RATES</h3><p>Evaluate chemical, energy, residuals, production, labor, monitoring, and risk together. Do not promise savings before the technical case exists.</p><div class="example"><b>AT THE PLANT</b>Monday: define the full cost baseline and the evidence required to test an optimization case.</div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">09</div><div class="band-txt"><div class="band-k">Where can I check the source material?</div><div class="band-h">Sources and scope</div></div></div></div><section class="beat surface-off_white" id="beat-11-evidence"><div class="wrap"><p class="learner-question">Where can I check the source material?</p><article class="block block-evidence" id="block-evidence-boundary"><h2>Sources and scope</h2><p>This brief is grounded in United States federal regulations, EPA guidance, and clearly labeled United States professional context. The links below let readers inspect the original sources.</p><p>Federal requirements depend on the system, treatment technology, and current rule text. This brief explains the concept. It does not replace the applicable regulation, approved facility procedure, or qualified professional judgment.</p><div class="table-wrap"><table class="editorial-table source-table"><thead><tr><th>TYPE</th><th>SOURCE</th><th>HOW TO USE IT</th></tr></thead><tbody><tr><td><span class="source-tier">federal regulation</span></td><td><a href="https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-141/subpart-P/section-141.173">40 CFR 141.173 Filtration</a><small>United States Government Publishing Office</small></td><td>Federal filtration requirements for covered systems serving 10,000 or more people. Confirm system and treatment applicability.</td></tr><tr><td><span class="source-tier">federal regulation</span></td><td><a href="https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-141/subpart-T/section-141.551">40 CFR 141.551 Strengthened combined filter effluent turbidity limits</a><small>United States Government Publishing Office</small></td><td>Federal combined-filter-effluent requirements for covered systems serving fewer than 10,000 people. Confirm system and treatment applicability.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://www.epa.gov/sites/default/files/2020-06/documents/swtr_turbidity_gm_final_508.pdf">Surface Water Treatment Rule Turbidity Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal guidance for interpreting turbidity requirements and treatment optimization. Guidance, not regulation.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=30005ZHV.TXT">Long Term 1 Enhanced Surface Water Treatment Rule Turbidity Provisions Technical Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal technical guidance on coagulation, rapid mixing, flocculation, and turbidity.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1009JLI.TXT">Long Term 2 Enhanced Surface Water Treatment Rule Toolbox Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal guidance on optimization, jar testing, source-water variability, and pilot evaluation.</td></tr><tr><td><span class="source-tier">professional presentation</span></td><td><a href="https://www.pnws-awwa.org/wp-content/uploads/2024/06/Chemical-Mixing-Nothing-but-a-G-Thing.pdf">Chemical Mixing, Nothing But a G Thing?</a><small>Pacific Northwest Section AWWA and Carollo</small></td><td>United States professional engineering context for G and equipment-specific mixing. Not a regulation or standard.</td></tr></tbody></table></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">10</div><div class="band-txt"><div class="band-k">What should I do next?</div><div class="band-h">From understanding to action</div></div></div></div><section class="beat surface-white" id="beat-12-connected"><div class="wrap"><p class="learner-question">What should I do next?</p><article class="block block-connected_learning" id="block-sop-boundary"><h2>From understanding to action</h2><p>Use this brief to build a better question and collect the right evidence. A facility procedure is a different product. It must identify the actual water, approved chemicals, equipment, limits, monitoring, authority, rollback steps, and named approvers.</p><p>Keep the public explanation general. Keep facility-specific operating instructions inside the utility&#x27;s approved procedure and access controls.</p></article><article class="block block-faq" id="block-faq"><details><summary>Should I change dose or mixing based on this brief?</summary><p>No. Use the brief to locate the stage, formulate the question, and collect evidence. A facility change requires site-specific water data, the approved procedure, applicable United States federal requirements, and qualified professional or operational authority.</p></details></article></div></section>
+<div class="band"><div class="band-in"><div class="band-n">01</div><div class="band-txt"><div class="band-k">Why does the distinction matter?</div><div class="band-h">Chemistry changes the particle before physics can remove it</div></div></div></div><section class="beat surface-white" id="beat-01-why"><div class="wrap"><p class="learner-question">Why does the distinction matter?</p><article class="block block-prose" id="block-opening"><h2>Chemistry changes the particle before physics can remove it</h2><p>Coagulation and flocculation are often spoken about as one operation, but they solve different problems. Coagulation changes particle stability or creates precipitates that can capture particles. Flocculation gives those destabilized particles and precipitates controlled opportunities to collide and grow into aggregates that the next separation step can handle.</p><p>Use a simple mental model: change the condition, create contact, then separate. Charge neutralization can be part of the first step, but it is not the only coagulation mechanism. Water chemistry, coagulant, dose, pH, alkalinity, temperature, particles, and mixing all affect what actually happens.</p><div class="card-grid stakes"><div class="card"><h3>REGULATORY</h3><p>United States federal drinking water rules evaluate filtered-water performance and the complete treatment train. The rule language does not support saying that regulatory credit is earned at coagulation instead of at the filter.</p><span class="card-label">FEDERAL FRAME</span></div><div class="card"><h3>OPERATIONAL</h3><p>Too little, too much, or poorly applied chemical can change solids loading, clarification, filtration, residuals, and cost. The symptom does not identify one universal cause.</p><span class="card-label">PROCESS CONSEQUENCE</span></div><div class="card"><h3>PUBLIC TRUST</h3><p>Turbidity is an important treatment-performance indicator. It is not a direct pathogen measurement, and it must be interpreted within the applicable treatment and monitoring requirements.</p><span class="card-label">EVIDENCE BOUNDARY</span></div></div></article><article class="block block-definition" id="block-definitions"><h2>What these words mean before you use them</h2><p>These terms carry most of the confusion in this topic, so read them before the live jar. The jar asks you to tell the stages apart, and that only works if the words already mean something specific to you. Each entry gives a plain meaning, something you can picture, and what the term does not settle.</p><div class="definition-set"><div class="definition"><h4 class="definition-term">Coagulation</h4><p class="definition-meaning">The chemical step. A treatment chemical is added and mixed quickly so that the very small particles carried in the water stop pushing each other apart, or so that a fresh solid forms in the water and traps them.</p><p class="definition-example"><b>For example:</b> A plant feeds an approved aluminum or iron product into rapidly mixing raw water so that the material making the water cloudy becomes able to clump instead of staying evenly spread through it.</p><p class="definition-limit"><b>What it does not tell you:</b> It does not tell you that anything has been removed. Nothing has left the water yet. It also does not identify the right chemical, the right amount, or the right mixing condition for any particular plant.</p></div><div class="definition"><h4 class="definition-term">Flocculation</h4><p class="definition-meaning">The gentle physical step that follows. The water is stirred slowly for a period of time so the treated particles meet each other often enough to stick together and grow large enough for the next stage to take out.</p><p class="definition-example"><b>For example:</b> Water moves slowly through a series of stirred basins, and the specks in it grow from barely visible to clumps you can watch drift past.</p><p class="definition-limit"><b>What it does not tell you:</b> It does not tell you that more stirring is better. Stirring energy that is too high can tear apart what has already formed, and the balance between growth and breakage depends on the water, the chemical, the amount used, the time allowed, and the equipment.</p></div><div class="definition"><h4 class="definition-term">Floc</h4><p class="definition-meaning">The clumps themselves. Loose groupings of particles and chemical solids that hold together well enough to travel through the plant and be taken out as a group rather than one speck at a time.</p><p class="definition-example"><b>For example:</b> Visible specks drifting through a settling basin instead of a haze spread evenly through the water.</p><p class="definition-limit"><b>What it does not tell you:</b> Its appearance alone proves neither success nor failure. Small clumps at one point in the sequence can be an intended intermediate stage, so the sample location, the process stage, and the downstream result all have to be defined before appearance means anything.</p></div><div class="definition"><h4 class="definition-term">Separation</h4><p class="definition-meaning">The physical stages that finally take the clumped material out of the water, first by letting gravity pull it downward in a basin and then by passing the water through a filter bed.</p><p class="definition-example"><b>For example:</b> Solids collect on the floor of a basin and are drawn off, and the clearer water above moves on to the filters.</p><p class="definition-limit"><b>What it does not tell you:</b> A problem observed here does not prove which earlier stage caused it. A short filter run narrows where to look, but the raw water, the chemistry, the chemical feed, the mixing, the contact time, the sample location, and the equipment all remain open questions.</p></div><div class="definition"><h4 class="definition-term">Jar test</h4><p class="definition-meaning">A bench comparison. Several containers of the same water are treated side by side under controlled conditions so that different treatment choices can be compared before anyone changes the full-scale plant.</p><p class="definition-example"><b>For example:</b> Several containers of the day&#x27;s raw water, each given a different approved chemical condition, stirred and then left to settle so the results can be compared against each other.</p><p class="definition-limit"><b>What it does not tell you:</b> A result here is evidence, not permission. It supports a decision only when it represents the actual water and the relevant full-scale processes and follows the approved facility method, and it never authorizes a plant change by itself.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">02</div><div class="band-txt"><div class="band-k">What changes when one condition is weak?</div><div class="band-h">The live jar</div></div></div></div><section class="beat surface-black" id="beat-02-live-jar"><div class="wrap"><p class="learner-question">What changes when one condition is weak?</p><article class="block block-interaction" id="block-jar"><h2>The live jar</h2><p>Start with the balanced teaching state. Change one qualitative condition at a time. Watch which part of the sequence becomes weak, then read the diagnostic explanation. The controls are deliberately non-numeric. They teach cause and consequence without pretending that one dose or mixing value applies to every facility.</p><div class="interaction jar-model" data-stage="raw" data-coagulant="balanced" data-flocculation="balanced"><h3>Qualitative clarification sequence</h3><p>Reveal how chemical condition and flocculation energy affect different stages without presenting a transferable dose or mixing threshold.</p><p class="boundary"><b>Model boundary:</b> Educational qualitative model. Low, balanced, and excess are not quantities or recommendations. Results do not represent a facility, product, water, design, regulation, safety limit, or health limit.</p><div class="sim"><div class="sim-top"><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="raw" aria-label="Raw water" aria-pressed="true"><span class="stage-number">STAGE 00</span><span class="stage-title">Raw water</span><span class="stage-note">Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="coagulation" aria-label="Coagulation" aria-pressed="false"><span class="stage-number">STAGE 01</span><span class="stage-title">Coagulation</span><span class="stage-note">Chemical conditions change particle stability or create precipitates that can capture particles.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="flocculation" aria-label="Flocculation" aria-pressed="false"><span class="stage-number">STAGE 02</span><span class="stage-title">Flocculation</span><span class="stage-note">Controlled contact allows destabilized particles and precipitates to form larger aggregates.</span></button><button type="button" class="jar-control stage-button" data-jar-control="stage" data-jar-value="separation" aria-label="Separation" aria-pressed="false"><span class="stage-number">STAGE 03</span><span class="stage-title">Separation</span><span class="stage-note">Settling or another separation step receives the aggregate population created upstream.</span></button></div><div class="canvas-shell" aria-hidden="true"><canvas class="jar-canvas"></canvas><div class="canvas-label">QUALITATIVE PARTICLE MODEL</div></div><div class="condition-rail"><fieldset><legend>COAGULANT CONDITION</legend><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="low" aria-pressed="false">Insufficient condition</button><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="balanced" aria-pressed="true">Effective teaching condition</button><button type="button" class="jar-control" data-jar-control="coagulant" data-jar-value="excess" aria-pressed="false">Excess condition</button></fieldset><fieldset><legend>FLOCCULATION ENERGY</legend><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="low" aria-pressed="false">Limited contact</button><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="balanced" aria-pressed="true">Controlled contact</button><button type="button" class="jar-control" data-jar-control="flocculation" data-jar-value="excess" aria-pressed="false">Excessive energy</button></fieldset></div><div class="sim-cap"><div class="jar-result" role="status" aria-live="polite" aria-atomic="true"><p class="jar-stage-result"></p><p class="jar-condition-result"></p><p class="jar-question"></p></div><div class="qualitative-readout"><span>PARTICLE STATE <b class="readout-particle">DISPERSED</b></span><span>AGGREGATE STATE <b class="readout-aggregate">FINE</b></span><span>NEXT PROCESS <b class="readout-next">COAGULATION</b></span></div></div></div><div class="stability-graphic"><svg viewBox="0 0 900 260" role="img" aria-labelledby="stability-title stability-desc"><title id="stability-title">From particle stability to separable aggregates</title><desc id="stability-desc">A qualitative sequence shows a dispersed particle population, a changed coagulation condition, controlled contact, and larger aggregates that can reach separation.</desc><rect width="900" height="260" fill="#151515"/><text x="24" y="30" class="svg-kicker">FROM STABILITY TO SEPARATION</text><g class="dispersed-particles"><circle cx="105" cy="126" r="25"/><circle cx="196" cy="100" r="18"/><circle cx="184" cy="178" r="15"/><circle cx="90" cy="191" r="11"/></g><text x="145" y="235" class="svg-label">A particle population may remain dispersed</text><path d="M265 132H350" class="svg-arrow"/><text x="307" y="112" class="svg-step">CHANGE CONDITION</text><g class="prepared-particles"><circle cx="430" cy="126" r="22"/><circle cx="481" cy="126" r="22"/><circle cx="456" cy="171" r="17"/></g><text x="455" y="235" class="svg-label">A changed condition creates contact</text><path d="M545 132H630" class="svg-arrow"/><text x="587" y="112" class="svg-step">CONTROL CONTACT</text><g class="aggregate"><circle cx="744" cy="139" r="52"/><circle cx="727" cy="124" r="16"/><circle cx="762" cy="130" r="18"/><circle cx="742" cy="159" r="15"/></g><text x="744" y="235" class="svg-label">Aggregates reach separation</text></svg><div class="stability-mobile"><div><b>01 · DISPERSED</b><span>A particle population may remain dispersed.</span></div><div><b>02 · CONDITION CHANGES</b><span>Destabilization or precipitate capture creates contact.</span></div><div><b>03 · AGGREGATES GROW</b><span>Larger aggregates can reach the next separation step.</span></div></div></div><noscript><div class="jar-fallback"><h4>Text equivalent</h4><ol><li><b>Raw water:</b> Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary.</li><li><b>Coagulation:</b> Chemical conditions change particle stability or create precipitates that can capture particles.</li><li><b>Flocculation:</b> Controlled contact allows destabilized particles and precipitates to form larger aggregates.</li><li><b>Separation:</b> Settling or another separation step receives the aggregate population created upstream.</li></ol><ul><li><b>Insufficient condition:</b> The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness.</li><li><b>Effective teaching condition:</b> The model shows particles prepared for contact. This is a teaching state, not a dose target.</li><li><b>Excess condition:</b> The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence.</li><li><b>Limited contact:</b> The model shows small aggregates because contact opportunity is limited.</li><li><b>Controlled contact:</b> The model shows aggregate growth under a qualitative teaching condition.</li><li><b>Excessive energy:</b> The model shows aggregate breakage as a possible consequence of excessive shear.</li></ul><p><b>Next evidence question:</b> Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?</p></div></noscript><script type="application/json" class="jar-data">{"stages":[{"id":"raw","label":"Raw water","explanation":"Fine particles are shown dispersed. Their actual charge, size, density, and settling behaviour vary."},{"id":"coagulation","label":"Coagulation","explanation":"Chemical conditions change particle stability or create precipitates that can capture particles."},{"id":"flocculation","label":"Flocculation","explanation":"Controlled contact allows destabilized particles and precipitates to form larger aggregates."},{"id":"separation","label":"Separation","explanation":"Settling or another separation step receives the aggregate population created upstream."}],"coagulant":[{"id":"low","label":"Insufficient condition","result":"The model leaves many particles dispersed. Investigate chemistry, feed condition, pH, alkalinity, raw-water change, and test representativeness."},{"id":"balanced","label":"Effective teaching condition","result":"The model shows particles prepared for contact. This is a teaching state, not a dose target."},{"id":"excess","label":"Excess condition","result":"The model shows a possible loss of performance. The cause cannot be assigned without facility-specific water, chemical, dose, mixing, and process evidence."}],"flocculation":[{"id":"low","label":"Limited contact","result":"The model shows small aggregates because contact opportunity is limited."},{"id":"balanced","label":"Controlled contact","result":"The model shows aggregate growth under a qualitative teaching condition."},{"id":"excess","label":"Excessive energy","result":"The model shows aggregate breakage as a possible consequence of excessive shear."}],"next_evidence_question":"Which sample location, raw-water measurements, chemical records, process conditions, approved procedure, and qualified authority are needed before acting?"}</script></div><div class="pullquote"><p>Coagulation changes the condition. Flocculation creates the contact. Separation reveals whether the upstream sequence worked.</p><span>ONE WATER FOUNDATION · CONCEPT BRIEF 001</span></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">03</div><div class="band-txt"><div class="band-k">What language do I need to describe the sequence accurately?</div><div class="band-h">Key terms explained</div></div></div></div><section class="beat surface-white" id="beat-03-terms"><div class="wrap"><p class="learner-question">What language do I need to describe the sequence accurately?</p><article class="block block-prose" id="block-terms"><h2>Key terms explained</h2><p>The language matters because each term points to a different observation, measurement, or decision.</p><div class="card-grid "><div class="card"><h3>COLLOID</h3><p>A very small suspended particle. Whether it settles depends on size, density, shape, water conditions, and particle interactions. Do not treat one size range as a universal settling verdict.</p><div class="example"><b>AT THE PLANT</b>At the plant, ask what the particle population is and how it behaves through the actual train.</div></div><div class="card"><h3>ZETA POTENTIAL</h3><p>An electrokinetic measurement associated with particle interactions. It can inform an investigation, but there is no universal target that applies to every water and coagulant.</p><div class="example"><b>AT THE PLANT</b>Use the instrument as evidence alongside chemistry, jar results, and process performance.</div></div><div class="card"><h3>COAGULANT</h3><p>A chemical that can destabilize particles or form hydroxide precipitates that capture particles. Charge neutralization is one mechanism, not the whole story.</p><div class="example"><b>AT THE PLANT</b>Product chemistry, dose basis, pH, alkalinity, temperature, and application point all matter.</div></div><div class="card"><h3>FLOCCULANT OR POLYMER</h3><p>A polymer can have different jobs, but those jobs cannot be transferred casually between drinking water, wastewater, filtration, and residuals handling.</p><div class="example"><b>AT THE PLANT</b>Define the exact product, sector, purpose, dose basis, and application point before assigning it one fixed job.</div></div><div class="card"><h3>G VALUE</h3><p>G is the mean velocity-gradient parameter used to summarize bulk mixing intensity. It is useful for design and diagnosis, but it does not reveal every local shear condition or prove wasted energy.</p><div class="example"><b>AT THE PLANT</b>Treat G and detention time as design and diagnostic inputs, not universal setpoints or diagnoses.</div></div><div class="card"><h3>TAPERED FLOCCULATION</h3><p>Mixing intensity is reduced through successive stages so aggregate growth can continue with less avoidable breakage.</p><div class="example"><b>AT THE PLANT</b>The actual staging and range must follow the facility design basis and current conditions.</div></div><div class="card"><h3>ALKALINITY</h3><p>The water&#x27;s buffering capacity. Aluminum and iron salts can consume alkalinity and lower pH, which can change coagulation performance.</p><div class="example"><b>AT THE PLANT</b>Review pH and alkalinity with product, dose, and raw-water changes.</div></div><div class="card"><h3>JAR TEST</h3><p>A bench-scale comparison used to examine treatment conditions. It can support a decision when it represents the process and follows the approved facility method.</p><div class="example"><b>AT THE PLANT</b>A jar result is evidence. It is not automatic permission to change a full-scale process.</div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">04</div><div class="band-txt"><div class="band-k">Where does the consequence appear downstream?</div><div class="band-h">Where it sits in the treatment train</div></div></div></div><section class="beat surface-black" id="beat-04-system"><div class="wrap"><p class="learner-question">Where does the consequence appear downstream?</p><article class="block block-visual" id="block-system-fit"><h2>Where it sits in the treatment train</h2><p>Read the map from top to bottom. A weak chemical condition can leave particles poorly prepared for contact. Weak or excessive flocculation can leave aggregates too small, too fragile, or broken. Clarification and filtration then receive a different solids load and particle population. A downstream symptom narrows the investigation, but it does not prove one cause.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5ODAgNDMwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+Q2xhcmlmaWNhdGlvbiBpbnNpZGUgYSBjb252ZW50aW9uYWwgc3VyZmFjZS13YXRlciB0cmVhdG1lbnQgdHJhaW48L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5BIGhvcml6b250YWwgdHJhaW4gbW92ZXMgZnJvbSBzb3VyY2Ugd2F0ZXIgdGhyb3VnaCByYXBpZCBtaXgsIGZsb2NjdWxhdGlvbiwgc2VwYXJhdGlvbiwgZmlsdHJhdGlvbiwgYW5kIGRpc2luZmVjdGlvbi4gQSBsb3dlciBkaWFnbm9zdGljIHJhaWwgc2hvd3MgdGhlIG9ic2VydmF0aW9ucyB0aGF0IHNob3VsZCBiZSB0cmFjZWQgYmVmb3JlIGFzc2lnbmluZyBvbmUgY2F1c2UuPC9kZXNjPgogIDxzdHlsZT4KICAgIC5raWNrZXJ7Zm9udDo3MDAgMTFweCAiU3BhY2UgTW9ubyIsbW9ub3NwYWNlO2xldHRlci1zcGFjaW5nOjJweDtmaWxsOiNiYWU3Zjl9CiAgICAubm9kZS10aXRsZXtmb250OjQwMCAyMHB4ICJCZWJhcyBOZXVlIixBcmlhbCxzYW5zLXNlcmlmO2xldHRlci1zcGFjaW5nOjFweDtmaWxsOiNmZmY7dGV4dC1hbmNob3I6bWlkZGxlfQogICAgLm5vZGUtbm90ZXtmb250OjcwMCA4LjVweCAiU3BhY2UgTW9ubyIsbW9ub3NwYWNlO2ZpbGw6I2ViY2E2Mjt0ZXh0LWFuY2hvcjptaWRkbGV9CiAgICAuc21hbGx7Zm9udDo0MDAgMTJweCAiQmFybG93IixBcmlhbCxzYW5zLXNlcmlmO2ZpbGw6I2I0YjRiNDt0ZXh0LWFuY2hvcjptaWRkbGV9CiAgICAucmFpbC10aXRsZXtmb250OjcwMCAxMHB4ICJTcGFjZSBNb25vIixtb25vc3BhY2U7bGV0dGVyLXNwYWNpbmc6MS41cHg7ZmlsbDojZWJjYTYyfQogICAgLnJhaWwtdGV4dHtmb250OjQwMCAxNHB4ICJCYXJsb3ciLEFyaWFsLHNhbnMtc2VyaWY7ZmlsbDojZThlOGU4fQogICAgLmZsb3d7c3Ryb2tlOiMzODdkYjg7c3Ryb2tlLXdpZHRoOjM7c3Ryb2tlLWRhc2hhcnJheTo3IDY7YW5pbWF0aW9uOm1vdmUgMS4ycyBsaW5lYXIgaW5maW5pdGV9CiAgICBAa2V5ZnJhbWVzIG1vdmV7dG97c3Ryb2tlLWRhc2hvZmZzZXQ6LTI2fX0KICAgIEBtZWRpYSAocHJlZmVycy1yZWR1Y2VkLW1vdGlvbjpyZWR1Y2Upey5mbG93e2FuaW1hdGlvbjpub25lfX0KICA8L3N0eWxlPgogIDxyZWN0IHdpZHRoPSI5ODAiIGhlaWdodD0iNDMwIiBmaWxsPSIjMTUxNTE1Ii8+CiAgPHRleHQgeD0iMjQiIHk9IjM0IiBjbGFzcz0ia2lja2VyIj5DT05WRU5USU9OQUwgU1VSRkFDRSBXQVRFUiBUUkFJTiDCtyBRVUFMSVRBVElWRSBQUk9DRVNTIFZJRVc8L3RleHQ+CgogIDxnPgogICAgPHJlY3QgeD0iMjIiIHk9IjgwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjgyIiByeD0iNSIgZmlsbD0iIzFlMWUxZSIgc3Ryb2tlPSIjMmEyYTJhIi8+CiAgICA8dGV4dCB4PSI4MiIgeT0iMTE2IiBjbGFzcz0ibm9kZS10aXRsZSI+U09VUkNFPC90ZXh0PgogICAgPHRleHQgeD0iODIiIHk9IjEzOSIgY2xhc3M9InNtYWxsIj5XYXRlciBhbmQgcGFydGljbGVzPC90ZXh0PgoKICAgIDxyZWN0IHg9IjE3NCIgeT0iODAiIHdpZHRoPSIxMzIiIGhlaWdodD0iODIiIHJ4PSI1IiBmaWxsPSIjMWUxZTFlIiBzdHJva2U9IiNlYmNhNjIiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHRleHQgeD0iMjQwIiB5PSIxMTEiIGNsYXNzPSJub2RlLXRpdGxlIj5SQVBJRCBNSVg8L3RleHQ+CiAgICA8dGV4dCB4PSIyNDAiIHk9IjEzNSIgY2xhc3M9Im5vZGUtbm90ZSI+Q09BR1VMQVRJT04gQ09ORElUSU9OPC90ZXh0PgoKICAgIDxyZWN0IHg9IjMzOCIgeT0iODAiIHdpZHRoPSIxNDQiIGhlaWdodD0iODIiIHJ4PSI1IiBmaWxsPSIjMWUxZTFlIiBzdHJva2U9IiNlYmNhNjIiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHRleHQgeD0iNDEwIiB5PSIxMTEiIGNsYXNzPSJub2RlLXRpdGxlIiB0ZXh0TGVuZ3RoPSIxMjIiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyI+RkxPQ0NVTEFUSU9OPC90ZXh0PgogICAgPHRleHQgeD0iNDEwIiB5PSIxMzUiIGNsYXNzPSJub2RlLW5vdGUiPkNPTlRST0xMRUQgQ09OVEFDVDwvdGV4dD4KCiAgICA8cmVjdCB4PSI1MTQiIHk9IjgwIiB3aWR0aD0iMTM0IiBoZWlnaHQ9IjgyIiByeD0iNSIgZmlsbD0iIzFlMWUxZSIgc3Ryb2tlPSIjMmEyYTJhIi8+CiAgICA8dGV4dCB4PSI1ODEiIHk9IjExMSIgY2xhc3M9Im5vZGUtdGl0bGUiIHRleHRMZW5ndGg9IjExMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIj5TRVBBUkFUSU9OPC90ZXh0PgogICAgPHRleHQgeD0iNTgxIiB5PSIxMzkiIGNsYXNzPSJzbWFsbCI+U2V0dGxpbmcgb3Igb3RoZXIgc3RlcDwvdGV4dD4KCiAgICA8cmVjdCB4PSI2ODAiIHk9IjgwIiB3aWR0aD0iMTE4IiBoZWlnaHQ9IjgyIiByeD0iNSIgZmlsbD0iIzFlMWUxZSIgc3Ryb2tlPSIjMmEyYTJhIi8+CiAgICA8dGV4dCB4PSI3MzkiIHk9IjExNiIgY2xhc3M9Im5vZGUtdGl0bGUiIHRleHRMZW5ndGg9Ijk2IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiPkZJTFRSQVRJT048L3RleHQ+CiAgICA8dGV4dCB4PSI3MzkiIHk9IjEzOSIgY2xhc3M9InNtYWxsIj5SZWNlaXZlcyB1cHN0cmVhbSBsb2FkPC90ZXh0PgoKICAgIDxyZWN0IHg9IjgzMCIgeT0iODAiIHdpZHRoPSIxMjgiIGhlaWdodD0iODIiIHJ4PSI1IiBmaWxsPSIjMWUxZTFlIiBzdHJva2U9IiMyYTJhMmEiLz4KICAgIDx0ZXh0IHg9Ijg5NCIgeT0iMTE2IiBjbGFzcz0ibm9kZS10aXRsZSIgdGV4dExlbmd0aD0iMTA4IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiPkRJU0lORkVDVElPTjwvdGV4dD4KICAgIDx0ZXh0IHg9Ijg5NCIgeT0iMTM5IiBjbGFzcz0ic21hbGwiPkNvbXBsZXRlIHRyYWluPC90ZXh0PgogIDwvZz4KCiAgPGcgY2xhc3M9ImZsb3ciPgogICAgPHBhdGggZD0iTTE0MiAxMjFIMTc0Ii8+CiAgICA8cGF0aCBkPSJNMzA2IDEyMUgzMzgiLz4KICAgIDxwYXRoIGQ9Ik00ODIgMTIxSDUxNCIvPgogICAgPHBhdGggZD0iTTY0OCAxMjFINjgwIi8+CiAgICA8cGF0aCBkPSJNNzk4IDEyMUg4MzAiLz4KICA8L2c+CgogIDxnPgogICAgPHBhdGggZD0iTTI0MCAxNjJWMjE0IiBzdHJva2U9IiNlYmNhNjIiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHBhdGggZD0iTTQxMCAxNjJWMjE0IiBzdHJva2U9IiNlYmNhNjIiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHBhdGggZD0iTTU4MSAxNjJWMjE0IiBzdHJva2U9IiM3ZGJjZDciIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHBhdGggZD0iTTczOSAxNjJWMjE0IiBzdHJva2U9IiM3ZGJjZDciIHN0cm9rZS13aWR0aD0iMiIvPgoKICAgIDxyZWN0IHg9IjIyIiB5PSIyMTQiIHdpZHRoPSI5MzYiIGhlaWdodD0iMTc4IiByeD0iNSIgZmlsbD0iIzFlMWUxZSIgc3Ryb2tlPSIjMmEyYTJhIi8+CiAgICA8dGV4dCB4PSI0NiIgeT0iMjQ0IiBjbGFzcz0icmFpbC10aXRsZSI+Rk9MTE9XIFRIRSBDT05TRVFVRU5DRSBCQUNLV0FSRDwvdGV4dD4KCiAgICA8Y2lyY2xlIGN4PSI2MyIgY3k9IjI4MiIgcj0iOCIgZmlsbD0iI2ViY2E2MiIvPgogICAgPHRleHQgeD0iODQiIHk9IjI4NyIgY2xhc3M9InJhaWwtdGV4dCI+Q29uZmlybSBzb3VyY2Utd2F0ZXIgY2hhbmdlLCBwcm9kdWN0LCBmZWVkIGNvbmRpdGlvbiwgcEgsIGFsa2FsaW5pdHksIHRlbXBlcmF0dXJlLCBhbmQgZmxvdy48L3RleHQ+CgogICAgPGNpcmNsZSBjeD0iNjMiIGN5PSIzMjAiIHI9IjgiIGZpbGw9IiM2ZGQwYTMiLz4KICAgIDx0ZXh0IHg9Ijg0IiB5PSIzMjUiIGNsYXNzPSJyYWlsLXRleHQiPk9ic2VydmUgd2hlcmUgYWdncmVnYXRlcyBmb3JtLCByZW1haW4gc21hbGwsIGJlY29tZSBmcmFnaWxlLCBicmVhaywgY2Fycnkgb3Zlciwgb3Igc2V0dGxlLjwvdGV4dD4KCiAgICA8Y2lyY2xlIGN4PSI2MyIgY3k9IjM1OCIgcj0iOCIgZmlsbD0iIzM4N2RiOCIvPgogICAgPHRleHQgeD0iODQiIHk9IjM2MyIgY2xhc3M9InJhaWwtdGV4dCI+Q29tcGFyZSB0aGUgc2VxdWVuY2Ugd2l0aCB0aGUgYXBwcm92ZWQgZmFjaWxpdHkgcHJvY2VkdXJlLCBkZXNpZ24gYmFzaXMsIGFuZCBjdXJyZW50IFVuaXRlZCBTdGF0ZXMgcmVxdWlyZW1lbnRzLjwvdGV4dD4KICA8L2c+CgogIDxyZWN0IHg9IjIyIiB5PSI0MDQiIHdpZHRoPSI5MzYiIGhlaWdodD0iNCIgZmlsbD0iI2ViY2E2MiIvPgo8L3N2Zz4K" alt="Horizontal conventional surface-water treatment train from source through rapid mix, flocculation, separation, filtration, and disinfection. A lower diagnostic rail lists evidence to review before assigning one cause."><figcaption><b>How to read this:</b> Read the treatment train from left to right, then use the lower diagnostic rail to trace a downstream symptom backward through source water, chemistry, mixing, and observations. <b>Conclusion:</b> A problem at one stage changes the load and conditions seen downstream.</figcaption></figure><div class="card-grid "><div class="card"><h3>DRINKING WATER</h3><p>This brief centers conventional and direct filtration drinking-water treatment under United States authority. Facility design and rule applicability still control.</p></div><div class="card"><h3>WASTEWATER</h3><p>Some particle and chemical mechanisms may recur, but objectives, residuals, permits, equipment, and evidence differ. Use a separately governed brief.</p></div><div class="card"><h3>STORMWATER</h3><p>Chemically assisted treatment may be used in specific systems, but flashy flows, permits, receiving waters, and site controls require their own evidence.</p></div><div class="card"><h3>REUSE AND INDUSTRIAL</h3><p>Pretreatment may affect downstream separation and fouling, but the application, water matrix, product, and performance objective must be reviewed separately.</p></div></div></article><article class="block block-example" id="block-worked-example"><h2>Worked example, from one observation to one question</h2><p>Follow a single observation through the three jobs. The point is to watch the reasoning, not to copy the answer.</p><div class="worked-example"><p class="worked-label">Worked example</p><p class="worked-situation"><b>The situation:</b> An operator looks into the last flocculation basin after a rainfall event and sees small specks and a general haze where larger clumps are normally visible. Nothing has been changed yet, and the observation is illustrative rather than a record from any real facility.</p><p class="worked-reasoning"><b>Working it through:</b> Start by naming which job the observation belongs to. Specks and haze at this point describe the contact stage, so the first question is whether the particles were prepared upstream and whether they were then given enough undisturbed opportunity to meet. Appearance alone settles nothing, because small aggregates at this location can be an intended intermediate before further growth and separation.
+
+Work outward from there. A rainfall event can change the raw water, and that changes what the chemical has to act on. The chemical condition may no longer suit that water, because pH, alkalinity, temperature, product, and application point all affect what the added chemical does. Contact may also be the issue, since too little stirring gives too few collisions and too much stirring can break apart what has already formed. Sampling can explain it too, because a sample drawn from a different location or depth is not comparable with the earlier one. Then look at what happened after this basin, because the clarifier and the filter show whether the material was actually removed.
+</p><p class="worked-result"><b>What you conclude:</b> The honest conclusion is a question, not a setting. It reads: which of the raw water, the chemical condition, the contact condition, the sample location, or the equipment changed at the same time as this observation, what does the approved test method say about comparing them, who is authorized to decide, and what would be monitored and reversed if a change were made.</p><p class="worked-boundary"><b>Where this stops:</b> This walkthrough shows how to locate a stage and build a question. It does not identify the cause at any real plant, and it does not carry across to another facility, another chemical, another basin, or another sector. Nothing here authorizes a dose, mixing, chemical, or process change.</p></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">05</div><div class="band-txt"><div class="band-k">What does a defensible jar-test workflow preserve?</div><div class="band-h">Jar test protocol</div></div></div></div><section class="beat surface-black" id="beat-07-protocol"><div class="wrap"><p class="learner-question">What does a defensible jar-test workflow preserve?</p><article class="block block-protocol" id="block-protocol"><h2>Jar test protocol</h2><p>The original timers and revolutions per minute looked facility-ready. This governed version preserves the three-stage workflow but removes universal settings.</p><div class="protocol-grid"><div class="protocol-step"><div class="step-number">1</div><h3>RAPID MIX</h3><p>Add the approved coagulant according to the facility method and reproduce the relevant rapid-mix condition. Record product, dose basis, water, time, and equipment.</p></div><div class="protocol-step"><div class="step-number">2</div><h3>CONTROLLED FLOCCULATION</h3><p>Reproduce the approved staged contact sequence. Observe formation, size, strength, breakage, and clarity between aggregates without inventing a universal speed.</p></div><div class="protocol-step"><div class="step-number">3</div><h3>SEPARATE AND SAMPLE</h3><p>Stop mixing, use the approved settling or separation interval, and sample from the same defined location and depth so comparisons remain meaningful.</p></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">06</div><div class="band-txt"><div class="band-k">What should I do before changing a setting?</div><div class="band-h">Do this, not that</div></div></div></div><section class="beat surface-white" id="beat-08-judgment"><div class="wrap"><p class="learner-question">What should I do before changing a setting?</p><article class="block block-decision" id="block-decisions"><h2>Do this, not that</h2><p>Good operating judgment starts by separating a symptom from an authorized change. The written change-control pattern below is OWOS recommended governance, not a federal regulatory requirement.</p><div class="comparisons"><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Add every chemical at one convenient point because the process is described as coagulation and flocculation.</p></div><div class="do-this"><span>DO THIS</span><p>Match chemical application to the approved product purpose, process stage, mixing condition, and facility procedure.</p><div class="consequence">Product chemistry and application determine whether a polymer survives, contacts the intended solids, and performs its assigned job.</div></div></div><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Hold one coagulant dose through every source-water condition because it worked before.</p></div><div class="do-this"><span>DO THIS</span><p>Investigate meaningful raw-water and process shifts with the approved monitoring and test method, then follow change authority and documentation.</p><div class="consequence">A facility-specific record explains why a change was considered, authorized, monitored, and reversed if needed.</div></div></div><div class="comparison"><div class="not-this"><span>NOT THIS</span><p>Respond to one turbidity result by raising dose alone.</p></div><div class="do-this"><span>DO THIS</span><p>Confirm sample location, pH, alkalinity, temperature, product and feed condition, raw-water change, flow, mixing equipment, and downstream observations.</p><div class="consequence">The same symptom can arise from different chemical, mechanical, sampling, or process causes.</div></div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">07</div><div class="band-txt"><div class="band-k">What is missing from our current decision record?</div><div class="band-h">Where does your plant stand?</div></div></div></div><section class="beat surface-black" id="beat-09-diagnostic"><div class="wrap"><p class="learner-question">What is missing from our current decision record?</p><article class="block block-diagnostic" id="block-diagnostic"><h2>Where does your plant stand?</h2><p>Eight questions. The point is not a score. The point is to expose the missing record before someone reaches for a setting.</p><ol class="audit-list"><li><span>01</span><p>When was the last representative jar or pilot test tied to a meaningful water or process change?</p></li><li><span>02</span><p>Is the rapid-mix and flocculation design basis documented and still representative of the installed equipment?</p></li><li><span>03</span><p>Is each chemical product, purpose, feed point, and authority current and documented?</p></li><li><span>04</span><p>Are pH, alkalinity, temperature, turbidity, flow, dose, and process observations time aligned?</p></li><li><span>05</span><p>Can staff distinguish intended microfloc from a downstream separation problem?</p></li><li><span>06</span><p>Is there a written dose-change procedure with limits, monitoring, rollback, and escalation?</p></li><li><span>07</span><p>Are residuals production and disposal consequences reviewed with chemical changes?</p></li><li><span>08</span><p>Can the facility trace a change from observation to test, authorization, performance, and final record?</p></li></ol><div class="pullquote"><p>A dictionary tells you what a word means. A concept brief tells you what to look for when the process goes wrong.</p><span>ONE WATER FOUNDATION</span></div></article><article class="block block-visual" id="block-cross-sector-transfer"><h2>Carry the question across sectors, not the setting</h2><p>Drinking water, wastewater, and stormwater professionals can share the particle-conditioning and separation mental model. Each sector must reestablish its own source, loading, process, procedure, monitoring, and authority boundary.</p><figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDcyMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkNyb3NzLXNlY3RvciBwYXJ0aWNsZSBjb25kaXRpb25pbmcgYW5kIHNlcGFyYXRpb24gcGF0aHdheXM8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5UaHJlZSBwYXJhbGxlbCBwYXRod2F5cyBzaG93IGRyaW5raW5nIHdhdGVyLCB3YXN0ZXdhdGVyLCBhbmQgc3Rvcm13YXRlciBtb3ZpbmcgZnJvbSBhIGRpc3RpbmN0IHNvdXJjZSBhbmQgb3BlcmF0aW5nIGJvdW5kYXJ5IHRocm91Z2ggcGFydGljbGUgY29uZGl0aW9uaW5nIG9yIGFnZ3JlZ2F0aW9uIHRvIGEgc2VjdG9yLXNwZWNpZmljIHNlcGFyYXRpb24gc3RlcC4gQSBsb3dlciByYWlsIHN0YXRlcyB0aGF0IHNoYXJlZCBwaHlzaWNzIGRvZXMgbm90IGNyZWF0ZSBzaGFyZWQgc2V0dGluZ3MsIHByb2NlZHVyZXMsIG9yIHJlZ3VsYXRvcnkgYXV0aG9yaXR5LjwvZGVzYz4KICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MjAiIHJ4PSIyOCIgZmlsbD0iIzEwMjMyZSIvPgogIDx0ZXh0IHg9IjcwIiB5PSI3OCIgZmlsbD0iI2YyZjFlYyIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjM0IiBmb250LXdlaWdodD0iNzAwIj5SZWxhdGVkIG1lY2hhbmlzbS4gRGlmZmVyZW50IG9wZXJhdGluZyB3b3JsZC48L3RleHQ+CiAgPHRleHQgeD0iNzAiIHk9IjExNiIgZmlsbD0iI2EyOWM5MSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4Ij5UcmFjZSBlYWNoIHJvdyBmcm9tIGl0cyBzb3VyY2UgYm91bmRhcnkgdG8gdGhlIHNlcGFyYXRpb24gam9iLjwvdGV4dD4KICA8ZyBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTkiPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzAgMTY1KSI+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDYwIiBoZWlnaHQ9IjEzMCIgcng9IjIwIiBmaWxsPSIjMWMxYjE5IiBzdHJva2U9IiM3ZGM2ZTgiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICA8dGV4dCB4PSIzMCIgeT0iMzkiIGZpbGw9IiM3ZGM2ZTgiIGZvbnQtd2VpZ2h0PSI3MDAiPkRSSU5LSU5HIFdBVEVSPC90ZXh0PgogICAgICA8cmVjdCB4PSIzMCIgeT0iNjIiIHdpZHRoPSIyMzAiIGhlaWdodD0iNDYiIHJ4PSIxMCIgZmlsbD0iIzMwMmYyYyIvPjx0ZXh0IHg9IjE0NSIgeT0iOTIiIGZpbGw9IiNmMmYxZWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNvdXJjZS13YXRlciBwYXJ0aWNsZXM8L3RleHQ+CiAgICAgIDxwYXRoIGQ9Ik0yODAgODVIMzkwIiBzdHJva2U9IiM3ZGM2ZTgiIHN0cm9rZS13aWR0aD0iNSIvPjxwYXRoIGQ9Ik0zOTAgODVsLTE4LTEydjI0eiIgZmlsbD0iIzdkYzZlOCIvPgogICAgICA8cmVjdCB4PSI0MTAiIHk9IjYyIiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjQ2IiByeD0iMTAiIGZpbGw9IiMzMDJmMmMiLz48dGV4dCB4PSI1MjUiIHk9IjkyIiBmaWxsPSIjZjJmMWVjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Db25kaXRpb24gYW5kIGNvbnRhY3Q8L3RleHQ+CiAgICAgIDxwYXRoIGQ9Ik02NjAgODVINzcwIiBzdHJva2U9IiM3ZGM2ZTgiIHN0cm9rZS13aWR0aD0iNSIvPjxwYXRoIGQ9Ik03NzAgODVsLTE4LTEydjI0eiIgZmlsbD0iIzdkYzZlOCIvPgogICAgICA8cmVjdCB4PSI3OTAiIHk9IjYyIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjQ2IiByeD0iMTAiIGZpbGw9IiMzMDJmMmMiLz48dGV4dCB4PSI5MTAiIHk9IjkyIiBmaWxsPSIjZjJmMWVjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TZXR0bGUgYW5kIGZpbHRlcjwvdGV4dD4KICAgIDwvZz4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcwIDMyMCkiPgogICAgICA8cmVjdCB3aWR0aD0iMTA2MCIgaGVpZ2h0PSIxMzAiIHJ4PSIyMCIgZmlsbD0iIzFjMWIxOSIgc3Ryb2tlPSIjNGFjODhjIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgICAgPHRleHQgeD0iMzAiIHk9IjM5IiBmaWxsPSIjNGFjODhjIiBmb250LXdlaWdodD0iNzAwIj5XQVNURVdBVEVSPC90ZXh0PgogICAgICA8cmVjdCB4PSIzMCIgeT0iNjIiIHdpZHRoPSIyMzAiIGhlaWdodD0iNDYiIHJ4PSIxMCIgZmlsbD0iIzMwMmYyYyIvPjx0ZXh0IHg9IjE0NSIgeT0iOTIiIGZpbGw9IiNmMmYxZWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkJpb2xvZ2ljYWwgYW5kIGNoZW1pY2FsIHNvbGlkczwvdGV4dD4KICAgICAgPHBhdGggZD0iTTI4MCA4NUgzOTAiIHN0cm9rZT0iIzRhYzg4YyIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHBhdGggZD0iTTM5MCA4NWwtMTgtMTJ2MjR6IiBmaWxsPSIjNGFjODhjIi8+CiAgICAgIDxyZWN0IHg9IjQxMCIgeT0iNjIiIHdpZHRoPSIyMzAiIGhlaWdodD0iNDYiIHJ4PSIxMCIgZmlsbD0iIzMwMmYyYyIvPjx0ZXh0IHg9IjUyNSIgeT0iOTIiIGZpbGw9IiNmMmYxZWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFnZ3JlZ2F0ZSB1bmRlciBwcm9jZXNzIGNvbmRpdGlvbnM8L3RleHQ+CiAgICAgIDxwYXRoIGQ9Ik02NjAgODVINzcwIiBzdHJva2U9IiM0YWM4OGMiIHN0cm9rZS13aWR0aD0iNSIvPjxwYXRoIGQ9Ik03NzAgODVsLTE4LTEydjI0eiIgZmlsbD0iIzRhYzg4YyIvPgogICAgICA8cmVjdCB4PSI3OTAiIHk9IjYyIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjQ2IiByeD0iMTAiIGZpbGw9IiMzMDJmMmMiLz48dGV4dCB4PSI5MTAiIHk9IjkyIiBmaWxsPSIjZjJmMWVjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DbGFyaWZ5IGFuZCBoYW5kbGUgc29saWRzPC90ZXh0PgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzAgNDc1KSI+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDYwIiBoZWlnaHQ9IjEzMCIgcng9IjIwIiBmaWxsPSIjMWMxYjE5IiBzdHJva2U9IiNlMGE2NGEiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgICA8dGV4dCB4PSIzMCIgeT0iMzkiIGZpbGw9IiNlMGE2NGEiIGZvbnQtd2VpZ2h0PSI3MDAiPlNUT1JNV0FURVI8L3RleHQ+CiAgICAgIDxyZWN0IHg9IjMwIiB5PSI2MiIgd2lkdGg9IjIzMCIgaGVpZ2h0PSI0NiIgcng9IjEwIiBmaWxsPSIjMzAyZjJjIi8+PHRleHQgeD0iMTQ1IiB5PSI5MiIgZmlsbD0iI2YyZjFlYyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RXZlbnQtZHJpdmVuIHN1c3BlbmRlZCBtYXRlcmlhbDwvdGV4dD4KICAgICAgPHBhdGggZD0iTTI4MCA4NUgzOTAiIHN0cm9rZT0iI2UwYTY0YSIgc3Ryb2tlLXdpZHRoPSI1Ii8+PHBhdGggZD0iTTM5MCA4NWwtMTgtMTJ2MjR6IiBmaWxsPSIjZTBhNjRhIi8+CiAgICAgIDxyZWN0IHg9IjQxMCIgeT0iNjIiIHdpZHRoPSIyMzAiIGhlaWdodD0iNDYiIHJ4PSIxMCIgZmlsbD0iIzMwMmYyYyIvPjx0ZXh0IHg9IjUyNSIgeT0iOTIiIGZpbGw9IiNmMmYxZWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlJvdXRlLCBzdG9yZSwgb3IgdHJlYXQ8L3RleHQ+CiAgICAgIDxwYXRoIGQ9Ik02NjAgODVINzcwIiBzdHJva2U9IiNlMGE2NGEiIHN0cm9rZS13aWR0aD0iNSIvPjxwYXRoIGQ9Ik03NzAgODVsLTE4LTEydjI0eiIgZmlsbD0iI2UwYTY0YSIvPgogICAgICA8cmVjdCB4PSI3OTAiIHk9IjYyIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjQ2IiByeD0iMTAiIGZpbGw9IiMzMDJmMmMiLz48dGV4dCB4PSI5MTAiIHk9IjkyIiBmaWxsPSIjZjJmMWVjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TZXR0bGUsIGZpbHRlciwgb3IgZGlzY2hhcmdlPC90ZXh0PgogICAgPC9nPgogIDwvZz4KICA8cmVjdCB4PSI3MCIgeT0iNjM1IiB3aWR0aD0iMTA2MCIgaGVpZ2h0PSI0OCIgcng9IjEyIiBmaWxsPSIjMjkyODI2Ii8+CiAgPHRleHQgeD0iNjAwIiB5PSI2NjYiIGZpbGw9IiNmMmYxZWMiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VHJhbnNmZXIgdGhlIHF1ZXN0aW9uIGFuZCBtZW50YWwgbW9kZWwuIFJldmVyaWZ5IHRoZSBzb3VyY2UsIGxvYWRpbmcsIHByb2Nlc3MsIHByb2NlZHVyZSwgYW5kIGF1dGhvcml0eS48L3RleHQ+Cjwvc3ZnPgo=" alt="Three sector-specific rows trace particles or solids from source through conditioning or aggregation to separation. A boundary states that shared physics does not create shared settings or authority."><figcaption><b>How to read this:</b> Read each sector row from left to right, then read the lower boundary rail to see what must be reverified before the concept transfers. <b>Conclusion:</b> Transfer the diagnostic question across sectors, but never transfer a setting or operating instruction without new evidence and qualified authority.</figcaption></figure></article><article class="block block-assessment" id="block-stage-check"><h2>Diagnose before changing</h2><p>Use the complete treatment sequence to decide what a downstream symptom does and does not prove.</p><section class="concept-assessment" id="assessment-stage-check" data-concept-assessment="multiple-choice" data-completion="clarification-stage-check"><p class="assessment-kicker">LEARNING CHECK</p><h3>A filter run becomes short after a source-water change. What is the strongest first conclusion from this brief?</h3><div class="assessment-options"><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="0" data-correct="false"> Increase coagulant dose because short filter runs prove underdosing.</label><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="1" data-correct="true"> Trace source water, chemistry, mixing, clarification, and filter evidence before assigning one cause.</label><label class="assessment-option"><input type="radio" name="assessment-stage-check" value="2" data-correct="false"> Backwash more often because filtration is independent of upstream treatment.</label></div><button type="button" class="assessment-check">Check answer</button><p class="assessment-feedback" role="status" aria-live="polite"></p><template data-correct-feedback>Correct. A downstream symptom narrows the investigation but does not prove one upstream cause.</template><template data-incorrect-feedback>The symptom does not authorize a setting change. Follow the evidence chain across the complete clarification and filtration sequence.</template><p class="assessment-retry">Review the treatment-train reading guide and choose the answer that preserves uncertainty and change authority.</p><noscript><p>Enable JavaScript to record this check. The explanation remains in the evidence-backed lesson and structured assessment record.</p></noscript></section></article><article class="block block-assessment" id="block-transfer-check"><h2>See the judgment before you try it</h2><p>Follow one realistic symptom from a tempting shortcut to a responsible evidence question. Then try the same pattern yourself if it would help. The practice is optional and does not ask for facility-sensitive information.</p><section class="concept-assessment guided-rehearsal" id="assessment-evidence-question" data-concept-assessment="reflection" data-optional="true" data-completion="evidence-question-transfer"><p class="assessment-kicker">WORKED DECISION REHEARSAL</p><h3>Watch one shortcut become a responsible evidence question</h3><p class="rehearsal-intro">This is a decision rehearsal, not an operating recommendation. Step through how a learner can investigate a symptom without guessing at a cause or setting.</p><div class="rehearsal-case"><div><span class="rehearsal-label">SCENARIO</span><p>After a source-water change, a filter run becomes shorter than usual. The learner can see the symptom, but does not yet know its cause.</p></div><div class="rehearsal-shortcut"><span class="rehearsal-label">TEMPTING SHORTCUT</span><p>Increase the coagulant dose. Short filter runs must mean the plant is underdosing.</p></div></div><div class="rehearsal-steps"><article class="rehearsal-step" data-rehearsal-step="0"><span>STEP 01</span><h4>Start with the observation</h4><p>Record what changed, when it changed, and where it was observed. In this example, the observation is a shorter filter run after a source-water change.</p></article><article class="rehearsal-step" data-rehearsal-step="1"><span>STEP 02</span><h4>Separate the symptom from the cause</h4><p>A short filter run can narrow the investigation, but it does not prove underdosing. Chemistry, feed condition, mixing, clarification, filtration, sampling, and equipment remain possible evidence paths.</p></article><article class="rehearsal-step" data-rehearsal-step="2"><span>STEP 03</span><h4>Name what is missing</h4><p>Ask for time-aligned source-water measurements, chemical and feed records, process conditions, sample locations, downstream observations, and the approved test or procedure.</p></article><article class="rehearsal-step" data-rehearsal-step="3"><span>STEP 04</span><h4>Preserve authority and control</h4><p>Identify who may review or authorize a change, what will be monitored, and what rollback or escalation boundary applies before anyone changes a setting.</p></article></div><div class="rehearsal-controls" aria-label="Worked example controls"><button type="button" class="rehearsal-back">Previous step</button><span class="rehearsal-progress" role="status" aria-live="polite"></span><button type="button" class="rehearsal-next">Next step</button></div><div class="rehearsal-result"><span class="rehearsal-label">THE BETTER QUESTION</span><p>What evidence do we need from the source water, chemical feed, mixing, clarification, filter, and approved facility procedure to explain the shorter run, and who is authorized to decide, monitor, and reverse any change?</p></div><div class="optional-practice"><div><span class="assessment-kicker">OPTIONAL PRACTICE</span><h4>Want to try it yourself?</h4><p>This practice is optional. Use a familiar symptom, but do not enter facility-sensitive values, security information, customer data, or a proposed operating setting.</p></div><button type="button" class="practice-toggle" aria-expanded="false">Try it yourself</button><div class="practice-panel" hidden><label>Write one evidence question<textarea rows="5" data-reflection-response placeholder="We observed… Before changing anything, what evidence, approved procedure, authorized reviewer, monitoring, and rollback boundary do we need?"></textarea></label><button type="button" class="assessment-reveal">Compare with the example</button><div class="assessment-model" hidden><p>A useful question identifies the observation and location, asks for the missing water and process evidence, names the approved procedure and authorized reviewer, and preserves monitoring and rollback without proposing a universal setting.</p><p><b>Try again:</b> Revise the question until it guides investigation without becoming an operating instruction.</p></div><p class="assessment-feedback" role="status" aria-live="polite"></p></div></div><noscript><p>The worked example remains complete above. Optional practice requires JavaScript, but it is not required to use or finish this brief.</p></noscript></section></article></div></section><div class="band"><div class="band-in"><div class="band-n">08</div><div class="band-txt"><div class="band-k">What does this mean for my role?</div><div class="band-h">What this means for you</div></div></div></div><section class="beat surface-white" id="beat-10-roles"><div class="wrap"><p class="learner-question">What does this mean for my role?</p><article class="block block-role" id="block-role-actions"><h2>What this means for you</h2><p>One mechanism creates different responsibilities. Each role should leave with one bounded question, not a generic operating instruction.</p><div class="card-grid "><div class="card"><h3>UTILITY DIRECTOR</h3><p>Ask whether recurring clarification problems point to training, instrumentation, maintenance, procedure, source-water change, or capital need.</p><div class="example"><b>AT THE PLANT</b>Monday: request one time-aligned view of source conditions, chemical use, clarification, filtration, and residuals.</div></div><div class="card"><h3>PLANT OPERATOR</h3><p>Document the symptom, sample location, water conditions, equipment state, approved test, and what changed before the symptom appeared.</p><div class="example"><b>AT THE PLANT</b>Monday: verify that the current jar-test and dose-change procedures match the plant.</div></div><div class="card"><h3>COMPLIANCE AND ENGINEERING</h3><p>Confirm the applicable United States federal rule, facility design basis, monitoring provisions, and record retention before interpreting performance.</p><div class="example"><b>AT THE PLANT</b>Monday: trace one recent process change through approval, monitoring, and the compliance record.</div></div><div class="card"><h3>IT AND SCADA</h3><p>Make source, chemistry, process, and performance records queryable at compatible timestamps without turning the data model into automatic operating authority.</p><div class="example"><b>AT THE PLANT</b>Monday: inspect tag definitions, time resolution, gaps, units, and historian alignment.</div></div><div class="card"><h3>GIS AND SOURCE WATER</h3><p>Connect rainfall, source conditions, intake observations, and plant response as evidence for investigation, not as an automatic dose command.</p><div class="example"><b>AT THE PLANT</b>Monday: compare one documented source-water event with the plant record.</div></div><div class="card"><h3>FINANCE AND RATES</h3><p>Evaluate chemical, energy, residuals, production, labor, monitoring, and risk together. Do not promise savings before the technical case exists.</p><div class="example"><b>AT THE PLANT</b>Monday: define the full cost baseline and the evidence required to test an optimization case.</div></div></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">09</div><div class="band-txt"><div class="band-k">Where can I check the source material?</div><div class="band-h">Sources and scope</div></div></div></div><section class="beat surface-off_white" id="beat-11-evidence"><div class="wrap"><p class="learner-question">Where can I check the source material?</p><article class="block block-evidence" id="block-evidence-boundary"><h2>Sources and scope</h2><p>This brief is grounded in United States federal regulations, EPA guidance, and clearly labeled United States professional context. The links below let readers inspect the original sources.</p><p>Federal requirements depend on the system, treatment technology, and current rule text. This brief explains the concept. It does not replace the applicable regulation, approved facility procedure, or qualified professional judgment.</p><div class="table-wrap"><table class="editorial-table source-table"><thead><tr><th>TYPE</th><th>SOURCE</th><th>HOW TO USE IT</th></tr></thead><tbody><tr><td><span class="source-tier">federal regulation</span></td><td><a href="https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-141/subpart-P/section-141.173">40 CFR 141.173 Filtration</a><small>United States Government Publishing Office</small></td><td>Federal filtration requirements for covered systems serving 10,000 or more people. Confirm system and treatment applicability.</td></tr><tr><td><span class="source-tier">federal regulation</span></td><td><a href="https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-141/subpart-T/section-141.551">40 CFR 141.551 Strengthened combined filter effluent turbidity limits</a><small>United States Government Publishing Office</small></td><td>Federal combined-filter-effluent requirements for covered systems serving fewer than 10,000 people. Confirm system and treatment applicability.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://www.epa.gov/sites/default/files/2020-06/documents/swtr_turbidity_gm_final_508.pdf">Surface Water Treatment Rule Turbidity Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal guidance for interpreting turbidity requirements and treatment optimization. Guidance, not regulation.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=30005ZHV.TXT">Long Term 1 Enhanced Surface Water Treatment Rule Turbidity Provisions Technical Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal technical guidance on coagulation, rapid mixing, flocculation, and turbidity.</td></tr><tr><td><span class="source-tier">federal guidance</span></td><td><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1009JLI.TXT">Long Term 2 Enhanced Surface Water Treatment Rule Toolbox Guidance Manual</a><small>United States Environmental Protection Agency</small></td><td>Federal guidance on optimization, jar testing, source-water variability, and pilot evaluation.</td></tr><tr><td><span class="source-tier">professional presentation</span></td><td><a href="https://www.pnws-awwa.org/wp-content/uploads/2024/06/Chemical-Mixing-Nothing-but-a-G-Thing.pdf">Chemical Mixing, Nothing But a G Thing?</a><small>Pacific Northwest Section AWWA and Carollo</small></td><td>United States professional engineering context for G and equipment-specific mixing. Not a regulation or standard.</td></tr></tbody></table></div></article></div></section><div class="band"><div class="band-in"><div class="band-n">10</div><div class="band-txt"><div class="band-k">What should I do next?</div><div class="band-h">From understanding to action</div></div></div></div><section class="beat surface-white" id="beat-12-connected"><div class="wrap"><p class="learner-question">What should I do next?</p><article class="block block-connected_learning" id="block-sop-boundary"><h2>From understanding to action</h2><p>Use this brief to build a better question and collect the right evidence. A facility procedure is a different product. It must identify the actual water, approved chemicals, equipment, limits, monitoring, authority, rollback steps, and named approvers.</p><p>Keep the public explanation general. Keep facility-specific operating instructions inside the utility&#x27;s approved procedure and access controls.</p></article><article class="block block-faq" id="block-faq"><details><summary>Should I change dose or mixing based on this brief?</summary><p>No. Use the brief to locate the stage, formulate the question, and collect evidence. A facility change requires site-specific water data, the approved procedure, applicable United States federal requirements, and qualified professional or operational authority.</p></details></article></div></section>
 
 <section class="connected-learning" id="owos-concept-related">
   <div class="wrap">
@@ -2033,10 +2824,10 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
   <div class="wrap">
     <p class="section-kicker">A USEFUL NEXT STEP</p>
     <h2>Take the outline. Build the procedure under control.</h2>
-    <p class="section-lead">The public value is a clear starting structure, not a pretend facility SOP. Copy this outline into the utility's approved workspace, then fill it with site-specific evidence and named authority.</p>
+    <p class="section-lead">The public value is a clear starting structure, not a pretend facility SOP. Copy this outline into the utility&#x27;s approved workspace, then fill it with site-specific evidence and named authority.</p>
     <div class="sop-grid">
       <article class="sop-outline-card">
-        <h3>Clarification response SOP outline</h3>
+        <h3>Concept response SOP outline</h3>
         <ol><li><b>Purpose and decision boundary</b><span>State the problem this procedure governs, what it does not govern, and the conditions that trigger its use.</span></li><li><b>Applicable authority</b><span>Identify the applicable United States federal requirements, approved plans, and facility policies. Obtain separate legal review for any site-specific obligations outside this federal educational brief.</span></li><li><b>Roles and change authority</b><span>Name who observes, tests, recommends, authorizes, implements, verifies, escalates, and closes the record.</span></li><li><b>Required evidence</b><span>List the source-water, chemistry, flow, equipment, sample-location, process, downstream, and historical records required before a change is considered.</span></li><li><b>Approved test method</b><span>Identify the approved jar, pilot, sampling, analytical, calibration, replication, and comparison method.</span></li><li><b>Decision and implementation controls</b><span>Define the approved decision criteria, limits, sequence, communication, documentation, and conditions that prohibit action.</span></li><li><b>Monitoring, rollback, and escalation</b><span>Define what is monitored, how often, by whom, the rollback trigger, rollback authority, and emergency escalation.</span></li><li><b>Record, review, and correction</b><span>Preserve the evidence, decision, authorization, outcome, deviations, lessons, version, review date, and required approvals.</span></li></ol>
         <div class="sop-actions">
           <button type="button" class="primary-action" id="copy-sop-outline">Copy the outline</button>
@@ -2054,6 +2845,15 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
   </div>
 </section>
 <div class="drawer-backdrop" data-drawer-close hidden></div>
+<aside class="context-drawer" id="graph-drawer" role="dialog" aria-modal="true" aria-labelledby="graph-drawer-title" hidden>
+  <button class="drawer-close" type="button" data-drawer-close aria-label="Close concept map">Close</button>
+  <p class="section-kicker">CONCEPT MAP</p>
+  <h2 id="graph-drawer-title">See what this concept connects to</h2>
+  <p>Use these reviewed learning connections to move through the treatment sequence without leaving this brief.</p>
+  <div class="drawer-connection-grid"><article class="drawer-connection"><span>Core concept</span><h3>Sedimentation</h3><p>Follow aggregate formation into gravity separation and learn which observations belong to the settling stage.</p><a href="#block-system-fit">Trace the treatment train</a></article><article class="drawer-connection"><span>Downstream consequence</span><h3>Filtration</h3><p>See why a filter symptom can narrow the investigation without proving that coagulation alone caused it.</p><a href="#block-system-fit">Review downstream effects</a></article><article class="drawer-connection"><span>Practice</span><h3>Jar testing</h3><p>Use a controlled comparison to collect evidence while keeping the facility method and change authority in charge.</p><a href="#block-protocol">Review the workflow</a></article><article class="drawer-connection"><span>Decision question</span><h3>Before changing dose</h3><p>Check the evidence, authority, monitoring, and rollback record before a process change is considered.</p><a href="#block-decisions">Review the decision pattern</a></article></div>
+  <a class="primary-action" href="/os?node=coagulation-vs-flocculation">Open the full OWOS Graph</a>
+  <a class="drawer-bottom-link" href="#owos-concept-related">See all related learning</a>
+</aside>
 <aside class="context-drawer" id="community-drawer" role="dialog" aria-modal="true" aria-labelledby="community-drawer-title" hidden>
   <button class="drawer-close" type="button" data-drawer-close aria-label="Close discussion">Close</button>
   <p class="section-kicker">DISCUSS</p>
@@ -2074,7 +2874,7 @@ owos:concept-brief:001</div><h1>Coagulation<br><span style="color:var(--gold)">V
     <div class="commercial-grid"><article class="commercial-card"
  data-placement-id="apas-concept-house" data-placement-slot="concept-house">
   <div class="commercial-label" data-placement-label>Built and powered by APAS</div>
-  <div class="commercial-logo-wrap"><img data-placement-logo src="../visuals/apas-logo-preview.svg"
+  <div class="commercial-logo-wrap"><img data-placement-logo src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODAgODQiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjIj4KICA8dGl0bGUgaWQ9InRpdGxlIj5BUEFTLmFpPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+UHJvdmlzaW9uYWwgQVBBUy5haSB3b3JkbWFyayBmb3IgcGxhY2VtZW50IHByZXZpZXcuPC9kZXNjPgogIDxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iODQiIHJ4PSIxNCIgZmlsbD0iI2Y4ZjVlZiIvPgogIDx0ZXh0IHg9IjI1IiB5PSI1OCIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0MyIgZm9udC13ZWlnaHQ9IjkwMCIgbGV0dGVyLXNwYWNpbmc9IjEiIGZpbGw9IiMxNzE2MTQiPkFQQVM8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMjEzIiBjeT0iNTMiIHI9IjUiIGZpbGw9IiNlM2I5NGYiLz4KICA8dGV4dCB4PSIyMjQiIHk9IjU5IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxZDVjOTAiPmFpPC90ZXh0Pgo8L3N2Zz4K"
     alt="APAS.ai"></div>
   <div class="commercial-copy">
     <h3 data-placement-headline>Turn governed knowledge into useful learning.</h3>
@@ -2405,6 +3205,17 @@ document.querySelectorAll('[data-concept-assessment="flip-cards"]').forEach(func
     });
   });
 });
+if(location.protocol!=='file:'){
+  window.addEventListener('load',function(){
+    ['/owos-shell.js','/concept-brief-runtime.js'].forEach(function(src){
+      if(document.querySelector('script[src="'+src+'"]'))return;
+      var runtime=document.createElement('script');
+      runtime.src=src;
+      runtime.defer=true;
+      document.body.appendChild(runtime);
+    });
+  },{once:true});
+}
 document.querySelectorAll('[data-concept-assessment="matching"]').forEach(function(check){
   check.querySelector('.assessment-check')?.addEventListener('click',function(){
     var selects=[...check.querySelectorAll('select[data-answer]')];
@@ -2423,35 +3234,54 @@ document.querySelectorAll('[data-concept-assessment="applied-work-product"]').fo
     check.dataset.complete=correct?'true':'false';
   });
 });
+var drawerHistoryActive=false;
+var drawerReturnFocus=null;
 document.querySelectorAll('[data-drawer-open]').forEach(function(button){
   button.addEventListener('click',function(){
     var drawer=document.getElementById(button.dataset.drawerOpen);
     var backdrop=document.querySelector('.drawer-backdrop');
     if(!drawer||!backdrop)return;
+    drawerReturnFocus=button;
     document.querySelectorAll('.context-drawer').forEach(function(peer){peer.hidden=true});
     drawer.hidden=false;
     backdrop.hidden=false;
     document.body.classList.add('drawer-open');
+    if(!drawerHistoryActive){
+      history.pushState(Object.assign({},history.state||{},{owosConnectedDrawer:drawer.id}),'',location.href);
+      drawerHistoryActive=true;
+    }
     drawer.querySelector('.drawer-close').focus();
   });
 });
-function closeDrawers(){
+function hideDrawers(){
   var openDrawer=document.querySelector('.context-drawer:not([hidden])');
-  var opener=openDrawer&&document.querySelector('[data-drawer-open="'+openDrawer.id+'"]');
+  var opener=drawerReturnFocus||(openDrawer&&document.querySelector('[data-drawer-open="'+openDrawer.id+'"]'));
   document.querySelectorAll('.context-drawer').forEach(function(drawer){drawer.hidden=true});
   var backdrop=document.querySelector('.drawer-backdrop');
   if(backdrop)backdrop.hidden=true;
   document.body.classList.remove('drawer-open');
   if(opener)opener.focus();
+  drawerReturnFocus=null;
+}
+function closeDrawers(fromHistory){
+  if(!fromHistory&&drawerHistoryActive){
+    history.back();
+    return;
+  }
+  drawerHistoryActive=false;
+  hideDrawers();
 }
 document.querySelectorAll('[data-drawer-close]').forEach(function(control){
-  control.addEventListener('click',closeDrawers);
+  control.addEventListener('click',function(){closeDrawers(false)});
 });
 document.addEventListener('keydown',function(event){
-  if(event.key==='Escape')closeDrawers();
+  if(event.key==='Escape')closeDrawers(false);
+});
+window.addEventListener('popstate',function(){
+  if(drawerHistoryActive)closeDrawers(true);
 });
 document.querySelectorAll('.context-drawer a[href^="#"]').forEach(function(link){
-  link.addEventListener('click',closeDrawers);
+  link.addEventListener('click',function(){closeDrawers(false)});
 });
 var sopCopy=document.getElementById('copy-sop-outline');
 if(sopCopy){
@@ -2522,7 +3352,7 @@ document.querySelectorAll('.commercial-card[data-placement-slot]').forEach(async
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
   document.documentElement.classList.add('motion-ready');
   var revealTargets=document.querySelectorAll(
-    '.band-in,.block>p,.card,.sim,.stability-graphic,figure,.editorial-table,'+
+    '.band-in,.block>p,.card,.sim,.stability-graphic,.editorial-table,'+
     '.protocol-step,.comparison,.audit-list li,.accuracy-panel,.connected li,'+
     '#owos-concept-community li'
   );

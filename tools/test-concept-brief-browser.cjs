@@ -3,12 +3,20 @@ const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
 const root = path.resolve(__dirname, "..");
-const target = process.argv[3]
-  ? path.resolve(process.argv[3])
-  : path.join(
+const targetArgument = process.argv[3];
+const target = targetArgument && /^https?:\/\//i.test(targetArgument)
+  ? targetArgument
+  : targetArgument
+    ? path.resolve(targetArgument)
+    : path.join(
     root,
-    "concept-briefs/coagulation-vs-flocculation/dist/final-public-candidate.html",
+    // The current published artifact, and the one the build manifest tracks.
+    // This previously pointed at final-public-candidate.html, which stopped
+    // being rebuilt and drifted behind the renderer until the suite could not
+    // find the controls it asserts on.
+    "concept-briefs/coagulation-vs-flocculation/dist/final-federal-publication.html",
   );
+const targetUrl = /^https?:\/\//i.test(target) ? target : pathToFileURL(target).href;
 const outputDir = process.argv[2] || path.join(root, "concept-briefs/coagulation-vs-flocculation/dist");
 const chrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const modes = [
@@ -27,7 +35,7 @@ async function inspect(browser, mode) {
     if (message.type() === "error") errors.push(message.text());
   });
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto(pathToFileURL(target).href, { waitUntil: "load" });
+  await page.goto(targetUrl, { waitUntil: "load" });
   await page.waitForSelector(".jar-model");
   await page.screenshot({
     path: path.join(outputDir, `coagulation-brief-${mode.name}-top.png`),
@@ -69,6 +77,16 @@ async function inspect(browser, mode) {
   const reflectionComplete = await reflection.getAttribute("data-complete");
   const optionalLabelVisible = await reflection.getByText("OPTIONAL PRACTICE", { exact: true }).isVisible();
   const communityOpener = page.getByRole("button", { name: "Community", exact: true });
+  const graphOpener = page.getByRole("button", { name: "Graph", exact: true });
+  await graphOpener.click();
+  const graphDrawerVisible = await page.locator("#graph-drawer").isVisible();
+  const graphDrawerCards = await page.locator("#graph-drawer .drawer-connection").count();
+  await page.evaluate(() => history.back());
+  await page.waitForFunction(() => document.querySelector("#graph-drawer")?.hidden === true);
+  const graphClosedOnHistoryBack = await page.locator("#graph-drawer").isHidden();
+  const graphFocusReturned = await graphOpener.evaluate(
+    (node) => document.activeElement === node,
+  );
   await communityOpener.click();
   const communityDrawerVisible = await page.locator("#community-drawer").isVisible();
   await page.keyboard.press("Escape");
@@ -134,11 +152,29 @@ async function inspect(browser, mode) {
       ),
       assessmentCount: document.querySelectorAll("[data-concept-assessment]").length,
       crossSectorVisual: Boolean(
-        document.querySelector('img[src*="cross-sector-particle-pathways.svg"]'),
+        document.querySelector("#block-cross-sector-transfer img")?.complete
+        && document.querySelector("#block-cross-sector-transfer img")?.naturalWidth,
+      ),
+      treatmentTrainVisual: Boolean(
+        document.querySelector("#block-system-fit img")?.complete
+        && document.querySelector("#block-system-fit img")?.naturalWidth,
       ),
       overflowElements: [...document.querySelectorAll("body *")]
         .map((node) => ({ node, rect: node.getBoundingClientRect() }))
         .filter(({ rect }) => rect.right > innerWidth + 0.5 || rect.left < -0.5)
+        // Content inside a horizontal scroll container is contained by design.
+        // A wide sources table scrolling inside its own wrapper is the correct
+        // responsive pattern, not an overflow defect. This matches the rule in
+        // tools/audit-concept-brief-rendering.cjs so the two tools agree.
+        .filter(({ node }) => {
+          let parent = node.parentElement;
+          while (parent && parent !== document.body) {
+            const overflowX = getComputedStyle(parent).overflowX;
+            if (overflowX === "auto" || overflowX === "scroll") return false;
+            parent = parent.parentElement;
+          }
+          return true;
+        })
         .slice(0, 8)
         .map(({ node, rect }) => ({
           tag: node.tagName,
@@ -158,6 +194,14 @@ async function inspect(browser, mode) {
   await page.locator("#block-system-fit").screenshot({
     path: path.join(outputDir, `coagulation-brief-${mode.name}-treatment-train.png`),
   });
+  await page.locator("#block-cross-sector-transfer").screenshot({
+    path: path.join(outputDir, `coagulation-brief-${mode.name}-cross-sector.png`),
+  });
+  await graphOpener.click();
+  await page.locator("#graph-drawer").screenshot({
+    path: path.join(outputDir, `coagulation-brief-${mode.name}-graph-drawer.png`),
+  });
+  await page.keyboard.press("Escape");
   await reflection.screenshot({
     path: path.join(outputDir, `coagulation-brief-${mode.name}-decision-rehearsal.png`),
   });
@@ -194,6 +238,10 @@ async function inspect(browser, mode) {
     focusedJarControl,
     communityDrawerVisible,
     drawerFocusReturned,
+    graphDrawerVisible,
+    graphDrawerCards,
+    graphClosedOnHistoryBack,
+    graphFocusReturned,
     sopCopyStatus,
     ...state,
   };
@@ -205,7 +253,7 @@ async function inspectNoJavaScript(browser) {
     javaScriptEnabled: false,
   });
   const page = await context.newPage();
-  await page.goto(pathToFileURL(target).href, { waitUntil: "load" });
+  await page.goto(targetUrl, { waitUntil: "load" });
   const state = await page.evaluate(() => ({
     fallbackText: document.querySelector("noscript")?.innerText || "",
     boundary: document.querySelector(".boundary")?.innerText || "",
@@ -256,6 +304,10 @@ async function inspectNoJavaScript(browser) {
     || !item.inactiveVendorHidden
     || !item.communityDrawerVisible
     || !item.drawerFocusReturned
+    || !item.graphDrawerVisible
+    || item.graphDrawerCards < 3
+    || !item.graphClosedOnHistoryBack
+    || !item.graphFocusReturned
     || !/copied|blocked/i.test(item.sopCopyStatus)
     || !item.boundaryVisible
     || !item.canvasReady
@@ -267,6 +319,7 @@ async function inspectNoJavaScript(browser) {
     || !item.optionalPracticeVisible
     || !item.optionalLabelVisible
     || !item.crossSectorVisual
+    || !item.treatmentTrainVisual
     || (item.mode === "phone-reduced-motion" ? item.canvasChanged : !item.canvasChanged)
     || item.emptyButtons
     || (

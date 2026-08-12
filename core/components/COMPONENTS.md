@@ -5,6 +5,14 @@ live. Pick the one that fits the idea. Do not reuse the same shape across a chap
 
 **Last updated:** 2026-07-23 &middot; **v0.24.0**
 
+## Connected-learning right drawer
+
+Every course, lesson, and Concept Brief exposes compact Graph and Community controls at the top.
+Each control opens one temporary right-side drawer over the unchanged HTML page. Only one drawer may
+be open. Close, Escape, backdrop selection, and browser Back remove it and return focus to the
+control that opened it. The shared runtime carries the current course, lesson, or brief identifier
+into the Graph or Community context.
+
 ## Lesson-specific explanatory graphic
 
 A governed visual may be purpose-built for one lesson when the Visual Arsenal shows that an existing

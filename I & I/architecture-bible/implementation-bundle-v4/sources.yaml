@@ -1,0 +1,56 @@
+schema_version: 1
+artifact_id: owos:pumpos-ii:implementation-bundle-v4
+sources:
+  - id: V4-S01
+    title: PumpOS and I&I Intelligence System Bible Version 3
+    source_type: governed_internal_technical_architecture_paper
+    locator: ../ii-intelligence-system-bible-v3.md
+    sha256: 2a449a8403d7dbbaf09c94c8e580889fa16a6fea8f095a28d7ca9a460c1363cd
+    capture_date: 2026-07-29
+    visibility: internal
+    permission: repository_internal
+    coverage: complete
+    limitations:
+      - Version 3 remains an internal candidate with unresolved technical and field reviews.
+  - id: V4-S02
+    title: I&I formula register
+    source_type: governed_machine_readable_formula_registry
+    locator: ../../formula-register.yaml
+    sha256: 5ebea4094d8bea4ab077639b5793de58eef40595e882b9d833b2fbd261c0164d
+    capture_date: 2026-07-29
+    visibility: internal
+    permission: repository_internal
+    coverage: complete
+    limitations:
+      - Candidate formula status does not authorize production execution.
+  - id: V4-S03
+    title: I&I operationalization manifest
+    source_type: governed_machine_readable_traceability_contract
+    locator: ../operationalization-manifest.yaml
+    sha256: 96e2796212dd8d6b47eeff3792359d55bb77f881951e935a8cddbae529bc6724
+    capture_date: 2026-07-29
+    visibility: internal
+    permission: repository_internal
+    coverage: complete
+    limitations:
+      - Synthetic dashboard values are not facility data.
+  - id: V4-S04
+    title: Version 3 model integration chapter
+    source_type: governed_internal_model_architecture_paper
+    locator: ../model-integration-v3.md
+    sha256: 7ad48691860e81f80c2ead714e9237d34352a8f02a934c9c3f0cc1b2b5050051
+    capture_date: 2026-07-29
+    visibility: internal
+    permission: repository_internal
+    coverage: complete
+    limitations:
+      - No approved basin-specific SWMM or station-specific EPANET model is included.
+  - id: V4-S05
+    title: Owner direction for a separately actionable Version 4 instance
+    source_type: owner_direction
+    locator: current_codex_conversation_2026_07_29
+    capture_date: 2026-07-29
+    visibility: internal
+    permission: owner_supplied_for_authoring
+    coverage: complete_user_request
+    limitations: []

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.apas.example/ii/v4/approval.schema.json",
+  "title": "Authorized Human Approval Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "tenant_id",
+    "object_id",
+    "object_version",
+    "decision",
+    "approver",
+    "authority_basis",
+    "rationale",
+    "evidence_package_hash",
+    "created_at",
+    "status"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^approval_[a-z0-9_]+$"},
+    "tenant_id": {"type": "string", "minLength": 3},
+    "object_id": {"type": "string", "minLength": 3},
+    "object_version": {"type": "integer", "minimum": 1},
+    "decision": {"enum": ["approve", "approve_with_conditions", "return_for_revision", "reject"]},
+    "approver": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor_id", "actor_type", "role"],
+      "properties": {
+        "actor_id": {"type": "string", "minLength": 3},
+        "actor_type": {"const": "human"},
+        "role": {"type": "string", "minLength": 1}
+      }
+    },
+    "authority_basis": {"type": "string", "minLength": 1},
+    "rationale": {"type": "string", "minLength": 1},
+    "conditions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "evidence_package_hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "status": {"enum": ["active", "invalidated", "superseded"]},
+    "invalidated_by_object_version": {"type": ["integer", "null"], "minimum": 1}
+  }
+}

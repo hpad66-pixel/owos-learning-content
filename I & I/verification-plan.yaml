@@ -1,0 +1,75 @@
+schema_version: 1
+plan_id: owos:I-and-I-verification
+version: 0.1.0
+status: active
+release_rule: all_production_gates_must_pass
+formula_lifecycle:
+  - discovered
+  - original_source_preserved
+  - exact_locator_recorded
+  - independently_derived
+  - dimensionally_validated
+  - test_vectors_passed
+  - compared_with_authoritative_or_published_example
+  - uncertainty_and_domain_reviewed
+  - qualified_practitioner_approved
+  - production_approved
+production_gates:
+  - id: G01
+    name: source_and_license
+    pass_condition: original_source_locator_snapshot_checksum_permission_and_exact_formula_locator_complete
+  - id: G02
+    name: independent_derivation
+    pass_condition: second_derivation_matches_and_any_disagreement_is_resolved
+  - id: G03
+    name: dimensions_and_units
+    pass_condition: symbolic_dimensions_and_all_supported_unit_conversions_pass
+  - id: G04
+    name: numerical_tests
+    pass_condition: nominal_boundary_failure_and_adversarial_vectors_pass_declared_tolerances
+  - id: G05
+    name: reference_comparison
+    pass_condition: output_matches_authoritative_software_or_published_example_within_explained_tolerance
+  - id: G06
+    name: uncertainty
+    pass_condition: input_quality_sensitivity_precision_and_output_uncertainty_behavior_are_verified
+  - id: G07
+    name: applicability
+    pass_condition: method_domain_exclusions_and_fail_closed_conditions_are_executable
+  - id: G08
+    name: qualified_review
+    pass_condition: relevant_engineering_and_operating_reviewers_approve_the_formula_and_use_boundary
+  - id: G09
+    name: independent_implementation
+    pass_condition: two_independent_implementations_match_across_the_gold_suite
+  - id: G10
+    name: version_and_provenance
+    pass_condition: every_result_emits_formula_version_source_input_lineage_rule_pack_and_validation_state
+test_classes:
+  - exact_unit_conversions
+  - dimensional_consistency
+  - conservation_and_area_under_curve
+  - time_zone_and_daylight_saving_boundaries
+  - irregular_time_steps_and_missing_data
+  - zero_negative_null_nan_and_infinity
+  - sensor_range_precision_and_drift
+  - event_start_end_and_recession_truncation
+  - rainfall_spatial_variability
+  - groundwater_and_antecedent_moisture_sensitivity
+  - RTK_parameter_and_time_step_sensitivity
+  - hydraulic_surcharge_and_backwater_method_switching
+  - local_rule_pack_version_and_effective_date
+  - cross_language_reproducibility
+required_review_roles:
+  - collection_system_engineer
+  - sanitary_sewer_flow_monitoring_specialist
+  - hydrologist
+  - hydraulic_modeler
+  - wastewater_operations_specialist
+  - rehabilitation_and_SSES_practitioner
+  - hydrogeologist_for_groundwater_methods
+  - utility_economist_or_finance_specialist
+  - federal_regulatory_reviewer
+  - Miami_Dade_WASD_practitioner
+  - software_numerics_reviewer
+

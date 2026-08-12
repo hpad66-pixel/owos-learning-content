@@ -1,0 +1,132 @@
+schema_version: 1
+mode: public_review_preview
+brief_id: owos:concept-brief:003
+brand_css: presentation-graphite.css
+status_notice: Working educational preview. Use it to understand water pathways, not to evaluate or change a real stormwater asset.
+hero_context: OWOS CONCEPT BRIEF
+hero_label: WORKING PREVIEW
+hero_summary: First learn what detention, retention, and infiltration mean. Then follow one storm through storage, soil, outlets, wastewater I&I, permits, maintenance, and lifecycle value.
+public_version_label: PREVIEW 0.3
+scope_label: STORMWATER AND WASTEWATER · UNITED STATES FEDERAL FRAME · ILLUSTRATIVE ROUTES · EDUCATIONAL USE
+quick_takeaway:
+  label: IN 30 SECONDS
+  title: Three related terms. Three different parts of the water story.
+  items:
+    - Detention holds stormwater temporarily and releases it later.
+    - Retention must be tied to the source because it may describe retained runoff or a permanent pool.
+    - Infiltration means water enters soil or porous material, but the final destination still has to be traced.
+primary_navigation:
+  - label: Start
+    href: "#beat-00-foundation"
+  - label: Trace the storm
+    href: "#block-first-drop"
+  - label: Graph
+    drawer: graph-drawer
+  - label: Community
+    drawer: community-drawer
+final_recap:
+  - label: What changed
+    body: You replaced a practice label with a water, control, responsibility, evidence, and value story.
+  - label: What to observe
+    body: Trace the inlet, storage, permanent pool, outlet, overflow, soil, groundwater boundary, underdrain, I&I route, downstream condition, and post-storm response.
+  - label: What not to assume
+    body: A name, dry surface, permanent pool, lower concentration, model, or permit does not prove present performance.
+short_disclaimer: This brief explains the concept. Facility decisions still require your approved procedures and qualified judgment.
+block_overrides:
+  block-evidence-boundary:
+    title: Sources and scope
+    body: |
+      This working preview uses current United States federal law, federal regulation, and EPA guidance to explain a pathway-first method. EPA materials document that stormwater terminology varies and that performance can involve timing, volume, concentration, total load, groundwater protection, and maintenance.
+
+      This brief cannot determine a real asset's design, capacity, drawdown, infiltration rate, treatment performance, groundwater suitability, maintenance action, or compliance. Those decisions require current drawings, site evidence, approved procedures, applicable permits, and qualified judgment.
+public_source_ids:
+  - source-uscode-green-infrastructure
+  - source-ecfr-small-ms4
+  - source-epa-flow-control
+  - source-epa-bmp-terminology
+  - source-epa-groundwater
+  - source-epa-performance
+  - source-epa-national-bmp-menu
+  - source-epa-maintenance
+  - source-epa-wet-ponds
+  - source-epa-infiltration-trench
+  - source-usgs-hydrograph
+  - source-epa-swmm
+  - source-epa-sso-faq
+  - source-epa-sso
+  - source-epa-peak-flows
+  - source-epa-npdes-permit-basics
+  - source-epa-ms4-program
+  - source-epa-construction-stormwater
+  - source-epa-industrial-stormwater
+public_source_notes:
+  source-uscode-green-infrastructure: Current federal definition of green infrastructure. It does not define every practice name or supply design criteria.
+  source-ecfr-small-ms4: Current federal small MS4 post-construction and long-term maintenance frame. Exact applicability and permit obligations require separate review.
+  source-epa-flow-control: Current EPA explanation of detention and permanent-pool retention basins in a flow-control context.
+  source-epa-bmp-terminology: EPA technical report documenting that retention and detention terminology is not used consistently.
+  source-epa-groundwater: EPA guidance on infiltration, groundwater interaction, site questions, contamination, pretreatment, and underdrains.
+  source-epa-performance: EPA guidance separating concentration, discharged volume, and total pollutant load.
+  source-epa-national-bmp-menu: Representative practices and the need to evaluate practices as a system rather than a universal list.
+  source-epa-maintenance: Federal maintenance framing. Linked state manuals are excluded from this public brief.
+  source-epa-wet-ponds: Federal conceptual wet-pond explanation. State examples and design criteria are excluded.
+  source-epa-infiltration-trench: Federal conceptual infiltration-trench explanation without adopting siting or sizing criteria.
+  source-usgs-hydrograph: Federal science context for reading flow through time.
+  source-epa-swmm: Federal model context used only to explain modeling capability and uncertainty.
+  source-epa-sso-faq: Federal sanitary-sewer overflow and I&I context.
+  source-epa-sso: Federal separate sanitary-sewer and wet-weather consequence context.
+  source-epa-peak-flows: Federal wet-weather wastewater capacity context without facility-specific quantities.
+  source-epa-npdes-permit-basics: Federal permit purpose, monitoring, reporting, public participation, and enforcement context.
+  source-epa-ms4-program: Federal municipal stormwater program context.
+  source-epa-construction-stormwater: Federal construction-stormwater context without compliance guidance.
+  source-epa-industrial-stormwater: Federal industrial-stormwater context without compliance guidance.
+footer_notice: Working educational preview. Not facility-specific design, operation, maintenance, engineering, permit, safety, groundwater, or compliance guidance.
+integration:
+  enabled: true
+  library_url: ../../dist/index.html
+  graph_url: /os?node=detention-retention-and-infiltration
+  community_url: /course-community.html?course=detention-retention-and-infiltration&lesson=owos%3Aconcept-brief%3A003&label=Detention%2C%20Retention%2C%20and%20Infiltration&topics=detention%2Cretention%2Cinfiltration%2Cstormwater-pathways&space=owos-community%3Aconcept-brief%3A003&version=working-preview
+  sop_title: Stormwater pathway review outline
+  sop_intro: Copy this outline into the utility's approved workspace only after the actual asset, applicable authority, and responsible reviewers are identified. It is a review structure, not a maintenance or operating procedure.
+  sop_outline:
+    - section: Asset identity and intended objective
+      prompt: Identify the exact asset, approved drawings, owner, design objective, drainage area, and the question this review must answer.
+    - section: Inflow and storm boundary
+      prompt: State what enters, the time period or storm condition being reviewed, and any upstream bypass or contributing area.
+    - section: Storage and treatment zones
+      prompt: Identify each documented surface, media, soil, permanent-pool, and temporary-storage zone.
+    - section: Every exit route
+      prompt: List controlled outlets, underdrains, infiltration, evapotranspiration, seepage, overflow, bypass, and receiving-water routes.
+    - section: Site and groundwater evidence
+      prompt: Identify soil, seasonal groundwater, contamination, pretreatment, well, karst, and nearby-use questions requiring qualified review.
+    - section: Condition and maintenance evidence
+      prompt: Record inlet, outlet, sediment, debris, vegetation, erosion, ponding, underdrain, access, and post-storm observations without diagnosing from one observation.
+    - section: Performance evidence
+      prompt: State which evidence addresses timing, peak, volume, concentration, total load, treatment, and receiving-water response.
+    - section: Decision authority and follow-up
+      prompt: Name who reviews, what remains unknown, which approved procedure applies, and what evidence is required before any action.
+  related_learning:
+    - kind: Change over time
+      title: The Storm Hydrograph
+      description: Read the rise, peak, recession, timing, and volume behind a stormwater response.
+      href: "#block-hydrograph"
+      action: Connect route to timing
+    - kind: Asset condition
+      title: Stormwater Control Measure Maintenance
+      description: Connect observed condition to the critical physical feature and intended function.
+      href: "#block-maintenance-evidence"
+      action: Review condition evidence
+    - kind: Receiving system
+      title: Receiving-Water Response
+      description: Follow timing, volume, velocity, temperature, sediment, and pollutants beyond the outlet.
+      href: "#block-connected-learning"
+      action: Follow the discharge
+    - kind: One Water foundation
+      title: Water Balance and Mass Balance
+      description: Account for where water and material enter, accumulate, divide, transform, and leave a defined boundary.
+      href: "#block-final-transfer"
+      action: Strengthen the boundary
+    - kind: Wastewater connection
+      title: Infiltration and Inflow
+      description: Investigate how rainfall and groundwater enter a separate sanitary sewer and consume wet-weather capacity.
+      href: "#block-wastewater-ii"
+      action: Follow the wrong route

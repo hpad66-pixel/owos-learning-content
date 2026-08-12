@@ -1,0 +1,141 @@
+schema_version: 1
+artifact_id: owos:architecture-bible:pumpos-ii
+version: 0.1.0
+decisions:
+  - id: AB-ADR-001
+    title: I&I Intelligence is an independent bounded analytical application
+    status: proposed
+    decision: >-
+      Govern I&I formulas, methods, calibration, uncertainty, tests, and result
+      contracts independently while exposing the capability natively inside
+      PumpOS and through controlled standalone APIs.
+    reason:
+      - Protect calculation validation from user-interface release changes.
+      - Reuse one calculation authority across PumpOS, PipeOS, and standalone I&I.
+      - Permit separate product packaging without duplicate mathematics.
+    consequence:
+      - Requires a versioned PumpOS-to-I&I integration contract.
+      - Requires ownership and deployment decisions.
+      - Requires amendment of the current PumpOS Phase 2 hibernation statement.
+  - id: AB-ADR-002
+    title: PumpOS remains the unified operational experience
+    status: proposed
+    decision: >-
+      Present pump operations, I&I consequences, asset and manual findings, data
+      gaps, actions, and evidence through one PumpOS experience for PumpOS users.
+    reason:
+      - Prevent customers from reconstructing station context across applications.
+      - Preserve the station-to-fleet operating workflow.
+  - id: AB-ADR-003
+    title: Knowledge Intake is a separate governed workbench
+    status: proposed
+    decision: >-
+      Separate document curation, entity resolution, vocabulary administration,
+      review, and graph commit from the normal PumpOS operations dashboard.
+    reason:
+      - Different users, permissions, failure modes, and review duties apply.
+      - Unapproved extraction must not enter operational knowledge.
+  - id: AB-ADR-004
+    title: Preserve the Line Rule
+    status: inherited_and_extended
+    decision: >-
+      Deterministic engines compute, applications display, agents compose, and
+      humans authorize consequential action.
+    source: AB-S6
+    consequence:
+      - No engineering arithmetic in the agent or frontend.
+      - Every number resolves to raw accepted data or a versioned result.
+  - id: AB-ADR-005
+    title: Postgres is the structured system of record and GraphDB is a projection
+    status: inherited_and_extended
+    decision: >-
+      Keep structured operational authority in tenant-scoped Postgres. Use
+      GraphDB for reviewed relationships, topology, vocabulary, and multi-hop
+      queries through controlled projection and knowledge-commit paths.
+    source: AB-S7
+  - id: AB-ADR-006
+    title: Documents, retrieval, and approved requirements remain distinct
+    status: proposed
+    decision: >-
+      Preserve originals in object storage, locate passages through the retrieval
+      index, represent reviewed relationships in GraphDB, and store approved
+      executable requirements in a governed requirement registry.
+    reason:
+      - Search relevance is not approval.
+      - A graph edge is not a substitute for the source passage.
+  - id: AB-ADR-007
+    title: Use directed topology without claiming full hydraulic modeling
+    status: proposed
+    decision: >-
+      Represent time-aware upstream, downstream, diversion, and service
+      relationships for cascade reasoning while integrating external hydraulic
+      model results when the decision requires pressure or dynamic routing.
+  - id: AB-ADR-008
+    title: Agents start at draft authority
+    status: proposed
+    decision: >-
+      Allow read, explanation, recommendation, and drafting. Require named human
+      approval for consequential external writes. Prohibit autonomous equipment
+      control and independent legal or professional determinations.
+  - id: AB-ADR-009
+    title: AWS requires formal ratification
+    status: unresolved
+    decision: >-
+      Treat AWS as a meeting-directed target proposal until the PumpOS
+      Constitution, Engineering Specification, infrastructure code, security
+      controls, migration plan, and deployment records are amended together.
+    conflict:
+      current: DigitalOcean plus RunPod is pinned in the supplied Constitution.
+      proposed: AWS migration and AWS Secrets Manager were directed in the meeting.
+  - id: AB-ADR-010
+    title: Data gaps are first-class results
+    status: proposed
+    decision: >-
+      Return a structured data-gap object when accepted evidence cannot support a
+      calculation or decision. Do not apply silent defaults.
+  - id: AB-ADR-011
+    title: Shared vocabulary separates core, domain, tenant, and instance layers
+    status: proposed
+    decision: >-
+      Govern a shared upper model and canonical concept registry. Permit tenant
+      synonyms and local labels without automatically changing the shared model.
+  - id: AB-ADR-012
+    title: Govern one integrated System Bible with separately versioned source volumes
+    status: proposed
+    decision: >-
+      Generate one integrated explanatory document from the complete engineering
+      paper, complete operational Architecture Bible, formula registry,
+      operationalization manifest, and sample results while retaining the source
+      volumes as separate review and version authorities.
+    reason:
+      - Give executives, nontechnical readers, developers, and technical experts one complete reading path.
+      - Prevent manual copying from creating drift between the engineering and operational documents.
+      - Preserve different review and release cycles for formulas and application architecture.
+    consequence:
+      - The integrated document is generated, not edited as an independent source of truth.
+      - A source-volume or registry change requires a rebuild and traceability validation.
+  - id: AB-ADR-013
+    title: Version 2 uses a narrative-first reading path while preserving source volumes
+    status: proposed
+    decision: >-
+      Lead with one connected evidence-to-action story and apply a consistent
+      explanatory pattern to every formula, source class, dashboard value, and
+      decision before presenting the complete preserved technical source volumes
+      and machine-readable catalogs.
+    reason:
+      - A formula, bullet, table, or architecture label does not explain itself.
+      - Executives, nontechnical readers, developers, and specialists need one connected mental model.
+      - Complete source preservation prevents readability work from deleting technical depth.
+    consequence:
+      - Version 1 remains available as the specification-first candidate.
+      - Version 2 becomes the primary owner-review document.
+      - The Version 2 validator must fail if either source volume or any explanatory family is incomplete.
+required_ratification:
+  - AB-ADR-001
+  - AB-ADR-002
+  - AB-ADR-003
+  - AB-ADR-008
+  - AB-ADR-009
+  - AB-ADR-011
+  - AB-ADR-012
+  - AB-ADR-013

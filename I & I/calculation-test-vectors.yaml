@@ -1,0 +1,126 @@
+schema_version: 1
+suite_id: owos:I-and-I-calculation-test-vectors
+version: 0.1.0
+status: seed_vectors_not_yet_independently_verified
+numeric_policy:
+  relative_tolerance_default: 1.0e-10
+  absolute_tolerance_default: 1.0e-9
+tests:
+  - id: TV-UNIT-001
+    formula_id: F-UNIT-001
+    purpose: one_acre_inch_conversion
+    inputs:
+      P_in: 1
+      A_ac: 1
+    expected:
+      V_rain_gal: 27154.285714285714
+  - id: TV-FLOW-001
+    formula_id: F-FLOW-001
+    purpose: one_hour_linear_flow_ramp
+    inputs:
+      Q_start_gpm: 100
+      Q_end_gpm: 200
+      delta_t_min: 60
+    expected:
+      V_gal: 9000
+  - id: TV-DWF-001
+    formula_id: F-DWF-001
+    purpose: unequal_time_step_weighting
+    inputs:
+      samples:
+        - Q_gpm: 100
+          represented_minutes: 15
+        - Q_gpm: 200
+          represented_minutes: 45
+    expected:
+      ADWF_gpm: 175
+  - id: TV-RDII-001
+    formula_id: F-RDII-002
+    purpose: constant_residual_over_two_hours
+    inputs:
+      Q_observed_gpm: 300
+      Q_expected_DWF_gpm: 200
+      duration_min: 120
+    expected:
+      V_RDII_gal: 12000
+  - id: TV-R-001
+    formula_id: F-RDII-003
+    purpose: event_capture_fraction
+    inputs:
+      V_RDII_gal: 12000
+      P_in: 1
+      A_ac: 1
+    expected:
+      R_event: 0.44191919191919193
+      R_event_percent: 44.19191919191919
+  - id: TV-NORM-001
+    formula_id: F-NORM-001
+    purpose: mixed_diameter_inventory
+    inputs:
+      Q_gpd: 120000
+      segments:
+        - D_in: 12
+          L_mi: 10
+        - D_in: 8
+          L_mi: 5
+    expected:
+      denominator_inch_diameter_mile: 160
+      q_gpd_per_inch_diameter_mile: 750
+  - id: TV-PEAK-001
+    formula_id: F-PEAK-001
+    purpose: dimensionless_peak_ratio
+    inputs:
+      Q_peak_wet_weather_MGD: 1.5
+      ADWF_MGD: 0.5
+    expected:
+      PWWF_ratio: 3
+  - id: TV-RTK-001
+    formula_id: F-RTK-002
+    purpose: triangle_area_and_peak_check
+    inputs:
+      R_i: 0.02
+      P_in: 1
+      A_ac: 1
+      T_i_hr: 2
+      K_i: 2
+    expected:
+      V_i_gal: 543.0857142857143
+      base_duration_hr: 6
+      Q_peak_gal_per_hr: 181.02857142857144
+      Q_peak_gpm: 3.0171428571428573
+  - id: TV-PV-001
+    formula_id: F-PV-001
+    purpose: three_end_of_year_equal_benefits
+    inputs:
+      cash_flows:
+        year_1: 100000
+        year_2: 100000
+        year_3: 100000
+      annual_discount_rate: 0.05
+    expected:
+      PV: 272324.8029370478
+failure_tests:
+  - id: FTV-UNIT-001
+    formula_id: F-UNIT-001
+    inputs:
+      P_in: 1
+      A_ac: null
+    expected_error: missing_area_boundary
+  - id: FTV-R-001
+    formula_id: F-RDII-003
+    inputs:
+      V_RDII_gal: 100
+      V_rain_gal: 0
+    expected_error: nonpositive_rainfall_volume
+  - id: FTV-NORM-001
+    formula_id: F-NORM-001
+    inputs:
+      Q_gpd: 1000
+      segments: []
+    expected_error: nonpositive_inventory_denominator
+  - id: FTV-PEAK-001
+    formula_id: F-PEAK-001
+    inputs:
+      Q_peak_wet_weather_MGD: 1
+      ADWF_MGD: 0
+    expected_error: nonpositive_ADWF

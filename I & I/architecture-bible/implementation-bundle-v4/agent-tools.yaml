@@ -1,0 +1,164 @@
+schema_version: 1
+bundle_id: pumpos_ii_implementation_v4
+authority_model:
+  default: deny
+  computation_authority: deterministic_calculation_service
+  model_authority: registered_isolated_model_workers
+  approval_authority: authorized_human_only
+  operational_control_authority: none
+common_requirements:
+  - authenticated_actor
+  - tenant_scope
+  - declared_purpose
+  - correlation_id
+  - immutable_audit_record
+tools:
+  - name: get_basin_context
+    purpose: Retrieve the governed basin, topology, receiving-station, source, and effective-time context.
+    mutates_state: false
+    output_classes: [observed]
+    prohibited:
+      - infer unresolved topology as fact
+      - cross tenant boundary
+  - name: get_event_observations
+    purpose: Retrieve authorized rainfall, flow, level, pump-state, and related event records.
+    mutates_state: false
+    output_classes: [observed]
+    prohibited:
+      - retrieve raw source without authorization
+      - present provisional record as accepted
+  - name: qualify_time_series
+    purpose: Request the qualification service to evaluate candidate observations for a declared method.
+    mutates_state: true
+    output_classes: [interpreted]
+    requires:
+      - declared_calculation_profile
+      - boundary_resolution_id
+    prohibited:
+      - silently repair rejected data
+  - name: create_input_snapshot
+    purpose: Request creation of an immutable snapshot from accepted inputs.
+    mutates_state: true
+    output_classes: [interpreted]
+    requires:
+      - accepted_qualification_records
+      - resolved_boundary
+    prohibited:
+      - include rejected input
+      - mutate existing snapshot
+  - name: run_registered_calculation
+    purpose: Execute one approved calculation profile through the deterministic calculation service.
+    mutates_state: true
+    output_classes: [calculated]
+    requires:
+      - snapshot_id
+      - active_formula_versions
+    prohibited:
+      - supply an unregistered formula
+      - execute code generated in conversation
+  - name: run_swmm_scenario
+    purpose: Request an isolated run of one registered SWMM model and scenario.
+    mutates_state: true
+    output_classes: [modeled]
+    requires:
+      - registered_model_id
+      - model_hash
+      - engine_version
+      - snapshot_id
+      - declared_use
+    prohibited:
+      - promote assurance state
+      - alter model without a new version
+  - name: run_epanet_scenario
+    purpose: Request an isolated run of one registered EPANET or WNTR model and scenario.
+    mutates_state: true
+    output_classes: [modeled]
+    requires:
+      - registered_model_id
+      - model_hash
+      - engine_version
+      - snapshot_id
+      - declared_use
+    prohibited:
+      - present EPANET as RDII calculation
+      - alter model without a new version
+  - name: compare_results
+    purpose: Request reconciliation of compatible observed, calculated, and modeled results.
+    mutates_state: true
+    output_classes: [reconciled]
+    requires:
+      - result_ids
+      - comparison_purpose
+      - tolerance_policy_id
+    prohibited:
+      - compare incompatible boundary or time basis
+      - remove underlying results
+  - name: explain_metric_lineage
+    purpose: Explain the exact source, snapshot, formula, model, warning, and decision path for one metric.
+    mutates_state: false
+    output_classes: [interpreted]
+    requires:
+      - metric_id
+      - analysis_request_id
+    prohibited:
+      - omit warning or assurance state
+  - name: identify_data_gaps
+    purpose: Summarize structured missing, rejected, ambiguous, stale, or unapproved requirements.
+    mutates_state: false
+    output_classes: [interpreted]
+    prohibited:
+      - invent missing values
+  - name: draft_engineering_finding
+    purpose: Draft a human-reviewable finding that cites governed result identifiers.
+    mutates_state: true
+    output_classes: [interpreted]
+    requires:
+      - cited_result_ids
+      - declared_scope
+      - required_reviewer_role
+    prohibited:
+      - approve the finding
+      - claim compliance
+      - hide disagreement
+  - name: draft_investigation_plan
+    purpose: Draft proposed field or data investigation steps for human review.
+    mutates_state: true
+    output_classes: [interpreted]
+    requires:
+      - finding_id
+      - declared_authority_boundary
+    prohibited:
+      - dispatch work
+      - create purchase commitment
+      - operate equipment
+  - name: request_human_approval
+    purpose: Create a review task for an authorized person.
+    mutates_state: true
+    output_classes: [interpreted]
+    requires:
+      - object_id
+      - object_version
+      - required_role
+      - evidence_package_hash
+    prohibited:
+      - create approval decision
+      - select approver outside policy
+  - name: retrieve_asset_manual_requirement
+    purpose: Retrieve a reviewed manual requirement linked to an exact asset and document revision.
+    mutates_state: false
+    output_classes: [observed]
+    requires:
+      - asset_id
+      - requirement_purpose
+    prohibited:
+      - treat unreviewed extraction as approved requirement
+globally_prohibited_tools:
+  - write_scada_setpoint
+  - start_pump
+  - stop_pump
+  - change_valve_position
+  - modify_plc_logic
+  - issue_work_order
+  - approve_engineering_result
+  - certify_compliance
+  - create_formula_from_prompt

@@ -1,0 +1,89 @@
+schema_version: 2
+policy: owos-engineering-research/1-draft
+artifact_id: owos:technical-research:infiltration-and-inflow
+title: Infiltration and Inflow
+created_on: 2026-07-27
+updated_on: 2026-07-27
+current_stage: source_research_and_formula_inventory
+generation_policy: research_then_formula_verification_then_computational_validation_then_agent_implementation
+source_identity:
+  status: established
+  basis:
+    type: owner_direction
+    stable_id: INTAKE-OWNER-2026-07-27-01
+    title: Owner direction for a detailed infiltration and inflow technical white paper
+    locator: current_codex_conversation
+    owner: Hardeep Anand
+    capture_date: 2026-07-27
+    visibility: internal_governed_draft
+    permission: owner_supplied_for_authoring
+    extraction_coverage: complete_user_message
+    limitations:
+      - No technical source was supplied with the initial direction.
+      - The first response incorrectly framed the product as instructional.
+owner_direction:
+  status: active
+  verbatim: >-
+    I want to do a very detailed paper on the topic of infiltration and inflow.
+    The focus will be on Miami-Dade County. For that matter, it should apply
+    anywhere in the country, in the United States. This white paper will be a
+    detailed research paper rising to the level of a detailed technical analysis
+    that will describe everything, including the components, calculations, and
+    formulas with examples.
+  interpreted_requirements:
+    - Produce a long-form, detailed technical white paper on wastewater collection-system infiltration and inflow.
+    - Use Miami-Dade County as the primary case study.
+    - Make the concepts, methods, calculations, formulas, and worked examples transferable across the United States.
+    - Explain components, mechanisms, measurement, analysis, diagnosis, rehabilitation, economics, and verification.
+    - Do not present a local threshold or requirement as a national standard.
+  correction_2026_07_27:
+    verbatim: >-
+      This is not for teaching, this is a research paper, a very, very deep
+      research paper, and this is for universal INI calculations, which apply
+      anywhere, right? I don't want you to give me this course or anything like
+      that. This is going to be an agentic application that we're going to
+      build, so all the formulas, everything, better be 100% correct. Take it to
+      level 10 out of 10!
+    interpreted_requirements:
+      - Treat INI as I&I, meaning infiltration and inflow.
+      - Do not create a course, lesson, assessment, storyboard, or learner-facing product.
+      - Build a deep engineering research paper and computational specification.
+      - Make every universal method portable across United States utilities.
+      - Make Miami-Dade a fully researched case study without universalizing local thresholds.
+      - Give every formula variables, units, assumptions, applicability, provenance, test vectors, uncertainty, and fail-closed conditions.
+      - Support a future agentic application rather than a one-time narrative calculation.
+scope_control:
+  national_public_layer:
+    authority_basis:
+      - current United States federal statute and regulation
+      - current EPA guidance
+      - clearly labeled United States professional practice references
+      - peer-reviewed research within its stated scope
+    status: active
+  miami_dade_case_layer:
+    allowed_content:
+      - federal court consent-decree history
+      - official county system and program records
+      - official performance records with exact dates and limitations
+      - physical and operating context supported by original sources
+    status: active
+  florida_jurisdiction_specific_layer:
+    visibility: private_jurisdiction_specific_appendix
+    reason: >-
+      Florida requirements and consent-order thresholds cannot become the
+      governing basis of a universal United States calculation.
+    status: separate_jurisdiction_specific_rule_pack
+application_scope:
+  universal_core:
+    status: required
+    rule: formulas_may_not_embed_local_thresholds
+  jurisdiction_rule_packs:
+    status: required
+    rule: local_thresholds_require_authority_effective_date_geography_and_version
+  Miami_Dade_case_pack:
+    status: required
+    rule: reported_values_require_original_locator_method_date_and_attribution
+  calculation_engine:
+    status: specification_in_progress
+  production_use:
+    status: prohibited_until_formula_and_system_validation_pass

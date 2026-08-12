@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Subsurface pathway and groundwater evidence boundary</title>
+  <desc id="desc">A vertical cutaway separates surface storage, treatment media, native soil, underdrain, seasonal groundwater, and five possible water routes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10232e"/>
+      <stop offset="1" stop-color="#1c1b19"/>
+    </linearGradient>
+    <pattern id="native" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#554936"/>
+      <circle cx="6" cy="7" r="2" fill="#a29c91"/>
+      <circle cx="17" cy="16" r="1.5" fill="#746b5d"/>
+    </pattern>
+    <pattern id="media" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#75684f"/>
+      <path d="M0 10H20M10 0V20" stroke="#9f9278" stroke-width="1"/>
+    </pattern>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#8ed0ed"/>
+    </marker>
+    <marker id="w" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#e0a64a"/>
+    </marker>
+    <style>
+      .k{font:700 14px Arial,sans-serif;letter-spacing:2px;fill:#8ed0ed}
+      .h{font:800 28px Arial,sans-serif;fill:#f2f1ec}
+      .b{font:400 16px Arial,sans-serif;fill:#d9d6cf}
+      .m{font:700 13px "Courier New",monospace;letter-spacing:1px;fill:#f2f1ec}
+      .route{fill:none;stroke:#8ed0ed;stroke-width:6;marker-end:url(#a)}
+      .conditional{fill:none;stroke:#e0a64a;stroke-width:5;stroke-dasharray:9 7;marker-end:url(#w)}
+      .call{fill:#292826;stroke:#4b4842;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="54" y="48" class="k">INFILTRATION IS A PATHWAY, NOT A PROMISE</text>
+  <text x="54" y="88" class="h">Follow every layer and every side exit</text>
+  <g transform="translate(54 126)">
+    <rect x="0" y="0" width="680" height="548" rx="20" fill="#292826" stroke="#4b4842" stroke-width="2"/>
+    <path d="M34 94Q160 58 306 92T646 82V154H34Z" fill="#7dc6e8" fill-opacity=".55"/>
+    <rect x="34" y="156" width="612" height="94" fill="url(#media)"/>
+    <rect x="34" y="252" width="612" height="202" fill="url(#native)"/>
+    <rect x="34" y="456" width="612" height="58" fill="#1d5c90" fill-opacity=".75"/>
+    <text x="52" y="126" class="m">01 SURFACE STORAGE</text>
+    <text x="52" y="208" class="m">02 TREATMENT OR STORAGE MEDIA</text>
+    <text x="52" y="288" class="m">03 NATIVE SOIL AND SITE CONDITIONS</text>
+    <text x="52" y="488" class="m">04 SEASONAL GROUNDWATER BOUNDARY</text>
+    <path d="M190 126V214" class="route"/>
+    <path d="M190 222V370" class="route"/>
+    <path d="M190 380V484" class="conditional"/>
+    <path d="M330 334H546" class="route"/>
+    <rect x="346" y="322" width="172" height="24" rx="12" fill="#1c1b19" stroke="#8ed0ed" stroke-width="3"/>
+    <text x="372" y="314" class="m">UNDERDRAIN</text>
+    <path d="M546 334H648" class="route"/>
+    <path d="M574 110Q640 78 666 36" class="conditional"/>
+    <path d="M290 94Q312 36 348 18" class="conditional"/>
+    <text x="360" y="28" class="m" fill="#e0a64a">EVAPOTRANSPIRATION</text>
+    <text x="526" y="68" class="m" fill="#e0a64a">OVERFLOW</text>
+    <text x="438" y="364" class="m">DRAINED EXIT</text>
+  </g>
+  <g transform="translate(776 126)">
+    <rect width="370" height="108" rx="16" class="call"/>
+    <text x="22" y="30" class="k">ROUTE A</text>
+    <text x="22" y="58" class="h" font-size="21">Surface to media</text>
+    <text x="22" y="84" class="b">Ponding and entry do not prove final destination.</text>
+    <rect y="124" width="370" height="108" rx="16" class="call"/>
+    <text x="22" y="154" class="k">ROUTE B</text>
+    <text x="22" y="182" class="h" font-size="21">Media to native soil</text>
+    <text x="22" y="208" class="b">Actual soil and construction condition matter.</text>
+    <rect y="248" width="370" height="108" rx="16" class="call"/>
+    <text x="22" y="278" class="k">ROUTE C</text>
+    <text x="22" y="306" class="h" font-size="21">Underdrain discharge</text>
+    <text x="22" y="332" class="b">Subsurface entry can still create a surface-water exit.</text>
+    <rect y="372" width="370" height="108" rx="16" class="call"/>
+    <text x="22" y="402" class="k">ROUTE D</text>
+    <text x="22" y="430" class="h" font-size="21">Groundwater interaction</text>
+    <text x="22" y="456" class="b">Suitability and protection require site evaluation.</text>
+    <rect y="496" width="370" height="108" rx="16" fill="#3a2e1f" stroke="#e0a64a" stroke-width="2"/>
+    <text x="22" y="526" class="k" fill="#e0a64a">ROUTE E</text>
+    <text x="22" y="554" class="h" font-size="21">Overflow or bypass</text>
+    <text x="22" y="580" class="b">A larger event may follow a route outside the section.</text>
+  </g>
+  <text x="54" y="718" class="b">What to verify: soil, groundwater, contamination, pretreatment, underdrain, overflow, construction, condition, and post-storm response.</text>
+  <text x="54" y="744" class="m">ILLUSTRATIVE SECTION, NOT A SITING OR DESIGN DETERMINATION</text>
+</svg>

@@ -1,0 +1,119 @@
+schema_version: 1
+policy: owos-concept-research/1
+brief_id: owos:concept-brief:003
+created_on: 2026-07-26
+current_stage: owner_directed_preview_0_3_revision_built_for_review
+generation_policy: sparring_then_white_paper_then_verified_research_then_html
+owner_direction:
+  status: active
+  summary:
+    - Begin by asking the owner substantive teaching and scope questions.
+    - Build and revise one clean Markdown white paper through repeated sparring.
+    - Explain what the concept is, why it matters, how it works, and what should be taught.
+    - Use headings, subheadings, evidence, diagrams, graphics briefs, and the approved citation standard.
+    - Score and quality-control the white paper before using it as the basis for design and HTML.
+    - Do not generate replacement HTML or production graphics before white-paper approval.
+pre_research_prototype:
+  status: frozen_rejected_as_curriculum_basis
+  internal_locator: dist/working-preview.html
+  public_review_locator: dist/public-review-preview.html
+  browser_qa_locator: dist/browser-qa/report.json
+  limitations:
+    - The research and teaching argument were not mature enough before page production.
+    - Editorial measure, margins, and long-form reading quality did not meet the reference standard.
+    - The prototype is retained only for provenance and comparison.
+white_paper:
+  locator: white-paper.md
+  status: owner_approved_research_final_0_5
+  citation_standard: apa_style_us_federal_sources
+  curriculum_thesis: follow_the_water_before_trusting_the_name
+  quality_score: 95
+  previous_quality_score: 84
+  score_change: 11
+  cumulative_change_from_pre_research_scaffold: 44
+  advancement_decision: owner_approved_for_evidence_verification_and_curriculum_design_hard_gates_open
+  scoring_standard: core/templates/CONCEPT-BRIEF-WHITE-PAPER-SCORE.md
+  open_hard_gates:
+    - independent_claim_verification
+    - qualified_stormwater_practitioner_review
+    - qualified_wastewater_collection_system_review
+    - qualified_federal_stormwater_permitting_review
+    - evidence_and_accessibility_review_of_diagrams
+  owner_approval:
+    status: approved
+    reviewer: Hardeep Anand
+    date: 2026-07-26
+florida_jurisdictional_companion:
+  locator: research/florida-jurisdictional-white-paper.md
+  status: owner_approved_research_final_1_0_qualified_review_pending
+  visibility: private_jurisdiction_specific
+  evidence_cutoff: 2026-07-26
+  quality_score: 97
+  scoring_standard: core/templates/CONCEPT-BRIEF-WHITE-PAPER-SCORE.md
+  sources_locator: research/florida-sources.yaml
+  claims_locator: research/florida-claims.yaml
+  public_brief_use: prohibited
+  open_hard_gates:
+    - independent_florida_legal_and_regulatory_verification
+    - qualified_florida_stormwater_practitioner_review
+    - qualified_florida_hydrogeology_review
+    - qualified_florida_wastewater_collection_system_review
+    - qualified_florida_permitting_review
+    - evidence_accessibility_and_learner_review_of_diagrams
+  owner_approval:
+    status: approved
+    reviewer: Hardeep Anand
+    date: 2026-07-26
+html:
+  allowed: true_for_governed_review_preview_only
+  unblock_when:
+    - owner sparring establishes the teaching thesis and scope
+    - the citation standard is confirmed
+    - white-paper.md is complete
+    - white-paper research and quality review are complete
+    - Hardeep approves the white-paper direction
+    - material claims are inventoried and verified
+    - the design brief and storyboard are separately approved
+cited_html:
+  allowed: true
+  mode: governed_review_only
+  authorized_by: Hardeep Anand
+  authorization_date: 2026-07-26
+  basis:
+    - owner-approved national white paper and teaching thesis
+    - completed author research pass against original federal and EPA locators
+    - complete national claim inventory with source relationships
+    - owner-approved white-paper direction and owner-directed correction of preview 0.2
+    - explicit working-preview authorization
+  limits:
+    - independent verification remains incomplete
+    - qualified practitioner reviews remain incomplete
+    - verification coverage remains zero for release
+    - no public release, Graph publication, Community release, commercial placement, or credential use
+curriculum_design:
+  design_brief_locator: design-brief.md
+  design_brief_status: revision_0_3_owner_review_pending
+  storyboard_locator: storyboard.yaml
+  storyboard_version: 0.3.0
+  storyboard_status: revision_0_3_owner_review_pending
+  teaching_beats: 13
+  production_authorized: true
+  verification_dossier: research/verification-dossier.md
+  verification_dossier_status: prepared_for_independent_and_qualified_review
+review_preview:
+  status: revision_0_3_built_for_owner_review
+  public_review_locator: dist/research-rebuild-public-review.html
+  internal_review_locator: dist/research-rebuild-preview.html
+  browser_qa_locator: dist/research-rebuild-browser-qa/report.json
+  browser_qa_result: passed_zero_failures
+  implemented_learning:
+    teaching_beats: 13
+    assessments: 7
+    deterministic_interactions: 2
+    rendered_explanatory_images: 10
+    governed_svg_assets: 13
+  limits:
+    - review-only educational preview
+    - verification coverage remains zero for release
+    - independent source and qualified technical reviews remain incomplete
+    - no public release, Graph publication, Community release, commercial placement, or credential use

@@ -1,0 +1,20 @@
+schema_version: 1
+status: candidate_register
+required_cases:
+  - {id: GC-001, name: rainfall_volume_positive, formula_ids: [F-UNIT-001], disposition: fixture_included_pending_independent_review}
+  - {id: GC-002, name: dry_weather_baseline_positive, formula_ids: [F-DWF-001], disposition: required}
+  - {id: GC-003, name: groundwater_infiltration_positive, formula_ids: [F-GWI-001], disposition: required}
+  - {id: GC-004, name: rdii_event_chain_positive, formula_ids: [F-RDII-001, F-RDII-002, F-RDII-003], disposition: required}
+  - {id: GC-005, name: rtk_superposition_positive, formula_ids: [F-RTK-001, F-RTK-002, F-RTK-003], disposition: required}
+  - {id: GC-006, name: force_main_system_curve_positive, formula_ids: [F-HYD-001, F-HYD-002, F-HYD-003, F-HYD-004, F-HYD-005], disposition: required}
+  - {id: GC-007, name: pump_operating_point_positive, formula_ids: [F-PUMP-001], disposition: required}
+  - {id: GC-008, name: station_capacity_and_storage_positive, formula_ids: [F-PUMP-002, F-PUMP-003, F-PUMP-004, F-PUMP-007], disposition: required}
+  - {id: GC-009, name: cycling_and_energy_positive, formula_ids: [F-PUMP-005, F-PUMP-006, F-ENERGY-001, F-ENERGY-002], disposition: required}
+  - {id: GC-010, name: economics_positive_and_negative, formula_ids: [F-COST-001, F-PV-001, F-BCR-001, F-ECON-002, F-ECON-003, F-ECON-004], disposition: required}
+  - {id: GC-011, name: unknown_time_zone_blocked, formula_ids: [], disposition: required}
+  - {id: GC-012, name: rainfall_gap_blocked, formula_ids: [F-UNIT-001, F-RTK-003], disposition: required}
+  - {id: GC-013, name: boundary_mismatch_blocked, formula_ids: [F-RDII-003], disposition: required}
+  - {id: GC-014, name: pump_configuration_unknown_blocked, formula_ids: [F-PUMP-001, F-PUMP-002], disposition: required}
+  - {id: GC-015, name: swmm_failure_visible, formula_ids: [], disposition: required}
+  - {id: GC-016, name: epanet_disagreement_visible, formula_ids: [F-PUMP-001], disposition: required}
+  - {id: GC-017, name: approval_invalidated_by_revision, formula_ids: [], disposition: required}

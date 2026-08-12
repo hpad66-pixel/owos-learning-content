@@ -1,0 +1,152 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+interactions:
+  - interaction_id: interaction-storm-path-tracer
+    title: Trace one storm through three water rooms
+    component: path-tracer
+    teaching_job: Reveal storage, release, infiltration, evapotranspiration, underdrain, overflow, and bypass as distinct pathways before showing common practice names.
+    model_boundary: Qualitative authored routes for instruction. No calibrated rainfall, runoff, hydraulic, infiltration, treatment, groundwater, flood, or compliance prediction.
+    inputs:
+      - Select one of three unlabeled physical arrangements.
+      - Select a performance objective to investigate.
+      - Step through normal, overflow, and subsurface routes.
+    outputs:
+      - Highlighted route segments.
+      - Plain-language pathway statement.
+      - Evidence questions and unresolved site conditions.
+    failure_states:
+      - A clogged or blocked outlet changes temporary storage and release.
+      - A sealed or unsuitable subsurface blocks the intended infiltration route.
+      - An underdrain creates a discharge route that a surface-only description can miss.
+      - Overflow or bypass means the selected route does not describe the entire storm.
+    keyboard_behavior: Native buttons support Tab, Enter, Space, Step, Back, and Reset with visible focus.
+    touch_behavior: Controls are at least 44 pixels and never require hover.
+    live_feedback: A polite live region announces the selected route, current step, conclusion, and evidence still needed.
+    mobile_treatment: Show one arrangement at a time with a persistent legend and complete text summary.
+    reduced_motion_treatment: Disable automatic tracing and use immediate state changes through Step and Back.
+    motion_behavior: Route illumination reveals sequence and branching only after the learner advances the tracer.
+    no_javascript_treatment: Three complete route tables list inflow, storage, exits, constraints, evidence, and nonclaims.
+    completion_evidence: storm-path-trace-completed
+    completion_id: storm-path-trace-completed
+    dynamic_concept: true
+    initial_route: detention
+    routes:
+      - route_id: detention
+        label: Temporary storage and controlled release
+        short_label: Detention route
+        objective: Change when runoff leaves through a controlled surface outlet.
+        steps:
+          - label: Storm enters
+            detail: Runoff crosses the inlet and begins occupying available storage.
+            destination: Inlet and storage
+          - label: Water waits
+            detail: Temporary storage separates the incoming peak from the controlled surface release.
+            destination: Temporary pool
+          - label: Outlet releases
+            detail: Water leaves through the documented outlet while overflow remains a separate route for larger events.
+            destination: Surface outlet
+          - label: Evidence remains
+            detail: Drawings, outlet condition, water-level response, and post-storm observations are still needed before judging performance.
+            destination: Evidence check
+        what_not_to_assume: A dry basin between storms does not prove the outlet, storage volume, release pattern, treatment, or maintenance condition.
+      - route_id: retention_pool
+        label: Permanent pool and displacement
+        short_label: Permanent-pool route
+        objective: Hold a permanent pool while incoming runoff displaces or releases water through a documented outlet.
+        steps:
+          - label: Storm enters
+            detail: New runoff enters a basin that already contains a permanent pool.
+            destination: Inlet and permanent pool
+          - label: Pool rises
+            detail: Incoming water occupies temporary storage above the normal pool or mixes within the stored water.
+            destination: Permanent plus temporary storage
+          - label: Water is displaced
+            detail: Water leaves when the level reaches the documented outlet. Overflow and seepage must be traced separately.
+            destination: Outlet and overflow
+          - label: Evidence remains
+            detail: Normal pool elevation, outlet geometry, sediment, shoreline, water-quality monitoring, and maintenance records are still needed.
+            destination: Evidence check
+        what_not_to_assume: A permanent pool does not by itself prove pollutant treatment, flood protection, ecological condition, or one universal meaning of retention.
+      - route_id: infiltration
+        label: Surface storage and subsurface routing
+        short_label: Infiltration route
+        objective: Route captured runoff through soil or media while keeping underdrain, overflow, and groundwater pathways visible.
+        steps:
+          - label: Storm enters
+            detail: Runoff enters a surface storage area, trench, pavement section, or another documented receiving layer.
+            destination: Surface storage
+          - label: Water crosses the surface
+            detail: Some water can move into media or native soil. The rate and route depend on actual site and design conditions.
+            destination: Soil or treatment media
+          - label: Water divides
+            detail: Water may continue into soil, enter an underdrain, return through an outlet, evaporate, or overflow.
+            destination: Subsurface, underdrain, or overflow
+          - label: Evidence remains
+            detail: Soil, seasonal groundwater, contamination, pretreatment, underdrain, drawdown, bypass, and maintenance evidence are still needed.
+            destination: Evidence check
+        what_not_to_assume: Ponding or disappearance from the surface does not prove recharge, treatment, safe siting, or the absence of an underdrain or bypass.
+    evidence_prompt: Before naming the practice, state the inflow, storage or treatment zone, every exit, the intended objective, and the evidence still missing.
+    review_status: planned_pending_owner_technical_accessibility_and_rendered_review
+  - interaction_id: interaction-condition-failure-trace
+    title: Change the condition, then trace the consequence
+    component: failure-trace
+    teaching_job: Connect a visible condition to the route it may affect, the consequence that may follow, and the evidence needed before diagnosis or action.
+    model_boundary: Qualitative authored cause chains for instruction. The interaction does not inspect, diagnose, rate, prescribe maintenance, or authorize work for a real asset.
+    inputs:
+      - Select sediment accumulation, surface clogging, outlet blockage, erosion, high downstream water, or an underdrain problem.
+      - Select the water route that may be affected.
+      - Select the evidence needed next.
+    outputs:
+      - Observation statement.
+      - Pathway question.
+      - Possible consequence.
+      - Next-evidence prompt.
+      - Visible nonclaim boundary.
+    failure_states:
+      - A learner treats appearance as a confirmed diagnosis.
+      - A learner selects a repair without current plans, authority, access, or qualified review.
+      - A learner ignores the downstream boundary or hidden route.
+      - A learner assumes one observation proves system-wide performance.
+    keyboard_behavior: Native controls support Tab, Enter, Space, Back, Step, and Reset with visible focus.
+    touch_behavior: Controls are at least 44 pixels and do not require hover.
+    live_feedback: A polite live region announces the observation, selected route, possible consequence, and evidence still required.
+    mobile_treatment: Present one observation, pathway question, possible consequence, and next-evidence row at a time.
+    reduced_motion_treatment: Reveal each state without animated travel and provide the expanded cause-chain table.
+    motion_behavior: Highlight only the connection between condition, route, consequence, and evidence.
+    no_javascript_treatment: A complete table lists every authored observation, pathway question, possible consequence, and next-evidence prompt.
+    completion_evidence: condition-failure-trace-completed
+    completion_id: condition-failure-trace-completed
+    dynamic_concept: true
+    scenarios:
+      - scenario_id: sediment-storage
+        observation: Sediment occupies part of the visible basin.
+        pathway_question: Has available storage or the intended flow path changed?
+        possible_consequence: Less usable storage or altered settling and routing.
+        evidence_needed: Current survey, sediment measurement, design or as-built plans, inspection history, and qualified review.
+      - scenario_id: surface-clogging
+        observation: Water remains on a permeable surface after nearby conventional pavement has drained.
+        pathway_question: Has surface entry resistance changed, or is another downstream boundary controlling recovery?
+        possible_consequence: More surface runoff, prolonged ponding, or reduced use of subsurface storage.
+        evidence_needed: Rainfall, observation timing, approved inspection method, surface condition, subsurface configuration, and downstream conditions.
+      - scenario_id: outlet-blockage
+        observation: Debris or vegetation is visible near the outlet.
+        pathway_question: Is the ordinary release route restricted?
+        possible_consequence: Higher or longer storage, reduced recovery, or greater use of overflow.
+        evidence_needed: Safe qualified inspection, water levels, outlet drawings, downstream level, event observations, and maintenance authority.
+      - scenario_id: erosion
+        observation: A bank or flow path shows fresh erosion.
+        pathway_question: Has velocity, concentration of flow, overflow use, or slope stability changed?
+        possible_consequence: Sediment movement, instability, or a redirected pathway.
+        evidence_needed: Site inspection, rainfall and flow context, survey, plans, downstream observations, and qualified evaluation.
+      - scenario_id: high-tailwater
+        observation: The downstream water surface is high near the outfall.
+        pathway_question: Is the downstream boundary reducing the available discharge head?
+        possible_consequence: Slower release, higher upstream water level, or changed recovery.
+        evidence_needed: Paired upstream and downstream levels, time series, outlet geometry, connected-system condition, and hydraulic review.
+      - scenario_id: underdrain-problem
+        observation: Recovery differs from the documented or observed normal pattern.
+        pathway_question: Is the underdrain, soil route, groundwater boundary, or outlet condition different?
+        possible_consequence: Prolonged storage, altered subsurface routing, or more overflow.
+        evidence_needed: As-built configuration, cleanout or inspection evidence, groundwater and rainfall context, water levels, and qualified review.
+    review_status: proposed_pending_owner_technical_accessibility_and_rendered_review

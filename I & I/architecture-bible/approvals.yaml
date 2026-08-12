@@ -1,0 +1,85 @@
+schema_version: 1
+artifact_id: owos:architecture-bible:pumpos-ii
+version: 0.5.0
+approvals:
+  source_identity:
+    status: established
+    basis: owner supplied exact transcript and repository locators
+  architecture_reconstruction:
+    status: candidate_for_owner_review
+  integrated_system_bible:
+    status: candidate_for_owner_and_multidisciplinary_review
+    artifact: ii-intelligence-system-bible.md
+    sha256: 21e60a618fc43931204d8e3de351bebb44440afed2777e8c3988582d62e1c72d
+  integrated_system_bible_v2:
+    status: primary_narrative_candidate_for_owner_and_multidisciplinary_review
+    artifact: ii-intelligence-system-bible-v2.md
+    sha256: a9dd1c56c147cc5f29f08f1776994d20c61e5792f269bbef4260a6e0e9957963
+    coverage:
+      complete_source_volumes: 2
+      formula_explanations: 39
+      source_class_explanations: 11
+      dashboard_metric_explanations: 34
+      decision_explanations: 6
+      rtk_discoverability: explicit
+  integrated_system_bible_v3:
+    status: primary_model_integrated_candidate_for_owner_and_multidisciplinary_review
+    artifact: ii-intelligence-system-bible-v3.md
+    sha256: 2a449a8403d7dbbaf09c94c8e580889fa16a6fea8f095a28d7ca9a460c1363cd
+    coverage:
+      complete_source_volumes: 4
+      formula_explanations: 39
+      source_class_explanations: 11
+      worked_dashboard_metric_explanations: 34
+      model_assurance_metric_contracts: 10
+      decision_explanations: 6
+      beginner_model_runbooks: 2
+      populated_dashboard_figures: 9
+    limitation: No basin-specific SWMM or station-specific EPANET result has been calibrated, validated, or approved.
+  implementation_bundle_v4:
+    status: separately_actionable_candidate_for_owner_and_multidisciplinary_review
+    artifact: implementation-bundle-v4/ii-intelligence-implementation-edition-v4.md
+    sha256: 4db0ff598c22a56eac0d287f01432ab7d32db8dcfd881e9fba0c110b719fc293
+    coverage:
+      work_packages: 14
+      acceptance_criteria: 61
+      json_schemas: 7
+      openapi_operations: 17
+      bounded_agent_tools: 14
+      prohibited_agent_tools: 9
+      structural_examples: 4
+      golden_case_register_entries: 17
+    limitation: Target repository, formula, numerical, model, security, pilot, and release gates remain blocked.
+  operational_traceability:
+    status: mechanically_validated_candidate
+    coverage:
+      formulae: 39
+      source_classes: 11
+      numbered_dashboard_metrics: 34
+      decision_bindings: 6
+      visible_lineage_gaps: 6
+  target_architecture:
+    status: proposed_not_ratified
+  pumpos_constitution_amendment:
+    status: required
+  ii_engine_production_use:
+    status: blocked
+    reason: independent formula, field, software, and qualified engineering reviews remain unresolved
+  swmm_and_epanet_production_use:
+    status: blocked
+    reason: approved models, calibration, validation, dependency review, worker isolation, and qualified hydraulic-modeling review remain unresolved
+  aws_target:
+    status: meeting_direction_not_formally_ratified
+  dashboard_design:
+    status: populated_visual_mockup_candidate
+    coverage:
+      dashboard_views: 9
+      numbered_metrics: 34
+      desktop_screenshots: 9
+    limitation: Product-owner, operator, accessibility, mobile, and usability approval remain unresolved.
+  graph_publication:
+    status: not_requested
+  public_release:
+    status: prohibited
+  owner_approval:
+    status: pending

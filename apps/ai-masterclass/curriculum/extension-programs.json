@@ -1,0 +1,374 @@
+{
+  "schema": "owos-curriculum-extension-programs/v1",
+  "approved": "2026-08-11",
+  "owner": "Hardeep Anand",
+  "status": "accepted-curriculum-blueprint",
+  "authority": "These are optional curriculum lines. They do not change the 64-module universal core, grant operating authority, or authorize a credential or release.",
+  "entryRule": "The universal core has no programming prerequisite. A readiness diagnostic, prior evidence, or instructor review determines entry to Builder Bridge and Advanced Agent Systems studios.",
+  "programs": [
+    {
+      "id": "builder-bridge",
+      "lineId": "bridge",
+      "title": "One Water AI Builder Bridge",
+      "shortTitle": "Builder Bridge",
+      "role": "optional-technical-preparation",
+      "numbering": "BB01-BB08",
+      "guidedHours": 48,
+      "promise": "Give a motivated non-programmer or early builder enough technical understanding to read, change, test, connect, release, and defend a small governed utility application.",
+      "audience": ["builders", "engineers", "analysts", "technical reviewers", "product owners", "curious leaders who want hands-on depth"],
+      "completionProduct": "reproducible read-only utility application and release evidence package",
+      "modules": [
+        {
+          "id": "bridge:BB01",
+          "code": "BB01",
+          "number": 1,
+          "title": "Python and Computational Thinking for Utility Work",
+          "guidedHours": 6,
+          "learningJob": "Read and explain a small program, break a utility task into clear steps, make a bounded change, run it, inspect the result, and correct an error without pretending code is self-explanatory.",
+          "outcomes": [
+            "Explain variables, values, conditions, loops, functions, classes, imports, and errors in plain English.",
+            "Break a utility record-processing task into inputs, rules, transformations, outputs, checks, and failure handling.",
+            "Read unfamiliar Python before changing it and predict the effect of a proposed change.",
+            "Run, test, debug, and document a small approved-data program.",
+            "Create a Python task map and tested script evidence record."
+          ],
+          "topics": ["computational thinking", "Python syntax", "variables and types", "conditions and loops", "functions and classes", "imports", "exceptions", "debugging"],
+          "appliedResult": "Python task map and tested script evidence record",
+          "assessments": ["code-reading prediction", "step ordering", "debugging scenario", "tested script demonstration"],
+          "visuals": ["input-rule-output flow", "program anatomy", "execution stepper", "error diagnosis tree"],
+          "prerequisites": ["readiness diagnostic or instructor placement"],
+          "sourceAuditIds": ["AAI-16", "AAI-24"]
+        },
+        {
+          "id": "bridge:BB02",
+          "code": "BB02",
+          "number": 2,
+          "title": "Data Structures, Files, and Application Data",
+          "guidedHours": 6,
+          "learningJob": "Work with tables, lists, dictionaries, JavaScript Object Notation, files, dates, missing values, and identifiers while preserving the meaning, source, and limitation of utility records.",
+          "outcomes": [
+            "Distinguish a value, field, row, table, list, dictionary, object, file, record, and relationship.",
+            "Read and write comma-separated values and JavaScript Object Notation without silently changing types or identifiers.",
+            "Inspect missing, duplicate, conflicting, stale, and malformed data before using it.",
+            "Preserve source, version, time, units, and transformation evidence.",
+            "Create a governed application-data contract and validation log."
+          ],
+          "topics": ["lists and dictionaries", "tables and records", "CSV", "JSON", "files and paths", "dates and units", "identifiers", "validation"],
+          "appliedResult": "governed application-data contract and validation log",
+          "assessments": ["data-shape matching", "malformed-record diagnosis", "transformation trace", "completed data contract"],
+          "visuals": ["data-shape comparison", "file-to-record flow", "validation funnel", "transformation provenance chain"],
+          "prerequisites": ["bridge:BB01 or equivalent evidence"],
+          "sourceAuditIds": ["AAI-16", "AAI-24"]
+        },
+        {
+          "id": "bridge:BB03",
+          "code": "BB03",
+          "number": 3,
+          "title": "Application Programming Interfaces, Hypertext Transfer Protocol, and Tool Connections",
+          "guidedHours": 6,
+          "learningJob": "Trace a governed request from an authenticated user through an application programming interface to an approved system, then inspect the response, error, permission, rate, and log.",
+          "outcomes": [
+            "Explain endpoint, request, method, header, body, response, status code, authentication, rate limit, and timeout.",
+            "Compare a direct application programming interface, connector, webhook, and Model Context Protocol tool connection.",
+            "Design the narrowest useful read-only permission for a utility task.",
+            "Handle failure, retry, timeout, duplicate request, and human escalation without hiding the error.",
+            "Create a governed tool-connection contract and request log."
+          ],
+          "topics": ["HTTP requests and responses", "REST patterns", "authentication", "JSON payloads", "errors and timeouts", "rate limits", "webhooks", "MCP"],
+          "appliedResult": "governed tool-connection contract and request log",
+          "assessments": ["request-part matching", "permission decision", "failure and retry simulation", "read-only connection demonstration"],
+          "visuals": ["request-response swimlane", "permission matrix", "error and retry state map", "tool boundary diagram"],
+          "prerequisites": ["bridge:BB02 or equivalent evidence"],
+          "sourceAuditIds": ["AAI-17", "AAI-18"]
+        },
+        {
+          "id": "bridge:BB04",
+          "code": "BB04",
+          "number": 4,
+          "title": "Git, GitHub, and Reproducible Work",
+          "guidedHours": 6,
+          "learningJob": "Use version control to preserve who changed what, why it changed, how it was reviewed, what evidence passed, and how a weak change can be reversed.",
+          "outcomes": [
+            "Explain repository, working tree, branch, commit, difference, merge, conflict, tag, issue, and pull request.",
+            "Create a branch and commit that preserves one bounded curriculum or application change.",
+            "Review a difference, connect it to an issue and acceptance rule, and record reviewer action.",
+            "Resolve a simple conflict without erasing either contributor's work or history.",
+            "Create a reproducible change and review record."
+          ],
+          "topics": ["repositories", "branches", "commits", "diffs", "issues", "pull requests", "conflicts", "tags and recovery"],
+          "appliedResult": "reproducible change and review record",
+          "assessments": ["version-control term matching", "difference review", "conflict scenario", "reviewed pull request evidence"],
+          "visuals": ["branch graph", "change evidence chain", "review swimlane", "conflict resolution comparison"],
+          "prerequisites": ["bridge:BB01 or equivalent evidence"],
+          "sourceAuditIds": ["AAI-10", "AAI-16"]
+        },
+        {
+          "id": "bridge:BB05",
+          "code": "BB05",
+          "number": 5,
+          "title": "Testing, Dependencies, and Environments",
+          "guidedHours": 6,
+          "learningJob": "Prove that a change works under known conditions, fails visibly under wrong conditions, and can be reproduced outside the builder's laptop.",
+          "outcomes": [
+            "Distinguish unit, integration, regression, security, accessibility, and acceptance tests.",
+            "Identify code, package, version, configuration, secret, operating system, and service dependencies.",
+            "Create and use an isolated environment with recorded dependency versions.",
+            "Design tests for ordinary, boundary, malformed, unauthorized, and failure cases.",
+            "Create a test, dependency, and environment evidence package."
+          ],
+          "topics": ["test types", "test data", "dependency files", "version locking", "virtual environments", "configuration", "secrets", "clean reproduction"],
+          "appliedResult": "test, dependency, and environment evidence package",
+          "assessments": ["test-type classification", "dependency fault diagnosis", "clean-environment reproduction", "completed evidence package"],
+          "visuals": ["test pyramid", "dependency network", "environment comparison", "failure coverage matrix"],
+          "prerequisites": ["bridge:BB04 or equivalent evidence"],
+          "sourceAuditIds": ["AAI-02", "AAI-10"]
+        },
+        {
+          "id": "bridge:BB06",
+          "code": "BB06",
+          "number": 6,
+          "title": "Cloud Foundations, Identity, Secrets, and Cost",
+          "guidedHours": 6,
+          "learningJob": "Explain and configure the smallest supportable hosted application while keeping identity, permission, data, secrets, logs, cost, resilience, and exit visible.",
+          "outcomes": [
+            "Explain region, network, compute, storage, database, identity, secret, log, domain, certificate, backup, and managed service.",
+            "Trace user, application, model, tool, data, and log flows across a cloud architecture.",
+            "Set least-privilege identity, secret rotation, spend caps, logging, backup, and recovery responsibilities.",
+            "Compare hosted, local, managed, and hybrid patterns without assuming one is always safer or cheaper.",
+            "Create a cloud responsibility, cost, and recovery map."
+          ],
+          "topics": ["cloud regions", "networking", "compute", "storage and databases", "identity and access", "secrets", "logs and backups", "cost and exit"],
+          "appliedResult": "cloud responsibility, cost, and recovery map",
+          "assessments": ["cloud-component matching", "permission scenario", "cost and hosting comparison", "completed responsibility map"],
+          "visuals": ["cloud layer stack", "identity and data flow", "shared-responsibility matrix", "cost and recovery tradeoff"],
+          "prerequisites": ["bridge:BB03 and bridge:BB05 or equivalent evidence"],
+          "sourceAuditIds": ["AAI-11", "AAI-25"]
+        },
+        {
+          "id": "bridge:BB07",
+          "code": "BB07",
+          "number": 7,
+          "title": "Continuous Integration, Delivery, and Release Control",
+          "guidedHours": 6,
+          "learningJob": "Move an approved change through automated checks, artifact creation, environment promotion, human approval, release, observation, and rollback.",
+          "outcomes": [
+            "Distinguish continuous integration, continuous delivery, continuous deployment, release, and environment promotion.",
+            "Design an automated pipeline that fails closed when required evidence is missing.",
+            "Connect tests, artifact checksums, approvals, release notes, deployment, monitoring, and rollback.",
+            "Investigate a failed release and preserve the prior working state and incident evidence.",
+            "Create a continuous delivery and release-control record."
+          ],
+          "topics": ["pipeline triggers", "automated checks", "artifacts and checksums", "environment promotion", "approval gates", "release notes", "deployment", "rollback"],
+          "appliedResult": "continuous delivery and release-control record",
+          "assessments": ["pipeline ordering", "gate design", "failed-release simulation", "completed release record"],
+          "visuals": ["continuous-delivery pipeline", "evidence gate matrix", "environment promotion flow", "rollback timeline"],
+          "prerequisites": ["bridge:BB04 through bridge:BB06 or equivalent evidence"],
+          "sourceAuditIds": ["AAI-02", "AAI-10"]
+        },
+        {
+          "id": "bridge:BB08",
+          "code": "BB08",
+          "number": 8,
+          "title": "Builder Readiness Practicum",
+          "guidedHours": 6,
+          "learningJob": "Bring code, data, tools, version control, tests, cloud responsibility, and release evidence together in a small read-only utility application that another person can reproduce and review.",
+          "outcomes": [
+            "Define a bounded utility problem, user, approved source, non-goals, and acceptance evidence.",
+            "Build a read-only application that preserves source, identity, permission, error, and log boundaries.",
+            "Use a reviewed repository, tests, dependency lock, environment record, and controlled deployment path.",
+            "Demonstrate one ordinary case, one failure case, one recovery, and one rollback.",
+            "Defend the reproducible application and release evidence package to a technical and utility reviewer."
+          ],
+          "topics": ["problem and acceptance", "read-only architecture", "source and permission", "repository and review", "tests and failures", "deployment and observation", "recovery and rollback", "technical defense"],
+          "appliedResult": "reproducible read-only utility application and release evidence package",
+          "assessments": ["architecture decision", "failure demonstration", "reproduction check", "review defense"],
+          "visuals": ["application architecture", "source and permission map", "test and release dashboard", "defense evidence network"],
+          "prerequisites": ["bridge:BB01 through bridge:BB07 or approved equivalent evidence"],
+          "sourceAuditIds": ["AAI-16", "AAI-17", "AAI-20"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-agent-systems",
+      "lineId": "advanced",
+      "title": "One Water AI Advanced Agent Systems",
+      "shortTitle": "Advanced Agent Systems",
+      "role": "optional-advanced-specialization",
+      "numbering": "AA01-AA08",
+      "guidedHours": 48,
+      "promise": "Give technical practitioners and reviewers a governed path through formal agent design, planning, retrieval, memory, multi-agent coordination, human interaction, learning methods, and embodied systems in water-sector settings.",
+      "audience": ["technical practitioners", "architects", "builders", "researchers", "technical reviewers", "advanced product owners"],
+      "completionProduct": "advanced utility agent-system architecture, evaluation, and authority portfolio",
+      "modules": [
+        {
+          "id": "advanced:AA01",
+          "code": "AA01",
+          "number": 1,
+          "title": "Agents, Goals, Environments, and Perceived Agency",
+          "guidedHours": 6,
+          "learningJob": "Specify what an agent is trying to achieve, what it can observe and do, how the environment changes, how success is measured, and why people may perceive more agency than the system has.",
+          "outcomes": [
+            "Compare rational-agent, language-model agent, workflow, and human-team descriptions.",
+            "Specify performance, environment, observations, actions, state, tools, and stop conditions.",
+            "Analyze observability, uncertainty, change, reversibility, and consequence in a utility environment.",
+            "Identify anthropomorphic language and interface cues that distort trust and authority.",
+            "Create an advanced agent environment and authority model."
+          ],
+          "topics": ["agent models", "goals and performance", "environment properties", "observations and actions", "state and tools", "autonomy", "perceived agency", "authority"],
+          "appliedResult": "advanced agent environment and authority model",
+          "assessments": ["agent-model comparison", "environment classification", "authority critique", "completed model"],
+          "visuals": ["agent-environment loop", "environment property matrix", "agency-perception spectrum", "authority boundary"],
+          "prerequisites": ["fellowship:M17 through fellowship:M24 or approved equivalent evidence"],
+          "sourceAuditIds": ["AAI-04"]
+        },
+        {
+          "id": "advanced:AA02",
+          "code": "AA02",
+          "number": 2,
+          "title": "Planning, Reasoning, Tool Use, and Stop Conditions",
+          "guidedHours": 6,
+          "learningJob": "Compare planning patterns, inspect observable reasoning and action traces, control tool use, detect plan drift, and stop when evidence or authority fails.",
+          "outcomes": [
+            "Compare fixed workflow, classical planning, language-model planning, plan-and-execute, Reason and Act, and reflection.",
+            "Trace goal, plan, action, observation, evidence, evaluation, adjustment, and stop.",
+            "Set tool permissions, retry budgets, time and cost limits, escalation, and refusal.",
+            "Diagnose plan drift, tool misuse, endless loops, stale evidence, and false completion.",
+            "Create and test an advanced planning and stop-control specification."
+          ],
+          "topics": ["planning patterns", "Reason and Act", "reflection", "tool choice", "trace evaluation", "retry budgets", "plan drift", "stop and escalation"],
+          "appliedResult": "advanced planning and stop-control specification",
+          "assessments": ["pattern selection", "trace inspection", "loop and failure injection", "completed control specification"],
+          "visuals": ["planning-pattern comparison", "reason-act trace", "tool permission matrix", "stop decision tree"],
+          "prerequisites": ["advanced:AA01"],
+          "sourceAuditIds": ["AAI-05"]
+        },
+        {
+          "id": "advanced:AA03",
+          "code": "AA03",
+          "number": 3,
+          "title": "Agentic Retrieval and Evidence-Grounded Research",
+          "guidedHours": 6,
+          "learningJob": "Build an iterative research and retrieval process that plans questions, selects approved sources, retrieves evidence, evaluates coverage, refines the search, and preserves conflicts and limitations.",
+          "outcomes": [
+            "Distinguish ordinary search, retrieval-augmented generation, graph-assisted retrieval, and agentic retrieval.",
+            "Plan a research question into source, claim, locator, conflict, and stopping requirements.",
+            "Evaluate source coverage, freshness, authority, duplication, conflict, and unsupported synthesis.",
+            "Control internet, repository, document, and database tool use while preserving permissions and citations.",
+            "Create an agentic research plan, trace, claim register, and evidence package."
+          ],
+          "topics": ["research decomposition", "retrieval families", "query planning", "source selection", "coverage evaluation", "iterative refinement", "conflicts", "stopping and citation"],
+          "appliedResult": "agentic research plan, trace, claim register, and evidence package",
+          "assessments": ["retrieval-pattern comparison", "source coverage review", "unsupported-synthesis correction", "completed evidence package"],
+          "visuals": ["agentic retrieval loop", "query-source-claim network", "coverage matrix", "research stop gate"],
+          "prerequisites": ["advanced:AA02 and core retrieval modules"],
+          "sourceAuditIds": ["AAI-05", "AAI-20"]
+        },
+        {
+          "id": "advanced:AA04",
+          "code": "AA04",
+          "number": 4,
+          "title": "Memory, State, Durable Records, and Correction",
+          "guidedHours": 6,
+          "learningJob": "Separate temporary context, working state, episodic and semantic memory, learned parameters, and authoritative records so the system remembers only what it may keep and corrects history without erasing it.",
+          "outcomes": [
+            "Distinguish context, working state, cache, memory, retrieval source, model weights, and system of record.",
+            "Design retention, access, provenance, correction, deletion, expiration, and conflict rules.",
+            "Identify memory poisoning, stale state, cross-user leakage, false personalization, and record-authority failures.",
+            "Use checkpoints and append-only corrections to preserve task and decision history.",
+            "Create an agent state, memory, and authoritative-record plan."
+          ],
+          "topics": ["context and state", "episodic memory", "semantic memory", "procedural instruction", "model weights", "authoritative records", "retention and deletion", "poisoning and correction"],
+          "appliedResult": "agent state, memory, and authoritative-record plan",
+          "assessments": ["memory-type classification", "retention decision", "poisoning and correction scenario", "completed state plan"],
+          "visuals": ["state and memory stack", "retention timeline", "memory poisoning path", "append-only correction chain"],
+          "prerequisites": ["advanced:AA01 through advanced:AA03"],
+          "sourceAuditIds": ["AAI-04", "AAI-05"]
+        },
+        {
+          "id": "advanced:AA05",
+          "code": "AA05",
+          "number": 5,
+          "title": "Multi-Agent Coordination, Conflict, and Failure",
+          "guidedHours": 6,
+          "learningJob": "Design and test a multi-agent work system that preserves roles, evidence, communication, shared state, disagreement, arbitration, cost, failure recovery, and human command.",
+          "outcomes": [
+            "Compare supervisor, hierarchy, peer, market, blackboard, and sequential handoff coordination patterns.",
+            "Design agent roles, messages, state, source versions, permissions, arbitration, escalation, and final human decision.",
+            "Use basic cooperation and incentive reasoning to expose conflict and gaming without personifying agents.",
+            "Trigger and recover from disagreement, deadlock, duplicate work, cascading error, and cost multiplication.",
+            "Create a tested multi-agent coordination, evaluation, and recovery package."
+          ],
+          "topics": ["coordination topologies", "communication protocols", "shared state", "delegation", "arbitration", "game theory basics", "deadlock and cascades", "human command"],
+          "appliedResult": "tested multi-agent coordination, evaluation, and recovery package",
+          "assessments": ["topology choice", "message and state simulation", "failure injection", "decision-room defense"],
+          "visuals": ["coordination topology map", "communication contract swimlane", "conflict and incentive matrix", "failure-propagation network"],
+          "prerequisites": ["advanced:AA01 through advanced:AA04"],
+          "sourceAuditIds": ["AAI-06", "AAI-23"]
+        },
+        {
+          "id": "advanced:AA06",
+          "code": "AA06",
+          "number": 6,
+          "title": "Human-Agent Interaction and Agentic User Experience",
+          "guidedHours": 6,
+          "learningJob": "Design a usable and accessible interaction in which a person can understand status and evidence, control consequential action, challenge the system, interrupt it, correct it, recover, and retain authority.",
+          "outcomes": [
+            "Explain trust calibration, common ground, transparency, progressive disclosure, feedback, and recoverability.",
+            "Design visible goal, plan, source, tool, state, limitation, cost, and next-action behavior.",
+            "Create preview, confirmation, interrupt, cancel, pause, correction, undo, recovery, and escalation states.",
+            "Evaluate automation bias, inaccessible controls, hidden state, false confidence, dark patterns, and weak handoffs.",
+            "Create and test an accessible agentic user-experience and recovery specification."
+          ],
+          "topics": ["trust calibration", "common ground", "status and evidence", "human control", "confirmation", "interrupt and undo", "recovery and escalation", "accessibility"],
+          "appliedResult": "accessible agentic user-experience and recovery specification",
+          "assessments": ["interface critique", "interaction-state ordering", "keyboard and recovery walkthrough", "completed specification"],
+          "visuals": ["interaction state machine", "trust calibration curve", "authority and confirmation swimlane", "recovery path map"],
+          "prerequisites": ["advanced:AA01 through advanced:AA05"],
+          "sourceAuditIds": ["AAI-07"]
+        },
+        {
+          "id": "advanced:AA07",
+          "code": "AA07",
+          "number": 7,
+          "title": "Reinforcement, Feedback, and Continual Learning",
+          "guidedHours": 6,
+          "learningJob": "Explain how systems change from feedback, examples, rewards, fine-tuning, memory, retrieval, and software updates, then decide which forms of change are permitted and reviewed in a utility setting.",
+          "outcomes": [
+            "Distinguish prompt revision, retrieval update, memory, supervised fine-tuning, preference optimization, reinforcement learning, and continual learning.",
+            "Explain state, action, reward, policy, exploration, exploitation, and delayed consequence with a bounded example.",
+            "Identify reward misspecification, unsafe exploration, feedback contamination, policy drift, and unreviewed self-change.",
+            "Design offline, simulated, shadow, advisory, and controlled review stages before any physical-system use.",
+            "Create a learning-method decision and safety record."
+          ],
+          "topics": ["feedback and learning methods", "reinforcement learning foundations", "reward and policy", "deep and verbal reinforcement", "continual learning", "reward failure", "simulation and shadow testing", "change control"],
+          "appliedResult": "learning-method decision and safety record",
+          "assessments": ["learning-method classification", "reward design critique", "unsafe-change scenario", "completed safety record"],
+          "visuals": ["learning-method comparison", "state-action-reward loop", "reward failure fishbone", "simulation-to-authority phase gates"],
+          "prerequisites": ["advanced:AA01 through advanced:AA06"],
+          "sourceAuditIds": ["AAI-21"]
+        },
+        {
+          "id": "advanced:AA08",
+          "code": "AA08",
+          "number": 8,
+          "title": "Embodied Artificial Intelligence and Water Robotics",
+          "guidedHours": 6,
+          "learningJob": "Evaluate how sensing, perception, language, planning, simulation, robotics, deterministic control, and human authority connect when an artificial intelligence system affects the physical world.",
+          "outcomes": [
+            "Distinguish software agent, simulated agent, embodied agent, robot, vision-language-action model, deterministic controller, and qualified operator.",
+            "Trace sensor, perception, model, plan, command, control, actuator, physical response, feedback, and human intervention.",
+            "Evaluate inspection, sampling, laboratory, maintenance, field, and treatment-support scenarios for consequence and reversibility.",
+            "Design simulation, shadow, read-only, advisory, interlock, emergency-stop, and human-approval boundaries.",
+            "Create an embodied-system evidence, control, and authority case."
+          ],
+          "topics": ["embodied agents", "simulation", "vision-language-action models", "sensing and perception", "robotics", "deterministic control", "interlocks and emergency stop", "human authority"],
+          "appliedResult": "embodied-system evidence, control, and authority case",
+          "assessments": ["system-type classification", "control-chain trace", "authority-boundary scenario", "final portfolio defense"],
+          "visuals": ["sense-plan-act-control loop", "simulation-to-field phase gates", "physical authority boundary", "failure and emergency-stop chain"],
+          "prerequisites": ["advanced:AA01 through advanced:AA07"],
+          "sourceAuditIds": ["AAI-22", "AAI-25"]
+        }
+      ]
+    }
+  ]
+}

@@ -22,6 +22,34 @@ blocks:
         label: EVIDENCE BOUNDARY
     claim_ids: [claim-distinct-jobs, claim-particle-stability, claim-coagulant-mechanisms, claim-us-credit-at-coagulation, claim-turbidity-proxy]
 
+  - block_id: block-definitions
+    type: definition
+    title: What these words mean before you use them
+    body: |
+      These terms carry most of the confusion in this topic, so read them before the live jar. The jar asks you to tell the stages apart, and that only works if the words already mean something specific to you. Each entry gives a plain meaning, something you can picture, and what the term does not settle.
+    terms:
+      - term: Coagulation
+        meaning: The chemical step. A treatment chemical is added and mixed quickly so that the very small particles carried in the water stop pushing each other apart, or so that a fresh solid forms in the water and traps them.
+        example: A plant feeds an approved aluminum or iron product into rapidly mixing raw water so that the material making the water cloudy becomes able to clump instead of staying evenly spread through it.
+        not_established: It does not tell you that anything has been removed. Nothing has left the water yet. It also does not identify the right chemical, the right amount, or the right mixing condition for any particular plant.
+      - term: Flocculation
+        meaning: The gentle physical step that follows. The water is stirred slowly for a period of time so the treated particles meet each other often enough to stick together and grow large enough for the next stage to take out.
+        example: Water moves slowly through a series of stirred basins, and the specks in it grow from barely visible to clumps you can watch drift past.
+        not_established: It does not tell you that more stirring is better. Stirring energy that is too high can tear apart what has already formed, and the balance between growth and breakage depends on the water, the chemical, the amount used, the time allowed, and the equipment.
+      - term: Floc
+        meaning: The clumps themselves. Loose groupings of particles and chemical solids that hold together well enough to travel through the plant and be taken out as a group rather than one speck at a time.
+        example: Visible specks drifting through a settling basin instead of a haze spread evenly through the water.
+        not_established: Its appearance alone proves neither success nor failure. Small clumps at one point in the sequence can be an intended intermediate stage, so the sample location, the process stage, and the downstream result all have to be defined before appearance means anything.
+      - term: Separation
+        meaning: The physical stages that finally take the clumped material out of the water, first by letting gravity pull it downward in a basin and then by passing the water through a filter bed.
+        example: Solids collect on the floor of a basin and are drawn off, and the clearer water above moves on to the filters.
+        not_established: A problem observed here does not prove which earlier stage caused it. A short filter run narrows where to look, but the raw water, the chemistry, the chemical feed, the mixing, the contact time, the sample location, and the equipment all remain open questions.
+      - term: Jar test
+        meaning: A bench comparison. Several containers of the same water are treated side by side under controlled conditions so that different treatment choices can be compared before anyone changes the full-scale plant.
+        example: Several containers of the day's raw water, each given a different approved chemical condition, stirred and then left to settle so the results can be compared against each other.
+        not_established: A result here is evidence, not permission. It supports a decision only when it represents the actual water and the relevant full-scale processes and follows the approved facility method, and it never authorizes a plant change by itself.
+    claim_ids: [claim-distinct-jobs, claim-particle-stability, claim-coagulant-mechanisms, claim-tapered-flocculation, claim-shear, claim-pin-floc, claim-downstream, claim-jar-purpose, claim-no-operating-advice]
+
   - block_id: block-jar
     type: interaction
     title: The live jar
@@ -81,6 +109,20 @@ blocks:
       - title: REUSE AND INDUSTRIAL
         body: Pretreatment may affect downstream separation and fouling, but the application, water matrix, product, and performance objective must be reviewed separately.
     claim_ids: [claim-downstream, claim-cross-sector-same-physics, claim-ro-fouling]
+
+  - block_id: block-worked-example
+    type: example
+    title: Worked example, from one observation to one question
+    body: Follow a single observation through the three jobs. The point is to watch the reasoning, not to copy the answer.
+    situation: An operator looks into the last flocculation basin after a rainfall event and sees small specks and a general haze where larger clumps are normally visible. Nothing has been changed yet, and the observation is illustrative rather than a record from any real facility.
+    reasoning: |
+      Start by naming which job the observation belongs to. Specks and haze at this point describe the contact stage, so the first question is whether the particles were prepared upstream and whether they were then given enough undisturbed opportunity to meet. Appearance alone settles nothing, because small aggregates at this location can be an intended intermediate before further growth and separation.
+
+      Work outward from there. A rainfall event can change the raw water, and that changes what the chemical has to act on. The chemical condition may no longer suit that water, because pH, alkalinity, temperature, product, and application point all affect what the added chemical does. Contact may also be the issue, since too little stirring gives too few collisions and too much stirring can break apart what has already formed. Sampling can explain it too, because a sample drawn from a different location or depth is not comparable with the earlier one. Then look at what happened after this basin, because the clarifier and the filter show whether the material was actually removed.
+    result: >-
+      The honest conclusion is a question, not a setting. It reads: which of the raw water, the chemical condition, the contact condition, the sample location, or the equipment changed at the same time as this observation, what does the approved test method say about comparing them, who is authorized to decide, and what would be monitored and reversed if a change were made.
+    boundary: This walkthrough shows how to locate a stage and build a question. It does not identify the cause at any real plant, and it does not carry across to another facility, another chemical, another basin, or another sector. Nothing here authorizes a dose, mixing, chemical, or process change.
+    claim_ids: [claim-pin-floc, claim-shear, claim-alkalinity, claim-jar-sampling, claim-jar-purpose, claim-downstream, claim-dose-change-sop, claim-no-operating-advice]
 
   - block_id: block-evidence-split
     type: evidence

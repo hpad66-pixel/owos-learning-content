@@ -1,0 +1,40 @@
+{
+  "id": "result_synthetic_rainfall_volume_001",
+  "tenant_id": "tenant_synthetic_demo",
+  "analysis_request_id": "analysis_demo_event_001",
+  "metric_id": "M-02",
+  "evidence_class": "calculated",
+  "quantity_type": "rainfall_volume",
+  "state": "warning",
+  "value": 55.612,
+  "unit": "MG",
+  "full_precision_value": 55.612416,
+  "display_value": "55.612 MG",
+  "boundary_id": "basin_synthetic_640ac",
+  "time_basis": {
+    "start": "2026-07-15T00:00:00-04:00",
+    "end": "2026-07-17T00:00:00-04:00",
+    "time_zone": "America/New_York"
+  },
+  "snapshot_id": "snapshot_synthetic_event_001",
+  "producer": {
+    "type": "formula",
+    "id": "F-UNIT-001",
+    "version": "candidate",
+    "run_id": "calcrun_synthetic_001"
+  },
+  "dependency_result_ids": [],
+  "source_refs": [
+    "source_synthetic_rain_001",
+    "source_synthetic_gis_001"
+  ],
+  "warnings": [
+    "SYNTHETIC_EXAMPLE_NOT_FACILITY_DATA",
+    "FORMULA_PENDING_QUALIFIED_PRODUCTION_REVIEW"
+  ],
+  "uncertainty": null,
+  "assurance_state": "formula_candidate",
+  "review_state": "review_required",
+  "result_path": "hydrograph_summary.rainfall_volume_mg",
+  "created_at": "2026-07-29T09:12:00-04:00"
+}

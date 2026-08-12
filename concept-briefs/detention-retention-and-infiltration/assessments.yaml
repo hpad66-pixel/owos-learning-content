@@ -1,0 +1,186 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+assessments:
+  - assessment_id: assessment-terminology-boundary
+    version: 0.1.0
+    type: multiple-choice
+    cognitive_job: boundary
+    prompt: An asset is called a retention basin, but you have no drawing, outlet information, or performance objective. What can the name establish by itself?
+    options:
+      - text: It proves the basin has no surface discharge.
+        correct: false
+      - text: It proves the basin maintains a permanent pool.
+        correct: false
+      - text: It is a terminology clue, but the water pathway and objective still need evidence.
+        correct: true
+      - text: It proves the basin meets its intended performance.
+        correct: false
+    feedback:
+      correct: Correct. EPA materials document more than one use of retention, so the route and objective must be stated.
+      incorrect: The name is not enough. Ask where water is stored, every way it exits, and what objective the asset was designed to serve.
+    retry: Recheck which answer preserves uncertainty without discarding the label as a useful clue.
+    completion_id: terminology-boundary-passed
+    final_applied_check: false
+    review_status: draft_pending_owner_editorial_and_qualified_review
+  - assessment_id: assessment-detention-function
+    version: 0.2.0
+    type: multiple-choice
+    cognitive_job: selection
+    prompt: Which observation best describes the detention function shown in the five-state basin sequence?
+    options:
+      - text: Water is permanently prevented from leaving by any surface route.
+        correct: false
+      - text: Water occupies temporary storage and leaves later through a controlled route.
+        correct: true
+      - text: The basin is dry, so it has no stormwater function.
+        correct: false
+      - text: The sequence proves the basin meets every flood-protection objective.
+        correct: false
+    feedback:
+      correct: Correct. The sequence shows temporary storage followed by release.
+      incorrect: Read the water level and outlet together. The drawing does not prove universal performance or a required recovery time.
+    retry: Return to the before, peak, and recovery states and identify what changes.
+    completion_id: detention-function-passed
+    final_applied_check: false
+    review_status: proposed_pending_owner_editorial_and_qualified_review
+  - assessment_id: assessment-permanent-pool
+    version: 0.2.0
+    type: flip-cards
+    cognitive_job: retrieval
+    prompt: Distinguish normal pond water from temporary storm storage.
+    cards:
+      - front: What is the permanent pool?
+        back: The portion intended to remain normally wet between storms. It does not include every temporary storm-storage volume shown above the normal water level.
+      - front: Where is temporary storm storage in the cutaway?
+        back: Above the normal water level and below the relevant overflow boundary in this conceptual picture.
+      - front: Does a visible permanent pool prove flood protection or treatment?
+        back: No. Plans, controls, condition, downstream boundaries, monitoring, and applicable authority are still needed.
+    feedback:
+      correct: The permanent pool, temporary storage, and evidence boundary are correctly separated.
+      incorrect: Return to the normal water level and distinguish what remains from what temporarily rises above it.
+    retry: Read the pond cutaway from the normal water level downward, then upward.
+    completion_id: permanent-pool-retrieval-completed
+    final_applied_check: false
+    review_status: proposed_pending_owner_editorial_and_qualified_review
+  - assessment_id: assessment-performance-evidence
+    version: 0.2.0
+    type: matching
+    cognitive_job: relationship
+    prompt: Match each performance statement to the evidence category that can support it.
+    pairs:
+      - left: Maximum flow during the event
+        right: Peak flow
+      - left: When the maximum occurs
+        right: Peak timing
+      - left: Total water discharged across the event
+        right: Discharged volume
+      - left: Constituent amount per unit of water
+        right: Concentration
+      - left: Total constituent mass moved
+        right: Pollutant load
+    targets:
+      - Peak flow
+      - Peak timing
+      - Discharged volume
+      - Concentration
+      - Pollutant load
+    feedback:
+      correct: Correct. Each measure answers a different question.
+      incorrect: Keep hydraulic timing, total water, concentration, and total constituent mass separate.
+    retry: Read the hydrograph and water-and-pollutant ledger again.
+    completion_id: performance-evidence-passed
+    final_applied_check: false
+    review_status: proposed_pending_owner_editorial_and_qualified_review
+  - assessment_id: assessment-ii-route
+    version: 0.2.0
+    type: matching
+    cognitive_job: classification
+    prompt: Match each conceptual wet-weather entry route to infiltration or inflow.
+    pairs:
+      - left: Groundwater enters through a cracked buried pipe.
+        right: Infiltration
+      - left: Water enters through a defective buried joint.
+        right: Infiltration
+      - left: A roof drain is improperly connected to the sanitary sewer.
+        right: Inflow
+      - left: Surface water enters through an open or leaky manhole cover.
+        right: Inflow
+    targets:
+      - Infiltration
+      - Inflow
+      - Not enough evidence
+    feedback:
+      correct: Correct. The examples distinguish defect-related subsurface entry from more direct surface-connected entry.
+      incorrect: Ask whether water is entering through a buried defect or a direct surface-connected route.
+    retry: Trace each arrow from the rain or groundwater source to the sanitary sewer.
+    completion_id: ii-route-passed
+    final_applied_check: false
+    review_status: proposed_pending_owner_editorial_and_qualified_review
+  - assessment_id: assessment-permit-value-sequence
+    version: 0.2.0
+    type: matching
+    cognitive_job: relationship
+    prompt: Match each permit-to-value stage to the question it answers.
+    pairs:
+      - left: Approved plan and permit condition
+        right: What was authorized and expected?
+      - left: Named responsible party
+        right: Who must carry the obligation?
+      - left: Access and funded maintenance
+        right: How can the physical work continue?
+      - left: Inspection, monitoring, and records
+        right: What evidence shows condition or performance?
+      - left: Correction and renewal
+        right: What happens when the intended result is not preserved?
+    targets:
+      - What was authorized and expected?
+      - Who must carry the obligation?
+      - How can the physical work continue?
+      - What evidence shows condition or performance?
+      - What happens when the intended result is not preserved?
+    feedback:
+      correct: Correct. Permit value depends on a complete responsibility and evidence chain.
+      incorrect: Follow the handoff from authorized condition to responsible work, evidence, and correction.
+    retry: Return to the permit-to-value chain and identify the missing handoff.
+    completion_id: permit-value-sequence-passed
+    final_applied_check: false
+    review_status: proposed_pending_owner_editorial_and_qualified_review
+  - assessment_id: assessment-system-conversation
+    version: 0.2.0
+    type: applied-work-product
+    cognitive_job: transfer
+    prompt: Explain the unfamiliar stormwater system using the complete conversation tool without claiming design adequacy, compliance, or site suitability.
+    required_fields:
+      - water_source
+      - complete_route
+      - normal_condition
+      - storm_condition
+      - intended_objective
+      - controlling_features
+      - authority_or_program
+      - responsible_entity
+      - supporting_evidence
+      - failure_and_maintenance_questions
+      - budget_and_value
+      - result_uncertainty_responsibility_next_evidence
+    field_labels:
+      water_source: What water enters?
+      complete_route: Where can the water go?
+      normal_condition: What is present before the storm?
+      storm_condition: What changes during and after the storm?
+      intended_objective: What result is intended?
+      controlling_features: What controls storage, release, subsurface movement, or overflow?
+      authority_or_program: Which permit or program clue is shown, and what remains unknown?
+      responsible_entity: Who appears responsible, and what must still be confirmed?
+      supporting_evidence: What plan, model, observation, inspection, monitoring, or record supports the explanation?
+      failure_and_maintenance_questions: What could redirect the route, and what evidence is needed next?
+      budget_and_value: What service, risk, lifecycle work, or wastewater consequence belongs in the budget conversation?
+      result_uncertainty_responsibility_next_evidence: State one result, one uncertainty, one responsibility, and one next piece of evidence.
+    feedback:
+      correct: Your system explanation connects water, controls, responsibility, evidence, and value while preserving uncertainty.
+      incorrect: Complete every field, trace every shown route, and remove any unsupported design, compliance, suitability, or performance conclusion.
+    retry: Return to the system route, then separate visible evidence from inference.
+    completion_id: system-conversation-completed
+    final_applied_check: true
+    review_status: proposed_pending_owner_editorial_technical_accessibility_and_qualified_review

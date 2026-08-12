@@ -3,6 +3,194 @@
 All notable changes to One Water OS are recorded here, newest first.
 Dates are YYYY-MM-DD. Versions follow simple semantic-ish numbering.
 
+## [0.34.0] - 2026-07-27
+### Changed: Variant B selected, Variant A retired
+- Owner selected Variant B as the design for Concept Brief 003. The Variant A rendered experience is
+  removed from `dist/`. Its evidence base is kept deliberately, because Variant B is built on it and
+  none of it was rejected: the white paper, claims, sources, verification dossier, added-terminology
+  dossier, and Florida companion remain the governing evidence. The full Variant A build stays
+  recoverable at tag `concept-brief-003-version-a`.
+
+### Added: Variant B second pass
+- A graphic for every dependent term. Six original cross-section diagrams built as one visual family,
+  each required to teach with its caption removed, which is the test the retired visuals failed.
+  Detention is a wide inlet against a narrow outlet. Retention is one word drawn as two pictures.
+  Infiltration is a doorway with four exits below it. The permanent pool shows the working capacity
+  as the empty space above the water. Outlet and overflow sit at two heights. Tailwater shows one
+  outlet against a low and a high creek.
+- A sticky reading rail with current stage and minutes remaining, so the time commitment is visible
+  from the first screen.
+- The cross-sector connection the production contract requires and the first build lacked: rain
+  entering a separate sanitary sewer, carrying the correction that EPA cannot separate
+  rainfall-induced infiltration from delayed inflow.
+- A sources and scope surface. The evidence was traceable in the package and invisible on the page.
+- Connected learning naming four briefs this one deliberately stops short of.
+- A community and value plane: practitioner conversation, a correction path that re-enters
+  verification rather than living in a comment thread, the editorial-independence disclosure, APAS.ai
+  and Droobi attribution, and a copyright position separating original work from federal material.
+
+## [0.33.0] - 2026-07-27
+### Fixed: Variant B flip cards were structurally collapsed
+- The flip-card inner element was a `<span>`, so it computed to `display:inline` and its `width`,
+  `height`, `min-height`, and `transform-style` were all silently ignored. The container had zero
+  height, the absolutely positioned faces fell back to 44 pixels holding 281 pixels of content, and
+  the cards rendered as overlapping text wrapping one word per line. Rebuilt as a grid stack so each
+  card sizes itself to its taller face, with a back-face hint so the affordance survives the flip.
+
+### Added: layout-integrity check in the rendered audit
+- This defect was invisible to every existing gate. The text was on screen, contrast passed, nothing
+  overflowed the viewport, and the rotation transform applied correctly. The audit now also fails on
+  a container whose content is far larger than its own box, and on a positioned or three-dimensional
+  element that computes to `display:inline`.
+- Two bugs in the first version of the check are worth recording. It reused the shared `visible`
+  helper, which rejects zero-height elements, so it skipped the collapsed container it existed to
+  find. It also only ran on elements with their own text, and a collapsed container usually holds
+  only other elements. Layout integrity now gets its own pass with its own visibility rule.
+- The threshold is a ratio rather than a pixel count. Line-height and negative margins push content a
+  few percent outside its box with nothing wrong and nothing clipped, and the compiled briefs do that
+  in three places. A real collapse is not marginal: the flip card was six times over. Verified in both
+  directions against a saved copy of the broken page.
+
+## [0.32.0] - 2026-07-27
+### Added: Detention brief Variant B, an alternative curriculum interpretation
+- Added `concept-briefs/detention-retention-and-infiltration/variant-b/` with a rationale document
+  and a self-contained page, for owner comparison against Variant A. Variant A is unchanged and
+  tagged `concept-brief-003-version-a`.
+- Variant B argues that a Concept Brief should install one reorganizing idea rather than survey a
+  domain. Its spine is a puzzle the learner cannot solve yet: a pond in good condition, a clear
+  outlet, a passed inspection, and a street that flooded. Every concept enters because the
+  investigation needs it. Permits, finance, and cross-role framing move to their own briefs.
+- Rebuilt the two visuals that were doing the least work in Variant A:
+  - the route comparison drew a dry detention basin brim-full of water, identical to the wet pond
+    beside it, erasing the one distinction it existed to teach. Variant B uses a single cross-section
+    the learner drives through four conditions, where blocking the outlet visibly moves water to the
+    overflow and a high creek visibly backs it up.
+  - the hydrograph asserted that area represents volume and never shaded the area. Variant B animates
+    both curves, fills both areas, and computes the result: a 47 percent lower peak carrying 2
+    percent less water.
+- Added flip cards that ask exact recall questions rather than fill-in-the-blank.
+- Replaced the twelve-field final form with four questions answerable three ways: watch a model
+  answer type itself at reading speed, write your own, or clear and start again. Answers save to the
+  browser and export as Markdown. Nothing is required to reach the end, because a brief that ends in
+  an unfinished form has taught nothing at the moment it mattered most.
+- Variant B introduces no new technical claims. It carries the three corrections from the source
+  search, including using EPA's own wording for what sets the normal water level rather than the
+  state term.
+
+## [0.31.0] - 2026-07-27
+### Changed: Detention white paper 0.7, source anchoring and three corrections
+- Completed a federal source search over the twelve terms quarantined in 0.6 and recorded it in
+  `research/added-terminology-source-dossier.md` with retrieved URLs, quoted passages, scope limits,
+  a rejected-source log, and a full retrieval log. Nine of twelve anchored to a federal source that
+  was actually fetched and read. No citation was invented.
+- The search returned three corrections rather than three confirmations, which is the quarantine
+  working as designed:
+  - detention time and residence time were assigned in the opposite direction from EPA's own
+    glossary, which defines detention time as volume divided by discharge rate. Rewritten to present
+    them as two names for nearly the same quantity, with the useful question preserved.
+  - "control elevation" is state regulatory vocabulary, not federal. The mechanism is now taught in
+    EPA's own words and the phrase is named only as a term learners will encounter elsewhere.
+  - the wet-weather worked example separated inflow from infiltration. EPA states that
+    rainfall-induced infiltration cannot be distinguished from delayed inflow. The example now
+    separates direct from delayed response and names the delayed inflow sources, and its conclusion
+    is narrowed from separating the two to narrowing the question.
+- Downstream peak coincidence moved from expert interpretation to sourced fact on near-verbatim EPA
+  language, and now carries EPA's own counterweight that selectively located basins can help.
+- Scored 94, recovering one point from 0.6.
+
+### Fixed
+- Anchored the full-bleed pullquote to its own edge instead of to parent centring, which is why it
+  drifted 2px past the viewport at desktop and tablet. Contained at 1440, 820, and 390.
+- Taught the browser suite that content inside a horizontal scroll container is contained by design,
+  matching the rendered audit so the two tools agree. Both now report zero.
+
+## [0.30.0] - 2026-07-27
+### Added: rendered-quality gate
+- Added `tools/audit-concept-brief-rendering.cjs`, a Playwright audit that opens the compiled brief
+  at desktop, tablet, and phone and fails on WCAG 2.1 contrast against the real composited
+  background, text closer to the viewport edge than the page's own content inset, horizontal
+  overflow, and touch targets under 24 pixels.
+- Made it a contract gate. Structural validation cannot see the page, so a package could satisfy
+  every schema rule and still compile to something unreadable.
+- Moved the accessibility rules into `ACCESSIBILITY_FLOOR`, compiled after the package brand
+  stylesheet and the shared shell, using literal colour values rather than theme variables. The
+  reference package remaps `--blue` to a light cyan, which silently pulled the floor down with it.
+
+### Fixed
+- Matching checks were rendering blank. Packages author pairs as `left`/`right`; the renderer read
+  `prompt`/`answer`, so every matching row emitted an empty statement and `data-answer=""`. The
+  learner saw an unlabeled dropdown and the grader compared against an empty string. The renderer
+  now accepts either spelling, and validation rejects a pair with no visible statement, no answer,
+  or an answer that is not one of the declared targets.
+- Repaired the band header and status bar gutters. Both carried colour and type but no content
+  geometry, so their text ran to the viewport edge while every beat body sat inside the wrapper.
+- Native form controls inherited the theme's dark `color-scheme`, putting dark dropdowns on light
+  assessment cards. Controls now follow the surface they sit on.
+- Headings and links inside cards inherit the card's colour instead of being forced to one surface,
+  so the light and dark variants of the same component both stay legible.
+- Raised the primary and commercial actions to solid fills, the consent checkbox to 24 pixels in the
+  shared shell, and gave inline links in cards, tables, and citations a 24 pixel touch target.
+- Both briefs now report zero contrast, gutter, overflow, and tap-target defects at all three widths.
+
+## [0.29.0] - 2026-07-27
+### Added: instructional orientation contract for the Concept Engine
+- Raised the Concept Brief Production Contract to 2.2.0 with an instructional orientation contract.
+  A brief may no longer open directly on its topic. Before the first mechanism, diagram, or
+  interaction, the rendered page must answer what this is about, who it is for, why it matters,
+  what the learner will be able to do, how long it takes, and what it does not cover.
+- Added a define-before-use rule. Every dependent term is defined in plain English with a concrete
+  example and an explicit statement of what the term does not establish, placed where the learner
+  first needs it. An appended glossary does not satisfy the requirement, and a diagram may not
+  introduce a label the prose has not already defined.
+- Added a wholeness standard: a brief is complete when a learner who knew nothing about the topic
+  can, without leaving the page, say what the concept is, explain how it works, recognize where it
+  applies, name what commonly goes wrong, distinguish it from what it is confused with, and state
+  what they would need to know before acting.
+- Added `definition` and `example` narrative block types to the Concept Brief Compiler, with a
+  four-part definition record and a four-part worked-example record.
+- Rendered the learning objectives. `learning.yaml` had carried `outcomes`, `prior_knowledge`,
+  `misconception`, and `cross_sector_connections` as required records that the compiler validated
+  and then never rendered, so the learner never saw the promise the package made. The compiler now
+  renders them in a START HERE orientation section.
+- Added five fail-closed regression gates: missing orientation, no definition block, no worked
+  example, definitions placed after first use, and the white-paper presence warning.
+- Required the white paper and compiled brief to be the same argument at two depths. A teaching move
+  in the paper with no home in the storyboard, or a rendered section with no basis in the paper, is
+  now a reported synchronization defect.
+
+### Fixed
+- The production contract listed `white-paper.md` in the governed package while the compiler never
+  checked for it, so a brief could reach compilation with no teaching source. The compiler now warns
+  during working validation and blocks at release.
+- A visual declared with `component_id` and no `locator` raised `KeyError` during build despite
+  passing validation. Component-backed visuals now render with their reading guide, conclusion, and
+  alternative text.
+- Added stylesheet coverage for the `heading`, `metric`, `role`, `evidence`, and
+  `connected_learning` block types, which had rendered unstyled.
+- Visual captions can now carry a `not_established` statement, so a graphic states what it does not
+  prove alongside what to notice.
+- Repaired four contrast defects found in rendered review. The Graphite theme sets headings and body
+  copy light and inverts the `off_white` beat band to charcoal, so components composed for a light
+  surface were rendering light text on light panels. Three were pre-existing and shipped in the
+  reference brief: every learning-check question was near-invisible on its light card, the beat
+  learner question was dark blue on charcoal, and the concept-map drawer kicker was pale cyan on
+  ivory. The rendered page now reports zero low-contrast text nodes.
+
+### Changed: Detention, Retention, and Infiltration white paper 0.6
+- Added the reader orientation, the situations where the concept becomes consequential, and a
+  foundation definition set carrying plain meaning, concrete example, and non-establishment for
+  every dependent term.
+- Added four worked examples, the distinction between infiltration rate and infiltration capacity,
+  hydraulic conductivity, detention and residence time, control elevation, littoral zone, freeboard,
+  tailwater, time of concentration, first flush, event mean concentration, downstream peak
+  coincidence, three further misconceptions, and six further production visuals.
+- Scored 93 of 100, down from 95. The instructional expansion enlarged the set of statements needing
+  source anchoring faster than the evidence grew. Twelve added terms are itemized, quarantined from
+  learner-facing HTML, and blocked until they carry source records, classified claims, and qualified
+  review.
+- Reconciled the conversation tool count. Eleven questions plus a closing statement produce the
+  twelve-field work product; the design brief had recorded both numbers as though they conflicted.
+
 ## [0.28.0] - 2026-07-22
 ### Added: governed Project Delivery release contract
 - Added `apps/project-management/course.yaml` as the machine-readable authority for the 21-chapter,

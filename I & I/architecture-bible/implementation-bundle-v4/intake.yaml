@@ -1,0 +1,81 @@
+schema_version: 1
+artifact_id: owos:pumpos-ii:implementation-bundle-v4
+title: PumpOS and I&I Intelligence Version 4 Implementation Bundle
+version: 0.4.0
+status: governed_internal_candidate
+created_on: 2026-07-29
+owner: Hardeep Anand
+source_identity:
+  status: established
+  basis:
+    - direct owner request in the continuing Architecture Bible conversation
+    - explicit documented relationship to Version 3
+owner_direction:
+  verbatim: >-
+    Go ahead and do that, and make sure you demarcate this very clearly so that
+    I can use that as a separate actionable instance working with Claude or
+    Kimi3 or something like that. Keep that in mind!
+  interpreted_requirements:
+    - Convert the recommended implementation steps into a separate Version 4 artifact.
+    - Make the artifact usable by another development agent without relying on hidden conversation context.
+    - Include a clear launch prompt, binding agent instructions, machine-readable contracts, work packages, acceptance tests, and stop conditions.
+    - Preserve Version 3 as the explanatory technical Bible.
+    - Bound the first implementation to one basin, one event, one receiving station, one calculation lineage, and one reviewed decision.
+    - Do not grant agents engineering, model-approval, operational-control, compliance, or dispatch authority.
+relationship:
+  derived_from:
+    - ../ii-intelligence-system-bible-v3.md
+  complements:
+    - ../../white-paper.md
+    - ../../formula-register.yaml
+    - ../operationalization-manifest.yaml
+  does_not_replace:
+    - ../ii-intelligence-system-bible-v3.md
+    - ../../formula-register.yaml
+    - ../../verification-plan.yaml
+delivery:
+  primary: standalone_agent_portable_folder
+  human_readable:
+    - implementation-edition.md
+    - COPY-PASTE-AGENT-HANDOFF.md
+  machine_readable:
+    - work-packages.yaml
+    - acceptance-matrix.yaml
+    - openapi.yaml
+    - agent-tools.yaml
+    - formula-contract-template.yaml
+    - schemas
+    - examples
+    - golden-cases
+scope:
+  included:
+    - first operational product slice
+    - software service boundaries
+    - canonical domain and boundary model
+    - evidence intake and qualification
+    - immutable snapshots and lineage
+    - deterministic calculation runtime contract
+    - optional SWMM and EPANET adapter contracts
+    - result reconciliation
+    - workflow APIs and dashboard payloads
+    - bounded agent tools
+    - human approval
+    - security and operational gates
+    - golden cases and pilot plan
+  excluded:
+    - drinking-water PipeOS implementation
+    - autonomous operational control
+    - production formula approval
+    - model calibration approval
+    - regulatory compliance determination
+    - public release
+evidence_boundary:
+  source_explanation: Version 3
+  executable_calculation_authority: active_versioned_formula_contracts_only
+  model_authority: registered_versioned_model_workers_only
+  agent_authority: retrieve_explain_compare_draft_and_request_review
+  consequential_authority: authorized_human_only
+missing_dependency:
+  name: Hardeep Soul
+  status: unavailable_in_repository_and_parent_paths
+  fallback: Preserve exact owner direction and use existing OWOS and Architecture Bible standards.

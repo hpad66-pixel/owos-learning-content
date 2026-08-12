@@ -1,0 +1,125 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+verification_coverage_percent: 0.0
+hard_gates:
+  source_preservation: passed
+  claim_verification_accuracy: blocked
+  learning_editorial_design: blocked
+  utility_technical_practice: blocked
+  visual_interaction_accessibility: blocked
+  graph_community_integrity: blocked
+  commercial_integrity: blocked
+  release_control: blocked
+manual_reviews:
+  independent_source: pending
+  qualified_technical_practitioner: pending
+  editorial: pending
+  desktop: revision_0_3_author_check_passed_owner_review_pending
+  tablet: pending
+  phone: revision_0_3_author_check_passed_owner_review_pending
+  keyboard: pending
+  touch: pending
+  screen_reader: pending
+  reduced_motion: revision_0_3_author_check_passed_owner_review_pending
+  no_javascript: revision_0_3_author_check_passed_owner_review_pending
+  read_without_animation: pending
+  novice_reader: pending
+  graph: pending
+  community: pending
+  commercial_conflict: pending
+  owner_release: pending
+  owner_white_paper_direction: approved_2026_07_26
+automated_checks:
+  proposed_design_and_storyboard_integrity:
+    status: revision_0_3_passed_structural_owner_review_pending
+    evidence: The owner-directed thirteen-beat revision adds a definition-first foundation before the storm tracer and expands instructor explanation before later visuals. It resolves to governed narrative blocks, seven active assessments, two deterministic interactions, and the complete national claim inventory.
+  verification_dossier:
+    status: prepared_not_verified
+    evidence: research/verification-dossier.md routes all twenty-two national claims and all proposed visual families to independent source, qualified stormwater, wastewater, federal permitting, visual-truth, editorial, and novice reviews. Verification coverage remains 0 percent until those reviews are performed and recorded.
+  white_paper_score:
+    status: passed_content_threshold_owner_approval_pending
+    evidence: research-final-0.5 scored 95 of 100 and the separately governed Florida jurisdictional research paper scored 97 of 100 under core/templates/CONCEPT-BRIEF-WHITE-PAPER-SCORE.md; neither score overrides blocked verification or review gates.
+  white_paper_source_claim_integrity:
+    status: passed_structural
+    evidence: Twenty-three source records and twenty-two claim records parsed successfully; every claim source identifier resolves.
+  white_paper_voice_qc:
+    status: passed
+    evidence: The Hardeep Soul QC script returned CLEAN for both research-final-0.5 and research/florida-jurisdictional-white-paper.md with no em dashes or blocked AI phrases.
+  package_validation:
+    status: passed_working
+    evidence: python3 tools/concept_brief_compiler.py validate concept-briefs/detention-retention-and-infiltration passed for preview 0.3. Release-ready remained false as required.
+  deterministic_build:
+    status: passed_working_preview
+    evidence: The rebuilt internal and public review outputs compiled deterministically from the governed package.
+  portfolio_distinctiveness:
+    status: passed
+    evidence: python3 tools/concept_brief_compiler.py portfolio-check concept-briefs checked two packages with no warnings after the definition-first 0.3 design revision.
+  claim_coverage:
+    status: blocked_as_expected
+    evidence: Initial material claims are pending independent and qualified review.
+  source_and_locator_integrity:
+    status: source_identity_and_current_federal_locator_review_complete
+    evidence: Exact portfolio source identity passed. Current federal and EPA original locators were opened on 2026-07-26.
+  asset_resolution:
+    status: passed_working_preview
+    evidence: Ten explanatory images used by the rebuilt learner experience load with nonzero natural dimensions in desktop, phone, and no-JavaScript browser runs. The governed visual directory contains thirteen SVG assets.
+  rendered_browser_qa:
+    status: passed_working_preview
+    evidence: Preview 0.3 browser evidence in dist/research-rebuild-browser-qa/report.json records zero failures and zero overflow elements across desktop, phone with reduced motion, and phone with JavaScript disabled. Screenshots cover the foundation and individual visual blocks.
+  pathway_tracer:
+    status: passed_working_preview
+    evidence: Three routes, deterministic step controls, completion state, keyboard focus, live-region updates, reduced-motion behavior, and structured fallback passed browser QA.
+  responsive_containment:
+    status: passed_working_preview
+    evidence: Browser QA measured scroll width equal to viewport width at 1440 and 390 pixels.
+  assessment_completion:
+    status: passed_working_preview
+    evidence: All seven assessments were present. The system-conversation work product, detention check, terminology check, permanent-pool retrieval, failure trace, pathway tracer, and final work product reached their tested completion states in desktop and phone runs.
+  graph_and_community_drawers:
+    status: passed_working_preview
+    evidence: Both drawers opened, exposed the expected content, closed with Escape, and returned focus in desktop and phone runs.
+  graph_edge_validation:
+    status: passed_structural_validation_pending_human_review
+    evidence: Proposed nodes and edges resolve under working package validation. Publication remains pending.
+  community_contract_validation:
+    status: passed_structural_validation_pending_human_review
+    evidence: Required Community fields and same-page mount validate. The space is not published.
+  commercial_firewall:
+    status: declared_pending_review
+    evidence: Commercial participation is disabled and editorial rights are prohibited.
+  learning_system_records:
+    status: passed_structural_validation_pending_human_review
+    evidence: Placement, capability lock, events, assessment, model, language, time, credentials, and pathways passed working package validation.
+  prohibited_language:
+    status: passed
+    evidence: Working package validation and repository scan found no prohibited dash or blocked phrase in the governed learner-facing narrative.
+  compiler_regression:
+    status: passed
+    evidence: python3 tools/test-concept-brief-compiler.py
+  release_gate:
+    status: blocked_as_required
+    evidence: Release readiness remains blocked by zero-percent independent verification coverage, pending qualified and human reviews, unpublished connections, disabled credentials, and missing release approval. The owner-approved design and storyboard authorize only this governed review preview.
+notes:
+  - Activation source identity is established by exact title, direct locator, and owner request.
+  - The owner approved working-preview implementation on 2026-07-26; learner-facing HTML has been generated for review only.
+  - State manuals, state requirements, local criteria, and permit details are excluded from the public source register and narrative.
+  - Federal and EPA source identities and locators were reviewed, but material claims remain pending independent verification and qualified technical review.
+  - Rendered desktop, phone, reduced-motion, and no-JavaScript QA passed. Tablet, screen-reader, keyboard-only manual, touch-only manual, novice-reader, practitioner, Graph, Community, commercial, and release reviews remain unresolved.
+  - Public release remains blocked even though the working visual preview is available.
+  - On 2026-07-26 the owner rejected the preview's editorial format and research depth and returned the brief to owner sparring, white-paper research, and curriculum-thesis development.
+  - All prior rendered QA is historical evidence for a frozen pre-research prototype. It does not approve the next brief or satisfy the new white-paper gate.
+  - Research draft 0.4 reached the 95-point white-paper content threshold after adding the one-storm, five-ledger value model, plain-English permit teaching, municipal, construction, industrial, and wastewater permit context, and role-specific value scenes.
+  - Working package validation passes, but reports zero release verification coverage because all twenty-two claims still require an independent verifier, qualified review where applicable, and freshness records.
+  - A Florida jurisdiction-specific research white paper, source register, and claim register were completed on 2026-07-26 and isolated under research/ so Florida material does not become universal public authority.
+  - The Florida paper scored 97 of 100. Independent Florida legal-source verification, qualified stormwater, hydrogeology, wastewater, and permitting reviews, diagram review, and owner approval remain blocked hard gates.
+  - Replacement HTML was authorized and built from the national research-final-0.5 for governed review only. The Florida companion remains isolated from the public national brief.
+  - Hardeep approved the national and Florida white-paper teaching direction on 2026-07-26. This advances the package into evidence verification and curriculum design but does not approve technical accuracy, storyboard, replacement HTML, Graph, Community, commercial placement, credentials, or release.
+  - The immature pre-research design and seven-beat storyboard were replaced with a proposed twelve-beat curriculum that includes dry storage, permanent pools, subsurface practices, hydrographs, performance measures, maintenance failure paths, wastewater I&I, permit value, finance, cross-role questions, and the final 11-question work product.
+  - research/verification-dossier.md now routes every material national claim and proposed visual to independent source, qualified stormwater, wastewater, permitting, visual-truth, editorial, and novice reviews. Author dossier preparation does not increase release verification coverage.
+  - Hardeep approved the rebuilt design brief and twelve-beat storyboard and authorized a governed review-only replacement preview on 2026-07-26.
+  - The rebuilt public review preview passed automated browser QA with zero failures at 1440-pixel desktop and 390-pixel phone widths, with reduced motion and JavaScript-disabled fallbacks verified.
+  - Author visual inspection confirmed corrected editorial measure, margins, hierarchy, diagram containment, mobile reading order, interpretation text, and final recap. Independent accessibility, novice-reader, visual-truth, practitioner, and owner rendered-experience reviews remain unresolved.
+  - On 2026-07-26 Hardeep rejected preview 0.2 as weak overall and identified left margins, graphic-text alignment, topic introduction, definition timing, and instructional depth as specific failures.
+  - Preview 0.3 adds a thirteenth definition-first beat, introduces later topics before their visuals, strengthens utility explanations, increases responsive editorial gutters, aligns visual frames and captions, and converts the foundation table to stacked mobile records.
+  - Preview 0.3 passed the refreshed desktop, phone, reduced-motion, and no-JavaScript browser harness with zero reported failures and zero overflow elements. This is author evidence only. Owner review remains pending.

@@ -1,0 +1,486 @@
+schema_version: 1
+bundle_id: pumpos_ii_implementation_v4
+status: candidate
+execution_rule: A work package may begin only when every dependency is complete and its required owner decisions are resolved.
+work_packages:
+  - id: WP-01
+    name: Contract and repository foundation
+    objective: Establish the target implementation repository, contract locations, validation commands, and continuous-integration gates.
+    dependencies: []
+    required_inputs:
+      - implementation-edition.md
+      - AGENTS.md
+      - schemas
+      - openapi.yaml
+    deliverables:
+      - positively identified target repository and branch record
+      - application architecture decision record
+      - contract directory and schema-validation command
+      - continuous-integration job for contract validation
+      - local synthetic development configuration
+    acceptance_criteria:
+      - AC-001
+      - AC-002
+      - AC-003
+      - AC-004
+    tests:
+      - all Version 4 YAML and JSON files parse
+      - all schema identifiers are unique
+      - all referenced work-package and acceptance identifiers resolve
+      - no production credential is required for local contract validation
+    human_review:
+      required_roles:
+        - product_owner
+        - software_architect
+      stop_boundary: Do not select the production cloud architecture or amend the PumpOS Constitution without owner ratification.
+
+  - id: WP-02
+    name: Canonical domain and boundary model
+    objective: Implement stable identities, effective topology, many-to-many basin and station relationships, and boundary-resolution records.
+    dependencies:
+      - WP-01
+    required_inputs:
+      - schemas/analysis-request.schema.json
+      - implementation-edition.md#7
+    deliverables:
+      - domain entities and database migrations
+      - asset and observation source-reference model
+      - effective-time topology model
+      - boundary-resolution service
+      - boundary mismatch and ambiguity results
+    acceptance_criteria:
+      - AC-010
+      - AC-011
+      - AC-012
+      - AC-013
+    tests:
+      - one basin to one station
+      - multiple basins to one station
+      - one basin with conditional paths to multiple stations
+      - unresolved topology blocks downstream calculation
+      - historical topology resolves by event effective time
+    human_review:
+      required_roles:
+        - data_architect
+        - collection_system_engineer
+        - pump_station_engineer
+      stop_boundary: Do not assume one basin equals one station.
+
+  - id: WP-03
+    name: Evidence intake and qualification
+    objective: Preserve raw records and implement identity, unit, time, gap, plausibility, and method-fitness qualification.
+    dependencies:
+      - WP-02
+    required_inputs:
+      - implementation-edition.md#6
+      - implementation-edition.md#9
+    deliverables:
+      - source adapter interface
+      - immutable raw-record manifest
+      - normalized observation-series contract
+      - qualification-rule engine
+      - structured data-gap result
+    acceptance_criteria:
+      - AC-020
+      - AC-021
+      - AC-022
+      - AC-023
+      - AC-024
+    tests:
+      - unknown unit rejected
+      - unknown time zone rejected
+      - duplicate timestamps handled only by declared rule
+      - raw source hash preserved
+      - rejected values cannot enter accepted snapshot
+      - method-specific qualification does not imply universal fitness
+    human_review:
+      required_roles:
+        - data_steward
+        - collection_system_engineer
+      stop_boundary: Do not silently interpolate or default missing engineering data.
+
+  - id: WP-04
+    name: Immutable input snapshots and lineage
+    objective: Freeze accepted inputs and provide bidirectional navigation between source records, transformations, snapshots, and consumers.
+    dependencies:
+      - WP-03
+    required_inputs:
+      - schemas/input-snapshot.schema.json
+      - examples/input-snapshot.example.json
+    deliverables:
+      - snapshot creation service
+      - canonical snapshot hashing
+      - immutable snapshot storage
+      - source and qualification lineage edges
+      - snapshot retrieval API
+    acceptance_criteria:
+      - AC-030
+      - AC-031
+      - AC-032
+    tests:
+      - identical canonical content has identical hash
+      - changed accepted value creates a new snapshot
+      - old snapshot remains unchanged
+      - every snapshot value resolves to source and qualification
+    human_review:
+      required_roles:
+        - data_architect
+        - software_architect
+      stop_boundary: Never mutate an existing snapshot.
+
+  - id: WP-05
+    name: Deterministic calculation runtime
+    objective: Execute active formula contracts with dimensional validation, dependency ordering, warnings, uncertainty, and result envelopes.
+    dependencies:
+      - WP-04
+    required_inputs:
+      - ../../formula-register.yaml
+      - formula-contract-template.yaml
+      - schemas/result-envelope.schema.json
+    deliverables:
+      - formula registry adapter
+      - calculation profile registry
+      - dependency planner
+      - quantity and unit validation
+      - deterministic execution service
+      - intermediate-result lineage
+    acceptance_criteria:
+      - AC-040
+      - AC-041
+      - AC-042
+      - AC-043
+      - AC-044
+    tests:
+      - unknown formula blocked
+      - inactive formula blocked
+      - incompatible unit blocked
+      - full-precision output retained
+      - display rounding never re-enters calculation
+      - deterministic rerun matches declared tolerance
+    human_review:
+      required_roles:
+        - ii_engineer
+        - numerical_software_reviewer
+      stop_boundary: Do not invent or modify an engineering formula.
+
+  - id: WP-06
+    name: Golden numerical verification
+    objective: Establish approved numerical fixtures for every first-slice formula and failure path.
+    dependencies:
+      - WP-05
+    required_inputs:
+      - golden-cases/golden-case-register.yaml
+      - examples/golden-case-001
+    deliverables:
+      - formula-level golden fixtures
+      - chain-level golden fixture
+      - tolerance registry
+      - independent comparison report
+      - signed reviewer disposition
+    acceptance_criteria:
+      - AC-050
+      - AC-051
+      - AC-052
+      - AC-053
+    tests:
+      - expected result equality within approved tolerance
+      - dimensional invariants
+      - mass-balance closure
+      - monotonicity where applicable
+      - negative and blocked cases
+    human_review:
+      required_roles:
+        - qualified_ii_engineer
+        - qualified_pump_station_engineer
+        - independent_numerical_reviewer
+      stop_boundary: Mechanical test success does not approve a formula for production.
+
+  - id: WP-07
+    name: Results and reconciliation
+    objective: Store all evidence classes separately and compare only compatible quantity, time, and boundary bases.
+    dependencies:
+      - WP-05
+    required_inputs:
+      - schemas/result-envelope.schema.json
+      - schemas/reconciliation.schema.json
+    deliverables:
+      - result store
+      - comparison eligibility check
+      - reconciliation service
+      - tolerance policy interface
+      - result and lineage retrieval APIs
+    acceptance_criteria:
+      - AC-060
+      - AC-061
+      - AC-062
+      - AC-063
+    tests:
+      - observed result remains distinct from calculated result
+      - modeled result remains distinct from calculated result
+      - incompatible boundaries return not_comparable
+      - disagreement does not remove underlying values
+      - missing model result is not converted to zero
+    human_review:
+      required_roles:
+        - ii_engineer
+        - hydraulic_modeler
+      stop_boundary: Do not create a universal tolerance without declared purpose and review.
+
+  - id: WP-08
+    name: Workflow API and approval state
+    objective: Implement the OpenAPI resources, state transitions, review tasks, findings, recommendations, and approvals.
+    dependencies:
+      - WP-04
+      - WP-07
+    required_inputs:
+      - openapi.yaml
+      - schemas/finding.schema.json
+      - schemas/approval.schema.json
+    deliverables:
+      - API routes
+      - authorization policy
+      - idempotency support
+      - analysis state machine
+      - finding and approval persistence
+      - approval invalidation on evidence revision
+    acceptance_criteria:
+      - AC-070
+      - AC-071
+      - AC-072
+      - AC-073
+    tests:
+      - invalid state transition rejected
+      - unauthorized approval rejected
+      - agent approval rejected
+      - evidence revision invalidates approval
+      - duplicate idempotency key returns original operation
+    human_review:
+      required_roles:
+        - product_owner
+        - security_architect
+        - utility_workflow_owner
+      stop_boundary: Do not dispatch work or operate equipment.
+
+  - id: WP-09
+    name: First-slice dashboards
+    objective: Implement the seven workflow screens with numbered metrics, evidence classes, assurance, warnings, and one-click lineage.
+    dependencies:
+      - WP-08
+    required_inputs:
+      - ../dashboard-mockups.md
+      - implementation-edition.md#13
+    deliverables:
+      - analysis request workspace
+      - data qualification center
+      - basin and I&I results
+      - station hydraulics and resilience
+      - model assurance and reconciliation
+      - lineage explorer
+      - finding and approval workspace
+    acceptance_criteria:
+      - AC-080
+      - AC-081
+      - AC-082
+      - AC-083
+      - AC-084
+    tests:
+      - every number has evidence class and unit
+      - every number resolves to exact result path
+      - warning and blocked states remain visible
+      - model metrics show not_run when no run exists
+      - keyboard and mobile workflow completes
+    human_review:
+      required_roles:
+        - product_owner
+        - operator
+        - engineer
+        - accessibility_reviewer
+      stop_boundary: A dashboard warning is not an automatic operating instruction.
+
+  - id: WP-10
+    name: SWMM adapter
+    objective: Execute registered SWMM models in isolation and normalize declared outputs without obscuring run quality.
+    dependencies:
+      - WP-04
+      - WP-07
+      - WP-13
+    required_inputs:
+      - schemas/model-run.schema.json
+      - ../model-integration-v3.md
+    deliverables:
+      - model registry support for SWMM
+      - isolated PySWMM worker
+      - run manifest and artifact storage
+      - continuity and run-status extraction
+      - normalized M-35 through M-40 result contracts
+    acceptance_criteria:
+      - AC-090
+      - AC-091
+      - AC-092
+      - AC-093
+    tests:
+      - model hash and engine version required
+      - timeout and crash return failed state
+      - failed run creates no modeled numeric result
+      - continuity warning remains visible
+      - unapproved model is not decision-eligible
+    human_review:
+      required_roles:
+        - swmm_modeler
+        - security_architect
+      stop_boundary: Do not claim calibration or validation without an approved record.
+
+  - id: WP-11
+    name: EPANET adapter
+    objective: Execute registered EPANET or WNTR pressure-network scenarios and normalize operating-point comparisons.
+    dependencies:
+      - WP-04
+      - WP-07
+      - WP-13
+    required_inputs:
+      - schemas/model-run.schema.json
+      - ../model-integration-v3.md
+    deliverables:
+      - model registry support for EPANET
+      - isolated WNTR or EPANET worker
+      - run manifest and artifact storage
+      - normalized M-41 and M-42 outputs
+      - M-43 and M-44 reconciliation contracts
+    acceptance_criteria:
+      - AC-100
+      - AC-101
+      - AC-102
+      - AC-103
+    tests:
+      - model hash and engine version required
+      - incompatible pressure-network boundary rejected
+      - solver failure remains visible
+      - PumpOS difference is reconciled, not overwritten
+      - unapproved model is not decision-eligible
+    human_review:
+      required_roles:
+        - epanet_modeler
+        - pump_station_engineer
+        - security_architect
+      stop_boundary: EPANET must not be presented as an RDII calculation.
+
+  - id: WP-12
+    name: Bounded agent tools
+    objective: Expose retrieval, calculation, comparison, explanation, drafting, and approval-request tools without consequential authority.
+    dependencies:
+      - WP-08
+      - WP-09
+    required_inputs:
+      - agent-tools.yaml
+      - schemas
+    deliverables:
+      - tool gateway
+      - authorization and scope checks
+      - evidence-aware agent response envelope
+      - prompt-injection separation
+      - agent audit records
+    acceptance_criteria:
+      - AC-110
+      - AC-111
+      - AC-112
+      - AC-113
+      - AC-114
+    tests:
+      - agent cannot approve
+      - agent cannot write to control system
+      - agent cannot bypass calculation service
+      - retrieved document instructions do not change tool authority
+      - every numeric answer carries evidence class and lineage reference
+    human_review:
+      required_roles:
+        - ai_safety_reviewer
+        - security_architect
+        - product_owner
+      stop_boundary: The agent prepares work for human review and never authorizes consequential action.
+
+  - id: WP-13
+    name: Security and operational readiness
+    objective: Establish tenant isolation, roles, secrets, audit, upload safety, isolated workers, observability, backups, and incident controls.
+    dependencies:
+      - WP-01
+    required_inputs:
+      - implementation-edition.md#16
+      - implementation-edition.md#17
+    deliverables:
+      - threat model
+      - role and permission matrix
+      - secret-management design
+      - immutable audit design
+      - isolated-worker policy
+      - dependency inventory
+      - backup and restoration test
+      - incident-response runbook
+    acceptance_criteria:
+      - AC-120
+      - AC-121
+      - AC-122
+      - AC-123
+      - AC-124
+    tests:
+      - cross-tenant access denied
+      - unauthorized source access denied
+      - model worker has no unrestricted network access
+      - malicious upload rejected
+      - audit failure prevents consequential state change
+    human_review:
+      required_roles:
+        - security_architect
+        - operations_engineer
+        - product_owner
+      stop_boundary: Security readiness is a hard gate for model workers and production data.
+
+  - id: WP-14
+    name: Pilot execution and field validation
+    objective: Run the complete first slice for one approved basin, event, and receiving station and obtain qualified dispositions.
+    dependencies:
+      - WP-06
+      - WP-08
+      - WP-09
+      - WP-12
+      - WP-13
+    optional_dependencies:
+      - WP-10
+      - WP-11
+    required_inputs:
+      - approved pilot charter
+      - approved source access
+      - named reviewers
+      - verification plan
+    deliverables:
+      - pilot source manifest
+      - qualification report
+      - accepted input snapshot
+      - deterministic calculation package
+      - optional model-run packages
+      - reconciliation report
+      - dashboard and lineage demonstration
+      - reviewed finding
+      - approval disposition
+      - outcome-verification plan
+      - pilot retrospective
+    acceptance_criteria:
+      - AC-130
+      - AC-131
+      - AC-132
+      - AC-133
+      - AC-134
+    tests:
+      - full user journey completes
+      - every displayed value traces to source
+      - blocked path demonstrated
+      - returned-for-revision path demonstrated
+      - qualified reviewers sign dispositions
+    human_review:
+      required_roles:
+        - owner
+        - qualified_ii_engineer
+        - pump_station_engineer
+        - utility_operator
+        - data_steward
+        - security_reviewer
+      stop_boundary: Pilot success does not itself authorize fleet-wide or production release.

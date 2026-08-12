@@ -1,0 +1,489 @@
+schema_version: 1
+contract: owos-concept-brief/2
+brief_id: owos:concept-brief:003
+inventory_status: complete_for_activation_seed_and_initial_federal_research
+claims:
+  - claim_id: claim-name-not-pathway
+    claim_text: A stormwater practice name alone does not establish the complete water pathway, performance objective, site suitability, or present condition.
+    claim_type: expert_interpretation
+    material: true
+    technical: true
+    evidence_tier: synthesis_pending_qualified_review
+    source_ids:
+      - source-epa-bmp-terminology
+      - source-epa-national-bmp-menu
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: Public concept education across United States stormwater practice terminology.
+    limitations: Exact terminology and requirements vary by program and jurisdiction.
+    affected_blocks:
+      - block-orientation
+      - block-terminology
+      - block-final-transfer
+    affected_visuals:
+      - visual-route-comparison
+    affected_interactions:
+      - interaction-storm-path-tracer
+    affected_graph_edges:
+      - edge-brief-explains-pathways
+    correction_impact: Opening promise, glossary, route labels, assessment, and Graph relationship.
+  - claim_id: claim-detention-temporary-release
+    claim_text: Detention commonly means temporary storage followed by controlled release, often without a significant permanent pool between storms.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: epa_guidance_and_technical_reference
+    source_ids:
+      - source-epa-flow-control
+      - source-epa-bmp-terminology
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General United States stormwater concept description.
+    limitations: Does not define every asset labeled detention or establish design performance.
+    affected_blocks:
+      - block-route-comparison
+      - block-terminology
+    affected_visuals:
+      - visual-route-comparison
+    affected_interactions:
+      - interaction-storm-path-tracer
+    affected_graph_edges: []
+    correction_impact: Detention route, labels, and assessment logic.
+  - claim_id: claim-retention-varies
+    claim_text: Retention is used in more than one way, including storage without subsequent surface discharge and storage in a permanent pool that is displaced by later runoff.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: epa_technical_reference
+    source_ids:
+      - source-epa-bmp-terminology
+      - source-epa-flow-control
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: Terminology variation documented in United States EPA materials.
+    limitations: The public brief must expose the variation and avoid declaring one universal regional usage.
+    affected_blocks:
+      - block-terminology
+      - block-check-boundary
+    affected_visuals:
+      - visual-route-comparison
+    affected_interactions:
+      - interaction-storm-path-tracer
+    affected_graph_edges: []
+    correction_impact: Core teaching, glossary, visual labels, and terminology check.
+  - claim_id: claim-infiltration-pathway
+    claim_text: Infiltration routes captured stormwater into soil or subsurface material, but treatment, recharge, underdrain discharge, and groundwater interaction depend on design and site conditions.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: epa_guidance
+    source_ids:
+      - source-epa-groundwater
+      - source-ecfr-small-ms4
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General concept and federal small MS4 context.
+    limitations: No universal infiltration rate, separation distance, design, or operating criterion is carried into learner content.
+    affected_blocks:
+      - block-subsurface-boundary
+      - block-final-transfer
+    affected_visuals:
+      - visual-subsurface-boundary
+    affected_interactions:
+      - interaction-storm-path-tracer
+    affected_graph_edges: []
+    correction_impact: Subsurface visual, interaction outputs, and transfer check.
+  - claim_id: claim-green-infrastructure-definition
+    claim_text: Federal law defines green infrastructure as measures using plant or soil systems, permeable surfaces, stormwater harvest and reuse, or landscaping to store, infiltrate, or evapotranspirate stormwater and reduce flows to sewer systems or surface waters.
+    claim_type: regulatory_requirement
+    material: true
+    technical: true
+    evidence_tier: us_federal_statute
+    source_ids:
+      - source-uscode-green-infrastructure
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    jurisdiction: United States
+    effective_date: Current federal law reviewed 2026-07-26
+    scope: Statutory definition in 33 USC 1362(27).
+    limitations: The definition does not specify design criteria or make every detention or retention asset green infrastructure.
+    affected_blocks:
+      - block-subsurface-boundary
+    affected_visuals:
+      - visual-subsurface-boundary
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Definition, evidence note, and Graph term relationship.
+  - claim_id: claim-volume-load-performance
+    claim_text: Stormwater control performance should distinguish concentration, discharged volume, and total pollutant load because concentration alone can hide the effect of volume reduction.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: epa_guidance
+    source_ids:
+      - source-epa-performance
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General stormwater control performance interpretation.
+    limitations: Worked values must be illustrative and cannot represent an actual practice without site monitoring.
+    affected_blocks:
+      - block-performance-evidence
+      - block-final-transfer
+    affected_visuals:
+      - visual-route-comparison
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Performance explanation and applied work product.
+  - claim_id: claim-groundwater-protection
+    claim_text: Infiltrating stormwater can support recharge where suitable, but poor siting or contaminated runoff can create groundwater risks that require site-specific evaluation and design.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: epa_guidance
+    source_ids:
+      - source-epa-groundwater
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: Planning-level groundwater protection concepts.
+    limitations: The brief cannot determine suitability, separation, pretreatment, or groundwater risk for a real site.
+    affected_blocks:
+      - block-subsurface-boundary
+      - block-evidence-boundary
+    affected_visuals:
+      - visual-subsurface-boundary
+    affected_interactions:
+      - interaction-storm-path-tracer
+    affected_graph_edges: []
+    correction_impact: Constraints, warnings, model states, and evidence boundary.
+  - claim_id: claim-ms4-maintenance
+    claim_text: For regulated small MS4 permits, 40 CFR 122.34 requires post-construction programs to include appropriate structural or nonstructural controls and ensure adequate long-term operation and maintenance of best management practices.
+    claim_type: regulatory_requirement
+    material: true
+    technical: true
+    evidence_tier: us_federal_regulation
+    source_ids:
+      - source-ecfr-small-ms4
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    jurisdiction: United States
+    effective_date: Current eCFR reviewed 2026-07-26
+    scope: Regulated small MS4 permits under 40 CFR 122.34.
+    limitations: Exact permit terms, regulated status, and jurisdiction-specific obligations require separate review.
+    affected_blocks:
+      - block-maintenance-evidence
+      - block-evidence-boundary
+    affected_visuals: []
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Regulatory context, maintenance explanation, and evidence boundary.
+  - claim_id: claim-maintenance-pathway
+    claim_text: Maintenance evidence matters because sediment, debris, vegetation, outlet condition, underdrains, erosion, and other physical changes can alter the route or treatment a practice was intended to provide.
+    claim_type: expert_interpretation
+    material: true
+    technical: true
+    evidence_tier: synthesis_pending_qualified_review
+    source_ids:
+      - source-epa-maintenance
+      - source-ecfr-small-ms4
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General evidence-selection principle.
+    limitations: Observation does not by itself diagnose cause or authorize maintenance.
+    affected_blocks:
+      - block-maintenance-evidence
+      - block-final-transfer
+    affected_visuals: []
+    affected_interactions:
+      - interaction-storm-path-tracer
+    affected_graph_edges: []
+    correction_impact: Field evidence list, failure states, and transfer check.
+  - claim_id: claim-illustrative-storm
+    claim_text: The same-storm comparison is an instructional scenario with authored qualitative routes, not a calibrated hydrologic or hydraulic model.
+    claim_type: instructional_scenario
+    material: true
+    technical: false
+    evidence_tier: instructional
+    source_ids: []
+    verification_methods: []
+    verification_status: pending
+    scope: Public learning interaction only.
+    limitations: It cannot predict flow, volume, drawdown, infiltration, treatment, flooding, or compliance.
+    affected_blocks:
+      - block-route-comparison
+      - block-evidence-boundary
+    affected_visuals:
+      - visual-route-comparison
+    affected_interactions:
+      - interaction-storm-path-tracer
+    affected_graph_edges: []
+    correction_impact: Model boundary, labels, fallback, and disclaimer.
+  - claim_id: claim-connected-learning-proposal
+    claim_text: The Storm Hydrograph, Water Balance, Mass Balance, Stormwater Control Measure Maintenance, Receiving-Water Response, and Green Infrastructure Performance and Appearance are proposed adjacent learning connections.
+    claim_type: hardeep_position
+    material: false
+    technical: false
+    evidence_tier: portfolio_and_design_direction
+    source_ids:
+      - source-portfolio-seed
+    verification_methods: []
+    verification_status: pending
+    scope: Internal placement and Graph proposal.
+    limitations: No relationship is published until exact node identity and Graph review are complete.
+    affected_blocks:
+      - block-connected-learning
+    affected_visuals: []
+    affected_interactions: []
+    affected_graph_edges:
+      - edge-brief-adjacent-hydrograph
+      - edge-brief-adjacent-maintenance
+    correction_impact: Connected-learning list, Graph proposal, and next-learning metadata.
+  - claim_id: claim-wet-pond-permanent-pool
+    claim_text: A wet pond has a permanent pool between storms and can provide temporary detention storage above that pool during a storm.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: epa_guidance
+    source_ids:
+      - source-epa-wet-ponds
+      - source-epa-flow-control
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General United States stormwater concept description.
+    limitations: The claim does not establish storage volume, release duration, performance, or jurisdiction-specific terminology for an individual pond.
+    affected_blocks:
+      - white-paper-section-3
+    affected_visuals:
+      - visual-permanent-pool-time-sequence
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Permanent-pool teaching, wet-pond cross-section, and terminology.
+  - claim_id: claim-infiltration-final-destination
+    claim_text: Water entering an infiltration practice may move into native soil, groundwater, an underdrain, evapotranspiration, overflow, or bypass pathways depending on the design and site conditions.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: epa_guidance
+    source_ids:
+      - source-epa-groundwater
+      - source-epa-types-green-infrastructure
+      - source-epa-infiltration-trench
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General pathway explanation.
+    limitations: No actual destination or groundwater recharge quantity can be inferred without site evidence.
+    affected_blocks:
+      - white-paper-section-4
+      - white-paper-section-5
+    affected_visuals:
+      - visual-subsurface-cutaway
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Infiltration definition, subsurface diagram, practice-family comparison, and misconception repair.
+  - claim_id: claim-hydrograph-peak-volume-distinction
+    claim_text: A hydrograph shows flow or stage over time, and lowering a peak does not by itself establish that total event volume was reduced.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: federal_science_and_technical_synthesis_pending_qualified_review
+    source_ids:
+      - source-usgs-hydrograph
+      - source-epa-performance
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: Introductory hydrologic interpretation.
+    limitations: The white-paper chart is qualitative and is not a routed or calibrated result.
+    affected_blocks:
+      - white-paper-section-7
+    affected_visuals:
+      - visual-hydrograph-animation
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Hydrograph explanation, flood-management section, and assessment.
+  - claim_id: claim-model-boundary
+    claim_text: A stormwater model is a simplified representation whose usefulness depends on its purpose, inputs, assumptions, boundary conditions, calibration evidence, and uncertainty.
+    claim_type: expert_interpretation
+    material: true
+    technical: true
+    evidence_tier: synthesis_pending_qualified_review
+    source_ids:
+      - source-epa-swmm
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General model-literacy instruction.
+    limitations: The brief does not teach model setup, calibration procedure, or acceptance criteria.
+    affected_blocks:
+      - white-paper-section-7
+    affected_visuals: []
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Model definition, questions, misconception, and evidence boundary.
+  - claim_id: claim-ii-definition
+    claim_text: In a separate sanitary sewer, infiltration generally enters through subsurface defects while inflow enters more directly through surface openings or connections; together they are called infiltration and inflow, or I&I.
+    claim_type: sourced_fact
+    material: true
+    technical: true
+    evidence_tier: epa_guidance
+    source_ids:
+      - source-epa-sso-faq
+      - source-epa-sso
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General United States sanitary sewer concept description.
+    limitations: Source classification for a real system requires inspection, flow, rainfall, and collection-system evidence.
+    affected_blocks:
+      - white-paper-section-10
+    affected_visuals:
+      - visual-one-storm-two-utility-systems
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: I&I definition, system-boundary graphic, and financial consequence chain.
+  - claim_id: claim-ii-capacity-consequence
+    claim_text: I&I can increase wet-weather conveyance, pumping, and treatment flow, consume capacity, and contribute to backups, overflows, treatment challenges, energy use, operating cost, and capital pressure.
+    claim_type: expert_interpretation
+    material: true
+    technical: true
+    evidence_tier: epa_guidance_and_synthesis_pending_qualified_review
+    source_ids:
+      - source-epa-peak-flows
+      - source-epa-sso-faq
+      - source-epa-sso
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: General consequence chain for separate sanitary sewer systems.
+    limitations: The claim is qualitative. The amount, timing, cost, and capital effect require utility-specific evidence.
+    affected_blocks:
+      - white-paper-section-10
+    affected_visuals:
+      - visual-capacity-and-cost-chain
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Utility-wide value, finance explanation, I&I visual, and scope boundary.
+  - claim_id: claim-npdes-permit-function
+    claim_text: An NPDES permit translates Clean Water Act requirements into conditions for a covered discharger, which may include discharge limits, practices, monitoring, reporting, records, and noncompliance notification.
+    claim_type: regulatory_requirement
+    material: true
+    technical: true
+    evidence_tier: epa_guidance_tied_to_federal_authority
+    source_ids:
+      - source-epa-npdes-permit-basics
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    jurisdiction: United States
+    effective_date: Current federal framework reviewed 2026-07-26
+    scope: Introductory description of the NPDES permit function.
+    limitations: The statement does not determine permit applicability, coverage, conditions, or compliance for a particular discharger.
+    affected_blocks:
+      - white-paper-section-14
+    affected_visuals:
+      - visual-permit-to-value-chain
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Permit definition, value explanation, terminology, and evidence boundary.
+  - claim_id: claim-ms4-program-responsibility
+    claim_text: Owners or operators of regulated MS4s must develop, implement, and enforce a stormwater management program that addresses required program areas.
+    claim_type: regulatory_requirement
+    material: true
+    technical: true
+    evidence_tier: federal_regulation_and_epa_guidance
+    source_ids:
+      - source-ecfr-small-ms4
+      - source-epa-ms4-program
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    jurisdiction: United States
+    effective_date: Current federal framework reviewed 2026-07-26
+    scope: Regulated municipal separate storm sewer systems, with small MS4 post-construction requirements specifically tied to 40 CFR 122.34.
+    limitations: Exact coverage, permit conditions, implementation schedules, and state-administered requirements require current permit review.
+    affected_blocks:
+      - white-paper-section-14
+    affected_visuals:
+      - visual-permit-to-value-chain
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: MS4 definition, program explanation, maintenance value, and permit boundary.
+  - claim_id: claim-construction-stormwater-connection
+    claim_text: Construction stormwater can carry sediment, debris, and chemicals from disturbed sites, and covered construction activities require stormwater permit coverage and controls.
+    claim_type: regulatory_requirement
+    material: true
+    technical: true
+    evidence_tier: epa_guidance_tied_to_federal_authority
+    source_ids:
+      - source-epa-construction-stormwater
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    jurisdiction: United States
+    effective_date: Current federal overview reviewed 2026-07-26
+    scope: General federal construction-stormwater permit context.
+    limitations: The white paper does not determine whether a particular project requires coverage or which permit conditions apply.
+    affected_blocks:
+      - white-paper-section-14
+      - white-paper-section-15
+    affected_visuals:
+      - visual-design-to-operations-handoff
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Construction handoff, infiltration-clogging example, permit family, and scope.
+  - claim_id: claim-industrial-stormwater-context
+    claim_text: Stormwater contacting industrial materials or activities can transport pollutants to a storm sewer or receiving water, and regulated industrial discharges require applicable permit coverage.
+    claim_type: regulatory_requirement
+    material: true
+    technical: true
+    evidence_tier: epa_guidance_tied_to_federal_authority
+    source_ids:
+      - source-epa-industrial-stormwater
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    jurisdiction: United States
+    effective_date: Current federal overview reviewed 2026-07-26
+    scope: General federal industrial-stormwater permit context.
+    limitations: The white paper does not determine a facility's sector, exposure, eligibility, coverage, or compliance.
+    affected_blocks:
+      - white-paper-section-14
+    affected_visuals: []
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Industrial runoff context, source-quality questions, and permit boundary.
+  - claim_id: claim-permit-value-synthesis
+    claim_text: A permit creates public value by connecting a legal obligation to a responsible party, required work, evidence, reporting, correction, and public accountability.
+    claim_type: expert_interpretation
+    material: true
+    technical: false
+    evidence_tier: synthesis_pending_review
+    source_ids:
+      - source-epa-npdes-permit-basics
+      - source-epa-ms4-program
+      - source-ecfr-small-ms4
+    verification_methods:
+      - original_source_trace
+    verification_status: pending
+    scope: Plain-language governance interpretation of the federal NPDES framework.
+    limitations: The value chain is an instructional synthesis and not a statement that every permit contains identical conditions.
+    affected_blocks:
+      - white-paper-in-30-seconds
+      - white-paper-section-14
+      - white-paper-section-15
+    affected_visuals:
+      - visual-permit-to-value-chain
+      - visual-one-storm-five-ledgers
+    affected_interactions: []
+    affected_graph_edges: []
+    correction_impact: Executive value thesis, permit section, role value, and curriculum sequence.

@@ -1,0 +1,59 @@
+artifact: ii_intelligence_system_bible_v3_pdf_build_manifest
+version: 0.4.0
+status: candidate
+generated_at: 2026-07-29
+source:
+  path: architecture-bible/ii-intelligence-system-bible-v3.md
+  sha256: 2a449a8403d7dbbaf09c94c8e580889fa16a6fea8f095a28d7ca9a460c1363cd
+builder:
+  path: architecture-bible/tools/build_v3_pdf.cjs
+  sha256: 3f83de326eb2ca2a8a7c742f3c78275cbfb83cfe6c1b368c080e7e2446e74243
+runtime:
+  markdown_renderer: marked_17.0.5
+  browser_automation: playwright_1.61.1
+  browser: headless_chrome_150
+  diagram_renderer: mermaid_11.16.0_local
+  network_policy: http_and_https_blocked_during_document_render
+output:
+  path: output/pdf/ii-intelligence-system-bible-v3.pdf
+  sha256: b3a605fc64c6d539e8c26255eb11741763da4d24a40e6036b561e88d3387e9cc
+  bytes: 8678519
+  pages: 305
+  page_size: US_Letter
+  tagged: true
+  searchable_text: true
+  encrypted: false
+  bookmarks: 32
+render_validation:
+  mermaid_blocks_found: 24
+  mermaid_svgs_rendered: 24
+  embedded_images_found: 15
+  broken_images: 0
+  low_text_pages: 0
+  page_sizes_consistent: true
+  representative_pages_visually_reviewed:
+    - 1
+    - 2
+    - 12
+    - 13
+    - 14
+    - 15
+    - 21
+    - 26
+    - 27
+    - 28
+    - 31
+    - 38
+    - 100
+    - 123
+    - 155
+    - 160
+    - 161
+    - 162
+    - 190
+    - 223
+    - 287
+    - 305
+release:
+  approved: false
+  reason: The PDF carries the same internal candidate and unresolved review status as the Version 3 source document.

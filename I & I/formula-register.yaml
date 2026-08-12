@@ -1,0 +1,712 @@
+schema_version: 1
+registry_id: owos:I-and-I-formulas
+version: 0.2.0
+status: candidate_formulas_not_authorized_for_production
+artifact_id: owos:technical-research:infiltration-and-inflow
+notation_policy:
+  I_and_I: infiltration_and_inflow
+  RDII: rainfall_derived_infiltration_and_inflow
+  DWF: dry_weather_flow
+  ADWF: average_dry_weather_flow
+precision_policy:
+  internal_numeric_type: IEEE_754_binary64_minimum
+  displayed_rounding: formula_specific
+  intermediate_rounding: prohibited_unless_formula_explicitly_requires_it
+  comparison_policy: absolute_and_relative_tolerances
+status_definitions:
+  candidate: researched_or_derived_but_not_independently_verified
+  verified: source_trace_derivation_dimensions_and_tests_pass
+  production: verified_plus_qualified_review_and_owner_approval
+constants:
+  - id: CONST-ACRE-IN-GAL
+    name: US_gallons_per_acre_inch
+    value: 27154.285714285714
+    unit: gal_per_acre_in
+    derivation: 43560_ft2_per_acre_times_1_over_12_ft_per_in_times_7.48051948051948_gal_per_ft3
+    status: candidate
+  - id: CONST-GPM-GPD
+    name: gallons_per_day_per_gallon_per_minute
+    value: 1440
+    unit: min_per_day
+    derivation: 60_min_per_hour_times_24_hours_per_day
+    status: candidate
+formulae:
+  - id: F-UNIT-001
+    name: rainfall_volume_over_area
+    category: unit_conversion
+    status: candidate
+    expression: V_rain_gal = P_in * A_ac * 27154.285714285714
+    output:
+      symbol: V_rain_gal
+      unit: gal
+    inputs:
+      - symbol: P_in
+        meaning: event_rainfall_depth
+        unit: in
+        domain: P_in_greater_than_or_equal_to_0
+      - symbol: A_ac
+        meaning: applicable_tributary_area
+        unit: acre
+        domain: A_ac_greater_than_0
+    assumptions:
+      - rainfall_depth_is_spatially_representative_of_the_selected_area
+      - selected_area_matches_the_intended_capture_ratio_boundary
+    does_not_establish:
+      - rainfall_that_reached_the_sewer
+      - effective_rainfall_after_abstraction
+      - contributing_impervious_area
+    source_basis:
+      type: transparent_unit_derivation
+      independent_source_required: true
+    fail_closed_when:
+      - area_boundary_is_unknown
+      - rainfall_unit_or_area_unit_is_unknown
+  - id: F-FLOW-001
+    name: trapezoidal_flow_volume
+    category: time_series_integration
+    status: candidate
+    expression: V = sum_over_i(((Q_i + Q_i_plus_1) / 2) * delta_t_i)
+    output:
+      symbol: V
+      unit: flow_unit_times_time_unit_then_converted_to_target_volume
+    inputs:
+      - symbol: Q_i
+        meaning: flow_at_timestamp_i
+        unit: declared_flow_unit
+      - symbol: delta_t_i
+        meaning: elapsed_time_between_samples
+        unit: declared_time_unit
+    assumptions:
+      - linear_change_between_adjacent_samples
+      - timestamps_are_strictly_increasing
+    fail_closed_when:
+      - timestamps_are_missing_duplicated_or_unsorted
+      - flow_units_are_missing
+      - data_gap_exceeds_method_specific_limit
+    uncertainty_required: true
+  - id: F-DWF-001
+    name: time_weighted_average_dry_weather_flow
+    category: baseline
+    status: candidate
+    expression: ADWF = sum_over_i(Q_i * delta_t_i) / sum_over_i(delta_t_i)
+    output:
+      symbol: ADWF
+      unit: same_as_Q
+    inputs:
+      - symbol: Q_i
+        meaning: accepted_dry_weather_flow
+        unit: declared_flow_unit
+      - symbol: delta_t_i
+        meaning: represented_time
+        unit: declared_time_unit
+    applicability:
+      - accepted_periods_pass_dry_weather_selection_and_data_quality_rules
+    does_not_establish:
+      - base_sanitary_flow_alone
+      - groundwater_infiltration_alone
+    fail_closed_when:
+      - no_accepted_dry_weather_periods
+      - selection_rule_is_undefined
+  - id: F-RDII-001
+    name: observed_RDII_residual_flow
+    category: RDII
+    status: candidate
+    expression: Q_RDII_t = Q_observed_t - Q_expected_DWF_t
+    output:
+      symbol: Q_RDII_t
+      unit: same_as_flow_inputs
+    inputs:
+      - symbol: Q_observed_t
+        meaning: measured_wet_weather_total_flow
+        unit: declared_flow_unit
+      - symbol: Q_expected_DWF_t
+        meaning: expected_dry_weather_flow_at_same_time
+        unit: same_declared_flow_unit
+    assumptions:
+      - baseline_already_contains_the_dry_weather_sanitary_and_groundwater_components_it_is_intended_to_represent
+      - timestamps_and_time_zones_are_aligned
+    negative_residual_policy: retain_and_flag_unless_an_approved_method_states_otherwise
+    does_not_establish:
+      - physical_entry_location
+      - split_between_inflow_and_infiltration
+    fail_closed_when:
+      - baseline_method_or_alignment_is_undefined
+  - id: F-RDII-002
+    name: observed_RDII_event_volume
+    category: RDII
+    status: candidate
+    expression: V_RDII = integrate_over_event(Q_observed_t - Q_expected_DWF_t)
+    output:
+      symbol: V_RDII
+      unit: declared_volume_unit
+    dependencies:
+      - F-FLOW-001
+      - F-RDII-001
+    assumptions:
+      - event_window_captures_the_material_response_and_recession
+    fail_closed_when:
+      - event_start_or_end_rule_is_undefined
+      - material_recession_is_truncated
+  - id: F-RDII-003
+    name: rainfall_capture_fraction
+    category: RDII
+    status: candidate
+    expression: R_event = V_RDII_gal / V_rain_gal
+    output:
+      symbol: R_event
+      unit: dimensionless
+    dependencies:
+      - F-UNIT-001
+      - F-RDII-002
+    display_options:
+      fraction: R_event
+      percent: 100 * R_event
+    assumptions:
+      - numerator_and_denominator_use_the_same_event_and_area_boundary
+    does_not_establish:
+      - source_location
+      - imperviousness
+      - a_universal_acceptable_threshold
+    fail_closed_when:
+      - V_rain_gal_is_less_than_or_equal_to_0
+      - tributary_area_is_unknown
+  - id: F-NORM-001
+    name: flow_per_inch_diameter_mile
+    category: normalization
+    status: candidate
+    expression: q_idm = Q_gpd / sum_over_segments(D_in_segment * L_mi_segment)
+    output:
+      symbol: q_idm
+      unit: gpd_per_inch_diameter_mile
+    inputs:
+      - symbol: Q_gpd
+        meaning: explicitly_defined_I_and_I_flow_metric
+        unit: gpd
+      - symbol: D_in_segment
+        meaning: internal_or_nominal_pipe_diameter_as_method_defines
+        unit: in
+      - symbol: L_mi_segment
+        meaning: included_pipe_length
+        unit: mi
+    assumptions:
+      - numerator_definition_and_inventory_scope_match
+      - diameter_basis_is_consistent
+    does_not_establish:
+      - a_universal_pass_fail_threshold
+      - defect_location
+    fail_closed_when:
+      - included_asset_classes_are_undefined
+      - denominator_is_less_than_or_equal_to_0
+  - id: F-PEAK-001
+    name: peak_wet_weather_to_average_dry_weather_ratio
+    category: screening
+    status: candidate
+    expression: PWWF_ratio = Q_peak_wet_weather / ADWF
+    output:
+      symbol: PWWF_ratio
+      unit: dimensionless
+    assumptions:
+      - both_flows_represent_the_same_system_boundary
+      - ADWF_definition_is_recorded
+    does_not_establish:
+      - source_location
+      - hydraulic_capacity
+      - excessive_I_and_I_under_any_universal_rule
+    fail_closed_when:
+      - ADWF_is_less_than_or_equal_to_0
+  - id: F-RTK-001
+    name: RTK_component_volume_and_duration
+    category: RTK_unit_hydrograph
+    status: candidate
+    expression: V_i = R_i * P_in * A_ac * 27154.285714285714; B_i = T_i * (1 + K_i)
+    output:
+      symbols:
+        - V_i
+        - B_i
+      units:
+        V_i: gal
+        B_i: same_time_unit_as_T_i
+    inputs:
+      - symbol: R_i
+        meaning: fraction_of_rainfall_volume_assigned_to_component_i
+        unit: dimensionless
+      - symbol: P_in
+        meaning: rainfall_increment_or_event_depth_as_method_defines
+        unit: in
+      - symbol: A_ac
+        meaning: sewershed_area
+        unit: acre
+      - symbol: T_i
+        meaning: time_from_rainfall_onset_to_component_peak
+        unit: time
+      - symbol: K_i
+        meaning: recession_time_divided_by_time_to_peak
+        unit: dimensionless
+    source_basis:
+      - source_id: SRC-CAND-EPA-SSOAP-COMPUTER-TOOLS
+        locator: chapter_2_RTK_method_lines_1053_to_1157
+      - source_id: SRC-CAND-EPA-SWMM-52
+        locator: printed_page_67_Figure_3_5_and_R_T_K_definitions
+    fail_closed_when:
+      - R_i_is_less_than_0
+      - T_i_is_less_than_or_equal_to_0
+      - K_i_is_less_than_0
+      - area_or_rainfall_basis_is_undefined
+  - id: F-RTK-002
+    name: RTK_triangular_component_peak_and_ordinate
+    category: RTK_unit_hydrograph
+    status: candidate_derived_pending_independent_confirmation
+    expression: >-
+      Q_peak_i = 2 * V_i / (T_i * (1 + K_i));
+      for 0 <= tau <= T_i, Q_i(tau) = Q_peak_i * tau / T_i;
+      for T_i < tau <= T_i * (1 + K_i),
+      Q_i(tau) = Q_peak_i * (1 - (tau - T_i) / (K_i * T_i));
+      otherwise Q_i(tau) = 0
+    output:
+      symbol: Q_i
+      unit: V_i_unit_per_T_i_unit
+    derivation: area_of_triangle_equals_one_half_times_base_duration_times_peak_ordinate
+    source_basis:
+      - source_id: SRC-CAND-EPA-SSOAP-COMPUTER-TOOLS
+        locator: triangular_unit_hydrograph_definition_chapter_2
+      - source_id: SRC-CAND-EPA-SWMM-52
+        locator: printed_page_67_Figure_3_5_triangular_unit_hydrograph
+    implementation_note: K_i_equal_to_0_requires_an_explicit_degenerate_triangle_policy
+    fail_closed_when:
+      - time_and_volume_conversion_is_not_explicit
+      - K_i_equals_0_and_no_approved_policy_exists
+  - id: F-RTK-003
+    name: RTK_event_superposition
+    category: RTK_unit_hydrograph
+    status: candidate
+    expression: Q_RDII_t = sum_over_rainfall_increments_m(sum_over_components_i(Q_i_m(t - t_m)))
+    output:
+      symbol: Q_RDII_t
+      unit: declared_flow_unit
+    source_basis:
+      - source_id: SRC-CAND-EPA-SSOAP-COMPUTER-TOOLS
+        locator: chapter_2_lines_1086_to_1157
+    assumptions:
+      - linear_superposition_within_the_selected_RTK_method
+      - rainfall_increment_and_initial_abstraction_handling_are_explicit
+    fail_closed_when:
+      - time_step_is_undefined
+      - rainfall_gaps_or_initial_abstraction_policy_are_undefined
+  - id: F-MASS-001
+    name: hydraulic_control_volume_balance
+    category: mass_balance
+    status: candidate
+    expression: dS_dt = sum(Q_in) + Q_local - sum(Q_out)
+    output:
+      symbol: dS_dt
+      unit: volume_per_time
+    assumptions:
+      - consistent_sign_convention
+      - same_control_volume_and_time_basis
+    fail_closed_when:
+      - boundary_or_sign_convention_is_undefined
+  - id: F-MANNING-001
+    name: Manning_uniform_flow
+    category: gravity_hydraulics
+    status: candidate_pending_exact_source_trace
+    expression: Q = k_n * A * R_h^(2/3) * S^(1/2) / n
+    output:
+      symbol: Q
+      unit: unit_system_specific_flow
+    inputs:
+      - symbol: A
+        meaning: flow_area
+      - symbol: R_h
+        meaning: hydraulic_radius_equal_to_area_divided_by_wetted_perimeter
+      - symbol: S
+        meaning: energy_slope_under_uniform_flow_assumption
+      - symbol: n
+        meaning: Manning_roughness_coefficient
+      - symbol: k_n
+        meaning: unit_system_conversion_constant
+    applicability:
+      - uniform_steady_open_channel_flow_approximation
+    does_not_establish:
+      - dynamic_surcharge_capacity
+      - pump_station_or_force_main_behavior
+    fail_closed_when:
+      - unit_system_or_k_n_is_undefined
+      - n_is_less_than_or_equal_to_0
+      - pressurized_or_dynamic_conditions_require_another_method
+  - id: F-COST-001
+    name: annual_marginal_I_and_I_cost
+    category: economics
+    status: candidate
+    expression: C_annual = V_I_and_I_annual_MG * c_marginal_per_MG
+    output:
+      symbol: C_annual
+      unit: currency_per_year
+    assumptions:
+      - cost_is_marginal_and_avoidable_for_the_volume_range
+    does_not_establish:
+      - average_full_cost
+      - avoided_capital_cost
+    fail_closed_when:
+      - cost_basis_year_or_included_cost_components_are_undefined
+  - id: F-PV-001
+    name: present_value
+    category: economics
+    status: candidate
+    expression: PV = sum_from_t_0_to_N(CF_t / (1 + r)^t)
+    output:
+      symbol: PV
+      unit: base_year_currency
+    fail_closed_when:
+      - discount_rate_basis_or_cash_flow_timing_is_undefined
+      - r_is_less_than_or_equal_to_minus_1
+  - id: F-BCR-001
+    name: benefit_cost_ratio
+    category: economics
+    status: candidate
+    expression: BCR = PV_benefits / PV_costs
+    output:
+      symbol: BCR
+      unit: dimensionless
+    fail_closed_when:
+      - PV_costs_is_less_than_or_equal_to_0
+      - benefit_and_cost_price_years_differ
+  - id: F-UNC-001
+    name: first_order_covariance_propagation
+    category: uncertainty
+    status: candidate_pending_exact_source_trace
+    expression: variance_y_approximately_equals_J_times_Sigma_x_times_transpose_J
+    output:
+      symbol: variance_y
+      unit: squared_output_unit
+    applicability:
+      - differentiable_model_near_evaluation_point
+      - uncertainty_small_enough_for_first_order_approximation
+    fail_closed_when:
+      - covariance_structure_is_material_but_unknown
+      - model_is_highly_nonlinear_in_the_uncertainty_range
+  - id: F-VERIFY-001
+    name: weather_normalized_reduction
+    category: rehabilitation_verification
+    status: candidate_method_framework_not_single_universal_equation
+    expression: reduction = predicted_counterfactual_post_period_without_rehabilitation - observed_post_period_response
+    output:
+      symbol: reduction
+      unit: selected_flow_or_volume_unit
+    requirements:
+      - explicit_counterfactual_method
+      - comparable_hydrologic_covariates
+      - uncertainty_interval
+      - persistence_period
+    does_not_establish:
+      - causal_effect_without_adequate_design_and_assumptions
+    fail_closed_when:
+      - raw_before_after_difference_is_the_only_evidence_under_noncomparable_conditions
+  - id: F-CONV-001
+    name: common_flow_conversions
+    category: unit_conversion
+    status: candidate
+    expressions:
+      gpd_from_gpm: Q_gpd = Q_gpm * 1440
+      MGD_from_gpm: Q_MGD = Q_gpm * 0.00144
+      gpm_from_MGD: Q_gpm = Q_MGD * 1000000 / 1440
+      cfs_from_gpm: Q_cfs = Q_gpm / 448.8311688311688
+    source_basis:
+      type: transparent_exact_unit_derivation
+      independent_source_required: true
+  - id: F-GWI-001
+    name: groundwater_infiltration_from_dry_weather_components
+    category: dry_weather_decomposition
+    status: candidate_method_dependent
+    expression: Q_GWI = Q_DWF_measured - Q_BWF_estimated
+    output:
+      symbol: Q_GWI
+      unit: same_flow_unit_as_inputs
+    assumptions:
+      - measured_DWF_and_estimated_BWF_share_boundary_and_time_basis
+      - industrial_commercial_and_known_non_domestic_flows_are_included_in_BWF
+      - storage_and_interbasin_transfer_effects_are_resolved
+    source_basis:
+      - source_id: SRC-CAND-EPA-RDII-METHODS-2008
+        locator: printed_pages_2_6_to_2_8
+    does_not_establish:
+      - defect_location
+      - economic_excessiveness
+    fail_closed_when:
+      - BWF_method_or_flow_boundary_is_undefined
+  - id: F-IDM-001
+    name: inch_diameter_mile_inventory_denominator
+    category: normalization
+    status: candidate
+    expression: IDM = sum_over_segments(D_nominal_in * L_mi)
+    output:
+      symbol: IDM
+      unit: inch_diameter_mile
+    requirements:
+      - included_asset_classes_are_explicit
+      - diameter_basis_is_explicit
+      - duplicate_and_abandoned_segments_are_resolved
+    fail_closed_when:
+      - inventory_scope_or_diameter_basis_is_undefined
+  - id: F-HYD-001
+    name: circular_pipe_area_velocity_and_Reynolds_number
+    category: force_main_hydraulics
+    status: candidate_source_traced
+    expressions:
+      diameter_ft: D_ft = D_in / 12
+      area_ft2: A = pi * D_ft^2 / 4
+      flow_cfs: Q_cfs = Q_gpm / 448.8311688311688
+      velocity_ft_per_s: v = Q_cfs / A
+      Reynolds_number: Re = v * D_ft / nu_ft2_per_s
+    fail_closed_when:
+      - diameter_or_viscosity_is_nonpositive
+      - flow_is_negative
+    source_basis:
+      - source_id: SRC-CAND-EPA-SWMM-HYDRAULICS-2017
+        locator: printed_pages_139_to_140_force_main_velocity_Reynolds_and_friction
+  - id: F-HYD-002
+    name: Darcy_friction_factor
+    category: force_main_hydraulics
+    status: candidate_source_traced
+    expressions:
+      laminar: f = 64 / Re
+      turbulent_Colebrook_White: 1 / sqrt(f) = -2 * log10(epsilon / (3.7 * D) + 2.51 / (Re * sqrt(f)))
+    transition_policy: Re_between_2000_and_4000_requires_explicit_transition_method_and_warning
+    numerical_method: bounded_fixed_point_or_root_solver_with_convergence_test
+    fail_closed_when:
+      - Re_is_nonpositive
+      - turbulent_solver_does_not_converge
+      - roughness_or_diameter_is_invalid
+    source_basis:
+      - source_id: SRC-CAND-EPA-SWMM-HYDRAULICS-2017
+        locator: printed_pages_139_to_140_equations_7_32_and_7_33
+    implementation_difference_from_SWMM:
+      - this_example_solves_the_implicit_Colebrook_White_equation_directly
+      - SWMM_2017_uses_the_Swamee_Jain_approximation_and_transition_interpolation
+      - this_example_fails_closed_in_the_transition_regime
+  - id: F-HYD-003
+    name: Darcy_Weisbach_major_headloss
+    category: force_main_hydraulics
+    status: candidate_source_traced
+    expression: h_f = f * (L / D) * (v^2 / (2 * g))
+    output:
+      symbol: h_f
+      unit: ft_of_fluid_when_US_consistent_units_are_used
+    assumptions:
+      - full_pipe_single_phase_flow
+      - representative_roughness_and_viscosity
+    fail_closed_when:
+      - length_or_diameter_is_nonpositive
+      - friction_factor_is_unverified
+    source_basis:
+      - source_id: SRC-CAND-EPA-SWMM-HYDRAULICS-2017
+        locator: printed_page_139_equation_7_29
+  - id: F-HYD-004
+    name: minor_headloss
+    category: force_main_hydraulics
+    status: candidate_source_traced
+    expression: h_m = K_total * v^2 / (2 * g)
+    output:
+      symbol: h_m
+      unit: ft_of_fluid
+    assumptions:
+      - K_values_match_actual_fittings_valves_and_flow_regime
+    fail_closed_when:
+      - K_total_is_unknown_for_a_material_system_curve
+    source_basis:
+      - source_id: SRC-CAND-EPA-SWMM-HYDRAULICS-2017
+        locator: printed_pages_136_to_137_equations_7_20_to_7_22_and_table_7_2
+  - id: F-HYD-005
+    name: pump_station_system_head_curve
+    category: pump_station_hydraulics
+    status: candidate
+    expression: H_system_Q = H_static + h_f_Q + h_m_Q + H_other_Q
+    output:
+      symbol: H_system_Q
+      unit: ft_of_fluid
+    dependencies:
+      - F-HYD-001
+      - F-HYD-002
+      - F-HYD-003
+      - F-HYD-004
+    source_basis:
+      - source_id: SRC-CAND-USACE-PUMP-STATION-EM-1110-3-173
+        locator: PDF_pages_18_to_21_total_dynamic_head_and_system_head_capacity_curves
+    fail_closed_when:
+      - static_head_range_or_material_losses_are_undefined
+  - id: F-PUMP-001
+    name: parallel_identical_pump_operating_point
+    category: pump_station_hydraulics
+    status: candidate
+    expression: find_Q_total_such_that_H_pump_single(Q_total / N_operating) = H_system(Q_total)
+    output:
+      symbols:
+        - Q_total_operating
+        - H_operating
+        - Q_per_pump
+    assumptions:
+      - pumps_are_identical
+      - pumps_operate_at_same_speed
+      - common_suction_and_discharge_conditions_are_represented
+      - pump_curve_interpolation_is_valid_between_supplied_points
+    source_basis:
+      - source_id: SRC-CAND-USACE-PUMP-STATION-EM-1110-3-173
+        locator: PDF_pages_20_to_21_single_and_multiple_pump_operating_points
+    fail_closed_when:
+      - no_curve_intersection_exists_within_approved_pump_range
+      - parallel_pumps_are_not_hydraulically_equivalent
+  - id: F-PUMP-002
+    name: pump_station_capacity_margin_and_utilization
+    category: pump_station_capacity
+    status: candidate
+    expressions:
+      margin_flow: Q_margin = Q_available - Q_inflow
+      margin_fraction: margin_fraction = Q_margin / Q_available
+      utilization: utilization = Q_inflow / Q_available
+    fail_closed_when:
+      - Q_available_is_nonpositive
+      - capacity_basis_normal_firm_emergency_or_model_operating_point_is_unlabeled
+  - id: F-PUMP-003
+    name: storage_exhaustion_time_under_flow_deficit
+    category: pump_station_storage
+    status: candidate
+    expression: t_storage_min = V_usable_gal / (Q_inflow_gpm - Q_available_gpm)
+    applicability:
+      - Q_inflow_is_greater_than_Q_available
+      - inflow_and_available_capacity_are_constant_or_conservatively_bounded_over_interval
+    output:
+      symbol: t_storage_min
+      unit: min
+    does_not_establish:
+      - dynamic_wet_well_response_under_variable_flow_or_controls
+    fail_closed_when:
+      - usable_storage_is_unknown
+      - inflow_hydrograph_requires_dynamic_integration
+  - id: F-PUMP-004
+    name: required_storage_for_response_interval
+    category: pump_station_storage
+    status: candidate
+    expression: V_required_gal = max(0, Q_inflow_gpm - Q_available_gpm) * t_response_min
+    output:
+      symbol: V_required_gal
+      unit: gal
+  - id: F-PUMP-007
+    name: dynamic_storage_routing_and_overflow
+    category: pump_station_storage
+    status: candidate_derived
+    expressions:
+      interval_volume_change: delta_V_i = (((Q_in_i + Q_in_i_plus_1) / 2) - Q_available_i) * delta_t_i
+      required_storage_state: S_required_i_plus_1 = max(0, S_required_i + delta_V_i)
+      actual_storage_state: S_actual_i_plus_1 = min(V_usable, max(0, S_actual_i + delta_V_i))
+      interval_overflow: V_overflow_i = max(0, S_actual_i + delta_V_i - V_usable)
+      cumulative_overflow: V_overflow_total = sum_over_i(V_overflow_i)
+    dependencies:
+      - F-MASS-001
+      - F-FLOW-001
+    assumptions:
+      - available_capacity_is_representative_over_each_interval
+      - inflow_changes_linearly_between_samples
+      - no_unmodeled_storage_or_backwater
+    fail_closed_when:
+      - usable_storage_or_time_step_is_unknown
+      - timestamps_are_not_strictly_increasing
+      - control_logic_changes_inside_an_interval_without_substepping
+  - id: F-PUMP-005
+    name: simple_constant_speed_pump_cycle_time
+    category: pump_station_controls
+    status: candidate_limited_applicability
+    expressions:
+      fill_time_min: t_fill = V_working / Q_in
+      draw_time_min: t_draw = V_working / (Q_pump - Q_in)
+      cycle_time_min: t_cycle = t_fill + t_draw
+      cycles_per_hour: cycles_per_hour = 60 / t_cycle
+    applicability:
+      - one_constant_speed_pump
+      - constant_inflow
+      - fixed_on_off_storage_volume
+      - Q_pump_is_greater_than_Q_in
+    does_not_establish:
+      - cycle_rate_for_staged_or_variable_speed_controls
+    fail_closed_when:
+      - control_logic_does_not_match_applicability
+  - id: F-PUMP-006
+    name: aggregate_and_firm_equivalent_operating_hours
+    category: pump_station_operations
+    status: candidate
+    expressions:
+      aggregate_pump_hours: H_aggregate = V_pumped_gal / (Q_single_gpm * 60)
+      firm_equivalent_hours: H_firm_equivalent = V_pumped_gal / (Q_firm_gpm * 60)
+    assumptions:
+      - constant_representative_capacity
+      - no_material_recirculation
+    does_not_establish:
+      - Miami_Dade_NAPOT_without_the_applicable_rule_pack
+  - id: F-MDC-NAPOT-001
+    name: Miami_Dade_yearly_NAPOT_constant_speed_basis
+    category: jurisdiction_specific_pump_station_rule
+    status: candidate_rule_pack_only
+    expression: Yearly_NAPOT = average_monthly_daily_average_aggregate_pump_operating_hours / (N_installed - 1)
+    jurisdiction: Miami-Dade_County_2013_federal_consent_decree_Appendix_A
+    source_basis:
+      - source_id: SRC-CAND-MDC-FEDERAL-CD-2013
+        locator: Document_25_2_Appendix_A_page_1_definition_A_iii
+    limitations:
+      - multi_speed_and_variable_speed_stations_use_source_specific_power_equivalence_rules
+      - current_applicability_and_superseding_requirements_require_legal_and_regulatory_review
+      - not_a_universal_pump_station_capacity_formula
+    fail_closed_when:
+      - rule_pack_is_not_applicable_and_current
+      - installed_pumps_is_less_than_2
+      - operating_hour_basis_is_not_source_compliant
+  - id: F-ENERGY-001
+    name: pump_input_power
+    category: pump_station_energy
+    status: candidate_source_traced_and_transparently_derived
+    expressions:
+      water_horsepower: HP_water = Q_gpm * H_ft / 3960
+      input_horsepower: HP_input = HP_water / (eta_pump * eta_motor)
+      input_kW: kW_input = HP_input * 0.745699872
+    assumptions:
+      - water_like_specific_gravity_equal_to_1
+      - efficiencies_match_operating_point
+    fail_closed_when:
+      - efficiency_is_nonpositive_or_greater_than_1
+      - specific_gravity_materially_differs_from_1_and_is_not_included
+    source_basis:
+      - source_id: SRC-CAND-USACE-PUMP-STATION-EM-1110-3-173
+        locator: PDF_pages_18_to_20_total_dynamic_head_efficiency_and_required_horsepower
+      - source_id: SRC-CAND-EPA-PUMP-FACT-SHEET-2000
+        locator: document_lines_533_to_562_capacity_head_power_and_efficiency
+  - id: F-ENERGY-002
+    name: pump_energy_and_cost
+    category: pump_station_energy
+    status: candidate
+    expressions:
+      energy_kWh: E_kWh = integrate_over_time(kW_input)
+      energy_cost: C_energy = E_kWh * tariff_USD_per_kWh
+    dependencies:
+      - F-ENERGY-001
+      - F-FLOW-001
+    fail_closed_when:
+      - tariff_period_or_demand_charges_are_material_but_omitted
+  - id: F-ECON-002
+    name: annual_volume_from_average_flow
+    category: economics
+    status: candidate
+    expression: V_annual_MG = Q_average_MGD * days_in_analysis_year
+    leap_year_policy: explicit_365_or_366_day_basis_required
+  - id: F-ECON-003
+    name: net_present_value
+    category: economics
+    status: candidate
+    expression: NPV = PV_benefits - PV_costs
+    dependencies:
+      - F-PV-001
+  - id: F-ECON-004
+    name: simple_payback
+    category: economics
+    status: candidate_screening_only
+    expression: payback_years = initial_capital_cost / annual_net_benefit
+    does_not_establish:
+      - lifecycle_economic_preference
+    fail_closed_when:
+      - annual_net_benefit_is_nonpositive

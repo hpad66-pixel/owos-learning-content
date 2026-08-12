@@ -1,0 +1,105 @@
+schema_version: 2
+artifact_id: owos:technical-research:infiltration-and-inflow
+status: formula_and_claim_inventory_started
+reason: source_trace_and_independent_verification_in_progress
+material_claims:
+  - id: CLM-METHOD-001
+    type: sourced_fact
+    text: >-
+      EPA's 2008 review concluded that no single RDII prediction method is
+      universally applicable because site-specific rainfall and sewer-flow
+      observations, project purpose, and data availability differ.
+    source_ids:
+      - SRC-CAND-EPA-RDII-METHODS-2008
+    exact_locators:
+      - abstract_printed_page_IV
+      - printed_page_4_16
+    verification_status: preserved_source_trace_complete_independent_and_qualified_review_pending
+    application_use: method_selection_engine_and_universal_scope_boundary
+    affected_formula_ids:
+      - F-RDII-001
+      - F-RDII-002
+      - F-RDII-003
+      - F-RTK-001
+      - F-RTK-002
+      - F-RTK-003
+      - F-VERIFY-001
+    limitation: report_is_a_2008_methods_review_and_current_method_and_software_state_requires_freshness_review
+  - id: CLM-FED-DEF-001
+    type: regulatory_definition
+    text: >-
+      For 40 CFR part 35 subpart I, infiltration is water other than wastewater
+      that enters a sewer system from the ground through defects and related
+      subsurface entry paths, while inflow is water other than wastewater that
+      enters through listed direct or surface-related sources and is
+      distinguished from infiltration.
+    jurisdiction: United States_federal
+    source_ids:
+      - SRC-CAND-ECFR-35-2005
+    exact_locator: 40_CFR_35_2005_paragraphs_b_20_and_b_21_pending_preserved_copy_check
+    verification_status: original_locator_identified_preservation_pending
+    application_use: terminology_layer_with_regulatory_scope_label
+    limitation: definition_is_scoped_to_the_cited_CFR_subpart_and_must_not_silently_replace_method_specific_definitions
+  - id: CLM-RTK-001
+    type: sourced_fact
+    text: >-
+      EPA SWMM 5.2 defines an RDII unit hydrograph with R as the fraction of
+      rainfall volume entering the sewer, T as time from rainfall onset to the
+      unit-hydrograph peak, and K as recession time divided by time to peak.
+    source_ids:
+      - SRC-CAND-EPA-SWMM-52
+      - SRC-CAND-EPA-SSOAP-COMPUTER-TOOLS
+    exact_locators:
+      - SWMM_5_2_printed_page_67
+      - EPA_SSOAP_Computer_Tools_chapter_2_section_2_3
+    verification_status: sources_identified_one_preserved_independent_derivation_pending
+    affected_formula_ids:
+      - F-RTK-001
+      - F-RTK-002
+      - F-RTK-003
+  - id: CLM-RTK-002
+    type: sourced_fact
+    text: >-
+      SWMM 5.2 permits up to three RDII unit hydrographs for short,
+      intermediate, and long responses and permits monthly parameter sets and
+      initial-abstraction parameters.
+    source_ids:
+      - SRC-CAND-EPA-SWMM-52
+    exact_locators:
+      - SWMM_5_2_printed_pages_67_and_321_to_323
+    verification_status: preserved_source_trace_complete_qualified_review_pending
+    application_use: RTK_configuration_schema
+  - id: CLM-MDC-001
+    type: attributed_party_statement
+    text: >-
+      In the 2013 consent-decree record, Miami-Dade stated that its earlier
+      I/E/I program had completed more than 32,000 mandated repairs and that, as
+      of December 31, 2011, an estimated 127 MGD of I&I had been removed from
+      the wastewater collection and transmission system.
+    jurisdiction: Miami-Dade_County_case_history
+    source_ids:
+      - SRC-CAND-MDC-FEDERAL-CD-2013
+    exact_locator: document_25_1_ECF_page_9_of_101
+    verification_status: preserved_source_attribution_verified_underlying_method_and_result_unverified
+    limitations:
+      - statement_is_expressly_attributed_to_Miami_Dade_in_the_court_record
+      - value_is_historical_and_estimated
+      - underlying_calculation_method_raw_data_and_independent_confirmation_are_not_yet_in_the_record
+      - value_must_not_be_used_as_a_current_condition_or_universal_benchmark
+unresolved_questions:
+  - id: UQ-001
+    type: unresolved_question
+    text: Which calculation families are universal, method-specific, model-specific, or jurisdiction-specific?
+    status: research_required
+  - id: UQ-002
+    type: unresolved_question
+    text: Which Miami-Dade program records include reproducible raw data or documented calculation methods?
+    status: research_required
+  - id: UQ-003
+    type: unresolved_question
+    text: Which current Florida-specific rules and orders require a separate machine-readable rule pack?
+    status: research_required
+  - id: UQ-004
+    type: unresolved_question
+    text: Which published examples can serve as independent numerical benchmarks for each formula family?
+    status: research_required
